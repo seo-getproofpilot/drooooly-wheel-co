@@ -383,7 +383,12 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 }
 @media(max-width:620px){
   .hero{padding:120px 0 54px}
-  .blogo-grid{grid-template-columns:repeat(2,1fr)}
+  .blogo-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  /* taller tiles so the centered logo never collides with the caption, and a
+     centered caption that wraps instead of clipping long brand names */
+  .blogo-tile{aspect-ratio:auto;min-height:132px;padding:16px 12px 44px}
+  .blogo{max-height:44px;max-width:82%}
+  .blogo--chip{max-height:52px}
   .pkg-grid,.steps,.review-grid{grid-template-columns:1fr}
   .fit-form__row{grid-template-columns:1fr}
   .fit-form{padding:20px}
@@ -601,7 +606,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
     padding:80px 22px 22px;transform:translateX(102%);transition:transform .35s var(--ease);max-height:none}
   .filters-side.open{transform:none;box-shadow:-30px 0 80px rgba(0,0,0,.6)}
   .filter-mobile-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:8px;border:1px solid var(--line-2);
-    background:rgba(255,255,255,.03);color:#fff;font-family:var(--label);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+    background:#fff;color:#0b0d12;font-family:var(--label);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.06)}
   .shop-main .prod-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:620px){
@@ -1604,6 +1609,13 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 @media(max-width:640px){
   .tbrand-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .tbrand-cta{flex-direction:column;align-items:flex-start;text-align:left}
+  .tbrand-cta .btn{width:100%}
+}
+@media(max-width:520px){
+  .tire-hero{padding-top:104px;padding-bottom:44px}
+  .tire-hero__art svg{width:172px}
+  .tire-hero__cta{flex-direction:column}
+  .tire-hero__cta .btn{width:100%}
 }
 
 /* ============================================================
@@ -1618,3 +1630,15 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   padding:14px 32px;border-radius:999px;transition:background .2s,border-color .2s,transform .2s}
 .brands-toggle:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
 .brands-toggle__ic{font-size:14px;line-height:1;color:var(--blue-2)}
+
+/* ============================================================
+   v52 — mobile forged-lineup captions: must come AFTER the base
+   .blogo-tag rules (higher specificity) so long names wrap & center
+   ============================================================ */
+@media(max-width:620px){
+  .blogo-grid .blogo-tag{position:absolute;left:8px;right:8px;bottom:11px;
+    display:block;text-align:center;max-width:none;padding:0;
+    white-space:normal;overflow:visible;text-overflow:clip;
+    font-size:9px;letter-spacing:.02em;line-height:1.18}
+  .blogo-grid .blogo-tag em{margin-left:3px}
+}
