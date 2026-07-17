@@ -1014,7 +1014,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
    ============================================================ */
 
 /* --- buttons: clean Inter, matches site --- */
-.btn{font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.05em}
+.btn{font-family:var(--display);font-weight:400;font-size:12px;letter-spacing:.04em}
 .btn--sm{font-size:12px}
 
 /* --- kickers: clean eyebrow (no mono/AI tag look) --- */
@@ -1035,7 +1035,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 /* --- HERO: bigger headline, pushed left --- */
 .cine__inner{width:100%;max-width:1180px;margin-inline:0;padding-left:clamp(24px,5vw,84px);padding-right:24px}
 .cine__title{font-size:clamp(46px,8.6vw,128px);letter-spacing:-.055em;line-height:.84}
-.cine__eyebrow{font-family:var(--body);font-weight:600;letter-spacing:.16em}
+.cine__eyebrow{font-family:var(--body);font-weight:600;letter-spacing:.16em;color:#e8ebef;text-shadow:0 1px 8px rgba(0,0,0,.8)}
 .cine__sub{max-width:44ch;font-size:clamp(16px,1.5vw,20px)}
 .cine__tag{font-family:var(--body);letter-spacing:.02em}
 .cine__scroll{font-family:var(--body);letter-spacing:.2em}
@@ -1149,8 +1149,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .cine__sub{margin-top:14px;max-width:620px}
 .cine__sub b{color:#fff;font-weight:700}
 .cine__cta{margin-top:22px}
-.cine__util{margin-top:16px;font-family:var(--label,var(--body));font-size:11px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.cine__util{margin-top:16px;font-family:var(--label,var(--body));font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:#f2f4f7;text-shadow:0 1px 8px rgba(0,0,0,.85),0 0 2px rgba(0,0,0,.7)}
 @media(max-width:1000px){.cine__sub{max-width:520px}}
 @media(max-width:560px){.cine__util{font-size:9.5px;letter-spacing:.08em}}
 .mobile-nav{top:184px}
@@ -1492,7 +1492,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .cine__sub{font-size:15px;margin-top:14px}
   .cine__util{font-size:9px;letter-spacing:.05em;margin-top:14px}
   .cine__cta{gap:10px;margin-top:20px}
-  .cine__cta .btn{flex:1 1 0;min-width:0;padding-inline:14px;font-size:13px;letter-spacing:.02em}
+  .cine__cta .btn{flex:1 1 0;min-width:0;padding-inline:10px;font-size:11px;letter-spacing:.02em;white-space:nowrap}
 }
 
 /* v29 (cont.) — IG heading fit + 2-up gallery on phones */
