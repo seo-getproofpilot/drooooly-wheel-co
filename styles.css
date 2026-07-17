@@ -1605,3 +1605,16 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .tbrand-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .tbrand-cta{flex-direction:column;align-items:flex-start;text-align:left}
 }
+
+/* ============================================================
+   v51 — forged lineup: collapse to first 8 brands + show-all toggle
+   ============================================================ */
+.blogo-tile--extra{display:none}
+.blogo-grid.is-expanded .blogo-tile--extra{display:grid}
+.brands-toggle-wrap{display:flex;justify-content:center;margin-top:30px}
+.brands-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+  font-family:var(--label);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;
+  color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.22);
+  padding:14px 32px;border-radius:999px;transition:background .2s,border-color .2s,transform .2s}
+.brands-toggle:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
+.brands-toggle__ic{font-size:14px;line-height:1;color:var(--blue-2)}

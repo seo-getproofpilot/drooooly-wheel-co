@@ -92,13 +92,40 @@
     if (fav) { fav.classList.toggle("on"); }
   });
 
-  // ---- home: brand logo wall ----
+  // ---- home: brand logo wall (collapsed to first 8; "show all" reveals the rest) ----
   function renderBrandGrid(el) {
+    var VISIBLE = 8;
     el.innerHTML = BRANDS.map(function (b, i) {
-      return '<a class="blogo-tile fade" data-d="' + ((i % 6) + 1) + '" href="shop.html?brand=' + b.slug + '" aria-label="Shop ' + b.name + '">' +
+      var extra = i >= VISIBLE ? " blogo-tile--extra" : "";
+      return '<a class="blogo-tile fade' + extra + '" data-d="' + ((i % 6) + 1) + '" href="shop.html?brand=' + b.slug + '" aria-label="Shop ' + b.name + '">' +
         '<img class="blogo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + b.name + '" loading="lazy">' +
         '<span class="blogo-tag">Shop ' + b.name + ' <em>→</em></span></a>';
     }).join("");
+
+    // add the show-all / show-fewer toggle once
+    if (BRANDS.length > VISIBLE && el.parentNode && !el.parentNode.querySelector(".brands-toggle-wrap")) {
+      var wrap = document.createElement("div");
+      wrap.className = "brands-toggle-wrap";
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "brands-toggle";
+      btn.setAttribute("aria-expanded", "false");
+      var labelClosed = "Show all " + BRANDS.length + ' brands <span class="brands-toggle__ic" aria-hidden="true">↓</span>';
+      var labelOpen = 'Show fewer <span class="brands-toggle__ic" aria-hidden="true">↑</span>';
+      btn.innerHTML = labelClosed;
+      btn.addEventListener("click", function () {
+        var open = el.classList.toggle("is-expanded");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.innerHTML = open ? labelOpen : labelClosed;
+        if (open) {
+          el.querySelectorAll(".blogo-tile--extra").forEach(function (t) { t.classList.add("in"); });
+        } else {
+          el.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
+      });
+      wrap.appendChild(btn);
+      el.parentNode.insertBefore(wrap, el.nextSibling);
+    }
     if (window.__observeFades) window.__observeFades();
   }
 
