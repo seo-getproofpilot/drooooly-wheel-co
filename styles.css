@@ -1453,8 +1453,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   border-radius:12px;font-family:var(--label);text-transform:uppercase;letter-spacing:.09em;
   font-size:11.5px;font-weight:700;text-decoration:none;border:1px solid var(--line-2);
   background:#fff;color:#0b0d12;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.fitbar__shop a .ic-wheel{width:44px;height:44px;flex:none;object-fit:contain;filter:grayscale(1) contrast(1.32) brightness(.9)}
-.fitbar__shop a .ic-tire{width:44px;height:44px;flex:none;object-fit:contain;mix-blend-mode:multiply}
+.fitbar__shop a .ic-wheel{width:56px;height:56px;flex:none;object-fit:contain;filter:grayscale(1) contrast(1.32) brightness(.9)}
+.fitbar__shop a .ic-tire{width:54px;height:54px;flex:none;object-fit:contain}
 .fitbar__shop a:hover{transform:translateY(-2px);border-color:#0b0d12;box-shadow:0 12px 26px rgba(0,0,0,.12)}
 .fitbar__shop a b{font-weight:800}
 @media(max-width:520px){ .fitbar__shop{grid-template-columns:1fr} }
@@ -1690,8 +1690,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
     box-shadow:0 6px 16px rgba(0,0,0,.07);font-size:11px;letter-spacing:.05em}
   .fitbar__shop a:hover,.fitbar__shop a:active{transform:translateY(-2px);border-color:#c9cdd4;
     box-shadow:0 12px 26px rgba(0,0,0,.12)}
-  .fitbar__shop a .ic-wheel{width:58px;height:58px;filter:grayscale(1) contrast(1.35) brightness(.86)}
-  .fitbar__shop a .ic-tire{width:56px;height:56px}
+  .fitbar__shop a .ic-wheel{width:78px;height:78px;filter:grayscale(1) contrast(1.35) brightness(.86)}
+  .fitbar__shop a .ic-tire{width:74px;height:74px}
   .fitbar__shop a span{display:block;color:#0b0d12}
 
   /* Hero: zoom out so the whole truck photo shows (like desktop) */
