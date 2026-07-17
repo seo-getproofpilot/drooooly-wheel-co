@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop Tires — DROOOLY Wheel Co.</title>
+<meta name="description" content="Pick your tire brand — mud-terrains, all-terrains and highway rubber from every major maker, mounted &amp; balanced to your forged setup. Hand-spec'd for your exact truck." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=50" />
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="nav shopnav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand" aria-label="DROOOLY Wheel Co. home">
+        <img src="assets/logo-wordmark.png?v=50" alt="DROOOLY Wheel Co." class="brand__img brand__img--emblem" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="brand__fallback" style="display:none" aria-hidden="true"><b>DROOOLY</b><i>Wheel&nbsp;Co.</i></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <div class="nav__item">
+          <a href="shop.html" class="nav__top">Wheels <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega">
+            <a class="mega__all" href="shop.html">Search all wheels →</a>
+            <div class="mega__grid" id="wheelsBrands"><!-- brands via catalog.js --></div>
+          </div>
+        </div>
+        <a href="tires.html" class="nav__top nav__top--solo" aria-current="page">Tires</a>
+        <div class="nav__item">
+          <a href="index.html#builds" class="nav__top">Builds <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega mega--sm">
+            <a href="index.html#builds">Our gallery →</a>
+            <a href="index.html#fitment">Start your build →</a>
+          </div>
+        </div>
+        <a href="financing.html" class="nav__top nav__top--solo">Financing</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="index.html#fitment" class="btn btn--chrome btn--sm" style="min-height:46px">Get fitted</a>
+        <button class="cart-btn" type="button" aria-label="Cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="cart-count">0</span></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Wheels · all brands</a>
+    <a href="tires.html">Tires · all brands</a>
+    <a href="index.html#builds">Builds — our gallery</a>
+    <a href="financing.html">Financing</a>
+    <a href="index.html#fitment" class="btn btn--chrome">Get fitted</a>
+  </div>
+</header>
+
+<!-- ============ TIRE HERO ============ -->
+<section class="tire-hero">
+  <div class="tire-hero__inner">
+    <div class="tire-hero__copy">
+      <span class="kicker" style="color:var(--blue-2)">Wheel &amp; tire packages</span>
+      <h1>Select your <em>tire brand.</em></h1>
+      <p>Every set we sell ships mounted, balanced &amp; road-force tested on your forged wheels. Pick your favorite brand below — mud-terrain, all-terrain or highway — and we'll spec the exact size for your truck.</p>
+      <div class="tire-hero__cta">
+        <a href="#brands" class="btn btn--chrome">Browse brands</a>
+        <a href="index.html#fitment" class="btn btn--ghost">Get fitted</a>
+      </div>
+    </div>
+    <div class="tire-hero__art" aria-hidden="true">
+      <svg viewBox="0 0 220 220" role="img">
+        <defs>
+          <radialGradient id="tg" cx="50%" cy="42%" r="60%">
+            <stop offset="0%" stop-color="#2a2f38"/><stop offset="100%" stop-color="#0a0c10"/>
+          </radialGradient>
+        </defs>
+        <circle cx="110" cy="110" r="104" fill="url(#tg)" stroke="#3a4048" stroke-width="2"/>
+        <circle cx="110" cy="110" r="92" fill="none" stroke="#4a515b" stroke-width="1"/>
+        <g stroke="#5a626d" stroke-width="9" stroke-linecap="butt">
+          <!-- tread ticks -->
+          <line x1="110" y1="16" x2="110" y2="30"/><line x1="110" y1="190" x2="110" y2="204"/>
+          <line x1="16" y1="110" x2="30" y2="110"/><line x1="190" y1="110" x2="204" y2="110"/>
+          <line x1="43" y1="43" x2="53" y2="53"/><line x1="167" y1="167" x2="177" y2="177"/>
+          <line x1="177" y1="43" x2="167" y2="53"/><line x1="53" y1="167" x2="43" y2="177"/>
+          <line x1="76" y1="22" x2="80" y2="35"/><line x1="140" y1="185" x2="144" y2="198"/>
+          <line x1="144" y1="22" x2="140" y2="35"/><line x1="80" y1="185" x2="76" y2="198"/>
+          <line x1="22" y1="76" x2="35" y2="80"/><line x1="185" y1="140" x2="198" y2="144"/>
+          <line x1="22" y1="144" x2="35" y2="140"/><line x1="185" y1="80" x2="198" y2="76"/>
+        </g>
+        <circle cx="110" cy="110" r="58" fill="#0b0d11" stroke="#3a4048" stroke-width="2"/>
+        <circle cx="110" cy="110" r="30" fill="none" stroke="#6b7480" stroke-width="10"/>
+        <circle cx="110" cy="110" r="9" fill="#8b94a0"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND GRID ============ -->
+<section class="tire-brands" id="brands">
+  <div class="tire-brands__inner">
+    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+      <span class="kicker center">In-stock tire brands</span>
+      <h2 class="tire-brands__title">Shop tires by brand</h2>
+      <p class="tire-brands__lead">Tap a brand to start your package. Don't see your size? We can source anything — just tell us your truck.</p>
+    </div>
+
+    <div class="tbrand-grid">
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">AMP</span><span class="tbrand__cat">Mud / All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">BFGoodrich</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Bridgestone</span><span class="tbrand__cat">All-Season</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Continental</span><span class="tbrand__cat">Highway</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Cooper</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Falken</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Fuel Off-Road</span><span class="tbrand__cat">Mud-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Fury</span><span class="tbrand__cat">Mud-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">General</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Gladiator</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Goodyear</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Hankook</span><span class="tbrand__cat">Highway</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Kenda</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Michelin</span><span class="tbrand__cat">Highway</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Mickey Thompson</span><span class="tbrand__cat">Mud-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Milestar</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Nitto</span><span class="tbrand__cat">All-Terrain</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Pirelli</span><span class="tbrand__cat">All-Season</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Toyo</span><span class="tbrand__cat">Open Country</span></a>
+      <a class="tbrand" href="index.html#fitment"><span class="tbrand__name">Yokohama</span><span class="tbrand__cat">All-Terrain</span></a>
+    </div>
+
+    <div class="tbrand-cta">
+      <div>
+        <h3>Not sure what fits?</h3>
+        <p>Tell us your year, make &amp; model and we'll spec the exact tire &amp; wheel package — guaranteed to bolt right up.</p>
+      </div>
+      <a href="index.html#fitment" class="btn btn--chrome">Find my fitment</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo-wordmark.png" alt="DROOOLY Wheel Co." class="footer__logo" style="height:34px" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL CO.</span>
+      <p>Leave 'em drooling.</p>
+      <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
+      <div class="pay"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Discover</span><span>Apple&nbsp;Pay</span><span>Google&nbsp;Pay</span><span>PayPal</span><span>Affirm</span><span>Klarna</span></div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="tires.html">All tires</a><a href="shop.html?config=dually">Duallies</a><a href="index.html#brands">Brands</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="index.html#about">About</a><a href="financing.html">Financing</a><a href="index.html#fitment">Get fitted</a></div>
+      <div class="footer__col"><h4>Follow</h4><a href="#">@drooolywheelco</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 DROOOLY Wheel Co. All rights reserved.</span>
+    <span>Fitment guaranteed · Financing available · 50-state shipping</span>
+  </div>
+</footer>
+
+<script src="brands.js?v=50"></script>
+<script src="catalog.js?v=50"></script>
+<script src="cart.js?v=50"></script>
+<script src="script.js?v=50"></script>
+</body>
+</html>

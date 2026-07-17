@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DROOOLY Wheel Co. — Baller Forged Wheel &amp; Tire Packages</title>
+<meta name="description" content="Forged wheel & tire packages that leave 'em drooling — trucks, cars, vans. JTX, American Force, KG1, Fuel, Hostile, Amani and more. Hand-spec'd for your exact truck. Financing available. Grimsley, TN — shipping nationwide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=50" />
+</head>
+<body>
+
+<!-- Header (util + nav = one fixed black bar) -->
+<header class="site-header" id="top">
+  <div class="nav shopnav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand" aria-label="DROOOLY Wheel Co. home">
+        <img src="assets/logo-wordmark.png?v=50" alt="DROOOLY Wheel Co." class="brand__img brand__img--emblem"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="brand__fallback" style="display:none" aria-hidden="true"><b>DROOOLY</b><i>Wheel&nbsp;Co.</i></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <div class="nav__item">
+          <a href="shop.html" class="nav__top">Wheels <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega">
+            <a class="mega__all" href="shop.html">Search all wheels →</a>
+            <div class="mega__grid" id="wheelsBrands"><!-- brands via catalog.js --></div>
+          </div>
+        </div>
+        <a href="tires.html" class="nav__top nav__top--solo">Tires</a>
+        <div class="nav__item">
+          <a href="#builds" class="nav__top">Builds <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega mega--sm">
+            <a href="#builds">Our gallery →</a>
+            <a href="#fitment">Start your build →</a>
+          </div>
+        </div>
+        <a href="financing.html" class="nav__top nav__top--solo">Financing</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="#fitment" class="btn btn--chrome btn--sm" style="min-height:46px">Get fitted</a>
+        <button class="cart-btn" type="button" aria-label="Cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="cart-count">0</span></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Wheels · all brands</a>
+    <a href="tires.html">Tires · all brands</a>
+    <a href="#builds">Builds — our gallery</a>
+    <a href="financing.html">Financing</a>
+    <a href="#fitment" class="btn btn--chrome">Get fitted</a>
+  </div>
+</header>
+
+<!-- Cinematic hero with in-hero brand rotisserie -->
+<section class="cine">
+  <div class="cine__bg"><img src="assets/truck-hero.jpg?v=50" alt="Lifted Ford F-450 dually on forged wheels at sunset" /></div>
+  <div class="cine__scrim"></div>
+  <div class="grain"></div>
+  <div class="cine__inner">
+    <span class="cine__eyebrow fade">Forged wheels · Trucks · Cars · Vans</span>
+    <h1 class="cine__title fade" data-d="1"><span class="ln">Make 'em stare.</span><span class="ln">Make 'em <em>drool.</em></span></h1>
+    <p class="cine__sub fade" data-d="2"><b>Leave 'em drooling.</b> Forged wheel &amp; tire packages, hand-spec'd for your exact truck. Lifted duallys, slammed street trucks, cars, vans — if it rolls, we make it drool-worthy.</p>
+    <div class="cine__cta fade" data-d="3">
+      <a href="shop.html" class="btn btn--chrome">Find your set</a>
+      <a href="#fitment" class="btn btn--ghost">Get fitted</a>
+    </div>
+    <p class="cine__util fade" data-d="4">21 Forged Brands · 150+ Models · Single, Dually &amp; Super-Single</p>
+  </div>
+  <div class="hero-rot" aria-label="Shop by brand — pick a wheel">
+    <span class="hero-rot__label">Pick your wheel ↓</span>
+    <div class="marquee__track" id="mqTrack">
+      <a class="mq-card" href="shop.html?brand=jtx" aria-label="Shop JTX Forged"><img class="mq-card__logo" src="assets/brands/jtx.png" alt="JTX Forged"><img class="mq-card__wheel" src="assets/wheels/jtx-ace.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=amani" aria-label="Shop Amani Forged"><img class="mq-card__logo" src="assets/brands/amani.png" alt="Amani Forged"><img class="mq-card__wheel" src="assets/wheels/amani-allora.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=kg1" aria-label="Shop KG1 Forged"><img class="mq-card__logo" src="assets/brands/kg1.png" alt="KG1 Forged"><img class="mq-card__wheel" src="assets/wheels/kg1-master.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=fuel" aria-label="Shop Fuel Forged"><img class="mq-card__logo" src="assets/brands/fuel.svg" alt="Fuel Forged"><img class="mq-card__wheel" src="assets/wheels/fuel-ff19.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=hostile" aria-label="Shop Hostile"><img class="mq-card__logo" src="assets/brands/hostile.png" alt="Hostile"><img class="mq-card__wheel" src="assets/wheels/hostile-savage.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=amani" aria-label="Shop Amani Forged"><img class="mq-card__logo" src="assets/brands/amani.png" alt="Amani Forged"><img class="mq-card__wheel" src="assets/wheels/amani-napoliano.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=jtx" aria-label="Shop JTX Forged"><img class="mq-card__logo" src="assets/brands/jtx.png" alt="JTX Forged"><img class="mq-card__wheel" src="assets/wheels/jtx-404.png" alt="" loading="lazy"></a>
+      <a class="mq-card" href="shop.html?brand=fuel" aria-label="Shop Fuel Forged"><img class="mq-card__logo" src="assets/brands/fuel.svg" alt="Fuel Forged"><img class="mq-card__wheel" src="assets/wheels/fuel-crime.png" alt="" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section class="trust" aria-label="Why DROOOLY">
+  <div class="wrap trust__row">
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24" class="trust__ic trust__ic--star"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 6 21.3l1.4-6.8L2.3 9.8l6.9-.7z"/></svg>
+      <span><b>4.9</b> · 1,200+ trucks fitted</span>
+    </div>
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24" class="trust__ic"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.7"/><circle cx="17.5" cy="17" r="1.7"/></svg>
+      <span><b>Free shipping</b> over $999</span>
+    </div>
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24" class="trust__ic"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 9.5h19"/></svg>
+      <span><b>0% financing</b> available</span>
+    </div>
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24" class="trust__ic"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <span><b>50-state</b> shipping</span>
+    </div>
+  </div>
+</section>
+
+<!-- Fitment bar -->
+<section class="fitbar" id="fitbar">
+  <div class="fitbar__bg" aria-hidden="true">
+    <img class="fw fw--tl" src="assets/wheels/kg1-master.png" alt="" loading="lazy" />
+    <img class="fw fw--tr" src="assets/wheels/kg1-master.png" alt="" loading="lazy" />
+    <img class="fw fw--bl" src="assets/wheels/hostile-savage.png" alt="" loading="lazy" />
+    <img class="fw fw--br" src="assets/wheels/hostile-savage.png" alt="" loading="lazy" />
+  </div>
+  <div class="wrap fitbar__inner">
+    <div class="fitbar__lead fade">
+      <span class="kicker">Shop by vehicle</span>
+      <h2 class="fitbar__title">Guaranteed to<br><em>bolt right up.</em></h2>
+      <p class="fitbar__sub">Tell us what you drive — we'll show every forged set that fits your exact truck.</p>
+    </div>
+    <div class="vehmod fade" id="vehicle" data-d="1">
+      <div class="vehmod__head"><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg> Find wheels that fit your ride</div>
+      <div class="vehmod__row">
+        <select id="vehYear" aria-label="Year"></select>
+        <select id="vehMake" aria-label="Make"></select>
+        <select id="vehModel" aria-label="Model"></select>
+      </div>
+      <button class="btn btn--chrome btn--block" id="vehFind" type="button">Find my fitment</button>
+      <div class="vehmod__note">Guaranteed fitment · single, dually &amp; super-single setups</div>
+    </div>
+    <div class="fitbar__shop fade" data-d="2">
+      <a href="shop.html">
+        <img class="ic-wheel" src="assets/wheels/jtx-ace.png" alt="" loading="lazy" />
+        <span>Shop all <b>wheels</b></span>
+      </a>
+      <a href="tires.html">
+        <svg class="ic-tire" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="#0b0d12" stroke-width="3.1"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="#0b0d12" stroke-width="1.5"/><circle cx="12" cy="12" r="1.2" fill="#0b0d12"/></svg>
+        <span>Shop all <b>tires</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Audience -->
+<section class="aud">
+  <div class="wrap">
+    <div class="sec-row">
+      <div><span class="kicker fade">Who's it for</span><h2 class="section-title fade" data-d="1">What are you building?</h2></div>
+      <p class="section-note fade" data-d="2">Trucks, cars, vans — lifted, lowered or stock. Pick your lane and we'll spec the set that makes it hit different.</p>
+    </div>
+    <div class="aud-grid">
+      <a class="aud-card fade" data-d="1" data-n="01" href="shop.html?config=dually"><img class="aud-card__bg" src="assets/builds/lifted-1.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Lifted<br>trucks</h3><p>Duallies, super singles &amp; big-lip forged on 24s–26s.</p><span class="aud-card__go">Shop lifted →</span></a>
+      <a class="aud-card fade" data-d="2" data-n="02" href="shop.html"><img class="aud-card__bg" src="assets/builds/lowered-28.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Lowered<br>&amp; street</h3><p>Deep concave, mesh &amp; billet for the slammed look.</p><span class="aud-card__go">Shop street →</span></a>
+      <a class="aud-card fade" data-d="3" data-n="03" href="shop.html?config=dually"><img class="aud-card__bg" src="assets/builds/dually-11.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Dually &amp;<br>super single</h3><p>Big-and-bold sets that own the lane.</p><span class="aud-card__go">Shop duallies →</span></a>
+      <a class="aud-card fade" data-d="4" data-n="04" href="shop.html"><img class="aud-card__bg" src="assets/builds/car-37.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Cars<br>&amp; vans</h3><p>Forged fitments for whatever you want turning heads.</p><span class="aud-card__go">Shop all →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Curated showcase -->
+<section class="show2" id="featured">
+  <div class="wrap">
+    <div class="sec-row">
+      <div><span class="kicker fade">The lineup · hand-picked</span><h2 class="section-title fade" data-d="1">Wheels that hit different</h2></div>
+      <a class="view-all fade" href="shop.html">View all wheels →</a>
+    </div>
+    <div class="show2-grid">
+      <article class="show2-card fade" data-d="1">
+        <div class="show2-stage"><span class="show2-tag">Best seller</span><img class="show2-img" src="assets/wheels/jtx-ace.png" alt="JTX Forged Ace dually" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/jtx.png" alt="JTX Forged" loading="lazy" /><h3 class="show2-name">Ace</h3><div class="show2-meta">Dually · Polished · 22″–30″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$312<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="2">
+        <div class="show2-stage"><img class="show2-img" src="assets/wheels/amani-napoliano.png" alt="Amani Forged Napoliano dually" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/amani.png" alt="Amani Forged" loading="lazy" /><h3 class="show2-name">Napoliano</h3><div class="show2-meta">Dually · Gloss Black · 22″–30″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$340<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="3">
+        <div class="show2-stage"><img class="show2-img" src="assets/wheels/kg1-master.png" alt="KG1 Forged Master dually" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/kg1.png" alt="KG1 Forged" loading="lazy" /><h3 class="show2-name">Master</h3><div class="show2-meta">Dually · Machined · 22″–30″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$305<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="4">
+        <div class="show2-stage"><span class="show2-tag">New</span><img class="show2-img" src="assets/wheels/fuel-ff19.png" alt="Fuel Forged FF19" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/fuel.svg" alt="Fuel Forged" loading="lazy" /><h3 class="show2-name">FF19</h3><div class="show2-meta">Single · Polished · 20″–26″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$221<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="1">
+        <div class="show2-stage"><img class="show2-img" src="assets/wheels/jtx-404.png" alt="JTX Forged 404 dually" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/jtx.png" alt="JTX Forged" loading="lazy" /><h3 class="show2-name">404</h3><div class="show2-meta">Dually · Polished · 22″–30″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$312<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="2">
+        <div class="show2-stage"><img class="show2-img" src="assets/wheels/hostile-savage.png" alt="Hostile Savage forged wheel" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/hostile.png" alt="Hostile" loading="lazy" /><h3 class="show2-name">Savage</h3><div class="show2-meta">Single · Polished · 22″–26″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$198<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="3">
+        <div class="show2-stage"><img class="show2-img" src="assets/wheels/fuel-crime.png" alt="Fuel Forged FFC129 Crime" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/fuel.svg" alt="Fuel Forged" loading="lazy" /><h3 class="show2-name">Crime</h3><div class="show2-meta">Concave · Polished · 20″–30″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$245<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+      <article class="show2-card fade" data-d="4">
+        <div class="show2-stage"><img class="show2-img" src="assets/wheels/amani-allora.png" alt="Amani Forged Allora dually" loading="lazy" /></div>
+        <div class="show2-body"><img class="show2-logo" src="assets/brands/amani.png" alt="Amani Forged" loading="lazy" /><h3 class="show2-name">Allora</h3><div class="show2-meta">Dually · Gloss Black · 22″–30″</div>
+          <div class="show2-foot"><div class="show2-mo"><span>As low as</span><b>$335<em>/mo</em></b></div><a href="#fitment" class="show2-build">Run these →</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Brand wall -->
+<section class="brands" id="brands">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker fade">Shop by brand</span><h2 class="section-title fade" data-d="1">The forged lineup</h2></div>
+    </div>
+    <div class="blogo-grid fade" data-d="1" id="brandGrid"><!-- rendered --></div>
+  </div>
+</section>
+
+<!-- Lookbook -->
+<section class="gallery-sec" id="builds">
+  <div class="wrap">
+    <div class="sec-row">
+      <div><span class="kicker fade">The gallery</span><h2 class="section-title fade" data-d="1">Real builds. Real results.</h2></div>
+      <a class="view-all fade" href="#fitment">Start your build →</a>
+    </div>
+    <div class="gallery-grid fade">
+      <figure class="gallery-item"><img src="assets/builds/lifted-1.jpg" alt="Ford F-250 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-250 · 6&quot; lift · 24×14 · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-11.jpg" alt="Ford F-350 DRW build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 DRW · 24×8.25 dually · polished · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lowered-27.jpg" alt="Ford F-150 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-150 · 4/6 drop · 24×10 · 305s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/car-36.jpg" alt="Dodge Charger build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Dodge Charger · lowered · 22×10.5 concave</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-10.jpg" alt="GMC Sierra 2500HD build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">GMC Sierra 2500HD · 4&quot; lift · 22×12 · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-12.jpg" alt="Ford F-450 DRW build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-450 DRW · 26×8.25 dually · brushed · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lowered-28.jpg" alt="Ford F-150 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-150 · 5/7 drop · 24×10 · Nittos</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/car-37.jpg" alt="Dodge Charger Hellcat build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Dodge Charger Hellcat · widebody · 22×10.5 staggered</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-13.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 8&quot; lift · 26×14 · 40s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-16.jpg" alt="Ford F-450 DRW build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-450 DRW · 26×8.25 dually · machined · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lowered-29.jpg" alt="Ford F-150 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-150 · 6&quot; drop · 26×10 concave</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/car-38.jpg" alt="Dodge Charger build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Dodge Charger · widebody · 22×10.5 forged</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-14.jpg" alt="GMC Sierra 2500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">GMC Sierra 2500 · 6&quot; lift · 24×12 · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-18.jpg" alt="Ford F-450 DRW build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-450 DRW · 24×8.25 dually · polished · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lowered-30.jpg" alt="Ford F-150 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-150 · 4/6 drop · 24×10</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-15.jpg" alt="Chevy C10 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Chevy C10 · bagged · 24×10 billet</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-21.jpg" alt="Forged wheel build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Forged wheel · 26×14 · M/T tire</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lowered-31.jpg" alt="Chevy Silverado 1500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Chevy Silverado 1500 · lowered · 24×10 · 305s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-17.jpg" alt="Ford F-250 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-250 · classic build · 26×14 · 40s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-32.jpg" alt="Ford F-250 Tremor build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-250 Tremor · leveled · 24×12 · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-19.jpg" alt="Toyota Tacoma TRD build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Toyota Tacoma TRD · lifted · 20×12 · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-33.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 24×12 · polished · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-2.jpg" alt="RAM 2500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">RAM 2500 · 7&quot; lift · 24×14 · 38s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/dually-34.jpg" alt="Ford F-350 Platinum build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 Platinum · 24×12 · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-20.jpg" alt="Fuel forged wheel build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Fuel forged wheel · 24×15 · 40s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-22.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 8&quot; lift · 26×14 · 40s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-23.jpg" alt="Chevy Silverado 2500HD build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Chevy Silverado 2500HD · 4&quot; lift · 22×12 · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-24.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 6&quot; lift · 24×14 · 38s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-25.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 6&quot; lift · 24×12 · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-26.jpg" alt="Ford F-250 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-250 · 7&quot; lift · 26×14 · 40s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-3.jpg" alt="RAM 2500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">RAM 2500 · 5&quot; lift · 24×14 · 38s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-4.jpg" alt="GMC Sierra 2500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">GMC Sierra 2500 · 6&quot; lift · 24×12 · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-5.jpg" alt="Chevy Silverado 1500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Chevy Silverado 1500 · 8&quot; lift · 26×14 · 40s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-6.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 4&quot; lift · 22×12 · 35s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-7.jpg" alt="Ford F-250 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-250 · 6&quot; lift · 24×14 · 37s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-8.jpg" alt="Ford F-350 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">Ford F-350 · 6&quot; lift · 24×12 · 38s</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/builds/lifted-9.jpg" alt="RAM 2500 build on forged wheels" loading="lazy" /><figcaption class="gallery-cap">RAM 2500 · 5&quot; lift · 24×14 · 38s</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Financing -->
+<section class="financing" id="financing">
+  <div class="wrap financing__inner">
+    <div class="financing__copy">
+      <span class="kicker fade">Financing</span>
+      <h2 class="section-title fade" data-d="1">Roll now. Pay over time.</h2>
+      <p class="fade" data-d="2">Prequalify in minutes — no hit to your credit. Multiple lenders, 0% intro offers for qualified buyers, and terms that fit any budget from a $4k street set to a $30k show dually.</p>
+      <div class="fin-lenders fade" data-d="3">
+        <span class="fin-lenders__label">Financing through</span>
+        <div class="fin-lenders__row">
+          <span class="fin-logo"><img src="assets/lenders/affirm.svg?v=50" alt="Affirm" loading="lazy" /></span>
+          <span class="fin-logo fin-logo--klarna"><img src="assets/lenders/klarna.svg?v=50" alt="Klarna" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/paypal.svg?v=50" alt="PayPal Credit" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/snap.svg?v=50" alt="Snap Finance" loading="lazy" /></span>
+        </div>
+      </div>
+      <a href="financing.html" class="btn btn--chrome fade" data-d="4">Prequalify now</a>
+      <p class="fineprint fade" data-d="4">*0% APR offers subject to lender approval and credit qualification. Prequalification is a soft pull and does not affect your credit score.</p>
+    </div>
+    <div class="financing__cards fade" data-d="2">
+      <div class="fin-card"><span>As low as</span><strong>$0 down</strong><p>for qualified buyers</p></div>
+      <div class="fin-card"><span>Terms up to</span><strong>24 months</strong><p>lease-to-own available</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Social — Instagram -->
+<section class="social" id="instagram">
+  <div class="wrap">
+    <p class="kicker center fade" style="display:flex;justify-content:center">As seen on the feed</p>
+    <h2 class="social__h fade" data-d="1">Follow the builds <span class="social__handle">@drooolywheelco</span></h2>
+    <p class="social__sub fade" data-d="2">Fresh setups, brand drops and financing deals — tag us to get your build featured.</p>
+
+    <div class="ig fade" data-d="3">
+      <div class="ig__head">
+        <span class="ig__avatar"><img src="assets/drooooly-emblem.png" alt="DROOOLY" /></span>
+        <div class="ig__meta">
+          <div class="ig__row">
+            <span class="ig__handle">drooolywheelco</span>
+            <a href="#" class="ig__follow" aria-label="Follow DROOOLY on Instagram"><svg viewBox="0 0 24 24" width="15" height="15"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg> Follow</a>
+          </div>
+          <div class="ig__stats"><span><b>438</b> posts</span><span><b>41.2k</b> followers</span><span><b>163</b> following</span></div>
+          <div class="ig__bio">
+            <b>DROOOLY Wheel Co.</b>
+            <span>Forged wheel &amp; tire packages · Leave 'em drooling.</span>
+            <span>Trucks · Cars · Vans · Financing available · Ships nationwide 🇺🇸</span>
+          </div>
+        </div>
+      </div>
+      <div class="ig__grid">
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lifted-3.jpg" alt="Lifted truck on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/dually-33.jpg" alt="Dually on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lowered-28.jpg" alt="Lowered truck on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lifted-20.jpg" alt="Lifted truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/car-38.jpg" alt="Car on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/dually-35.jpg" alt="Dually truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lifted-13.jpg" alt="Lifted truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lowered-30.jpg" alt="Lowered truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+      </div>
+      <a class="ig__cta" href="#">View more on Instagram →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Fitment CTA -->
+<section class="cta" id="fitment">
+  <div class="cta__bg" aria-hidden="true"><img src="assets/cta-bg.jpg?v=50b" alt="" loading="lazy" /></div>
+  <div class="wrap cta__inner">
+    <span class="kicker center fade" style="display:flex;justify-content:center">Ready to make 'em drool?</span>
+    <h2 class="cta__title fade" data-d="1">Let's build your setup.</h2>
+    <p class="cta__lead fade" data-d="2">Send us the truck and the look you're after — we'll come back with the perfect setup and a real out-the-door price.</p>
+    <form class="fit-form fade" data-d="3" id="fitForm" novalidate>
+      <div class="fit-form__row">
+        <label>Name <input type="text" name="name" placeholder="Full name" required /></label>
+        <label>Phone <input type="tel" name="phone" placeholder="(555) 000-0000" required /></label>
+      </div>
+      <div class="fit-form__row">
+        <label>Ride (year / make / model) <input type="text" name="truck" placeholder="2023 Ford F-350 DRW" required /></label>
+        <label>The look you want
+          <select name="use"><option value="">Select…</option><option>Lifted / show</option><option>Lowered / street</option><option>Daily + light tow</option><option>Heavy tow / gooseneck</option><option>Car / van</option></select>
+        </label>
+      </div>
+      <label class="fit-form__full">Wheel brand / model you're eyeing <input type="text" name="wheel" placeholder="e.g. JTX Cannon 24×8.25 dually" /></label>
+      <button type="submit" class="btn btn--chrome btn--block">Make ’em drool</button>
+      <p class="fit-form__ok" id="fitOk" hidden>✓ We’re already drooling — talk soon.</p>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo-wordmark.png" alt="DROOOLY Wheel Co." class="footer__logo" style="height:34px" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL CO.</span>
+      <p>Leave 'em drooling.</p>
+      <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
+      <div class="pay"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Discover</span><span>Apple&nbsp;Pay</span><span>Google&nbsp;Pay</span><span>PayPal</span><span>Affirm</span><span>Klarna</span></div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="shop.html?cat=packages">Packages</a><a href="shop.html?config=dually">Duallies</a><a href="#brands">Brands</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="#builds">Builds</a><a href="#financing">Financing</a><a href="#fitment">Get fitted</a><a href="#about">About</a></div>
+      <div class="footer__col"><h4>Follow</h4><a href="#">@drooolywheelco</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 DROOOLY Wheel Co. All rights reserved.</span>
+    <span>Fitment guaranteed · Financing available · 50-state shipping</span>
+  </div>
+</footer>
+
+<script src="brands.js?v=50"></script>
+<script src="catalog.js?v=50"></script>
+<script src="cart.js?v=50"></script>
+<script src="script.js?v=50"></script>
+</body>
+</html>

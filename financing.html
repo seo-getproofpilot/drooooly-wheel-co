@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Financing — DROOOLY Wheel Co.</title>
+<meta name="description" content="Roll now, pay over time. DROOOLY Wheel Co. offers 0% and low-APR financing on forged wheel & tire packages through Affirm, Klarna, PayPal Credit, Snap Finance and Acima. Prequalify with no impact to your credit." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=50" />
+</head>
+<body>
+
+<!-- Header (util + nav = one fixed black bar) -->
+<header class="site-header" id="top">
+  <div class="nav shopnav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand" aria-label="DROOOLY Wheel Co. home">
+        <img src="assets/logo-wordmark.png?v=50" alt="DROOOLY Wheel Co." class="brand__img brand__img--emblem"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="brand__fallback" style="display:none" aria-hidden="true"><b>DROOOLY</b><i>Wheel&nbsp;Co.</i></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <div class="nav__item">
+          <a href="shop.html" class="nav__top">Wheels <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega">
+            <a class="mega__all" href="shop.html">Search all wheels →</a>
+            <div class="mega__grid" id="wheelsBrands"><!-- brands via catalog.js --></div>
+          </div>
+        </div>
+        <a href="tires.html" class="nav__top nav__top--solo">Tires</a>
+        <div class="nav__item">
+          <a href="index.html#builds" class="nav__top">Builds <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega mega--sm">
+            <a href="index.html#builds">Our gallery →</a>
+            <a href="index.html#fitment">Start your build →</a>
+          </div>
+        </div>
+        <a href="financing.html" class="nav__top nav__top--solo">Financing</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="index.html#fitment" class="btn btn--chrome btn--sm" style="min-height:46px">Get fitted</a>
+        <button class="cart-btn" type="button" aria-label="Cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="cart-count">0</span></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Wheels · all brands</a>
+    <a href="tires.html">Tires · all brands</a>
+    <a href="index.html#builds">Builds — our gallery</a>
+    <a href="financing.html">Financing</a>
+    <a href="index.html#fitment" class="btn btn--chrome">Get fitted</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="fin-hero">
+  <div class="fin-hero__inner">
+    <span class="kicker" style="color:var(--blue-2)">Roll now · Pay over time</span>
+    <h1>Get on the wheels now. <em>Pay your way.</em></h1>
+    <p>Forged wheel &amp; tire packages aren't cheap — so we make them easy. Prequalify in seconds with no impact to your credit, then split your build into monthly payments through the lenders below. 0% and low-APR plans available on approved credit.</p>
+    <div class="fin-hero__cta">
+      <a href="#prequalify" class="btn btn--chrome">Prequalify now</a>
+      <a href="#calc" class="btn btn--ghost">See your monthly</a>
+    </div>
+  </div>
+</section>
+
+<!-- Finance partners -->
+<section class="fin-sec">
+  <div class="wrap">
+    <div class="fin-head">
+      <span class="kicker">Our lending partners</span>
+      <h2>Five ways to finance your build.</h2>
+      <p>Pick the plan that fits your credit and your cash flow. We'll show your options at checkout — you choose the one that works.</p>
+    </div>
+    <div class="fin-partners">
+      <div class="fin-card">
+        <span class="fin-card__tag">Most popular</span>
+        <span class="fin-card__name">Affirm</span>
+        <p class="fin-card__body">Transparent, fixed monthly payments with no hidden fees. See your total up front and pick a term at checkout. 0% APR offers on qualifying builds.</p>
+        <div class="fin-card__meta"><span><b>0–36%</b> APR</span><span><b>3–48</b> mo</span><span>No late fees</span></div>
+      </div>
+      <div class="fin-card">
+        <span class="fin-card__tag">Split it up</span>
+        <span class="fin-card__name">Klarna</span>
+        <p class="fin-card__body">Pay in 4 interest-free installments every two weeks, or finance longer for bigger packages. Instant decision, no paperwork.</p>
+        <div class="fin-card__meta"><span><b>0%</b> pay-in-4</span><span><b>6–24</b> mo</span><span>Instant</span></div>
+      </div>
+      <div class="fin-card">
+        <span class="fin-card__tag">PayPal</span>
+        <span class="fin-card__name">PayPal Credit</span>
+        <p class="fin-card__body">No interest if paid in full within 6 months on purchases of $99+. Uses your existing PayPal account — one-tap at checkout.</p>
+        <div class="fin-card__meta"><span><b>0%</b> 6-mo*</span><span>Revolving</span><span>$99+ orders</span></div>
+      </div>
+      <div class="fin-card">
+        <span class="fin-card__tag">No credit needed</span>
+        <span class="fin-card__name">Snap Finance</span>
+        <p class="fin-card__body">Bad credit or no credit? Snap looks beyond your score. Lease-to-own with a 100-day payoff option and approvals up to $5,000+.</p>
+        <div class="fin-card__meta"><span>No FICO min</span><span><b>100-day</b> payoff</span><span>Up to $5k+</span></div>
+      </div>
+      <div class="fin-card">
+        <span class="fin-card__tag">Lease-to-own</span>
+        <span class="fin-card__name">Acima</span>
+        <p class="fin-card__body">Flexible lease-to-own with early-purchase savings. Great for building credit-friendly history while you ride on fresh forged.</p>
+        <div class="fin-card__meta"><span>No FICO min</span><span><b>Early</b> payoff</span><span>Flexible</span></div>
+      </div>
+      <div class="fin-card">
+        <span class="fin-card__tag">Big builds</span>
+        <span class="fin-card__name">Fitment Line</span>
+        <p class="fin-card__body">Full duallie packages running $8k+? Talk to a specialist about our in-house extended terms and commercial fleet financing.</p>
+        <div class="fin-card__meta"><span><b>$8k+</b> builds</span><span>Custom terms</span><span>Fleet OK</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="fin-sec fin-sec--alt" id="prequalify">
+  <div class="wrap">
+    <div class="fin-head">
+      <span class="kicker">How it works</span>
+      <h2>Three steps, no impact to your credit.</h2>
+    </div>
+    <div class="fin-steps">
+      <div class="fin-step">
+        <span class="fin-step__n">STEP 01</span>
+        <h3>Build your package</h3>
+        <p>Pick your wheels, tires and fitment. Add it to your cart, or have a specialist spec it for you — either way you'll have a real out-the-door price.</p>
+      </div>
+      <div class="fin-step">
+        <span class="fin-step__n">STEP 02</span>
+        <h3>Prequalify in seconds</h3>
+        <p>Choose a lender at checkout and enter a few details. Most give an instant decision with a soft credit check — no ding to your score to see your rate.</p>
+      </div>
+      <div class="fin-step">
+        <span class="fin-step__n">STEP 03</span>
+        <h3>Roll now, pay monthly</h3>
+        <p>Approved? We ship your package — mounted, balanced and ready to bolt on — and you pay it off in fixed monthly installments. Simple.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment estimator -->
+<section class="fin-sec" id="calc">
+  <div class="wrap">
+    <div class="fin-head">
+      <span class="kicker">Payment estimator</span>
+      <h2>What will my build run per month?</h2>
+      <p>Slide to your package price and pick a term for a ballpark monthly payment. Estimates only — your real rate depends on the lender and your credit.</p>
+    </div>
+    <div class="fin-calc">
+      <div>
+        <div class="fin-calc__row">
+          <label for="calcAmt">Package price</label>
+          <div class="fin-calc__val" id="calcAmtVal">$4,500</div>
+          <input type="range" id="calcAmt" min="1000" max="15000" step="100" value="4500" />
+        </div>
+        <div class="fin-calc__row">
+          <label>Term</label>
+          <div class="fin-calc__seg" id="calcTerm">
+            <button type="button" data-mo="6">6 mo</button>
+            <button type="button" data-mo="12" class="on">12 mo</button>
+            <button type="button" data-mo="24">24 mo</button>
+            <button type="button" data-mo="36">36 mo</button>
+            <button type="button" data-mo="48">48 mo</button>
+          </div>
+        </div>
+        <div class="fin-calc__row" style="margin-bottom:0">
+          <label>Estimated APR</label>
+          <div class="fin-calc__val" id="calcAprVal">9.9%</div>
+          <input type="range" id="calcApr" min="0" max="30" step="0.1" value="9.9" />
+        </div>
+      </div>
+      <div class="fin-calc__out">
+        <div class="fin-calc__mo"><small>$</small><span id="calcMo">395</span><small>/mo</small></div>
+        <div class="fin-calc__sub">Estimated payment</div>
+        <p class="fin-calc__note">Illustrative only — not an offer of credit. Actual terms, APR and payments are set by the lender at prequalification.</p>
+        <a href="index.html#fitment" class="btn btn--chrome btn--block" style="margin-top:18px">Get my real numbers</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="fin-sec fin-sec--alt">
+  <div class="wrap">
+    <div class="fin-head" style="text-align:center;margin-inline:auto">
+      <span class="kicker" style="justify-content:center;display:flex">Questions</span>
+      <h2>Financing FAQ</h2>
+    </div>
+    <div class="fin-faq">
+      <div class="fin-q"><h3>Will checking my rate hurt my credit?</h3><p>No. Affirm, Klarna and our lease-to-own partners use a soft credit check to prequalify, which never affects your score. A hard pull only happens if you accept an offer and move forward.</p></div>
+      <div class="fin-q"><h3>Is there really 0% APR?</h3><p>Yes, on qualifying builds and approved credit — most commonly through Affirm and Klarna's pay-in-4. The 0% offers you're eligible for show up during prequalification.</p></div>
+      <div class="fin-q"><h3>What if I have bad credit or no credit?</h3><p>Snap Finance and Acima are lease-to-own options that look beyond your FICO score — many customers with thin or damaged credit still get approved, often up to $5,000 or more.</p></div>
+      <div class="fin-q"><h3>How much can I finance?</h3><p>Most lenders approve typical wheel &amp; tire packages instantly. For larger duallie builds over $8,000 or fleet orders, talk to a specialist about our extended in-house terms.</p></div>
+      <div class="fin-q"><h3>Can I pay it off early?</h3><p>Absolutely — and you should. Affirm charges simple interest with no prepayment penalty, and the lease-to-own plans offer early-purchase discounts that save you money.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="fitment-cta">
+  <div class="wrap cta__inner">
+    <span class="kicker center fade" style="display:flex;justify-content:center">Ready to roll?</span>
+    <h2 class="cta__title fade" data-d="1">Build it now. Pay for it later.</h2>
+    <p class="cta__lead fade" data-d="2">Spec your package and prequalify in the same sitting. Our specialists will get you the look you want at a payment that works.</p>
+    <div class="fade" data-d="3" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:24px">
+      <a href="shop.html" class="btn btn--chrome">Shop wheels</a>
+      <a href="index.html#fitment" class="btn btn--ghost">Talk to a specialist</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo-wordmark.png?v=50" alt="DROOOLY Wheel Co." class="footer__logo" style="height:34px" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL CO.</span>
+      <p>Leave 'em drooling.</p>
+      <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
+      <div class="pay"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Discover</span><span>Apple&nbsp;Pay</span><span>Google&nbsp;Pay</span><span>PayPal</span><span>Affirm</span><span>Klarna</span></div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="shop.html?cat=packages">Packages</a><a href="shop.html?config=dually">Duallies</a><a href="index.html#brands">Brands</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="index.html#builds">Builds</a><a href="financing.html">Financing</a><a href="index.html#fitment">Get fitted</a><a href="index.html#about">About</a></div>
+      <div class="footer__col"><h4>Follow</h4><a href="#">@drooolywheelco</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 DROOOLY Wheel Co. All rights reserved.</span>
+    <span>Financing on approved credit · Lenders set final terms · 50-state shipping</span>
+  </div>
+</footer>
+
+<script src="brands.js?v=50"></script>
+<script src="catalog.js?v=50"></script>
+<script src="cart.js?v=50"></script>
+<script src="script.js?v=50"></script>
+<script>
+(function () {
+  var amt = document.getElementById('calcAmt'), apr = document.getElementById('calcApr');
+  var amtVal = document.getElementById('calcAmtVal'), aprVal = document.getElementById('calcAprVal');
+  var moOut = document.getElementById('calcMo'), seg = document.getElementById('calcTerm');
+  var term = 12;
+  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function calc() {
+    var P = +amt.value, r = (+apr.value) / 100 / 12, n = term;
+    var pay = r === 0 ? P / n : (P * r) / (1 - Math.pow(1 + r, -n));
+    amtVal.textContent = money(P);
+    aprVal.textContent = (+apr.value).toFixed(1) + '%';
+    moOut.textContent = Math.round(pay).toLocaleString('en-US');
+  }
+  if (amt) {
+    amt.addEventListener('input', calc);
+    apr.addEventListener('input', calc);
+    seg.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      seg.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on'); term = +b.dataset.mo; calc();
+    });
+    calc();
+  }
+})();
+</script>
+</body>
+</html>

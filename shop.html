@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop Wheels — DROOOLY Wheel Co.</title>
+<meta name="description" content="Shop forged wheels by brand, configuration and diameter. Singles, duallies & super singles — hand-spec'd for your exact truck. Leave 'em drooling." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=50" />
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="nav shopnav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand" aria-label="DROOOLY Wheel Co. home">
+        <img src="assets/logo-wordmark.png?v=50" alt="DROOOLY Wheel Co." class="brand__img brand__img--emblem" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="brand__fallback" style="display:none" aria-hidden="true"><b>DROOOLY</b><i>Wheel&nbsp;Co.</i></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <div class="nav__item">
+          <a href="shop.html" class="nav__top">Wheels <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega">
+            <a class="mega__all" href="shop.html">Search all wheels →</a>
+            <div class="mega__grid" id="wheelsBrands"><!-- brands via catalog.js --></div>
+          </div>
+        </div>
+        <a href="tires.html" class="nav__top nav__top--solo">Tires</a>
+        <div class="nav__item">
+          <a href="index.html#builds" class="nav__top">Builds <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega mega--sm">
+            <a href="index.html#builds">Our gallery →</a>
+            <a href="index.html#fitment">Start your build →</a>
+          </div>
+        </div>
+        <a href="financing.html" class="nav__top nav__top--solo">Financing</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="index.html#fitment" class="btn btn--chrome btn--sm" style="min-height:46px">Get fitted</a>
+        <button class="cart-btn" type="button" aria-label="Cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="cart-count">0</span></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Wheels · all brands</a>
+    <a href="tires.html">Tires · all brands</a>
+    <a href="index.html#builds">Builds — our gallery</a>
+    <a href="financing.html">Financing</a>
+    <a href="index.html#fitment" class="btn btn--chrome">Get fitted</a>
+  </div>
+</header>
+
+<main id="shopPage">
+  <section class="shop-hero">
+    <div class="wrap">
+      <div class="shop-crumbs"><a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="shopCrumbNow">Wheels</span></div>
+      <h1 id="shopTitle">All wheels</h1>
+      <p id="shopSub">Every forged wheel we carry — hand-spec'd for your exact truck.</p>
+      <div style="margin-top:16px"><span class="veh-chip" style="display:none"><span class="veh-chip__t"></span><button type="button" aria-label="Clear vehicle">✕</button></span></div>
+    </div>
+  </section>
+
+  <div class="shop-wrap">
+    <aside class="filters-side" id="filtersSide"><!-- rendered --></aside>
+    <div class="shop-main">
+      <div class="shop-bar">
+        <span class="shop-count" id="shopCount"></span>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="filter-mobile-btn" id="filterMobileBtn"><svg viewBox="0 0 24 24" width="15" height="15" style="stroke:currentColor;stroke-width:2;fill:none"><path d="M3 6h18M6 12h12M10 18h4"/></svg> Filters</button>
+          <div class="shop-sort"><label for="shopSort">Sort</label>
+            <select id="shopSort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="prod-grid" id="shopGrid"><!-- rendered --></div>
+    </div>
+  </div>
+</main>
+
+<!-- Fitment CTA -->
+<section class="cta" id="fitment">
+  <div class="wrap cta__inner">
+    <span class="kicker center fade" style="display:flex;justify-content:center">Not sure what fits?</span>
+    <h2 class="cta__title fade" data-d="1">Let's spec your truck.</h2>
+    <p class="cta__lead fade" data-d="2">Tell us the truck and the look you're after — we'll come back with the perfect setup and a real out-the-door price.</p>
+    <form class="fit-form fade" data-d="3" id="fitForm" novalidate>
+      <div class="fit-form__row">
+        <label>Name <input type="text" name="name" placeholder="Full name" required /></label>
+        <label>Phone <input type="tel" name="phone" placeholder="(555) 000-0000" required /></label>
+      </div>
+      <div class="fit-form__row">
+        <label>Truck (year / make / model) <input type="text" name="truck" placeholder="2023 Ford F-350 DRW" required /></label>
+        <label>How you use it
+          <select name="use"><option value="">Select…</option><option>Daily + light tow</option><option>Heavy tow / gooseneck</option><option>Lifted / show</option><option>Work / haul</option></select>
+        </label>
+      </div>
+      <label class="fit-form__full">Wheel brand / model you're eyeing <input type="text" name="wheel" placeholder="e.g. KG1 Master 24×8.25 dually" /></label>
+      <button type="submit" class="btn btn--chrome btn--block">Make ’em drool</button>
+      <p class="fit-form__ok" id="fitOk" hidden>✓ We’re already drooling — talk soon.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo-wordmark.png" alt="DROOOLY Wheel Co." class="footer__logo" style="height:34px" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL CO.</span>
+      <p>Leave 'em drooling.</p>
+      <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
+      <div class="pay"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Discover</span><span>Apple&nbsp;Pay</span><span>Google&nbsp;Pay</span><span>PayPal</span><span>Affirm</span><span>Klarna</span></div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="shop.html?cat=packages">Packages</a><a href="shop.html?config=dually">Duallies</a><a href="index.html#brands">Brands</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="index.html#about">About</a><a href="financing.html">Financing</a><a href="index.html#fitment">Get fitted</a></div>
+      <div class="footer__col"><h4>Follow</h4><a href="#">@drooolywheelco</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 DROOOLY Wheel Co. All rights reserved.</span>
+    <span>Fitment guaranteed · Financing available · 50-state shipping</span>
+  </div>
+</footer>
+
+<script src="brands.js?v=50"></script>
+<script src="catalog.js?v=50"></script>
+<script src="cart.js?v=50"></script>
+<script src="script.js?v=50"></script>
+</body>
+</html>
