@@ -1560,15 +1560,16 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .cta .fit-form input::placeholder{color:#9aa0a8}
 .cta .fit-form input:focus,.cta .fit-form select:focus{
   outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.15)}
-/* silver chrome (like "Get fitted") that shifts to a blue chrome on hover/press */
-.cta .fit-form .btn--chrome{height:54px;margin-top:6px;color:#0a0c0e;
-  background:linear-gradient(180deg,#ffffff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
+/* black chrome — same finish as the hero "Get fitted" button, white Michroma text */
+.cta .fit-form .btn--chrome{height:54px;margin-top:6px;color:#fff;
+  background:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
+  box-shadow:0 12px 28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2);
   transition:background .28s ease,color .2s ease,box-shadow .25s ease,transform .18s ease}
 .cta .fit-form .btn--chrome:hover,
 .cta .fit-form .btn--chrome:active,
 .cta .fit-form .btn--chrome:focus-visible{color:#fff;
-  background:linear-gradient(180deg,#e8f1ff,#9cc0ff 44%,#2f6fd6 62%,#7aa8ee 74%,#dbe9ff);
-  box-shadow:0 16px 34px rgba(31,123,255,.42),0 4px 12px rgba(31,123,255,.3)}
+  background:linear-gradient(180deg,#54545a 0%,#28282d 42%,#0c0c0f 58%,#1f1f23 74%,#48484e 100%);
+  box-shadow:0 16px 36px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.24)}
 .cta .fit-form__ok{color:#1f9d57}
 @media(max-width:560px){.cta .fit-form{padding:22px}}
 
