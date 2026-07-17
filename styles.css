@@ -1371,8 +1371,11 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .trust__item:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media(max-width:440px){
-  .trust__item{flex:0 0 100%;border-left:none!important;border-top:1px solid var(--line)}
-  .trust__item:first-child{border-top:none}
+  /* keep the callouts 2-up (left-to-right) instead of a tall 4-row stack */
+  .trust__item{flex:0 0 50%;font-size:11px;padding:11px 12px;gap:8px}
+  .trust__item:nth-child(2n){border-left:1px solid var(--line)}
+  .trust__item:nth-child(n+3){border-top:1px solid var(--line)}
+  .trust__ic{width:19px;height:19px}
 }
 
 /* ============================================================
@@ -1670,4 +1673,33 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
    ============================================================ */
 @media(max-width:560px){
   .cine__title{font-size:clamp(22px,6.6vw,29px);line-height:1.04}
+}
+
+/* ============================================================
+   v60 — MOBILE-ONLY refinements (end of file so they win the cascade)
+   ============================================================ */
+@media(max-width:560px){
+  /* Show-all-brands: chrome silver, no white border */
+  .brands-toggle{color:#0a0c0e;border:none;
+    background:linear-gradient(180deg,#ffffff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
+    box-shadow:0 10px 24px rgba(0,0,0,.45)}
+  .brands-toggle:hover{color:#0a0c0e;border:none;
+    background:linear-gradient(180deg,#ffffff,#e7ebef 46%,#b9c0c8 62%,#f4f7f9);
+    box-shadow:0 14px 30px rgba(0,0,0,.5)}
+  .brands-toggle__ic{color:#1f6fd0}
+
+  /* Shop all wheels / tires: custom side-by-side tiles (icon on top) */
+  .fitbar__shop{grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  .fitbar__shop a{flex-direction:column;gap:9px;min-height:0;padding:16px 8px 13px;
+    background:linear-gradient(180deg,#ffffff,#eceff3);border:1px solid #e0e3e9;border-radius:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,.07);font-size:11px;letter-spacing:.05em}
+  .fitbar__shop a:hover,.fitbar__shop a:active{transform:translateY(-2px);border-color:#c9cdd4;
+    box-shadow:0 12px 26px rgba(0,0,0,.12)}
+  .fitbar__shop a .ic-wheel{width:44px;height:44px;filter:grayscale(1) contrast(1.35) brightness(.86)}
+  .fitbar__shop a svg.ic-tire{width:40px;height:40px}
+  .fitbar__shop a span{display:block;color:#0b0d12}
+
+  /* Hero: zoom out so the whole truck photo shows (like desktop) */
+  .cine__bg img{object-fit:contain;object-position:center 34%;background:#0b0b0c}
+  .cine__scrim{background:linear-gradient(180deg,rgba(6,8,12,.42),rgba(6,8,12,.30) 42%,rgba(6,8,12,.86))}
 }
