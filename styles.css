@@ -729,11 +729,21 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
   .cine__emblem{opacity:.4;right:-30%}
 }
 @media(max-width:560px){
-  .aud-grid{grid-template-columns:1fr}
+  /* "What are you building?" — 2-up side by side + compact so it takes less height */
+  .aud-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .aud-card{min-height:186px;padding:15px 14px}
+  .aud-card h3{font-size:17px}
+  .aud-card p{font-size:11px;margin-top:5px;line-height:1.35}
+  .aud-card__go{margin-top:9px;font-size:9.5px}
   .look-grid{grid-template-columns:1fr;grid-auto-rows:220px}
   .look-cell.wide{grid-column:span 1}
   .social-grid{grid-template-columns:repeat(2,1fr)}
-  .cine{min-height:90svh}
+  /* hero: compact the content + shorten the background so it all fits one screen
+     (title + rotisserie live in the end-of-file block so they win the cascade) */
+  .cine{min-height:auto}
+  .cine__sub{font-size:12.5px;line-height:1.45;margin-top:12px}
+  .cine__cta{margin-top:16px}
+  .cine__util{margin-top:12px}
 }
 
 /* ============================================================
@@ -1196,11 +1206,12 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .hero-rot .mq-card__wheel{width:97px;height:97px;object-fit:contain;
   filter:drop-shadow(0 12px 22px rgba(0,0,0,.5))}
 @media(max-width:560px){
-  .hero-rot{padding:16px 0 20px}
-  .hero-rot .marquee__track{gap:32px}
-  .hero-rot .mq-card{width:118px;gap:10px}
-  .hero-rot .mq-card__wheel{width:80px;height:80px}
-  .hero-rot .mq-card__logo{height:26px}
+  .hero-rot{padding:8px 0 12px}
+  .hero-rot__label{font-size:9.5px;margin-bottom:5px}
+  .hero-rot .marquee__track{gap:26px}
+  .hero-rot .mq-card{width:104px;gap:7px}
+  .hero-rot .mq-card__wheel{width:50px;height:50px}
+  .hero-rot .mq-card__logo{height:18px}
 }
 
 /* ============================================================
@@ -1651,4 +1662,12 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
     white-space:normal;overflow:visible;text-overflow:clip;
     font-size:9px;letter-spacing:.02em;line-height:1.18}
   .blogo-grid .blogo-tag em{margin-left:3px}
+}
+
+/* ============================================================
+   v57 — mobile hero title (after .cine__title at line ~1133 so it wins);
+   rotisserie sizing lives in the .hero-rot @media block (~line 1208)
+   ============================================================ */
+@media(max-width:560px){
+  .cine__title{font-size:clamp(22px,6.6vw,29px);line-height:1.04}
 }
