@@ -1736,11 +1736,12 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .cine__bg img{position:absolute;left:0}
   .cine__bg img.cine__bg-fill{display:block;top:0;width:100%;height:100%;object-fit:cover;object-position:center;
     z-index:0;filter:blur(22px) brightness(.92) saturate(1.3);transform:scale(1.2);pointer-events:none}
-  /* nudge the sharp truck right so the headline falls over the darker sky, not the
-     bright cab/chrome; feather the left edge so it blends into the blurred fill (no seam) */
-  .cine__bg img:not(.cine__bg-fill){top:17%;width:100%;height:auto;z-index:1;transform:translateX(13%);
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 100%);
-    mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 100%)}
+  /* sharp truck enlarged to run down through the description; a soft radial mask
+     feathers ALL edges into the blurred fill so there are no seams anywhere, and it's
+     nudged right so the headline falls over the darker sky */
+  .cine__bg img:not(.cine__bg-fill){top:11%;width:116%;height:auto;z-index:1;transform:translateX(9%);
+    -webkit-mask-image:radial-gradient(128% 104% at 54% 47%,#000 55%,transparent 100%);
+    mask-image:radial-gradient(128% 104% at 54% 47%,#000 55%,transparent 100%)}
 }
 
 /* ============================================================
