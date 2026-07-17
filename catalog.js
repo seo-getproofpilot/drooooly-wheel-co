@@ -110,8 +110,8 @@
       btn.type = "button";
       btn.className = "brands-toggle";
       btn.setAttribute("aria-expanded", "false");
-      var labelClosed = "Show all " + BRANDS.length + ' brands <span class="brands-toggle__ic" aria-hidden="true">↓</span>';
-      var labelOpen = 'Show fewer <span class="brands-toggle__ic" aria-hidden="true">↑</span>';
+      var labelClosed = '<span class="btn-txt">Show all ' + BRANDS.length + ' brands</span> <span class="brands-toggle__ic" aria-hidden="true">↓</span>';
+      var labelOpen = '<span class="btn-txt">Show fewer</span> <span class="brands-toggle__ic" aria-hidden="true">↑</span>';
       btn.innerHTML = labelClosed;
       btn.addEventListener("click", function () {
         var open = el.classList.toggle("is-expanded");

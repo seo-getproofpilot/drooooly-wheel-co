@@ -1645,15 +1645,18 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .blogo-tile--extra{display:none}
 .blogo-grid.is-expanded .blogo-tile--extra{display:grid}
 .brands-toggle-wrap{display:flex;justify-content:center;margin-top:30px}
-/* solid black pill — matches the "Find my fitment" button up top */
+/* black pill with chrome lettering — matches the "Make 'em drool" button */
 .brands-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
-  font-family:var(--label);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;
-  color:#fff;background:linear-gradient(180deg,#1b1b1e,#0b0b0c);border:1px solid rgba(255,255,255,.16);
-  padding:15px 34px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.45);
-  transition:background .2s,border-color .2s,transform .2s,box-shadow .2s}
-.brands-toggle:hover{background:linear-gradient(180deg,#26262b,#141416);border-color:rgba(255,255,255,.3);
-  transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.55)}
-.brands-toggle__ic{font-size:14px;line-height:1;color:var(--blue-2)}
+  font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;font-size:12px;font-weight:400;
+  border:none;background:linear-gradient(180deg,#1d1d20,#08080a);
+  padding:16px 34px;border-radius:999px;box-shadow:0 12px 28px rgba(0,0,0,.5);
+  transition:background .2s,transform .2s,box-shadow .2s}
+.brands-toggle .btn-txt{
+  background:linear-gradient(180deg,#ffffff,#d5dae0 44%,#9aa2ac 60%,#f0f3f6);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.brands-toggle:hover{background:linear-gradient(180deg,#26262a,#101013);
+  transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.55)}
+.brands-toggle__ic{font-size:14px;line-height:1;color:#cfd4da}
 
 /* ============================================================
    v52 — mobile forged-lineup captions: must come AFTER the base
@@ -1679,15 +1682,6 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
    v60 — MOBILE-ONLY refinements (end of file so they win the cascade)
    ============================================================ */
 @media(max-width:560px){
-  /* Show-all-brands: chrome silver, no white border */
-  .brands-toggle{color:#0a0c0e;border:none;
-    background:linear-gradient(180deg,#ffffff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
-    box-shadow:0 10px 24px rgba(0,0,0,.45)}
-  .brands-toggle:hover{color:#0a0c0e;border:none;
-    background:linear-gradient(180deg,#ffffff,#e7ebef 46%,#b9c0c8 62%,#f4f7f9);
-    box-shadow:0 14px 30px rgba(0,0,0,.5)}
-  .brands-toggle__ic{color:#1f6fd0}
-
   /* Shop all wheels / tires: custom side-by-side tiles (icon on top) */
   .fitbar__shop{grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
   .fitbar__shop a{flex-direction:column;gap:9px;min-height:0;padding:16px 8px 13px;
@@ -1710,16 +1704,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 @media(max-width:560px){
   /* hero stretches so hero + rotisserie + callouts fill the first screen */
   .cine{min-height:calc(100svh - 132px)}
-
-  /* Show-all-brands: blue with black lettering, site display font (Michroma) */
-  .brands-toggle{font-family:var(--display);font-weight:400;letter-spacing:.01em;font-size:10px;
-    color:#07121e;border:none;padding:14px 28px;
-    background:linear-gradient(180deg,#63a6ff,#1f7bff 52%,#146ae8);
-    box-shadow:0 10px 24px rgba(31,123,255,.42)}
-  .brands-toggle:hover{color:#07121e;
-    background:linear-gradient(180deg,#79b4ff,#2f88ff 52%,#1f79f0);
-    box-shadow:0 14px 30px rgba(31,123,255,.5)}
-  .brands-toggle__ic{color:#07121e}
+  /* show-all-brands now uses the shared black + chrome-lettering base (all viewports) */
+  .brands-toggle{font-size:10.5px;padding:14px 30px}
 
   /* Make 'em drool: black button with chrome lettering (Michroma) */
   .cta .fit-form .btn--chrome{
