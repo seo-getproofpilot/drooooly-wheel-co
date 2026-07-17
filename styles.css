@@ -1703,3 +1703,36 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .cine__bg img{object-fit:contain;object-position:center 34%;background:#0b0b0c}
   .cine__scrim{background:linear-gradient(180deg,rgba(6,8,12,.42),rgba(6,8,12,.30) 42%,rgba(6,8,12,.86))}
 }
+
+/* ============================================================
+   v61 — MOBILE-ONLY: hero fills first screen; branded (Michroma) buttons
+   ============================================================ */
+@media(max-width:560px){
+  /* hero stretches so hero + rotisserie + callouts fill the first screen */
+  .cine{min-height:calc(100svh - 132px)}
+
+  /* Show-all-brands: blue with black lettering, site display font (Michroma) */
+  .brands-toggle{font-family:var(--display);font-weight:400;letter-spacing:.01em;font-size:10px;
+    color:#07121e;border:none;padding:14px 28px;
+    background:linear-gradient(180deg,#63a6ff,#1f7bff 52%,#146ae8);
+    box-shadow:0 10px 24px rgba(31,123,255,.42)}
+  .brands-toggle:hover{color:#07121e;
+    background:linear-gradient(180deg,#79b4ff,#2f88ff 52%,#1f79f0);
+    box-shadow:0 14px 30px rgba(31,123,255,.5)}
+  .brands-toggle__ic{color:#07121e}
+
+  /* Make 'em drool: black button with chrome lettering (Michroma) */
+  .cta .fit-form .btn--chrome{
+    background:linear-gradient(180deg,#1d1d20,#08080a);
+    box-shadow:0 14px 30px rgba(0,0,0,.5)}
+  .cta .fit-form .btn--chrome:hover,.cta .fit-form .btn--chrome:active{
+    background:linear-gradient(180deg,#26262a,#101013);
+    box-shadow:0 16px 34px rgba(0,0,0,.55)}
+  .cta .fit-form .btn--chrome .btn-txt{
+    font-family:var(--display);font-weight:400;letter-spacing:.03em;
+    background:linear-gradient(180deg,#ffffff,#d5dae0 44%,#9aa2ac 60%,#f0f3f6);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+  /* branded lettering on the shop tiles for consistency */
+  .fitbar__shop a{font-family:var(--display);font-weight:400;letter-spacing:.01em;font-size:9.5px}
+}
