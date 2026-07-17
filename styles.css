@@ -1402,12 +1402,13 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .gallery-item:hover .gallery-cap{color:#fff}
 
 /* hero secondary: solid brand-blue button (no outline) that pops off the photo */
+/* Get fitted: black chrome finish (metallic dark gradient), white Michroma text */
 .cine .btn--ghost{color:#fff;border:none;
-  background:linear-gradient(180deg,#3390ff,#1667df);
-  box-shadow:0 12px 28px rgba(31,123,255,.42),inset 0 1px 0 rgba(255,255,255,.28)}
+  background:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
+  box-shadow:0 12px 28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2)}
 .cine .btn--ghost:hover{color:#fff;border:none;transform:translateY(-3px) scale(1.03);
-  background:linear-gradient(180deg,#489bff,#1a72ef);
-  box-shadow:0 0 30px rgba(31,123,255,.6),0 16px 36px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.32)}
+  background:linear-gradient(180deg,#54545a 0%,#28282d 42%,#0c0c0f 58%,#1f1f23 74%,#48484e 100%);
+  box-shadow:0 16px 36px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.24)}
 
 /* ============================================================
    v22 — dramatic "find your fit" vehicle-selector band
