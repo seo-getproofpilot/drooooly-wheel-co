@@ -97,7 +97,7 @@
     var VISIBLE = 8;
     el.innerHTML = BRANDS.map(function (b, i) {
       var extra = i >= VISIBLE ? " blogo-tile--extra" : "";
-      return '<a class="blogo-tile fade' + extra + '" data-d="' + ((i % 6) + 1) + '" href="shop.html?brand=' + b.slug + '" aria-label="Shop ' + b.name + '">' +
+      return '<a class="blogo-tile fade' + extra + '" data-d="' + ((i % 6) + 1) + '" href="brand.html?brand=' + b.slug + '" aria-label="Shop ' + b.name + '">' +
         '<img class="blogo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + b.name + '" loading="lazy">' +
         '<span class="blogo-tag">Shop ' + b.name + ' <em>→</em></span></a>';
     }).join("");
@@ -251,14 +251,70 @@
 
   function renderWheelsMenu(el) {
     el.innerHTML = BRANDS.map(function (b) {
-      return '<a href="shop.html?brand=' + b.slug + '">' + b.name + '</a>';
+      return '<a href="brand.html?brand=' + b.slug + '">' + b.name + '</a>';
     }).join("");
+  }
+
+  // ---- dedicated brand page: brand logo + every wheel style w/ per-wheel & set-of-4 pricing ----
+  function wheelCard(brand, m) {
+    var each = priceEach(brand, m);
+    var set = each * 4;
+    var key = brand.slug + "|" + m.model;
+    var mediaInner = m.img
+      ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
+      : emblem(brand, m);
+    return '<article class="wheel fade">' +
+      '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
+      '<h3 class="wheel__name">' + m.model + '</h3>' +
+      '<div class="wheel__badges">' + badges(m) + '</div>' +
+      '<div class="wheel__prices">' +
+        '<span class="wheel__each"><b>' + money(each) + '</b> / wheel</span>' +
+        '<span class="wheel__set">Set of 4 · <b>' + money(set) + '</b></span>' +
+      '</div>' +
+      '<button class="btn-add wheel__add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + each + '" data-img="' + thumb(m) + '">' +
+        '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to build' +
+      '</button>' +
+      '</article>';
+  }
+
+  function renderBrandPage(root) {
+    var q = new URLSearchParams(location.search);
+    var slug = q.get("brand") || q.get("b");
+    var b = slug && bySlug[slug];
+    if (!b) {
+      root.innerHTML = '<section class="wheelhero"><a class="wheelhero__back" href="index.html#brands">← Home</a>' +
+        '<h1>Shop by brand</h1><p class="wheelhero__tag">Pick a brand to see every wheel style with pricing.</p></section>' +
+        '<section class="wheelwrap"><div class="wheelgrid wheelgrid--brands">' +
+        BRANDS.map(function (x) {
+          return '<a class="wheelbrand" href="brand.html?brand=' + x.slug + '">' +
+            '<img class="' + logoFx(x) + '" src="' + logoSrc(x) + '" alt="' + esc(x.name) + '">' +
+            '<span>' + x.name + '</span></a>';
+        }).join("") + '</div></section>';
+      if (window.__observeFades) window.__observeFades();
+      return;
+    }
+    document.title = b.name + " Wheels — DROOOLY Wheel Co.";
+    var n = b.models.length;
+    root.innerHTML =
+      '<section class="wheelhero">' +
+        '<a class="wheelhero__back" href="index.html#brands">← All brands</a>' +
+        '<img class="wheelhero__logo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
+        '<h1>' + b.name + '</h1>' +
+        (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
+        '<p class="wheelhero__meta">' + n + ' wheel style' + (n === 1 ? '' : 's') + ' · single, dually &amp; super-single · priced per wheel &amp; per set</p>' +
+      '</section>' +
+      '<section class="wheelwrap">' +
+        '<div class="wheelgrid">' + b.models.map(function (m) { return wheelCard(b, m); }).join("") + '</div>' +
+        '<p class="wheelwrap__note">Prices are per wheel; set-of-4 shown. Dually &amp; super-single sets (6 wheels) and tire packages are finalized at fitment — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
+      '</section>';
+    if (window.__observeFades) window.__observeFades();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     var bg = document.getElementById("brandGrid"); if (bg) renderBrandGrid(bg);
     var fg = document.getElementById("featuredGrid"); if (fg) renderFeatured(fg);
     var sp = document.getElementById("shopPage"); if (sp) renderShop(sp);
+    var bp = document.getElementById("brandPage"); if (bp) renderBrandPage(bp);
     var wm = document.getElementById("wheelsBrands"); if (wm) renderWheelsMenu(wm);
   });
 })();
