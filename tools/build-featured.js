@@ -21,6 +21,14 @@ const ROOT = path.resolve(__dirname, "..");
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36";
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
+// Manufacturer part code, e.g. "KD006 Blitz" and "Blitz (KD006)" -> "KD006".
+// Lets us recognize a model we already carry under a differently-formatted
+// name instead of adding a near-duplicate card.
+const code = (s) => {
+  const m = String(s).toUpperCase().match(/\b([A-Z]{1,4}\d{2,4})\b/);
+  return m ? m[1] : null;
+};
+
 // Config inference from the suffix codes brands use in model names.
 function inferConfigs(model) {
   if (/\b(SD|DRW|DBO|DUALLY)\b/i.test(model)) return ["dually", "super single"];
@@ -103,8 +111,12 @@ for (const file of files) {
 
   // Defaults borrowed from an existing model so new entries stay consistent.
   const proto = brand.models[0] || {};
-  const byName = {};
-  brand.models.forEach((m) => { byName[norm(m.model)] = m; });
+  const byName = {}, byCode = {};
+  brand.models.forEach((m) => {
+    byName[norm(m.model)] = m;
+    const c = code(m.model);
+    if (c) byCode[c] = m;
+  });
 
   let got = 0, added = 0, failed = [], pending = [];
   entries.forEach((e, i) => {
@@ -124,8 +136,13 @@ for (const file of files) {
     if (!ok) { failed.push(e.model); return; }
     got++;
 
-    let m = byName[mslug];
-    if (!m) {
+    const c = code(e.model);
+    let m = byName[mslug] || (c && byCode[c]);
+    if (m) {
+      // We already carry it — adopt the manufacturer's spelling as canonical.
+      m.model = e.model;
+      if (e.configs) m.configs = e.configs;
+    } else {
       m = {
         model: e.model,
         configs: e.configs || inferConfigs(e.model),
@@ -133,14 +150,44 @@ for (const file of files) {
         finishes: e.finishes || proto.finishes || ["Polished", "Black"],
       };
       brand.models.push(m);
-      byName[mslug] = m;
       added++;
     }
+    byName[norm(m.model)] = m;
+    if (c) byCode[c] = m;
     m.img = rel;
     m.feat = i + 1;
   });
 
   if (pending.length) normalize(pending);
+
+  // Collapse models that are the same wheel under two spellings
+  // ("Blitz (KD006)" + "KD006 Blitz"). Keep the featured/photographed one.
+  const groups = new Map();
+  brand.models.forEach((m) => {
+    const c = code(m.model);
+    if (!c) return;
+    (groups.get(c) || groups.set(c, []).get(c)).push(m);
+  });
+  const drop = new Set();
+  let merged = 0;
+  groups.forEach((list) => {
+    if (list.length < 2) return;
+    const score = (m) => (m.feat ? 4 : 0) + (m.img ? 2 : 0) + (m.model.length > 8 ? 1 : 0);
+    list.sort((a, b) => score(b) - score(a));
+    const keep = list[0];
+    list.slice(1).forEach((m) => {
+      keep.sizes = [...new Set([...keep.sizes, ...m.sizes])];
+      keep.finishes = [...new Set([...keep.finishes, ...m.finishes])];
+      keep.configs = [...new Set([...keep.configs, ...m.configs])];
+      drop.add(m);
+      merged++;
+    });
+  });
+  if (merged) {
+    brand.models = brand.models.filter((m) => !drop.has(m));
+    console.log(`  merged ${merged} duplicate model${merged === 1 ? "" : "s"}`);
+  }
+
   brand.models.sort((a, b) => a.model.localeCompare(b.model, "en", { numeric: true }));
   totalNew += added; totalImg += got;
   console.log(`${slug}: ${got}/${entries.length} photos, ${added} new models` +
