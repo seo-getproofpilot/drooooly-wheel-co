@@ -1856,3 +1856,10 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .wheelmore__btns{flex-direction:column}
   .wheelmore__btns .btn{width:100%}
 }
+
+/* v92 — Showroom cards: image + name, no pricing (real dealer pricing TBD).
+   Whole card is now an <a> to the fitment form with the wheel prefilled. */
+a.wheel{text-decoration:none;color:inherit;cursor:pointer}
+a.wheel:hover .wheel__quote{color:var(--blue-2)}
+.wheel__quote{margin-top:auto;padding-top:6px;font-family:var(--label);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .18s ease}

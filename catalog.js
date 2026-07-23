@@ -264,26 +264,19 @@
   }
 
   // ---- dedicated brand page: brand logo + every wheel style w/ per-wheel & set-of-4 pricing ----
+  // Showroom card: wheel + name only. No prices until real dealer pricing
+  // lands — invented numbers on forged wheels are a promise we can't keep.
   function wheelCard(brand, m) {
-    var each = priceEach(brand, m);
-    var qty = setQty(m);
-    var set = each * qty;
-    var key = brand.slug + "|" + m.model;
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
       : emblem(brand, m);
-    return '<article class="wheel fade">' +
+    var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
+    return '<a class="wheel fade" href="' + esc(quote) + '">' +
       '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
       '<div class="wheel__badges">' + badges(m) + '</div>' +
-      '<div class="wheel__prices">' +
-        '<span class="wheel__each">from <b>' + money(each) + '</b> / wheel</span>' +
-        '<span class="wheel__set">Set of ' + qty + (qty === 6 ? ' (dually)' : '') + ' from <b>' + money(set) + '</b></span>' +
-      '</div>' +
-      '<button class="btn-add wheel__add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + each + '" data-img="' + thumb(m) + '">' +
-        '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to build' +
-      '</button>' +
-      '</article>';
+      '<span class="wheel__quote">Get pricing →</span>' +
+      '</a>';
   }
 
   // Brand pages show a curated showroom, not the whole lineup — the rest
@@ -348,7 +341,17 @@
     if (window.__observeFades) window.__observeFades();
   }
 
+  // Showroom cards link here with ?w=<brand + model> — drop it straight into
+  // the form so they don't retype the wheel they just clicked.
+  function prefillWheel() {
+    var w = new URLSearchParams(location.search).get("w");
+    if (!w) return;
+    var f = document.querySelector('.fit-form [name="wheel"]');
+    if (f && !f.value) f.value = w;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    prefillWheel();
     var bg = document.getElementById("brandGrid"); if (bg) renderBrandGrid(bg);
     var fg = document.getElementById("featuredGrid"); if (fg) renderFeatured(fg);
     var sp = document.getElementById("shopPage"); if (sp) renderShop(sp);
