@@ -282,6 +282,21 @@
     return FINISH_DOT[k] || FINISH_DOT[k.replace(/milled|clear|gloss|matte|satin/g, "")] || FINISH_DOT.polished;
   }
 
+  // Showroom cards state the fitments as a plain note rather than chips —
+  // chips read as buttons you're meant to pick, and the picking happens
+  // later, at ordering.
+  var CFG_ORDER = ["single", "dually", "super single"];
+  function availText(m) {
+    var list = CFG_ORDER.filter(function (c) {
+      return m.configs.some(function (x) { return cfgKey(x) === cfgKey(c); });
+    });
+    if (!list.length) return "";
+    var names = list.map(cfgLabel);
+    var joined = names.length === 1 ? names[0]
+      : names.slice(0, -1).join(", ") + " &amp; " + names[names.length - 1];
+    return "Available in " + joined;
+  }
+
   function wheelCard(brand, m) {
     var vars = m.imgs && m.imgs.length > 1 ? m.imgs : null;
     var mediaInner = m.img
@@ -301,7 +316,7 @@
             '<span class="wheel__finname">' + esc(vars[0].finish) + '</span>' +
           '</div>'
         : '') +
-      '<div class="wheel__badges">' + badges(m) + '</div>' +
+      '<p class="wheel__avail">' + availText(m) + '</p>' +
       '<span class="wheel__quote">Get pricing →</span>' +
       '</a>';
   }
@@ -369,10 +384,12 @@
       '<section class="wheelhero">' +
         '<a class="wheelhero__back" href="index.html#brands">← All brands</a>' +
         '<img class="wheelhero__logo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
-        '<h1>' + b.name + '</h1>' +
+        // The logo already says the brand name — keep the h1 for search
+        // engines and screen readers, but don't print it twice.
+        '<h1 class="sr-only">' + b.name + '</h1>' +
         (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
         '<p class="wheelhero__meta">' + (more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
-          ' · single, dually &amp; super-single · priced per wheel &amp; per set</p>' +
+          ' · built to order in your size &amp; finish</p>' +
       '</section>' +
       '<section class="wheelwrap">' +
         '<div class="wheelgrid">' + show.map(function (m) { return wheelCard(b, m); }).join("") + '</div>' +

@@ -1881,3 +1881,24 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .wheel__finname{font-family:var(--label);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
   color:var(--muted);margin-left:3px}
 @media(max-width:560px){ .wheel__sw{width:20px;height:20px} .wheel__finname{display:none} }
+
+/* v97 — Showroom card: fitments as a plain note, not selectable-looking chips.
+   Brand hero drops the duplicate wordmark under the logo. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.wheel__avail{margin:3px 0 0;font-family:var(--label);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);line-height:1.4}
+.wheel__quote{margin-top:9px}
+.wheelhero__logo{margin-bottom:clamp(10px,1.4vw,16px)}
+
+/* v98 — reserve two lines for the availability note so "Get pricing" sits
+   on the same baseline across a row regardless of how many fitments wrap. */
+.wheel__avail{min-height:2.8em;display:flex;align-items:flex-start;justify-content:center;text-align:center}
+.wheel{justify-content:flex-start}
+
+/* v99 — bottom-align "Get pricing". Grid rows stretch cards to equal height,
+   so margin-top:auto pins the link to the card floor no matter how the
+   availability note wraps or whether a finish-swatch row is present. */
+.wheel{justify-content:flex-start}
+.wheel__avail{min-height:0;margin:3px 0 0}
+.wheel__quote{margin-top:auto;padding-top:10px}
