@@ -10,6 +10,7 @@ window.BRANDS = [
   {
     slug: "jtx", name: "JTX Forged", kind: "Forged", featured: true,
     site: "https://jtxforged.com", tagline: "Premium forged wheels for trucks & duallies — made in the USA.",
+    pricing: "quote",
     models: [
       { model: "404", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/404.png" },
       { model: "Ace", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/ace.png", feat: 18 },
@@ -170,6 +171,7 @@ window.BRANDS = [
   {
     slug: "american-force", name: "American Force", kind: "Forged", featured: true,
     site: "https://www.americanforcewheels.com", tagline: "Truly All-American forged single-piece & dually wheels.",
+    pricing: "quote",
     models: [
       { model: "1 Classic DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/1classicdbo.png", feat: 9 },
       { model: "6N17 Vader SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/6n17vadersd.png", feat: 15 },
@@ -460,6 +462,7 @@ window.BRANDS = [
   {
     slug: "kg1", name: "KG1 Forged", kind: "Forged", featured: true,
     site: "https://kg1forged.com", tagline: "True forged custom dually & super single wheels.",
+    pricing: "quote",
     models: [
       { model: "KD001 Master", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black","Brushed","Custom"], img: "assets/wheels/kg1/kd001master.png", feat: 20 },
       { model: "KD002 Honor", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black","Brushed","Custom"], img: "assets/wheels/kg1/kd002honor.png", feat: 19 },
@@ -489,6 +492,7 @@ window.BRANDS = [
   {
     slug: "fuel", name: "Fuel", kind: "Forged", featured: true,
     site: "https://www.fueloffroad.com", tagline: "Fuel Forged — the largest forged wheels in the business.",
+    pricing: "quote",
     models: [
       { model: "Ascend", configs: ["single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/fuel/ascend.png", feat: 18 },
       { model: "Catalyst Dually", configs: ["dually","super single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/fuel/catalystdually.png", feat: 5 },
@@ -529,6 +533,7 @@ window.BRANDS = [
   {
     slug: "hostile", name: "Hostile", kind: "Forged", featured: true,
     site: "https://www.hostilewheels.com", tagline: "Take no prisoners — Hostile Forged, dually & super single.",
+    pricing: "quote",
     models: [
       { model: "Gauntlet H107", configs: ["single"], sizes: ["20x10","20x12","22x12"], finishes: ["Blade Cut","Asphalt","Black Milled"] },
       { model: "H108 Sprocket", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Chrome","Black Milled","Blade Cut"], img: "assets/wheels/hostile/h108sprocket.png", feat: 16 },
@@ -562,6 +567,7 @@ window.BRANDS = [
   {
     slug: "amani", name: "Amani Forged", kind: "Forged", featured: true,
     site: "https://amaniforged.com", tagline: "Multi-piece forged dually wheels with billet floaters.",
+    pricing: "quote",
     models: [
       { model: "Allora", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
       { model: "Apollo", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
@@ -579,6 +585,7 @@ window.BRANDS = [
   {
     slug: "fenix", name: "Fenix Forged", kind: "Forged", featured: false,
     site: "https://fenixforged.com", tagline: "Built to outlast the road — forged single, dually & super single.",
+    pricing: "quote",
     models: [
       { model: "L2002 Liberty", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
       { model: "L2003 Hurricane", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
@@ -593,6 +600,7 @@ window.BRANDS = [
   {
     slug: "liberty", name: "Liberty Forged", kind: "Forged", featured: false,
     site: "https://www.libertyforged.com", tagline: "Billet floaters with every set — forged super singles & duallies.",
+    pricing: "quote",
     models: [
       { model: "Super Single Series", configs: ["single","super single"], sizes: ["22x12","24x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
       { model: "Concave Series", configs: ["single"], sizes: ["24x14","26x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
@@ -606,6 +614,7 @@ window.BRANDS = [
   {
     slug: "axe", name: "AXE Offroad", kind: "Forged", featured: false,
     site: "https://axewheels.com", tagline: "Defined by design — forged directional duallies & off-road.",
+    pricing: "quote",
     models: [
       { model: "AF6 Forged", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"] },
       { model: "AF10 Directional", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black Milled"] },
@@ -619,6 +628,7 @@ window.BRANDS = [
   {
     slug: "tis", name: "TIS Wheels", kind: "Off-Road", featured: false,
     site: "https://tiswheels.com", tagline: "Patented deep-lip monoblock truck & dually wheels.",
+    pricing: "quote",
     models: [
       { model: "538", configs: ["single"], sizes: ["20","22"], finishes: ["Gloss Black","Matte Black","Black Milled"] },
       { model: "544 Dually", configs: ["single","dually"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"] },
@@ -640,6 +650,7 @@ window.BRANDS = [
   {
     slug: "vision", name: "Vision Wheel", kind: "HD / Dually", featured: false,
     site: "https://www.visionwheel.com", tagline: "HD workhorse duallies and off-road truck wheels.",
+    pricing: "quote",
     models: [
       { model: "181 Hauler Dually", configs: ["dually"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"] },
       { model: "181NR Hauler 19.5", configs: ["dually"], sizes: ["19.5"], finishes: ["Chrome","Machined","Matte Black"] },
@@ -654,6 +665,7 @@ window.BRANDS = [
   {
     slug: "fittipaldi", name: "Fittipaldi Off Road", kind: "Forged", featured: false,
     site: "https://www.fittipaldioffroad.com", tagline: "Forged truck & dually wheels — directional, true left/right.",
+    pricing: "quote",
     models: [
       { model: "FDF600 Dually", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"] },
       { model: "FDF601 Dually", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"] },
@@ -665,6 +677,7 @@ window.BRANDS = [
   {
     slug: "arkon", name: "Arkon Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.arkonoffroad.com", tagline: "Proper directional deep-concave show-truck wheels.",
+    pricing: "quote",
     models: [
       { model: "Lincoln", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
       { model: "Roosevelt", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
@@ -677,6 +690,7 @@ window.BRANDS = [
   {
     slug: "cali", name: "Cali Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.calioffroadwheels.com", tagline: "Raising traditions — deep-lip truck & dually wheels.",
+    pricing: "quote",
     models: [
       { model: "Summit", configs: ["single","dually"], sizes: ["20x10","22x12","24x14","20x8.25"], finishes: ["Gloss Black","Polished","Polished Milled"] },
       { model: "Summit Dually", configs: ["dually"], sizes: ["20x8.25","22x8.25"], finishes: ["Polished","Gloss Black Milled","Matte Black"] },
@@ -689,6 +703,7 @@ window.BRANDS = [
   {
     slug: "hardrock", name: "Hardrock Offroad", kind: "Off-Road", featured: false,
     site: "https://hardrockoffroad.com", tagline: "Aggressive off-road & dually wheels — unbeatable value.",
+    pricing: "quote",
     models: [
       { model: "H700 Affliction", configs: ["single","dually"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"] },
       { model: "H504 Slammer Xposed", configs: ["single","dually"], sizes: ["20x10","22x12","24x12","20x8.25"], finishes: ["Gloss Black Milled","Chrome"] },
@@ -700,6 +715,7 @@ window.BRANDS = [
   {
     slug: "hardcore", name: "Hardcore Off-Road", kind: "Off-Road", featured: false,
     site: "https://hcoffroad.com", tagline: "Concave truck wheels built for spiked lug nuts.",
+    pricing: "quote",
     models: [
       { model: "HC19", configs: ["single","dually"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"] },
       { model: "HC13", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black Milled","Chrome"] },
@@ -712,6 +728,7 @@ window.BRANDS = [
   {
     slug: "xf", name: "XF Offroad", kind: "Off-Road", featured: false,
     site: "https://www.xfoffroad.com", tagline: "Flow-forged XFX series & aggressive cast off-road.",
+    pricing: "quote",
     models: [
       { model: "XFX-301", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] },
       { model: "XFX-302", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] },
@@ -724,6 +741,7 @@ window.BRANDS = [
   {
     slug: "method", name: "Method Race Wheels", kind: "Off-Road", featured: false,
     site: "https://www.methodracewheels.com", tagline: "Engineered for the extreme — Bead Grip & HD truck wheels.",
+    pricing: "quote",
     models: [
       { model: "305 NV", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"] },
       { model: "305 NV HD", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Machined"] },
@@ -736,6 +754,7 @@ window.BRANDS = [
   {
     slug: "kmc", name: "KMC Wheels", kind: "Off-Road", featured: false,
     site: "https://www.kmcwheels.com", tagline: "XD-series off-road & HD dually truck wheels.",
+    pricing: "quote",
     models: [
       { model: "XD811 Rockstar 2", configs: ["single"], sizes: ["18x9","20x10","20x12"], finishes: ["Matte Black","PVD Chrome","Chrome"] },
       { model: "XD820 Grenade", configs: ["single"], sizes: ["20x9","20x10","20x12","22x12"], finishes: ["Black","Black Machined","Chrome"] },
@@ -747,6 +766,7 @@ window.BRANDS = [
   {
     slug: "raceline", name: "Raceline Wheels", kind: "Off-Road", featured: false,
     site: "https://racelinewheels.com", tagline: "Family owned since '96 — Bead Grip & forged beadlock.",
+    pricing: "quote",
     models: [
       { model: "951 Ryno", configs: ["single","dually"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"] },
       { model: "RT951F Forged Beadlock", configs: ["single"], sizes: ["17x8.5","17x9"], finishes: ["Satin Black","Machined"] },
@@ -758,6 +778,7 @@ window.BRANDS = [
   {
     slug: "black-rhino", name: "Black Rhino", kind: "Off-Road", featured: false,
     site: "https://www.blackrhinowheels.com", tagline: "Built for the modern adventurer — HD truck & dually.",
+    pricing: "quote",
     models: [
       { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"] },
       { model: "Arsenal", configs: ["single"], sizes: ["17x9","18x9","20x9.5"], finishes: ["Sand on Black","Textured Matte Black"] },

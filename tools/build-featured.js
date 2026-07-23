@@ -156,6 +156,7 @@ for (const file of files) {
     if (c) byCode[c] = m;
     m.img = rel;
     m.feat = i + 1;
+    if (typeof e.priceFrom === "number") m.priceFrom = e.priceFrom;
 
     // Optional per-finish renders: [{finish, url}]. The default photo is
     // finish #1 so the card always has something to show.
@@ -233,11 +234,16 @@ window.BRANDS = [
 `;
 out += BRANDS.map((b) => {
   let h = `  {\n    slug: ${q(b.slug)}, name: ${q(b.name)}, kind: ${q(b.kind)}, featured: ${!!b.featured},\n`;
-  h += `    site: ${q(b.site || "")}, tagline: ${q(b.tagline || "")},\n    models: [\n`;
+  h += `    site: ${q(b.site || "")}, tagline: ${q(b.tagline || "")},\n`;
+  // pricing: "quote" (default) or "from" once an agreement lets us publish
+  h += `    pricing: ${q(b.pricing || "quote")},\n    models: [\n`;
   h += b.models.map((m) => {
     let s = `      { model: ${q(m.model)}, configs: ${arr(m.configs)}, sizes: ${arr(m.sizes)}, finishes: ${arr(m.finishes)}`;
     if (m.img) s += `, img: ${q(m.img)}`;
     if (m.imgs) s += `, imgs: [` + m.imgs.map((v) => `{finish:${q(v.finish)},img:${q(v.img)}}`).join(",") + `]`;
+    // priceFrom: lowest publishable "starting at", in whole dollars. Left
+    // unset until dealer agreements say what we're allowed to show.
+    if (typeof m.priceFrom === "number") s += `, priceFrom: ${m.priceFrom}`;
     if (m.feat) s += `, feat: ${m.feat}`;
     return s + " }";
   }).join(",\n");

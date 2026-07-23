@@ -297,6 +297,20 @@
     return "Available in " + joined;
   }
 
+  // Hybrid pricing. A brand only shows "starting at" once its agreement says
+  // we may (brand.pricing === "from") AND that style has a real published
+  // figure. Custom forged stays quote-gated — a single number can't describe
+  // a 24x14 in a custom finish, mounted, with TPMS and hardware. Everything
+  // is quote-gated today because no dealer cost has landed yet; the fields
+  // exist so switching a brand on is a data change, not a rebuild.
+  function priceLine(brand, m) {
+    if (brand.pricing === "from" && typeof m.priceFrom === "number" && m.priceFrom > 0) {
+      return '<span class="wheel__price">Starting at <b>' + money(m.priceFrom) + '</b>' +
+        '<small>per wheel · your build is quoted</small></span>';
+    }
+    return '<span class="wheel__quote">Get pricing →</span>';
+  }
+
   function wheelCard(brand, m) {
     var vars = m.imgs && m.imgs.length > 1 ? m.imgs : null;
     var mediaInner = m.img
@@ -317,7 +331,7 @@
           '</div>'
         : '') +
       '<p class="wheel__avail">' + availText(m) + '</p>' +
-      '<span class="wheel__quote">Get pricing →</span>' +
+      priceLine(brand, m) +
       '</a>';
   }
 
