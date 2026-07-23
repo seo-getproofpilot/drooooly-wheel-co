@@ -286,6 +286,18 @@
       '</article>';
   }
 
+  // Brand pages show a curated showroom, not the whole lineup — the rest
+  // lives on the manufacturer's own site, and they come back to us to order.
+  var FEAT_MAX = 24;
+  function featuredModels(b) {
+    var ranked = b.models.filter(function (m) { return typeof m.feat === "number"; });
+    if (ranked.length) {
+      return ranked.sort(function (x, y) { return x.feat - y.feat; }).slice(0, FEAT_MAX);
+    }
+    var shot = b.models.filter(function (m) { return m.img; });
+    return (shot.length >= 6 ? shot : b.models).slice(0, FEAT_MAX);
+  }
+
   function renderBrandPage(root) {
     var q = new URLSearchParams(location.search);
     var slug = q.get("brand") || q.get("b");
@@ -303,17 +315,34 @@
       return;
     }
     document.title = b.name + " Wheels — DROOOLY Wheel Co.";
-    var n = b.models.length;
+    var show = featuredModels(b);
+    var total = b.models.length;
+    var more = total - show.length;
+    var host = (b.site || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
     root.innerHTML =
       '<section class="wheelhero">' +
         '<a class="wheelhero__back" href="index.html#brands">← All brands</a>' +
         '<img class="wheelhero__logo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
         '<h1>' + b.name + '</h1>' +
         (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
-        '<p class="wheelhero__meta">' + n + ' wheel style' + (n === 1 ? '' : 's') + ' · single, dually &amp; super-single · priced per wheel &amp; per set</p>' +
+        '<p class="wheelhero__meta">' + (more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
+          ' · single, dually &amp; super-single · priced per wheel &amp; per set</p>' +
       '</section>' +
       '<section class="wheelwrap">' +
-        '<div class="wheelgrid">' + b.models.map(function (m) { return wheelCard(b, m); }).join("") + '</div>' +
+        '<div class="wheelgrid">' + show.map(function (m) { return wheelCard(b, m); }).join("") + '</div>' +
+        (b.site
+          ? '<div class="wheelmore">' +
+              '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
+                                 : 'See the full ' + esc(b.name) + ' lineup') + '</h3>' +
+              '<p>Browse the full lineup on ' + esc(b.name) + '&rsquo;s site — then come back to us and we&rsquo;ll build the set, mount the tires and quote you out the door.</p>' +
+              '<div class="wheelmore__btns">' +
+                '<a class="btn btn--chrome" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
+                  '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
+                '<a class="btn btn--ghost" href="index.html#fitment">Get fitted</a>' +
+              '</div>' +
+            '</div>'
+          : '') +
         '<p class="wheelwrap__note">Prices are per wheel; set-of-4 shown. Dually &amp; super-single sets (6 wheels) and tire packages are finalized at fitment — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
       '</section>';
     if (window.__observeFades) window.__observeFades();
