@@ -620,13 +620,21 @@ window.BRANDS = [
     slug: "tis", name: "TIS Wheels", kind: "Off-Road", featured: false,
     site: "https://tiswheels.com", tagline: "Patented deep-lip monoblock truck & dually wheels.",
     models: [
+      { model: "538", configs: ["single"], sizes: ["20","22"], finishes: ["Gloss Black","Matte Black","Black Milled"] },
       { model: "544 Dually", configs: ["single","dually"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"] },
       { model: "547", configs: ["single"], sizes: ["20","22","24"], finishes: ["Gloss Black","Black Milled","Chrome"] },
+      { model: "556", configs: ["single"], sizes: ["20","22","24"], finishes: ["Satin Black","Anthracite"] },
       { model: "560", configs: ["single"], sizes: ["20","22","24"], finishes: ["Gloss Black","Black Milled","Chrome"] },
       { model: "566", configs: ["single"], sizes: ["20","22","24"], finishes: ["Gloss Black","Black Milled","Chrome"] },
       { model: "567", configs: ["single"], sizes: ["20","22","24"], finishes: ["Gloss Black","Black Milled","Chrome"] },
-      { model: "556", configs: ["single"], sizes: ["20","22","24"], finishes: ["Satin Black","Anthracite"] },
-      { model: "538", configs: ["single"], sizes: ["20","22"], finishes: ["Gloss Black","Matte Black","Black Milled"] }
+      { model: "TIS 544", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis544.png", feat: 8 },
+      { model: "TIS 547", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis547.png", feat: 7 },
+      { model: "TIS 554", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis554.png", feat: 6 },
+      { model: "TIS 556", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis556.png", feat: 5 },
+      { model: "TIS 560", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis560.png", feat: 4 },
+      { model: "TIS 563", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis563.png", feat: 3 },
+      { model: "TIS 566", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis566.png", feat: 2 },
+      { model: "TIS 567", configs: ["single"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis567.png", feat: 1 }
     ]
   },
   {
