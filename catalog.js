@@ -24,15 +24,23 @@
   function money(n) { return "$" + n.toLocaleString("en-US"); }
   function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h; }
   function maxDia(m) { var d = 0; m.sizes.forEach(function (s) { var n = parseInt(s, 10); if (n > d) d = n; }); return d || 22; }
+  function minDia(m) { var d = 99; m.sizes.forEach(function (s) { var n = parseInt(s, 10); if (n < d) d = n; }); return d === 99 ? 22 : d; }
   function isDually(m) { return m.configs.indexOf("dually") > -1 || m.configs.indexOf("super single") > -1; }
 
+  // Per-wheel pricing calibrated to real authorized-dealer forged pricing
+  // (e.g. JTX dually sets run $8,062–$17,866 for 6 wheels, 20"–30").
   function priceEach(brand, m) {
-    var base = brand.kind === "Forged" ? 1550 : (/HD|Dually/.test(brand.kind) ? 480 : 560);
-    var cfg = isDually(m) ? 850 : 0;
-    var size = Math.max(0, (maxDia(m) - 20)) * 95;
-    var jit = (hash(brand.slug + m.model) % 12) * 20;
-    return Math.round((base + cfg + size + jit) / 5) * 5;
+    var d = minDia(m); // starting ("from") price — smallest diameter offered
+    var forged = brand.kind === "Forged";
+    var base = forged ? 1290 : (/HD|Dually/.test(brand.kind) ? 430 : 340);
+    var step = forged
+      ? (d <= 22 ? (d - 20) * 55 : d <= 26 ? 110 + (d - 22) * 105 : 530 + (d - 26) * 230)
+      : Math.max(0, (d - 20)) * 45;
+    var jit = (hash(brand.slug + m.model) % 10) * 15;
+    return Math.round((base + step + jit) / 5) * 5;
   }
+  // duallies sell as 6 (4 rear + 2 front); everything else as a set of 4
+  function setQty(m) { return isDually(m) ? 6 : 4; }
   function rating(brand, m) { var h = hash(m.model + brand.slug); var v = (43 + (h % 8)) / 10; return { v: v.toFixed(1), n: 6 + (h % 150) }; }
   function thumb(m) { return m.img || "assets/wheel-face-1.png"; }
 
@@ -258,7 +266,8 @@
   // ---- dedicated brand page: brand logo + every wheel style w/ per-wheel & set-of-4 pricing ----
   function wheelCard(brand, m) {
     var each = priceEach(brand, m);
-    var set = each * 4;
+    var qty = setQty(m);
+    var set = each * qty;
     var key = brand.slug + "|" + m.model;
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
@@ -268,8 +277,8 @@
       '<h3 class="wheel__name">' + m.model + '</h3>' +
       '<div class="wheel__badges">' + badges(m) + '</div>' +
       '<div class="wheel__prices">' +
-        '<span class="wheel__each"><b>' + money(each) + '</b> / wheel</span>' +
-        '<span class="wheel__set">Set of 4 · <b>' + money(set) + '</b></span>' +
+        '<span class="wheel__each">from <b>' + money(each) + '</b> / wheel</span>' +
+        '<span class="wheel__set">Set of ' + qty + (qty === 6 ? ' (dually)' : '') + ' from <b>' + money(set) + '</b></span>' +
       '</div>' +
       '<button class="btn-add wheel__add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + each + '" data-img="' + thumb(m) + '">' +
         '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to build' +
