@@ -1,11 +1,10 @@
 /* ============================================================
    DROOOLY Wheel Co. — brand + wheel catalog data
-   Real, verified model lineups per brand.
    configs: "single" | "dually" | "super single"
-   img  (optional): path under assets/ for a real product photo
-   feat (optional): featured rank — these show on the brand page,
-                    the rest live behind "view the full lineup"
-   GENERATED FILE — rebuilt by scratchpad/rebuild-brands.js
+   img  (optional): local product photo under assets/wheels/<brand>/
+   feat (optional): featured rank — these show on the brand page;
+                    everything else lives behind "view the full lineup"
+   GENERATED FILE — rebuilt by tools/build-featured.js
    ============================================================ */
 window.BRANDS = [
   {
@@ -172,8 +171,17 @@ window.BRANDS = [
     slug: "american-force", name: "American Force", kind: "Forged", featured: true,
     site: "https://www.americanforcewheels.com", tagline: "Truly All-American forged single-piece & dually wheels.",
     models: [
-      { model: "6N33 Barrage SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "1 Classic DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/1classicdbo.png", feat: 9 },
+      { model: "6N17 Vader SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/6n17vadersd.png", feat: 15 },
+      { model: "6N29 Overhaul SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/6n29overhaulsd.png", feat: 16 },
+      { model: "6N32 Trooper SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/6n32troopersd.png", feat: 17 },
+      { model: "6N33 Barrage SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/6n33barragesd.png", feat: 1 },
       { model: "6N33 Barrage SSBR", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "9 Liberty DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/9libertydbo.png", feat: 8 },
+      { model: "11 Independence DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/11independencedbo.png", feat: 7 },
+      { model: "95 HD DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/95hddbo.png", feat: 10 },
+      { model: "609 Liberty SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/609libertysd.png", feat: 19 },
+      { model: "611 Independence SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/611independencesd.png", feat: 18 },
       { model: "Acid CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Addict SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Aero SF", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
@@ -233,9 +241,9 @@ window.BRANDS = [
       { model: "Chase ZL 8", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Chief SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Chopper SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
-      { model: "CKH61 Slingshot CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "CKH61 Slingshot CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/ckh61slingshotcc.png", feat: 23 },
       { model: "CKH62 Prime CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
-      { model: "CKH69 Perfection CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "CKH69 Perfection CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/ckh69perfectioncc.png", feat: 22 },
       { model: "Classic SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Classic SSBR", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Clipper SF", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
@@ -249,6 +257,10 @@ window.BRANDS = [
       { model: "Crook CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Cyclone CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Data SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "DB02 Monument DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/db02monumentdbo.png", feat: 13 },
+      { model: "DB03 Payload DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/db03payloaddbo.png", feat: 12 },
+      { model: "DB04 Clutch DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/db04clutchdbo.png", feat: 11 },
+      { model: "DB05 Slab DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/db05slabdbo.png", feat: 14 },
       { model: "DC08 Kryptik DC", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "DC09 Devize DC", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Decoy SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
@@ -272,6 +284,9 @@ window.BRANDS = [
       { model: "Evo SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Evo SSBR", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Extort SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "F10 Dura DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/f10duradbo.png", feat: 6 },
+      { model: "F11 Axis DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/f11axisdbo.png", feat: 5 },
+      { model: "F13 Cane DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/f13canedbo.png", feat: 4 },
       { model: "Factor CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Fallout FP", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Flare CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
@@ -280,6 +295,7 @@ window.BRANDS = [
       { model: "Frenzy CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Frost CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Fuse SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "G17 Evo DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/g17evodbo.png", feat: 3 },
       { model: "Gamma SF", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Gamma SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Genesis CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
@@ -327,9 +343,9 @@ window.BRANDS = [
       { model: "Massive CCBR", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Monarch SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Morph CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
-      { model: "N33 Barrage DRW", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
-      { model: "N64 Dread SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
-      { model: "N65 Scout SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "N33 Barrage DRW", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/n33barragedrw.png", feat: 2 },
+      { model: "N64 Dread SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/n64dreadss.png", feat: 21 },
+      { model: "N65 Scout SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/n65scoutss.png", feat: 20 },
       { model: "Nebula CCFP", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Nemesis CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Nexus CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
@@ -435,7 +451,7 @@ window.BRANDS = [
       { model: "Whiskey SF", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Wraith CC", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Z103 Thermo ZL 8", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
-      { model: "Z104 Chase ZL 8", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
+      { model: "Z104 Chase ZL 8", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/z104chasezl8.png", feat: 24 },
       { model: "Zero SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Zeta SS", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] },
       { model: "Zeus FP", configs: ["single"], sizes: ["22x10","22x12","24x12","24x14","26x14","26x16"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"] }
