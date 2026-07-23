@@ -266,17 +266,69 @@
   // ---- dedicated brand page: brand logo + every wheel style w/ per-wheel & set-of-4 pricing ----
   // Showroom card: wheel + name only. No prices until real dealer pricing
   // lands — invented numbers on forged wheels are a promise we can't keep.
+  // Swatch colour used for the finish dots — approximate, purely a UI cue;
+  // the photo underneath is the real article.
+  var FINISH_DOT = {
+    polished: "linear-gradient(135deg,#fdfdfe,#c8ccd2 45%,#9aa0a8 62%,#f2f4f6)",
+    chrome: "linear-gradient(135deg,#ffffff,#cdd2d8 45%,#8f959d 62%,#f4f6f8)",
+    brushed: "linear-gradient(135deg,#e7e9ec,#c3c7cc 50%,#aeb3b9)",
+    black: "linear-gradient(135deg,#3a3a3e,#0c0c0e)",
+    blackmilled: "linear-gradient(135deg,#4a4a4f,#111114 55%,#8b9097)",
+    bronze: "linear-gradient(135deg,#c69256,#7d5527)",
+    gunmetal: "linear-gradient(135deg,#7a8189,#3c4249)",
+  };
+  function finishDot(name) {
+    var k = String(name).toLowerCase().replace(/[^a-z]/g, "");
+    return FINISH_DOT[k] || FINISH_DOT[k.replace(/milled|clear|gloss|matte|satin/g, "")] || FINISH_DOT.polished;
+  }
+
   function wheelCard(brand, m) {
+    var vars = m.imgs && m.imgs.length > 1 ? m.imgs : null;
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
       : emblem(brand, m);
     var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
-    return '<a class="wheel fade" href="' + esc(quote) + '">' +
+    return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(quote) + '">' +
       '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
+      (vars
+        ? '<div class="wheel__fin" role="group" aria-label="Finishes">' +
+            vars.map(function (v, i) {
+              return '<button type="button" class="wheel__sw' + (i === 0 ? ' is-on' : '') + '"' +
+                ' data-img="' + esc(v.img) + '" title="' + esc(v.finish) + '"' +
+                ' aria-label="' + esc(v.finish) + '" style="background:' + finishDot(v.finish) + '"></button>';
+            }).join("") +
+            '<span class="wheel__finname">' + esc(vars[0].finish) + '</span>' +
+          '</div>'
+        : '') +
       '<div class="wheel__badges">' + badges(m) + '</div>' +
       '<span class="wheel__quote">Get pricing →</span>' +
       '</a>';
+  }
+
+  // Finish swatches: hover (or tap) to swap the photo without leaving the page.
+  function bindFinishSwatches(root) {
+    function show(sw) {
+      var card = sw.closest(".wheel");
+      var img = card && card.querySelector(".wheel__media img");
+      if (!img) return;
+      img.src = sw.dataset.img;
+      card.querySelectorAll(".wheel__sw").forEach(function (o) { o.classList.toggle("is-on", o === sw); });
+      var label = card.querySelector(".wheel__finname");
+      if (label) label.textContent = sw.getAttribute("title");
+    }
+    root.addEventListener("mouseover", function (e) {
+      var sw = e.target.closest(".wheel__sw");
+      if (sw) show(sw);
+    });
+    // Tap on touch devices must swap the finish, not follow the card link.
+    root.addEventListener("click", function (e) {
+      var sw = e.target.closest(".wheel__sw");
+      if (!sw) return;
+      e.preventDefault();
+      e.stopPropagation();
+      show(sw);
+    });
   }
 
   // Brand pages show a curated showroom, not the whole lineup — the rest
@@ -336,8 +388,9 @@
               '</div>' +
             '</div>'
           : '') +
-        '<p class="wheelwrap__note">Prices are per wheel; set-of-4 shown. Dually &amp; super-single sets (6 wheels) and tire packages are finalized at fitment — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
+        '<p class="wheelwrap__note">Every style is built to order in your choice of finish and size. Dually &amp; super-single sets are 6 wheels — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
       '</section>';
+    bindFinishSwatches(root);
     if (window.__observeFades) window.__observeFades();
   }
 

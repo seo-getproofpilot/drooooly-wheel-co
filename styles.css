@@ -1863,3 +1863,21 @@ a.wheel{text-decoration:none;color:inherit;cursor:pointer}
 a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .wheel__quote{margin-top:auto;padding-top:6px;font-family:var(--label);font-size:11px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .18s ease}
+
+/* v95 — Showroom cards sit flat on the page: no card chrome, no ring.
+   Just the wheel, its name and its config options. */
+.wheel{background:none;border:none;border-radius:0;box-shadow:none;padding:6px 8px 14px}
+.wheel:hover{transform:translateY(-4px);border-color:transparent;box-shadow:none}
+.wheel__media{background:none}
+.wheel__media.pkg__media--emblem{background:none}
+
+/* v95b — Finish swatches: hover a dot to see that wheel in that finish. */
+.wheel__fin{display:flex;align-items:center;justify-content:center;gap:7px;margin:2px 0 8px;min-height:20px}
+.wheel__sw{width:16px;height:16px;padding:0;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(0,0,0,.22);box-shadow:0 1px 3px rgba(0,0,0,.16);
+  transition:transform .16s var(--ease),box-shadow .16s,outline-color .16s;outline:2px solid transparent;outline-offset:2px}
+.wheel__sw:hover{transform:scale(1.18)}
+.wheel__sw.is-on{outline-color:var(--blue-2);box-shadow:0 2px 7px rgba(0,0,0,.26)}
+.wheel__finname{font-family:var(--label);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-left:3px}
+@media(max-width:560px){ .wheel__sw{width:20px;height:20px} .wheel__finname{display:none} }

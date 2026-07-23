@@ -156,6 +156,30 @@ for (const file of files) {
     if (c) byCode[c] = m;
     m.img = rel;
     m.feat = i + 1;
+
+    // Optional per-finish renders: [{finish, url}]. The default photo is
+    // finish #1 so the card always has something to show.
+    if (e.variants && e.variants.length) {
+      const imgs = [];
+      e.variants.forEach((v) => {
+        const fslug = norm(v.finish);
+        const vrel = `assets/wheels/${slug}/${mslug}--${fslug}.png`;
+        const vabs = path.join(ROOT, vrel);
+        const vext = (v.url.match(/\.(png|jpe?g|webp)(?:\?|$)/i) || [, "png"])[1].toLowerCase();
+        const vraw = path.join(outDir, `${mslug}--${fslug}.raw.${vext}`);
+        let vok = fs.existsSync(vabs);
+        if (!vok) {
+          vok = download(v.url, vraw) === "200";
+          if (vok) pending.push(vraw);
+        }
+        if (vok) imgs.push({ finish: v.finish, img: vrel });
+        else failed.push(`${e.model} (${v.finish})`);
+      });
+      if (imgs.length) {
+        m.imgs = imgs;
+        m.img = imgs[0].img;
+      }
+    }
   });
 
   if (pending.length) normalize(pending);
@@ -213,6 +237,7 @@ out += BRANDS.map((b) => {
   h += b.models.map((m) => {
     let s = `      { model: ${q(m.model)}, configs: ${arr(m.configs)}, sizes: ${arr(m.sizes)}, finishes: ${arr(m.finishes)}`;
     if (m.img) s += `, img: ${q(m.img)}`;
+    if (m.imgs) s += `, imgs: [` + m.imgs.map((v) => `{finish:${q(v.finish)},img:${q(v.img)}}`).join(",") + `]`;
     if (m.feat) s += `, feat: ${m.feat}`;
     return s + " }";
   }).join(",\n");
