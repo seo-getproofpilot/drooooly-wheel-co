@@ -9,35 +9,35 @@ window.BRANDS = [
     slug: "jtx", name: "JTX Forged", kind: "Forged", featured: true,
     site: "https://jtxforged.com", tagline: "Premium forged wheels for trucks & duallies — made in the USA.",
     models: [
-      { model: "404", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "404", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/404.png" },
       { model: "Ace", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Alpha", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Alpha", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/alpha.png" },
       { model: "Arcane", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Archetype", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Avalon", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Ballistic", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Ballistic", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/ballistic.png" },
       { model: "Bandit", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Bio", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Bludgeon", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Botanic", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Bristle", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Cadaver", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Cannon", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheel-angle-1.png" },
-      { model: "Capital", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Capo", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Cannon", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/cannon.png" },
+      { model: "Capital", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/capital.png" },
+      { model: "Capo", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/capo.png" },
       { model: "Capo Max", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Carbine", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Centerfire", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Centerfire", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/centerfire.png" },
       { model: "Chamber", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Chief", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Chisel", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Chrono", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Citation", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Combat", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheel-angle-2.png" },
+      { model: "Combat", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/combat.png" },
       { model: "Commander", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Conflict", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Contra", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Crater", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Contra", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/contra.png" },
+      { model: "Crater", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/crater.png" },
       { model: "Credo", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Culprit", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Czar", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
@@ -60,14 +60,14 @@ window.BRANDS = [
       { model: "D-216", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "D-217", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Defector", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Dime", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Dime", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/dime.png" },
       { model: "Dominion", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Empire", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Empire", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/empire.png" },
       { model: "Era", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Felon", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Flight", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheel-angle-3.png" },
+      { model: "Flight", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/flight.png" },
       { model: "Fracture", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Game", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Game", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/game.png" },
       { model: "Giza", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Grip", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Icon", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
@@ -76,51 +76,51 @@ window.BRANDS = [
       { model: "Infinity", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Inhibitor", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Intrepid", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Jefe", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Jefe", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/jefe.png" },
       { model: "Joro", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Judge", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Keen", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Krueger", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Lok", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Lotus", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Lotus", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/lotus.png" },
       { model: "Major", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheel-face-1.png" },
       { model: "Manifest", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Maze", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Melee", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Melee", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/melee.png" },
       { model: "Militia", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Monarch", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Monarch", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/monarch.png" },
       { model: "Mortal", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Myriad", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Myth", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Omen", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Omen", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/omen.png" },
       { model: "Orbit", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Paradigm", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Phoenix", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Pike", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Pinnacle", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Phoenix", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/phoenix.png" },
+      { model: "Pike", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/pike.png" },
+      { model: "Pinnacle", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/pinnacle.png" },
       { model: "Prime", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Prodigy", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Pronto", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Prophet", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Psycho", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Psycho", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/psycho.png" },
       { model: "Raider", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Reaper", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheel-face-2.png" },
+      { model: "Reaper", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/reaper.png" },
       { model: "Recluse", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Recon", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Revolt", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Revolt", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/revolt.png" },
       { model: "Rozay", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Rumble", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Rupture", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Savage", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Savant", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Scathe", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Schizo", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Schizo", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/schizo.png" },
       { model: "Schizo Max", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Scissor", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Semi", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Sensu", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Silencer", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Slayer", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Silencer", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/silencer.png" },
+      { model: "Slayer", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/slayer.png" },
       { model: "SS-200", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "SS-201", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "SS-202", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
@@ -154,10 +154,10 @@ window.BRANDS = [
       { model: "Suppressor", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Surge", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Tenet", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Tomahawk", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Tomahawk", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/tomahawk.png" },
       { model: "Triad", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Trinity", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
-      { model: "Vanquish", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"] },
+      { model: "Vanquish", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/vanquish.png" },
       { model: "Veil", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Vertex", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
       { model: "Vex", configs: ["single"], sizes: ["22x12","24x14","26x16","28x16","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"] },
@@ -508,7 +508,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "fenix", name: "Fenix Forged", kind: "Forged",
+    slug: "fenix", name: "Fenix Forged", kind: "Forged", featured: false,
     site: "https://fenixforged.com", tagline: "Built to outlast the road — forged single, dually & super single.",
     models: [
       { model: "L2002 Liberty", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
@@ -522,7 +522,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "liberty", name: "Liberty Forged", kind: "Forged",
+    slug: "liberty", name: "Liberty Forged", kind: "Forged", featured: false,
     site: "https://www.libertyforged.com", tagline: "Billet floaters with every set — forged super singles & duallies.",
     models: [
       { model: "Super Single Series", configs: ["single","super single"], sizes: ["22x12","24x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
@@ -535,7 +535,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "axe", name: "AXE Offroad", kind: "Forged",
+    slug: "axe", name: "AXE Offroad", kind: "Forged", featured: false,
     site: "https://axewheels.com", tagline: "Defined by design — forged directional duallies & off-road.",
     models: [
       { model: "AF6 Forged", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"] },
@@ -548,7 +548,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "tis", name: "TIS Wheels", kind: "Off-Road",
+    slug: "tis", name: "TIS Wheels", kind: "Off-Road", featured: false,
     site: "https://tiswheels.com", tagline: "Patented deep-lip monoblock truck & dually wheels.",
     models: [
       { model: "544 Dually", configs: ["single","dually"], sizes: ["20x8.25","22","24"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"] },
@@ -561,7 +561,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "vision", name: "Vision Wheel", kind: "HD / Dually",
+    slug: "vision", name: "Vision Wheel", kind: "HD / Dually", featured: false,
     site: "https://www.visionwheel.com", tagline: "HD workhorse duallies and off-road truck wheels.",
     models: [
       { model: "181 Hauler Dually", configs: ["dually"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"] },
@@ -575,7 +575,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "fittipaldi", name: "Fittipaldi Off Road", kind: "Forged",
+    slug: "fittipaldi", name: "Fittipaldi Off Road", kind: "Forged", featured: false,
     site: "https://www.fittipaldioffroad.com", tagline: "Forged truck & dually wheels — directional, true left/right.",
     models: [
       { model: "FDF600 Dually", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"] },
@@ -586,7 +586,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "arkon", name: "Arkon Off-Road", kind: "Off-Road",
+    slug: "arkon", name: "Arkon Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.arkonoffroad.com", tagline: "Proper directional deep-concave show-truck wheels.",
     models: [
       { model: "Lincoln", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
@@ -598,7 +598,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "cali", name: "Cali Off-Road", kind: "Off-Road",
+    slug: "cali", name: "Cali Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.calioffroadwheels.com", tagline: "Raising traditions — deep-lip truck & dually wheels.",
     models: [
       { model: "Summit", configs: ["single","dually"], sizes: ["20x10","22x12","24x14","20x8.25"], finishes: ["Gloss Black","Polished","Polished Milled"] },
@@ -610,7 +610,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "hardrock", name: "Hardrock Offroad", kind: "Off-Road",
+    slug: "hardrock", name: "Hardrock Offroad", kind: "Off-Road", featured: false,
     site: "https://hardrockoffroad.com", tagline: "Aggressive off-road & dually wheels — unbeatable value.",
     models: [
       { model: "H700 Affliction", configs: ["single","dually"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"] },
@@ -621,7 +621,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "hardcore", name: "Hardcore Off-Road", kind: "Off-Road",
+    slug: "hardcore", name: "Hardcore Off-Road", kind: "Off-Road", featured: false,
     site: "https://hcoffroad.com", tagline: "Concave truck wheels built for spiked lug nuts.",
     models: [
       { model: "HC19", configs: ["single","dually"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"] },
@@ -633,7 +633,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "xf", name: "XF Offroad", kind: "Off-Road",
+    slug: "xf", name: "XF Offroad", kind: "Off-Road", featured: false,
     site: "https://www.xfoffroad.com", tagline: "Flow-forged XFX series & aggressive cast off-road.",
     models: [
       { model: "XFX-301", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] },
@@ -645,7 +645,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "method", name: "Method Race Wheels", kind: "Off-Road",
+    slug: "method", name: "Method Race Wheels", kind: "Off-Road", featured: false,
     site: "https://www.methodracewheels.com", tagline: "Engineered for the extreme — Bead Grip & HD truck wheels.",
     models: [
       { model: "305 NV", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"] },
@@ -657,7 +657,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "kmc", name: "KMC Wheels", kind: "Off-Road",
+    slug: "kmc", name: "KMC Wheels", kind: "Off-Road", featured: false,
     site: "https://www.kmcwheels.com", tagline: "XD-series off-road & HD dually truck wheels.",
     models: [
       { model: "XD811 Rockstar 2", configs: ["single"], sizes: ["18x9","20x10","20x12"], finishes: ["Matte Black","PVD Chrome","Chrome"] },
@@ -668,7 +668,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "raceline", name: "Raceline Wheels", kind: "Off-Road",
+    slug: "raceline", name: "Raceline Wheels", kind: "Off-Road", featured: false,
     site: "https://racelinewheels.com", tagline: "Family owned since '96 — Bead Grip & forged beadlock.",
     models: [
       { model: "951 Ryno", configs: ["single","dually"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"] },
@@ -679,7 +679,7 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "black-rhino", name: "Black Rhino", kind: "Off-Road",
+    slug: "black-rhino", name: "Black Rhino", kind: "Off-Road", featured: false,
     site: "https://www.blackrhinowheels.com", tagline: "Built for the modern adventurer — HD truck & dually.",
     models: [
       { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"] },
