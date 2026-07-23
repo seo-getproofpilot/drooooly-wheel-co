@@ -305,8 +305,15 @@
   // exist so switching a brand on is a data change, not a rebuild.
   function priceLine(brand, m) {
     if (brand.pricing === "from" && typeof m.priceFrom === "number" && m.priceFrom > 0) {
-      return '<span class="wheel__price">Starting at <b>' + money(m.priceFrom) + '</b>' +
-        '<small>per wheel · your build is quoted</small></span>';
+      // These wheels are sold as sets, so show the set alongside the per-wheel
+      // figure — a per-wheel number on its own reads as the real cost of entry
+      // when the actual check is 4x or 6x that.
+      var sub = m.priceSet && m.priceSetQty
+        ? "set of " + m.priceSetQty + " from " + money(m.priceSet)
+        : "per wheel";
+      return '<span class="wheel__price">' +
+        '<span class="wheel__price-main">From <b>' + money(m.priceFrom) + '</b> / wheel</span>' +
+        '<small>' + sub + '</small></span>';
     }
     return '<span class="wheel__quote">Get pricing →</span>';
   }

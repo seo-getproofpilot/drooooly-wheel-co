@@ -1910,3 +1910,8 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
   font-family:var(--body);font-size:15px;color:#0b0d12}
 .wheel__price b{font-weight:600}
 .wheel__price small{font-family:var(--label);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* v102 — keep "From $897 / wheel" on one line, set price beneath it. */
+.wheel__price{gap:1px}
+.wheel__price-main{display:block;white-space:nowrap;font-size:15px;color:#0b0d12}
+.wheel__price-main b{font-weight:600}

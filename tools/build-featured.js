@@ -157,6 +157,8 @@ for (const file of files) {
     m.img = rel;
     m.feat = i + 1;
     if (typeof e.priceFrom === "number") m.priceFrom = e.priceFrom;
+    if (typeof e.priceSet === "number") m.priceSet = e.priceSet;
+    if (typeof e.priceSetQty === "number") m.priceSetQty = e.priceSetQty;
 
     // Optional per-finish renders: [{finish, url}]. The default photo is
     // finish #1 so the card always has something to show.
@@ -244,6 +246,8 @@ out += BRANDS.map((b) => {
     // priceFrom: lowest publishable "starting at", in whole dollars. Left
     // unset until dealer agreements say what we're allowed to show.
     if (typeof m.priceFrom === "number") s += `, priceFrom: ${m.priceFrom}`;
+    if (typeof m.priceSet === "number") s += `, priceSet: ${m.priceSet}`;
+    if (typeof m.priceSetQty === "number") s += `, priceSetQty: ${m.priceSetQty}`;
     if (m.feat) s += `, feat: ${m.feat}`;
     return s + " }";
   }).join(",\n");
