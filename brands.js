@@ -580,8 +580,11 @@ window.BRANDS = [
     site: "https://amaniforged.com", tagline: "Multi-piece forged dually wheels with billet floaters.",
     pricing: "quote",
     models: [
-      { model: "Allora", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
-      { model: "Apollo", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
+      { model: "Allora", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/allora.png", feat: 1 },
+      { model: "Apollo", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/apollo.png", feat: 2 },
+      { model: "Argon", configs: ["single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/argon.png", feat: 3 },
+      { model: "Arlo", configs: ["single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/arlo.png", feat: 4 },
+      { model: "Atlantic", configs: ["single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/atlantic.png", feat: 5 },
       { model: "Chile", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
       { model: "Conrad", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
       { model: "Cultura", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
