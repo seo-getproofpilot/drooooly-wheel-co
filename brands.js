@@ -763,15 +763,19 @@ window.BRANDS = [
     ]
   },
   {
-    slug: "kmc", name: "KMC Wheels", kind: "Off-Road", featured: false,
-    site: "https://www.kmcwheels.com", tagline: "XD-series off-road & HD dually truck wheels.",
+    slug: "kmc", name: "KMC Forged", kind: "Forged", featured: false,
+    site: "https://www.kmcwheels.com", tagline: "Forged monoblock &amp; beadlock wheels — built in the USA.",
     pricing: "quote",
+    priceFrom: 830,
+    priceNote: "forged monoblock &amp; beadlock",
     models: [
-      { model: "XD811 Rockstar 2", configs: ["single"], sizes: ["18x9","20x10","20x12"], finishes: ["Matte Black","PVD Chrome","Chrome"] },
-      { model: "XD820 Grenade", configs: ["single"], sizes: ["20x9","20x10","20x12","22x12"], finishes: ["Black","Black Machined","Chrome"] },
-      { model: "XD847 Outbreak", configs: ["single"], sizes: ["17x9","18x9","20x10"], finishes: ["Satin Black","Gray Machined"] },
-      { model: "XD Grenade Dually", configs: ["dually"], sizes: ["20x8.25","22x8.25"], finishes: ["Satin Black","Chrome","Black Machined"] },
-      { model: "XD775 Rockstar Dually", configs: ["dually"], sizes: ["20x8.25"], finishes: ["Matte Black","Satin Black"] }
+      { model: "KM400", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km400.png", feat: 6 },
+      { model: "KM402", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km402.png", feat: 7 },
+      { model: "KM444 Mesa Forged Beadlock", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km444mesaforgedbeadlock.png", feat: 3 },
+      { model: "KM445 Impact Forged Beadlock", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km445impactforgedbeadlock.png", feat: 1 },
+      { model: "KM447 Impact Forged Monoblock", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km447impactforgedmonoblock.png", feat: 2 },
+      { model: "KM450 Mesa Forged Slotted Beadlock", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km450mesaforgedslottedbeadlock.png", feat: 5 },
+      { model: "KM451 Mesa Forged Monoblock", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Polished","Black"], img: "assets/wheels/kmc/km451mesaforgedmonoblock.png", feat: 4 }
     ]
   },
   {
