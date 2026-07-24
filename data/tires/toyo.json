@@ -1,0 +1,65 @@
+{
+ "name": "Toyo Tires",
+ "site": "https://www.toyotires.com",
+ "tagline": "Open Country all-terrain, mud and rugged tread \u2014 plus Proxes street.",
+ "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Toyo_Tire_logo.svg",
+ "models": [
+  {
+   "model": "Open Country A/T III",
+   "tread": "All-Terrain",
+   "url": "https://images.customwheeloffset.com/tires/toyotires/opencountryatiii/opencountryatiii_white_top.jpg",
+   "priceFrom": 367,
+   "sizes": [
+    "35x12.50R17LT",
+    "37x12.50R17LT",
+    "35x12.50R18LT",
+    "P295/55R20",
+    "LT275/60R20",
+    "33x12.50R20LT",
+    "35x12.50R20LT",
+    "37x12.50R20LT",
+    "35x12.50R22LT"
+   ]
+  },
+  {
+   "model": "Open Country M/T",
+   "tread": "Mud-Terrain",
+   "url": "https://images.customwheeloffset.com/tires/toyotires/opencountrymt/opencountrymt_white_top.jpg",
+   "priceFrom": 508,
+   "sizes": [
+    "35x12.50R20LT"
+   ]
+  },
+  {
+   "model": "Open Country R/T Trail",
+   "tread": "Rugged-Terrain",
+   "url": "https://images.customwheeloffset.com/tires/toyotires/opencountryrttrail/opencountryrttrail_white_top.jpg",
+   "priceFrom": 442,
+   "sizes": [
+    "35x12.50R17LT",
+    "37x12.50R17LT"
+   ]
+  },
+  {
+   "model": "Open Country R/T PRO",
+   "tread": "Rugged-Terrain",
+   "url": "https://images.customwheeloffset.com/tires/toyotires/opencountryrtpro/opencountryrtpro_white_top.jpg",
+   "priceFrom": 519,
+   "sizes": [
+    "35x12.50R18LT",
+    "35x12.50R20LT"
+   ]
+  },
+  {
+   "model": "Proxes ST III",
+   "tread": "Street / Highway",
+   "url": "https://images.customwheeloffset.com/tires/toyotires/proxesstiii/proxesstiii_white_top.jpg",
+   "priceFrom": 266,
+   "sizes": [
+    "305/50R20",
+    "305/40R22",
+    "305/45R22"
+   ]
+  }
+ ]
+}
