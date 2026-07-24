@@ -1,0 +1,52 @@
+{
+ "name": "Mickey Thompson",
+ "site": "https://www.mickeythompsontires.com",
+ "tagline": "Baja Boss and Baja Legend \u2014 proven off-road tread.",
+ "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Mickey_Thompson_Performance_Tires_%26_Wheels_logo.svg",
+ "models": [
+  {
+   "model": "Baja Boss A/T",
+   "tread": "All-Terrain",
+   "priceFrom": 244,
+   "url": "https://images.customwheeloffset.com/tires/mickeythompson/bajabossat/bajabossat_white_top.jpg",
+   "sizes": [
+    "265/75R16",
+    "265/70R17XL",
+    "285/70R17",
+    "LT315/70R17",
+    "33x12.50R17LT",
+    "35x12.50R17LT",
+    "37x12.50R17LT",
+    "LT275/70R18",
+    "35x12.50R18LT",
+    "LT275/60R20",
+    "33x12.50R20LT",
+    "35x12.50R20LT"
+   ]
+  },
+  {
+   "model": "Baja Legend EXP",
+   "tread": "All-Terrain",
+   "priceFrom": 278,
+   "url": "https://images.customwheeloffset.com/tires/mickeythompson/bajalegendexp/bajalegendexp_white_top.jpg",
+   "sizes": [
+    "33x12.50R15LT",
+    "LT285/75R16",
+    "LT315/75R16",
+    "35x12.50R17LT"
+   ]
+  },
+  {
+   "model": "Baja Legend MTZ",
+   "tread": "Mud-Terrain",
+   "priceFrom": 301,
+   "url": "https://images.customwheeloffset.com/tires/mickeythompson/bajalegendmtz/bajalegendmtz_white_top.jpg",
+   "sizes": [
+    "33x12.50R15LT",
+    "35x12.50R15LT",
+    "LT285/75R16",
+    "LT315/75R16"
+   ]
+  }
+ ]
+}

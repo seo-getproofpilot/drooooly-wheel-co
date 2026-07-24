@@ -1,0 +1,58 @@
+{
+ "name": "AMP",
+ "site": "https://www.amptires.com",
+ "tagline": "Terrain Attack all-terrain, rugged and mud tread.",
+ "logo": null,
+ "models": [
+  {
+   "model": "Pro A/T",
+   "tread": "All-Terrain",
+   "priceFrom": 241,
+   "url": "https://images.customwheeloffset.com/tires/amp/proat/proat_white_top.jpg",
+   "sizes": [
+    "285/70R17",
+    "285/65R18",
+    "275/60R20",
+    "285/60R20",
+    "305/55R20",
+    "33x12.50R20",
+    "35x12.50R20",
+    "35x12.50R24LT"
+   ]
+  },
+  {
+   "model": "Mud Terrain Attack M/T A",
+   "tread": "Mud-Terrain",
+   "priceFrom": 326,
+   "url": "https://images.customwheeloffset.com/tires/amp/mudterrainattackmta/mudterrainattackmta_white_top.jpg",
+   "sizes": [
+    "33x12.50R20",
+    "35x12.50R20LT",
+    "33x12.50R22LT",
+    "33x13.50R24",
+    "35x13.50R24",
+    "37x13.50R24"
+   ]
+  },
+  {
+   "model": "Terrain Attack A/T A",
+   "tread": "All-Terrain",
+   "priceFrom": 318,
+   "url": "https://images.customwheeloffset.com/tires/amp/terrainattackata/terrainattackata_white_top.jpg",
+   "sizes": [
+    "33x12.50R22",
+    "35x12.50R22"
+   ]
+  },
+  {
+   "model": "Terrain Attack R/T",
+   "tread": "Rugged-Terrain",
+   "priceFrom": 204,
+   "url": "https://images.customwheeloffset.com/tires/amp/terrainattackrt/terrainattackrt_white_top.jpg",
+   "sizes": [
+    "P265/70R17",
+    "LT285/70R17"
+   ]
+  }
+ ]
+}

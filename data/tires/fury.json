@@ -1,0 +1,60 @@
+{
+ "name": "Fury Offroad",
+ "site": "https://furyoffroad.com",
+ "tagline": "Country Hunter mud and rugged tread \u2014 up to 42s.",
+ "logo": "https://furyoffroad.com/wp-content/uploads/2021/03/fury-logo.png",
+ "models": [
+  {
+   "model": "Country Hunter M/T",
+   "tread": "Mud-Terrain",
+   "priceFrom": 401,
+   "url": "https://images.customwheeloffset.com/tires/furyoffroad/countryhuntermt/countryhuntermt_white_top.jpg",
+   "sizes": [
+    "33x14.50R20LT",
+    "35x13.50R22",
+    "33x14.50R24LT",
+    "40x13.50R24LT",
+    "37x13.50R26",
+    "38x15.50R26LT",
+    "37x14.50R26LT",
+    "42x15.50R26LT",
+    "37x14.50R28",
+    "38x16.50R28LT",
+    "42x15.50R28LT"
+   ]
+  },
+  {
+   "model": "Country Hunter M/T II",
+   "tread": "Mud-Terrain",
+   "priceFrom": 387,
+   "url": "https://images.customwheeloffset.com/tires/furyoffroad/countryhuntermtii/countryhuntermtii_white_top.jpg",
+   "sizes": [
+    "40x13.50R17LT",
+    "35x12.50R20LT",
+    "35x13.50R20LT",
+    "35x12.50R24LT",
+    "35x14.50R24LT",
+    "37x13.50R24LT",
+    "LT405/30R26"
+   ]
+  },
+  {
+   "model": "Country Hunter R/T",
+   "tread": "Rugged-Terrain",
+   "priceFrom": 389,
+   "url": "https://images.customwheeloffset.com/tires/furyoffroad/countryhunterrt/countryhunterrt_white_top.jpg",
+   "sizes": [
+    "33x12.50R20LT"
+   ]
+  },
+  {
+   "model": "Country Hunter R/T Plus",
+   "tread": "Rugged-Terrain",
+   "priceFrom": 570,
+   "url": "https://images.customwheeloffset.com/tires/furyoffroad/countryhunterrtplus/countryhunterrtplus_white_top.jpg",
+   "sizes": [
+    "37x12.50R24LT"
+   ]
+  }
+ ]
+}

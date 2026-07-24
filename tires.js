@@ -7,11 +7,40 @@
    ============================================================ */
 window.TIRES = [
   {
+    slug: "amp", name: "AMP", site: "https://www.amptires.com",
+    tagline: "Terrain Attack all-terrain, rugged and mud tread.", logo: null, pricing: "from",
+    models: [
+      { model: "Pro A/T", tread: "All-Terrain", img: "assets/tires/amp/proat.png", rims: [17,18,20,24], sizes: ["285/70R17","285/65R18","275/60R20","285/60R20","305/55R20","33x12.50R20","35x12.50R20","35x12.50R24LT"], priceFrom: 241, feat: 1 },
+      { model: "Mud Terrain Attack M/T A", tread: "Mud-Terrain", img: "assets/tires/amp/mudterrainattackmta.png", rims: [20,22,24], sizes: ["33x12.50R20","35x12.50R20LT","33x12.50R22LT","33x13.50R24","35x13.50R24","37x13.50R24"], priceFrom: 326, feat: 2 },
+      { model: "Terrain Attack A/T A", tread: "All-Terrain", img: "assets/tires/amp/terrainattackata.png", rims: [22], sizes: ["33x12.50R22","35x12.50R22"], priceFrom: 318, feat: 3 },
+      { model: "Terrain Attack R/T", tread: "Rugged-Terrain", img: "assets/tires/amp/terrainattackrt.png", rims: [17], sizes: ["P265/70R17","LT285/70R17"], priceFrom: 204, feat: 4 }
+    ]
+  },
+  {
     slug: "bfgoodrich", name: "BFGoodrich", site: "https://www.bfgoodrichtires.com",
     tagline: "The all-terrain benchmark — KO3 and KO2.", logo: null, pricing: "from",
     models: [
       { model: "All-Terrain T/A KO3", tread: "All-Terrain", img: "assets/tires/bfgoodrich/allterraintako3.png", rims: [15,16,17,18,20], sizes: ["32x11.50R15","33x12.50R15","LT265/75R16","LT285/75R16","LT265/70R17","LT275/70R17","LT285/70R17","LT285/75R17","35x12.50R17","37x12.50R17","LT275/65R18","LT275/70R18","LT295/70R18","35x12.50R18","LT275/55R20","LT275/60R20","LT295/65R20","35x12.50R20"], priceFrom: 279, feat: 1 },
       { model: "All-Terrain T/A KO2", tread: "All-Terrain", img: "assets/tires/bfgoodrich/allterraintako2.png", rims: [17,18], sizes: ["LT285/70R17","33x12.50R18"], priceFrom: 319, feat: 2 }
+    ]
+  },
+  {
+    slug: "fury", name: "Fury Offroad", site: "https://furyoffroad.com",
+    tagline: "Country Hunter mud and rugged tread — up to 42s.", logo: null, pricing: "from",
+    models: [
+      { model: "Country Hunter M/T", tread: "Mud-Terrain", img: "assets/tires/fury/countryhuntermt.png", rims: [20,22,24,26,28], sizes: ["33x14.50R20LT","35x13.50R22","33x14.50R24LT","40x13.50R24LT","37x13.50R26","38x15.50R26LT","37x14.50R26LT","42x15.50R26LT","37x14.50R28","38x16.50R28LT","42x15.50R28LT"], priceFrom: 401, feat: 1 },
+      { model: "Country Hunter M/T II", tread: "Mud-Terrain", img: "assets/tires/fury/countryhuntermtii.png", rims: [17,20,24,26], sizes: ["40x13.50R17LT","35x12.50R20LT","35x13.50R20LT","35x12.50R24LT","35x14.50R24LT","37x13.50R24LT","LT405/30R26"], priceFrom: 387, feat: 2 },
+      { model: "Country Hunter R/T", tread: "Rugged-Terrain", img: "assets/tires/fury/countryhunterrt.png", rims: [20], sizes: ["33x12.50R20LT"], priceFrom: 389, feat: 3 },
+      { model: "Country Hunter R/T Plus", tread: "Rugged-Terrain", img: "assets/tires/fury/countryhunterrtplus.png", rims: [24], sizes: ["37x12.50R24LT"], priceFrom: 570, feat: 4 }
+    ]
+  },
+  {
+    slug: "mickey-thompson", name: "Mickey Thompson", site: "https://www.mickeythompsontires.com",
+    tagline: "Baja Boss and Baja Legend — proven off-road tread.", logo: null, pricing: "from",
+    models: [
+      { model: "Baja Boss A/T", tread: "All-Terrain", img: "assets/tires/mickey-thompson/bajabossat.png", rims: [16,17,18,20], sizes: ["265/75R16","265/70R17XL","285/70R17","LT315/70R17","33x12.50R17LT","35x12.50R17LT","37x12.50R17LT","LT275/70R18","35x12.50R18LT","LT275/60R20","33x12.50R20LT","35x12.50R20LT"], priceFrom: 244, feat: 1 },
+      { model: "Baja Legend EXP", tread: "All-Terrain", img: "assets/tires/mickey-thompson/bajalegendexp.png", rims: [15,16,17], sizes: ["33x12.50R15LT","LT285/75R16","LT315/75R16","35x12.50R17LT"], priceFrom: 278, feat: 2 },
+      { model: "Baja Legend MTZ", tread: "Mud-Terrain", img: "assets/tires/mickey-thompson/bajalegendmtz.png", rims: [15,16], sizes: ["33x12.50R15LT","35x12.50R15LT","LT285/75R16","LT315/75R16"], priceFrom: 301, feat: 3 }
     ]
   },
   {
