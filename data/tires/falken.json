@@ -1,0 +1,41 @@
+{
+ "name": "Falken",
+ "site": "https://www.falkentire.com",
+ "tagline": "Wildpeak all-terrain \u2014 the daily-driver favourite.",
+ "logo": null,
+ "models": [
+  {
+   "model": "Wildpeak A/T4W",
+   "tread": "All-Terrain",
+   "priceFrom": 249,
+   "url": "https://images.customwheeloffset.com/tires/falken/wildpeakat4w/wildpeakat4w_white_top.jpg",
+   "sizes": [
+    "265/75R16",
+    "265/70R17",
+    "LT285/70R17",
+    "35x11.50R17LT",
+    "275/65R18",
+    "LT285/65R18",
+    "LT285/70R18",
+    "LT285/75R18",
+    "LT295/70R18",
+    "35x12.50R18LT",
+    "35x12.50R20LT",
+    "35x12.50R22LT"
+   ]
+  },
+  {
+   "model": "Rubitrek A/T",
+   "tread": "All-Terrain",
+   "priceFrom": 163,
+   "url": "https://images.customwheeloffset.com/tires/falken/rubitrekat/rubitrekat_white_top.jpg",
+   "sizes": [
+    "235/75R15",
+    "30x9.50R15LT",
+    "31x10.50R15LT",
+    "P245/75R16",
+    "265/75R16"
+   ]
+  }
+ ]
+}

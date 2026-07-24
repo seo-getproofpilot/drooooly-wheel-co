@@ -18,10 +18,18 @@ window.TIRES = [
   },
   {
     slug: "bfgoodrich", name: "BFGoodrich", site: "https://www.bfgoodrichtires.com",
-    tagline: "The all-terrain benchmark — KO3 and KO2.", logo: null, pricing: "from",
+    tagline: "The all-terrain benchmark — KO3 and KO2.", logo: "assets/tires/bfgoodrich/logo.svg", pricing: "from",
     models: [
       { model: "All-Terrain T/A KO3", tread: "All-Terrain", img: "assets/tires/bfgoodrich/allterraintako3.png", rims: [15,16,17,18,20], sizes: ["32x11.50R15","33x12.50R15","LT265/75R16","LT285/75R16","LT265/70R17","LT275/70R17","LT285/70R17","LT285/75R17","35x12.50R17","37x12.50R17","LT275/65R18","LT275/70R18","LT295/70R18","35x12.50R18","LT275/55R20","LT275/60R20","LT295/65R20","35x12.50R20"], priceFrom: 279, feat: 1 },
       { model: "All-Terrain T/A KO2", tread: "All-Terrain", img: "assets/tires/bfgoodrich/allterraintako2.png", rims: [17,18], sizes: ["LT285/70R17","33x12.50R18"], priceFrom: 319, feat: 2 }
+    ]
+  },
+  {
+    slug: "falken", name: "Falken", site: "https://www.falkentire.com",
+    tagline: "Wildpeak all-terrain — the daily-driver favourite.", logo: null, pricing: "from",
+    models: [
+      { model: "Wildpeak A/T4W", tread: "All-Terrain", img: "assets/tires/falken/wildpeakat4w.png", rims: [16,17,18,20,22], sizes: ["265/75R16","265/70R17","LT285/70R17","35x11.50R17LT","275/65R18","LT285/65R18","LT285/70R18","LT285/75R18","LT295/70R18","35x12.50R18LT","35x12.50R20LT","35x12.50R22LT"], priceFrom: 249, feat: 1 },
+      { model: "Rubitrek A/T", tread: "All-Terrain", img: "assets/tires/falken/rubitrekat.png", rims: [15,16], sizes: ["235/75R15","30x9.50R15LT","31x10.50R15LT","P245/75R16","265/75R16"], priceFrom: 163, feat: 2 }
     ]
   },
   {
