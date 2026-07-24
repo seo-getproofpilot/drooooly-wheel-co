@@ -1,20 +1,182 @@
-[{"model":"KD115 Guilttrip","url":"https://kg1forged.com/wp-content/uploads/2025/11/KD115-1.webp","configs":["dually","super single"]},
-{"model":"KD090 Allure","url":"https://kg1forged.com/wp-content/uploads/2025/08/KD090.webp","configs":["dually","super single"]},
-{"model":"KD064 Taze","url":"https://kg1forged.com/wp-content/uploads/2025/08/KD064.webp","configs":["dually","super single"]},
-{"model":"KD060 Czar","url":"https://kg1forged.com/wp-content/uploads/2025/08/KD060.webp","configs":["dually","super single"]},
-{"model":"KD059 Seismic","url":"https://kg1forged.com/wp-content/uploads/2025/06/KD059.webp","configs":["dually","super single"]},
-{"model":"KD081 Buckler","url":"https://kg1forged.com/wp-content/uploads/2024/12/KD081.png","configs":["dually","super single"]},
-{"model":"KD056 Elevate","url":"https://kg1forged.com/wp-content/uploads/2024/12/KD056.png","configs":["dually","super single"]},
-{"model":"KD054 Glaze","url":"https://kg1forged.com/wp-content/uploads/2024/12/KD054-1.png","configs":["dually","super single"]},
-{"model":"KD066 Glitz","url":"https://kg1forged.com/wp-content/uploads/2024/04/KD066-GlITZ-1.png","configs":["dually","super single"]},
-{"model":"KD049 Jacked","url":"https://kg1forged.com/wp-content/uploads/2024/01/KD049.png","configs":["dually","super single"]},
-{"model":"KD038 Javelin","url":"https://kg1forged.com/wp-content/uploads/2024/01/KD038.png","configs":["dually","super single"]},
-{"model":"KD023 Bender","url":"https://kg1forged.com/wp-content/uploads/2024/01/KD023.png","configs":["dually","super single"]},
-{"model":"KD019 Torture","url":"https://kg1forged.com/wp-content/uploads/2024/01/KD019.png","configs":["dually","super single"]},
-{"model":"KD051 Vegas","url":"https://kg1forged.com/wp-content/uploads/2023/07/KD051-1.png","configs":["dually","super single"]},
-{"model":"KD014 Trident","url":"https://kg1forged.com/wp-content/uploads/2020/10/KD014.png","configs":["dually","super single"]},
-{"model":"KD006 Blitz","url":"https://kg1forged.com/wp-content/uploads/2020/10/KD006.png","configs":["dually","super single"]},
-{"model":"KD005 Razor","url":"https://kg1forged.com/wp-content/uploads/2020/10/KD005.png","configs":["dually","super single"]},
-{"model":"KD004 Duel","url":"https://kg1forged.com/wp-content/uploads/2020/08/KD004-1.png","configs":["dually","super single"]},
-{"model":"KD002 Honor","url":"https://kg1forged.com/wp-content/uploads/2020/08/KD002-1.png","configs":["dually","super single"]},
-{"model":"KD001 Master","url":"https://kg1forged.com/wp-content/uploads/2020/08/KD001.png","configs":["dually","super single"]}]
+[
+{
+"model": "KC1021 Spaded",
+"url": "https://kg1forged.com/wp-content/uploads/2025/11/KC1021.webp",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD115 Guilttrip",
+"url": "https://kg1forged.com/wp-content/uploads/2025/11/KD115-1.webp",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC1001 Hardtail",
+"url": "https://kg1forged.com/wp-content/uploads/2025/08/KC1001.webp",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD090 Allure",
+"url": "https://kg1forged.com/wp-content/uploads/2025/08/KD090.webp",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC114 Joker",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC114-JOKER.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD064 Taze",
+"url": "https://kg1forged.com/wp-content/uploads/2025/08/KD064.webp",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC092 Splice",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC092-SPLICE.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD060 Czar",
+"url": "https://kg1forged.com/wp-content/uploads/2025/08/KD060.webp",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC093 Deadset",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC093-DEADSET.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD059 Seismic",
+"url": "https://kg1forged.com/wp-content/uploads/2025/06/KD059.webp",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC078 Lush",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC078-LUSH.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD081 Buckler",
+"url": "https://kg1forged.com/wp-content/uploads/2024/12/KD081.png",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC079 Navi",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC079-NAVI.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD056 Elevate",
+"url": "https://kg1forged.com/wp-content/uploads/2024/12/KD056.png",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC076 Gotcha",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC076-GOTCHA.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD054 Glaze",
+"url": "https://kg1forged.com/wp-content/uploads/2024/12/KD054-1.png",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC073 Grinder",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC073-GRINDER.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD066 Glitz",
+"url": "https://kg1forged.com/wp-content/uploads/2024/04/KD066-GlITZ-1.png",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC070 Tusk",
+"url": "https://kg1forged.com/wp-content/uploads/2025/01/KC070-TUSK.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD049 Jacked",
+"url": "https://kg1forged.com/wp-content/uploads/2024/01/KD049.png",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC088 Joust",
+"url": "https://kg1forged.com/wp-content/uploads/2024/08/KC088-JOUST.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD023 Bender",
+"url": "https://kg1forged.com/wp-content/uploads/2024/01/KD023.png",
+"configs": [
+"dually",
+"super single"
+]
+},
+{
+"model": "KC080 Trance",
+"url": "https://kg1forged.com/wp-content/uploads/2024/05/KC080-TRANCE.png",
+"configs": [
+"single"
+]
+},
+{
+"model": "KD001 Master",
+"url": "https://kg1forged.com/wp-content/uploads/2020/08/KD001.png",
+"configs": [
+"dually",
+"super single"
+]
+}
+]
