@@ -411,6 +411,13 @@
         (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
         '<p class="wheelhero__meta">' + (more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
           ' · built to order in your size &amp; finish</p>' +
+        // Brand-level floor, for brands that price per model rather than per
+        // series. Putting one brand figure on every card would underquote the
+        // expensive styles; stating it once, here, stays true.
+        (b.priceFrom
+          ? '<p class="wheelhero__from">Styles from <b>' + money(b.priceFrom) + '</b> per wheel' +
+            (b.priceNote ? ' · ' + esc(b.priceNote) : '') + '</p>'
+          : '') +
       '</section>' +
       '<section class="wheelwrap">' +
         '<div class="wheelgrid">' + show.map(function (m) { return wheelCard(b, m); }).join("") + '</div>' +

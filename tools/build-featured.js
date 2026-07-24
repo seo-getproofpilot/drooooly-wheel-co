@@ -238,7 +238,11 @@ out += BRANDS.map((b) => {
   let h = `  {\n    slug: ${q(b.slug)}, name: ${q(b.name)}, kind: ${q(b.kind)}, featured: ${!!b.featured},\n`;
   h += `    site: ${q(b.site || "")}, tagline: ${q(b.tagline || "")},\n`;
   // pricing: "quote" (default) or "from" once an agreement lets us publish
-  h += `    pricing: ${q(b.pricing || "quote")},\n    models: [\n`;
+  h += `    pricing: ${q(b.pricing || "quote")},\n`;
+  // brand-level floor for brands that price per model, not per series
+  if (typeof b.priceFrom === "number") h += `    priceFrom: ${b.priceFrom},\n`;
+  if (b.priceNote) h += `    priceNote: ${q(b.priceNote)},\n`;
+  h += `    models: [\n`;
   h += b.models.map((m) => {
     let s = `      { model: ${q(m.model)}, configs: ${arr(m.configs)}, sizes: ${arr(m.sizes)}, finishes: ${arr(m.finishes)}`;
     if (m.img) s += `, img: ${q(m.img)}`;

@@ -172,6 +172,8 @@ window.BRANDS = [
     slug: "american-force", name: "American Force", kind: "Forged", featured: true,
     site: "https://www.americanforcewheels.com", tagline: "Truly All-American forged single-piece & dually wheels.",
     pricing: "quote",
+    priceFrom: 866,
+    priceNote: "custom forged — every build quoted",
     models: [
       { model: "1 Classic DBO", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/1classicdbo.png", feat: 9 },
       { model: "6N17 Vader SD", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Brushed","Black","Black Milled","Custom"], img: "assets/wheels/american-force/6n17vadersd.png", feat: 15 },
@@ -493,6 +495,8 @@ window.BRANDS = [
     slug: "fuel", name: "Fuel", kind: "Forged", featured: true,
     site: "https://www.fueloffroad.com", tagline: "Fuel Forged — the largest forged wheels in the business.",
     pricing: "quote",
+    priceFrom: 299,
+    priceNote: "cast & forged lines",
     models: [
       { model: "Ascend", configs: ["single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/fuel/ascend.png", feat: 18 },
       { model: "Catalyst Dually", configs: ["dually","super single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/fuel/catalystdually.png", feat: 5 },

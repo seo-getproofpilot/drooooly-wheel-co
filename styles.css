@@ -1915,3 +1915,7 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .wheel__price{gap:1px}
 .wheel__price-main{display:block;white-space:nowrap;font-size:15px;color:#0b0d12}
 .wheel__price-main b{font-weight:600}
+
+/* v104 — brand-level "styles from" line, for brands that price per model. */
+.wheelhero__from{margin:6px 0 0;font-family:var(--body);font-size:clamp(13px,1.15vw,15px);color:#0b0d12}
+.wheelhero__from b{font-weight:600}
