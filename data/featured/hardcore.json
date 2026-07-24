@@ -1,0 +1,62 @@
+[
+{
+"model": "HC24",
+"url": "https://images.customwheeloffset.com/wheels/hardcoreoffroad/hc24/hc24_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 389,
+"priceSet": 1556,
+"priceSetQty": 4
+},
+{
+"model": "HC101",
+"url": "https://images.customwheeloffset.com/wheels/hardcoreoffroad/hc101/hc101_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 389,
+"priceSet": 1556,
+"priceSetQty": 4
+},
+{
+"model": "HC102",
+"url": "https://images.customwheeloffset.com/wheels/hardcoreoffroad/hc102/hc102_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 389,
+"priceSet": 1556,
+"priceSetQty": 4
+},
+{
+"model": "HC103",
+"url": "https://images.customwheeloffset.com/wheels/hardcoreoffroad/hc103/hc103_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 399,
+"priceSet": 1596,
+"priceSetQty": 4
+},
+{
+"model": "HC104",
+"url": "https://images.customwheeloffset.com/wheels/hardcoreoffroad/hc104/hc104_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 399,
+"priceSet": 1596,
+"priceSetQty": 4
+},
+{
+"model": "HC108",
+"url": "https://images.customwheeloffset.com/wheels/hardcoreoffroad/hc108/hc108_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 489,
+"priceSet": 1956,
+"priceSetQty": 4
+}
+]

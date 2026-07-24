@@ -628,15 +628,21 @@ window.BRANDS = [
   {
     slug: "axe", name: "AXE Offroad", kind: "Forged", featured: false,
     site: "https://axewheels.com", tagline: "Defined by design — forged directional duallies & off-road.",
-    pricing: "quote",
+    pricing: "from",
     models: [
       { model: "AF6 Forged", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"] },
       { model: "AF10 Directional", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black Milled"] },
       { model: "AF12 Xerox", configs: ["single"], sizes: ["24x12","26x14"], finishes: ["Polished","Black Milled"] },
+      { model: "Atlas", configs: ["single"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/axe/atlas.png", priceFrom: 485, priceSet: 1940, priceSetQty: 4, feat: 1 },
       { model: "AX1.1", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Gloss Black","Chrome","Bronze"] },
       { model: "AX2.2", configs: ["single"], sizes: ["20x9.5","22x12","24x12"], finishes: ["Black Milled","Polished","Chrome"] },
-      { model: "AX6.1", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Black Milled","Polished","Matte Black"] },
-      { model: "Kratos", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black Milled","Bronze"] }
+      { model: "AX6.0", configs: ["single"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/axe/ax60.png", priceFrom: 648, priceSet: 2592, priceSetQty: 4, feat: 7 },
+      { model: "AX6.1", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Black Milled","Polished","Matte Black"], img: "assets/wheels/axe/ax61.png", priceFrom: 678, priceSet: 2712, priceSetQty: 4, feat: 8 },
+      { model: "Chronus", configs: ["single"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/axe/chronus.png", priceFrom: 499, priceSet: 1996, priceSetQty: 4, feat: 3 },
+      { model: "Echo", configs: ["single"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/axe/echo.png", priceFrom: 485, priceSet: 1940, priceSetQty: 4, feat: 2 },
+      { model: "Hades", configs: ["single"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/axe/hades.png", priceFrom: 576, priceSet: 2304, priceSetQty: 4, feat: 4 },
+      { model: "Kratos", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black Milled","Bronze"], img: "assets/wheels/axe/kratos.png", priceFrom: 645, priceSet: 2580, priceSetQty: 4, feat: 6 },
+      { model: "Zeus", configs: ["single"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/axe/zeus.png", priceFrom: 576, priceSet: 2304, priceSetQty: 4, feat: 5 }
     ]
   },
   {
@@ -741,24 +747,50 @@ window.BRANDS = [
     site: "https://hardrockoffroad.com", tagline: "Aggressive off-road & dually wheels — unbeatable value.",
     pricing: "quote",
     models: [
-      { model: "H700 Affliction", configs: ["single","dually"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"] },
       { model: "H504 Slammer Xposed", configs: ["single","dually"], sizes: ["20x10","22x12","24x12","20x8.25"], finishes: ["Gloss Black Milled","Chrome"] },
-      { model: "H704 Crusher", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black","Gloss Black Milled"] },
-      { model: "H708 Overdrive", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black","Gloss Black Milled"] },
-      { model: "H905 (Forged)", configs: ["single"], sizes: ["20x10","22x10","24x12"], finishes: ["Brushed","Gloss Black Milled"] }
+      { model: "H700", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h700.png", feat: 10 },
+      { model: "H704", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black","Gloss Black Milled"], img: "assets/wheels/hardrock/h704.png", feat: 11 },
+      { model: "H705", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h705.png", feat: 12 },
+      { model: "H707", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h707.png", feat: 13 },
+      { model: "H708", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black","Gloss Black Milled"], img: "assets/wheels/hardrock/h708.png", feat: 14 },
+      { model: "H709", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h709.png", feat: 15 },
+      { model: "H710", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h710.png", feat: 16 },
+      { model: "H711", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h711.png", feat: 17 },
+      { model: "H712", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h712.png", feat: 18 },
+      { model: "H713", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h713.png", feat: 19 },
+      { model: "H714", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h714.png", feat: 20 },
+      { model: "H715", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h715.png", feat: 21 },
+      { model: "H716", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h716.png", feat: 22 },
+      { model: "H717", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h717.png", feat: 23 },
+      { model: "H718", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h718.png", feat: 24 },
+      { model: "H905", configs: ["single"], sizes: ["20x10","22x10","24x12"], finishes: ["Brushed","Gloss Black Milled"], img: "assets/wheels/hardrock/h905.png", feat: 1 },
+      { model: "H906", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h906.png", feat: 2 },
+      { model: "H907", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h907.png", feat: 3 },
+      { model: "H908", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h908.png", feat: 4 },
+      { model: "H909", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h909.png", feat: 5 },
+      { model: "H910", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h910.png", feat: 6 },
+      { model: "H911", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h911.png", feat: 7 },
+      { model: "H912", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h912.png", feat: 8 },
+      { model: "H913", configs: ["single"], sizes: ["20x12","22x12","24x12","20x8.25"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h913.png", feat: 9 }
     ]
   },
   {
     slug: "hardcore", name: "Hardcore Off-Road", kind: "Off-Road", featured: false,
     site: "https://hcoffroad.com", tagline: "Concave truck wheels built for spiked lug nuts.",
-    pricing: "quote",
+    pricing: "from",
     models: [
-      { model: "HC19", configs: ["single","dually"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"] },
+      { model: "Forged DOGE", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Brushed"] },
+      { model: "Forged Elon", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Brushed"] },
       { model: "HC13", configs: ["single"], sizes: ["20x12","22x12","24x12"], finishes: ["Gloss Black Milled","Chrome"] },
       { model: "HC17", configs: ["single"], sizes: ["20x12","22x12","24x14"], finishes: ["Gloss Black Milled","Chrome","Bronze"] },
+      { model: "HC19", configs: ["single","dually"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"] },
       { model: "HC21", configs: ["single"], sizes: ["22x12","24x12","26x14"], finishes: ["Gloss Black Milled","Chrome"] },
-      { model: "Forged DOGE", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Brushed"] },
-      { model: "Forged Elon", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Brushed"] }
+      { model: "HC24", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"], img: "assets/wheels/hardcore/hc24.png", priceFrom: 389, priceSet: 1556, priceSetQty: 4, feat: 1 },
+      { model: "HC101", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"], img: "assets/wheels/hardcore/hc101.png", priceFrom: 389, priceSet: 1556, priceSetQty: 4, feat: 2 },
+      { model: "HC102", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"], img: "assets/wheels/hardcore/hc102.png", priceFrom: 389, priceSet: 1556, priceSetQty: 4, feat: 3 },
+      { model: "HC103", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"], img: "assets/wheels/hardcore/hc103.png", priceFrom: 399, priceSet: 1596, priceSetQty: 4, feat: 4 },
+      { model: "HC104", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"], img: "assets/wheels/hardcore/hc104.png", priceFrom: 399, priceSet: 1596, priceSetQty: 4, feat: 5 },
+      { model: "HC108", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome","Brushed"], img: "assets/wheels/hardcore/hc108.png", priceFrom: 489, priceSet: 1956, priceSetQty: 4, feat: 6 }
     ]
   },
   {

@@ -1,0 +1,82 @@
+[
+{
+"model": "Atlas",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/atlas/atlas_blackmilled_22x95_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 485,
+"priceSet": 1940,
+"priceSetQty": 4
+},
+{
+"model": "Echo",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/echo/echo_blackmilled_56lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 485,
+"priceSet": 1940,
+"priceSetQty": 4
+},
+{
+"model": "Chronus",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/chronus/chronus_glossblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 499,
+"priceSet": 1996,
+"priceSetQty": 4
+},
+{
+"model": "Hades",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/hades/hades_chrome_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 576,
+"priceSet": 2304,
+"priceSetQty": 4
+},
+{
+"model": "Zeus",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/zeus/zeus_chrome_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 576,
+"priceSet": 2304,
+"priceSetQty": 4
+},
+{
+"model": "Kratos",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/kratos/kratos_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 645,
+"priceSet": 2580,
+"priceSetQty": 4
+},
+{
+"model": "AX6.0",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/ax6.0/ax6.0_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 648,
+"priceSet": 2592,
+"priceSetQty": 4
+},
+{
+"model": "AX6.1",
+"url": "https://images.customwheeloffset.com/wheels/axeoffroad/ax6.1/ax6.1_silver_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 678,
+"priceSet": 2712,
+"priceSetQty": 4
+}
+]
