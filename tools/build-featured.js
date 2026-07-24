@@ -61,20 +61,26 @@ const NORMALIZE_PY = `
 from PIL import Image, ImageDraw
 import os, sys
 
-def debg(im, tol=26):
-    im = im.convert('RGBA')
-    w, h = im.size
-    px = im.load()
-    corners = [px[0,0], px[w-1,0], px[0,h-1], px[w-1,h-1]]
-    # only strip if the frame really is a light studio background
-    if not all(c[0] > 228 and c[1] > 228 and c[2] > 228 for c in corners):
+def debg(im, tol=30):
+    """Knock out a white studio background.
+
+    Samples the whole border, not just the four corners: product photos
+    often bleed off one edge, which made an all-corners test bail and
+    leave the white box in place. Only light border points are used as
+    flood seeds, so interior chrome highlights survive.
+    """
+    im = im.convert('RGBA'); w, h = im.size; px = im.load()
+    pts = []
+    for i in range(0, w, max(1, w // 24)):
+        pts += [(i, 0), (i, h - 1)]
+    for j in range(0, h, max(1, h // 24)):
+        pts += [(0, j), (w - 1, j)]
+    light = [p for p in pts if px[p][0] > 228 and px[p][1] > 228 and px[p][2] > 228]
+    if len(light) < len(pts) * 0.45:
         return im
-    seeds = [(0,0), (w-1,0), (0,h-1), (w-1,h-1), (w//2,0), (w//2,h-1), (0,h//2), (w-1,h//2)]
-    for s in seeds:
-        try:
-            ImageDraw.floodfill(im, s, (0,0,0,0), thresh=tol)
-        except Exception:
-            pass
+    for s in light:
+        try: ImageDraw.floodfill(im, s, (0,0,0,0), thresh=tol)
+        except Exception: pass
     return im
 
 for raw in sys.argv[1:]:

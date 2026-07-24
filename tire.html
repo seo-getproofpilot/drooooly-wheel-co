@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shop Tires — DROOOLY Wheel Co.</title>
-<meta name="description" content="Pick your tire brand — mud-terrains, all-terrains and highway rubber from every major maker, mounted &amp; balanced to your forged setup. Hand-spec'd for your exact truck." />
+<title>Shop Tires by Brand — DROOOLY Wheel Co.</title>
+<meta name="description" content="Shop every forged wheel style by brand — per-wheel and full set-of-4 pricing. Hand-spec'd for your exact truck. Leave 'em drooling." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -27,7 +27,7 @@
             <div class="mega__grid" id="wheelsBrands"><!-- brands via catalog.js --></div>
           </div>
         </div>
-        <a href="tires.html" class="nav__top nav__top--solo" aria-current="page">Tires</a>
+        <a href="tires.html" class="nav__top nav__top--solo">Tires</a>
         <div class="nav__item">
           <a href="index.html#builds" class="nav__top">Builds <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
           <div class="mega mega--sm">
@@ -53,66 +53,7 @@
   </div>
 </header>
 
-<!-- ============ TIRE HERO ============ -->
-<section class="tire-hero">
-  <div class="tire-hero__inner">
-    <div class="tire-hero__copy">
-      <span class="kicker" style="color:var(--blue-2)">Wheel &amp; tire packages</span>
-      <h1>Select your <em>tire brand.</em></h1>
-      <p>Every set we sell ships mounted, balanced &amp; road-force tested on your forged wheels. Pick your favorite brand below — mud-terrain, all-terrain or highway — and we'll spec the exact size for your truck.</p>
-      <div class="tire-hero__cta">
-        <a href="#brands" class="btn btn--chrome">Browse brands</a>
-        <a href="index.html#fitment" class="btn btn--ghost">Get fitted</a>
-      </div>
-    </div>
-    <div class="tire-hero__art" aria-hidden="true">
-      <svg viewBox="0 0 220 220" role="img">
-        <defs>
-          <radialGradient id="tg" cx="50%" cy="42%" r="60%">
-            <stop offset="0%" stop-color="#2a2f38"/><stop offset="100%" stop-color="#0a0c10"/>
-          </radialGradient>
-        </defs>
-        <circle cx="110" cy="110" r="104" fill="url(#tg)" stroke="#3a4048" stroke-width="2"/>
-        <circle cx="110" cy="110" r="92" fill="none" stroke="#4a515b" stroke-width="1"/>
-        <g stroke="#5a626d" stroke-width="9" stroke-linecap="butt">
-          <!-- tread ticks -->
-          <line x1="110" y1="16" x2="110" y2="30"/><line x1="110" y1="190" x2="110" y2="204"/>
-          <line x1="16" y1="110" x2="30" y2="110"/><line x1="190" y1="110" x2="204" y2="110"/>
-          <line x1="43" y1="43" x2="53" y2="53"/><line x1="167" y1="167" x2="177" y2="177"/>
-          <line x1="177" y1="43" x2="167" y2="53"/><line x1="53" y1="167" x2="43" y2="177"/>
-          <line x1="76" y1="22" x2="80" y2="35"/><line x1="140" y1="185" x2="144" y2="198"/>
-          <line x1="144" y1="22" x2="140" y2="35"/><line x1="80" y1="185" x2="76" y2="198"/>
-          <line x1="22" y1="76" x2="35" y2="80"/><line x1="185" y1="140" x2="198" y2="144"/>
-          <line x1="22" y1="144" x2="35" y2="140"/><line x1="185" y1="80" x2="198" y2="76"/>
-        </g>
-        <circle cx="110" cy="110" r="58" fill="#0b0d11" stroke="#3a4048" stroke-width="2"/>
-        <circle cx="110" cy="110" r="30" fill="none" stroke="#6b7480" stroke-width="10"/>
-        <circle cx="110" cy="110" r="9" fill="#8b94a0"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BRAND GRID ============ -->
-<section class="tire-brands" id="brands">
-  <div class="tire-brands__inner">
-    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
-      <span class="kicker center">In-stock tire brands</span>
-      <h2 class="tire-brands__title">Shop tires by brand</h2>
-      <p class="tire-brands__lead">Tap a brand to start your package. Don't see your size? We can source anything — just tell us your truck.</p>
-    </div>
-
-    <div class="tbrand-grid" id="tireBrandGrid"><!-- rendered by catalog.js --></div>
-
-    <div class="tbrand-cta">
-      <div>
-        <h3>Not sure what fits?</h3>
-        <p>Tell us your year, make &amp; model and we'll spec the exact tire &amp; wheel package and confirm the fitment before anything ships.</p>
-      </div>
-      <a href="index.html#fitment" class="btn btn--chrome">Find my fitment</a>
-    </div>
-  </div>
-</section>
+<main id="tirePage"><!-- rendered by catalog.js --></main>
 
 <footer class="site-footer">
   <div class="footer__inner">

@@ -1,0 +1,48 @@
+{
+ "name": "Nitto",
+ "site": "https://www.nittotire.com",
+ "tagline": "Street, all-terrain and mud tread built for trucks.",
+ "logo": "https://www.nittotire.com/media/ij3l5cph/header-nitto-logo.svg",
+ "models": [
+  {
+   "model": "Ridge Grappler",
+   "tread": "Hybrid All-Terrain / Mud",
+   "url": "https://images.customwheeloffset.com/tires/nitto/ridgegrappler/ridgegrappler_white_top.jpg",
+   "priceFrom": 300,
+   "sizes": [
+    "285/70R17",
+    "35x12.50R17LT",
+    "35x12.50R18LT",
+    "33x12.50R20LT",
+    "35x11.5R20LT",
+    "35x12.50R20LT",
+    "37x12.50R20LT",
+    "35x12.50R22LT"
+   ]
+  },
+  {
+   "model": "Mud Grappler",
+   "tread": "Mud-Terrain",
+   "url": "https://images.customwheeloffset.com/tires/nitto/mudgrappler/mudgrappler_white_top.jpg",
+   "priceFrom": 449,
+   "sizes": [
+    "35x12.50R17LT",
+    "35x12.50R20LT",
+    "37x13.50R20LT"
+   ]
+  },
+  {
+   "model": "NT420V",
+   "tread": "Highway / Street",
+   "url": "https://images.customwheeloffset.com/tires/nitto/nt420v/nt420v_white_top.jpg",
+   "priceFrom": 192,
+   "sizes": [
+    "275/55R20XL",
+    "305/50R20XL",
+    "305/40R22XL",
+    "285/45R22XL",
+    "305/45R22XL"
+   ]
+  }
+ ]
+}

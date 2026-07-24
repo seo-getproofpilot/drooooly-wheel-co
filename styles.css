@@ -1919,3 +1919,38 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 /* v104 — brand-level "styles from" line, for brands that price per model. */
 .wheelhero__from{margin:6px 0 0;font-family:var(--body);font-size:clamp(13px,1.15vw,15px);color:#0b0d12}
 .wheelhero__from b{font-weight:600}
+
+/* ============================================================
+   v112 — Tire catalog: brand grid logos + tread cards
+   ============================================================ */
+.tirelogo{max-height:clamp(34px,4.4vw,58px);width:auto;max-width:min(70%,340px)}
+.tbrand__logo{max-height:44px;max-width:78%;width:auto;object-fit:contain;
+  filter:grayscale(1) brightness(0) invert(1) opacity(.92);transition:filter .2s ease}
+.tbrand:hover .tbrand__logo{filter:grayscale(0) brightness(1) invert(0) opacity(1)}
+
+.tiregrid{grid-template-columns:repeat(4,1fr)}
+.tire{display:flex;flex-direction:column;align-items:center;text-align:center;
+  text-decoration:none;color:inherit;padding:6px 8px 14px;transition:transform .22s var(--ease)}
+.tire:hover{transform:translateY(-4px)}
+.tire__media{width:100%;aspect-ratio:1/1;display:grid;place-items:center;margin-bottom:4px}
+.tire__media img{max-width:92%;max-height:92%;object-fit:contain;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.28))}
+.tire__name{font-family:var(--display);font-size:clamp(14px,1.25vw,17px);color:#0b0d12;
+  text-transform:uppercase;letter-spacing:-.01em;margin:2px 0 5px;line-height:1.1}
+.tire__tread{margin:0;font-family:var(--label);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--blue-2)}
+.tire__rims{margin:5px 0 0;font-family:var(--label);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--muted)}
+.tire__sizes{margin:7px 0 0;max-width:100%}
+.tire__sizes summary{cursor:pointer;font-family:var(--label);font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);list-style:none}
+.tire__sizes summary::-webkit-details-marker{display:none}
+.tire__sizes summary::after{content:" ▾"}
+.tire__sizes[open] summary::after{content:" ▴"}
+.tire__sizes summary:hover{color:var(--blue-2)}
+.tire__sizes span{display:block;margin-top:6px;font-size:11.5px;line-height:1.6;color:#4a5059;
+  word-break:break-word}
+.tire .wheel__price,.tire .wheel__quote{margin-top:auto;padding-top:10px}
+
+@media(max-width:1100px){ .tiregrid{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:820px){ .tiregrid{grid-template-columns:repeat(2,1fr)} }

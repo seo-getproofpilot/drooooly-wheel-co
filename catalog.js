@@ -448,8 +448,87 @@
     if (f && !f.value) f.value = w;
   }
 
+  // ---- tires ----
+  var TIRES = window.TIRES || [];
+  var tireBySlug = {};
+  TIRES.forEach(function (b) { tireBySlug[b.slug] = b; });
+
+  function tireCard(brand, m) {
+    var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
+    var rims = m.rims && m.rims.length
+      ? m.rims.map(function (r) { return r + '"'; }).join(" · ")
+      : "";
+    return '<a class="tire fade" href="' + esc(quote) + '">' +
+      '<div class="tire__media"><img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy"></div>' +
+      '<h3 class="tire__name">' + m.model + '</h3>' +
+      (m.tread ? '<p class="tire__tread">' + esc(m.tread) + '</p>' : '') +
+      (rims ? '<p class="tire__rims">Fits ' + rims + ' wheels</p>' : '') +
+      (m.sizes && m.sizes.length
+        ? '<details class="tire__sizes"><summary>' + m.sizes.length + ' size' +
+          (m.sizes.length === 1 ? '' : 's') + '</summary><span>' +
+          m.sizes.map(esc).join(" · ") + '</span></details>'
+        : '') +
+      (brand.pricing === "from" && m.priceFrom
+        ? '<span class="wheel__price"><span class="wheel__price-main">From <b>' + money(m.priceFrom) +
+          '</b> / tire</span><small>set of 4 from ' + money(m.priceFrom * 4) + '</small></span>'
+        : '<span class="wheel__quote">Get pricing →</span>') +
+      '</a>';
+  }
+
+  function renderTirePage(root) {
+    var q = new URLSearchParams(location.search);
+    var slug = q.get("brand") || q.get("b");
+    var b = slug && tireBySlug[slug];
+    if (!b) {
+      root.innerHTML = '<section class="wheelhero"><a class="wheelhero__back" href="tires.html">← All tire brands</a>' +
+        '<h1>Shop tires by brand</h1><p class="wheelhero__tag">Pick a brand to see its treads and sizes.</p></section>';
+      if (window.__observeFades) window.__observeFades();
+      return;
+    }
+    document.title = b.name + " Tires — DROOOLY Wheel Co.";
+    var host = (b.site || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+    var sizeCount = b.models.reduce(function (a, m) { return a + (m.sizes ? m.sizes.length : 0); }, 0);
+
+    root.innerHTML =
+      '<section class="wheelhero">' +
+        '<a class="wheelhero__back" href="tires.html">← All tire brands</a>' +
+        (b.logo ? '<img class="wheelhero__logo tirelogo" src="' + b.logo + '" alt="' + esc(b.name) + '">' : '') +
+        '<h1' + (b.logo ? ' class="sr-only"' : '') + '>' + b.name + '</h1>' +
+        (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
+        '<p class="wheelhero__meta">' + b.models.length + ' tread' + (b.models.length === 1 ? '' : 's') +
+          ' · ' + sizeCount + ' sizes · mounted &amp; balanced with your set</p>' +
+      '</section>' +
+      '<section class="wheelwrap">' +
+        '<div class="wheelgrid tiregrid">' + b.models.map(function (m) { return tireCard(b, m); }).join("") + '</div>' +
+        (b.site
+          ? '<div class="wheelmore"><h3>See the full ' + esc(b.name) + ' range</h3>' +
+            '<p>Browse every tread on ' + esc(b.name) + '&rsquo;s site — then come back and we&rsquo;ll mount and balance them to your wheels.</p>' +
+            '<div class="wheelmore__btns">' +
+              '<a class="btn btn--chrome" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
+                '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
+              '<a class="btn btn--ghost" href="index.html#fitment">Get fitted</a></div></div>'
+          : '') +
+        '<p class="wheelwrap__note">Sizes shown are what we stock for truck fitments. Tell us your wheels and we&rsquo;ll confirm the right size — <a href="index.html#fitment">get fitted</a>.</p>' +
+      '</section>';
+    if (window.__observeFades) window.__observeFades();
+  }
+
+  function renderTireBrandGrid(root) {
+    root.innerHTML = TIRES.map(function (b) {
+      var treads = [...new Set(b.models.map(function (m) { return (m.tread || "").split(" / ")[0]; }))]
+        .filter(Boolean).slice(0, 2).join(" · ");
+      return '<a class="tbrand" href="tire.html?brand=' + b.slug + '">' +
+        (b.logo
+          ? '<img class="tbrand__logo" src="' + b.logo + '" alt="' + esc(b.name) + '">'
+          : '<span class="tbrand__name">' + esc(b.name) + '</span>') +
+        '<span class="tbrand__cat">' + esc(treads || "Truck tires") + '</span></a>';
+    }).join("");
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     prefillWheel();
+    var tp = document.getElementById("tirePage"); if (tp) renderTirePage(tp);
+    var tg = document.getElementById("tireBrandGrid"); if (tg) renderTireBrandGrid(tg);
     var bg = document.getElementById("brandGrid"); if (bg) renderBrandGrid(bg);
     var fg = document.getElementById("featuredGrid"); if (fg) renderFeatured(fg);
     var sp = document.getElementById("shopPage"); if (sp) renderShop(sp);
