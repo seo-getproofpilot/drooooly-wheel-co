@@ -686,13 +686,25 @@ window.BRANDS = [
   {
     slug: "fittipaldi", name: "Fittipaldi Off Road", kind: "Forged", featured: false,
     site: "https://www.fittipaldioffroad.com", tagline: "Forged truck & dually wheels — directional, true left/right.",
-    pricing: "quote",
+    pricing: "from",
     models: [
+      { model: "FA08", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa08.png", priceFrom: 320, priceSet: 1280, priceSetQty: 4, feat: 6 },
+      { model: "FA13", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa13.png", priceFrom: 651, priceSet: 2604, priceSetQty: 4, feat: 10 },
+      { model: "FA16", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa16.png", priceFrom: 161, priceSet: 644, priceSetQty: 4, feat: 1 },
+      { model: "FA17", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa17.png", priceFrom: 342, priceSet: 1368, priceSetQty: 4, feat: 7 },
+      { model: "FA18", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa18.png", priceFrom: 453, priceSet: 1812, priceSetQty: 4, feat: 9 },
+      { model: "FA20", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa20.png", priceFrom: 433, priceSet: 1732, priceSetQty: 4, feat: 8 },
+      { model: "FA21", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa21.png", priceFrom: 312, priceSet: 1248, priceSetQty: 4, feat: 5 },
+      { model: "FA25", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa25.png", priceFrom: 918, priceSet: 3672, priceSetQty: 4, feat: 11 },
       { model: "FDF600 Dually", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"] },
       { model: "FDF601 Dually", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"] },
+      { model: "FT100", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/ft100.png", priceFrom: 225, priceSet: 900, priceSetQty: 4, feat: 2 },
+      { model: "FT101", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/ft101.png", priceFrom: 287, priceSet: 1148, priceSetQty: 4, feat: 4 },
+      { model: "FT106", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/ft106.png", priceFrom: 276, priceSet: 1104, priceSetQty: 4, feat: 3 },
       { model: "FTF501", configs: ["single"], sizes: ["20x10","22x10","24x12"], finishes: ["Gloss Black","Black Milled","Brushed"] },
       { model: "FTF503", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Gloss Black","Black Milled"] },
-      { model: "FTF507", configs: ["single"], sizes: ["22x12","24x12"], finishes: ["Polished","Gloss Black","Black Milled"] }
+      { model: "FTF507", configs: ["single"], sizes: ["22x12","24x12"], finishes: ["Polished","Gloss Black","Black Milled"] },
+      { model: "FTF510", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/ftf510.png", priceFrom: 2442, priceSet: 9768, priceSetQty: 4, feat: 12 }
     ]
   },
   {
@@ -752,14 +764,24 @@ window.BRANDS = [
   {
     slug: "xf", name: "XF Offroad", kind: "Off-Road", featured: false,
     site: "https://www.xfoffroad.com", tagline: "Flow-forged XFX series & aggressive cast off-road.",
-    pricing: "quote",
+    pricing: "from",
     models: [
+      { model: "XF-206", configs: ["single"], sizes: ["20x9","20x10","22x12"], finishes: ["Chrome","Satin Black","Black Milled"] },
+      { model: "XF-210", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Chrome","Satin Black","Black Milled"] },
+      { model: "XF-220", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf220.png", priceFrom: 283, priceSet: 1132, priceSetQty: 4, feat: 5 },
+      { model: "XF-224", configs: ["single"], sizes: ["20x10","20x12","22x12"], finishes: ["Chrome","Satin Black","Black & Red Milled"], img: "assets/wheels/xf/xf224.png", priceFrom: 481, priceSet: 1924, priceSetQty: 4, feat: 10 },
+      { model: "XF-231", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf231.png", priceFrom: 246, priceSet: 984, priceSetQty: 4, feat: 1 },
+      { model: "XF-232", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf232.png", priceFrom: 325, priceSet: 1300, priceSetQty: 4, feat: 7 },
+      { model: "XF-233", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf233.png", priceFrom: 459, priceSet: 1836, priceSetQty: 4, feat: 9 },
+      { model: "XF-234", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf234.png", priceFrom: 265, priceSet: 1060, priceSetQty: 4, feat: 2 },
+      { model: "XF-236", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf236.png", priceFrom: 276, priceSet: 1104, priceSetQty: 4, feat: 4 },
+      { model: "XF-237", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf237.png", priceFrom: 266, priceSet: 1064, priceSetQty: 4, feat: 3 },
+      { model: "XF-238", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf238.png", priceFrom: 305, priceSet: 1220, priceSetQty: 4, feat: 6 },
+      { model: "XF-240", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf240.png", priceFrom: 450, priceSet: 1800, priceSetQty: 4, feat: 8 },
+      { model: "XF-247", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"], img: "assets/wheels/xf/xf247.png", priceFrom: 504, priceSet: 2016, priceSetQty: 4, feat: 11 },
       { model: "XFX-301", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] },
       { model: "XFX-302", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] },
-      { model: "XFX-306", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] },
-      { model: "XF-224", configs: ["single"], sizes: ["20x10","20x12","22x12"], finishes: ["Chrome","Satin Black","Black & Red Milled"] },
-      { model: "XF-206", configs: ["single"], sizes: ["20x9","20x10","22x12"], finishes: ["Chrome","Satin Black","Black Milled"] },
-      { model: "XF-210", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Chrome","Satin Black","Black Milled"] }
+      { model: "XFX-306", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] }
     ]
   },
   {

@@ -1,0 +1,112 @@
+[
+{
+"model": "XF-231",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf231/xf231_blackbronze_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 246,
+"priceSet": 984,
+"priceSetQty": 4
+},
+{
+"model": "XF-234",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf234/xf234_blackred_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 265,
+"priceSet": 1060,
+"priceSetQty": 4
+},
+{
+"model": "XF-237",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf237/xf237_blacktint_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 266,
+"priceSet": 1064,
+"priceSetQty": 4
+},
+{
+"model": "XF-236",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf236/xf236_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 276,
+"priceSet": 1104,
+"priceSetQty": 4
+},
+{
+"model": "XF-220",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf220/xf220_blackred_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 283,
+"priceSet": 1132,
+"priceSetQty": 4
+},
+{
+"model": "XF-238",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf238/xf238_blackred_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 305,
+"priceSet": 1220,
+"priceSetQty": 4
+},
+{
+"model": "XF-232",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf232/xf232_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 325,
+"priceSet": 1300,
+"priceSetQty": 4
+},
+{
+"model": "XF-240",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf240/xf240_blackred_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 450,
+"priceSet": 1800,
+"priceSetQty": 4
+},
+{
+"model": "XF-233",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf233/xf233_blackblue_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 459,
+"priceSet": 1836,
+"priceSetQty": 4
+},
+{
+"model": "XF-224",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf224/xf224_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 481,
+"priceSet": 1924,
+"priceSetQty": 4
+},
+{
+"model": "XF-247",
+"url": "https://images.customwheeloffset.com/wheels/xfoffroad/xf247/xf247_blackmachined_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 504,
+"priceSet": 2016,
+"priceSetQty": 4
+}
+]

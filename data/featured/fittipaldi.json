@@ -1,0 +1,122 @@
+[
+{
+"model": "FA16",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa16/fa16_blackmachined_56lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 161,
+"priceSet": 644,
+"priceSetQty": 4
+},
+{
+"model": "FT100",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/ft100/ft100_grayblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 225,
+"priceSet": 900,
+"priceSetQty": 4
+},
+{
+"model": "FT106",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/ft106/ft106_satinblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 276,
+"priceSet": 1104,
+"priceSetQty": 4
+},
+{
+"model": "FT101",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/ft101/ft101_satinblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 287,
+"priceSet": 1148,
+"priceSetQty": 4
+},
+{
+"model": "FA21",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa21/fa21_glossblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 312,
+"priceSet": 1248,
+"priceSetQty": 4
+},
+{
+"model": "FA08",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa08/fa08_glossblack_8lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 320,
+"priceSet": 1280,
+"priceSetQty": 4
+},
+{
+"model": "FA17",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa17/fa17_glossblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 342,
+"priceSet": 1368,
+"priceSetQty": 4
+},
+{
+"model": "FA20",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa20/fa20_glossblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 433,
+"priceSet": 1732,
+"priceSetQty": 4
+},
+{
+"model": "FA18",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa18/fa18_chrome_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 453,
+"priceSet": 1812,
+"priceSetQty": 4
+},
+{
+"model": "FA13",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa13/fa13_chrome_8lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 651,
+"priceSet": 2604,
+"priceSetQty": 4
+},
+{
+"model": "FA25",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/fa25/fa25_chrome_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 918,
+"priceSet": 3672,
+"priceSetQty": 4
+},
+{
+"model": "FTF510",
+"url": "https://images.customwheeloffset.com/wheels/fittipaldioffroad/ftf510/ftf510_polished_left_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 2442,
+"priceSet": 9768,
+"priceSetQty": 4
+}
+]
