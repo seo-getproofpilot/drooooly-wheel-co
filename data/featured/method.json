@@ -1,0 +1,52 @@
+[
+{
+"model": "MR305 NV",
+"url": "https://images.customwheeloffset.com/wheels/method/mr305/mr305_doubleblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 355,
+"priceSet": 1420,
+"priceSetQty": 4
+},
+{
+"model": "MR703",
+"url": "https://images.customwheeloffset.com/wheels/method/mr703/mr703_matteblack_6lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 345,
+"priceSet": 1380,
+"priceSetQty": 4
+},
+{
+"model": "MR315",
+"url": "https://images.customwheeloffset.com/wheels/method/mr315/mr315_machined_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 397,
+"priceSet": 1588,
+"priceSetQty": 4
+},
+{
+"model": "MR709 HD",
+"url": "https://images.customwheeloffset.com/wheels/method/mr709hd/mr709hd_matteblack_6lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 399,
+"priceSet": 1596,
+"priceSetQty": 4
+},
+{
+"model": "MR704 HD",
+"url": "https://images.customwheeloffset.com/wheels/method/mr704hd/mr704hd_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 450,
+"priceSet": 1800,
+"priceSetQty": 4
+}
+]

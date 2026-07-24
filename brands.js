@@ -661,16 +661,23 @@ window.BRANDS = [
   {
     slug: "vision", name: "Vision Wheel", kind: "HD / Dually", featured: false,
     site: "https://www.visionwheel.com", tagline: "HD workhorse duallies and off-road truck wheels.",
-    pricing: "quote",
+    pricing: "from",
     models: [
+      { model: "56 Midway", configs: ["dually","single"], sizes: ["16","17","20"], finishes: ["Polished","Satin Black"] },
+      { model: "111 Nemesis Forged Beadlock", configs: ["single"], sizes: ["17","18","20"], finishes: ["Polished Forged","Matte Black","Gunmetal"] },
       { model: "181 Hauler Dually", configs: ["dually"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"] },
       { model: "181NR Hauler 19.5", configs: ["dually"], sizes: ["19.5"], finishes: ["Chrome","Machined","Matte Black"] },
       { model: "401 Rival Dually", configs: ["dually"], sizes: ["20"], finishes: ["Gloss Black Machined","Satin Black"] },
-      { model: "410 Korupt Dually", configs: ["dually"], sizes: ["16","17"], finishes: ["Gloss Black Milled","Satin Black"] },
       { model: "408 Manx 2 Dually", configs: ["dually"], sizes: ["16","17"], finishes: ["Satin Black","Satin Grey"] },
-      { model: "56 Midway", configs: ["dually","single"], sizes: ["16","17","20"], finishes: ["Polished","Satin Black"] },
+      { model: "410 Korupt Dually", configs: ["dually"], sizes: ["16","17"], finishes: ["Gloss Black Milled","Satin Black"] },
       { model: "412 Rocker", configs: ["single"], sizes: ["18","20","22","24"], finishes: ["Chrome","Gloss Black","Satin Black"] },
-      { model: "111 Nemesis Forged Beadlock", configs: ["single"], sizes: ["17","18","20"], finishes: ["Polished Forged","Matte Black","Gunmetal"] }
+      { model: "Cheyenne", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/cheyenne.png", priceFrom: 241, priceSet: 964, priceSetQty: 4, feat: 5 },
+      { model: "Manx Beadlock", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/manxbeadlock.png", priceFrom: 322, priceSet: 1288, priceSetQty: 4, feat: 2 },
+      { model: "Midway", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/midway.png", priceFrom: 287, priceSet: 1148, priceSetQty: 4, feat: 3 },
+      { model: "Rocker", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/rocker.png", priceFrom: 207, priceSet: 828, priceSetQty: 4, feat: 4 },
+      { model: "Tactical", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/tactical.png", priceFrom: 219, priceSet: 876, priceSetQty: 4, feat: 1 },
+      { model: "Turbine", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/turbine.png", priceFrom: 174, priceSet: 696, priceSetQty: 4, feat: 6 },
+      { model: "Warrior", configs: ["single"], sizes: ["16","17","19.5"], finishes: ["Chrome","Machined","Matte Black"], img: "assets/wheels/vision/warrior.png", priceFrom: 156, priceSet: 624, priceSetQty: 4, feat: 7 }
     ]
   },
   {
@@ -752,14 +759,19 @@ window.BRANDS = [
   {
     slug: "method", name: "Method Race Wheels", kind: "Off-Road", featured: false,
     site: "https://www.methodracewheels.com", tagline: "Engineered for the extreme — Bead Grip & HD truck wheels.",
-    pricing: "quote",
+    pricing: "from",
     models: [
       { model: "305 NV", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"] },
       { model: "305 NV HD", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Machined"] },
+      { model: "315", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze"] },
       { model: "701 Bead Grip", configs: ["single"], sizes: ["17x8.5","18x9","20x9"], finishes: ["Matte Black","Bronze","Machined"] },
       { model: "703 Bead Grip", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Machined","Bronze"] },
+      { model: "MR305 NV", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"], img: "assets/wheels/method/mr305nv.png", priceFrom: 355, priceSet: 1420, priceSetQty: 4, feat: 1 },
       { model: "MR309 Grid", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Titanium","Bronze"] },
-      { model: "315", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze"] }
+      { model: "MR315", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"], img: "assets/wheels/method/mr315.png", priceFrom: 397, priceSet: 1588, priceSetQty: 4, feat: 3 },
+      { model: "MR703", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"], img: "assets/wheels/method/mr703.png", priceFrom: 345, priceSet: 1380, priceSetQty: 4, feat: 2 },
+      { model: "MR704 HD", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"], img: "assets/wheels/method/mr704hd.png", priceFrom: 450, priceSet: 1800, priceSetQty: 4, feat: 5 },
+      { model: "MR709 HD", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"], img: "assets/wheels/method/mr709hd.png", priceFrom: 399, priceSet: 1596, priceSetQty: 4, feat: 4 }
     ]
   },
   {
@@ -793,13 +805,24 @@ window.BRANDS = [
   {
     slug: "black-rhino", name: "Black Rhino", kind: "Off-Road", featured: false,
     site: "https://www.blackrhinowheels.com", tagline: "Built for the modern adventurer — HD truck & dually.",
-    pricing: "quote",
+    pricing: "from",
     models: [
-      { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"] },
-      { model: "Arsenal", configs: ["single"], sizes: ["17x9","18x9","20x9.5"], finishes: ["Sand on Black","Textured Matte Black"] },
       { model: "Abrams", configs: ["single"], sizes: ["17x8.5","18x9.5","20x9.5"], finishes: ["Gunblack Machined","Olive Drab","Matte Gunmetal"] },
-      { model: "Warlord", configs: ["single"], sizes: ["17x9","18x9.5","20x9.5"], finishes: ["Matte Black","Matte Gunmetal"] },
-      { model: "Overland", configs: ["single"], sizes: ["17x8","18x8","20x9"], finishes: ["Matte Black"] }
+      { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"] },
+      { model: "Alpha", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/alpha.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, feat: 11 },
+      { model: "Armory", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/armory.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 3 },
+      { model: "Arsenal", configs: ["single"], sizes: ["17x9","18x9","20x9.5"], finishes: ["Sand on Black","Textured Matte Black"], img: "assets/wheels/black-rhino/arsenal.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 5 },
+      { model: "Chamber", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/chamber.png", priceFrom: 454, priceSet: 1816, priceSetQty: 4, feat: 12 },
+      { model: "Diamondback", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/diamondback.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, feat: 10 },
+      { model: "Echo", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/echo.png", priceFrom: 478, priceSet: 1912, priceSetQty: 4, feat: 13 },
+      { model: "Fuji", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/fuji.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 8 },
+      { model: "Kelso", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/kelso.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 6 },
+      { model: "Legion", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/legion.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 7 },
+      { model: "Overland", configs: ["single"], sizes: ["17x8","18x8","20x9"], finishes: ["Matte Black"] },
+      { model: "Sahara", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/sahara.png", priceFrom: 363, priceSet: 1452, priceSetQty: 4, feat: 2 },
+      { model: "Sentinel", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/sentinel.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 4 },
+      { model: "Taleo", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/taleo.png", priceFrom: 363, priceSet: 1452, priceSetQty: 4, feat: 1 },
+      { model: "Warlord", configs: ["single"], sizes: ["17x9","18x9.5","20x9.5"], finishes: ["Matte Black","Matte Gunmetal"], img: "assets/wheels/black-rhino/warlord.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, feat: 9 }
     ]
   }
 ];

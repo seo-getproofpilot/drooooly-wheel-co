@@ -1,0 +1,132 @@
+[
+{
+"model": "Taleo",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/taleo/taleo_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 363,
+"priceSet": 1452,
+"priceSetQty": 4
+},
+{
+"model": "Sahara",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/sahara/sahara_bronzeblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 363,
+"priceSet": 1452,
+"priceSetQty": 4
+},
+{
+"model": "Armory",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/armory/armory_black_9.5_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 388,
+"priceSet": 1552,
+"priceSetQty": 4
+},
+{
+"model": "Sentinel",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/sentinel/sentinel_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 388,
+"priceSet": 1552,
+"priceSetQty": 4
+},
+{
+"model": "Arsenal",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/arsenal/arsenal_black_9.5_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 388,
+"priceSet": 1552,
+"priceSetQty": 4
+},
+{
+"model": "Kelso",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/kelso/kelso_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 388,
+"priceSet": 1552,
+"priceSetQty": 4
+},
+{
+"model": "Legion",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/legion/legion_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 388,
+"priceSet": 1552,
+"priceSetQty": 4
+},
+{
+"model": "Fuji",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/fuji/fuji_green_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 388,
+"priceSet": 1552,
+"priceSetQty": 4
+},
+{
+"model": "Warlord",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/warlord/warlord_blacktint_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 413,
+"priceSet": 1652,
+"priceSetQty": 4
+},
+{
+"model": "Diamondback",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/diamondback/diamondback_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 413,
+"priceSet": 1652,
+"priceSetQty": 4
+},
+{
+"model": "Alpha",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/alpha/alpha_blackgray_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 413,
+"priceSet": 1652,
+"priceSetQty": 4
+},
+{
+"model": "Chamber",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/chamber/chamber_matteblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 454,
+"priceSet": 1816,
+"priceSetQty": 4
+},
+{
+"model": "Echo",
+"url": "https://images.customwheeloffset.com/wheels/blackrhino/echo/echo_silvermachined_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 478,
+"priceSet": 1912,
+"priceSetQty": 4
+}
+]

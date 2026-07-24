@@ -1,0 +1,72 @@
+[
+{
+"model": "Tactical",
+"url": "https://images.customwheeloffset.com/wheels/vision/tactical/tactical_satinblack_8lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 219,
+"priceSet": 876,
+"priceSetQty": 4
+},
+{
+"model": "Manx Beadlock",
+"url": "https://images.customwheeloffset.com/wheels/vision/manxbeadlock/manxbeadlock_machined_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 322,
+"priceSet": 1288,
+"priceSetQty": 4
+},
+{
+"model": "Midway",
+"url": "https://images.customwheeloffset.com/wheels/vision/midway/midway_polished_6lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 287,
+"priceSet": 1148,
+"priceSetQty": 4
+},
+{
+"model": "Rocker",
+"url": "https://images.customwheeloffset.com/wheels/vision/rocker/rocker_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 207,
+"priceSet": 828,
+"priceSetQty": 4
+},
+{
+"model": "Cheyenne",
+"url": "https://images.customwheeloffset.com/wheels/vision/cheyenne/cheyenne_silvermachined_5lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 241,
+"priceSet": 964,
+"priceSetQty": 4
+},
+{
+"model": "Turbine",
+"url": "https://images.customwheeloffset.com/wheels/vision/turbine/turbine_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 174,
+"priceSet": 696,
+"priceSetQty": 4
+},
+{
+"model": "Warrior",
+"url": "https://images.customwheeloffset.com/wheels/vision/warrior/warrior_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 156,
+"priceSet": 624,
+"priceSetQty": 4
+}
+]
