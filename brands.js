@@ -601,14 +601,16 @@ window.BRANDS = [
     site: "https://fenixforged.com", tagline: "Built to outlast the road — forged single, dually & super single.",
     pricing: "quote",
     models: [
-      { model: "L2002 Liberty", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
-      { model: "L2003 Hurricane", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
-      { model: "L2004 Strata", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
+      { model: "BT001 Talon", configs: ["single","dually","super single"], sizes: ["22","24","26"], finishes: ["Polished","Black"], img: "assets/wheels/fenix/bt001talon.png", feat: 1 },
+      { model: "BT002 Omega", configs: ["single","dually","super single"], sizes: ["22","24","26"], finishes: ["Polished","Black"], img: "assets/wheels/fenix/bt002omega.png", feat: 2 },
+      { model: "BT003 Vantage", configs: ["single","dually","super single"], sizes: ["22","24","26"], finishes: ["Polished","Black"], img: "assets/wheels/fenix/bt003vantage.png", feat: 3 },
       { model: "FD002", configs: ["single"], sizes: ["22x10","22x12","24x14"], finishes: ["Polished","Black"] },
       { model: "FD012", configs: ["single"], sizes: ["20x12","22x12","24x14"], finishes: ["Polished","Black"] },
       { model: "FD014 Throwback", configs: ["single","dually"], sizes: ["20","22","24"], finishes: ["Polished","Black"] },
-      { model: "BT002 Omega", configs: ["single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
-      { model: "FDS Super Single", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] }
+      { model: "FDS Super Single", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
+      { model: "L2002 Liberty", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
+      { model: "L2003 Hurricane", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] },
+      { model: "L2004 Strata", configs: ["super single","dually"], sizes: ["22","24","26"], finishes: ["Polished","Black"] }
     ]
   },
   {
@@ -732,14 +734,16 @@ window.BRANDS = [
   {
     slug: "cali", name: "Cali Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.calioffroadwheels.com", tagline: "Raising traditions — deep-lip truck & dually wheels.",
-    pricing: "quote",
+    pricing: "from",
     models: [
-      { model: "Summit", configs: ["single","dually"], sizes: ["20x10","22x12","24x14","20x8.25"], finishes: ["Gloss Black","Polished","Polished Milled"] },
+      { model: "Brutal", configs: ["dually"], sizes: ["20x8.25","22x8.25"], finishes: ["Chrome","Gloss Black"] },
+      { model: "Crusher", configs: ["single"], sizes: ["20x10","22x12","24x14","20x8.25"], finishes: ["Gloss Black","Polished","Polished Milled"], img: "assets/wheels/cali/crusher.png", priceFrom: 728, priceSet: 2912, priceSetQty: 4, feat: 6 },
+      { model: "Invader", configs: ["single"], sizes: ["20x10","22x12","24x14","20x8.25"], finishes: ["Gloss Black","Polished","Polished Milled"], img: "assets/wheels/cali/invader.png", priceFrom: 490, priceSet: 1960, priceSetQty: 4, feat: 4 },
+      { model: "Purge", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Gloss Black","Brushed","Polished"], img: "assets/wheels/cali/purge.png", priceFrom: 370, priceSet: 1480, priceSetQty: 4, feat: 2 },
+      { model: "Sevenfold", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Gloss Black Milled","Gloss Black","Polished"], img: "assets/wheels/cali/sevenfold.png", priceFrom: 368, priceSet: 1472, priceSetQty: 4, feat: 1 },
+      { model: "Summit", configs: ["single"], sizes: ["20x10","22x12","24x14","20x8.25"], finishes: ["Gloss Black","Polished","Polished Milled"], img: "assets/wheels/cali/summit.png", priceFrom: 456, priceSet: 1824, priceSetQty: 4, feat: 3 },
       { model: "Summit Dually", configs: ["dually"], sizes: ["20x8.25","22x8.25"], finishes: ["Polished","Gloss Black Milled","Matte Black"] },
-      { model: "Sevenfold", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Gloss Black Milled","Gloss Black","Polished"] },
-      { model: "Vertex", configs: ["single"], sizes: ["20x10","22x12","24x14","26x14"], finishes: ["Chrome","Gloss Black Milled","Gloss Black"] },
-      { model: "Purge", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Gloss Black","Brushed","Polished"] },
-      { model: "Brutal", configs: ["dually"], sizes: ["20x8.25","22x8.25"], finishes: ["Chrome","Gloss Black"] }
+      { model: "Vertex", configs: ["single"], sizes: ["20x10","22x12","24x14","26x14"], finishes: ["Chrome","Gloss Black Milled","Gloss Black"], img: "assets/wheels/cali/vertex.png", priceFrom: 659, priceSet: 2636, priceSetQty: 4, feat: 5 }
     ]
   },
   {

@@ -1,0 +1,62 @@
+[
+{
+"model": "Sevenfold",
+"url": "https://images.customwheeloffset.com/wheels/calioffroad/sevenfold/sevenfold_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 368,
+"priceSet": 1472,
+"priceSetQty": 4
+},
+{
+"model": "Purge",
+"url": "https://images.customwheeloffset.com/wheels/calioffroad/purge/purge_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 370,
+"priceSet": 1480,
+"priceSetQty": 4
+},
+{
+"model": "Summit",
+"url": "https://images.customwheeloffset.com/wheels/calioffroad/summit/summit_polished_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 456,
+"priceSet": 1824,
+"priceSetQty": 4
+},
+{
+"model": "Invader",
+"url": "https://images.customwheeloffset.com/wheels/calioffroad/invader/invader_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 490,
+"priceSet": 1960,
+"priceSetQty": 4
+},
+{
+"model": "Vertex",
+"url": "https://images.customwheeloffset.com/wheels/calioffroad/vertex/vertex_chrome_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 659,
+"priceSet": 2636,
+"priceSetQty": 4
+},
+{
+"model": "Crusher",
+"url": "https://images.customwheeloffset.com/wheels/calioffroad/crusher/crusher_polished_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 728,
+"priceSet": 2912,
+"priceSetQty": 4
+}
+]

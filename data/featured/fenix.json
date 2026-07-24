@@ -1,0 +1,29 @@
+[
+{
+"model": "BT001 Talon",
+"url": "https://fenixforged.com/cdn/shop/files/BT-001_-_Polished_664cf6bb-fded-4cd9-a306-85b8c81f767f.png",
+"configs": [
+"single",
+"dually",
+"super single"
+]
+},
+{
+"model": "BT002 Omega",
+"url": "https://fenixforged.com/cdn/shop/files/BT-002_-_Polished_19ca6a19-22f2-4770-ae51-f24bd14a41a3.png",
+"configs": [
+"single",
+"dually",
+"super single"
+]
+},
+{
+"model": "BT003 Vantage",
+"url": "https://fenixforged.com/cdn/shop/files/BT-003_-_Polished_36fa63ca-f17b-4e07-b08d-b55326a3202f.png",
+"configs": [
+"single",
+"dually",
+"super single"
+]
+}
+]
