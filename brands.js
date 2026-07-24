@@ -11,6 +11,7 @@ window.BRANDS = [
     slug: "jtx", name: "JTX Forged", kind: "Forged", featured: true,
     site: "https://jtxforged.com", tagline: "Premium forged wheels for trucks & duallies — made in the USA.",
     pricing: "from",
+    bolts: ["8x170","8x180","8x165.1","6x135","6x139.7","5x150"],
     models: [
       { model: "404", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","26x8.25","28x8.25","30x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/404.png" },
       { model: "Ace", configs: ["single","dually","super single"], sizes: ["22x12","22x8.25","24x14","24x8.25","26x16","26x8.25","28x8.25"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/ace.png", priceFrom: 897, priceSet: 3588, priceSetQty: 4, feat: 18 },

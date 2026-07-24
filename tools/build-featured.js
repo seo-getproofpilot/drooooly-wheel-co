@@ -170,6 +170,10 @@ for (const file of files) {
     if (typeof e.priceFrom === "number") m.priceFrom = e.priceFrom;
     if (typeof e.priceSet === "number") m.priceSet = e.priceSet;
     if (typeof e.priceSetQty === "number") m.priceSetQty = e.priceSetQty;
+    // Bolt patterns this style is actually offered in. Cast wheels have a
+    // fixed pattern per SKU; forged are drilled to order, so those carry the
+    // brand-level list instead. Never inferred — fitment has to be sourced.
+    if (e.bolts) m.bolts = e.bolts;
 
     // Optional per-finish renders: [{finish, url}]. The default photo is
     // finish #1 so the card always has something to show.
@@ -253,6 +257,7 @@ out += BRANDS.map((b) => {
   // brand-level floor for brands that price per model, not per series
   if (typeof b.priceFrom === "number") h += `    priceFrom: ${b.priceFrom},\n`;
   if (b.priceNote) h += `    priceNote: ${q(b.priceNote)},\n`;
+  if (b.bolts && b.bolts.length) h += `    bolts: ${arr(b.bolts)},\n`;
   h += `    models: [\n`;
   h += b.models.map((m) => {
     let s = `      { model: ${q(m.model)}, configs: ${arr(m.configs)}, sizes: ${arr(m.sizes)}, finishes: ${arr(m.finishes)}`;
@@ -263,6 +268,7 @@ out += BRANDS.map((b) => {
     if (typeof m.priceFrom === "number") s += `, priceFrom: ${m.priceFrom}`;
     if (typeof m.priceSet === "number") s += `, priceSet: ${m.priceSet}`;
     if (typeof m.priceSetQty === "number") s += `, priceSetQty: ${m.priceSetQty}`;
+    if (m.bolts && m.bolts.length) s += `, bolts: ${arr(m.bolts)}`;
     if (m.feat) s += `, feat: ${m.feat}`;
     return s + " }";
   }).join(",\n");

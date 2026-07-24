@@ -318,6 +318,43 @@
     return '<span class="wheel__quote">Get pricing →</span>';
   }
 
+  // Bolt pattern -> the trucks that actually wear it. Buyers shop by truck,
+  // not by PCD, so the card leads with the make and keeps the pattern as the
+  // supporting detail. Patterns are sourced per style, never inferred.
+  // Bolt pattern -> the makes that wear it. Buyers shop by truck, not by PCD,
+  // so the card leads with the make and keeps the pattern as supporting
+  // detail. Sourced per style (cast) or per brand (forged, drilled to order)
+  // — never inferred, because this is fitment data.
+  var BOLT_MAKES = {
+    "5x127":   ["Jeep"],
+    "5x139.7": ["Ram"],
+    "5x150":   ["Toyota"],
+    "6x135":   ["Ford"],
+    "6x139.7": ["Chevy/GMC", "Nissan", "Toyota"],
+    "8x165.1": ["Ram", "Chevy/GMC"],
+    "8x170":   ["Ford"],
+    "8x180":   ["Chevy/GMC", "Nissan"],
+    "10x225":  ["Ford"],
+  };
+  var MAKE_ORDER = ["Ford", "Chevy/GMC", "Ram", "Jeep", "Nissan", "Toyota"];
+
+  function boltLine(brand, m) {
+    var bolts = (m.bolts && m.bolts.length) ? m.bolts : brand.bolts;
+    if (!bolts || !bolts.length) return "";
+    var makes = [];
+    bolts.forEach(function (b) {
+      (BOLT_MAKES[b] || []).forEach(function (mk) {
+        if (makes.indexOf(mk) < 0) makes.push(mk);
+      });
+    });
+    makes.sort(function (a, b) { return MAKE_ORDER.indexOf(a) - MAKE_ORDER.indexOf(b); });
+    var drilled = !m.bolts && brand.bolts;   // forged: drilled to order
+    return '<p class="wheel__bolts">' +
+      '<b>' + (drilled ? "Drilled for " : "Fits ") +
+      esc(makes.length ? makes.join(" · ") : bolts.join(" · ")) + '</b>' +
+      '<span>' + esc(bolts.join("  ")) + '</span></p>';
+  }
+
   function wheelCard(brand, m) {
     var vars = m.imgs && m.imgs.length > 1 ? m.imgs : null;
     var mediaInner = m.img
@@ -338,6 +375,7 @@
           '</div>'
         : '') +
       '<p class="wheel__avail">' + availText(m) + '</p>' +
+      boltLine(brand, m) +
       priceLine(brand, m) +
       '</a>';
   }

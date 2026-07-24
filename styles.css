@@ -1964,3 +1964,10 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .tire-hero__art::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(10,12,16,.12),rgba(10,12,16,.62))}
 @media(max-width:820px){ .tire-hero__art img{height:200px} }
+
+/* v115 — Bolt pattern / fitment line. Leads with the truck, keeps the
+   pattern itself as quiet supporting detail. */
+.wheel__bolts{margin:5px 0 0;font-family:var(--label);font-size:10.5px;letter-spacing:.05em;
+  text-transform:uppercase;line-height:1.45}
+.wheel__bolts b{display:block;font-weight:600;color:#3d434c}
+.wheel__bolts span{display:block;margin-top:2px;color:var(--muted);opacity:.7;letter-spacing:.07em;font-size:9.5px}
