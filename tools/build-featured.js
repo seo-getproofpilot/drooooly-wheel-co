@@ -110,6 +110,11 @@ for (const file of files) {
   fs.mkdirSync(outDir, { recursive: true });
 
   // Defaults borrowed from an existing model so new entries stay consistent.
+  // The data file is the whole truth for this brand's featured set. Clear
+  // prior ranks first, otherwise styles dropped from the file stay featured
+  // — and keep showing without whatever the new file adds (e.g. pricing).
+  brand.models.forEach((m) => { delete m.feat; });
+
   const proto = brand.models[0] || {};
   const byName = {}, byCode = {};
   brand.models.forEach((m) => {
