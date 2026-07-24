@@ -1,0 +1,132 @@
+[
+{
+"model": "Stryker",
+"url": "https://images.customwheeloffset.com/wheels/raceline/stryker/stryker_blackmilled_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 224,
+"priceSet": 896,
+"priceSetQty": 4
+},
+{
+"model": "Hostage",
+"url": "https://images.customwheeloffset.com/wheels/raceline/hostage/hostage_chrome_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 228,
+"priceSet": 912,
+"priceSetQty": 4
+},
+{
+"model": "Rock 8",
+"url": "https://images.customwheeloffset.com/wheels/raceline/rock8/rock8_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 254,
+"priceSet": 1016,
+"priceSetQty": 4
+},
+{
+"model": "RT-51",
+"url": "https://images.customwheeloffset.com/wheels/raceline/rt51/rt51_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 254,
+"priceSet": 1016,
+"priceSetQty": 4
+},
+{
+"model": "Avenger",
+"url": "https://images.customwheeloffset.com/wheels/raceline/avenger/avenger_machinedblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 258,
+"priceSet": 1032,
+"priceSetQty": 4
+},
+{
+"model": "Rockcrusher",
+"url": "https://images.customwheeloffset.com/wheels/raceline/rockcrusher/rockcrusher_polished_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 275,
+"priceSet": 1100,
+"priceSetQty": 4
+},
+{
+"model": "Renegade 6",
+"url": "https://images.customwheeloffset.com/wheels/raceline/renegade6/renegade6_polished_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 287,
+"priceSet": 1148,
+"priceSetQty": 4
+},
+{
+"model": "Modular",
+"url": "https://images.customwheeloffset.com/wheels/raceline/modular/modular_machined_8lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 298,
+"priceSet": 1192,
+"priceSetQty": 4
+},
+{
+"model": "Raptor",
+"url": "https://images.customwheeloffset.com/wheels/raceline/raptor/raptor_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 339,
+"priceSet": 1356,
+"priceSetQty": 4
+},
+{
+"model": "Assault",
+"url": "https://images.customwheeloffset.com/wheels/raceline/assault/assault_black_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 339,
+"priceSet": 1356,
+"priceSetQty": 4
+},
+{
+"model": "Rogue",
+"url": "https://images.customwheeloffset.com/wheels/raceline/rogue/rogue_satinblack_56lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 385,
+"priceSet": 1540,
+"priceSetQty": 4
+},
+{
+"model": "Ascent",
+"url": "https://images.customwheeloffset.com/wheels/raceline/ascent/ascent_glossblack_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 449,
+"priceSet": 1796,
+"priceSetQty": 4
+},
+{
+"model": "Ryno Beadlock",
+"url": "https://images.customwheeloffset.com/wheels/raceline/rynobeadlock/rynobeadlock_machined_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 484,
+"priceSet": 1936,
+"priceSetQty": 4
+}
+]

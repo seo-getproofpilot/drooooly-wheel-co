@@ -1,0 +1,42 @@
+[
+{
+"model": "Apollo",
+"url": "https://images.customwheeloffset.com/wheels/arkonoffroad/apollo/apollo_blackmilled_20x12_6lug_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 389,
+"priceSet": 1556,
+"priceSetQty": 4
+},
+{
+"model": "Caesar",
+"url": "https://images.customwheeloffset.com/wheels/arkonoffroad/caesar/caesar_blackmilled_20x12_left_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 390,
+"priceSet": 1560,
+"priceSetQty": 4
+},
+{
+"model": "Aramis",
+"url": "https://images.customwheeloffset.com/wheels/arkonoffroad/aramis/aramis_blackmilled_20x10_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 390,
+"priceSet": 1560,
+"priceSetQty": 4
+},
+{
+"model": "DaVinci",
+"url": "https://images.customwheeloffset.com/wheels/arkonoffroad/davinci/davinci_glossblack_22x12_left_white.jpg",
+"configs": [
+"single"
+],
+"priceFrom": 459,
+"priceSet": 1836,
+"priceSetQty": 4
+}
+]

@@ -695,13 +695,16 @@ window.BRANDS = [
   {
     slug: "arkon", name: "Arkon Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.arkonoffroad.com", tagline: "Proper directional deep-concave show-truck wheels.",
-    pricing: "quote",
+    pricing: "from",
     models: [
+      { model: "Alexander", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
+      { model: "Apollo", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"], img: "assets/wheels/arkon/apollo.png", priceFrom: 389, priceSet: 1556, priceSetQty: 4, feat: 1 },
+      { model: "Aramis", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"], img: "assets/wheels/arkon/aramis.png", priceFrom: 390, priceSet: 1560, priceSetQty: 4, feat: 3 },
+      { model: "Caesar", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome"], img: "assets/wheels/arkon/caesar.png", priceFrom: 390, priceSet: 1560, priceSetQty: 4, feat: 2 },
+      { model: "Churchill", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Black Milled","Chrome"] },
+      { model: "DaVinci", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"], img: "assets/wheels/arkon/davinci.png", priceFrom: 459, priceSet: 1836, priceSetQty: 4, feat: 4 },
       { model: "Lincoln", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
       { model: "Roosevelt", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
-      { model: "Caesar", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome"] },
-      { model: "Alexander", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
-      { model: "Churchill", configs: ["single"], sizes: ["20x12","22x12","24x14","26x14"], finishes: ["Black Milled","Chrome"] },
       { model: "Torx (Forged)", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Brushed","Black Milled","Polished"] }
     ]
   },
@@ -793,12 +796,24 @@ window.BRANDS = [
   {
     slug: "raceline", name: "Raceline Wheels", kind: "Off-Road", featured: false,
     site: "https://racelinewheels.com", tagline: "Family owned since '96 — Bead Grip & forged beadlock.",
-    pricing: "quote",
+    pricing: "from",
     models: [
       { model: "951 Ryno", configs: ["single","dually"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"] },
-      { model: "RT951F Forged Beadlock", configs: ["single"], sizes: ["17x8.5","17x9"], finishes: ["Satin Black","Machined"] },
+      { model: "Ascent", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/ascent.png", priceFrom: 449, priceSet: 1796, priceSetQty: 4, feat: 12 },
+      { model: "Assault", configs: ["single"], sizes: ["17x9","18x9","20x10"], finishes: ["Black","Machined","Bronze"], img: "assets/wheels/raceline/assault.png", priceFrom: 339, priceSet: 1356, priceSetQty: 4, feat: 10 },
+      { model: "Avenger", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/avenger.png", priceFrom: 258, priceSet: 1032, priceSetQty: 4, feat: 5 },
       { model: "Defender", configs: ["single","dually"], sizes: ["17x9","18x9","20x9"], finishes: ["Machined","Gunmetal","Grey"] },
-      { model: "Assault", configs: ["single"], sizes: ["17x9","18x9","20x10"], finishes: ["Black","Machined","Bronze"] },
+      { model: "Hostage", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/hostage.png", priceFrom: 228, priceSet: 912, priceSetQty: 4, feat: 2 },
+      { model: "Modular", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/modular.png", priceFrom: 298, priceSet: 1192, priceSetQty: 4, feat: 8 },
+      { model: "Raptor", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/raptor.png", priceFrom: 339, priceSet: 1356, priceSetQty: 4, feat: 9 },
+      { model: "Renegade 6", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/renegade6.png", priceFrom: 287, priceSet: 1148, priceSetQty: 4, feat: 7 },
+      { model: "Rock 8", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/rock8.png", priceFrom: 254, priceSet: 1016, priceSetQty: 4, feat: 3 },
+      { model: "Rockcrusher", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/rockcrusher.png", priceFrom: 275, priceSet: 1100, priceSetQty: 4, feat: 6 },
+      { model: "Rogue", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/rogue.png", priceFrom: 385, priceSet: 1540, priceSetQty: 4, feat: 11 },
+      { model: "RT-51", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/rt51.png", priceFrom: 254, priceSet: 1016, priceSetQty: 4, feat: 4 },
+      { model: "RT951F Forged Beadlock", configs: ["single"], sizes: ["17x8.5","17x9"], finishes: ["Satin Black","Machined"] },
+      { model: "Ryno Beadlock", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/rynobeadlock.png", priceFrom: 484, priceSet: 1936, priceSetQty: 4, feat: 13 },
+      { model: "Stryker", configs: ["single"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"], img: "assets/wheels/raceline/stryker.png", priceFrom: 224, priceSet: 896, priceSetQty: 4, feat: 1 },
       { model: "Twist", configs: ["single"], sizes: ["17x9","18x9","20x9"], finishes: ["Black","Machined","Bronze"] }
     ]
   },
