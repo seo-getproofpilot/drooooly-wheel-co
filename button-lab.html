@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Button Lab — DROOOLY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --blue:#1f7bff; --blue-2:#4f9bff; --ink:#0a0c10; }
+  *{box-sizing:border-box}
+  body{margin:0;background:#0a0c10;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:54px 28px 90px}
+  h1{font-family:Michroma;font-size:26px;letter-spacing:.02em;margin:0 0 6px}
+  .sub{color:#9aa2ac;font-size:14px;margin:0 0 40px;max-width:640px;line-height:1.6}
+  .row{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;
+    padding:30px 0;border-top:1px solid rgba(255,255,255,.09)}
+  .meta .name{font-family:Michroma;font-size:14px;letter-spacing:.02em}
+  .meta .tag{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--blue-2);border:1px solid rgba(79,155,255,.4);border-radius:3px;padding:3px 8px}
+  .meta p{color:#8b929c;font-size:12.5px;line-height:1.55;margin:12px 0 0}
+  .stage{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .stage--light{background:#fff;border-radius:12px;padding:22px;margin-top:14px;width:100%}
+  .stage--light .lbl{color:#5b6169}
+  .lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6b7280;width:100%;margin-bottom:-4px}
+
+  /* ---- shared base for every candidate ---- */
+  .b{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    min-height:54px;padding:0 30px;cursor:pointer;border:1px solid transparent;
+    font-family:Michroma;font-weight:400;font-size:12px;text-transform:uppercase;letter-spacing:.12em;
+    text-decoration:none;transition:transform .25s ease,box-shadow .25s,background .25s,color .2s,border-color .2s;
+    -webkit-font-smoothing:antialiased}
+  .b:hover{transform:translateY(-2px)}
+  .b .ic{width:15px;height:15px;stroke:currentColor;stroke-width:2.2;fill:none}
+
+  /* chrome fills reused across shapes */
+  .fill-chrome{color:#0a0c0e;background:linear-gradient(180deg,#fff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
+    box-shadow:0 6px 18px rgba(0,0,0,.45)}
+  .fill-chrome:hover{box-shadow:0 14px 30px rgba(0,0,0,.32)}
+  .fill-blackchrome{color:#fff;background:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
+    box-shadow:0 10px 26px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.18)}
+
+  /* A — CURRENT: full pill */
+  .A{border-radius:999px}
+  /* B — SHARP: squared, 2px radius */
+  .B{border-radius:3px}
+  /* C — BILLET: machined chamfer, two opposite corners cut */
+  .C{border-radius:0;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)}
+  /* D — HAIRLINE: outline luxury, near-black fill + chrome hairline */
+  .D{border-radius:3px;color:#eef2f5;background:rgba(255,255,255,.03);
+    border:1px solid rgba(215,219,224,.55)}
+  .D:hover{background:rgba(255,255,255,.08);border-color:#eef2f5}
+  .D--light{color:#12151a;background:transparent;border:1px solid rgba(10,12,16,.35)}
+  .D--light:hover{background:rgba(10,12,16,.05);border-color:#0a0c10}
+  /* E — ACCENT BAR: matte black + blue underline, squared */
+  .E{border-radius:3px;color:#fff;background:#111318;border:1px solid rgba(255,255,255,.1);
+    border-bottom:2px solid var(--blue);padding-bottom:0}
+  .E:hover{background:#171a20;border-bottom-color:var(--blue-2);box-shadow:0 0 24px rgba(31,123,255,.28)}
+  /* F — BLACK CHROME SHARP: dark metallic, squared */
+  .F{border-radius:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>DROOOLY — Button Directions</h1>
+  <p class="sub">Same coloring you like (chrome, black chrome, blue). What changes is the <b>geometry</b> — moving off the friendly full-pill toward squared, machined and hairline edges that read sleek / luxury / JTX. All shown in the real Michroma face, on both the dark hero and the white console.</p>
+
+  <!-- A -->
+  <div class="row">
+    <div class="meta"><span class="name">A · Current</span><span class="tag">baseline</span>
+      <p>Full pill. Reads friendly / consumer, fights the sharp Michroma type.</p></div>
+    <div>
+      <div class="stage"><span class="lbl">On dark</span>
+        <a class="b A fill-chrome">Get Fitted</a>
+        <a class="b A fill-blackchrome">Make ’em drool</a></div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="row">
+    <div class="meta"><span class="name">B · Sharp Edge</span><span class="tag">recommended</span>
+      <p>Same chrome, radius dropped to 3px. Squared corners = premium (luxury auto, watches). Instant, low-risk upgrade.</p></div>
+    <div>
+      <div class="stage"><span class="lbl">On dark</span>
+        <a class="b B fill-chrome">Get Fitted</a>
+        <a class="b B fill-blackchrome">Make ’em drool</a></div>
+      <div class="stage stage--light"><span class="lbl">On white console</span>
+        <a class="b B fill-chrome">Find your set</a>
+        <a class="b B fill-blackchrome">Make ’em drool</a></div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="row">
+    <div class="meta"><span class="name">C · Billet Cut</span><span class="tag">most JTX</span>
+      <p>Machined chamfer — two corners cut like a forged billet edge. Aggressive + technical. The most on-brand for a forged-wheel shop.</p></div>
+    <div>
+      <div class="stage"><span class="lbl">On dark</span>
+        <a class="b C fill-chrome">Get Fitted</a>
+        <a class="b C fill-blackchrome">Make ’em drool</a></div>
+      <div class="stage stage--light"><span class="lbl">On white console</span>
+        <a class="b C fill-chrome">Find your set</a></div>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="row">
+    <div class="meta"><span class="name">D · Hairline</span><span class="tag">understated lux</span>
+      <p>No fill — a thin chrome hairline + chrome text. Quiet, high-end, editorial. Best as the <i>secondary</i> button next to a chrome primary.</p></div>
+    <div>
+      <div class="stage"><span class="lbl">On dark</span>
+        <a class="b D">Get Fitted</a>
+        <a class="b B fill-chrome">Find your set</a></div>
+      <div class="stage stage--light"><span class="lbl">On white console</span>
+        <a class="b D D--light">Get Fitted</a></div>
+    </div>
+  </div>
+
+  <!-- E -->
+  <div class="row">
+    <div class="meta"><span class="name">E · Accent Bar</span><span class="tag">modern tech</span>
+      <p>Matte black, squared, with a blue underline accent. Sleek and modern; the blue ties to the brand without shouting.</p></div>
+    <div>
+      <div class="stage"><span class="lbl">On dark</span>
+        <a class="b E">Get Fitted</a>
+        <a class="b B fill-chrome">Find your set</a></div>
+    </div>
+  </div>
+
+  <!-- F -->
+  <div class="row">
+    <div class="meta"><span class="name">F · Black Chrome Sharp</span><span class="tag">dark premium</span>
+      <p>The dark metallic fill you already use on “Get Fitted”, squared off. Pairs as a matched set with B for primary/secondary.</p></div>
+    <div>
+      <div class="stage"><span class="lbl">On dark</span>
+        <a class="b F fill-blackchrome">Make ’em drool</a>
+        <a class="b B fill-chrome">Find your set</a></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
