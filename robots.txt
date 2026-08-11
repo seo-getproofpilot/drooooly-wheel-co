@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seo-getproofpilot.github.io/drooooly-wheel-co/sitemap.xml
