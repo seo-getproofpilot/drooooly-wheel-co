@@ -1974,3 +1974,24 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
   text-transform:uppercase;line-height:1.45}
 .wheel__bolts b{display:block;font-weight:600;color:#3d434c}
 .wheel__bolts span{display:block;margin-top:2px;color:var(--muted);opacity:.7;letter-spacing:.07em;font-size:9.5px}
+
+/* ============================================================
+   v119 — header: logo scooted inward + enlarged; nav cluster tightened
+   Logo is a wide 6.2:1 wordmark, so a viewport-centered nav leaves no room
+   to both indent AND enlarge it. Switch nav to center in the free space
+   between the (indented) logo and the actions — keeps the spread, frees the
+   left for the logo.
+   ============================================================ */
+.nav__inner{gap:14px}
+.shopnav .brand{margin-right:0}
+/* logo: off the corner, toward the middle, a touch larger + crisper */
+.site-header .brand{margin-left:clamp(24px,5vw,96px)}
+.site-header .brand__img--emblem{height:66px;filter:none}
+/* nav links: no longer absolutely centered — flow, and center between
+   logo and actions via auto side-margins */
+.site-header .nav__links{position:static;left:auto;top:auto;transform:none;
+  margin-left:auto;margin-right:auto;gap:2px}
+.site-header .nav__actions{margin-left:0}
+/* tighten the items themselves a little */
+.nav__links .nav__top,.nav__links .nav__top--solo{padding-left:12px;padding-right:12px}
+@media(max-width:560px){ .site-header .brand{margin-left:0} .site-header .brand__img--emblem{height:48px} }
