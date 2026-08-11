@@ -1516,14 +1516,17 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
    ============================================================ */
 .cta{background:#0a0c10}
 .cta__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.cta__bg img{width:100%;height:100%;object-fit:cover;object-position:center 54%;opacity:.6}
-/* darker toward the center/bottom so the white console pops and the low-res photo
-   reads as a cinematic backdrop, not a sharp hero */
+.cta__bg picture{position:absolute;inset:0}
+.cta__bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%;opacity:.92}
+/* Art-directed shots — let the truck read, but darken the top enough that the
+   white headline holds over the bright sky, and the bottom enough that the
+   white console pops. Middle stays clear so the truck shows through. */
 .cta__bg::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:
-    linear-gradient(180deg,rgba(8,10,14,.5),rgba(8,10,14,.66) 48%,rgba(8,10,14,.92)),
-    radial-gradient(900px 520px at 50% 62%,rgba(8,10,14,.55),transparent 72%),
-    radial-gradient(760px 360px at 50% 0%,rgba(31,123,255,.14),transparent 60%)}
+    linear-gradient(180deg,rgba(8,10,14,.62),rgba(8,10,14,.3) 34%,rgba(8,10,14,.34) 52%,rgba(8,10,14,.9)),
+    radial-gradient(900px 520px at 50% 72%,rgba(8,10,14,.34),transparent 76%),
+    radial-gradient(760px 360px at 50% 4%,rgba(31,123,255,.13),transparent 58%)}
+@media(max-width:640px){ .cta__bg img{object-position:center 42%} }
 .cta__inner{position:relative;z-index:2}
 .cta .kicker{color:var(--blue-2)}
 .cta .kicker::before{background:rgba(255,255,255,.4)}
