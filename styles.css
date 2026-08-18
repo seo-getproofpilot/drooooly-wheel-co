@@ -1995,3 +1995,96 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 /* tighten the items themselves a little */
 .nav__links .nav__top,.nav__links .nav__top--solo{padding-left:12px;padding-right:12px}
 @media(max-width:560px){ .site-header .brand{margin-left:0} .site-header .brand__img--emblem{height:48px} }
+
+/* ============================================================
+   v121 — BUTTON SYSTEM: Sharp Edge (primary) + Black Chrome Sharp (secondary)
+   Replaces the full-pill geometry. The pill read friendly/consumer and
+   fought the squared Michroma type; squared corners read luxury-auto.
+   Coloring is unchanged — only geometry, edge treatment and motion.
+
+   Consolidated at end-of-file on purpose: this stylesheet has many earlier
+   @media/section blocks that would otherwise override these at equal
+   specificity. One place governs every button.
+   ============================================================ */
+:root{
+  /* polished chrome — PRIMARY */
+  --btn-chrome:linear-gradient(180deg,#ffffff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
+  --btn-chrome-hi:linear-gradient(180deg,#ffffff,#e8ecf0 46%,#bcc4cc 62%,#f6f8fa);
+  /* black chrome — SECONDARY */
+  --btn-black:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
+  --btn-black-hi:linear-gradient(180deg,#54545a 0%,#28282d 42%,#0c0c0f 58%,#1f1f23 74%,#48484e 100%);
+  /* machined edge: crisp top highlight + shaded bottom lip, like a milled face */
+  --btn-mill-light:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(0,0,0,.18);
+  --btn-mill-dark:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.5);
+  --btn-r:3px;
+}
+
+/* ---- geometry + motion (all buttons) ---- */
+.btn,.brands-toggle{border-radius:var(--btn-r)}
+.btn{letter-spacing:.11em}
+/* Lift only — no scale. Scaling a sharp corner shimmers the edge and reads
+   cheap; a straight lift reads machined. */
+.btn:hover,
+.btn--chrome:hover,
+.btn--ghost:hover,
+.cine .btn--ghost:hover,
+.cta .fit-form .btn--chrome:hover{transform:translateY(-2px)}
+.btn:active,
+.cine .btn--ghost:active,
+.cta .fit-form .btn--chrome:active{transform:translateY(0);transition-duration:.08s}
+/* tighter, faster glint — a chrome catch-light, not a cartoon shine */
+.btn::before{width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transition:left .55s var(--ease)}
+/* keyboard focus was effectively absent site-wide */
+.btn:focus-visible,.brands-toggle:focus-visible,.btn-add:focus-visible{
+  outline:2px solid var(--blue-2);outline-offset:3px}
+
+/* ---- PRIMARY · Sharp Edge (polished chrome on dark) ---- */
+.cine .btn--chrome,.nav .btn--chrome,.site-footer .btn--chrome,.brands .btn--chrome,
+.tire-hero__cta .btn--chrome,.tbrand-cta .btn--chrome{
+  color:#0a0c0e;background:var(--btn-chrome);
+  box-shadow:0 6px 18px rgba(0,0,0,.45),var(--btn-mill-light)}
+.cine .btn--chrome:hover,.nav .btn--chrome:hover,.site-footer .btn--chrome:hover,
+.brands .btn--chrome:hover,.tire-hero__cta .btn--chrome:hover,.tbrand-cta .btn--chrome:hover{
+  background:var(--btn-chrome-hi);
+  box-shadow:0 14px 32px rgba(0,0,0,.34),var(--btn-mill-light)}
+
+/* ---- SECONDARY · Black Chrome Sharp ---- */
+/* one definition, reused by every dark metallic button on the site */
+.cine .btn--ghost,
+.cta .fit-form .btn--chrome,
+.wheelmore__btns .btn--chrome,
+.brands-toggle{
+  color:#fff;border:none;background:var(--btn-black);
+  box-shadow:0 12px 28px rgba(0,0,0,.5),var(--btn-mill-dark)}
+.cine .btn--ghost:hover,
+.cta .fit-form .btn--chrome:hover,
+.cta .fit-form .btn--chrome:active,
+.cta .fit-form .btn--chrome:focus-visible,
+.wheelmore__btns .btn--chrome:hover,
+.brands-toggle:hover{
+  color:#fff;border:none;background:var(--btn-black-hi);
+  box-shadow:0 16px 36px rgba(0,0,0,.55),var(--btn-mill-dark)}
+.brands-toggle{padding:15px 32px}
+
+/* ---- light backgrounds (shop / financing / brand pages) ---- */
+/* primary stays the dark metallic so it reads as the same object as on dark */
+.btn--chrome{color:#fff;background:var(--btn-black);
+  box-shadow:0 6px 16px rgba(0,0,0,.22),var(--btn-mill-dark)}
+.btn--chrome:hover{color:#fff;background:var(--btn-black-hi);
+  box-shadow:0 12px 26px rgba(0,0,0,.26),var(--btn-mill-dark)}
+/* secondary on light: crisp hairline, squared — no pill, no glass */
+.btn--ghost,.wheelmore__btns .btn--ghost{
+  color:#111214;background:#fff;border:1px solid rgba(11,13,18,.28);box-shadow:none}
+.btn--ghost:hover,.wheelmore__btns .btn--ghost:hover{
+  color:#0b0d12;border-color:#0b0d12;background:#fff;
+  box-shadow:0 8px 20px rgba(0,0,0,.12)}
+
+/* ---- supporting controls squared to match ---- */
+.btn-add{border-radius:var(--btn-r)}
+.filter-mobile-btn{border-radius:var(--btn-r)}
+.chip,.brandquick a,.veh-chip{border-radius:4px}
+
+@media(max-width:560px){
+  .brands-toggle{padding:14px 28px}
+}
