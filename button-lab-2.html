@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Button Lab v2 — DROOOLY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{ --blue:#1f7bff; --blue-2:#4f9bff; }
+*{box-sizing:border-box}
+body{margin:0;background:#080a0e;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:50px 28px 90px}
+h1{font-family:Michroma;font-size:24px;margin:0 0 8px}
+.sub{color:#98a0aa;font-size:14px;line-height:1.65;margin:0 0 14px;max-width:660px}
+.note{background:rgba(31,123,255,.09);border-left:2px solid var(--blue);padding:14px 18px;
+  font-size:13px;line-height:1.6;color:#c3cad3;margin:0 0 36px;max-width:660px}
+.row{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;
+  padding:34px 0;border-top:1px solid rgba(255,255,255,.09)}
+.name{font-family:Michroma;font-size:14px}
+.tag{display:inline-block;margin-top:9px;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--blue-2);border:1px solid rgba(79,155,255,.42);border-radius:2px;padding:3px 8px}
+.meta p{color:#868d97;font-size:12.5px;line-height:1.55;margin:12px 0 0}
+.stage{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.b{white-space:nowrap}
+.stage--light{background:#fff;border-radius:4px;padding:24px;margin-top:16px;width:100%}
+
+/* ---------- shared ---------- */
+.b{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  min-height:58px;padding:0 34px;cursor:pointer;border:0;
+  font-family:Michroma;font-weight:400;font-size:12.5px;text-transform:uppercase;letter-spacing:.13em;
+  text-decoration:none;transition:transform .22s cubic-bezier(.2,.7,.3,1),filter .22s,box-shadow .22s}
+.b:hover{transform:translateY(-2px)}
+.b span{position:relative;z-index:2}
+
+/* ===== 1 · LIQUID CHROME — real mirror: hard horizon + full luminance range ===== */
+.chrome{color:#0c0e12;border-radius:2px;
+  background:linear-gradient(180deg,
+    #ffffff 0%, #f4f7f9 14%, #dbe1e7 33%, #b8c0c9 48%,
+    #8a929c 58%, #3d444c 63%, #2a3037 64.5%,   /* HARD MIRROR HORIZON */
+    #9aa2ab 66%, #cfd6dd 76%, #f2f5f8 90%, #dfe5ea 100%);
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  box-shadow:0 8px 22px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(0,0,0,.45), inset 1px 0 0 rgba(255,255,255,.4), inset -1px 0 0 rgba(0,0,0,.25)}
+.chrome:hover{filter:brightness(1.07) contrast(1.04);box-shadow:0 14px 32px rgba(0,0,0,.55),
+  inset 0 1px 0 rgba(255,255,255,1), inset 0 -1px 0 rgba(0,0,0,.45)}
+
+/* ===== 2 · BILLET CHAMFER — machined cut corners ===== */
+.billet{color:#0c0e12;
+  clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px);
+  background:linear-gradient(180deg,
+    #ffffff 0%, #f4f7f9 14%, #dbe1e7 33%, #b8c0c9 48%,
+    #8a929c 58%, #3d444c 63%, #2a3037 64.5%,
+    #9aa2ab 66%, #cfd6dd 76%, #f2f5f8 90%, #dfe5ea 100%);
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.55))}
+.billet:hover{filter:drop-shadow(0 14px 26px rgba(0,0,0,.6)) brightness(1.07)}
+
+/* ===== 3 · BLACK BILLET — dark machined, chrome lettering ===== */
+.blackbillet{
+  clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px);
+  background:linear-gradient(180deg,
+    #6a7078 0%, #3a4047 10%, #1b1f24 34%, #0e1115 50%,
+    #05070a 62%, #171b20 64%, #2e343b 74%, #565d66 92%, #7b828b 100%);
+  color:transparent;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.65))}
+.blackbillet span{background:linear-gradient(180deg,#ffffff,#e2e7ec 42%,#98a1ab 58%,#f4f7fa);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.blackbillet:hover{filter:drop-shadow(0 16px 30px rgba(0,0,0,.7)) brightness(1.14)}
+
+/* ===== 4 · FORGED LIP — chrome face inside a milled outer bevel (wheel barrel) ===== */
+.lip{color:#0c0e12;border-radius:3px;padding:0 34px;
+  background:linear-gradient(180deg,#ffffff,#9aa2ab 48%,#4a5158 52%,#c8cfd6 100%);
+  box-shadow:0 10px 26px rgba(0,0,0,.55)}
+.lip::after{content:"";position:absolute;inset:3px;border-radius:1px;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,
+    #ffffff 0%, #eef2f5 18%, #cdd5dc 40%, #a2aab3 54%,
+    #454c54 60%, #2b3138 61.5%,
+    #a8b0b9 63%, #dde3e8 78%, #ffffff 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,1), inset 0 -1px 0 rgba(0,0,0,.3)}
+.lip:hover{filter:brightness(1.06)}
+
+/* ===== 5 · RAKED — forward-leaning motorsport edge ===== */
+.raked{color:#0c0e12;transform:skewX(-11deg);border-radius:1px;
+  background:linear-gradient(180deg,
+    #ffffff 0%, #f4f7f9 14%, #dbe1e7 33%, #b8c0c9 48%,
+    #8a929c 58%, #3d444c 63%, #2a3037 64.5%,
+    #9aa2ab 66%, #cfd6dd 76%, #f2f5f8 90%, #dfe5ea 100%);
+  box-shadow:0 9px 24px rgba(0,0,0,.55), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(0,0,0,.4)}
+.raked span{transform:skewX(11deg);text-shadow:0 1px 0 rgba(255,255,255,.55)}
+.raked:hover{transform:skewX(-11deg) translateY(-2px);filter:brightness(1.07)}
+
+/* ===== 6 · KNURLED — chrome + fine machining lines ===== */
+.knurl{color:#0c0e12;border-radius:2px;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.5) 0 1px,rgba(0,0,0,.06) 1px 3px),
+    linear-gradient(180deg,
+    #ffffff 0%, #f4f7f9 14%, #dbe1e7 33%, #b8c0c9 48%,
+    #8a929c 58%, #3d444c 63%, #2a3037 64.5%,
+    #9aa2ab 66%, #cfd6dd 76%, #f2f5f8 90%, #dfe5ea 100%);
+  text-shadow:0 1px 0 rgba(255,255,255,.6);
+  box-shadow:0 8px 22px rgba(0,0,0,.5), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(0,0,0,.45)}
+.knurl:hover{filter:brightness(1.07)}
+
+/* old flat one for reference */
+.flat{color:#0a0c0e;border-radius:3px;
+  background:linear-gradient(180deg,#ffffff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
+  box-shadow:0 6px 18px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.9)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>DROOOLY — Buttons v2</h1>
+  <p class="sub">Chasing "sleek and baller" — not corporate-square.</p>
+  <div class="note"><b>What was actually wrong:</b> I sampled the real wheel photos on your site. Polished chrome spans a luminance range of <b>232</b> — near-black through brilliant white, with a hard mirror horizon where it stops reflecting sky and starts reflecting ground. The shipped button only spans <b>73</b>. That's why it reads flat grey, not chrome. Every option below fixes the <b>material</b> first; the shape is secondary.</div>
+
+  <div class="row">
+    <div class="meta"><span class="name">0 · Shipped now</span><span class="tag" style="color:#8b929c;border-color:rgba(139,146,156,.4)">the flat one</span>
+      <p>Soft grey gradient. No horizon, no depth — reads like painted plastic.</p></div>
+    <div class="stage"><a class="b flat"><span>Find your set</span></a></div>
+  </div>
+
+  <div class="row">
+    <div class="meta"><span class="name">1 · Liquid Chrome</span><span class="tag">material fix only</span>
+      <p>Same square shape, but a true mirror gradient — hard horizon at 64%, full black-to-white range. Same silhouette, completely different material.</p></div>
+    <div><div class="stage"><a class="b chrome"><span>Find your set</span></a><a class="b chrome"><span>Get fitted</span></a></div>
+      <div class="stage stage--light"><a class="b chrome"><span>Make 'em drool</span></a></div></div>
+  </div>
+
+  <div class="row">
+    <div class="meta"><span class="name">2 · Billet Chamfer</span><span class="tag">most forged</span>
+      <p>Liquid chrome + machined cut corners, like the chamfer on a billet wheel face. Aggressive and unmistakably a wheel-shop button.</p></div>
+    <div><div class="stage"><a class="b billet"><span>Find your set</span></a><a class="b billet"><span>Get fitted</span></a></div>
+      <div class="stage stage--light"><a class="b billet"><span>Make 'em drool</span></a></div></div>
+  </div>
+
+  <div class="row">
+    <div class="meta"><span class="name">3 · Black Billet</span><span class="tag">the pair for #2</span>
+      <p>Same chamfer in black chrome with mirror-chrome lettering. This is the secondary that pairs with Billet Chamfer.</p></div>
+    <div class="stage"><a class="b blackbillet"><span>Make 'em drool</span></a><a class="b billet"><span>Find your set</span></a></div>
+  </div>
+
+  <div class="row">
+    <div class="meta"><span class="name">4 · Forged Lip</span><span class="tag">wheel barrel</span>
+      <p>A chrome face set inside a milled outer bevel — literally the lip-and-face construction of a forged wheel.</p></div>
+    <div class="stage"><a class="b lip"><span>Find your set</span></a><a class="b lip"><span>Get fitted</span></a></div>
+  </div>
+
+  <div class="row">
+    <div class="meta"><span class="name">5 · Raked</span><span class="tag">motorsport</span>
+      <p>Forward-leaning parallelogram. Fast and aggressive — matches the italic lean of the JTX and DROOOLY wordmarks.</p></div>
+    <div class="stage"><a class="b raked"><span>Find your set</span></a><a class="b raked"><span>Get fitted</span></a></div>
+  </div>
+
+  <div class="row">
+    <div class="meta"><span class="name">6 · Knurled</span><span class="tag">machined texture</span>
+      <p>Liquid chrome with fine vertical machining lines, like knurling on a billet knob. Subtle but tactile up close.</p></div>
+    <div class="stage"><a class="b knurl"><span>Find your set</span></a><a class="b knurl"><span>Get fitted</span></a></div>
+  </div>
+</div>
+</body>
+</html>
