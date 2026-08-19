@@ -2019,11 +2019,8 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
                 calc(100% - var(--chamfer)) 100%, 0 100%, 0 var(--chamfer));
   --clip-billet-sm:polygon(var(--chamfer-sm) 0, 100% 0, 100% calc(100% - var(--chamfer-sm)),
                    calc(100% - var(--chamfer-sm)) 100%, 0 100%, 0 var(--chamfer-sm));
-  /* mirror-polished chrome */
-  --fill-chrome:linear-gradient(180deg,
-    #ffffff 0%, #f7f9fb 16%, #e3e8ed 38%, #c8d0d8 55%,
-    #a8b1ba 66%, #4a525a 71%, #333940 72.5%,
-    #9ba3ac 74%, #d2d9df 85%, #f4f7f9 96%, #e6ebef 100%);
+  /* --fill-chrome is defined in the v123 block below (this earlier hard-
+     horizon version was replaced: the mirror line read as a black stripe) */
   /* black chrome */
   --fill-black:linear-gradient(180deg,
     #767c85 0%, #454b53 9%, #23282e 30%, #12161a 48%,
