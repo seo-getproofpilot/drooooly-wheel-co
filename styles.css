@@ -2185,25 +2185,25 @@ html:has(#intro){overflow:hidden}
 
 .intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
   background:radial-gradient(120% 92% at 50% 44%, #151a21 0%, #0a0c10 58%, #07080b 100%);
-  animation:introOut .72s cubic-bezier(.66,0,.28,1) 1.8s forwards}
+  animation:introOut .95s cubic-bezier(.62,0,.3,1) 2.05s forwards}
 @keyframes introOut{to{opacity:0;visibility:hidden;transform:scale(1.035)}}
 
-.intro__logo{position:relative;width:min(76vw,600px);
-  animation:introRise .62s cubic-bezier(.2,.8,.25,1) both}
-@keyframes introRise{from{opacity:0;transform:scale(.945) translateY(6px)}
-  to{opacity:1;transform:scale(1) translateY(0)}}
+.intro__logo{position:relative;width:min(92vw,1020px);
+  animation:introRise .82s cubic-bezier(.16,.84,.24,1) both}
+@keyframes introRise{from{opacity:0;transform:scale(.72)}
+  to{opacity:1;transform:scale(1)}}
 
 /* brand-blue bloom behind the mark */
 .intro__logo::after{content:"";position:absolute;left:50%;top:50%;z-index:-1;
   width:132%;height:280%;transform:translate(-50%,-50%);pointer-events:none;
   background:radial-gradient(closest-side,rgba(31,111,224,.40),rgba(31,111,224,.10) 55%,transparent 72%);
-  opacity:0;animation:introBloom 1.55s ease-out .48s forwards}
+  opacity:0;animation:introBloom 1.7s ease-out .58s forwards}
 @keyframes introBloom{0%{opacity:0}38%{opacity:1}100%{opacity:.28}}
 
 .intro__outline,.intro__filled{display:block;width:100%;height:auto}
 /* the "light up" — chrome fill rises over the outline */
 .intro__filled{position:absolute;inset:0;opacity:0;
-  animation:introFill .9s ease-out .52s forwards}
+  animation:introFill 1s ease-out .62s forwards}
 @keyframes introFill{to{opacity:1}}
 
 /* chrome glint, masked to the letterforms */
@@ -2213,7 +2213,7 @@ html:has(#intro){overflow:hidden}
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,.92) 50%,transparent 58%);
   background-size:260% 100%;background-repeat:no-repeat;
-  opacity:0;animation:introGlint 1.15s ease-out .72s forwards}
+  opacity:0;animation:introGlint 1.25s ease-out .85s forwards}
 @keyframes introGlint{0%{opacity:0;background-position:-70% 0}
   18%{opacity:1}100%{opacity:0;background-position:170% 0}}
 
@@ -2223,10 +2223,29 @@ html:has(#intro){overflow:hidden}
   color:rgba(255,255,255,.30);opacity:0;animation:introSkip .5s ease-out 1s forwards}
 @keyframes introSkip{to{opacity:1}}
 
-@media(max-width:560px){ .intro__logo{width:82vw} }
+@media(max-width:560px){ .intro__logo{width:88vw} }
 
 /* accessibility: no motion → no plate at all */
 @media(prefers-reduced-motion:reduce){
   html:has(#intro){overflow:auto}
   .intro{display:none}
 }
+
+/* ============================================================
+   v128 — hero reveal after the intro
+   The hero's .fade elements normally fire on load, so by the time the
+   plate lifted the hero was already fully in — no reveal to see. While
+   the intro runs we hold the hero back, then release it as the plate
+   dissolves so it eases up underneath.
+
+   .intro-run is added by JS only, so a no-JS visitor is never left with
+   a hidden hero.
+   ============================================================ */
+.cine__bg{transition:transform 2s cubic-bezier(.18,.72,.2,1)}
+.site-header{transition:opacity .9s ease .1s, transform 1s cubic-bezier(.2,.8,.25,1) .1s}
+
+html.intro-run .cine .fade{opacity:0 !important;transform:translateY(46px) !important;transition:none !important}
+html.intro-run .cine__bg{transform:scale(1.085)}
+html.intro-run .site-header{opacity:0;transform:translateY(-14px)}
+html.intro-run .hero-rot{opacity:0;transition:none}
+.hero-rot{transition:opacity 1.1s ease .45s}
