@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Intro Preview — DROOOLY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=127" />
+<style>
+  html:has(#intro){overflow:hidden}
+  body{margin:0;background:#0a0c10}
+  .stand{position:fixed;inset:0;background:url('assets/truck-hero.jpg?v=127') center/cover no-repeat}
+  .stand::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(8,10,14,.55),rgba(8,10,14,.25) 40%,rgba(8,10,14,.8))}
+  .stand h2{position:absolute;left:6vw;top:38%;margin:0;z-index:2;color:#fff;
+    font-family:Michroma;font-size:clamp(26px,4.4vw,52px);line-height:1.05}
+  .stand h2 em{font-style:italic;color:#1f6fe0}
+  .replay{position:fixed;right:20px;bottom:20px;z-index:20000;
+    font-family:Michroma;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    padding:15px 26px;cursor:pointer;color:#0c0e12;border:0;
+    clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px);
+    background:linear-gradient(180deg,#ffffff 0%,#f1f4f7 26%,#e2e7ec 42%,#cfd6dd 58%,#bac3cc 72%,#aab4be 87%,#d9dfe5 100%);
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,.55))}
+  .replay:hover{color:#1a63cc;filter:drop-shadow(0 12px 24px rgba(0,0,0,.6))}
+  .hint{position:fixed;left:20px;bottom:24px;z-index:20000;color:#7d858f;
+    font-family:Inter,sans-serif;font-size:12px}
+</style>
+</head>
+<body>
+<div class="stand"><h2>Make 'em stare.<br>Make 'em <em>drool.</em></h2></div>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__logo">
+    <img class="intro__outline" src="assets/logo-outline.png?v=127" alt="" />
+    <img class="intro__filled"  src="assets/logo-filled.png?v=127"  alt="" />
+    <span class="intro__glint"></span>
+  </div>
+  <span class="intro__skip">Click to skip</span>
+</div>
+
+<button class="replay" id="replay">Replay intro</button>
+<span class="hint">Preview page — the real intro runs once per session on the homepage.</span>
+
+<script>
+var TPL = document.getElementById('intro').outerHTML;
+function wire(){
+  var el = document.getElementById('intro');
+  if (!el) return;
+  el.addEventListener('animationend', function(e){
+    if (e.animationName === 'introOut' && el.parentNode) el.parentNode.removeChild(el);
+  });
+  el.addEventListener('click', function(){
+    el.style.animation = 'introOut .34s cubic-bezier(.66,0,.28,1) forwards';
+  });
+}
+wire();
+document.getElementById('replay').addEventListener('click', function(){
+  var old = document.getElementById('intro');
+  if (old) old.parentNode.removeChild(old);
+  document.body.insertAdjacentHTML('afterbegin', TPL);
+  wire();
+});
+</script>
+</body>
+</html>

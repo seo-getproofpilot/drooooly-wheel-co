@@ -2168,3 +2168,65 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .btn--ghost:hover .btn-txt{
   background:var(--blue-txt-deep);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ============================================================
+   v127 — INTRO / STARTUP SEQUENCE
+   Mechanic modeled on metriccivil.ca: a full-screen brand plate with a
+   HOLLOW OUTLINE of the wordmark, a filled copy that fades in on top
+   ("lights up"), then the plate lifts away to reveal the hero.
+   Themed to DROOOLY: black plate instead of flat blue, chrome fill,
+   brand-blue bloom, and a glint sweep masked to the letterforms — the
+   same chrome language as the buttons.
+
+   Driven by CSS animation, not JS: if scripting fails the plate still
+   clears itself, so it can never trap a visitor.
+   ============================================================ */
+html:has(#intro){overflow:hidden}
+
+.intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
+  background:radial-gradient(120% 92% at 50% 44%, #151a21 0%, #0a0c10 58%, #07080b 100%);
+  animation:introOut .72s cubic-bezier(.66,0,.28,1) 1.8s forwards}
+@keyframes introOut{to{opacity:0;visibility:hidden;transform:scale(1.035)}}
+
+.intro__logo{position:relative;width:min(76vw,600px);
+  animation:introRise .62s cubic-bezier(.2,.8,.25,1) both}
+@keyframes introRise{from{opacity:0;transform:scale(.945) translateY(6px)}
+  to{opacity:1;transform:scale(1) translateY(0)}}
+
+/* brand-blue bloom behind the mark */
+.intro__logo::after{content:"";position:absolute;left:50%;top:50%;z-index:-1;
+  width:132%;height:280%;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(closest-side,rgba(31,111,224,.40),rgba(31,111,224,.10) 55%,transparent 72%);
+  opacity:0;animation:introBloom 1.55s ease-out .48s forwards}
+@keyframes introBloom{0%{opacity:0}38%{opacity:1}100%{opacity:.28}}
+
+.intro__outline,.intro__filled{display:block;width:100%;height:auto}
+/* the "light up" — chrome fill rises over the outline */
+.intro__filled{position:absolute;inset:0;opacity:0;
+  animation:introFill .9s ease-out .52s forwards}
+@keyframes introFill{to{opacity:1}}
+
+/* chrome glint, masked to the letterforms */
+.intro__glint{position:absolute;inset:0;pointer-events:none;
+  -webkit-mask-image:url(assets/logo-filled.png);mask-image:url(assets/logo-filled.png);
+  -webkit-mask-size:100% 100%;mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,.92) 50%,transparent 58%);
+  background-size:260% 100%;background-repeat:no-repeat;
+  opacity:0;animation:introGlint 1.15s ease-out .72s forwards}
+@keyframes introGlint{0%{opacity:0;background-position:-70% 0}
+  18%{opacity:1}100%{opacity:0;background-position:170% 0}}
+
+/* skip affordance */
+.intro__skip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-family:var(--label);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.30);opacity:0;animation:introSkip .5s ease-out 1s forwards}
+@keyframes introSkip{to{opacity:1}}
+
+@media(max-width:560px){ .intro__logo{width:82vw} }
+
+/* accessibility: no motion → no plate at all */
+@media(prefers-reduced-motion:reduce){
+  html:has(#intro){overflow:auto}
+  .intro{display:none}
+}
