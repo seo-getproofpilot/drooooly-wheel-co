@@ -2188,7 +2188,7 @@ html:has(#intro){overflow:hidden}
 
 .intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
   background:radial-gradient(120% 92% at 50% 44%, #151a21 0%, #0a0c10 58%, #07080b 100%);
-  animation:introOut .95s cubic-bezier(.62,0,.3,1) 3.25s forwards}
+  animation:introOut .95s cubic-bezier(.62,0,.3,1) 2.9s forwards}
 @keyframes introOut{to{opacity:0;visibility:hidden;transform:scale(1.035)}}
 
 .intro__logo{position:relative;width:min(92vw,1020px);
@@ -2225,40 +2225,6 @@ html:has(#intro){overflow:hidden}
   opacity:0;animation:introGlint .95s ease-out .8s forwards}
 @keyframes introGlint{0%{opacity:0;background-position:120% 0}
   18%{opacity:1}100%{opacity:0;background-position:-20% 0}}
-
-/* glisten across the FINISHED logo — same left-to-right shine as the button
-   hover. Sits entirely inside the existing settled-hold window (1.95-2.90s),
-   so it adds no time to the sequence. Reuses the glint's mask image, so it
-   costs no extra download. */
-.intro__shine{position:absolute;inset:0;pointer-events:none;
-  -webkit-mask-image:url(assets/logo-filled.png);mask-image:url(assets/logo-filled.png);
-  -webkit-mask-size:100% 100%;mask-size:100% 100%;
-  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  /* The letters are already near-white, so a plain white band is invisible
-     on them. Real chrome reads as a bright line with DARKER bands either
-     side — that contrast is what makes the highlight travel visibly. */
-  background:linear-gradient(100deg,
-    transparent 28%, rgba(8,11,16,.62) 40%,
-    rgba(255,255,255,1) 49%, rgba(255,255,255,1) 51%,
-    rgba(8,11,16,.62) 60%, transparent 72%);
-  /* background-size:200% makes the position math tractable: the band sits
-     1W from the gradient's left edge, so container-x = W - W*(pos/100).
-     pos 120% puts it just off the left, -20% just off the right. */
-  background-size:200% 100%;background-repeat:no-repeat;
-  /* Slower and more even. The old cubic-bezier(.36,0,.22,1) front-loaded the
-     motion, so the band whipped across early and crawled at the end — it read
-     as fast even though it wasn't. This curve is close to linear, so the
-     highlight travels at a steady pace you can actually watch. */
-  /* linear, and with the off-screen run-up trimmed (108% -> -8% instead of
-     120% -> -20%). Most of the duration is now spent actually crossing the
-     letters rather than travelling in from off-screen — visible sweep goes
-     from ~0.5s to ~1.0s. */
-  opacity:0;animation:introShine 1.15s linear 1.98s forwards}
-@keyframes introShine{
-  0%{opacity:0;background-position:108% 0}
-  10%{opacity:1}
-  90%{opacity:1}
-  100%{opacity:0;background-position:-8% 0}}
 
 /* skip affordance */
 .intro__skip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
