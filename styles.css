@@ -2220,11 +2220,37 @@ html:has(#intro){overflow:hidden}
   -webkit-mask-image:url(assets/logo-filled.png);mask-image:url(assets/logo-filled.png);
   -webkit-mask-size:100% 100%;mask-size:100% 100%;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,.92) 50%,transparent 58%);
-  background-size:260% 100%;background-repeat:no-repeat;
-  opacity:0;animation:introGlint 1.15s ease-out .8s forwards}
-@keyframes introGlint{0%{opacity:0;background-position:-70% 0}
-  18%{opacity:1}100%{opacity:0;background-position:170% 0}}
+  background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.85) 50%,transparent 60%);
+  background-size:200% 100%;background-repeat:no-repeat;
+  opacity:0;animation:introGlint .95s ease-out .8s forwards}
+@keyframes introGlint{0%{opacity:0;background-position:120% 0}
+  18%{opacity:1}100%{opacity:0;background-position:-20% 0}}
+
+/* glisten across the FINISHED logo — same left-to-right shine as the button
+   hover. Sits entirely inside the existing settled-hold window (1.95-2.90s),
+   so it adds no time to the sequence. Reuses the glint's mask image, so it
+   costs no extra download. */
+.intro__shine{position:absolute;inset:0;pointer-events:none;
+  -webkit-mask-image:url(assets/logo-filled.png);mask-image:url(assets/logo-filled.png);
+  -webkit-mask-size:100% 100%;mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  /* The letters are already near-white, so a plain white band is invisible
+     on them. Real chrome reads as a bright line with DARKER bands either
+     side — that contrast is what makes the highlight travel visibly. */
+  background:linear-gradient(100deg,
+    transparent 28%, rgba(8,11,16,.62) 40%,
+    rgba(255,255,255,1) 49%, rgba(255,255,255,1) 51%,
+    rgba(8,11,16,.62) 60%, transparent 72%);
+  /* background-size:200% makes the position math tractable: the band sits
+     1W from the gradient's left edge, so container-x = W - W*(pos/100).
+     pos 120% puts it just off the left, -20% just off the right. */
+  background-size:200% 100%;background-repeat:no-repeat;
+  opacity:0;animation:introShine .72s cubic-bezier(.36,0,.22,1) 2s forwards}
+@keyframes introShine{
+  0%{opacity:0;background-position:120% 0}
+  14%{opacity:1}
+  86%{opacity:1}
+  100%{opacity:0;background-position:-20% 0}}
 
 /* skip affordance */
 .intro__skip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
