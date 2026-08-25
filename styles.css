@@ -2185,7 +2185,7 @@ html:has(#intro){overflow:hidden}
 
 .intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
   background:radial-gradient(120% 92% at 50% 44%, #151a21 0%, #0a0c10 58%, #07080b 100%);
-  animation:introOut .95s cubic-bezier(.62,0,.3,1) 2.05s forwards}
+  animation:introOut .95s cubic-bezier(.62,0,.3,1) 2.9s forwards}
 @keyframes introOut{to{opacity:0;visibility:hidden;transform:scale(1.035)}}
 
 .intro__logo{position:relative;width:min(92vw,1020px);
@@ -2197,14 +2197,20 @@ html:has(#intro){overflow:hidden}
 .intro__logo::after{content:"";position:absolute;left:50%;top:50%;z-index:-1;
   width:132%;height:280%;transform:translate(-50%,-50%);pointer-events:none;
   background:radial-gradient(closest-side,rgba(31,111,224,.40),rgba(31,111,224,.10) 55%,transparent 72%);
-  opacity:0;animation:introBloom 1.7s ease-out .58s forwards}
-@keyframes introBloom{0%{opacity:0}38%{opacity:1}100%{opacity:.28}}
+  opacity:0;animation:introBloom 1.45s ease-out .5s forwards}
+/* fades fully to 0 — any residual glow softens the chrome and kills the
+   crisp billet edge the client wants */
+@keyframes introBloom{0%{opacity:0}34%{opacity:1}100%{opacity:0}}
 
 .intro__outline,.intro__filled{display:block;width:100%;height:auto}
 /* the "light up" — chrome fill rises over the outline */
 .intro__filled{position:absolute;inset:0;opacity:0;
   animation:introFill 1s ease-out .62s forwards}
 @keyframes introFill{to{opacity:1}}
+/* the outline is a dilated stroke sitting slightly proud of the letters —
+   once the chrome has filled in, drop it or it haloes every edge */
+.intro__outline{animation:introOutlineOut .65s ease-out 1.1s forwards}
+@keyframes introOutlineOut{to{opacity:0}}
 
 /* chrome glint, masked to the letterforms */
 .intro__glint{position:absolute;inset:0;pointer-events:none;
@@ -2213,7 +2219,7 @@ html:has(#intro){overflow:hidden}
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,.92) 50%,transparent 58%);
   background-size:260% 100%;background-repeat:no-repeat;
-  opacity:0;animation:introGlint 1.25s ease-out .85s forwards}
+  opacity:0;animation:introGlint 1.15s ease-out .8s forwards}
 @keyframes introGlint{0%{opacity:0;background-position:-70% 0}
   18%{opacity:1}100%{opacity:0;background-position:170% 0}}
 
