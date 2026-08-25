@@ -2022,9 +2022,11 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
   /* --fill-chrome is defined in the v123 block below (this earlier hard-
      horizon version was replaced: the mirror line read as a black stripe) */
   /* black chrome */
+  /* top/bottom no longer ramp to light grey — that read as a white haze.
+     Stays metallic, just kept in the dark end of the range. */
   --fill-black:linear-gradient(180deg,
-    #767c85 0%, #454b53 9%, #23282e 30%, #12161a 48%,
-    #080a0d 62%, #1a1e23 70%, #333940 80%, #5c636c 93%, #838a93 100%);
+    #3a4048 0%, #272c33 12%, #191d22 32%, #0e1216 50%,
+    #080a0d 64%, #121619 76%, #1c2127 90%, #272d34 100%);
   --chrome-text:linear-gradient(180deg,#ffffff,#e4e9ee 42%,#9aa3ad 58%,#f5f8fa);
 }
 
@@ -2128,11 +2130,12 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
       blue) with a matching glow, and the face barely brightens.
    ============================================================ */
 :root{
+  /* no dark wash layer — it read as a black shadow along the bottom edge.
+     The metallic falloff alone carries the chrome. */
   --fill-chrome:
-    linear-gradient(180deg, rgba(6,9,14,0) 50%, rgba(6,9,14,.06) 74%, rgba(6,9,14,.20) 100%),
     linear-gradient(180deg,
-      #ffffff 0%, #fbfcfd 10%, #f1f4f7 26%, #e2e7ec 42%,
-      #cfd6dd 58%, #bac3cc 72%, #aab4be 87%, #c2cad2 96%, #d9dfe5 100%);
+      #ffffff 0%, #fbfcfd 10%, #f2f5f8 26%, #e4e9ee 42%,
+      #d3dae1 58%, #c2cad2 74%, #bcc5ce 88%, #ccd4db 96%, #e0e6ea 100%);
   /* blue chrome lettering */
   --blue-txt-bright:linear-gradient(180deg,#a9ccff,#5aa2ff 38%,#1f6fe0 62%,#89bcff);
   --blue-txt-deep:linear-gradient(180deg,#3d8dff,#1f6fe0 40%,#0b3f8f 66%,#2b7ae8);
@@ -2255,3 +2258,24 @@ html.intro-run .cine__bg{transform:scale(1.085)}
 html.intro-run .site-header{opacity:0;transform:translateY(-14px)}
 html.intro-run .hero-rot{opacity:0;transition:none}
 .hero-rot{transition:opacity 1.1s ease .45s}
+
+/* ============================================================
+   v134 — remove the edge glow on billet buttons
+   Two leftovers from the pre-chamfer treatment were still painting a bright
+   line along the top and a dark one along the bottom of every button. With
+   the chamfered shape these read as haze, not as a machined edge. Cleared.
+   ============================================================ */
+.cine .btn--ghost,
+.cine .btn--ghost:hover,
+.cta .fit-form .btn--chrome,
+.cta .fit-form .btn--chrome:hover,
+.cta .fit-form .btn--chrome:active,
+.cta .fit-form .btn--chrome:focus-visible,
+.wheelmore__btns .btn--chrome,
+.wheelmore__btns .btn--chrome:hover,
+.brands-toggle,
+.brands-toggle:hover,
+.btn--chrome,.btn--chrome:hover,
+.cine .btn--chrome,.cine .btn--chrome:hover,
+.nav .btn--chrome,.nav .btn--chrome:hover{
+  box-shadow:none}
