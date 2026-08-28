@@ -2357,17 +2357,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .vcta .btn{width:auto;min-width:280px}
 }
 
-/* "See it on a truck" — sits on the wheel photo, appears on hover/focus.
-   Always visible on touch, where there is no hover to reveal it. */
-.wheel__media{position:relative}
-.wheel__viz{position:absolute;left:50%;bottom:8px;transform:translateX(-50%) translateY(4px);
-  font-family:var(--label);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  white-space:nowrap;padding:8px 13px;cursor:pointer;color:#0c0e12;
-  background:linear-gradient(180deg,#ffffff,#e4e9ee 42%,#c2cad2 74%,#e0e6ea);
-  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px);
-  opacity:0;transition:opacity .18s var(--ease),transform .18s var(--ease)}
-.wheel:hover .wheel__viz,.wheel__viz:focus-visible{opacity:1;transform:translateX(-50%) translateY(0)}
-@media(hover:none){.wheel__viz{opacity:1;transform:translateX(-50%)}}
 
 /* v143 — visualizer is spec-driven now: fixed truck, stacked offset chips,
    flagged gaps. */

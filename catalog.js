@@ -361,18 +361,8 @@
       ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
       : emblem(brand, m);
     var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
-    /* The preview link can't be a nested <a> — the whole card is one — so it is
-       a span the delegated handler below turns into a link.
-
-       Only offered where the visualizer can actually honour it. The preview is
-       built from real published specs, one program at a time, so a card outside
-       that set must not send someone to a page that can't show their wheel. */
-    var viz = vizSupports(brand, m)
-      ? '<span class="wheel__viz" role="link" tabindex="0" data-viz="model=' +
-        encodeURIComponent(m.model) + '">See it on a truck →</span>'
-      : '';
     return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(quote) + '">' +
-      '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + viz + '</div>' +
+      '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
       (vars
         ? '<div class="wheel__fin" role="group" aria-label="Finishes">' +
@@ -409,25 +399,10 @@
       encodeURIComponent(m.model) + '">See it on ' + n + ' real trucks →</span>';
   }
 
-  /* The visualizer's coverage, read straight from the spec bundle so the two
-     can never drift. No specs loaded on this page = no link, rather than a
-     link that lands somewhere useless. */
-  function vizSupports(brand, m) {
-    var SP = window.WHEEL_SPECS;
-    if (!m.img || !SP || !SP.wheels) return false;
-    var prog = SP.wheels[brand.slug];
-    if (!prog) return false;
-    return (prog.models || []).some(function (x) { return x.name === m.model; });
-  }
-
-  // "See it on a truck" — jumps to the visualizer with this wheel preselected.
-  function bindVizLinks(root) {
-    function go(t) {
-      location.href = t.hasAttribute("data-builds")
-        ? "builds.html?model=" + t.getAttribute("data-builds")
-        : "visualizer.html?" + t.getAttribute("data-viz");
-    }
-    var SEL = "[data-viz],[data-builds]";
+  // "See it on N real trucks" — jumps to that wheel's build gallery.
+  function bindBuildLinks(root) {
+    function go(t) { location.href = "builds.html?model=" + t.getAttribute("data-builds"); }
+    var SEL = "[data-builds]";
     root.addEventListener("click", function (e) {
       var t = e.target.closest && e.target.closest(SEL);
       if (!t) return;
@@ -535,7 +510,7 @@
         '<p class="wheelwrap__note">Every style is built to order in your choice of finish and size. Dually &amp; super-single sets are 6 wheels — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
       '</section>';
     bindFinishSwatches(root);
-    bindVizLinks(root);
+    bindBuildLinks(root);
     if (window.__observeFades) window.__observeFades();
   }
 

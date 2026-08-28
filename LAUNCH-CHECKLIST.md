@@ -19,7 +19,7 @@ also shipped `robots.txt: Allow: /` plus a sitemap, i.e. it was actively invitin
 Google to index a draft full of placeholder prices.
 
 - 🟢 `robots.txt` now `Disallow: /`
-- 🟢 `<meta name="robots" content="noindex, nofollow">` on all 10 pages
+- 🟢 `<meta name="robots" content="noindex, nofollow">` on every page
 - 🔴 **Reverse both at launch** — instructions are in `robots.txt`. Nothing ranks
   while they're in place, so this must not be forgotten on the way out.
 - 🟡 If you want it genuinely private before then, GitHub Pages on a free plan can't
@@ -35,9 +35,9 @@ Google to index a draft full of placeholder prices.
 | 1.1 | **JTX wheel renders** — 30 head-on images pulled from `jtxforged.com` uploads | `assets/wheels/jtx/drw/` | 🔴 Ask JTX for media-kit permission. Routine request; they want dealers showing their wheels. |
 | 1.2 | **All other brands' wheel photos** — scraped from manufacturer/dealer sites | `assets/wheels/**` | 🔴 Same ask, per brand. Roll into the distributor conversation. |
 | 1.3 | **JTX build photos hotlinked on the builds gallery** — displayed from their server, not copied here | `builds.html`, `data/builds/jtx.json` | 🟡 We host nothing and every tile links back, which is the lightest possible footing — but get written permission before this is public, or replace with our own installs. |
-| 1.4 | **Truck photography** — 40 files, rights unconfirmed, predates this work | `assets/builds/` | 🔴 Used on the homepage gallery and as the visualizer plate. Replace with owned photos or license. |
+| 1.4 | **Truck photography** — 40 files, rights unconfirmed, predates this work | `assets/builds/` | 🔴 Still used on the homepage build gallery. Replace with owned photos or license. |
 | 1.5 | **Fabricated captions** on the homepage build gallery | `index.html` | 🔴 Captions describe builds that aren't ours. Rewrite or remove. |
-| 1.6 | **Visualizer placeholder plate** | `data/plates/f450-dually-16.json` (`cleared: false`) | 🟡 Build prints a warning; page labels it a placeholder. |
+| 1.6 | **Visualizer placeholder plate** | `data/plates/f450-dually-16.json` (`cleared: false`) | 🟢 Page removed; data retained but no longer rendered anywhere. |
 
 **The fix that retires most of this:** photograph every set DROOOLY installs. Phone is
 fine — walk around it, get a true side profile. Owned, on-brand, and it's the one
@@ -85,8 +85,8 @@ each one is a phone call away from being better.
 
 | # | What | Status |
 |---|---|---|
-| 5.1 | **Visualizer photo view is unlayered** — the wheel is pasted over the original, so tire/offset/front-width/lift don't change the picture. Labelled as such on the page; "Stance" is the default view. | 🟡 Needs a layered plate (background with wheels removed, separable body, foreground fender). On hold. |
-| 5.2 | `fitment.html` — superseded prototype, unlinked but publicly reachable. | 🟡 Delete, or leave; copy already brought in line with rule 1. |
+| 5.1 | **Wheel visualizer removed from the site** (2026-08-27). `visualizer.html` and the superseded `fitment.html` prototype are deleted; nav, footer, sitemap and card links cleaned. Replaced by the builds gallery, which does the same job with photographs. | 🟢 |
+| 5.2 | **Visualizer code and data kept, unreferenced** — `visualizer.js`, `fitment.js`, `vehicles.js`, `wheel-specs.js`, `data/specs/`, `data/plates/`, `tools/build-specs.js` and their 54 tests all remain. The spec research (real JTX sizes, F-450 fitment, tire rules) is the valuable part and still guards against invented options. | 🟡 On hold, not abandoned. Resuming needs a layered plate: background with wheels removed, separable body, foreground fender lips. |
 | 5.3 | Builds gallery covers **JTX only**. The filename-parsing trick needs verifying per brand. | 🟡 |
 
 ---
@@ -97,7 +97,8 @@ each one is a phone call away from being better.
 - 🟢 No warning modals or interstitials (rule 2).
 - 🟢 Fitment logic isolated in one DOM-free module (`fitment.js`), 54 tests passing.
 - 🟢 Product data is file-driven — `data/specs`, `data/plates`, `data/builds`, `data/tires`, `data/featured`.
-- 🟢 Every option in the visualizer traces to a published spec; no free-form sliders.
+- 🟢 The builds gallery hosts no images — URLs and metadata only, every tile links back to the source.
+- 🟢 The gallery link only appears above a three-photo floor, so it never promises more than it delivers.
 - 🟢 Mobile-first; no horizontal scroll at 375px.
 
 ---
