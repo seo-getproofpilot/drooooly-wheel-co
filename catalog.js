@@ -381,28 +381,43 @@
       '</a>';
   }
 
-  // Finish swatches: hover (or tap) to swap the photo without leaving the page.
+  /* Finish swatches. Hover PREVIEWS and leaving reverts to the card's committed
+     finish, so the grid settles back to one consistent look instead of being
+     left in whatever state your cursor last wandered through. Tap commits,
+     because touch has no hover to preview with. */
   function bindFinishSwatches(root) {
-    function show(sw) {
-      var card = sw.closest(".wheel");
-      var img = card && card.querySelector(".wheel__media img");
-      if (!img) return;
+    function apply(card, sw) {
+      var img = card.querySelector(".wheel__media img");
+      if (!img || !sw) return;
       img.src = sw.dataset.img;
-      card.querySelectorAll(".wheel__sw").forEach(function (o) { o.classList.toggle("is-on", o === sw); });
       var label = card.querySelector(".wheel__finname");
       if (label) label.textContent = sw.getAttribute("title");
     }
+    function committed(card) {
+      return card.querySelector(".wheel__sw.is-on") || card.querySelector(".wheel__sw");
+    }
     root.addEventListener("mouseover", function (e) {
-      var sw = e.target.closest(".wheel__sw");
-      if (sw) show(sw);
+      var sw = e.target.closest && e.target.closest(".wheel__sw");
+      if (!sw) return;
+      apply(sw.closest(".wheel"), sw);
     });
-    // Tap on touch devices must swap the finish, not follow the card link.
+    root.addEventListener("mouseout", function (e) {
+      var sw = e.target.closest && e.target.closest(".wheel__sw");
+      if (!sw) return;
+      var card = sw.closest(".wheel");
+      // ignore moves between swatches inside the same group
+      var to = e.relatedTarget;
+      if (to && to.closest && to.closest(".wheel__fin") === sw.closest(".wheel__fin")) return;
+      apply(card, committed(card));
+    });
     root.addEventListener("click", function (e) {
-      var sw = e.target.closest(".wheel__sw");
+      var sw = e.target.closest && e.target.closest(".wheel__sw");
       if (!sw) return;
       e.preventDefault();
       e.stopPropagation();
-      show(sw);
+      var card = sw.closest(".wheel");
+      card.querySelectorAll(".wheel__sw").forEach(function (o) { o.classList.toggle("is-on", o === sw); });
+      apply(card, sw);
     });
   }
 

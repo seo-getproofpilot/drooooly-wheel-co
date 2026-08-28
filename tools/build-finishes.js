@@ -45,8 +45,13 @@ const SERIES = {
 /* Swatch colours approximate the finish for the picker only — they are never
    used to recolour a render. */
 const FINISHES = [
-  { code: "polished",     name: "Polished",     hex: "#dee3e8" },
-  { code: "black-milled", name: "Black Milled", hex: "#24262a" }
+  { code: "polished",     name: "Polished",     hex: "#dee3e8",
+    note: "Bare forged aluminium, polished to a mirror." },
+  { code: "black-milled", name: "Black Milled", hex: "#24262a",
+    /* Customers read the bright edges in this render as chrome showing
+       through and assume the photo is wrong. It isn't — milling IS the bare
+       metal, so say what the finish is rather than let the picture argue. */
+    note: "Gloss black with the spoke faces machined back to bare aluminium — the bright edges are the milling, not chrome." }
 ];
 /* Everything JTX will build. The four without renders are named on the page as
    options to order, never faked with a tinted photo. */
@@ -84,6 +89,10 @@ const payload = {
   captured: new Date().toISOString().slice(0, 10),
   source: "https://jtxforged.com/single-series/ and /dually-series/",
   finishes: FINISHES.map((f) => ({ ...f, rendered: true })),
+  /* JTX shoot two finishes and only two: P and BM. Probed their uploads for
+     B, GB, MB, BR, C and every other plausible code — all 404. Plain Black,
+     Brushed, Chrome and Custom are real orders with no render behind them. */
+  renderedNote: "JTX photograph these two. The rest are built to order.",
   orderable: ORDERABLE,
   series: series
 };

@@ -61,7 +61,7 @@
   var options = [];
   if (art && FIN) {
     FIN.finishes.forEach(function (f) {
-      if (art[f.code]) options.push({ code: f.code, name: f.name, hex: f.hex, img: art[f.code] });
+      if (art[f.code]) options.push({ code: f.code, name: f.name, hex: f.hex, img: art[f.code], note: f.note });
     });
   } else if (model.imgs && model.imgs.length) {
     model.imgs.forEach(function (v) {
@@ -208,6 +208,9 @@
           priceBlock() +
           '<div class="wspecs">' +
             specRow("Finish", esc(state.finish.name)) +
+          "</div>" +
+          (state.finish.note ? '<p class="wfinnote">' + esc(state.finish.note) + "</p>" : "") +
+          '<div class="wspecs wspecs--rest">' +
             specRow("Configurations", esc(configs().join(" · "))) +
             specRow("Diameters", sizes.dia.map(function (d) { return d + '"'; }).join(" · ")) +
             specRow("Widths", (function () {

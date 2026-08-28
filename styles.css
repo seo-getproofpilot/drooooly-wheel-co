@@ -2528,3 +2528,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wswitch:hover{text-decoration:underline}
 /* front+rear pair is a wide frame, not a square one */
 .wmedia__stage--pair{aspect-ratio:16/9}
+.wfinnote{font-size:12.5px;color:var(--muted);line-height:1.55;margin:9px 0 4px}
+.wspecs--rest{border-top:0;margin-top:6px}
+/* the black-milled chip should look milled, so the swatch and the label agree */
+.wsw i{position:relative;overflow:hidden}
