@@ -17,7 +17,7 @@
   if (!root || !window.BRANDS) return;
 
   var q = new URLSearchParams(location.search);
-  var slug = q.get("brand"), name = q.get("model");
+  var slug = q.get("brand"), name = q.get("model"), series = q.get("series");
   var FIN = window.WHEEL_FINISHES;
   var BUILDS = window.WHEEL_BUILDS;
 
@@ -41,7 +41,16 @@
      different casting, not a hue shift, so a swatch that can't change the photo
      is a dead control — better to show the two that work and mention the rest
      as options in words. */
-  var art = (FIN && FIN.brandSlug === brand.slug && FIN.models[model.model]) || null;
+  /* Which series' renders to show. A style can exist as a single AND as a
+     dually with different art, so the link carries which one was clicked; fall
+     back to whichever we hold. */
+  function artFor(k) {
+    return (FIN && FIN.brandSlug === brand.slug && FIN.series &&
+            FIN.series[k] && FIN.series[k][model.model]) || null;
+  }
+  var activeSeries = (series && artFor(series)) ? series
+    : (artFor("single") ? "single" : (artFor("dually") ? "dually" : null));
+  var art = activeSeries ? artFor(activeSeries) : null;
 
   function finMeta(nm) {
     var f = FIN && FIN.finishes.filter(function (x) {
@@ -52,7 +61,7 @@
   var options = [];
   if (art && FIN) {
     FIN.finishes.forEach(function (f) {
-      if (f.rendered && art[f.code]) options.push({ code: f.code, name: f.name, hex: f.hex, img: art[f.code] });
+      if (art[f.code]) options.push({ code: f.code, name: f.name, hex: f.hex, img: art[f.code] });
     });
   } else if (model.imgs && model.imgs.length) {
     model.imgs.forEach(function (v) {
@@ -66,13 +75,17 @@
     options.push({ code: fm.code, name: first, hex: fm.hex, img: model.img });
   }
 
-  /* Everything the brand will build beyond what we can show. Phrased as more
-     choice, which is what it is — not as an apology for missing photos. */
+  /* Everything the brand will build beyond what we can show, phrased as more
+     choice — which is what it is. */
   var shownNames = options.map(function (o) { return o.name.toLowerCase(); });
-  var extraFinishes = ((model.finishes && model.finishes.length)
-      ? model.finishes
-      : (FIN ? FIN.finishes.map(function (f) { return f.name; }) : []))
+  var extraFinishes = ((FIN && FIN.orderable) || model.finishes || [])
     .filter(function (nm) { return shownNames.indexOf(String(nm).toLowerCase()) < 0; });
+
+  /* If a style comes both ways, offer the other one rather than stranding
+     someone on the single when they drive a dually. */
+  var otherSeries = null;
+  if (activeSeries === "single" && artFor("dually")) otherSeries = "dually";
+  else if (activeSeries === "dually" && artFor("single")) otherSeries = "single";
 
   var state = { finish: options[0] };
 
@@ -175,14 +188,23 @@
 
       '<div class="wgrid">' +
         '<div class="wmedia">' +
-          '<div class="wmedia__stage"><img id="wImg" src="' + esc(state.finish.img) + '" alt="' +
+          '<div class="wmedia__stage' + (activeSeries === "dually" ? " wmedia__stage--pair" : "") +
+            '"><img id="wImg" src="' + esc(state.finish.img) + '" alt="' +
             esc(brand.name + " " + model.model + " — " + state.finish.name) + '" /></div>' +
           '<div class="wfin" id="wFin"></div>' +
         "</div>" +
 
         '<div class="winfo">' +
-          '<p class="weyebrow">' + esc(brand.name) + "</p>" +
+          '<p class="weyebrow">' + esc(brand.name) +
+            (activeSeries ? " · " + (activeSeries === "dually" ? "Dually Series" : "Single Series") : "") + "</p>" +
           "<h1>" + esc(model.model) + "</h1>" +
+          (activeSeries === "dually"
+            ? '<p class="wseriesnote">Front and rear wheel shown. A dually set is six wheels.</p>' : "") +
+          (otherSeries
+            ? '<a class="wswitch" href="wheel.html?brand=' + esc(brand.slug) + "&model=" +
+              encodeURIComponent(model.model) + "&series=" + otherSeries + '">Also built as a ' +
+              (otherSeries === "dually" ? "dually — see the front and rear pair" : "single wheel") + " →</a>"
+            : "") +
           priceBlock() +
           '<div class="wspecs">' +
             specRow("Finish", esc(state.finish.name)) +

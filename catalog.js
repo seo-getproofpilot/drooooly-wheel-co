@@ -326,32 +326,41 @@
   // detail. Sourced per style (cast) or per brand (forged, drilled to order)
   // — never inferred, because this is fitment data.
 
-  function finishVariants(brand, m) {
-    if (m.imgs && m.imgs.length > 1) return m.imgs;
+  /* Finish variants for a card, for one series. A model can exist as a single
+     AND as a dually with different renders, so the series is part of the
+     lookup — otherwise a dually card would show the single's photo. */
+  function finishVariants(brand, m, series) {
     var F = window.WHEEL_FINISHES;
-    if (!F || F.brandSlug !== brand.slug) return null;
-    var art = F.models[m.model];
-    if (!art) return null;
-    var out = [];
-    F.finishes.forEach(function (f) {
-      if (f.rendered && art[f.code]) out.push({ finish: f.name, img: art[f.code] });
-    });
-    return out.length > 1 ? out : null;
+    if (F && F.brandSlug === brand.slug && F.series) {
+      var art = (F.series[series || "single"] || {})[m.model];
+      if (art) {
+        var out = [];
+        F.finishes.forEach(function (f) {
+          if (art[f.code]) out.push({ finish: f.name, img: art[f.code] });
+        });
+        if (out.length > 1) return out;
+      }
+      if (series) return null;      // asked for a series we hold no art for
+    }
+    if (m.imgs && m.imgs.length > 1) return m.imgs;
+    return null;
   }
 
-  /* The card carries the style, whether it comes single or dually, and the
-     price. Nothing else. Bolt patterns and build counts were true but they
-     buried the wheel — on a grid you are scanning shapes, not reading specs.
-     Those live on the wheel's own page, where there is room for them. */
-  function wheelCard(brand, m) {
-    var vars = finishVariants(brand, m);
+  /* The card carries the style, what it fits, and the price. Nothing else —
+     on a grid you are scanning shapes, not reading specs. Bolt patterns and
+     sizes live on the wheel's own page, where there is room. */
+  function wheelCard(brand, m, series) {
+    var vars = finishVariants(brand, m, series);
     var hero = vars ? vars[0].img : m.img;
     var mediaInner = hero
-      ? '<img src="' + esc(hero) + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
+      ? '<img src="' + esc(hero) + '" alt="' + esc(brand.name + " " + m.model +
+          (series === "dually" ? " front and rear wheel" : "")) + '" loading="lazy">'
       : emblem(brand, m);
     var href = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
-               "&model=" + encodeURIComponent(m.model);
-    return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(href) + '">' +
+               "&model=" + encodeURIComponent(m.model) +
+               (series ? "&series=" + series : "");
+    return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') +
+      (series === "dually" ? ' wheel--pair' : '') + '" href="' + esc(href) + '">' +
       '<div class="wheel__media' + (hero ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
       (vars
         ? '<div class="wheel__fin" role="group" aria-label="Finishes">' +
@@ -364,7 +373,10 @@
           '</div>'
         : '') +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
-      '<p class="wheel__avail">' + availText(m) + '</p>' +
+      '<p class="wheel__avail">' +
+        (series === "dually" ? "Front &amp; rear · 6-wheel set"
+         : series === "single" ? "Single rear wheel"
+         : availText(m)) + '</p>' +
       priceLine(brand, m) +
       '</a>';
   }
@@ -447,7 +459,7 @@
           : '') +
       '</section>' +
       '<section class="wheelwrap">' +
-        '<div class="wheelgrid">' + show.map(function (m) { return wheelCard(b, m); }).join("") + '</div>' +
+        seriesSections(b, show) +
         (b.site
           ? '<div class="wheelmore">' +
               '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
@@ -464,6 +476,50 @@
       '</section>';
     bindFinishSwatches(root);
     if (window.__observeFades) window.__observeFades();
+  }
+
+  /* A dually wheel will not bolt to a single-rear truck, so showing both in
+     one grid is misleading — the buyer has to know which list is theirs before
+     they fall for a shape. JTX split them and so do we: singles first, then
+     duallies, each with the render for that series. A style that exists as
+     both appears in both, which is correct, not a duplicate.
+
+     Brands with no series art fall back to one grid, unchanged. */
+  function seriesSections(b, models) {
+    var F = window.WHEEL_FINISHES;
+    if (!F || F.brandSlug !== b.slug || !F.series) {
+      return '<div class="wheelgrid">' +
+        models.map(function (m) { return wheelCard(b, m); }).join("") + "</div>";
+    }
+    var defs = [
+      { key: "single", title: "Single Series",
+        blurb: "One wheel per corner — F-250/350 single-rear, half-tons and SUVs." },
+      { key: "dually", title: "Dually Series",
+        blurb: "Front and rear wheel shown together. Sets are six wheels, for dual-rear trucks." }
+    ];
+    var out = "", spare = models.slice();
+    defs.forEach(function (d) {
+      var list = models.filter(function (m) { return F.series[d.key] && F.series[d.key][m.model]; });
+      if (!list.length) return;
+      list.forEach(function (m) {
+        var i = spare.indexOf(m); if (i > -1) spare.splice(i, 1);
+      });
+      out += '<div class="wheelseries">' +
+        '<div class="wheelseries__head"><h2>' + esc(d.title) + '</h2>' +
+        "<p>" + d.blurb + "</p></div>" +
+        '<div class="wheelgrid' + (d.key === "dually" ? " wheelgrid--pairs" : "") + '">' +
+        list.map(function (m) { return wheelCard(b, m, d.key); }).join("") + "</div></div>";
+    });
+    /* Anything with no series render still has to appear — dropping a style
+       because we lack its photo would quietly shrink the catalogue. */
+    if (spare.length) {
+      out += '<div class="wheelseries">' +
+        '<div class="wheelseries__head"><h2>More styles</h2>' +
+        "<p>Built to order — ask us which configurations this one comes in.</p></div>" +
+        '<div class="wheelgrid">' +
+        spare.map(function (m) { return wheelCard(b, m); }).join("") + "</div></div>";
+    }
+    return out;
   }
 
   // Showroom cards link here with ?w=<brand + model> — drop it straight into

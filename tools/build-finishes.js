@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-/* Generates finishes.js — which finishes each JTX wheel can be ordered in, and
-   which of those we hold a real render for.  node tools/build-finishes.js
+/* Generates finishes.js — JTX's own product renders, split by series.
+   node tools/build-finishes.js
 
    Two different things, deliberately kept apart:
 
@@ -16,90 +16,90 @@
                   not, so the page shows a swatch and says which render it is
                   standing in with.
 
-   Scans assets/wheels/jtx/finish/ rather than trusting a hand-list, so the
-   data can never claim art that isn't on disk.                              */
+   TWO SERIES, kept apart because they are different products. A dually wheel
+   does not fit a single-rear truck, so listing them together is misleading —
+   JTX separate them and so do we.
+
+     single  — one wheel, JTX's own three-quarter product shot
+     dually  — the front wheel and the rear wheel together in one frame, which
+               is how JTX present them and what a dually buyer needs to see
+
+   These are JTX's renders as JTX shot them. An earlier pass used their
+   head-on "-FRONT" variants, which were only ever cropped for a wheel
+   visualiser that has since been removed — on a product page they read as
+   chopped up, because the barrel is the part you judge a forged wheel on and
+   a head-on view flattens it away.
+
+   Scans the art directories rather than trusting a hand-list, so the data can
+   never claim a render that isn't on disk.                                  */
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const DIR = path.join(ROOT, "assets", "wheels", "jtx", "finish");
-const DRW = path.join(ROOT, "assets", "wheels", "jtx", "drw");
 const OUT = path.join(ROOT, "finishes.js");
+const SERIES = {
+  single: path.join(ROOT, "assets", "wheels", "jtx", "single"),
+  dually: path.join(ROOT, "assets", "wheels", "jtx", "dually")
+};
 
 /* Swatch colours approximate the finish for the picker only — they are never
    used to recolour a render. */
 const FINISHES = [
   { code: "polished",     name: "Polished",     hex: "#dee3e8" },
-  { code: "black-milled", name: "Black Milled", hex: "#24262a" },
-  { code: "brushed",      name: "Brushed",      hex: "#a7adb4" },
-  { code: "black",        name: "Black",        hex: "#101216" },
-  { code: "chrome",       name: "Chrome",       hex: "#cbd4dc" },
-  { code: "custom",       name: "Custom",       hex: null }
+  { code: "black-milled", name: "Black Milled", hex: "#24262a" }
 ];
-
-if (!fs.existsSync(DIR)) {
-  console.error("ERROR: no finish art directory at " + path.relative(ROOT, DIR));
-  process.exit(1);
-}
+/* Everything JTX will build. The four without renders are named on the page as
+   options to order, never faked with a tinted photo. */
+const ORDERABLE = ["Polished", "Brushed", "Black", "Black Milled", "Chrome", "Custom"];
 
 global.window = {};
 require(path.join(ROOT, "brands.js"));
 const brand = window.BRANDS.find((b) => b.slug === "jtx");
 
-// filename is <model-slug>-<finish-code>.webp
-const files = fs.readdirSync(DIR).filter((f) => f.endsWith(".webp"));
-const codes = FINISHES.map((f) => f.code).sort((a, b) => b.length - a.length);
-
-const models = {};
-files.forEach((f) => {
-  const base = f.replace(/\.webp$/, "");
-  const code = codes.find((c) => base.endsWith("-" + c));
-  if (!code) return;
-  const slug = base.slice(0, -(code.length + 1));
-  // slug back to the catalog's model name
-  const m = brand.models.find(
-    (x) => x.model.toLowerCase().replace(/\s+/g, "-") === slug
-  );
-  if (!m) return;
-  (models[m.model] = models[m.model] || {})[code] =
-    "assets/wheels/jtx/finish/" + f;
-});
-
-/* The dually models have no single-series art but do have dually renders, so
-   they are not finish-less — point them at what exists. */
-if (fs.existsSync(DRW)) {
-  fs.readdirSync(DRW).filter((f) => /-front-(polished|black)\.webp$/.test(f)).forEach((f) => {
-    const slug = f.replace(/-front-(polished|black)\.webp$/, "");
-    const code = /-black\.webp$/.test(f) ? "black-milled" : "polished";
-    const m = brand.models.find((x) => x.model.toLowerCase().replace(/\s+/g, "-") === slug);
+function scan(dir, rel) {
+  const out = {};
+  if (!fs.existsSync(dir)) return out;
+  const codes = FINISHES.map((f) => f.code).sort((a, b) => b.length - a.length);
+  fs.readdirSync(dir).filter((f) => f.endsWith(".webp")).forEach((f) => {
+    const base = f.replace(/\.webp$/, "");
+    const code = codes.find((c) => base.endsWith("-" + c));
+    if (!code) return;
+    const slug = base.slice(0, -(code.length + 1));
+    const m = brand.models.find(
+      (x) => x.model.toLowerCase().replace(/\s+/g, "-") === slug);
     if (!m) return;
-    models[m.model] = models[m.model] || {};
-    if (!models[m.model][code]) models[m.model][code] = "assets/wheels/jtx/drw/" + f;
+    (out[m.model] = out[m.model] || {})[code] = rel + "/" + f;
   });
+  return out;
 }
 
-const rendered = new Set();
-Object.values(models).forEach((m) => Object.keys(m).forEach((c) => rendered.add(c)));
+const series = {
+  single: scan(SERIES.single, "assets/wheels/jtx/single"),
+  dually: scan(SERIES.dually, "assets/wheels/jtx/dually")
+};
 
 const payload = {
   brandSlug: "jtx",
   brand: brand.name,
   captured: new Date().toISOString().slice(0, 10),
-  source: "https://jtxforged.com/single-series/",
-  finishes: FINISHES.map((f) => ({ ...f, rendered: rendered.has(f.code) })),
-  models
+  source: "https://jtxforged.com/single-series/ and /dually-series/",
+  finishes: FINISHES.map((f) => ({ ...f, rendered: true })),
+  orderable: ORDERABLE,
+  series: series
 };
 
 fs.writeFileSync(OUT,
   "/* GENERATED by tools/build-finishes.js — do not edit.\n" +
-  "   Scanned from assets/wheels/jtx/finish and /drw, so it cannot claim art\n" +
-  "   that is not on disk. Orderable finishes vs rendered ones are separate. */\n" +
+  "   JTX's own product renders, scanned from disk and split by series:\n" +
+  "   single = one wheel, dually = the front and rear wheel together. */\n" +
   "window.WHEEL_FINISHES = " + JSON.stringify(payload) + ";\n");
 
-const withArt = Object.keys(models).length;
-const both = Object.keys(models).filter((m) => Object.keys(models[m]).length >= 2).length;
-console.log(`finishes.js written — ${withArt} models with art, ${both} with two finishes`);
-console.log(`  rendered: ${payload.finishes.filter(f => f.rendered).map(f => f.name).join(", ")}`);
-console.log(`  offered without art: ${payload.finishes.filter(f => !f.rendered).map(f => f.name).join(", ")}`);
-const missing = brand.models.filter((m) => m.feat && !models[m.model]).map((m) => m.model);
-if (missing.length) console.log(`  NOTE: ${missing.length} featured model(s) have no finish art: ${missing.join(", ")}`);
+Object.keys(series).forEach((k) => {
+  const models = Object.keys(series[k]);
+  const both = models.filter((m) => Object.keys(series[k][m]).length >= 2);
+  console.log(`${k.padEnd(7)} ${String(models.length).padStart(3)} models, ${both.length} with both finishes`);
+});
+const feat = brand.models.filter((m) => m.feat).map((m) => m.model);
+const orphan = feat.filter((m) => !series.single[m] && !series.dually[m]);
+if (orphan.length) console.log(`  NOTE: ${orphan.length} featured model(s) with no render at all: ${orphan.join(", ")}`);
+console.log(`  offered without a render: ${ORDERABLE.filter((n) => !FINISHES.some((f) => f.name === n)).join(", ")}`);
