@@ -338,18 +338,19 @@
   // lands — invented numbers on forged wheels are a promise we can't keep.
   // Swatch colour used for the finish dots — approximate, purely a UI cue;
   // the photo underneath is the real article.
-  /* A 16px dot cannot carry a four-stop gradient — it just reads as noise, and
-     the old black-milled swatch faded to light grey, so "black" didn't look
-     black. One soft highlight to say "metal", then commit to the colour. */
+  /* FLAT colour, no gradient. A gradient inside a dot this small never reads
+     as brushed metal — it reads as dirt on the swatch. The dot's job is to say
+     which colour, and the render right above it already shows the finish. */
   var FINISH_DOT = {
-    polished:    "linear-gradient(150deg,#ffffff 0%,#dfe3e8 52%,#b6bcc4 100%)",
-    chrome:      "linear-gradient(150deg,#ffffff 0%,#dde2e8 52%,#aeb5bd 100%)",
-    brushed:     "linear-gradient(150deg,#eceef1 0%,#c9cdd2 52%,#adb2b8 100%)",
-    black:       "linear-gradient(150deg,#33343a 0%,#131418 60%,#0a0a0c 100%)",
-    blackmilled: "linear-gradient(150deg,#3c3d44 0%,#17181c 60%,#0b0c0e 100%)",
-    bronze:      "linear-gradient(150deg,#d7a468 0%,#a8763c 55%,#7a5326 100%)",
-    gunmetal:    "linear-gradient(150deg,#8b929a 0%,#5a6069 55%,#3a4048 100%)",
+    polished:    "#e2e7ec",
+    chrome:      "#e6ebf0",
+    brushed:     "#c7cbd0",
+    black:       "#141519",
+    blackmilled: "#1c1d22",
+    bronze:      "#a8763c",
+    gunmetal:    "#5a6069"
   };
+
   function finishDot(name) {
     var k = String(name).toLowerCase().replace(/[^a-z]/g, "");
     return FINISH_DOT[k] || FINISH_DOT[k.replace(/milled|clear|gloss|matte|satin/g, "")] || FINISH_DOT.polished;

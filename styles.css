@@ -1875,15 +1875,33 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .wheel__media.pkg__media--emblem{background:none}
 
 /* v95b — Finish swatches: hover a dot to see that wheel in that finish. */
-.wheel__fin{display:flex;align-items:center;justify-content:center;gap:7px;margin:2px 0 8px;min-height:20px}
-.wheel__sw{width:16px;height:16px;padding:0;border-radius:50%;cursor:pointer;
-  border:1px solid rgba(0,0,0,.22);box-shadow:0 1px 3px rgba(0,0,0,.16);
-  transition:transform .16s var(--ease),box-shadow .16s,outline-color .16s;outline:2px solid transparent;outline-offset:2px}
-.wheel__sw:hover{transform:scale(1.18)}
-.wheel__sw.is-shown{outline-color:var(--blue-2);box-shadow:0 2px 7px rgba(0,0,0,.26)}
-.wheel__finname{font-family:var(--label);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--muted);margin-left:3px}
-@media(max-width:560px){ .wheel__sw{width:20px;height:20px} .wheel__finname{display:none} }
+/* ------------------------------------------------------------------
+   Finish swatches on a wheel card.
+
+   Small, flat and clearly apart. Earlier passes made them bigger and closer
+   with a gradient fill; at this size a gradient reads as dirt, not brushed
+   metal, and two fat dots nearly touching are hard to tell apart and harder
+   to aim at. The dot names the colour — the render above it shows the finish.
+
+   The visible dot is 14px; the button carries a transparent border so the
+   target is 28px without the dot growing to match.
+   ------------------------------------------------------------------ */
+.wheel__fin{display:flex;align-items:center;justify-content:center;
+  gap:10px;margin:4px 0 9px;min-height:28px}
+.wheel__sw{width:14px;height:14px;box-sizing:content-box;
+  border:7px solid transparent;background-clip:padding-box;
+  border-radius:50%;cursor:pointer;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.22);
+  outline:2px solid transparent;outline-offset:2px;
+  transition:box-shadow .16s var(--ease),outline-color .16s var(--ease)}
+.wheel__sw:hover{box-shadow:inset 0 0 0 1px rgba(0,0,0,.34)}
+.wheel__sw.is-shown{outline-color:var(--blue-2)}
+.wheel__finname{font-family:var(--label);font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text);font-weight:600;margin-left:4px}
+@media(max-width:560px){
+  .wheel__sw{width:16px;height:16px;border-width:8px}
+  .wheel__finname{display:inline;font-size:11px}
+}
 
 /* v97 — Showroom card: fitments as a plain note, not selectable-looking chips.
    Brand hero drops the duplicate wordmark under the logo. */
@@ -2652,20 +2670,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wheelseries__head::after{margin-top:12px}
 .seriestabs{margin-top:18px}
 
-/* v162 — swatches were 16px targets separated by gaps, so a cursor crossing
-   the row kept falling between them and the card flipped back and forth. The
-   dot still LOOKS 16px; the button is 34px of hit area with the background
-   clipped to the padding box, and the row overlaps so there is no dead space
-   between neighbours to fall into. */
-.wheel__fin{gap:0}
-.wheel__sw{width:16px;height:16px;box-sizing:content-box;
-  border:9px solid transparent;background-clip:padding-box;
-  border-radius:50%;box-shadow:none}
-.wheel__sw.is-shown{box-shadow:0 2px 7px rgba(0,0,0,.26)}
-.wheel__sw:hover{transform:none}
-.wheel__sw.is-shown{outline-offset:1px}
-.wheel__finname{margin-left:6px}
-@media(max-width:560px){ .wheel__sw{width:20px;height:20px;border-width:10px} }
 
 /* ============================================================
    v162 — brand bands. A brand gets its own header texture where we hold one,
@@ -2767,16 +2771,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wspec--wide span{display:block;flex:none;margin-bottom:5px}
 .wspec--wide b{display:block;text-align:left;font-weight:600;letter-spacing:.01em}
 
-/* v170 — finish dots: bigger, clearly separated, and ringed so a black dot on
-   a white card still has an edge. Two 16px dots nearly touching were hard to
-   aim at and harder to tell apart. */
-.wheel__fin{gap:0;min-height:30px}
-.wheel__sw{width:22px;height:22px;box-sizing:content-box;
-  border:8px solid transparent;background-clip:padding-box;border-radius:50%;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.16), 0 1px 3px rgba(0,0,0,.14)}
-.wheel__sw.is-shown{box-shadow:inset 0 0 0 1px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26)}
-.wheel__finname{margin-left:8px}
-@media(max-width:560px){ .wheel__sw{width:24px;height:24px;border-width:9px} }
 
 /* ============================================================
    v170 — series page: the category names itself at the top, and switching
