@@ -2368,3 +2368,24 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   opacity:0;transition:opacity .18s var(--ease),transform .18s var(--ease)}
 .wheel:hover .wheel__viz,.wheel__viz:focus-visible{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(hover:none){.wheel__viz{opacity:1;transform:translateX(-50%)}}
+
+/* v143 — visualizer is spec-driven now: fixed truck, stacked offset chips,
+   flagged gaps. */
+.vizscope{font-size:12.5px;color:var(--muted);line-height:1.6;margin:12px 0 0;
+  max-width:64ch;background:var(--panel-2);border:1px solid var(--line);padding:11px 13px}
+.vizscope b{color:var(--text)}
+.vfld--truck b{display:block;font-family:var(--display);font-size:16px;color:var(--text);margin-bottom:4px}
+.vfld--truck .vnote{margin-top:0}
+.vnote--flag{color:#a35a00}
+.vnote--custom{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}
+.vchip--stack{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.25}
+.vchip--stack i{font-style:normal;font-size:9.5px;letter-spacing:.06em;
+  text-transform:uppercase;opacity:.62}
+.vbar{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  flex-wrap:wrap;margin-bottom:14px}
+.vtabs{margin-bottom:0}
+.vaxles{display:flex;gap:0;border:1px solid var(--line-2)}
+.vaxle{font-family:var(--label);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  padding:11px 17px;cursor:pointer;border:0;color:var(--muted);background:#fff}
+.vaxle.on{color:#fff;background:var(--ink)}
+.vstance--unknown{color:#a35a00}

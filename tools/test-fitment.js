@@ -100,7 +100,10 @@ try {
   const vs = global.window.VEHICLES || [];
   ok("vehicle library is populated", vs.length >= 9, true);
   const wrong = vs.filter(function (v) {
-    const stockWidth = v.config === "drw" ? 8.25 : (v.hd ? 8 : 8.5);
+    // Use the truck's real factory rim width where we have it. The F-450 runs a
+    // 19.5x6 ET+136, so assuming 8.25 for every dually made it look wrong when
+    // the data was in fact right.
+    const stockWidth = v.stockWidthIn || (v.config === "drw" ? 8.25 : (v.hd ? 8 : 8.5));
     const g = F.geometry({ widthIn: stockWidth, offsetMm: v.stockOffsetMm,
       tireOdIn: 33, wheelDiaIn: 18, lift: 0, vehicle: v });
     return g.poke > 0.5 || g.poke < -1.6;      // factory = flush to slightly tucked
@@ -125,6 +128,97 @@ try {
   if (notPoked.length) console.log("       offenders:", notPoked.join(", "));
 } catch (e) {
   console.log("  (vehicles.js not loadable: " + e.message + ")");
+}
+
+/* ---- spec-driven options ----
+   The whole point of the specs layer: a customer must never be offered a size,
+   width or offset that nobody builds. These assert the picker can only ever
+   emit real combinations.                                                   */
+section("specs");
+try {
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "wheel-specs.js"));
+  const SP = global.window.WHEEL_SPECS;
+  const JTX = SP.wheels.jtx, F450 = SP.vehicles.f450;
+
+  ok("five JTX dually models", JTX.models.length, 5);
+  ok("rears are always 8.25", JTX.rearWidth, 8.25);
+  ok("JTX publishes no offset", JTX.offsetPublished, false);
+
+  // Every diameter must carry a standard width, and every super-single width
+  // must be wider than the rear — otherwise it isn't a wide front.
+  const badStd = JTX.diameters.filter(function (d) {
+    const w = JTX.front.standard[String(d)];
+    return !w || w.length !== 1 || w[0] !== JTX.rearWidth;
+  });
+  ok("every diameter offers the matched 8.25 front", badStd.length, 0);
+
+  const badWide = [];
+  Object.keys(JTX.front.superSingle).forEach(function (d) {
+    JTX.front.superSingle[d].forEach(function (w) {
+      if (w <= JTX.rearWidth) badWide.push(d + "x" + w);
+      if (JTX.diameters.indexOf(+d) < 0) badWide.push("orphan diameter " + d);
+    });
+  });
+  ok("every wide-front width is wider than the rear", badWide.length, 0);
+  if (badWide.length) console.log("       offenders:", badWide.join(", "));
+
+  // 30" is dually-only in JTX's list — it must not offer a 10" front.
+  ok("30\" offers only a 16\" wide front", JTX.front.superSingle["30"].join(","), "16");
+
+  // Offsets shown must sit inside the researched range for this truck, and the
+  // range itself must bracket sanely below the factory figure.
+  const o = F450.rear.offsetMm;
+  ok("rear offset range is ordered", o.min < o.typical && o.typical < o.max, true);
+  ok("rear offsets sit below the factory figure", o.max < F450.oem.offsetMm, true);
+  ok("front super-single offset is left unknown, not invented",
+     F450.frontSuperSingle.offsetMm, null);
+
+  // Every rendered finish must name art that exists on disk.
+  const fsx = require("fs");
+  const missingArt = [];
+  JTX.models.forEach(function (m) {
+    JTX.finishes.filter(function (f) { return f.rendered; }).forEach(function (f) {
+      ["front", "rear", "supersingle"].forEach(function (pos) {
+        const rel = JTX.artPattern.replace("{model}", m.slug)
+          .replace("{position}", pos).replace("{finish}", f.code);
+        if (!fsx.existsSync(path.resolve(__dirname, "..", rel))) missingArt.push(rel);
+      });
+    });
+  });
+  ok("every rendered finish has art on disk", missingArt.length, 0);
+  if (missingArt.length) console.log("       missing:", missingArt.slice(0, 5).join(", "));
+} catch (e) {
+  console.log("  (wheel-specs.js not built yet — run tools/build-specs.js: " + e.message + ")");
+}
+
+/* ---- tires must be real ---- */
+section("tires we actually carry");
+try {
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "tires.js"));
+  const T = global.window.TIRES || [];
+  ok("tire catalog loaded", T.length > 0, true);
+
+  // A dual pair can't run a 14.50; a wide front is the only home for those.
+  const dual26 = F.tiresFor(T, 26, "dual");
+  const wrongWidth = dual26.filter(function (t) { return t.section > F.DUAL_MAX_SECTION; });
+  ok("no over-wide tire offered for a dual pair", wrongWidth.length, 0);
+  ok("26\" dual pair has a real option", dual26.length > 0, true);
+  ok("26\" dual option is the one the builds run",
+     dual26.map(function (t) { return t.size; }).join(","), "37x13.50R26");
+
+  // Diameter must match exactly — a 24" tire must never appear under 26".
+  const mismatched = [22, 24, 26].some(function (d) {
+    return F.tiresFor(T, d, "dual").concat(F.tiresFor(T, d, "wide"))
+      .some(function (t) { return Math.abs(t.rim - d) > 0.01; });
+  });
+  ok("every offered tire matches the chosen diameter", mismatched, false);
+
+  // Sizes we don't stock must come back empty rather than approximated.
+  ok("a diameter we carry nothing in returns nothing", F.tiresFor(T, 30, "dual").length, 0);
+} catch (e) {
+  console.log("  (tires.js not loadable: " + e.message + ")");
 }
 
 /* ---- face map sanity (if built) ---- */

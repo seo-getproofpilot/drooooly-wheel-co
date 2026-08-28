@@ -1,0 +1,45 @@
+{
+  "brand": "JTX Forged",
+  "brandSlug": "jtx",
+  "program": "Dually Series",
+  "captured": "2026-08-27",
+  "sources": [
+    "https://jtxforged.com/dually-series/",
+    "https://jtxforged.com/combat-dually/",
+    "https://jtxforged.com/centerfire-dually/",
+    "https://jtxforged.com/capo-dually/",
+    "https://jtxforged.com/silencer-dually/",
+    "https://jtxforged.com/flight-dually/"
+  ],
+
+  "_note_offsets": "JTX does not publish offset for the Dually Series — every product page says to contact a JTX salesperson. Offsets therefore come from f450-fitment.json (what this truck actually runs), never from this file.",
+  "offsetPublished": false,
+
+  "_note_sizes": "Verified identical across all five product pages on 2026-08-27. Front is the customer's choice of matched-narrow or wide; rears are always dual 8.25.",
+  "rearWidth": 8.25,
+  "diameters": [22, 24, 26, 28, 30],
+  "front": {
+    "standard":    { "22": [8.25], "24": [8.25], "26": [8.25], "28": [8.25], "30": [8.25] },
+    "superSingle": { "22": [10, 12, 14], "24": [10, 12, 14], "26": [10, 12, 14, 16], "28": [14, 16], "30": [16] }
+  },
+
+  "_note_finishes": "JTX lists four finishes. We hold real per-finish renders for two; the other two are order-time options with no art, so the visualizer must not pretend to show them.",
+  "finishes": [
+    { "code": "polished", "name": "Polished", "rendered": true },
+    { "code": "black",    "name": "Black Milled", "rendered": true },
+    { "code": "brushed",  "name": "Brushed", "rendered": false },
+    { "code": "custom",   "name": "Custom", "rendered": false }
+  ],
+
+  "_note_art": "Head-on renders straight from JTX, 2440x1974 RGBA originals cropped to the wheel and re-encoded as 900px WebP. Aspect of the opaque region is 1.000 — dead square — so the face circle is the bounding box and needs no fitting.",
+  "artPattern": "assets/wheels/jtx/drw/{model}-{position}-{finish}.webp",
+  "artSource": "https://jtxforged.com/wp-content/uploads/2023/12/",
+
+  "models": [
+    { "slug": "combat",     "name": "Combat",     "url": "https://jtxforged.com/combat-dually/" },
+    { "slug": "centerfire", "name": "Centerfire", "url": "https://jtxforged.com/centerfire-dually/" },
+    { "slug": "capo",       "name": "Capo",       "url": "https://jtxforged.com/capo-dually/" },
+    { "slug": "silencer",   "name": "Silencer",   "url": "https://jtxforged.com/silencer-dually/" },
+    { "slug": "flight",     "name": "Flight",     "url": "https://jtxforged.com/flight-dually/" }
+  ]
+}

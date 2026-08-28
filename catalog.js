@@ -362,10 +362,14 @@
       : emblem(brand, m);
     var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
     /* The preview link can't be a nested <a> — the whole card is one — so it is
-       a span the delegated handler below turns into a link. */
-    var viz = m.img
-      ? '<span class="wheel__viz" role="link" tabindex="0" data-viz="brand=' + encodeURIComponent(brand.slug) +
-        '&amp;model=' + encodeURIComponent(m.model) + '">See it on a truck →</span>'
+       a span the delegated handler below turns into a link.
+
+       Only offered where the visualizer can actually honour it. The preview is
+       built from real published specs, one program at a time, so a card outside
+       that set must not send someone to a page that can't show their wheel. */
+    var viz = vizSupports(brand, m)
+      ? '<span class="wheel__viz" role="link" tabindex="0" data-viz="model=' +
+        encodeURIComponent(m.model) + '">See it on a truck →</span>'
       : '';
     return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(quote) + '">' +
       '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + viz + '</div>' +
@@ -384,6 +388,17 @@
       boltLine(brand, m) +
       priceLine(brand, m) +
       '</a>';
+  }
+
+  /* The visualizer's coverage, read straight from the spec bundle so the two
+     can never drift. No specs loaded on this page = no link, rather than a
+     link that lands somewhere useless. */
+  function vizSupports(brand, m) {
+    var SP = window.WHEEL_SPECS;
+    if (!m.img || !SP || !SP.wheels) return false;
+    var prog = SP.wheels[brand.slug];
+    if (!prog) return false;
+    return (prog.models || []).some(function (x) { return x.name === m.model; });
   }
 
   // "See it on a truck" — jumps to the visualizer with this wheel preselected.

@@ -25,9 +25,20 @@ window.VEHICLES = [
     stockOffsetMm:13, fenderRadiusIn:20.5, faceToFenderIn:4.0, measured:false,
     body:{ cab:"crew", bedTop:0.30, rocker:0.86, archLift:0 } },
 
+  /* The one platform dialled in against real published data (2026-08-27).
+     Factory: 19.5x6 ET+136 on LT225/70R19.5, 10x225, 170.1mm bore.
+
+     faceToFenderIn is NEGATIVE here and that is correct, not a typo. A dually
+     hub protrudes outboard on a pedestal and both wheels hang inboard of the
+     mounting face — which is why dually wheels look dished and why the outer
+     one wears a floater cap over the exposed hub. At the factory ET+136 on a
+     6" rim the outer lip sits 2.35" inboard of the mounting face, and the
+     flare sits roughly over it, so the fender edge lands about 2" inboard too.
+     Offsets for this truck live in data/specs/f450-fitment.json. */
   { id:"f450", make:"Ford", models:["F-450 Super Duty"],
-    years:[2017,2026], config:"drw", hd:true, bolt:"10x225",
-    stockOffsetMm:86, fenderRadiusIn:21.5, faceToFenderIn:1.6, measured:false,
+    years:[2017,2022], config:"drw", hd:true, bolt:"10x225", hubBoreMm:170.1,
+    stockOffsetMm:136, stockWidthIn:6, fenderRadiusIn:21.5, faceToFenderIn:-2.0,
+    measured:false, dialled:true,
     body:{ cab:"crew", bedTop:0.30, rocker:0.88, archLift:0 } },
 
   { id:"gm2500", make:"Chevrolet", models:["Silverado 2500HD","Silverado 3500HD"],

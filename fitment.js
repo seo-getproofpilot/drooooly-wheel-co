@@ -77,6 +77,46 @@
     return null;
   }
 
+  /* A tire only belongs on this truck if we actually sell it in that size AND
+     it physically suits the position. On a dually the rear pair is the
+     constraint: two 12.50s on 8.25" wheels is the standard dually package, and
+     anything wider is a wide-front-only size. Deriving the list from the real
+     tire catalog means the picker can never offer a size that doesn't exist —
+     which is the whole point of doing this from specs.
+
+     The cap is 13.50, not 12.50: dually retailers list 8.25" wheels as fitting
+     "up to 13.50 tire", and 37x13.50R26 is exactly what the 26" JTX builds
+     run. Capping at 12.50 wrongly emptied the flagship size.
+
+     tires: window.TIRES  |  mode: "dual" (narrow pair) or "wide" (wide front) */
+  var DUAL_MAX_SECTION = 13.5;      // inches, section width
+
+  function tireDualCapable(p) {
+    return !!p && p.section <= DUAL_MAX_SECTION + 0.01;
+  }
+
+  function tiresFor(tires, diaIn, mode) {
+    var seen = {}, out = [];
+    (tires || []).forEach(function (b) {
+      (b.models || []).forEach(function (m) {
+        (m.sizes || []).forEach(function (s) {
+          var p = parseTireSize(s);
+          if (!p || Math.abs(p.rim - diaIn) > 0.01) return;
+          if (mode === "dual" && !tireDualCapable(p)) return;
+          if (mode === "wide" && tireDualCapable(p)) return;
+          var rec = seen[s];
+          if (!rec) {
+            rec = seen[s] = { size: s, od: p.od, section: p.section, rim: p.rim, fitments: [] };
+            out.push(rec);
+          }
+          rec.fitments.push(b.name + " " + m.model);
+        });
+      });
+    });
+    out.sort(function (a, b) { return a.od - b.od || a.section - b.section; });
+    return out;
+  }
+
   /* ---- geometry ------------------------------------------------------ */
 
   /* cfg: { widthIn, offsetMm, tireOdIn, wheelDiaIn, lift, vehicle }
@@ -165,6 +205,9 @@
     diametersFor: diametersFor,
     widthsFor: widthsFor,
     parseTireSize: parseTireSize,
+    tireDualCapable: tireDualCapable,
+    tiresFor: tiresFor,
+    DUAL_MAX_SECTION: DUAL_MAX_SECTION,
     geometry: geometry,
     stance: stance,
     pokeText: pokeText,

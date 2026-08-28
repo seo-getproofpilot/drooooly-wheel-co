@@ -1,0 +1,35 @@
+{
+  "id": "f450",
+  "name": "Ford F-450 Super Duty",
+  "detail": "2017–2022 pickup, dual rear wheel",
+  "config": "drw",
+  "captured": "2026-08-27",
+  "sources": [
+    "https://www.wheel-size.com/size/ford/f-450-super-duty/2020/",
+    "https://www.wheel-size.com/pcd/10x225/ford/f-450-super-duty/2017-2022/"
+  ],
+
+  "bolt": "10x225",
+  "hubBoreMm": 170.1,
+
+  "oem": {
+    "wheel": "19.5x6",
+    "offsetMm": 136,
+    "tire": "LT225/70R19.5"
+  },
+
+  "_note_offsets": "JTX builds the Dually Series to the truck and publishes no ET, so these are the offsets this platform actually runs — the documented aftermarket dually range, bracketed by the factory figure. They are the render's offsets, not a menu of anything orderable: a real order is spec'd with JTX.",
+  "rear": {
+    "offsetMm": { "min": 110, "max": 130, "typical": 120 },
+    "backspacingIn": { "min": 6.5, "max": 7.0 }
+  },
+
+  "_note_front": "GAP: no public offset figures for wide front wheels on this platform. JTX's own pages say to call a salesperson, and no retailer publishes them. Left null on purpose — the UI says the front is spec'd to the truck rather than inventing a number. One call to JTX fills this in.",
+  "frontSuperSingle": {
+    "offsetMm": null,
+    "source": null
+  },
+
+  "_note_body": "Estimates until someone puts a tape on a truck — see vehicles.js. measured:false keeps the UI on words, not decimals.",
+  "measured": false
+}
