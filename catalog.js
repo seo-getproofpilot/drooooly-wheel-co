@@ -391,23 +391,36 @@
   // detail. Sourced per style (cast) or per brand (forged, drilled to order)
   // — never inferred, because this is fitment data.
 
-  /* Finish variants for a card, for one series. A model can exist as a single
-     AND as a dually with different renders, so the series is part of the
-     lookup — otherwise a dually card would show the single's photo. */
-  function finishVariants(brand, m, series) {
+  /* Every series render we hold for this model, in display order. Used for the
+     hero image whether or not there is more than one. */
+  function seriesArt(brand, m, series) {
     var F = window.WHEEL_FINISHES;
-    if (F && F.brandSlug === brand.slug && F.series) {
-      var art = (F.series[series || "single"] || {})[m.model];
-      if (art) {
-        var out = [];
-        F.finishes.forEach(function (f) {
-          if (art[f.code]) out.push({ finish: f.name, img: art[f.code] });
-        });
-        if (out.length > 1) return out;
-      }
-      if (series) return null;      // asked for a series we hold no art for
-    }
-    if (m.imgs && m.imgs.length > 1) return m.imgs;
+    if (!F || F.brandSlug !== brand.slug || !F.series) return [];
+    var art = (F.series[series || "single"] || {})[m.model];
+    if (!art) return [];
+    var out = [];
+    F.finishes.forEach(function (f) {
+      if (art[f.code]) out.push({ finish: f.name, img: art[f.code] });
+    });
+    return out;
+  }
+
+  /* The hero is the series render if we hold ONE — the swatch row is a separate
+     question. Conflating the two is what made Capo the odd one out: it is the
+     only single with just a polished shot, so it fell through to the old
+     low-res catalogue photo and rendered visibly smaller than its neighbours. */
+  function heroImage(brand, m, series) {
+    var art = seriesArt(brand, m, series);
+    if (art.length) return art[0].img;
+    if (m.imgs && m.imgs.length) return m.imgs[0].img;
+    return m.img;
+  }
+
+  /* Swatches only where there is actually a choice to make. */
+  function finishVariants(brand, m, series) {
+    var art = seriesArt(brand, m, series);
+    if (art.length > 1) return art;
+    if (!art.length && m.imgs && m.imgs.length > 1) return m.imgs;
     return null;
   }
 
@@ -416,7 +429,7 @@
      sizes live on the wheel's own page, where there is room. */
   function wheelCard(brand, m, series) {
     var vars = finishVariants(brand, m, series);
-    var hero = vars ? vars[0].img : m.img;
+    var hero = heroImage(brand, m, series);
     var mediaInner = hero
       ? '<img src="' + esc(hero) + '" alt="' + esc(brand.name + " " + m.model +
           (series === "dually" ? " front and rear wheel" : "")) + '" loading="lazy">'
@@ -574,10 +587,12 @@
         // engines and screen readers, but don't print it twice.
         '<h1 class="sr-only">' + b.name + '</h1>' +
         (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
-        (seriesDef ? '<p class="wheelhero__series">' + esc(seriesDef.title) + "</p>" : "") +
-        '<p class="wheelhero__meta">' + (seriesDef ? seriesDef.blurb
-            : (more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
-              ' · built to order in your size &amp; finish') + '</p>' +
+        /* No explainer here. Which trucks a wheel fits is answered by the bolt
+           pattern on its own page; up top the job is to show the wheels. */
+        (seriesDef ? "" :
+          '<p class="wheelhero__meta">' +
+          ((more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
+           ' · built to order in your size &amp; finish') + '</p>') +
         (avail.length > 1
           ? '<div class="seriestabs">' + avail.map(function (d) {
               return '<a class="seriestab' + (d.key === wantSeries ? " on" : "") +
@@ -621,10 +636,8 @@
 
      Brands with no series art fall back to one grid, unchanged. */
   var SERIES_DEFS = [
-    { key: "single", title: "Single Series", menu: "Single rear wheel",
-      blurb: "One wheel per corner — F-250/350 single-rear, half-tons and SUVs." },
-    { key: "dually", title: "Dually Series", menu: "Dual rear wheel",
-      blurb: "Front and rear wheel shown together. Sets are six wheels, for dual-rear trucks." }
+    { key: "single", title: "Single Series", menu: "Single rear wheel" },
+    { key: "dually", title: "Dually Series", menu: "Dual rear wheel" }
   ];
 
   function seriesSections(b, models, only) {
@@ -642,8 +655,10 @@
         var i = spare.indexOf(m); if (i > -1) spare.splice(i, 1);
       });
       out += '<div class="wheelseries">' +
-        '<div class="wheelseries__head"><h2>' + esc(d.title) + '</h2>' +
-        "<p>" + d.blurb + "</p></div>" +
+        /* On a dedicated series page the hero and the tabs already name it, so
+           a heading here just repeats itself. Only the combined view needs one
+           to separate the two lists. */
+        (only ? "" : '<div class="wheelseries__head"><h2>' + esc(d.title) + "</h2></div>") +
         '<div class="wheelgrid' + (d.key === "dually" ? " wheelgrid--pairs" : "") + '">' +
         list.map(function (m) { return wheelCard(b, m, d.key); }).join("") + "</div></div>";
     });

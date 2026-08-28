@@ -2646,3 +2646,8 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     transform:none;box-shadow:none;border:0;padding:0 0 0 12px;background:none;min-width:0}
   .mega__sub::before{display:none}
 }
+/* v161 — the grid is the showcase; the copy that explained which truck each
+   series suits is gone, so the header sits closer to the wheels. */
+.wheelseries__head{margin-bottom:clamp(16px,2vw,24px)}
+.wheelseries__head::after{margin-top:12px}
+.seriestabs{margin-top:18px}
