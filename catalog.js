@@ -257,9 +257,33 @@
     draw();
   }
 
+  /* Which series a brand is split into, if any. Read from the finish data so
+     the menu can never offer a series with nothing behind it. */
+  function seriesFor(b) {
+    var F = window.WHEEL_FINISHES;
+    if (!F || F.brandSlug !== b.slug || !F.series) return [];
+    return SERIES_DEFS.filter(function (d) {
+      return F.series[d.key] && Object.keys(F.series[d.key]).length;
+    });
+  }
+
+  /* Brands that come in single and dually get a flyout, so you can go straight
+     to the list that fits your truck instead of scrolling past the one that
+     doesn't. */
   function renderWheelsMenu(el) {
     el.innerHTML = BRANDS.map(function (b) {
-      return '<a href="brand.html?brand=' + b.slug + '">' + b.name + '</a>';
+      var ser = seriesFor(b);
+      var top = '<a href="brand.html?brand=' + b.slug + '">' + esc(b.name) +
+        (ser.length ? ' <i class="mega__car" aria-hidden="true">›</i>' : "") + "</a>";
+      if (!ser.length) return '<div class="mega__b">' + top + "</div>";
+      return '<div class="mega__b mega__b--has-sub">' + top +
+        '<div class="mega__sub">' +
+          ser.map(function (d) {
+            return '<a href="brand.html?brand=' + b.slug + "&series=" + d.key + '">' +
+              esc(d.menu) + "</a>";
+          }).join("") +
+          '<a class="mega__sub-all" href="brand.html?brand=' + b.slug + '">All ' + esc(b.name) + " styles</a>" +
+        "</div></div>";
     }).join("");
   }
 
@@ -480,6 +504,14 @@
     var more = total - show.length;
     var host = (b.site || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
+    /* ?series=single|dually gives each series its own page, so a dually owner
+       is not scrolling through single-rear styles to reach theirs. */
+    var wantSeries = new URLSearchParams(location.search).get("series");
+    var avail = seriesFor(b);
+    if (wantSeries && !avail.some(function (d) { return d.key === wantSeries; })) wantSeries = null;
+    var seriesDef = wantSeries ? SERIES_DEFS.filter(function (d) { return d.key === wantSeries; })[0] : null;
+    if (seriesDef) document.title = b.name + " " + seriesDef.title + " — DROOOLY Wheel Co.";
+
     root.innerHTML =
       '<section class="wheelhero">' +
         '<a class="wheelhero__back" href="index.html#brands">← All brands</a>' +
@@ -488,8 +520,17 @@
         // engines and screen readers, but don't print it twice.
         '<h1 class="sr-only">' + b.name + '</h1>' +
         (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
-        '<p class="wheelhero__meta">' + (more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
-          ' · built to order in your size &amp; finish</p>' +
+        (seriesDef ? '<p class="wheelhero__series">' + esc(seriesDef.title) + "</p>" : "") +
+        '<p class="wheelhero__meta">' + (seriesDef ? seriesDef.blurb
+            : (more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
+              ' · built to order in your size &amp; finish') + '</p>' +
+        (avail.length > 1
+          ? '<div class="seriestabs">' + avail.map(function (d) {
+              return '<a class="seriestab' + (d.key === wantSeries ? " on" : "") +
+                '" href="brand.html?brand=' + b.slug + "&series=" + d.key + '">' + esc(d.menu) + "</a>";
+            }).join("") +
+            '<a class="seriestab' + (wantSeries ? "" : " on") + '" href="brand.html?brand=' + b.slug + '">Everything</a></div>'
+          : "") +
         // Brand-level floor, for brands that price per model rather than per
         // series. Putting one brand figure on every card would underquote the
         // expensive styles; stating it once, here, stays true.
@@ -499,7 +540,7 @@
           : '') +
       '</section>' +
       '<section class="wheelwrap">' +
-        seriesSections(b, show) +
+        seriesSections(b, show, wantSeries) +
         (b.site
           ? '<div class="wheelmore">' +
               '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
@@ -525,18 +566,20 @@
      both appears in both, which is correct, not a duplicate.
 
      Brands with no series art fall back to one grid, unchanged. */
-  function seriesSections(b, models) {
+  var SERIES_DEFS = [
+    { key: "single", title: "Single Series", menu: "Single rear wheel",
+      blurb: "One wheel per corner — F-250/350 single-rear, half-tons and SUVs." },
+    { key: "dually", title: "Dually Series", menu: "Dual rear wheel",
+      blurb: "Front and rear wheel shown together. Sets are six wheels, for dual-rear trucks." }
+  ];
+
+  function seriesSections(b, models, only) {
     var F = window.WHEEL_FINISHES;
     if (!F || F.brandSlug !== b.slug || !F.series) {
       return '<div class="wheelgrid">' +
         models.map(function (m) { return wheelCard(b, m); }).join("") + "</div>";
     }
-    var defs = [
-      { key: "single", title: "Single Series",
-        blurb: "One wheel per corner — F-250/350 single-rear, half-tons and SUVs." },
-      { key: "dually", title: "Dually Series",
-        blurb: "Front and rear wheel shown together. Sets are six wheels, for dual-rear trucks." }
-    ];
+    var defs = only ? SERIES_DEFS.filter(function (d) { return d.key === only; }) : SERIES_DEFS;
     var out = "", spare = models.slice();
     defs.forEach(function (d) {
       var list = models.filter(function (m) { return F.series[d.key] && F.series[d.key][m.model]; });

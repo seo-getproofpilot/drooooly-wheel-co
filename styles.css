@@ -2446,9 +2446,12 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* Chrome needs contrast. On a near-white card the barrel you see through the
    spokes reads as grime; on a dark stage it reads as depth, which is what it
    actually is. */
+/* The dark stage was a fix for the head-on renders, which read as dirty on
+   white. Those are gone — JTX's own three-quarter shots are lit for white and
+   that is how JTX show them, so the wheel sits on the page with nothing
+   behind it. */
 .wmedia__stage{border:1px solid var(--line);display:flex;align-items:center;
-  justify-content:center;padding:22px;aspect-ratio:1/1;
-  background:radial-gradient(circle at 50% 46%,#4a505880 0%,#2e333a 42%,#1c1f24 100%),#1c1f24}
+  justify-content:center;padding:22px;aspect-ratio:1/1;background:#fff}
 .wmedia__stage img{width:100%;height:100%;object-fit:contain}
 
 .wfin{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
@@ -2565,3 +2568,55 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   background:var(--ink);margin:16px auto 0;opacity:.85}
 .wheel__fin--none{min-height:20px}
 @media(max-width:560px){ .wheel__fin--none{min-height:24px} }
+
+/* ============================================================
+   v156 — wheels sit on white, like JTX present them
+   ============================================================ */
+/* The grey box under every wheel was a CSS drop-shadow, not part of the
+   render — JTX's files carry no shadow at all. Off. */
+.wheelgrid .wheel__media img,
+.wheelgrid--pairs .wheel__media img{filter:none}
+.wheelgrid .wheel__media,
+.wheelgrid--pairs .wheel__media{background:none;border-radius:0}
+
+/* Nothing may crop a wheel. `contain` letterboxes; overflow:hidden was only
+   ever there for the old shadow, and with a wide pair in a shorter frame it
+   was clipping the bottom of both wheels. */
+.wheelgrid .wheel__media{overflow:visible}
+.wheelgrid--pairs .wheel__media{aspect-ratio:2.1/1;overflow:visible}
+.wheelgrid--pairs .wheel__media img{object-fit:contain;object-position:center}
+
+/* Room to breathe between the wheel and its copy — the pair cards had the
+   swatches almost touching the tyre. */
+.wheelgrid .wheel__media{margin-bottom:14px}
+.wheelgrid--pairs .wheel__media{margin-bottom:20px}
+.wheelgrid--pairs .wheel__fin{margin-top:2px;margin-bottom:12px}
+
+/* Series switcher under the brand logo */
+.wheelhero__series{font-family:var(--label);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue-2);margin-bottom:8px}
+.seriestabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+  margin:16px auto 0;width:min(100% - 44px,var(--max))}
+.seriestab{font-family:var(--label);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;padding:11px 17px;color:var(--text);background:#fff;
+  border:1px solid var(--line-2);
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.seriestab:hover{border-color:var(--blue-2);color:var(--blue-2)}
+.seriestab.on{background:var(--ink);color:#fff;border-color:transparent}
+
+/* Mega-menu flyout for brands split into series */
+.mega__b{position:relative}
+.mega__b > a{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mega__car{font-style:normal;opacity:.5;font-size:15px;line-height:1}
+.mega__sub{position:absolute;left:100%;top:-6px;min-width:210px;padding:6px;
+  background:#14161a;border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 18px 44px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-6px);
+  transition:opacity .16s var(--ease),transform .16s var(--ease),visibility .16s}
+.mega__b--has-sub:hover .mega__sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0)}
+.mega__sub a{display:block;font-size:13px;font-weight:500;padding:9px 11px;color:rgba(255,255,255,.82)}
+.mega__sub a:hover{background:rgba(255,255,255,.08);color:#fff}
+.mega__sub-all{border-top:1px solid rgba(255,255,255,.1);margin-top:4px;
+  font-size:12px !important;color:rgba(255,255,255,.55) !important}
+@media(max-width:1000px){ .mega__sub{position:static;opacity:1;visibility:visible;
+  pointer-events:auto;transform:none;box-shadow:none;border:0;padding:0 0 0 12px;background:none} }
