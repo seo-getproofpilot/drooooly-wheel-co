@@ -30,6 +30,14 @@ These come from legal review and business constraints. Do not "improve" past the
 
 6. **Mounted mail-order is not a default option.** It's a premium service with freight stated separately. Never present it as free shipping.
 
+## Pre-launch tally
+
+`LAUNCH-CHECKLIST.md` is the running list of everything shipped on an assumption —
+unlicensed photography, invented pricing, brands not yet authorised, data gaps.
+The site is built with what we have rather than blocking on approvals, so **add to
+that file whenever you ship something that isn't cleared.** It is also the record of
+the fact that the site is currently `noindex`/`Disallow` and must be reopened at launch.
+
 ## Spec files
 
 | File | Contents |

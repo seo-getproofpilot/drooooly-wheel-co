@@ -1,0 +1,292 @@
+{
+  "brand": "JTX Forged",
+  "brandSlug": "jtx",
+  "source": "https://jtxforged.com/gallery/",
+  "captured": "2026-08-28",
+  "hosted": false,
+  "minPhotos": 3,
+  "models": {
+    "Ballistic": [
+      {
+        "model": "Ballistic",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2020-Denali-HD-24x14-Ballistic-JTX-Forged-wheels.jpg",
+        "vehicle": "2020 Denali HD",
+        "size": "24x14",
+        "finish": null
+      },
+      {
+        "model": "Ballistic",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/Excursion-F250-Conversion-24x14-Ballistic-Black-JTX-Forged-Wheels-scaled.jpeg",
+        "vehicle": "Excursion F250 Conversion",
+        "size": "24x14",
+        "finish": "Black"
+      },
+      {
+        "model": "Ballistic",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F350-22x12-Black-Ballistic-JTX-Forged-Wheels.jpg",
+        "vehicle": "F350",
+        "size": "22x12",
+        "finish": "Black"
+      },
+      {
+        "model": "Ballistic",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F350-26x14-Ballistic-Black-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "F350",
+        "size": "26x14",
+        "finish": "Black"
+      },
+      {
+        "model": "Ballistic",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-24x12-Black-Ballistic-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "RAM 2500",
+        "size": "24x12",
+        "finish": "Black"
+      }
+    ],
+    "Bio": [
+      {
+        "model": "Bio",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/Wrangler-22x12-Bio-Beadlock-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "Wrangler",
+        "size": "22x12",
+        "finish": null
+      }
+    ],
+    "Capo": [
+      {
+        "model": "Capo",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-26x14-Capo-JTX-Forged-Wheels.jpg",
+        "vehicle": "RAM 2500",
+        "size": "26x14",
+        "finish": null
+      }
+    ],
+    "Centerfire": [
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2020-Silverado-HD-26x14-Black-Centerfire-JTX-Forged-Wheels.jpg",
+        "vehicle": "2020 Silverado HD",
+        "size": "26x14",
+        "finish": "Black"
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-26x12-Centerfire-JTX-Forged-wheels.jpg",
+        "vehicle": "F250",
+        "size": "26x12",
+        "finish": null
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-26x14-Centerfire-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "F250",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-Silver-Spruce-26x14-Centerfire-brushed-finish-JTX-Forged-Wheels.jpg",
+        "vehicle": "F250 Silver Spruce",
+        "size": "26x14",
+        "finish": "Brushed"
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F350-26x14-Centerfire-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "F350",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/Ford-F100-SMG-SEMA-26x14-Centerfire-black-red-JTX-Forged-Wheels.png",
+        "vehicle": "Ford F100 SMG SEMA",
+        "size": "26x14",
+        "finish": "Black"
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/GMC-SIngle-Cab-24x12-Centerfire-JTX-Forged-Wheels.jpg",
+        "vehicle": "GMC SIngle Cab",
+        "size": "24x12",
+        "finish": null
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/GMC-Sierra-26x14-Centerfire-JTX-Forged-Wheels.jpg",
+        "vehicle": "GMC Sierra",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-1500-22x10-Black-Centerfire-JTX-Forged-scaled.jpeg",
+        "vehicle": "RAM 1500",
+        "size": "22x10",
+        "finish": "Black"
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-24x12-Black-JTX-Forged-Centerfire-Wheels-scaled.jpg",
+        "vehicle": "RAM 2500",
+        "size": "24x12",
+        "finish": "Black"
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-26x14-Centerfire-JTX-Forged-Wheels.jpg",
+        "vehicle": "RAM 2500",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Centerfire",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/Super-Duty-26x14-Brushed-Centerfire-JTX-Forged-Wheels.jpg",
+        "vehicle": "Super Duty",
+        "size": "26x14",
+        "finish": "Brushed"
+      }
+    ],
+    "Chamber": [
+      {
+        "model": "Chamber",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2020-Silverado-HD-High-Country-Brown-26x14-Chamber-JTX-Forged-Wheels-Peters-Elite.jpg",
+        "vehicle": "2020 Silverado HD High Country Brown",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Chamber",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-26x14-Chamber-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "F250",
+        "size": "26x14",
+        "finish": null
+      }
+    ],
+    "Flight": [
+      {
+        "model": "Flight",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2020-F350-Dually-King-Ranch-24-inch-Flight-Dually-JTX-Forged-Wheels.jpg",
+        "vehicle": "2020 F350 Dually King Ranch 24 inch",
+        "size": "24\"",
+        "finish": null
+      },
+      {
+        "model": "Flight",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F450-Dually-Black-24-inch-Flight-JTX-Forged-Wheels.jpg",
+        "vehicle": "F450 Dually 24 inch",
+        "size": "24\"",
+        "finish": "Black"
+      }
+    ],
+    "Grip": [
+      {
+        "model": "Grip",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-Platinum-26x15-Grip-JTX-Forged-Wheels.jpg",
+        "vehicle": "F250 Platinum",
+        "size": "26x15",
+        "finish": null
+      },
+      {
+        "model": "Grip",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/OBS-Ford-Crew-Cab-26x16-Grip-JTX-Forged-Wheels.jpg",
+        "vehicle": "OBS Ford Crew Cab",
+        "size": "26x16",
+        "finish": null
+      },
+      {
+        "model": "Grip",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-24x12-Black-Grip-JTX-Forged-Wheels.jpg",
+        "vehicle": "RAM 2500",
+        "size": "24x12",
+        "finish": "Black"
+      },
+      {
+        "model": "Grip",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-24x12-Grip-JTX-Forged-Wheels.jpg",
+        "vehicle": "RAM 2500",
+        "size": "24x12",
+        "finish": null
+      }
+    ],
+    "Silencer": [
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2019-F350-26x14-Silencer-JTX-Forged-Wheels-scaled.jpeg",
+        "vehicle": "2019 F350",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2020-Silverado-HD-24x10-Concave-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "2020 Silverado HD",
+        "size": "24x10",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2020-Silverado-HD-26x14-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "2020 Silverado HD",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/2021-Chevy-Tahoe-Lifted-26x14-Silencer-JTX-Forged-Wheels.png",
+        "vehicle": "2021 Chevy Tahoe",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-26x12-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "F250",
+        "size": "26x12",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-26x14-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "F250",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F250-26x14-Silencer-JTX-Forged-Wheels.png",
+        "vehicle": "F250",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/F350-30x16-Silencer-JTX-Forged-Wheels-scaled.jpg",
+        "vehicle": "F350",
+        "size": "30x16",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/Ford-F250-26x14-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "Ford F250",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/OBS-Ford-26x14-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "OBS Ford",
+        "size": "26x14",
+        "finish": null
+      },
+      {
+        "model": "Silencer",
+        "url": "https://jtxforged.com/wp-content/uploads/2020/03/RAM-2500-26x14-Silencer-JTX-Forged-Wheels.jpg",
+        "vehicle": "RAM 2500",
+        "size": "26x14",
+        "finish": null
+      }
+    ]
+  }
+}

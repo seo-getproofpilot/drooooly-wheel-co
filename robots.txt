@@ -1,4 +1,13 @@
-User-agent: *
-Allow: /
+# PRE-LAUNCH: this build carries placeholder pricing, brand logos we are not yet
+# authorised to display, and third-party photography we have not licensed. None
+# of that should be indexed or attributed to DROOOLY while it is still a draft.
+#
+# TO GO LIVE: delete everything below and restore:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://seo-getproofpilot.github.io/drooooly-wheel-co/sitemap.xml
+# and remove the <meta name="robots" content="noindex"> tag from every page.
+# See LAUNCH-CHECKLIST.md.
 
-Sitemap: https://seo-getproofpilot.github.io/drooooly-wheel-co/sitemap.xml
+User-agent: *
+Disallow: /

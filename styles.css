@@ -2392,3 +2392,47 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* the photo plate is the headline view — let it run full width of the stage */
 #vv-plate svg{width:100%;height:auto;min-height:0;background:transparent}
 #vv-plate .vnote{margin-top:10px}
+
+/* ============================================================
+   v145 — "on real trucks" gallery
+   ============================================================ */
+.bpage{max-width:var(--max);margin:0 auto;padding:104px 18px 70px}
+.bback{display:inline-block;font-family:var(--label);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.bback:hover{color:var(--blue-2)}
+.bhead h1{font-family:var(--display);font-size:clamp(21px,4.6vw,32px);margin:0 0 10px;line-height:1.14}
+.bhead__lead{color:var(--muted);font-size:14.5px;line-height:1.65;margin:0 0 8px;max-width:64ch}
+.blink{color:var(--blue-2)}
+.blink:hover{text-decoration:underline}
+
+.bgrid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
+.bshot{display:block;position:relative;background:var(--panel-2);
+  border:1px solid var(--line);overflow:hidden}
+.bshot img{width:100%;height:auto;display:block;transition:transform .5s var(--ease)}
+.bshot:hover img{transform:scale(1.03)}
+.bshot__cap{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 11px;
+  font-family:var(--label);font-size:11.5px;letter-spacing:.03em;color:#fff;
+  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.78))}
+
+.bindex{display:grid;grid-template-columns:1fr;gap:10px;margin-top:24px}
+.bindex__item{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  background:var(--panel-2);border:1px solid var(--line);padding:15px 16px}
+.bindex__item:hover{border-color:var(--blue-2)}
+.bindex__item b{font-family:var(--display);font-size:14px}
+.bindex__item span{font-family:var(--label);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--soft)}
+
+.bcredit{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);line-height:1.6;max-width:70ch}
+
+/* the on-card link into the gallery — sits under the wheel name */
+.wheel__builds{display:block;font-family:var(--label);font-size:10.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--blue-2);margin-top:6px}
+.wheel__builds:hover{text-decoration:underline}
+
+@media(min-width:700px){
+  .bpage{padding:128px 22px 90px}
+  .bgrid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .bindex{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1050px){ .bgrid{grid-template-columns:repeat(3,1fr)} }

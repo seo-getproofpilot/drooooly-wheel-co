@@ -384,10 +384,29 @@
             '<span class="wheel__finname">' + esc(vars[0].finish) + '</span>' +
           '</div>'
         : '') +
+      buildsLine(brand, m) +
       '<p class="wheel__avail">' + availText(m) + '</p>' +
       boltLine(brand, m) +
       priceLine(brand, m) +
       '</a>';
+  }
+
+  /* "On real trucks" — only where there are actually enough photos to be worth
+     the click. Below the floor we show nothing rather than a link that opens a
+     near-empty page; the promise of reassurance is the whole value here, so a
+     thin gallery is worse than none. Count comes from the generated data, so
+     the link and the page can't disagree. */
+  function buildsCount(brand, m) {
+    var B = window.WHEEL_BUILDS;
+    if (!B || B.brandSlug !== brand.slug) return 0;
+    return (B.models && B.models[m.model] ? B.models[m.model].length : 0);
+  }
+  function buildsLine(brand, m) {
+    var B = window.WHEEL_BUILDS;
+    var n = buildsCount(brand, m);
+    if (!B || n < B.minPhotos) return "";
+    return '<span class="wheel__builds" role="link" tabindex="0" data-builds="' +
+      encodeURIComponent(m.model) + '">See it on ' + n + ' real trucks →</span>';
   }
 
   /* The visualizer's coverage, read straight from the spec bundle so the two
@@ -403,15 +422,20 @@
 
   // "See it on a truck" — jumps to the visualizer with this wheel preselected.
   function bindVizLinks(root) {
-    function go(t) { location.href = "visualizer.html?" + t.getAttribute("data-viz"); }
+    function go(t) {
+      location.href = t.hasAttribute("data-builds")
+        ? "builds.html?model=" + t.getAttribute("data-builds")
+        : "visualizer.html?" + t.getAttribute("data-viz");
+    }
+    var SEL = "[data-viz],[data-builds]";
     root.addEventListener("click", function (e) {
-      var t = e.target.closest && e.target.closest("[data-viz]");
+      var t = e.target.closest && e.target.closest(SEL);
       if (!t) return;
       e.preventDefault(); e.stopPropagation(); go(t);
     });
     root.addEventListener("keydown", function (e) {
       if (e.key !== "Enter" && e.key !== " ") return;
-      var t = e.target.closest && e.target.closest("[data-viz]");
+      var t = e.target.closest && e.target.closest(SEL);
       if (!t) return;
       e.preventDefault(); e.stopPropagation(); go(t);
     });
