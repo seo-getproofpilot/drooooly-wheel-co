@@ -191,7 +191,8 @@ window.WHEEL_SPECS = {
           "tireRadiusPx": 248,
           "aspect": 0.33
         }
-      ]
+      ],
+      "layered": false
     }
   ]
 };

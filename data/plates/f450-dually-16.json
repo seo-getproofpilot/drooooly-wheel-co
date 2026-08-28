@@ -5,21 +5,18 @@
   "image": "assets/builds/dually-16.jpg",
   "width": 3600,
   "height": 1500,
-
-  "_note_licensing": "PLACEHOLDER PLATE. This photo predates the visualizer and its rights are unconfirmed — it must not stay on a public page. Replace with a photo DROOOLY owns or has licensed before this ships as the default view. Everything below is calibration, not authorship; swapping the image is a new JSON plus one calibration pass.",
+  "_note_licensing": "PLACEHOLDER PLATE. This photo predates the visualizer and its rights are unconfirmed \u2014 it must not stay on a public page. Replace with a photo DROOOLY owns or has licensed before this ships as the default view. Everything below is calibration, not authorship; swapping the image is a new JSON plus one calibration pass.",
   "cleared": false,
-
-  "_note_angle": "This is a front-three-quarter shot, not a true side profile. The FRONT wheel is near-circular (aspect 1.01) so a head-on render composites onto it convincingly. The REAR is a 3:1 ellipse — far too oblique to swap — so it is marked usable:false rather than rendered wrong. A true side profile makes both wheels usable.",
-
+  "_note_angle": "This is a front-three-quarter shot, not a true side profile. The FRONT wheel is near-circular (aspect 1.01) so a head-on render composites onto it convincingly. The REAR is a 3:1 ellipse \u2014 far too oblique to swap \u2014 so it is marked usable:false rather than rendered wrong. A true side profile makes both wheels usable.",
   "_note_scale": "referenceWheelDiaIn is an ESTIMATE read off the photo, not a spec. Absolute sizing therefore carries that error, but every RELATIVE change (22 vs 26 vs 30) is exact, because it is a ratio against this number. A plate we shoot ourselves gets a known wheel and this becomes measured.",
   "referenceWheelDiaIn": 26,
   "referenceMeasured": false,
-
   "wheels": [
     {
       "axle": "front",
       "usable": true,
-      "cx": 1353, "cy": 1122,
+      "cx": 1353,
+      "cy": 1122,
       "faceRadiusPx": 168,
       "tireRadiusPx": 248,
       "aspect": 1.01
@@ -27,11 +24,14 @@
     {
       "axle": "rear",
       "usable": false,
-      "reason": "Too oblique in this shot — the wheel reads as a 3:1 ellipse and a head-on render cannot be made to sit in it honestly.",
-      "cx": 2756, "cy": 1122,
+      "reason": "Too oblique in this shot \u2014 the wheel reads as a 3:1 ellipse and a head-on render cannot be made to sit in it honestly.",
+      "cx": 2756,
+      "cy": 1122,
       "faceRadiusPx": 165,
       "tireRadiusPx": 248,
       "aspect": 0.33
     }
-  ]
+  ],
+  "_note_layers": "A flat photo can only have a wheel pasted onto it. Making the tire, offset, front width and lift do anything needs the plate cut into layers: background with the wheels removed and the wells filled, the body separable so lift can move it, and a foreground of fender lips that must overlap the tire. That is per-angle handwork, which is why a small set of well-prepared angles beats a full 360 on day one.",
+  "layered": false
 }

@@ -293,7 +293,7 @@
     }
     $("#vPlateNote").textContent = msgs.join(" ");
     $("#vPlateNote").style.display = msgs.length ? "" : "none";
-    $("#vPlateWarn").style.display = PLATE.cleared ? "none" : "";
+    $("#vPlateWarn").style.display = (PLATE.cleared && PLATE.layered) ? "none" : "";
 
     $("#svgPlate").setAttribute("viewBox", "0 0 " + W + " " + H);
     $("#svgPlate").innerHTML = s;
