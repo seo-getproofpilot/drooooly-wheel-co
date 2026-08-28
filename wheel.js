@@ -108,26 +108,24 @@
   }
   var sizes = parseSizes();
 
-  var BOLT_MAKES = {
-    "5x127":   ["Jeep"],
-    "5x139.7": ["Ram"],
-    "5x150":   ["Toyota"],
-    "6x135":   ["Ford"],
-    "6x139.7": ["Chevy/GMC", "Nissan", "Toyota"],
-    "8x165.1": ["Ram", "Chevy/GMC"],
-    "8x170":   ["Ford"],
-    "8x180":   ["Chevy/GMC", "Nissan"],
-    "10x225":  ["Ford"]
-  };
-  var MAKE_ORDER = ["Ford", "Chevy/GMC", "Ram", "Jeep", "Nissan", "Toyota"];
-  function boltMakes() {
+  /* The pattern itself, not a list of makes. Anyone shopping forged wheels
+     knows their bolt pattern; translating it into "Ford · Chevy/GMC · Ram"
+     costs a line and tells them less than the number they came with. */
+  function boltPatterns() {
     var bolts = (model.bolts && model.bolts.length) ? model.bolts : (brand.bolts || []);
-    var makes = [];
-    bolts.forEach(function (b) {
-      (BOLT_MAKES[b] || []).forEach(function (mk) { if (makes.indexOf(mk) < 0) makes.push(mk); });
+    return bolts.join(" · ");
+  }
+
+  /* Widths belong UNDER their diameter, not in a separate list. Centerfire
+     comes 22x12 but 28x8.25 only — two flat lists quietly advertise a 28x16
+     that nobody builds. Same trap as the offsets. */
+  function sizeRows() {
+    var rows = [];
+    sizes.dia.forEach(function (d) {
+      var w = sizes.byDia[d] || [];
+      rows.push({ dia: d, widths: w });
     });
-    makes.sort(function (a, b) { return MAKE_ORDER.indexOf(a) - MAKE_ORDER.indexOf(b); });
-    return makes.join(" · ");
+    return rows;
   }
 
   var CFG = { single: "Single", dually: "Dually", "super single": "Super single" };
@@ -165,9 +163,9 @@
     var show = shots.slice(0, 6);
     var more = shots.length - show.length;
     return '<section class="wbuilds">' +
-      '<div class="wbuilds__head"><h2>On real trucks</h2>' +
-      "<p>A render shows you the spoke pattern. This is the same wheel bolted on, " +
-      "at ride height, in daylight.</p></div>" +
+      '<div class="wbuilds__head"><h2>' + esc(model.model) + " on real builds</h2>" +
+      "<p>A render shows you the spoke pattern. These show the same wheel bolted on — " +
+      "at ride height, in daylight, on trucks people actually drive.</p></div>" +
       '<div class="wbuilds__grid">' + show.map(function (s2) {
         var cap = [s2.vehicle, s2.size, s2.finish].filter(Boolean).join(" · ");
         return '<a class="wbshot" href="' + esc(s2.url) + '" target="_blank" rel="noopener">' +
@@ -177,9 +175,9 @@
       }).join("") + "</div>" +
       (more > 0
         ? '<a class="wbuilds__all" href="builds.html?model=' + encodeURIComponent(model.model) +
-          '">See all ' + shots.length + " builds →</a>"
+          '">See more →</a>'
         : "") +
-      '<p class="wbuilds__credit">Photos by ' + esc(brand.name) + " — each one links back to them.</p>" +
+      '<p class="wbuilds__credit">Photos by ' + esc(brand.name) + ".</p>" +
       "</section>";
   }
 
@@ -206,8 +204,9 @@
             ? '<p class="wseriesnote">Front and rear wheel shown. A dually set is six wheels.</p>' : "") +
           (otherSeries
             ? '<a class="wswitch" href="wheel.html?brand=' + esc(brand.slug) + "&model=" +
-              encodeURIComponent(model.model) + "&series=" + otherSeries + '">Also built as a ' +
-              (otherSeries === "dually" ? "dually — see the front and rear pair" : "single wheel") + " →</a>"
+              encodeURIComponent(model.model) + "&series=" + otherSeries + '">' + (otherSeries === "dually"
+                ? "Also built for dual-rear trucks — see the front and rear pair"
+                : "Also built as a single wheel") + " →</a>"
             : "") +
           priceBlock() +
           '<div class="wspecs">' +
@@ -215,17 +214,20 @@
           "</div>" +
           (state.finish.note ? '<p class="wfinnote">' + esc(state.finish.note) + "</p>" : "") +
           '<div class="wspecs wspecs--rest">' +
-            specRow("Configurations", esc(configs().join(" · "))) +
-            specRow("Diameters", sizes.dia.map(function (d) { return d + '"'; }).join(" · ")) +
-            specRow("Widths", (function () {
-              var all = [];
-              Object.keys(sizes.byDia).forEach(function (k) {
-                sizes.byDia[k].forEach(function (w) { if (all.indexOf(w) < 0) all.push(w); });
-              });
-              return all.sort(function (a, b) { return a - b; })
-                .map(function (w) { return w + '"'; }).join(" · ");
-            })()) +
-            specRow("Drilled for", esc(boltMakes())) +
+            /* One row per diameter, so what you read is what JTX will cut. */
+            '<div class="wspec wspec--sizes"><span>Sizes</span><b>' +
+              sizeRows().map(function (r) {
+                return '<span class="wsize"><i>' + r.dia + '"</i>' +
+                  (r.widths.length
+                    ? r.widths.map(function (w) { return w + '"'; }).join(" · ")
+                    : "width confirmed at quote") + "</span>";
+              }).join("") +
+            "</b></div>" +
+            specRow("Built as", esc(configs().join(" · "))) +
+            /* A six-pattern list has no business being squeezed into a right
+               hand column — it wraps and orphans. Own line, label above. */
+            '<div class="wspec wspec--wide"><span>Bolt patterns</span><b>' +
+              esc(boltPatterns()) + "</b></div>" +
           "</div>" +
 
           /* Extra finishes read as more choice, not as a gap. */
@@ -238,8 +240,9 @@
               ". Mention it when you get quoted and we'll spec it with " + esc(brand.name) + ".</p></div>"
             : "") +
 
-          '<p class="wnote">Forged to order and drilled to your truck. Sizes shown are what ' +
-            esc(brand.name) + " publishes for this style — we confirm the exact build with them before anything is cut.</p>" +
+          '<p class="wnote">Forged to order in your size, width and bolt pattern. ' +
+            "Everything above is what " + esc(brand.name) + " publishes for this style — " +
+            "we confirm the build with them before anything is cut.</p>" +
           '<div class="wcta">' +
             '<a class="btn btn--chrome" href="index.html?w=' +
               encodeURIComponent(brand.name + " " + model.model) + '#fitment">' +

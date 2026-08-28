@@ -42,9 +42,9 @@
       .sort(function (a, b) { return DATA.models[b].length - DATA.models[a].length; });
     root.innerHTML =
       '<section class="bhead"><a class="bback" href="shop.html">← All wheels</a>' +
-      "<h1>" + esc(DATA.brand) + " on real trucks</h1>" +
-      '<p class="bhead__lead">A wheel looks like a different product once it is on a truck. ' +
-      "These are builds wearing it.</p></section>" +
+      "<h1>" + esc(DATA.brand) + " on real builds</h1>" +
+      '<p class="bhead__lead">A wheel looks like a different product once it is bolted on. ' +
+      "These are the builds wearing them.</p></section>" +
       '<div class="bindex">' + have.map(function (m) {
         return '<a class="bindex__item" href="builds.html?model=' + encodeURIComponent(m) + '">' +
           "<b>" + esc(m) + "</b><span>" + DATA.models[m].length + " builds</span></a>";
@@ -70,7 +70,7 @@
 
   function credit() {
     return '<p class="bcredit">Photos by ' + esc(DATA.brand) +
-      ", shown from their gallery — we don't host them, and every photo links back. " +
+      ". Shown from their gallery — every photo links back to them. " +
       '<a class="blink" href="' + esc(DATA.source) + '" target="_blank" rel="noopener">' +
       "See the full gallery →</a></p>";
   }
@@ -78,9 +78,9 @@
   root.innerHTML =
     '<section class="bhead">' +
     '<a class="bback" href="brand.html?brand=' + esc(DATA.brandSlug) + '">← All ' + esc(DATA.brand) + " wheels</a>" +
-    "<h1>" + esc(DATA.brand + " " + wantModel) + " on real trucks</h1>" +
+    "<h1>" + esc(DATA.brand + " " + wantModel) + " on real builds</h1>" +
     '<p class="bhead__lead">' + shots.length + " builds running this style. " +
-    "Renders tell you the spoke pattern; this tells you what it looks like at ride height.</p>" +
+    "A render tells you the spoke pattern; these tell you how it wears on a truck.</p>" +
     "</section>" +
     '<div class="bgrid">' + shots.map(function (s) {
       return '<a class="bshot" href="' + esc(s.url) + '" target="_blank" rel="noopener">' +

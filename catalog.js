@@ -338,14 +338,17 @@
   // lands — invented numbers on forged wheels are a promise we can't keep.
   // Swatch colour used for the finish dots — approximate, purely a UI cue;
   // the photo underneath is the real article.
+  /* A 16px dot cannot carry a four-stop gradient — it just reads as noise, and
+     the old black-milled swatch faded to light grey, so "black" didn't look
+     black. One soft highlight to say "metal", then commit to the colour. */
   var FINISH_DOT = {
-    polished: "linear-gradient(135deg,#fdfdfe,#c8ccd2 45%,#9aa0a8 62%,#f2f4f6)",
-    chrome: "linear-gradient(135deg,#ffffff,#cdd2d8 45%,#8f959d 62%,#f4f6f8)",
-    brushed: "linear-gradient(135deg,#e7e9ec,#c3c7cc 50%,#aeb3b9)",
-    black: "linear-gradient(135deg,#3a3a3e,#0c0c0e)",
-    blackmilled: "linear-gradient(135deg,#4a4a4f,#111114 55%,#8b9097)",
-    bronze: "linear-gradient(135deg,#c69256,#7d5527)",
-    gunmetal: "linear-gradient(135deg,#7a8189,#3c4249)",
+    polished:    "linear-gradient(150deg,#ffffff 0%,#dfe3e8 52%,#b6bcc4 100%)",
+    chrome:      "linear-gradient(150deg,#ffffff 0%,#dde2e8 52%,#aeb5bd 100%)",
+    brushed:     "linear-gradient(150deg,#eceef1 0%,#c9cdd2 52%,#adb2b8 100%)",
+    black:       "linear-gradient(150deg,#33343a 0%,#131418 60%,#0a0a0c 100%)",
+    blackmilled: "linear-gradient(150deg,#3c3d44 0%,#17181c 60%,#0b0c0e 100%)",
+    bronze:      "linear-gradient(150deg,#d7a468 0%,#a8763c 55%,#7a5326 100%)",
+    gunmetal:    "linear-gradient(150deg,#8b929a 0%,#5a6069 55%,#3a4048 100%)",
   };
   function finishDot(name) {
     var k = String(name).toLowerCase().replace(/[^a-z]/g, "");
@@ -614,24 +617,17 @@
         '<img class="wheelhero__logo ' + (textureFor(b) ? "" : logoFx(b)) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
         // The logo already says the brand name — keep the h1 for search
         // engines and screen readers, but don't print it twice.
-        '<h1 class="sr-only">' + b.name + '</h1>' +
-        (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
-        /* No explainer here. Which trucks a wheel fits is answered by the bolt
-           pattern on its own page; up top the job is to show the wheels. */
+        /* On a series page the H1 names the category you are in — that is the
+           one thing you need at the top. The switcher moves to the foot of the
+           page, where changing lists is a next step rather than a first one. */
+        (seriesDef
+          ? '<h1 class="wheelhero__h1">' + esc(seriesDef.menu) + "</h1>"
+          : '<h1 class="sr-only">' + b.name + "</h1>") +
+        (b.tagline && !seriesDef ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
         (seriesDef ? "" :
           '<p class="wheelhero__meta">' +
           ((more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
            ' · built to order in your size &amp; finish') + '</p>') +
-        (avail.length > 1
-          ? '<div class="seriestabs">' + avail.map(function (d) {
-              return '<a class="seriestab' + (d.key === wantSeries ? " on" : "") +
-                '" href="brand.html?brand=' + b.slug + "&series=" + d.key + '">' + esc(d.menu) + "</a>";
-            }).join("") +
-            '<a class="seriestab' + (wantSeries ? "" : " on") + '" href="brand.html?brand=' + b.slug + '">Everything</a></div>'
-          : "") +
-        // Brand-level floor, for brands that price per model rather than per
-        // series. Putting one brand figure on every card would underquote the
-        // expensive styles; stating it once, here, stays true.
         (b.priceFrom
           ? '<p class="wheelhero__from">Styles from <b>' + money(b.priceFrom) + '</b> per wheel' +
             (b.priceNote ? ' · ' + esc(b.priceNote) : '') + '</p>'
@@ -639,6 +635,16 @@
       '</section>' +
       '<section class="wheelwrap">' +
         seriesSections(b, show, wantSeries) +
+        (avail.length > 1
+          ? '<nav class="seriesfoot" aria-label="Other series">' +
+              "<span>More from " + esc(b.name) + "</span>" +
+              avail.map(function (d) {
+                return '<a' + (d.key === wantSeries ? ' class="on"' : "") +
+                  ' href="brand.html?brand=' + b.slug + "&series=" + d.key + '">' + esc(d.menu) + "</a>";
+              }).join("") +
+              '<a' + (wantSeries ? "" : ' class="on"') + ' href="brand.html?brand=' + b.slug + '">Everything</a>' +
+            "</nav>"
+          : "") +
         (b.site
           ? '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
               (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
@@ -647,15 +653,14 @@
                 : "") +
               '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
                                  : 'See the full ' + esc(b.name) + ' lineup') + '</h3>' +
-              '<p>Browse the full lineup on ' + esc(b.name) + '&rsquo;s site — then come back to us and we&rsquo;ll build the set, mount the tires and quote you out the door.</p>' +
+              '<p>We show the most popular styles. See the whole lineup on ' + esc(b.name) +
+                '&rsquo;s site, then come back with the one you want — we build the set, mount the tires and quote it out the door.</p>' +
               '<div class="wheelmore__btns">' +
-                '<a class="btn btn--chrome" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
+                '<a class="btn btn--onbrand" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                   '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
-                '<a class="btn btn--ghost" href="index.html#fitment">Get fitted</a>' +
               '</div>' +
             '</div>'
           : '') +
-        '<p class="wheelwrap__note">Every style is built to order in your choice of finish and size. Dually &amp; super-single sets are 6 wheels — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
       '</section>';
     bindFinishSwatches(root);
     if (window.__observeFades) window.__observeFades();
@@ -767,6 +772,16 @@
       '</section>' +
       '<section class="wheelwrap">' +
         '<div class="wheelgrid tiregrid">' + b.models.map(function (m) { return tireCard(b, m); }).join("") + '</div>' +
+        (avail.length > 1
+          ? '<nav class="seriesfoot" aria-label="Other series">' +
+              "<span>More from " + esc(b.name) + "</span>" +
+              avail.map(function (d) {
+                return '<a' + (d.key === wantSeries ? ' class="on"' : "") +
+                  ' href="brand.html?brand=' + b.slug + "&series=" + d.key + '">' + esc(d.menu) + "</a>";
+              }).join("") +
+              '<a' + (wantSeries ? "" : ' class="on"') + ' href="brand.html?brand=' + b.slug + '">Everything</a>' +
+            "</nav>"
+          : "") +
         (b.site
           ? '<div class="wheelmore"><h3>See the full ' + esc(b.name) + ' range</h3>' +
             '<p>Browse every tread on ' + esc(b.name) + '&rsquo;s site — then come back and we&rsquo;ll mount and balance them to your wheels.</p>' +

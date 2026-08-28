@@ -2754,3 +2754,57 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   transform:translateY(-1px)}
 .wsw.on{background:var(--ink);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.22)}
 .wsw.on i{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.3)}
+
+/* v167 — spec block reads as a list, and sizes group under their diameter */
+.wspec--sizes b{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.wsize{display:flex;align-items:baseline;gap:12px;justify-content:flex-end;
+  font-size:13.5px;font-weight:600;color:var(--text)}
+.wsize i{font-style:normal;font-family:var(--label);font-size:11px;letter-spacing:.09em;
+  color:var(--soft);font-weight:500;min-width:34px;text-align:right}
+.wspec b{line-height:1.5}
+/* long values get their own line rather than wrapping into an orphan */
+.wspec--wide{display:block;padding-top:12px}
+.wspec--wide span{display:block;flex:none;margin-bottom:5px}
+.wspec--wide b{display:block;text-align:left;font-weight:600;letter-spacing:.01em}
+
+/* v170 — finish dots: bigger, clearly separated, and ringed so a black dot on
+   a white card still has an edge. Two 16px dots nearly touching were hard to
+   aim at and harder to tell apart. */
+.wheel__fin{gap:0;min-height:30px}
+.wheel__sw{width:22px;height:22px;box-sizing:content-box;
+  border:8px solid transparent;background-clip:padding-box;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.16), 0 1px 3px rgba(0,0,0,.14)}
+.wheel__sw.is-shown{box-shadow:inset 0 0 0 1px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26)}
+.wheel__finname{margin-left:8px}
+@media(max-width:560px){ .wheel__sw{width:24px;height:24px;border-width:9px} }
+
+/* ============================================================
+   v170 — series page: the category names itself at the top, and switching
+   lists is a footnote at the bottom rather than a decision at the door.
+   ============================================================ */
+.wheelhero__h1{font-family:var(--display);font-size:clamp(20px,3.6vw,30px);
+  letter-spacing:.02em;text-transform:uppercase;margin-top:14px;color:inherit}
+.wheelhero--brand .wheelhero__h1{color:#fff}
+
+.seriesfoot{width:min(100% - 44px,var(--max));margin:0 auto clamp(26px,3vw,38px);
+  display:flex;align-items:baseline;justify-content:flex-end;gap:16px;flex-wrap:wrap;
+  padding-top:16px;border-top:1px solid var(--line)}
+.seriesfoot span{font-family:var(--label);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft);margin-right:auto}
+.seriesfoot a{font-size:13px;color:var(--muted);transition:color .18s var(--ease)}
+.seriesfoot a:hover{color:var(--blue-2)}
+.seriesfoot a.on{color:var(--text);font-weight:600}
+@media(max-width:560px){
+  .seriesfoot{justify-content:flex-start;gap:14px}
+  .seriesfoot span{width:100%;margin-right:0;margin-bottom:2px}
+}
+
+/* Button on a brand's own dark band — outlined, so it sits on the texture
+   instead of dropping a slab of white onto it. */
+.btn--onbrand{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);
+  border-radius:0;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+  padding:16px 30px;font-family:var(--display);font-size:12px;letter-spacing:.09em;
+  text-transform:uppercase;transition:background .22s var(--ease),border-color .22s var(--ease)}
+.btn--onbrand:hover{background:rgba(255,255,255,.14);border-color:#fff}
+.btn--onbrand .btn-txt{color:#fff;background:none;-webkit-text-fill-color:#fff}
+.wheelmore__btns{justify-content:center}
