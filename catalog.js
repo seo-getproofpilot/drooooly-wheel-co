@@ -361,8 +361,14 @@
       ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
       : emblem(brand, m);
     var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
+    /* The preview link can't be a nested <a> — the whole card is one — so it is
+       a span the delegated handler below turns into a link. */
+    var viz = m.img
+      ? '<span class="wheel__viz" role="link" tabindex="0" data-viz="brand=' + encodeURIComponent(brand.slug) +
+        '&amp;model=' + encodeURIComponent(m.model) + '">See it on a truck →</span>'
+      : '';
     return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(quote) + '">' +
-      '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
+      '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + viz + '</div>' +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
       (vars
         ? '<div class="wheel__fin" role="group" aria-label="Finishes">' +
@@ -378,6 +384,22 @@
       boltLine(brand, m) +
       priceLine(brand, m) +
       '</a>';
+  }
+
+  // "See it on a truck" — jumps to the visualizer with this wheel preselected.
+  function bindVizLinks(root) {
+    function go(t) { location.href = "visualizer.html?" + t.getAttribute("data-viz"); }
+    root.addEventListener("click", function (e) {
+      var t = e.target.closest && e.target.closest("[data-viz]");
+      if (!t) return;
+      e.preventDefault(); e.stopPropagation(); go(t);
+    });
+    root.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      var t = e.target.closest && e.target.closest("[data-viz]");
+      if (!t) return;
+      e.preventDefault(); e.stopPropagation(); go(t);
+    });
   }
 
   // Finish swatches: hover (or tap) to swap the photo without leaving the page.
@@ -474,6 +496,7 @@
         '<p class="wheelwrap__note">Every style is built to order in your choice of finish and size. Dually &amp; super-single sets are 6 wheels — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
       '</section>';
     bindFinishSwatches(root);
+    bindVizLinks(root);
     if (window.__observeFades) window.__observeFades();
   }
 

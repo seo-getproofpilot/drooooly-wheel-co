@@ -1,0 +1,176 @@
+/* ============================================================
+   DROOOLY — fitment geometry
+   CLAUDE.md: "Fitment logic lives in one module, testable independently of UI."
+   This file is that module. It has ZERO DOM references and is loaded both by
+   the browser and by tools/test-fitment.js under node.
+
+   SCOPE: this computes where a wheel SITS — how far it stands proud of or
+   tucks inside the fender line, and how to place its render in an arch. That
+   is the whole point of the visualizer: the same wheel looks like a different
+   product tucked vs poked.
+
+   It deliberately does NOT model steering lock, rubbing, trimming or load.
+   Those are a conversation, not a computation, and nothing here should ever
+   read as a clearance approval.
+   ============================================================ */
+(function () {
+  var MM_PER_IN = 25.4;
+  var LIP = 0.5;              // mounting-pad allowance, inches
+
+  /* ---- sizes -------------------------------------------------------- */
+
+  // "24x14" -> {d:24, w:14, widthKnown:true}
+  // "20"    -> {d:20, w:null, widthKnown:false}   (vision / tis / fenix)
+  function parseSize(str) {
+    var s = String(str).trim();
+    var m = s.match(/^(\d+(?:\.\d+)?)\s*[xX]\s*(\d+(?:\.\d+)?)$/);
+    if (m) return { d: parseFloat(m[1]), w: parseFloat(m[2]), widthKnown: true };
+    var d = parseFloat(s);
+    return isNaN(d) ? null : { d: d, w: null, widthKnown: false };
+  }
+
+  // Distinct, sorted sizes for a catalog model.
+  function sizesFor(model) {
+    var out = [], seen = {};
+    (model && model.sizes || []).forEach(function (s) {
+      var p = parseSize(s);
+      if (!p) return;
+      var key = p.d + "x" + (p.w === null ? "?" : p.w);
+      if (seen[key]) return;
+      seen[key] = 1;
+      p.label = p.widthKnown ? (p.d + "x" + p.w) : String(p.d);
+      out.push(p);
+    });
+    out.sort(function (a, b) { return a.d - b.d || (a.w || 0) - (b.w || 0); });
+    return out;
+  }
+
+  function diametersFor(model) {
+    var seen = {}, out = [];
+    sizesFor(model).forEach(function (s) { if (!seen[s.d]) { seen[s.d] = 1; out.push(s.d); } });
+    return out;
+  }
+
+  // Widths offered at a given diameter. Empty array = brand publishes by
+  // diameter only, which the UI must surface rather than hide.
+  function widthsFor(model, dia) {
+    var out = [];
+    sizesFor(model).forEach(function (s) {
+      if (s.d === dia && s.widthKnown && out.indexOf(s.w) < 0) out.push(s.w);
+    });
+    return out.sort(function (a, b) { return a - b; });
+  }
+
+  /* ---- tires -------------------------------------------------------- */
+
+  // Flotation "35x12.50R20LT" -> od 35. Metric "285/70R17" -> od 32.71.
+  function parseTireSize(str) {
+    var s = String(str).trim();
+    var f = s.match(/^(\d+(?:\.\d+)?)\s*[xX]\s*(\d+(?:\.\d+)?)\s*R\s*(\d+(?:\.\d+)?)/i);
+    if (f) return { od: parseFloat(f[1]), section: parseFloat(f[2]), rim: parseFloat(f[3]) };
+    var m = s.match(/^(?:LT|P)?\s*(\d+)\s*\/\s*(\d+)\s*R\s*(\d+(?:\.\d+)?)/i);
+    if (m) {
+      var secMm = parseFloat(m[1]), ratio = parseFloat(m[2]), rim = parseFloat(m[3]);
+      var sidewall = secMm * (ratio / 100) / MM_PER_IN;
+      return { od: rim + 2 * sidewall, section: secMm / MM_PER_IN, rim: rim };
+    }
+    return null;
+  }
+
+  /* ---- geometry ------------------------------------------------------ */
+
+  /* cfg: { widthIn, offsetMm, tireOdIn, wheelDiaIn, lift, vehicle }
+     vehicle: { fenderRadiusIn, faceToFenderIn, config:'srw'|'drw', measured }
+
+     Sign convention: offset is the distance from the wheel's centreline to its
+     mounting face. NEGATIVE offset moves the wheel OUTBOARD — which is the
+     whole aggressive-stance look.                                          */
+  function geometry(cfg) {
+    var w = cfg.widthIn, offIn = cfg.offsetMm / MM_PER_IN;
+    var outerFromFace = w / 2 - offIn;   // hub face -> outer lip
+    var innerFromFace = w / 2 + offIn;   // hub face -> inner lip
+    var v = cfg.vehicle || {};
+    var fenderRadius = (v.fenderRadiusIn || 20) + (cfg.lift || 0);
+    var poke = outerFromFace - (v.faceToFenderIn || 9);
+
+    return {
+      offsetIn: offIn,
+      outerFromFace: outerFromFace,
+      innerFromFace: innerFromFace,
+      backspacing: innerFromFace + LIP,
+      poke: poke,                                   // + proud of fender, - tucked
+      sidewall: (cfg.tireOdIn - cfg.wheelDiaIn) / 2,
+      fenderRadius: fenderRadius,
+      archGap: fenderRadius - cfg.tireOdIn / 2,      // drawing input, not a verdict
+      isDually: (v.config === "drw")
+    };
+  }
+
+  /* Stance descriptor. Neutral language only — this names a LOOK, never a
+     fitment outcome. Anything resembling "will fit" / "will rub" is out of
+     scope by design and is asserted against in tools/test-fitment.js. */
+  function stance(g) {
+    var p = g.poke;
+    if (p > 2.5)  return { key: "deep",    label: "Deep poke" };
+    if (p > 0.75) return { key: "poke",    label: "Poked past the fender" };
+    if (p > -0.5) return { key: "flush",   label: "About flush with the fender" };
+    if (p > -2)   return { key: "tucked",  label: "Tucked inside the fender" };
+    return { key: "deeptuck", label: "Well inside the fender" };
+  }
+
+  /* How far past (or inside) the fender, phrased as a plain measurement.
+     `measured` gates the decimal: until someone has actually put a tape on
+     that truck, the vehicle numbers are estimates and printing 1.8" would be
+     inventing precision. */
+  function pokeText(g, measured) {
+    var p = g.poke, a = Math.abs(p).toFixed(1);
+    if (!measured) {
+      if (p > 0.75) return "Sits noticeably past the fender line";
+      if (p > -0.5) return "Sits about even with the fender line";
+      return "Sits inside the fender line";
+    }
+    if (p > 0.25)  return a + '" past the fender';
+    if (p < -0.25) return a + '" inside the fender';
+    return "Even with the fender";
+  }
+
+  /* ---- placing the render -------------------------------------------- */
+
+  /* The wheel PNG's face is not its bounding box — the barrel hangs left and
+     padding varies per brand — so wheel-faces.js carries a per-image
+     [cx, cy, r] normalised to the image. Scale by the RADIUS, then offset by
+     the face centre, so the barrel lands where it belongs instead of being
+     clipped away.
+
+     face: [cx, cy, r] normalised  |  img: {w, h} natural px
+     Returns SVG <image> attrs that put the face centre exactly on (targetX, targetY). */
+  function placement(face, img, targetX, targetY, targetRadiusPx) {
+    if (!face || !img || !img.w) return null;
+    var faceRpx = face[2] * img.w;
+    if (!faceRpx) return null;
+    var scale = targetRadiusPx / faceRpx;
+    return {
+      x: targetX - face[0] * img.w * scale,
+      y: targetY - face[1] * img.h * scale,
+      width: img.w * scale,
+      height: img.h * scale,
+      scale: scale
+    };
+  }
+
+  var API = {
+    MM_PER_IN: MM_PER_IN,
+    parseSize: parseSize,
+    sizesFor: sizesFor,
+    diametersFor: diametersFor,
+    widthsFor: widthsFor,
+    parseTireSize: parseTireSize,
+    geometry: geometry,
+    stance: stance,
+    pokeText: pokeText,
+    placement: placement
+  };
+
+  if (typeof window !== "undefined") window.Fitment = API;
+  if (typeof module !== "undefined" && module.exports) module.exports = API;
+})();

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=141" />
+<link rel="stylesheet" href="styles.css?v=142" />
 <style>
   body{background:#0a0c10;color:#fff;font-family:Inter,system-ui,sans-serif;margin:0}
   .fv{max-width:1240px;margin:0 auto;padding:36px 22px 80px}
@@ -58,7 +58,7 @@
 <div class="fv">
   <h1>Fitment Visualizer</h1>
   <p class="fv__lead">Diameter, width and offset are the three numbers people get wrong — and they're the reason a set that looked great on someone else's truck sits wrong on yours. This draws all three to scale so you can see the difference before you buy.</p>
-  <p class="fv__note"><b>Illustration, not a fitment approval.</b> This shows geometry to scale from the numbers you pick. Real clearance depends on your suspension, trim, tire brand and how the truck sits — we confirm all of that before anything is built.</p>
+  <p class="fv__note"><b>Illustration, not a fitment approval.</b> This shows geometry to scale from the numbers you pick. How a setup actually sits depends on your suspension, tire brand and ride height — we confirm all of that before anything is built.</p>
 
   <div class="fv__grid">
     <!-- ---------- controls ---------- -->
@@ -120,7 +120,7 @@
   </div>
 </div>
 
-<script src="brands.js?v=141"></script>
+<script src="brands.js?v=142"></script>
 <script>
 /* ============================================================
    Fitment visualizer — everything is drawn from real numbers.
@@ -246,13 +246,15 @@ function draw(){
   $('rPoke').textContent=(g.poke>0?'+':'')+g.poke.toFixed(1)+'"';
   $('rPokeBox').className='stat'+(g.poke>1.5?' warn':'');
 
-  var v=$('verdict'), msg='', warn=false;
-  if(g.gap<1.0){ msg='At '+state.tod+'" tall with '+state.lift+'" of lift there is only '+g.gap.toFixed(1)+'" between the tire and the fender. Setups like this usually need trimming or more lift.'; warn=true; }
-  else if(g.poke>3){ msg='That is '+g.poke.toFixed(1)+'" of poke — the wheel sits well outside the fender. It is the look a lot of people are after, but expect spray off the tires and check your local fender-coverage rules.'; warn=true; }
-  else if(g.poke>0.5){ msg='About '+g.poke.toFixed(1)+'" of poke — the wheel face sits just proud of the fender. This is the classic aggressive stance.'; }
-  else if(g.poke<-0.5){ msg='Tucked '+Math.abs(g.poke).toFixed(1)+'" inside the fender. Conservative and factory-looking; watch for rubbing on the inner well at full lock.'; }
+  /* This names a LOOK, never a clearance outcome. Whether a setup rubs, needs
+     trimming or clears at full lock is a conversation, not a computation —
+     see the visualizer and CLAUDE.md rule 1. */
+  var v=$('verdict'), msg='';
+  if(g.poke>3){ msg='That is '+g.poke.toFixed(1)+'" of poke — the wheel sits well outside the fender line.'; }
+  else if(g.poke>0.5){ msg='About '+g.poke.toFixed(1)+'" of poke — the wheel face sits just proud of the fender. The classic aggressive stance.'; }
+  else if(g.poke<-0.5){ msg='Tucked '+Math.abs(g.poke).toFixed(1)+'" inside the fender — conservative and factory-looking.'; }
   else { msg='Close to flush with the fender — roughly a factory-plus stance.'; }
-  v.textContent=msg; v.className='verdict'+(warn?' warn':'');
+  v.textContent=msg; v.className='verdict';
 
   drawSide(g); drawTop(g);
 }

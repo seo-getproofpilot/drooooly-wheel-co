@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shop Tires — DROOOLY Wheel Co.</title>
-<meta name="description" content="Pick your tire brand — mud-terrains, all-terrains and highway rubber from every major maker, mounted &amp; balanced to your forged setup. Hand-spec'd for your exact truck." />
+<title>See It On Your Truck — DROOOLY Wheel Co.</title>
+<meta name="description" content="Preview forged wheels on your truck — pick the truck, the wheel, the paint and the offset, and see how the stance changes before you buy." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="canonical" href="https://seo-getproofpilot.github.io/drooooly-wheel-co/tires.html" />
+<link rel="canonical" href="https://seo-getproofpilot.github.io/drooooly-wheel-co/visualizer.html" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=142" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="DROOOLY Wheel Co." />
-<meta property="og:title" content="Shop Tires — DROOOLY Wheel Co." />
-<meta property="og:description" content="Pick your tire brand — mud-terrains, all-terrains and highway rubber from every major maker, mounted &amp; balanced to your forged setup. Hand-spec'd for your exact truck." />
-<meta property="og:url" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/tires.html" />
+<meta property="og:title" content="See It On Your Truck — DROOOLY Wheel Co." />
+<meta property="og:description" content="Preview forged wheels on your truck — pick the truck, the wheel, the paint and the offset, and see how the stance changes before you buy." />
+<meta property="og:url" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/visualizer.html" />
 <meta property="og:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=142" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Shop Tires — DROOOLY Wheel Co." />
-<meta name="twitter:description" content="Pick your tire brand — mud-terrains, all-terrains and highway rubber from every major maker, mounted &amp; balanced to your forged setup. Hand-spec'd for your exact truck." />
+<meta name="twitter:title" content="See It On Your Truck — DROOOLY Wheel Co." />
+<meta name="twitter:description" content="Preview forged wheels on your truck — pick the truck, the wheel, the paint and the offset, and see how the stance changes before you buy." />
 <meta name="twitter:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=142" />
 <link rel="stylesheet" href="styles.css?v=142" />
 </head>
@@ -41,7 +41,7 @@
             <div class="mega__grid" id="wheelsBrands"><!-- brands via catalog.js --></div>
           </div>
         </div>
-        <a href="tires.html" class="nav__top nav__top--solo" aria-current="page">Tires</a>
+        <a href="tires.html" class="nav__top nav__top--solo">Tires</a>
         <div class="nav__item">
           <a href="index.html#builds" class="nav__top">Builds <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
           <div class="mega mega--sm">
@@ -69,44 +69,72 @@
   </div>
 </header>
 
-<!-- ============ TIRE HERO ============ -->
-<section class="tire-hero">
-  <div class="tire-hero__inner">
-    <div class="tire-hero__copy">
-      <span class="kicker" style="color:var(--blue-2)">Wheel &amp; tire packages</span>
-      <h1>Wrap 'em in <em>the right rubber.</em></h1>
-      <p>Every set ships mounted, balanced &amp; road-force tested on your forged wheels. Mud-terrain, all-terrain, highway — in the sizes that actually fit wide, narrow and dually setups.</p>
-      <div class="tire-hero__cta">
-        <a href="#brands" class="btn btn--chrome">Browse brands</a>
-        <a href="index.html#fitment" class="btn btn--ghost">Get fitted</a>
+<main id="viz" class="vizpage">
+  <section class="vizhead">
+    <h1>See it on your truck</h1>
+    <p class="vizhead__lead">Pick your truck, pick a wheel, then move the offset. The same wheel looks like a
+      different product tucked inside the fender versus standing proud of it — this shows you which one you're buying.</p>
+    <p class="vizhead__note">A preview, not an exact representation. We confirm the details before anything is built.</p>
+    <p class="vizfrom" id="vFrom" style="display:none"></p>
+  </section>
+
+  <div class="vizgrid">
+    <div class="vizpanel">
+      <div class="vfld"><label>Truck</label><select id="vVehicle"></select></div>
+      <div class="vfld"><label>Paint</label><div class="vswatches" id="vPaint"></div></div>
+
+      <div class="vfld"><label>Brand</label><select id="vBrand"></select></div>
+      <div class="vfld"><label>Wheel</label><select id="vModel"></select></div>
+
+      <div class="vfld"><label>Diameter <b id="vDiaV"></b></label><div class="vchips" id="vDia"></div></div>
+      <div class="vfld"><label>Width <b id="vWidV"></b></label>
+        <div class="vchips" id="vWid"></div>
+        <p class="vnote" id="vWidNote" style="display:none"></p>
+      </div>
+
+      <div class="vfld vfld--hero">
+        <label>Offset <b id="vOffV"></b></label>
+        <div class="vpresets" id="vPresets"></div>
+        <p class="vnote" id="vPresetNote" style="display:none"></p>
+        <input type="range" id="vOffset" min="-178" max="60" step="1" value="0">
+        <div class="vends"><span id="vOffMin"></span><span id="vOffMax"></span></div>
+        <p class="vnote">More negative pushes the wheel outboard. The ends of this slider are
+          set by the wheel's own width — a narrow wheel can't be built as far out as a wide one.
+          Which offsets a given style is actually produced in varies by brand; we confirm that
+          when we quote.</p>
+      </div>
+
+      <div class="vfld"><label>Tire diameter <b id="vTireV"></b></label>
+        <input type="range" id="vTire" min="31" max="44" step="1" value="35"></div>
+      <div class="vfld"><label>Lift <b id="vLiftV"></b></label>
+        <input type="range" id="vLift" min="0" max="10" step="0.5" value="0"></div>
+
+      <button class="vpin" id="vPin" type="button">Pin this setup to compare</button>
+    </div>
+
+    <div class="vizstage">
+      <div class="vtabs">
+        <button class="vtab on" data-v="side" type="button">On the truck</button>
+        <button class="vtab" data-v="top" type="button">Offset &amp; poke</button>
+      </div>
+
+      <div class="vview on" id="vv-side"><svg id="svgSide" viewBox="0 0 920 520"></svg></div>
+      <div class="vview" id="vv-top"><svg id="svgTop" viewBox="0 0 920 470"></svg></div>
+
+      <div class="vreadout">
+        <div class="vstat"><span>Wheel</span><b id="vWheelName"></b></div>
+        <div class="vstat"><span>Stance</span><b class="vstance" id="vStance"></b></div>
+        <div class="vstat"><span>Where it sits</span><b id="vPokeRead"></b></div>
+        <div class="vstat"><span>Backspacing</span><b id="vBack"></b></div>
+        <div class="vstat"><span>Sidewall</span><b id="vSide"></b></div>
+      </div>
+
+      <div class="vcta">
+        <a class="btn btn--chrome" href="index.html#fitment"><span class="btn-txt">Get this setup quoted</span></a>
       </div>
     </div>
-    <div class="tire-hero__art" aria-hidden="true">
-      <img src="assets/truck-hero.jpg?v=142" alt="" />
-    </div>
   </div>
-</section>
-
-<!-- ============ BRAND GRID ============ -->
-<section class="tire-brands" id="brands">
-  <div class="tire-brands__inner">
-    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
-      <span class="kicker center">In-stock tire brands</span>
-      <h2 class="tire-brands__title">Shop tires by brand</h2>
-      <p class="tire-brands__lead">Tap a brand to start your package. Don't see your size? We can source anything — just tell us your truck.</p>
-    </div>
-
-    <div class="tbrand-grid" id="tireBrandGrid"><!-- rendered by catalog.js --></div>
-
-    <div class="tbrand-cta">
-      <div>
-        <h3>Not sure what fits?</h3>
-        <p>Tell us your year, make &amp; model and we'll spec the exact tire &amp; wheel package and confirm the fitment before anything ships.</p>
-      </div>
-      <a href="index.html#fitment" class="btn btn--chrome">Find my fitment</a>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer class="site-footer">
   <div class="footer__inner">
@@ -130,8 +158,10 @@
 </footer>
 
 <script src="brands.js?v=142"></script>
-<script src="tires.js?v=142"></script>
-<script src="catalog.js?v=142"></script>
+<script src="vehicles.js?v=142"></script>
+<script src="wheel-faces.js?v=142"></script>
+<script src="fitment.js?v=142"></script>
+<script src="visualizer.js?v=142"></script>
 <script src="cart.js?v=142"></script>
 <script src="script.js?v=142"></script>
 </body>
