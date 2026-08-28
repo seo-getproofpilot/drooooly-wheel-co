@@ -87,6 +87,10 @@ each one is a phone call away from being better.
 | 4.7 | **Ace and Monarch** have no finish art at all (dually-only styles with no single-series render). They fall back to the catalog photo. | 🟡 |
 | 4.8 | Other brands have **one photo per model**, so their wheel pages show finishes as text options with no image switching. | 🟡 |
 | 4.6 | **Tire width** is not visually represented — a 22x12 and 22x14 share one render. | 🟡 Needs per-width art. |
+| 4.10 | **Offset coverage: 4 sourced figures, 1 explicit gap.** 8.25" dually rear (ET+110–130) from the documented aftermarket range; 12" ≈ ET-44, 24x12 ≈ ET-51, 14" ≈ ET-76, 16" ≈ ET-101 from Custom Offsets / Luxxx HD / Specialty Forged / Fittipaldi listings. **10" has no reliable public figure** and carries an explicit null — the page prints "Not published", never a guess. Wide-front (super single) offsets are a known gap for every DRW platform. `data/specs/offsets.json`; `tools/build-specs.js` fails the build if any figure lacks a `source`. | 🟡 One call to JTX would fill the wide-front gap. |
+| 4.11 | **602 of 756 models have no sourced bolt pattern.** Only `jtx` carries a `bolts` array; zero models carry their own. Surfaced honestly — forged brands say "Drilled to order", cast brands say "Not published for this style" — never a blank. `tools/build-featured.js` already reads and emits `e.bolts`, so this is a pure data task: populate `data/featured/<brand>.json`. | 🟡 |
+| 4.12 | **42 models are misclassified.** Their `configs` include `"single"` but their only published widths are 8.25" — the dually width (kg1 12, fittipaldi 12, tis 9, american-force 5, amani 3, axe 1). The size filter carries a never-empty guard so their tables still render, but the underlying `configs` in `data/featured/<brand>.json` are wrong. | 🟡 One pass over those files fixes it properly. |
+| 4.13 | **377 of 756 models have no photo.** The wheel page now shows a named placeholder ("Photo coming — ask us and we'll send one") instead of requesting `/undefined`, which was firing a 404 on every one of those pages. | 🟡 Fixed in the UI; the art is still missing. |
 
 ---
 

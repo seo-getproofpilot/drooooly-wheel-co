@@ -14,7 +14,12 @@
    ============================================================ */
 (function () {
   var root = document.getElementById("wheelPage");
-  if (!root || !window.BRANDS) return;
+  if (!root || !window.BRANDS || !window.Fitment) return;
+
+  var F = window.Fitment;
+  /* Soft: WHEEL_SPECS covers 1 of 21 brands. Without it we fall back to
+     brands.js widths and drop the offset row rather than throwing. */
+  var SPECS = window.WHEEL_SPECS || null;
 
   var q = new URLSearchParams(location.search);
   var slug = q.get("brand"), name = q.get("model"), series = q.get("series");
@@ -51,6 +56,22 @@
   var activeSeries = (series && artFor(series)) ? series
     : (artFor("single") ? "single" : (artFor("dually") ? "dually" : null));
   var art = activeSeries ? artFor(activeSeries) : null;
+
+  /* WHICH SERIES TO FILTER BY is a different question from WHICH RENDER TO
+     SHOW. activeSeries answers the second and needs finish art, which only JTX
+     has — so on the other 602 model pages ?series= was being ignored entirely.
+     seriesKey answers the first and works for every brand. */
+  var seriesKey = (function () {
+    if (series === "single" || series === "dually") return series;
+    if (activeSeries) return activeSeries;
+    var c = model.configs || [];
+    var hasSingle = c.indexOf("single") > -1;
+    var hasDual = c.indexOf("dually") > -1 || c.indexOf("super single") > -1;
+    if (hasSingle && hasDual) return null;      // mixed — show everything
+    if (hasDual) return "dually";
+    if (hasSingle) return "single";
+    return null;
+  })();
 
   function finMeta(nm) {
     var f = FIN && FIN.finishes.filter(function (x) {
@@ -89,43 +110,129 @@
 
   var state = { finish: options[0] };
 
-  /* ---- specs ---- */
-  function parseSizes() {
-    var dia = [], byDia = {};
-    (model.sizes || []).forEach(function (s) {
-      var m = String(s).match(/^(\d+(?:\.\d+)?)\s*[xX]\s*(\d+(?:\.\d+)?)$/);
-      if (!m) { var d = parseFloat(s); if (!isNaN(d) && dia.indexOf(d) < 0) dia.push(d); return; }
-      var d2 = parseFloat(m[1]), w = parseFloat(m[2]);
-      if (dia.indexOf(d2) < 0) dia.push(d2);
-      (byDia[d2] = byDia[d2] || []).push(w);
-    });
-    dia.sort(function (a, b) { return a - b; });
-    Object.keys(byDia).forEach(function (k) {
-      byDia[k] = byDia[k].filter(function (v, i, a) { return a.indexOf(v) === i; })
-        .sort(function (a, b) { return a - b; });
-    });
-    return { dia: dia, byDia: byDia };
-  }
-  var sizes = parseSizes();
+  /* ---- specs ----
+     Sizes come from Fitment, not a local parser. The local one dropped the
+     widthKnown flag, which made "we don't publish a width" indistinguishable
+     from "every width filtered out" — and the whole series filter turns on
+     telling those two apart. */
 
-  /* The pattern itself, not a list of makes. Anyone shopping forged wheels
-     knows their bolt pattern; translating it into "Ford · Chevy/GMC · Ram"
-     costs a line and tells them less than the number they came with. */
-  function boltPatterns() {
+  function sizeRows() { return F.sizeRowsFor(model, seriesKey); }
+
+  /* On a dually page the rear pair and the wide front are different products
+     bolted to different axles, and a novice cannot tell 8.25 from 14 apart.
+     Split them rather than printing one mixed list. */
+  function duallyGroups() {
+    var rows = F.sizeRowsFor(model, "dually");
+    var rear = [], front = [];
+    rows.forEach(function (r) {
+      var isRear = r.widths.indexOf(F.DUALLY_REAR_WIDTH) > -1;
+      var wide = r.widths.filter(function (w) { return w !== F.DUALLY_REAR_WIDTH; });
+      /* The spec file knows the real super-single range; brands.js carries only
+         the one width it happened to record, so prefer the spec where we have
+         it — this is what gives Combat/Flight/Monarch a front option at all. */
+      var prog = SPECS && SPECS.wheels && SPECS.wheels[brand.slug];
+      var fromSpec = prog && prog.front && prog.front.superSingle &&
+                     prog.front.superSingle[String(r.dia)];
+      if (fromSpec && fromSpec.length) wide = fromSpec.slice();
+      if (isRear) rear.push({ dia: r.dia, widths: [F.DUALLY_REAR_WIDTH], widthKnown: true });
+      if (wide.length) front.push({ dia: r.dia, widths: wide, widthKnown: true });
+      if (!isRear && !wide.length) rear.push(r);   // bare diameter — keep it visible
+    });
+    var wantsFront = (model.configs || []).indexOf("super single") > -1;
+    return { rear: rear, front: wantsFront ? front : [] };
+  }
+
+  /* Bolt patterns. Only jtx carries a list, so 602 of 756 model pages were
+     rendering an empty value — the row skipped specRow()'s guard. Say
+     something true instead of nothing: a forged wheel genuinely is drilled to
+     order, which is already the claim in the closing note. */
+  function boltValue() {
     var bolts = (model.bolts && model.bolts.length) ? model.bolts : (brand.bolts || []);
-    return bolts.join(" · ");
+    if (bolts.length) return { text: esc(bolts.join(" · ")), hint: "" };
+    if (brand.kind === "Forged") {
+      return { text: "Drilled to order",
+               hint: "We confirm the pattern with " + esc(brand.name) + " before anything is cut." };
+    }
+    return { text: "Not published for this style",
+             hint: "We confirm it on your quote." };
   }
 
-  /* Widths belong UNDER their diameter, not in a separate list. Centerfire
-     comes 22x12 but 28x8.25 only — two flat lists quietly advertise a 28x16
-     that nobody builds. Same trap as the offsets. */
-  function sizeRows() {
-    var rows = [];
-    sizes.dia.forEach(function (d) {
-      var w = sizes.byDia[d] || [];
-      rows.push({ dia: d, widths: w });
+  /* Offset. Forged wheels are cut to the truck and the brands publish no ET,
+     so the row leads with that and then shows what these widths COMMONLY RUN —
+     sourced figures only, never a derived one. A width we have no figure for
+     says so. */
+  function offsetBlock() {
+    var OFF = SPECS && SPECS.offsets;
+    if (!OFF) return "";
+    var seen = {}, lines = [];
+    sizeRows().forEach(function (r) {
+      if (!r.widthKnown) return;
+      r.widths.forEach(function (w) {
+        if (seen[w]) return;
+        seen[w] = 1;
+        var role = F.offsetRole(w, seriesKey);
+        var hit = F.offsetFor(OFF, role, r.dia, w);
+        var val;
+        if (!hit) {
+          val = "Not published";
+        } else if (typeof hit.min === "number" && typeof hit.max === "number") {
+          val = "ET+" + hit.min + " to +" + hit.max +
+                (typeof hit.typical === "number" ? " · typically +" + hit.typical : "");
+        } else {
+          val = "around ET" + (hit.typical > 0 ? "+" : "") + hit.typical;
+        }
+        lines.push({ w: w, val: val });
+      });
     });
-    return rows;
+    var body = lines.length
+      ? '<div class="wsizetable">' + lines.map(function (l) {
+          return '<span class="wsizerow__dia">' + l.w + '"</span>' +
+                 '<span class="wsizerow__w">' + esc(l.val) + "</span>";
+        }).join("") + "</div>"
+      : "";
+    /* Only a forged brand cuts to order — a cast wheel HAS a fixed offset per
+       SKU, we just don't hold it. Saying "forge to order" on a cast style
+       would be plainly untrue. */
+    var forged = brand.kind === "Forged";
+    var head = forged ? "Cut to your truck" : "Confirmed on your quote";
+    var why = forged
+      ? esc(brand.name) + " forge to order, so a style has no fixed ET."
+      : esc(brand.name) + " publish offset per fitment rather than per style, so we confirm it for your truck.";
+    return '<div class="wspec wspec--offset"><span>Offset</span>' +
+      "<b>" + head +
+        '<span class="wspec__hint">How far the wheel sits in or out — lower numbers sit further out. ' +
+        why + (lines.length ? " What these widths commonly run:" : "") + "</span></b>" +
+      body + "</div>";
+  }
+
+  function sizeTable(rows) {
+    return '<div class="wsizetable">' +
+      '<span class="wsizetable__h">Diameter</span><span class="wsizetable__h">Widths</span>' +
+      rows.map(function (r) {
+        return '<span class="wsizerow__dia">' + r.dia + '"</span>' +
+          (r.widthKnown
+            ? '<span class="wsizerow__w">' +
+                r.widths.map(function (w) { return w + '"'; }).join(" · ") + "</span>"
+            : '<span class="wsizerow__note">Width not published — set on your build</span>');
+      }).join("") + "</div>";
+  }
+
+  function sizesBlock() {
+    if (seriesKey === "dually") {
+      var g = duallyGroups();
+      var out = "";
+      if (g.rear.length) {
+        out += '<div class="wspec wspec--sizes"><span>Sizes · rear pair</span>' +
+          sizeTable(g.rear) + "</div>";
+      }
+      if (g.front.length) {
+        out += '<div class="wspec wspec--sizes"><span>Sizes · wide front</span>' +
+          sizeTable(g.front) + "</div>";
+      }
+      if (out) return out;
+    }
+    return '<div class="wspec wspec--sizes"><span>Sizes</span>' +
+      sizeTable(sizeRows()) + "</div>";
   }
 
   var CFG = { single: "Single", dually: "Dually", "super single": "Super single" };
@@ -191,8 +298,14 @@
       '<div class="wgrid">' +
         '<div class="wmedia">' +
           '<div class="wmedia__stage' + (activeSeries === "dually" ? " wmedia__stage--pair" : "") +
-            '"><img id="wImg" src="' + esc(state.finish.img) + '" alt="' +
-            esc(brand.name + " " + model.model + " — " + state.finish.name) + '" /></div>' +
+            /* 377 of 756 models carry no photo. Without this guard the src was
+               the string "undefined" and every one of those pages fired a 404. */
+            '">' + (state.finish.img
+              ? '<img id="wImg" src="' + esc(state.finish.img) + '" alt="' +
+                esc(brand.name + " " + model.model + " — " + state.finish.name) + '" />'
+              : '<div class="wmedia__none">' + esc(brand.name) +
+                '<span>Photo coming — ask us and we\'ll send one</span></div>') +
+            "</div>" +
           '<div class="wfin" id="wFin"></div>' +
         "</div>" +
 
@@ -214,20 +327,18 @@
           "</div>" +
           (state.finish.note ? '<p class="wfinnote">' + esc(state.finish.note) + "</p>" : "") +
           '<div class="wspecs wspecs--rest">' +
-            /* One row per diameter, so what you read is what JTX will cut. */
-            '<div class="wspec wspec--sizes"><span>Sizes</span><b>' +
-              sizeRows().map(function (r) {
-                return '<span class="wsize"><i>' + r.dia + '"</i>' +
-                  (r.widths.length
-                    ? r.widths.map(function (w) { return w + '"'; }).join(" · ")
-                    : "width confirmed at quote") + "</span>";
-              }).join("") +
-            "</b></div>" +
+            /* Sizes first — it is the decision the page exists for, and it was
+               sitting under the finish readout. Then Offset, because it is a
+               property of the width you just chose and belongs beside it. */
+            sizesBlock() +
+            offsetBlock() +
+            (function () {
+              var b = boltValue();
+              return '<div class="wspec wspec--bolts"><span>Bolt patterns</span><b>' +
+                b.text + (b.hint ? '<span class="wspec__hint">' + b.hint + "</span>" : "") +
+                "</b></div>";
+            })() +
             specRow("Built as", esc(configs().join(" · "))) +
-            /* A six-pattern list has no business being squeezed into a right
-               hand column — it wraps and orphans. Own line, label above. */
-            '<div class="wspec wspec--wide"><span>Bolt patterns</span><b>' +
-              esc(boltPatterns()) + "</b></div>" +
           "</div>" +
 
           /* Extra finishes read as more choice, not as a gap. */

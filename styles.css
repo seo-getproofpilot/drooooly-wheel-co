@@ -1989,10 +1989,6 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 
 /* v115 — Bolt pattern / fitment line. Leads with the truck, keeps the
    pattern itself as quiet supporting detail. */
-.wheel__bolts{margin:5px 0 0;font-family:var(--label);font-size:10.5px;letter-spacing:.05em;
-  text-transform:uppercase;line-height:1.45}
-.wheel__bolts b{display:block;font-weight:600;color:#3d434c}
-.wheel__bolts span{display:block;margin-top:2px;color:var(--muted);opacity:.7;letter-spacing:.07em;font-size:9.5px}
 
 /* ============================================================
    v119 — header: logo scooted inward + enlarged; nav cluster tightened
@@ -2491,11 +2487,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wprice small{display:block;font-size:12px;color:var(--muted);margin-top:3px}
 .wprice--quote{font-family:var(--label);font-size:13px;letter-spacing:.05em;color:var(--blue-2)}
 
-.wspecs{border-top:1px solid var(--line);margin-bottom:16px}
-.wspec{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
-.wspec span{font-family:var(--label);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--soft);flex:0 0 34%}
-.wspec b{font-size:13.5px;font-weight:600;text-align:right}
 
 .wextra{background:var(--panel-2);border:1px solid var(--line);padding:13px 15px;margin-bottom:16px}
 .wextra b{display:block;font-family:var(--label);font-size:10.5px;letter-spacing:.1em;
@@ -2551,7 +2542,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* front+rear pair is a wide frame, not a square one */
 .wmedia__stage--pair{aspect-ratio:16/9}
 .wfinnote{font-size:12.5px;color:var(--muted);line-height:1.55;margin:9px 0 4px}
-.wspecs--rest{border-top:0;margin-top:6px}
 /* the black-milled chip should look milled, so the swatch and the label agree */
 .wsw i{position:relative;overflow:hidden}
 
@@ -2726,11 +2716,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 
 .wmedia__stage{border:0;background:none;padding:0;aspect-ratio:1/1}
 
-/* Spec rows read as a list, held apart by rhythm rather than ruled lines. */
-.wspecs{border-top:0;margin-bottom:6px}
-.wspec{border-bottom:0;padding:9px 0;align-items:baseline}
-.wspec span{flex:0 0 38%}
-.wspecs--rest{margin-top:0}
 
 /* The finish note is a note, not a panel. */
 .wextra{background:none;border:0;padding:0;margin:18px 0 20px;
@@ -2760,17 +2745,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wsw.on{background:var(--ink);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.22)}
 .wsw.on i{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.3)}
 
-/* v167 — spec block reads as a list, and sizes group under their diameter */
-.wspec--sizes b{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
-.wsize{display:flex;align-items:baseline;gap:12px;justify-content:flex-end;
-  font-size:13.5px;font-weight:600;color:var(--text)}
-.wsize i{font-style:normal;font-family:var(--label);font-size:11px;letter-spacing:.09em;
-  color:var(--soft);font-weight:500;min-width:34px;text-align:right}
-.wspec b{line-height:1.5}
-/* long values get their own line rather than wrapping into an orphan */
-.wspec--wide{display:block;padding-top:12px}
-.wspec--wide span{display:block;flex:none;margin-bottom:5px}
-.wspec--wide b{display:block;text-align:left;font-weight:600;letter-spacing:.01em}
 
 
 /* ============================================================
@@ -2837,3 +2811,56 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   background:var(--blue-txt-deep);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent}
+
+/* ============================================================
+   v176 — wheel spec block, rebuilt.
+
+   SUPERSEDES the v149 / v150-stray / v166 / v167 fragments, which were
+   REMOVED rather than overridden. Four blocks were fighting over .wspec* on
+   later-wins ties, and the fifth append would have been the bug, not the fix.
+   This is now the only place these selectors are defined —
+   `grep -n "wspec\|wsize" styles.css` should return this block alone.
+
+   One treatment everywhere: label above, value left-aligned. The old block
+   right-aligned values EXCEPT bolt patterns, which needed its own variant
+   because a six-item list broke the alignment. When a layout needs a per-row
+   escape hatch, the escape hatch was the correct rule.
+   ============================================================ */
+.wspecs{margin:0 0 6px}
+.wspec{display:block;padding:0 0 15px}
+/* child combinator, not descendant — the nested spans inside the size table
+   inheriting label styling is what forced the old `.wspec--sizes b` override */
+.wspec>span{display:block;font-family:var(--label);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.wspec>b{display:block;font-size:13.5px;font-weight:600;text-align:left;line-height:1.5}
+.wspec__hint{display:block;font-size:12.5px;font-weight:400;color:var(--muted);
+  line-height:1.55;margin-top:4px;max-width:52ch}
+
+/* One border, where the live finish readout ends and the hard specs begin. */
+.wspecs--rest{border-top:1px solid var(--line);padding-top:18px;margin-top:16px;
+  display:grid;grid-template-columns:1fr;gap:0}
+
+/* Diameter in a fixed gutter, widths beside it — a real table, so the eye can
+   run down either column. */
+.wsizetable{display:grid;grid-template-columns:auto 1fr;column-gap:20px;row-gap:7px;
+  align-items:baseline;margin-top:2px}
+.wsizetable__h{font-family:var(--label);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft);font-weight:500;padding-bottom:2px}
+.wsizerow__dia{font-family:var(--label);font-size:12px;letter-spacing:.05em;
+  color:var(--soft);font-weight:500;white-space:nowrap}
+.wsizerow__w{font-size:13.5px;font-weight:600;color:var(--text)}
+.wsizerow__note{font-size:13px;font-weight:400;color:var(--muted)}
+
+@media(min-width:520px){
+  /* Sizes and Offset keep the full width; the two flat rows pair up. Not below
+     520px — six bolt patterns will not survive a 260px column. */
+  .wspecs--rest{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px}
+  .wspec--sizes,.wspec--offset{grid-column:1/-1}
+}
+/* Half the catalogue has no photo yet — say so rather than 404 on "undefined" */
+.wmedia__none{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;width:100%;aspect-ratio:1/1;background:var(--panel-2);
+  font-family:var(--display);font-size:15px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--soft);text-align:center;padding:20px}
+.wmedia__none span{font-family:var(--body);font-size:12.5px;letter-spacing:0;
+  text-transform:none;color:var(--muted);font-weight:400}

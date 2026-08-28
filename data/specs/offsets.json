@@ -1,0 +1,64 @@
+{
+  "id": "typical-offsets",
+  "captured": "2026-08-28",
+
+  "_note": "What people commonly RUN at each width — NOT a menu of what is orderable. Forged wheels are cut to the truck and the brands publish no ET, so this exists so the page can answer 'what offset?' with something real instead of silence. Every number carries its source. A width with no reliable public figure gets an explicit null, never a guess.",
+
+  "_note_shape": "Keyed on ROLE + WIDTH, not per model. Offset is set by rim width and axle position, not by spoke design — keying per model would be 756 copies of the same handful of numbers. The {min,max,typical} shape matches f450-fitment.json's rear.offsetMm so Fitment.geometry() could consume it unchanged.",
+
+  "_note_bySize": "An override layer for observed data points, not the primary key. 22x12 at -44 and 24x12 at -51 are two separate listings, not a rule about 12-inch wheels.",
+
+  "roles": {
+    "duallyRear": {
+      "label": "Rear pair",
+      "widths": {
+        "8.25": {
+          "min": 110,
+          "max": 130,
+          "typical": 120,
+          "confidence": "documented",
+          "source": "data/specs/f450-fitment.json — documented aftermarket dually range, bracketed by the OEM 19.5x6 ET+136"
+        }
+      }
+    },
+
+    "single": {
+      "label": "Single rear wheel",
+      "widths": {
+        "10": {
+          "typical": null,
+          "confidence": "none",
+          "_note": "GAP — searched; no reliable public figure for 10\" forged truck wheels."
+        },
+        "12": {
+          "typical": -44,
+          "confidence": "listing",
+          "source": "customwheeloffset.com forged listings"
+        },
+        "14": {
+          "typical": -76,
+          "confidence": "listing",
+          "source": "customwheeloffset.com forged listings — the classic 24x14 spec"
+        },
+        "16": {
+          "typical": -101,
+          "confidence": "listing",
+          "source": "bbwheelsonline.com Luxxx HD LHD Pro 6 Warhog 26x16 -101mm; customwheeloffset.com Specialty Forged SF023 26x16 -103; fittipaldioffroad.com FTF506 26x16 -101"
+        }
+      },
+      "bySize": {
+        "24x12": {
+          "typical": -51,
+          "confidence": "listing",
+          "source": "customwheeloffset.com forged listings"
+        }
+      }
+    },
+
+    "superSingle": {
+      "label": "Wide front",
+      "_note": "GAP — nobody publishes wide-front offsets for dual-rear platforms. Mirrors f450-fitment.json's frontSuperSingle.offsetMm: null. Do NOT backfill these from the rear figures; the front axle is a different mounting position entirely.",
+      "widths": {}
+    }
+  }
+}

@@ -194,5 +194,58 @@ window.WHEEL_SPECS = {
       ],
       "layered": false
     }
-  ]
+  ],
+  "offsets": {
+    "id": "typical-offsets",
+    "captured": "2026-08-28",
+    "roles": {
+      "duallyRear": {
+        "label": "Rear pair",
+        "widths": {
+          "8.25": {
+            "min": 110,
+            "max": 130,
+            "typical": 120,
+            "confidence": "documented",
+            "source": "data/specs/f450-fitment.json — documented aftermarket dually range, bracketed by the OEM 19.5x6 ET+136"
+          }
+        }
+      },
+      "single": {
+        "label": "Single rear wheel",
+        "widths": {
+          "10": {
+            "typical": null,
+            "confidence": "none"
+          },
+          "12": {
+            "typical": -44,
+            "confidence": "listing",
+            "source": "customwheeloffset.com forged listings"
+          },
+          "14": {
+            "typical": -76,
+            "confidence": "listing",
+            "source": "customwheeloffset.com forged listings — the classic 24x14 spec"
+          },
+          "16": {
+            "typical": -101,
+            "confidence": "listing",
+            "source": "bbwheelsonline.com Luxxx HD LHD Pro 6 Warhog 26x16 -101mm; customwheeloffset.com Specialty Forged SF023 26x16 -103; fittipaldioffroad.com FTF506 26x16 -101"
+          }
+        },
+        "bySize": {
+          "24x12": {
+            "typical": -51,
+            "confidence": "listing",
+            "source": "customwheeloffset.com forged listings"
+          }
+        }
+      },
+      "superSingle": {
+        "label": "Wide front",
+        "widths": {}
+      }
+    }
+  }
 };

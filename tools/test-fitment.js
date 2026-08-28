@@ -221,6 +221,98 @@ try {
   console.log("  (tires.js not loadable: " + e.message + ")");
 }
 
+/* ---- series filtering ----
+   The Single Series page must not advertise 8.25", which is the dually width.
+   The guard matters more than the filter: 42 models carry configs including
+   "single" but publish ONLY 8.25 widths, and filtering them strictly would
+   blank their size table. */
+section("series filtering");
+try {
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "brands.js"));
+  const BR = global.window.BRANDS;
+  const pick = (slug, name) => BR.find((b) => b.slug === slug).models.find((m) => m.model === name);
+  const rows = (m, k) => F.sizeRowsFor(m, k).map((r) => r.dia + ":" + r.widths.join("/")).join(" ");
+
+  const cf = pick("jtx", "Centerfire");
+  ok("Centerfire single drops 8.25 and the 28 row", rows(cf, "single"), "22:12 24:14 26:16");
+  ok("Centerfire dually keeps everything", rows(cf, "dually"), "22:8.25/12 24:8.25/14 26:8.25/16 28:8.25");
+  ok("no series context shows everything", rows(cf, null), rows(cf, "dually"));
+
+  // dually-only style asked for as a single: the guard must fire
+  const combat = pick("jtx", "Combat");
+  ok("dually-only style still lists sizes when asked as single",
+     F.sizeRowsFor(combat, "single").length > 0, true);
+
+  // the 42-model case — configs say single, widths say dually
+  const kryptik = BR.find((b) => b.slug === "american-force").models
+    .find((m) => m.model === "DC08 Kryptik DC");
+  ok("misclassified single still lists sizes",
+     F.sizeRowsFor(kryptik, "single").length > 0, true);
+
+  /* Sweep every model: no series may ever empty a size table. This is the
+     check that would have caught the 42 before they shipped. */
+  const emptied = [];
+  BR.forEach((b) => b.models.forEach((m) => {
+    ["single", "dually", null].forEach((k) => {
+      if (F.sizeRowsFor(m, k).length === 0 && (m.sizes || []).length) {
+        emptied.push(b.slug + "/" + m.model + " @" + k);
+      }
+    });
+  }));
+  ok("no model empties its size table under any series", emptied.length, 0);
+  if (emptied.length) console.log("       offenders:", emptied.slice(0, 5).join(", "));
+
+  // bare-diameter brands must never be filtered or given invented widths
+  const bare = BR.find((b) => b.slug === "vision").models.find((m) => (m.sizes || []).every((x) => !/x/.test(x)));
+  if (bare) {
+    const br = F.sizeRowsFor(bare, "single");
+    ok("bare-diameter model keeps every diameter", br.length, F.sizeRowsFor(bare, null).length);
+    ok("bare-diameter model reports no known width", br.every((r) => !r.widthKnown), true);
+  }
+} catch (e) {
+  console.log("  (brands.js not loadable: " + e.message + ")");
+}
+
+/* ---- offset lookup ----
+   A lookup, never a calculation. Anything unknown must come back null so the
+   UI can say "not published" instead of printing a plausible number. */
+section("offsets");
+try {
+  const OFF = JSON.parse(require("fs").readFileSync(
+    path.resolve(__dirname, "..", "data", "specs", "offsets.json"), "utf8"));
+
+  ok("14\" single resolves", F.offsetFor(OFF, "single", 24, 14).typical, -76);
+  ok("12\" single resolves", F.offsetFor(OFF, "single", 22, 12).typical, -44);
+  ok("bySize beats widths for 24x12", F.offsetFor(OFF, "single", 24, 12).typical, -51);
+  ok("16\" single resolves", F.offsetFor(OFF, "single", 26, 16).typical, -101);
+  ok("10\" is an explicit gap, not a guess", F.offsetFor(OFF, "single", 22, 10), null);
+  ok("dually rear resolves", F.offsetFor(OFF, "duallyRear", 24, 8.25).typical, 120);
+  ok("wide front has no published figure", F.offsetFor(OFF, "superSingle", 26, 16), null);
+  ok("unknown role returns null", F.offsetFor(OFF, "nonsense", 24, 14), null);
+
+  ok("8.25 routes to the dually bucket", F.offsetRole(8.25, "single"), "duallyRear");
+  ok("wide width on a dually page routes to super single", F.offsetRole(14, "dually"), "superSingle");
+  ok("wide width on a single page routes to single", F.offsetRole(14, "single"), "single");
+
+  /* Every stated figure must carry a source — the generator enforces this too,
+     but assert it here so a bad edit fails the suite as well as the build. */
+  const unsourced = [];
+  Object.keys(OFF.roles).forEach((role) => {
+    [OFF.roles[role].widths, OFF.roles[role].bySize].forEach((bucket) => {
+      Object.keys(bucket || {}).forEach((k) => {
+        const e = bucket[k];
+        const stated = ["typical", "min", "max"].some((f) => typeof e[f] === "number");
+        if (stated && !e.source) unsourced.push(role + "." + k);
+      });
+    });
+  });
+  ok("no offset figure without a source", unsourced.length, 0);
+  if (unsourced.length) console.log("       offenders:", unsourced.join(", "));
+} catch (e) {
+  console.log("  (offsets.json not loadable: " + e.message + ")");
+}
+
 /* ---- face map sanity (if built) ---- */
 section("face map");
 try {

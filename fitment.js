@@ -61,6 +61,68 @@
     return out.sort(function (a, b) { return a - b; });
   }
 
+  /* The dually rear width, matched EXACTLY. Not a threshold — single-config
+     models legitimately publish 8", 8.5", 9" and 9.5" street sizes, so any
+     "narrow means dually" rule would eat them. 8.25 is the only width in this
+     catalog that is unambiguously a dually rear, and it is the documented
+     rearWidth in data/specs/jtx-dually.json. */
+  var DUALLY_REAR_WIDTH = 8.25;
+
+  /* Which sizes belong on the page you are actually looking at.
+
+     A single-rear truck cannot use an 8.25 — that is the dually width — so
+     showing it on a Single Series page offers a fitment the visitor can't buy.
+     Dually and "no series context" both show everything.
+
+     THE GUARD MATTERS: 42 models across kg1, fittipaldi, tis, american-force,
+     amani and axe carry configs including "single" but publish ONLY 8.25
+     widths. They are misclassified dually wheels. Filtering them strictly
+     would blank their size table entirely, so an empty result falls back to
+     the full list — a slightly wrong row beats a missing one. */
+  function visibleSizes(model, seriesKey) {
+    var all = sizesFor(model);
+    if (seriesKey !== "single") return all;
+    var keep = all.filter(function (s) {
+      // widthKnown:false means we don't know the width, NOT that it is 8.25
+      return !s.widthKnown || s.w !== DUALLY_REAR_WIDTH;
+    });
+    return keep.length ? keep : all;
+  }
+
+  /* Group visible sizes into one row per diameter. A diameter whose widths all
+     filter out disappears rather than rendering an empty row — Centerfire's
+     only 28" size is 28x8.25, so on a single page there is no 28". */
+  function sizeRowsFor(model, seriesKey) {
+    var rows = [], byDia = {};
+    visibleSizes(model, seriesKey).forEach(function (s) {
+      if (!byDia[s.d]) { byDia[s.d] = { dia: s.d, widths: [], widthKnown: false }; rows.push(byDia[s.d]); }
+      if (s.widthKnown) { byDia[s.d].widths.push(s.w); byDia[s.d].widthKnown = true; }
+    });
+    rows.sort(function (a, b) { return a.dia - b.dia; });
+    rows.forEach(function (r) { r.widths.sort(function (a, b) { return a - b; }); });
+    return rows;
+  }
+
+  /* ---- offsets -------------------------------------------------------
+     A lookup, not a calculation. Returns the recorded entry or null — never a
+     derived or interpolated number, because "we don't know" is a real answer
+     and inventing one is the failure mode this whole file exists to avoid. */
+  function offsetFor(offsets, role, dia, width) {
+    var r = offsets && offsets.roles && offsets.roles[role];
+    if (!r) return null;
+    var exact = r.bySize && r.bySize[String(dia) + "x" + String(width)];
+    if (exact && typeof exact.typical === "number") return exact;
+    var byW = r.widths && r.widths[String(width)];
+    if (byW && (typeof byW.typical === "number" || typeof byW.min === "number")) return byW;
+    return null;
+  }
+
+  /* Which offset bucket a given width sits in on a given page. */
+  function offsetRole(width, seriesKey) {
+    if (width === DUALLY_REAR_WIDTH) return "duallyRear";
+    return seriesKey === "dually" ? "superSingle" : "single";
+  }
+
   /* ---- tires -------------------------------------------------------- */
 
   // Flotation "35x12.50R20LT" -> od 35. Metric "285/70R17" -> od 32.71.
@@ -205,6 +267,11 @@
     diametersFor: diametersFor,
     widthsFor: widthsFor,
     parseTireSize: parseTireSize,
+    DUALLY_REAR_WIDTH: DUALLY_REAR_WIDTH,
+    visibleSizes: visibleSizes,
+    sizeRowsFor: sizeRowsFor,
+    offsetFor: offsetFor,
+    offsetRole: offsetRole,
     tireDualCapable: tireDualCapable,
     tiresFor: tiresFor,
     DUAL_MAX_SECTION: DUAL_MAX_SECTION,
