@@ -338,17 +338,17 @@
   // lands — invented numbers on forged wheels are a promise we can't keep.
   // Swatch colour used for the finish dots — approximate, purely a UI cue;
   // the photo underneath is the real article.
-  /* FLAT colour, no gradient. A gradient inside a dot this small never reads
-     as brushed metal — it reads as dirt on the swatch. The dot's job is to say
-     which colour, and the render right above it already shows the finish. */
+  /* Polished has to look like chrome — bright, with a highlight — or it reads
+     as flat grey card stock. Black stays flat, because a gradient in a dot this
+     small just looks like dirt. Two stops of intent, not four of noise. */
   var FINISH_DOT = {
-    polished:    "#e2e7ec",
-    chrome:      "#e6ebf0",
-    brushed:     "#c7cbd0",
+    polished:    "linear-gradient(145deg,#ffffff 0%,#ffffff 22%,#e9eef4 48%,#b9c2cc 76%,#f2f6f9 100%)",
+    chrome:      "linear-gradient(145deg,#ffffff 0%,#ffffff 22%,#eaeff5 48%,#b4bdc8 76%,#f4f7fa 100%)",
+    brushed:     "linear-gradient(145deg,#f0f2f5 0%,#d5d9de 55%,#b6bbc1 100%)",
     black:       "#141519",
-    blackmilled: "#1c1d22",
-    bronze:      "#a8763c",
-    gunmetal:    "#5a6069"
+    blackmilled: "#17181d",
+    bronze:      "linear-gradient(145deg,#d9a66d,#a8763c 60%,#7c5527 100%)",
+    gunmetal:    "linear-gradient(145deg,#98a0a8,#5a6069 60%,#3b4149 100%)"
   };
 
   function finishDot(name) {
@@ -636,7 +636,6 @@
           : '') +
       '</section>' +
       '<section class="wheelwrap">' +
-        (seriesDef ? '<h1 class="serieslabel">' + esc(seriesDef.menu) + "</h1>" : "") +
         seriesSections(b, show, wantSeries) +
         (avail.length > 1
           ? '<nav class="seriesfoot" aria-label="Other series">' +
@@ -696,10 +695,12 @@
         var i = spare.indexOf(m); if (i > -1) spare.splice(i, 1);
       });
       out += '<div class="wheelseries">' +
-        /* On a dedicated series page the hero and the tabs already name it, so
-           a heading here just repeats itself. Only the combined view needs one
-           to separate the two lists. */
-        (only ? "" : '<div class="wheelseries__head"><h2>' + esc(d.title) + "</h2></div>") +
+        /* Same heading in both views so the pages read identically — the
+           dedicated page just promotes it to the H1, since there it IS the
+           subject of the page rather than one section of it. */
+        '<div class="wheelseries__head">' +
+          (only ? "<h1>" : "<h2>") + esc(d.title) + (only ? "</h1>" : "</h2>") +
+        "</div>" +
         '<div class="wheelgrid' + (d.key === "dually" ? " wheelgrid--pairs" : "") + '">' +
         list.map(function (m) { return wheelCard(b, m, d.key); }).join("") + "</div></div>";
     });

@@ -1878,29 +1878,30 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 /* ------------------------------------------------------------------
    Finish swatches on a wheel card.
 
-   Small, flat and clearly apart. Earlier passes made them bigger and closer
-   with a gradient fill; at this size a gradient reads as dirt, not brushed
-   metal, and two fat dots nearly touching are hard to tell apart and harder
-   to aim at. The dot names the colour — the render above it shows the finish.
-
-   The visible dot is 14px; the button carries a transparent border so the
-   target is 28px without the dot growing to match.
+   THE LABEL GETS ITS OWN LINE. It used to sit beside the dots in a
+   centre-justified row, so switching "Polished" to "Black Milled" made the row
+   wider and shoved both dots 15px sideways — under the cursor, mid-hover. That
+   is what made it feel like it could not decide which dot you were on. With the
+   label wrapped below, the dot row is a fixed width and nothing moves.
    ------------------------------------------------------------------ */
-.wheel__fin{display:flex;align-items:center;justify-content:center;
-  gap:10px;margin:4px 0 9px;min-height:28px}
-.wheel__sw{width:14px;height:14px;box-sizing:content-box;
-  border:7px solid transparent;background-clip:padding-box;
+.wheel__fin{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:18px;row-gap:7px;margin:6px 0 10px;min-height:46px}
+.wheel__sw{width:16px;height:16px;box-sizing:content-box;
+  border:8px solid transparent;background-clip:padding-box;
   border-radius:50%;cursor:pointer;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.22);
-  outline:2px solid transparent;outline-offset:2px;
-  transition:box-shadow .16s var(--ease),outline-color .16s var(--ease)}
-.wheel__sw:hover{box-shadow:inset 0 0 0 1px rgba(0,0,0,.34)}
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.26);
+  outline:2px solid transparent;outline-offset:3px;
+  transition:outline-color .16s var(--ease)}
 .wheel__sw.is-shown{outline-color:var(--blue-2)}
-.wheel__finname{font-family:var(--label);font-size:11.5px;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--text);font-weight:600;margin-left:4px}
+/* the label sits on its own row, fixed height, so the dots never shift */
+.wheel__finname{flex:0 0 100%;text-align:center;margin:0;height:14px;line-height:14px;
+  font-family:var(--label);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text);font-weight:600}
 @media(max-width:560px){
-  .wheel__sw{width:16px;height:16px;border-width:8px}
-  .wheel__finname{display:inline;font-size:11px}
+  .wheel__fin{gap:20px}
+  .wheel__sw{width:18px;height:18px;border-width:9px}
+  .wheel__finname{display:block;font-size:10.5px}
+}
 }
 
 /* v97 — Showroom card: fitments as a plain note, not selectable-looking chips.
@@ -2532,7 +2533,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    truck, so the two lists are separated rather than interleaved. */
 .wheelseries{margin-bottom:44px}
 .wheelseries__head{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.wheelseries__head h2{font-family:var(--display);font-size:clamp(16px,3.2vw,21px);
+.wheelseries__head h1,.wheelseries__head h2{font-family:var(--display);font-size:clamp(16px,3.2vw,21px);
   letter-spacing:.02em;margin-bottom:5px}
 .wheelseries__head p{font-size:13px;color:var(--muted);line-height:1.55;max-width:62ch}
 /* the dually render is a wide front+rear pair, so its cards get more room */
@@ -2578,7 +2579,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wheelseries .wheelgrid{width:100%}
 .wheelseries__head{text-align:center;margin-bottom:clamp(20px,2.6vw,32px);
   padding-bottom:0;border-bottom:0}
-.wheelseries__head h2{font-family:var(--display);font-size:clamp(22px,4.4vw,36px);
+.wheelseries__head h1,.wheelseries__head h2{font-family:var(--display);font-size:clamp(22px,4.4vw,36px);
   letter-spacing:.01em;text-transform:uppercase;margin-bottom:8px;line-height:1.05}
 .wheelseries__head p{font-size:14px;color:var(--muted);line-height:1.6;
   max-width:56ch;margin-inline:auto}
@@ -2798,11 +2799,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* ============================================================
    v172 — series label above the grid, and a readable chrome button
    ============================================================ */
-/* The category names the wheels, so it sits with them — same display face as
-   the rest of the site, black on white, sized to label rather than announce. */
-.serieslabel{width:min(100% - 44px,var(--max));margin:0 auto clamp(16px,2vw,24px);
-  font-family:var(--display);font-size:clamp(15px,1.9vw,20px);letter-spacing:.05em;
-  text-transform:uppercase;color:var(--text);line-height:1.1}
 
 /* The view-more button was a black face with chrome lettering — chrome on
    dark, hard to read at a glance. It is the site's chrome billet now: black
