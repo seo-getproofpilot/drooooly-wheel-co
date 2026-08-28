@@ -362,16 +362,18 @@
     return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') +
       (series === "dually" ? ' wheel--pair' : '') + '" href="' + esc(href) + '">' +
       '<div class="wheel__media' + (hero ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
-      (vars
-        ? '<div class="wheel__fin" role="group" aria-label="Finishes">' +
+      (!vars
+        /* Reserve the swatch row even with one finish, so a card with a single
+           render lines up with the rest of the grid instead of riding high. */
+        ? '<div class="wheel__fin wheel__fin--none" aria-hidden="true"></div>'
+        : '<div class="wheel__fin" role="group" aria-label="Finishes">' +
             vars.map(function (v, i) {
-              return '<button type="button" class="wheel__sw' + (i === 0 ? ' is-on' : '') + '"' +
+              return '<button type="button" class="wheel__sw' + (i === 0 ? ' is-on is-shown' : '') + '"' +
                 ' data-img="' + esc(v.img) + '" title="' + esc(v.finish) + '"' +
                 ' aria-label="' + esc(v.finish) + '" style="background:' + finishDot(v.finish) + '"></button>';
             }).join("") +
             '<span class="wheel__finname">' + esc(vars[0].finish) + '</span>' +
-          '</div>'
-        : '') +
+          '</div>') +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
       '<p class="wheel__avail">' +
         (series === "dually" ? "Front &amp; rear · 6-wheel set"
@@ -381,41 +383,64 @@
       '</a>';
   }
 
-  /* Finish swatches. Hover PREVIEWS and leaving reverts to the card's committed
-     finish, so the grid settles back to one consistent look instead of being
-     left in whatever state your cursor last wandered through. Tap commits,
-     because touch has no hover to preview with. */
+  /* Finish swatches. Hover PREVIEWS — image, label and the selection ring all
+     move together, so the ring always marks the finish you are looking at.
+     Leaving reverts to the committed finish; tapping commits, since touch has
+     no hover to preview with.
+
+     The revert is delayed a beat. Without it, dragging a cursor across a row of
+     16px dots fires a leave between every pair and the card strobes. */
+  var REVERT_MS = 130;
+
   function bindFinishSwatches(root) {
+    var timers = new WeakMap();
+
     function apply(card, sw) {
+      if (!card || !sw) return;
       var img = card.querySelector(".wheel__media img");
-      if (!img || !sw) return;
-      img.src = sw.dataset.img;
+      if (img && img.getAttribute("src") !== sw.dataset.img) img.src = sw.dataset.img;
       var label = card.querySelector(".wheel__finname");
       if (label) label.textContent = sw.getAttribute("title");
+      card.querySelectorAll(".wheel__sw").forEach(function (o) {
+        o.classList.toggle("is-shown", o === sw);
+      });
     }
     function committed(card) {
       return card.querySelector(".wheel__sw.is-on") || card.querySelector(".wheel__sw");
     }
+    function cancel(card) {
+      var t = timers.get(card);
+      if (t) { clearTimeout(t); timers.delete(card); }
+    }
+
     root.addEventListener("mouseover", function (e) {
       var sw = e.target.closest && e.target.closest(".wheel__sw");
       if (!sw) return;
-      apply(sw.closest(".wheel"), sw);
+      var card = sw.closest(".wheel");
+      cancel(card);
+      apply(card, sw);
     });
+
     root.addEventListener("mouseout", function (e) {
       var sw = e.target.closest && e.target.closest(".wheel__sw");
       if (!sw) return;
       var card = sw.closest(".wheel");
-      // ignore moves between swatches inside the same group
       var to = e.relatedTarget;
       if (to && to.closest && to.closest(".wheel__fin") === sw.closest(".wheel__fin")) return;
-      apply(card, committed(card));
+      cancel(card);
+      timers.set(card, setTimeout(function () {
+        timers.delete(card);
+        apply(card, committed(card));
+      }, REVERT_MS));
     });
+
     root.addEventListener("click", function (e) {
       var sw = e.target.closest && e.target.closest(".wheel__sw");
       if (!sw) return;
       e.preventDefault();
       e.stopPropagation();
       var card = sw.closest(".wheel");
+      cancel(card);
       card.querySelectorAll(".wheel__sw").forEach(function (o) { o.classList.toggle("is-on", o === sw); });
       apply(card, sw);
     });
@@ -525,15 +550,10 @@
         '<div class="wheelgrid' + (d.key === "dually" ? " wheelgrid--pairs" : "") + '">' +
         list.map(function (m) { return wheelCard(b, m, d.key); }).join("") + "</div></div>";
     });
-    /* Anything with no series render still has to appear — dropping a style
-       because we lack its photo would quietly shrink the catalogue. */
-    if (spare.length) {
-      out += '<div class="wheelseries">' +
-        '<div class="wheelseries__head"><h2>More styles</h2>' +
-        "<p>Built to order — ask us which configurations this one comes in.</p></div>" +
-        '<div class="wheelgrid">' +
-        spare.map(function (m) { return wheelCard(b, m); }).join("") + "</div></div>";
-    }
+    /* Styles with no series render get no heading of their own — a "More
+       styles" bucket reads as an afterthought sitting next to two real series.
+       They are covered by the view-more link to the manufacturer, which is
+       where the full lineup lives anyway. */
     return out;
   }
 

@@ -1880,7 +1880,7 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
   border:1px solid rgba(0,0,0,.22);box-shadow:0 1px 3px rgba(0,0,0,.16);
   transition:transform .16s var(--ease),box-shadow .16s,outline-color .16s;outline:2px solid transparent;outline-offset:2px}
 .wheel__sw:hover{transform:scale(1.18)}
-.wheel__sw.is-on{outline-color:var(--blue-2);box-shadow:0 2px 7px rgba(0,0,0,.26)}
+.wheel__sw.is-shown{outline-color:var(--blue-2);box-shadow:0 2px 7px rgba(0,0,0,.26)}
 .wheel__finname{font-family:var(--label);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
   color:var(--muted);margin-left:3px}
 @media(max-width:560px){ .wheel__sw{width:20px;height:20px} .wheel__finname{display:none} }
@@ -2532,3 +2532,36 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wspecs--rest{border-top:0;margin-top:6px}
 /* the black-milled chip should look milled, so the swatch and the label agree */
 .wsw i{position:relative;overflow:hidden}
+
+/* ============================================================
+   v153 — grid sizing. aspect-ratio alone lets a box grow to fit a loaded
+   image, so a card that had decoded looked bigger than one that hadn't. Pin
+   the frame and let the image scale inside it, and every card matches.
+   ============================================================ */
+.wheelgrid .wheel__media{aspect-ratio:1/1;overflow:hidden}
+.wheelgrid .wheel__media img{width:100%;height:100%;max-width:none;max-height:none;
+  object-fit:contain}
+
+/* Duallies are the flashy end of the catalogue and the pair is a wide frame —
+   give them fewer, bigger cards instead of squeezing two wheels into a slot
+   built for one. */
+.wheelgrid--pairs{grid-template-columns:1fr}
+.wheelgrid--pairs .wheel__media{aspect-ratio:2.1/1}
+/* A pair needs roughly twice a single's width before each wheel reads as big
+   as a single one does — so it stays one-up until there is room for that. */
+@media(min-width:1150px){ .wheelgrid--pairs{grid-template-columns:repeat(2,1fr)} }
+.wheelgrid--pairs .wheel__name{font-size:clamp(17px,1.9vw,24px)}
+
+/* Section headings are a showcase, not a footnote in the corner. */
+.wheelseries{width:min(100% - 44px,var(--max));margin-inline:auto;margin-bottom:clamp(38px,5vw,64px)}
+.wheelseries .wheelgrid{width:100%}
+.wheelseries__head{text-align:center;margin-bottom:clamp(20px,2.6vw,32px);
+  padding-bottom:0;border-bottom:0}
+.wheelseries__head h2{font-family:var(--display);font-size:clamp(22px,4.4vw,36px);
+  letter-spacing:.01em;text-transform:uppercase;margin-bottom:8px;line-height:1.05}
+.wheelseries__head p{font-size:14px;color:var(--muted);line-height:1.6;
+  max-width:56ch;margin-inline:auto}
+.wheelseries__head::after{content:"";display:block;width:54px;height:2px;
+  background:var(--ink);margin:16px auto 0;opacity:.85}
+.wheel__fin--none{min-height:20px}
+@media(max-width:560px){ .wheel__fin--none{min-height:24px} }
