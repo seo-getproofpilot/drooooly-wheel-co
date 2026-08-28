@@ -35,6 +35,7 @@ Google to index a draft full of placeholder prices.
 | 1.1 | **JTX product renders** — their own three-quarter shots: 39 single-series and 28 dually front/rear images, composited into front+rear pairs | `assets/wheels/jtx/single/`, `assets/wheels/jtx/dually/` | 🔴 Ask JTX for media-kit permission. Routine request; they want dealers showing their wheels. |
 | 1.1b | **Head-on renders** kept for the on-hold visualiser only; not shown anywhere | `assets/wheels/jtx/drw/` | 🟡 Delete if the visualiser is abandoned. |
 | 1.2 | **All other brands' wheel photos** — scraped from manufacturer/dealer sites | `assets/wheels/**` | 🔴 Same ask, per brand. Roll into the distributor conversation. |
+| 1.7 | **JTX's header texture** used as the brand band on their pages | `assets/brand/jtx-texture.webp` | 🔴 Their asset, taken from their theme. Include it in the same media-kit permission ask. |
 | 1.3 | **JTX build photos hotlinked on the builds gallery** — displayed from their server, not copied here | `builds.html`, `data/builds/jtx.json` | 🟡 We host nothing and every tile links back, which is the lightest possible footing — but get written permission before this is public, or replace with our own installs. |
 | 1.4 | **Truck photography** — 40 files, rights unconfirmed, predates this work | `assets/builds/` | 🔴 Still used on the homepage build gallery. Replace with owned photos or license. |
 | 1.5 | **Fabricated captions** on the homepage build gallery | `index.html` | 🔴 Captions describe builds that aren't ours. Rewrite or remove. |
@@ -53,6 +54,7 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 | 2.1 | `shop.html` shows **formula-generated prices**. They are invented. | 🔴 Replace with real dealer cost + MAP, or gate to "get pricing". |
 | 2.2 | MAP terms not verified per brand; some brands forbid advertising price at all. | 🔴 Confirm per brand before any number is public. |
 | 2.3 | Brand-level "starting at" figures came from authorised-dealer listings, not our own cost. | 🟡 Re-derive once distributor accounts clear. |
+| 2.4 | **The stored set price is for four wheels.** A dually set is six, so dually cards and dually wheel pages no longer restate a four-wheel total — they say the set is six and leave the figure to the quote rather than inventing one by multiplying. | 🟢 |
 
 ---
 

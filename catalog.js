@@ -15,6 +15,11 @@
   var FX = { "jtx":"blogo--dark","amani":"blogo--dark","arkon":"blogo--dark","xf":"blogo--dark",
     "kmc":"blogo--dark","black-rhino":"blogo--dark","liberty":"blogo--dark",
     "fenix":"blogo--chip","fittipaldi":"blogo--chip","fuel":"blogo--chip","vision":"blogo--chip" };
+  /* A brand's own header texture, where we hold one. Keyed here rather than in
+     brands.js because that file is generated and drops hand-added fields. */
+  var TEXTURE = { "jtx": "assets/brand/jtx-texture.webp" };
+  function textureFor(b) { return TEXTURE[b.slug] || null; }
+
   function logoSrc(b) { return "assets/brands/" + (LOGO[b.slug] || (b.slug + ".png")); }
   function logoFx(b) { return FX[b.slug] || ""; }
 
@@ -368,14 +373,20 @@
   // a 24x14 in a custom finish, mounted, with TPMS and hardware. Everything
   // is quote-gated today because no dealer cost has landed yet; the fields
   // exist so switching a brand on is a data change, not a rebuild.
-  function priceLine(brand, m) {
+  function priceLine(brand, m, series) {
     if (brand.pricing === "from" && typeof m.priceFrom === "number" && m.priceFrom > 0) {
       // These wheels are sold as sets, so show the set alongside the per-wheel
       // figure — a per-wheel number on its own reads as the real cost of entry
       // when the actual check is 4x or 6x that.
-      var sub = m.priceSet && m.priceSetQty
-        ? "set of " + m.priceSetQty + " from " + money(m.priceSet)
-        : "per wheel";
+      /* A dually set is six wheels, and the stored set price is for four — so
+         on a dually card that line is simply wrong. Say what the set is and
+         leave the total to the quote rather than inventing a six-wheel figure
+         by multiplying. */
+      var sub = series === "dually"
+        ? "6-wheel set · quoted to your truck"
+        : (m.priceSet && m.priceSetQty
+            ? "set of " + m.priceSetQty + " from " + money(m.priceSet)
+            : "per wheel");
       return '<span class="wheel__price">' +
         '<span class="wheel__price-main">From <b>' + money(m.priceFrom) + '</b> / wheel</span>' +
         '<small>' + sub + '</small></span>';
@@ -457,7 +468,7 @@
         (series === "dually" ? "Front &amp; rear · 6-wheel set"
          : series === "single" ? "Single rear wheel"
          : availText(m)) + '</p>' +
-      priceLine(brand, m) +
+      priceLine(brand, m, series) +
       '</a>';
   }
 
@@ -472,6 +483,18 @@
 
   function bindFinishSwatches(root) {
     var timers = new WeakMap();
+    var warmed = new WeakSet();
+
+    /* Decode the other finish before it is asked for. Swapping to a cold image
+       leaves a blank frame while it loads, which on a fast cursor reads as the
+       swatch flickering between the two. */
+    function warm(card) {
+      if (warmed.has(card)) return;
+      warmed.add(card);
+      card.querySelectorAll(".wheel__sw").forEach(function (o) {
+        if (o.dataset.img) { var i = new Image(); i.src = o.dataset.img; }
+      });
+    }
 
     function apply(card, sw) {
       if (!card || !sw) return;
@@ -491,12 +514,15 @@
       if (t) { clearTimeout(t); timers.delete(card); }
     }
 
+    /* Warm the card's images as soon as the cursor is anywhere near it, well
+       before the swatches are reached. */
     root.addEventListener("mouseover", function (e) {
+      var card = e.target.closest && e.target.closest(".wheel");
+      if (card) warm(card);
       var sw = e.target.closest && e.target.closest(".wheel__sw");
       if (!sw) return;
-      var card = sw.closest(".wheel");
-      cancel(card);
-      apply(card, sw);
+      cancel(sw.closest(".wheel"));
+      apply(sw.closest(".wheel"), sw);
     });
 
     /* Watch the whole swatch GROUP, not the individual dots. Leaving a dot
@@ -580,9 +606,12 @@
     if (seriesDef) document.title = b.name + " " + seriesDef.title + " — DROOOLY Wheel Co.";
 
     root.innerHTML =
-      '<section class="wheelhero">' +
+      '<section class="wheelhero' + (textureFor(b) ? " wheelhero--brand" : "") + '"' +
+        (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
         '<a class="wheelhero__back" href="index.html#brands">← All brands</a>' +
-        '<img class="wheelhero__logo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
+        /* On the brand's own texture the logo is already white — inverting it
+           for a light page would erase it. */
+        '<img class="wheelhero__logo ' + (textureFor(b) ? "" : logoFx(b)) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
         // The logo already says the brand name — keep the h1 for search
         // engines and screen readers, but don't print it twice.
         '<h1 class="sr-only">' + b.name + '</h1>' +
@@ -611,7 +640,11 @@
       '<section class="wheelwrap">' +
         seriesSections(b, show, wantSeries) +
         (b.site
-          ? '<div class="wheelmore">' +
+          ? '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
+              (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
+              (textureFor(b)
+                ? '<img class="wheelmore__logo" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">'
+                : "") +
               '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
                                  : 'See the full ' + esc(b.name) + ' lineup') + '</h3>' +
               '<p>Browse the full lineup on ' + esc(b.name) + '&rsquo;s site — then come back to us and we&rsquo;ll build the set, mount the tires and quote you out the door.</p>' +

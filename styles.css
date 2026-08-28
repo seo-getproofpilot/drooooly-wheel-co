@@ -2651,3 +2651,57 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wheelseries__head{margin-bottom:clamp(16px,2vw,24px)}
 .wheelseries__head::after{margin-top:12px}
 .seriestabs{margin-top:18px}
+
+/* v162 — swatches were 16px targets separated by gaps, so a cursor crossing
+   the row kept falling between them and the card flipped back and forth. The
+   dot still LOOKS 16px; the button is 34px of hit area with the background
+   clipped to the padding box, and the row overlaps so there is no dead space
+   between neighbours to fall into. */
+.wheel__fin{gap:0}
+.wheel__sw{width:16px;height:16px;box-sizing:content-box;
+  border:9px solid transparent;background-clip:padding-box;
+  border-radius:50%;box-shadow:none}
+.wheel__sw.is-shown{box-shadow:0 2px 7px rgba(0,0,0,.26)}
+.wheel__sw:hover{transform:none}
+.wheel__sw.is-shown{outline-offset:1px}
+.wheel__finname{margin-left:6px}
+@media(max-width:560px){ .wheel__sw{width:20px;height:20px;border-width:10px} }
+
+/* ============================================================
+   v162 — brand bands. A brand gets its own header texture where we hold one,
+   so the page reads as that brand's showroom instead of a generic grid.
+   ============================================================ */
+/* Keep the base hero's top clearance — the site header is fixed, and dropping
+   that padding tucked the brand logo underneath it. */
+.wheelhero--brand{position:relative;
+  padding:clamp(112px,12vw,152px) 22px clamp(28px,3.4vw,44px);
+  margin-bottom:clamp(26px,3.4vw,44px);color:#fff;isolation:isolate;border-bottom:0}
+.wheelhero--brand::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--brand-tex);background-size:cover;background-position:center}
+/* the texture is busy — a scrim keeps the logo and tabs legible on it */
+.wheelhero--brand::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(8,9,11,.55),rgba(8,9,11,.72))}
+.wheelhero--brand .wheelhero__back{color:rgba(255,255,255,.72)}
+.wheelhero--brand .wheelhero__back:hover{color:#fff}
+.wheelhero--brand .wheelhero__logo{filter:none;max-height:clamp(54px,7vw,88px);width:auto}
+.wheelhero--brand .wheelhero__tag{color:rgba(255,255,255,.82)}
+.wheelhero--brand .wheelhero__meta{color:rgba(255,255,255,.6)}
+.wheelhero--brand .wheelhero__from{color:rgba(255,255,255,.9)}
+/* tabs invert on the dark band */
+.wheelhero--brand .seriestab{background:rgba(255,255,255,.08);color:#fff;
+  border-color:rgba(255,255,255,.28)}
+.wheelhero--brand .seriestab:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.16)}
+.wheelhero--brand .seriestab.on{background:#fff;color:var(--ink);border-color:transparent}
+
+/* Footer: the same band instead of a plain bordered box. */
+.wheelmore--brand{position:relative;border:0;background:none;color:#fff;
+  overflow:hidden;isolation:isolate;padding:clamp(34px,4vw,56px) clamp(20px,3vw,40px)}
+.wheelmore--brand::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--brand-tex);background-size:cover;background-position:center}
+.wheelmore--brand::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(8,9,11,.62),rgba(8,9,11,.78))}
+.wheelmore__logo{height:clamp(30px,3.6vw,44px);width:auto;margin:0 auto 16px;display:block}
+.wheelmore--brand h3{color:#fff}
+.wheelmore--brand p{color:rgba(255,255,255,.75)}
+.wheelmore--brand .btn--ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.wheelmore--brand .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}

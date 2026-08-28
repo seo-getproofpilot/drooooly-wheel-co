@@ -137,9 +137,13 @@
 
   function priceBlock() {
     if (brand.pricing === "from" && typeof model.priceFrom === "number" && model.priceFrom > 0) {
-      var set = model.priceSet && model.priceSetQty
-        ? '<small>Set of ' + model.priceSetQty + " from " + money(model.priceSet) + "</small>"
-        : "";
+      /* Six wheels on a dually, and the stored set price is for four. Don't
+         restate a total that doesn't apply to what is being looked at. */
+      var set = activeSeries === "dually"
+        ? '<small>Six-wheel set, quoted to your truck</small>'
+        : (model.priceSet && model.priceSetQty
+            ? '<small>Set of ' + model.priceSetQty + " from " + money(model.priceSet) + "</small>"
+            : "");
       return '<p class="wprice">From <b>' + money(model.priceFrom) + "</b> <i>/ wheel</i>" + set + "</p>";
     }
     return '<p class="wprice wprice--quote">Priced on request</p>';
