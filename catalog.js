@@ -325,49 +325,34 @@
   // so the card leads with the make and keeps the pattern as supporting
   // detail. Sourced per style (cast) or per brand (forged, drilled to order)
   // — never inferred, because this is fitment data.
-  var BOLT_MAKES = {
-    "5x127":   ["Jeep"],
-    "5x139.7": ["Ram"],
-    "5x150":   ["Toyota"],
-    "6x135":   ["Ford"],
-    "6x139.7": ["Chevy/GMC", "Nissan", "Toyota"],
-    "8x165.1": ["Ram", "Chevy/GMC"],
-    "8x170":   ["Ford"],
-    "8x180":   ["Chevy/GMC", "Nissan"],
-    "10x225":  ["Ford"],
-  };
-  var MAKE_ORDER = ["Ford", "Chevy/GMC", "Ram", "Jeep", "Nissan", "Toyota"];
 
-  function boltLine(brand, m) {
-    var bolts = (m.bolts && m.bolts.length) ? m.bolts : brand.bolts;
-    if (!bolts || !bolts.length) return "";
-    var makes = [];
-    bolts.forEach(function (b) {
-      (BOLT_MAKES[b] || []).forEach(function (mk) {
-        if (makes.indexOf(mk) < 0) makes.push(mk);
-      });
+  function finishVariants(brand, m) {
+    if (m.imgs && m.imgs.length > 1) return m.imgs;
+    var F = window.WHEEL_FINISHES;
+    if (!F || F.brandSlug !== brand.slug) return null;
+    var art = F.models[m.model];
+    if (!art) return null;
+    var out = [];
+    F.finishes.forEach(function (f) {
+      if (f.rendered && art[f.code]) out.push({ finish: f.name, img: art[f.code] });
     });
-    makes.sort(function (a, b) { return MAKE_ORDER.indexOf(a) - MAKE_ORDER.indexOf(b); });
-    var drilled = !m.bolts && brand.bolts;   // forged: drilled to order
-    return '<p class="wheel__bolts">' +
-      '<b>' + (drilled ? "Drilled for " : "Fits ") +
-      esc(makes.length ? makes.join(" · ") : bolts.join(" · ")) + '</b>' +
-      '<span>' + esc(bolts.join("  ")) + '</span></p>';
+    return out.length > 1 ? out : null;
   }
 
+  /* The card carries the style, whether it comes single or dually, and the
+     price. Nothing else. Bolt patterns and build counts were true but they
+     buried the wheel — on a grid you are scanning shapes, not reading specs.
+     Those live on the wheel's own page, where there is room for them. */
   function wheelCard(brand, m) {
-    var vars = m.imgs && m.imgs.length > 1 ? m.imgs : null;
-    var mediaInner = m.img
-      ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
+    var vars = finishVariants(brand, m);
+    var hero = vars ? vars[0].img : m.img;
+    var mediaInner = hero
+      ? '<img src="' + esc(hero) + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
       : emblem(brand, m);
-    /* Clicking a wheel now opens that wheel's own page. It used to jump to the
-       homepage enquiry form, which told you nothing about the wheel you had
-       just clicked on. */
-    var quote = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
-                "&model=" + encodeURIComponent(m.model);
-    return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(quote) + '">' +
-      '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
-      '<h3 class="wheel__name">' + m.model + '</h3>' +
+    var href = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
+               "&model=" + encodeURIComponent(m.model);
+    return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(href) + '">' +
+      '<div class="wheel__media' + (hero ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
       (vars
         ? '<div class="wheel__fin" role="group" aria-label="Finishes">' +
             vars.map(function (v, i) {
@@ -378,46 +363,10 @@
             '<span class="wheel__finname">' + esc(vars[0].finish) + '</span>' +
           '</div>'
         : '') +
-      buildsLine(brand, m) +
+      '<h3 class="wheel__name">' + m.model + '</h3>' +
       '<p class="wheel__avail">' + availText(m) + '</p>' +
-      boltLine(brand, m) +
       priceLine(brand, m) +
       '</a>';
-  }
-
-  /* "On real trucks" — only where there are actually enough photos to be worth
-     the click. Below the floor we show nothing rather than a link that opens a
-     near-empty page; the promise of reassurance is the whole value here, so a
-     thin gallery is worse than none. Count comes from the generated data, so
-     the link and the page can't disagree. */
-  function buildsCount(brand, m) {
-    var B = window.WHEEL_BUILDS;
-    if (!B || B.brandSlug !== brand.slug) return 0;
-    return (B.models && B.models[m.model] ? B.models[m.model].length : 0);
-  }
-  function buildsLine(brand, m) {
-    var B = window.WHEEL_BUILDS;
-    var n = buildsCount(brand, m);
-    if (!B || n < B.minPhotos) return "";
-    return '<span class="wheel__builds" role="link" tabindex="0" data-builds="' +
-      encodeURIComponent(m.model) + '">See it on ' + n + ' real trucks →</span>';
-  }
-
-  // "See it on N real trucks" — jumps to that wheel's build gallery.
-  function bindBuildLinks(root) {
-    function go(t) { location.href = "builds.html?model=" + t.getAttribute("data-builds"); }
-    var SEL = "[data-builds]";
-    root.addEventListener("click", function (e) {
-      var t = e.target.closest && e.target.closest(SEL);
-      if (!t) return;
-      e.preventDefault(); e.stopPropagation(); go(t);
-    });
-    root.addEventListener("keydown", function (e) {
-      if (e.key !== "Enter" && e.key !== " ") return;
-      var t = e.target.closest && e.target.closest(SEL);
-      if (!t) return;
-      e.preventDefault(); e.stopPropagation(); go(t);
-    });
   }
 
   // Finish swatches: hover (or tap) to swap the photo without leaving the page.
@@ -514,7 +463,6 @@
         '<p class="wheelwrap__note">Every style is built to order in your choice of finish and size. Dually &amp; super-single sets are 6 wheels — <a href="index.html#fitment">get fitted</a> for your exact out-the-door price.</p>' +
       '</section>';
     bindFinishSwatches(root);
-    bindBuildLinks(root);
     if (window.__observeFades) window.__observeFades();
   }
 

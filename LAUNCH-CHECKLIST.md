@@ -76,7 +76,7 @@ each one is a phone call away from being better.
 | 4.2 | **Vehicle body measurements** are estimates (`measured: false`), so stance is described in words, not decimals. | 🟡 An afternoon with a tape on a real truck. |
 | 4.3 | **Plate scale** is estimated off the photo (`referenceMeasured: false`). Relative sizing is exact; absolute carries the error. | 🟡 |
 | 4.4 | Only **5 of 154** JTX models have real specs; only the F-450 has real fitment data. | 🟡 Deliberate — narrow and correct beats broad and invented. |
-| 4.5 | **Finish photos exist for two of six finishes.** JTX build Polished, Brushed, Black, Black Milled, Chrome and Custom; they only publish renders for Polished and Black Milled. All six are offered on the wheel page — a finish is a different casting, not a hue shift, so the unrendered ones show a swatch and say which render is standing in rather than tinting a fake. | 🟡 Ask JTX for the missing four. Data acquisition, not code. |
+| 4.5 | **Finish photos exist for two of six finishes.** JTX build Polished, Brushed, Black, Black Milled, Chrome and Custom; they publish renders for Polished and Black Milled only. Swatches now show just those two — a swatch that can't change the photo is a dead control — and the rest are named in a "more finishes to order" note. | 🟡 Ask JTX for the missing four and the swatches light up automatically. |
 | 4.7 | **Ace and Monarch** have no finish art at all (dually-only styles with no single-series render). They fall back to the catalog photo. | 🟡 |
 | 4.8 | Other brands have **one photo per model**, so their wheel pages show finishes as text options with no image switching. | 🟡 |
 | 4.6 | **Tire width** is not visually represented — a 22x12 and 22x14 share one render. | 🟡 Needs per-width art. |
