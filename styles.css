@@ -2793,12 +2793,31 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .seriesfoot span{width:100%;margin-right:0;margin-bottom:2px}
 }
 
-/* Button on a brand's own dark band — outlined, so it sits on the texture
-   instead of dropping a slab of white onto it. */
-.btn--onbrand{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);
-  border-radius:0;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
-  padding:16px 30px;font-family:var(--display);font-size:12px;letter-spacing:.09em;
-  text-transform:uppercase;transition:background .22s var(--ease),border-color .22s var(--ease)}
-.btn--onbrand:hover{background:rgba(255,255,255,.14);border-color:#fff}
-.btn--onbrand .btn-txt{color:#fff;background:none;-webkit-text-fill-color:#fff}
 .wheelmore__btns{justify-content:center}
+
+/* ============================================================
+   v172 — series label above the grid, and a readable chrome button
+   ============================================================ */
+/* The category names the wheels, so it sits with them — same display face as
+   the rest of the site, black on white, sized to label rather than announce. */
+.serieslabel{width:min(100% - 44px,var(--max));margin:0 auto clamp(16px,2vw,24px);
+  font-family:var(--display);font-size:clamp(15px,1.9vw,20px);letter-spacing:.05em;
+  text-transform:uppercase;color:var(--text);line-height:1.1}
+
+/* The view-more button was a black face with chrome lettering — chrome on
+   dark, hard to read at a glance. It is the site's chrome billet now: black
+   letters on the polished face, lighting up blue on hover like every other
+   chrome button. */
+.wheelmore__btns .btn--chrome{
+  background:var(--fill-chrome);color:#0a0c0e;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.45))}
+.wheelmore__btns .btn--chrome .btn-txt{
+  background:none;background-image:none;
+  -webkit-text-fill-color:#0a0c0e;color:#0a0c0e}
+.wheelmore__btns .btn--chrome:hover{
+  filter:drop-shadow(0 14px 28px rgba(0,0,0,.55)) brightness(1.03);
+  color:#1a63cc}
+.wheelmore__btns .btn--chrome:hover .btn-txt{
+  background:var(--blue-txt-deep);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}

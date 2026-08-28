@@ -621,9 +621,10 @@
         /* On a series page the H1 names the category you are in — that is the
            one thing you need at the top. The switcher moves to the foot of the
            page, where changing lists is a next step rather than a first one. */
-        (seriesDef
-          ? '<h1 class="wheelhero__h1">' + esc(seriesDef.menu) + "</h1>"
-          : '<h1 class="sr-only">' + b.name + "</h1>") +
+        /* On a series page the H1 moves down to sit directly above the grid —
+           it labels the wheels, so it belongs next to them rather than shouting
+           from the banner. */
+        (seriesDef ? "" : '<h1 class="sr-only">' + b.name + "</h1>") +
         (b.tagline && !seriesDef ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
         (seriesDef ? "" :
           '<p class="wheelhero__meta">' +
@@ -635,6 +636,7 @@
           : '') +
       '</section>' +
       '<section class="wheelwrap">' +
+        (seriesDef ? '<h1 class="serieslabel">' + esc(seriesDef.menu) + "</h1>" : "") +
         seriesSections(b, show, wantSeries) +
         (avail.length > 1
           ? '<nav class="seriesfoot" aria-label="Other series">' +
@@ -657,7 +659,7 @@
               '<p>We show the most popular styles. See the whole lineup on ' + esc(b.name) +
                 '&rsquo;s site, then come back with the one you want — we build the set, mount the tires and quote it out the door.</p>' +
               '<div class="wheelmore__btns">' +
-                '<a class="btn btn--onbrand" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
+                '<a class="btn btn--chrome" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                   '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
               '</div>' +
             '</div>'
