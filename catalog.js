@@ -101,6 +101,47 @@
   });
 
   // ---- home: brand logo wall (collapsed to first 8; "show all" reveals the rest) ----
+  /* The flyout kept vanishing before you could reach it: it sat in the same
+     stacking context as the brand list, so the neighbouring column's links
+     covered it, and the gap between the row and the panel meant the cursor
+     left the hover region on the way across.
+
+     Hover state is held in JS with a close delay rather than left to :hover,
+     and the open row is lifted above its siblings while the rest of the list
+     dims — so there is one obvious thing to aim at. */
+  function bindMegaFlyouts(el) {
+    var CLOSE_MS = 260;
+    var timer = null;
+    function closeAll() {
+      el.classList.remove("mega__grid--open");
+      el.querySelectorAll(".mega__b").forEach(function (b) {
+        b.classList.remove("is-open");
+        b.classList.remove("is-dim");
+      });
+    }
+    el.querySelectorAll(".mega__b--has-sub").forEach(function (b) {
+      b.addEventListener("mouseenter", function () {
+        clearTimeout(timer);
+        closeAll();
+        b.classList.add("is-open");
+        el.classList.add("mega__grid--open");
+        /* Dim the siblings from JS rather than a descendant selector — the
+           class is on the element itself, so nothing in the cascade can quietly
+           outrank it. */
+        el.querySelectorAll(".mega__b").forEach(function (o) {
+          if (o !== b) o.classList.add("is-dim");
+        });
+      });
+      b.addEventListener("mouseleave", function () {
+        clearTimeout(timer);
+        timer = setTimeout(closeAll, CLOSE_MS);
+      });
+    });
+    // leaving the whole menu closes immediately
+    var mega = el.closest(".mega");
+    if (mega) mega.addEventListener("mouseleave", function () { clearTimeout(timer); closeAll(); });
+  }
+
   function renderBrandGrid(el) {
     var VISIBLE = 8;
     el.innerHTML = BRANDS.map(function (b, i) {
@@ -445,18 +486,31 @@
       apply(card, sw);
     });
 
+    /* Watch the whole swatch GROUP, not the individual dots. Leaving a dot
+       sideways onto the "POLISHED" label is not leaving the picker, but it is
+       also not hovering a dot — and the old handler only listened on dots, so
+       exiting that way left the card stuck showing black forever. */
     root.addEventListener("mouseout", function (e) {
-      var sw = e.target.closest && e.target.closest(".wheel__sw");
-      if (!sw) return;
-      var card = sw.closest(".wheel");
+      var fin = e.target.closest && e.target.closest(".wheel__fin");
+      if (!fin) return;
       var to = e.relatedTarget;
-      if (to && to.closest && to.closest(".wheel__fin") === sw.closest(".wheel__fin")) return;
+      if (to && to.closest && to.closest(".wheel__fin") === fin) return;   // still inside
+      var card = fin.closest(".wheel");
       cancel(card);
       timers.set(card, setTimeout(function () {
         timers.delete(card);
         apply(card, committed(card));
       }, REVERT_MS));
     });
+
+    /* Belt and braces: leaving the card at all settles it back. Covers the
+       cursor jumping straight off the card without a clean mouseout. */
+    root.addEventListener("mouseleave", function (e) {
+      var card = e.target.closest && e.target.closest(".wheel");
+      if (!card) return;
+      cancel(card);
+      apply(card, committed(card));
+    }, true);
 
     root.addEventListener("click", function (e) {
       var sw = e.target.closest && e.target.closest(".wheel__sw");
@@ -698,6 +752,7 @@
     var fg = document.getElementById("featuredGrid"); if (fg) renderFeatured(fg);
     var sp = document.getElementById("shopPage"); if (sp) renderShop(sp);
     var bp = document.getElementById("brandPage"); if (bp) renderBrandPage(bp);
-    var wm = document.getElementById("wheelsBrands"); if (wm) renderWheelsMenu(wm);
+    var wm = document.getElementById("wheelsBrands");
+    if (wm) { renderWheelsMenu(wm); bindMegaFlyouts(wm); }
   });
 })();
