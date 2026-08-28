@@ -338,17 +338,18 @@
   // lands — invented numbers on forged wheels are a promise we can't keep.
   // Swatch colour used for the finish dots — approximate, purely a UI cue;
   // the photo underneath is the real article.
-  /* Polished has to look like chrome — bright, with a highlight — or it reads
-     as flat grey card stock. Black stays flat, because a gradient in a dot this
-     small just looks like dirt. Two stops of intent, not four of noise. */
+  /* Flat fills, no gradients. A gradient inside a dot this small reads as
+     texture sitting on top of the colour rather than as polished metal — the
+     brightness is what says chrome, so carry it with a light value and a crisp
+     ring instead. */
   var FINISH_DOT = {
-    polished:    "linear-gradient(145deg,#ffffff 0%,#ffffff 22%,#e9eef4 48%,#b9c2cc 76%,#f2f6f9 100%)",
-    chrome:      "linear-gradient(145deg,#ffffff 0%,#ffffff 22%,#eaeff5 48%,#b4bdc8 76%,#f4f7fa 100%)",
-    brushed:     "linear-gradient(145deg,#f0f2f5 0%,#d5d9de 55%,#b6bbc1 100%)",
+    polished:    "#eaeff5",
+    chrome:      "#edf2f7",
+    brushed:     "#d2d7dd",
     black:       "#141519",
     blackmilled: "#17181d",
-    bronze:      "linear-gradient(145deg,#d9a66d,#a8763c 60%,#7c5527 100%)",
-    gunmetal:    "linear-gradient(145deg,#98a0a8,#5a6069 60%,#3b4149 100%)"
+    bronze:      "#a8763c",
+    gunmetal:    "#5a6069"
   };
 
   function finishDot(name) {

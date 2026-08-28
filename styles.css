@@ -2817,3 +2817,23 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   background:var(--blue-txt-deep);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent}
+
+/* ============================================================
+   v175 — the view-more button stays chrome on hover.
+
+   An earlier rule flips this button's face to --fill-black on :hover, which is
+   right for the black-billet primary but wrong here: the whole point of this
+   one is a polished face with black lettering. Hold the chrome face and let
+   only the letters change, which is what every other chrome button does.
+   ============================================================ */
+.wheelmore__btns .btn--chrome:hover,
+.wheelmore__btns .btn--chrome:focus-visible,
+.wheelmore__btns .btn--chrome:active{
+  background:var(--fill-chrome);
+  filter:drop-shadow(0 14px 28px rgba(0,0,0,.5));
+  color:#1a63cc;text-shadow:none}
+.wheelmore__btns .btn--chrome:hover .btn-txt,
+.wheelmore__btns .btn--chrome:focus-visible .btn-txt{
+  background:var(--blue-txt-deep);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
