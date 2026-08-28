@@ -360,7 +360,11 @@
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
       : emblem(brand, m);
-    var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
+    /* Clicking a wheel now opens that wheel's own page. It used to jump to the
+       homepage enquiry form, which told you nothing about the wheel you had
+       just clicked on. */
+    var quote = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
+                "&model=" + encodeURIComponent(m.model);
     return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') + '" href="' + esc(quote) + '">' +
       '<div class="wheel__media' + (m.img ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
       '<h3 class="wheel__name">' + m.model + '</h3>' +
@@ -529,7 +533,11 @@
   TIRES.forEach(function (b) { tireBySlug[b.slug] = b; });
 
   function tireCard(brand, m) {
-    var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
+    /* Clicking a wheel now opens that wheel's own page. It used to jump to the
+       homepage enquiry form, which told you nothing about the wheel you had
+       just clicked on. */
+    var quote = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
+                "&model=" + encodeURIComponent(m.model);
     var rims = m.rims && m.rims.length
       ? m.rims.map(function (r) { return r + '"'; }).join(" · ")
       : "";

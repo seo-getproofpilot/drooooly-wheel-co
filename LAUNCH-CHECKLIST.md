@@ -32,7 +32,7 @@ Google to index a draft full of placeholder prices.
 
 | # | What | Where | Status |
 |---|---|---|---|
-| 1.1 | **JTX wheel renders** — 30 head-on images pulled from `jtxforged.com` uploads | `assets/wheels/jtx/drw/` | 🔴 Ask JTX for media-kit permission. Routine request; they want dealers showing their wheels. |
+| 1.1 | **JTX wheel renders** — 70 head-on images pulled from `jtxforged.com` uploads (30 dually + 40 single-series finish art) | `assets/wheels/jtx/drw/`, `assets/wheels/jtx/finish/` | 🔴 Ask JTX for media-kit permission. Routine request; they want dealers showing their wheels. |
 | 1.2 | **All other brands' wheel photos** — scraped from manufacturer/dealer sites | `assets/wheels/**` | 🔴 Same ask, per brand. Roll into the distributor conversation. |
 | 1.3 | **JTX build photos hotlinked on the builds gallery** — displayed from their server, not copied here | `builds.html`, `data/builds/jtx.json` | 🟡 We host nothing and every tile links back, which is the lightest possible footing — but get written permission before this is public, or replace with our own installs. |
 | 1.4 | **Truck photography** — 40 files, rights unconfirmed, predates this work | `assets/builds/` | 🔴 Still used on the homepage build gallery. Replace with owned photos or license. |
@@ -76,7 +76,9 @@ each one is a phone call away from being better.
 | 4.2 | **Vehicle body measurements** are estimates (`measured: false`), so stance is described in words, not decimals. | 🟡 An afternoon with a tape on a real truck. |
 | 4.3 | **Plate scale** is estimated off the photo (`referenceMeasured: false`). Relative sizing is exact; absolute carries the error. | 🟡 |
 | 4.4 | Only **5 of 154** JTX models have real specs; only the F-450 has real fitment data. | 🟡 Deliberate — narrow and correct beats broad and invented. |
-| 4.5 | Wheel **finish switching** exists for JTX only (polished + black milled). Other brands have one photo per model. | 🟡 Data acquisition, not code. |
+| 4.5 | **Finish photos exist for two of six finishes.** JTX build Polished, Brushed, Black, Black Milled, Chrome and Custom; they only publish renders for Polished and Black Milled. All six are offered on the wheel page — a finish is a different casting, not a hue shift, so the unrendered ones show a swatch and say which render is standing in rather than tinting a fake. | 🟡 Ask JTX for the missing four. Data acquisition, not code. |
+| 4.7 | **Ace and Monarch** have no finish art at all (dually-only styles with no single-series render). They fall back to the catalog photo. | 🟡 |
+| 4.8 | Other brands have **one photo per model**, so their wheel pages show finishes as text options with no image switching. | 🟡 |
 | 4.6 | **Tire width** is not visually represented — a 22x12 and 22x14 share one render. | 🟡 Needs per-width art. |
 
 ---
@@ -87,7 +89,8 @@ each one is a phone call away from being better.
 |---|---|---|
 | 5.1 | **Wheel visualizer removed from the site** (2026-08-27). `visualizer.html` and the superseded `fitment.html` prototype are deleted; nav, footer, sitemap and card links cleaned. Replaced by the builds gallery, which does the same job with photographs. | 🟢 |
 | 5.2 | **Visualizer code and data kept, unreferenced** — `visualizer.js`, `fitment.js`, `vehicles.js`, `wheel-specs.js`, `data/specs/`, `data/plates/`, `tools/build-specs.js` and their 54 tests all remain. The spec research (real JTX sizes, F-450 fitment, tire rules) is the valuable part and still guards against invented options. | 🟡 On hold, not abandoned. Resuming needs a layered plate: background with wheels removed, separable body, foreground fender lips. |
-| 5.3 | Builds gallery covers **JTX only**. The filename-parsing trick needs verifying per brand. | 🟡 |
+| 5.3 | Builds gallery covers **JTX only**. The filename-parsing trick needs verifying per brand before extending it. | 🟡 |
+| 5.4 | **Wheel pages now exist** (`wheel.html`). Clicking a wheel used to dump you on the homepage enquiry form; it now opens that wheel's own page with finishes, sizes, bolt patterns, price and — for JTX above the photo floor — a link to that wheel on real trucks. | 🟢 |
 
 ---
 
