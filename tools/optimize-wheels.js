@@ -8,11 +8,13 @@ const path = require("path");
 
 const py = `
 from PIL import Image
-import os, glob, sys
+import os, glob, sys, shutil
 root = sys.argv[1]
 before = after = 0
 n = skipped = 0
 for p in sorted(glob.glob(os.path.join(root, 'assets/wheels/*/*'))):
+    if os.sep + '_originals' + os.sep in p:
+        continue
     if not p.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
         continue
     before += os.path.getsize(p)
@@ -24,6 +26,16 @@ for p in sorted(glob.glob(os.path.join(root, 'assets/wheels/*/*'))):
     if im.mode == 'P' and max(im.size) <= 680:
         after += os.path.getsize(p); continue
     im = im.convert('RGBA')
+    # NON-DESTRUCTIVE: keep the untouched source under _originals/ before we
+    # downsize and quantize. The first version of this script overwrote sources
+    # in place, and because they were never committed the full-resolution
+    # originals for the existing catalogue are gone for good. Re-sourced art
+    # must not be destroyed the same way.
+    orig_dir = os.path.join(os.path.dirname(p), '_originals')
+    orig = os.path.join(orig_dir, os.path.basename(p))
+    if not os.path.exists(orig):
+        os.makedirs(orig_dir, exist_ok=True)
+        shutil.copy2(p, orig)
     # jpgs have no alpha - flatten onto white so cards stay clean
     dest = p
     if p.lower().endswith(('.jpg', '.jpeg')):
