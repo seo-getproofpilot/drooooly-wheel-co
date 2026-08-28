@@ -2389,3 +2389,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   padding:11px 17px;cursor:pointer;border:0;color:var(--muted);background:#fff}
 .vaxle.on{color:#fff;background:var(--ink)}
 .vstance--unknown{color:#a35a00}
+/* the photo plate is the headline view — let it run full width of the stage */
+#vv-plate svg{width:100%;height:auto;min-height:0;background:transparent}
+#vv-plate .vnote{margin-top:10px}

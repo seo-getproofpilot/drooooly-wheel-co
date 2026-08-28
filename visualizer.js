@@ -27,6 +27,12 @@
      1.000 — so the face circle is simply the image. No face map needed for
      this art set, unlike the mixed-padding catalog photos. */
   var FACE = [0.5, 0.5, 0.5];
+
+  /* The photo plate: a real truck picture with calibrated wheel anchors. This
+     is the view customers actually want — the wheel on a truck, not a diagram.
+     Only anchors marked usable are drawn; an oblique wheel gets left alone
+     rather than having a head-on render pasted into an ellipse. */
+  var PLATE = (SPEC.plates || []).filter(function (p) { return p.vehicle === "f450"; })[0] || null;
   var RENDERED = JTX.finishes.filter(function (f) { return f.rendered; });
   var QUOTE_ONLY = JTX.finishes.filter(function (f) { return !f.rendered; });
 
@@ -245,6 +251,54 @@
     });
   }
 
+  /* Draw the plate photo with the chosen wheel composited into each usable
+     anchor. The wheel scales against the plate's own reference diameter, so
+     picking a 22 instead of a 26 shrinks the wheel inside the same tire —
+     which is exactly what happens on a truck when overall tire height is held
+     and you change rim size. */
+  function drawPlate() {
+    if (!PLATE) return;
+    var W = PLATE.width, H = PLATE.height, s = "";
+    s += '<image href="' + esc(PLATE.image) + '" x="0" y="0" width="' + W + '" height="' + H + '"/>';
+
+    var scale = S.dia / PLATE.referenceWheelDiaIn;
+    var drawn = 0;
+
+    PLATE.wheels.forEach(function (a) {
+      if (!a.usable) return;
+      var axle = a.axle;
+      var path = artPath(axle === "rear" ? "rear" : (S.frontMode === "wide" ? "supersingle" : "front"));
+      var dim = S.imgDims[path];
+      if (dim === undefined) { preload(path, drawPlate); return; }
+      if (!dim) return;
+      var r = a.faceRadiusPx * scale;
+      s += '<image href="' + esc(path) + '" x="' + (a.cx - r).toFixed(1) + '" y="' + (a.cy - r).toFixed(1) +
+           '" width="' + (r * 2).toFixed(1) + '" height="' + (r * 2).toFixed(1) + '"/>';
+      drawn++;
+    });
+
+    /* Say what the picture is and isn't. An unusable anchor means the truck in
+       the photo still wears its own wheel there — the customer must not be
+       left to think that is what they picked. */
+    var unusable = PLATE.wheels.filter(function (a) { return !a.usable; });
+    var msgs = [];
+    if (unusable.length) {
+      msgs.push("Only the " + PLATE.wheels.filter(function (a) { return a.usable; })
+        .map(function (a) { return a.axle; }).join(" and ") +
+        " wheel is swapped here — the " + unusable.map(function (a) { return a.axle; }).join(" and ") +
+        " sits too oblique in this shot to place a wheel honestly.");
+    }
+    if (!PLATE.referenceMeasured) {
+      msgs.push("Relative sizing between diameters is exact; absolute scale is estimated from the photo.");
+    }
+    $("#vPlateNote").textContent = msgs.join(" ");
+    $("#vPlateNote").style.display = msgs.length ? "" : "none";
+    $("#vPlateWarn").style.display = PLATE.cleared ? "none" : "";
+
+    $("#svgPlate").setAttribute("viewBox", "0 0 " + W + " " + H);
+    $("#svgPlate").innerHTML = s;
+  }
+
   var PPI_SIDE = 7.4, PPI_TOP = 26;
   function svg(tag, attrs) {
     var s = "<" + tag;
@@ -457,6 +511,7 @@
       : "These are the offsets this truck actually runs, from published aftermarket dually fitments. Factory is ET+" + FIT.oem.offsetMm + ".";
     $("#vOffNote").className = "vnote" + (unknown ? " vnote--flag" : "");
 
+    drawPlate();
     drawSide();
     drawTop();
 
