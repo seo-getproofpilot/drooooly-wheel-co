@@ -64,13 +64,22 @@
   function esc(s) { return String(s).replace(/"/g, "&quot;"); }
 
   // ---- product card ----
-  function productCard(brand, m, tag) {
+  function productCard(brand, m, tag, lane) {
     var p = priceEach(brand, m), r = rating(brand, m);
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + brand.name + ' ' + m.model + '" loading="lazy">'
       : emblem(brand, m);
     var key = brand.slug + "|" + m.model;
+    /* The shop grid was a dead end: this card rendered an <article> with no
+       link, so the only page listing all 756 wheels could not reach any of
+       their pages. Brand pages have always linked through (wheelCard); this
+       one never did. */
+    var href = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
+               "&model=" + encodeURIComponent(m.model);
+    var sizes = lane ? laneSizes(lane, m) : [];
     return '<article class="prod fade">' +
+      '<a class="prod__link" href="' + esc(href) + '" aria-label="' +
+        esc(brand.name + " " + m.model) + '"></a>' +
       '<div class="prod__media' + (m.img ? '' : ' pkg__media--emblem') + '">' +
         (tag ? '<span class="prod__tag">' + tag + '</span>' : '') +
         '<button class="prod__fav" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>' +
@@ -81,6 +90,11 @@
         '<h3 class="prod__name">' + m.model + '</h3>' +
         '<div class="prod__rate"><span class="prod__stars">★★★★★</span> ' + r.v + ' <span>(' + r.n + ')</span></div>' +
         '<div class="prod__badges">' + badges(m) + '</div>' +
+        (sizes.length
+          ? '<div class="prod__lane"><span>' + esc(lane.note) + '</span>' +
+            sizes.slice(0, 4).map(function (x) { return "<b>" + fmtSize(x) + "</b>"; }).join("") +
+            (sizes.length > 4 ? '<i>+' + (sizes.length - 4) + " more</i>" : "") + "</div>"
+          : "") +
         '<div class="prod__price"><b>' + money(p) + '</b><small>/ wheel</small></div>' +
         '<div class="prod__set">Full set &amp; tire pricing at fitment</div>' +
         '<div class="prod__actions">' +
@@ -201,6 +215,64 @@
     BRANDS.forEach(function (b, bi) { b.models.forEach(function (m, mi) { out.push({ b: b, m: m, order: bi * 100 + mi, price: priceEach(b, m) }); }); });
     return out;
   }
+  /* ---- build lanes ----------------------------------------------------
+     The two things the catalog actually supports. There used to be four
+     audience cards, three of which resolved to the same two URLs, and two of
+     which pointed at street/car inventory we do not carry.
+
+     A lane FILTERS on configuration, which is a fact about the wheel, and
+     ANNOTATES with the sizes that suit the build, which is guidance. It never
+     hides a size: a 20x10 is a legitimate thing to put on a lifted truck, it
+     just isn't what most people come here for. Hiding it would be us deciding
+     for the customer, and the whole point of forged is that they decide. */
+  var LANES = {
+    lifted: {
+      title: "Lifted trucks",
+      sub: "Big-lip forged for single-rear trucks — 20s through 30s, 10 to 16 inches wide. " +
+           "The wider the wheel and the more negative the offset, the more room the truck needs. " +
+           "Tell us your lift and we'll spec it.",
+      note: "Wide sizes in each style",
+      common: ["22x12", "24x14", "26x14", "26x16"],
+      /* Single-rear, AND actually built in a wide size. 106 single-config models
+         have no width over 8.25 — the dually rear width — because their configs
+         are wrong (LAUNCH-CHECKLIST 4.12). A dually wheel in the lifted lane is
+         a data bug on display. Styles whose widths are simply unpublished stay:
+         "we don't know" is not "no". */
+      match: function (m) {
+        if ((m.configs || []).indexOf("single") < 0) return false;
+        var sz = (m.sizes || []).map(parseSz).filter(Boolean);
+        return sz.some(function (x) { return x.w === null || (x.w !== 8.25 && x.w >= 12); });
+      },
+      // 8.25 is a dually rear, never a lifted single-rear size, however wide the truck.
+      suits: function (sz) { return sz.w !== null && sz.w !== 8.25 && sz.w >= 12; }
+    },
+    dually: {
+      title: "Dually & super single",
+      sub: "Rear pairs run 8.25 wide at every diameter. The front is your call — a matched " +
+           "narrow wheel, or a wide super single. A set is six wheels, not four.",
+      note: "Super single fronts",
+      common: ["24x8.25", "24x14", "26x16"],
+      match: function (m) {
+        var c = m.configs || [];
+        return c.indexOf("dually") > -1 || c.indexOf("super single") > -1;
+      },
+      suits: function (sz) { return sz.w !== null && sz.w !== 8.25; }
+    }
+  };
+
+  function parseSz(str) {
+    var m = /^(\d+)(?:x([\d.]+))?$/.exec(str);
+    return m ? { d: +m[1], w: m[2] ? +m[2] : null, s: str } : null;
+  }
+  /* The sizes in THIS style that suit THIS lane. Same wheel, different answer
+     per lane — Centerfire is 24x14/26x16 under Lifted and 24x8.25 under Dually. */
+  function laneSizes(lane, m) {
+    return (m.sizes || []).map(parseSz).filter(Boolean).filter(lane.suits)
+      .sort(function (a, b) { return a.d - b.d || a.w - b.w; })
+      .map(function (x) { return x.s; });
+  }
+  function fmtSize(s) { return s.replace("x", "×") + '"'; }
+
   var DIA_BUCKETS = [["20","20\""],["22","22\""],["24","24\""],["26","26\"+"]];
   function diaBucket(m) { var d = maxDia(m); if (d >= 26) return "26"; if (d >= 24) return "24"; if (d >= 22) return "22"; return "20"; }
 
@@ -216,16 +288,24 @@
       sort: "featured"
     };
     var cat = params.get("cat");
+    var lane = LANES[params.get("build")] || null;
 
     // heading
     var title = "All wheels", sub = "Every forged wheel we carry — hand-spec'd for your exact truck.";
     if (state.brands.length === 1 && bySlug[state.brands[0]]) { var bb = bySlug[state.brands[0]]; title = bb.name; sub = bb.tagline || sub; }
     else if (cat === "packages") { title = "Wheel &amp; Tire Packages"; sub = "Complete, mounted &amp; balanced — wheels, tires, TPMS and lugs, out the door."; }
     else if (state.configs.indexOf("dually") > -1 || state.configs.indexOf("super single") > -1) { title = "Dually &amp; Super Single"; sub = "Big-and-bold forged dually and super-single setups that own the lane."; }
+    else if (lane) { title = lane.title; sub = lane.sub; }
     else if (state.q) { title = "Results for “" + state.q + "”"; }
     document.getElementById("shopTitle").innerHTML = title;
     document.getElementById("shopSub").innerHTML = sub;
     document.getElementById("shopCrumbNow").textContent = title.replace(/&amp;/g, "&");
+
+    var laneEl = document.getElementById("shopLane");
+    if (laneEl && lane) {
+      laneEl.innerHTML = '<div class="lanebar"><span class="lanebar__h">Common sizes</span>' +
+        lane.common.map(function (x) { return "<b>" + fmtSize(x) + "</b>"; }).join("") + "</div>";
+    }
 
     // counts for filters
     function count(fn) { return products.filter(fn).length; }
@@ -268,6 +348,7 @@
 
     function filtered() {
       return products.filter(function (p) {
+        if (lane && !lane.match(p.m)) return false;
         if (state.brands.length && state.brands.indexOf(p.b.slug) < 0) return false;
         if (state.configs.length && !state.configs.some(function (c) { return p.m.configs.map(cfgKey).indexOf(c) > -1; })) return false;
         if (state.dias.length && state.dias.indexOf(diaBucket(p.m)) < 0) return false;
@@ -287,11 +368,53 @@
       var list = sortList(filtered());
       document.getElementById("shopCount").innerHTML = "<b>" + list.length + "</b> product" + (list.length === 1 ? "" : "s");
       var grid = document.getElementById("shopGrid");
-      grid.innerHTML = list.length ? list.map(function (p) { return productCard(p.b, p.m); }).join("")
+      grid.innerHTML = list.length ? list.map(function (p) { return productCard(p.b, p.m, null, lane); }).join("")
         : '<div class="shop-empty">No wheels match those filters. <button class="filters-clear" id="ce">Clear filters</button></div>';
       var ce = document.getElementById("ce"); if (ce) ce.addEventListener("click", function () { document.getElementById("clearF").click(); });
       if (window.__observeFades) window.__observeFades();
     }
+
+    /* Real trucks wearing these wheels. The generator decides per lane whether
+       the photos come from the manufacturer's gallery (hot-linked, credited,
+       each tile linking back) or from our own assets/builds — and gives us only
+       ONE source per lane, so the credit line below is always true. A lane with
+       too few of either gets no strip at all rather than a thin one. */
+    (function laneBuilds() {
+      var host = document.getElementById("shopBuilds");
+      if (!host || !lane) return;
+      var B = window.WHEEL_BUILDS;
+      var entry = B && B.lanes && B.lanes[params.get("build")];
+      if (!entry || !entry.photos || !entry.photos.length) return;
+
+      var show = entry.photos.slice(0, 12);
+      host.innerHTML =
+        '<section class="wbuilds lanebuilds"><div class="wbuilds__head">' +
+          "<h2>" + esc(lane.title) + " on real builds</h2>" +
+          "<p>A render shows the spoke pattern. These show what it looks like bolted on.</p>" +
+        '</div><div class="wbuilds__grid">' +
+        show.map(function (sh) {
+          var cap = [sh.vehicle, sh.size, sh.finish].filter(Boolean).join(" · ");
+          var alt = esc(lane.title + " build" + (sh.vehicle ? " — " + sh.vehicle : ""));
+          var img = '<img src="' + esc(sh.url) + '" alt="' + alt + '" loading="lazy" />';
+          /* Our own photos are not links to anywhere, and carry no caption: the
+             captions on these same files elsewhere on the site are invented, and
+             repeating a made-up size under a real photo is the part that would
+             actually mislead. */
+          if (sh.local) {
+            return '<figure class="wbshot wbshot--own">' + img + "</figure>";
+          }
+          return '<a class="wbshot" href="' + esc(sh.url) + '" target="_blank" rel="noopener">' +
+            img + (cap ? '<span class="wbshot__cap">' + esc(cap) + "</span>" : "") + "</a>";
+        }).join("") + "</div>" +
+        (entry.credit
+          ? '<p class="wbuilds__credit">Photos by ' + esc(entry.credit) +
+            ', shown from their gallery — every photo links back to them. ' +
+            '<a href="' + esc(B.source) + '" target="_blank" rel="noopener">See the full gallery →</a></p>'
+          : '<p class="wbuilds__credit">Builds wearing this setup. ' +
+            "We're photographing our own installs as they go out.</p>") +
+        "</section>";
+      if (window.__observeFades) window.__observeFades();
+    })();
 
     buildSidebar();
     var sortSel = document.getElementById("shopSort");

@@ -30,15 +30,37 @@ window.__observeFades = function () {
 window.__observeFades();
 
 // ---- vehicle selector ----
-var VEH = {
-  years: (function () { var a = []; for (var y = 2026; y >= 2015; y--) a.push(y); return a; })(),
-  makes: {
-    "Ford": ["F-250 Super Duty", "F-350 Super Duty", "F-450 Super Duty"],
-    "RAM": ["2500", "3500", "4500", "5500"],
-    "Chevrolet": ["Silverado 2500HD", "Silverado 3500HD"],
-    "GMC": ["Sierra 2500HD", "Sierra 3500HD"]
+/* Derived from window.VEHICLES, not hand-listed. vehicles.js has always
+   claimed to be the single source of truth for these lists; that derivation
+   did not actually exist, so the finder offered four makes while the fitment
+   data knew about nine platforms — including the DRW variants, which are the
+   whole reason this dropdown matters. Falls back to the old literal if
+   vehicles.js is not on the page. */
+var VEH = (function () {
+  var list = window.VEHICLES;
+  if (!list || !list.length) {
+    return {
+      years: (function () { var a = []; for (var y = 2026; y >= 2015; y--) a.push(y); return a; })(),
+      makes: {
+        "Ford": ["F-250 Super Duty", "F-350 Super Duty", "F-450 Super Duty"],
+        "RAM": ["2500", "3500", "4500", "5500"],
+        "Chevrolet": ["Silverado 2500HD", "Silverado 3500HD"],
+        "GMC": ["Sierra 2500HD", "Sierra 3500HD"]
+      }
+    };
   }
-};
+  var newest = 0, oldest = 9999, makes = {};
+  list.forEach(function (v) {
+    if (v.years[1] > newest) newest = v.years[1];
+    if (v.years[0] < oldest) oldest = v.years[0];
+    makes[v.make] = makes[v.make] || [];
+    v.models.forEach(function (m) { if (makes[v.make].indexOf(m) < 0) makes[v.make].push(m); });
+  });
+  Object.keys(makes).forEach(function (k) { makes[k].sort(); });
+  var years = [];
+  for (var y = newest; y >= oldest; y--) years.push(y);
+  return { years: years, makes: makes };
+})();
 function getVeh() { try { return JSON.parse(localStorage.getItem('drooolyVehicle')); } catch (e) { return null; } }
 function setVeh(v) { try { localStorage.setItem('drooolyVehicle', JSON.stringify(v)); } catch (e) {} }
 function clearVeh() { try { localStorage.removeItem('drooolyVehicle'); } catch (e) {} updateVehUI(); }
@@ -60,6 +82,12 @@ function initVehModule() {
   if (btn) btn.addEventListener('click', function () {
     if (!y.value || !mk.value || !md.value) { [y, mk, md].forEach(function (s) { if (!s.value) s.style.borderColor = '#c0392b'; }); return; }
     setVeh({ year: y.value, make: mk.value, model: md.value }); updateVehUI();
+    /* It used to save the truck and scroll to the same grid it showed everyone,
+       which is not finding a fitment. Narrow on the one thing the truck
+       actually decides: how many wheels are on the back axle. That is a fact
+       about the vehicle, not a claim about what clears. */
+    var v = window.matchVehicle ? window.matchVehicle(y.value, mk.value, md.value) : null;
+    if (v) { location.href = 'shop.html?' + (v.config === 'drw' ? 'build=dually' : 'config=single'); return; }
     var f = document.getElementById('featured') || document.getElementById('shopPage');
     if (f) { document.documentElement.style.scrollBehavior = 'smooth'; f.scrollIntoView({ block: 'start' }); }
   });

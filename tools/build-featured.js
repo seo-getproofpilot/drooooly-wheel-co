@@ -129,7 +129,7 @@ for (const file of files) {
     if (c) byCode[c] = m;
   });
 
-  let got = 0, added = 0, failed = [], pending = [];
+  let got = 0, added = 0, failed = [], pending = [], noSizes = [];
   entries.forEach((e, i) => {
     const mslug = norm(e.model);
     // Always record .png — whatever the source format, normalize() below
@@ -157,9 +157,14 @@ for (const file of files) {
       m = {
         model: e.model,
         configs: e.configs || inferConfigs(e.model),
-        sizes: e.sizes || proto.sizes || ["22x12", "24x14", "26x14"],
+        // No literal fallback. A hardcoded size list here is how 154 JTX models
+        // ended up sharing three invented size-lists — CLAUDE.md is explicit
+        // that product data is file-driven. An empty list renders as "sizes not
+        // published"; a wrong one renders as a lie.
+        sizes: e.sizes || [],
         finishes: e.finishes || proto.finishes || ["Polished", "Black"],
       };
+      if (!m.sizes.length) noSizes.push(e.model);
       brand.models.push(m);
       added++;
     }
@@ -230,10 +235,74 @@ for (const file of files) {
     console.log(`  merged ${merged} duplicate model${merged === 1 ? "" : "s"}`);
   }
 
+  /* Published sizes, when we have them on file.
+
+     data/specs/<slug>-sizes.json is written by a scraper that reads the
+     manufacturer's own product pages, so this replaces guessed sizes with
+     stated ones. It runs over EVERY model in the brand, not just the featured
+     entries above — data/featured/jtx.json holds 24 entries against 154 JTX
+     models, so the loop above would reach a sixth of them.
+
+     A role is looked up per model first, then falls back to a line-wide list.
+     Which roles are line-wide is measured by the scraper, never assumed here:
+     JTX publish one single-series list for the whole line but vary the dually
+     front list from style to style. */
+  const sizesFile = path.join(ROOT, "data/specs", `${slug}-sizes.json`);
+  if (fs.existsSync(sizesFile)) {
+    const spec = JSON.parse(fs.readFileSync(sizesFile, "utf8"));
+    const pageSlug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const lookup = (mslug, role) =>
+      (spec.models && spec.models[mslug] && spec.models[mslug][role]) ||
+      (spec.roles && spec.roles[role]) || null;
+
+    let stamped = 0, unchanged = 0;
+    const unverified = [];
+    brand.models.forEach((m) => {
+      const mslug = pageSlug(m.model);
+      const cfg = m.configs || [];
+      const want = [];
+      if (cfg.includes("single")) want.push("single");
+      if (cfg.includes("dually") || cfg.includes("super single")) want.push("duallyFront", "superSingle");
+
+      const out = new Set();
+      const missed = [];
+      want.forEach((role) => {
+        const tbl = lookup(mslug, role);
+        if (!tbl) { missed.push(role); return; }
+        Object.keys(tbl).forEach((d) => tbl[d].forEach((w) => out.add(d + "x" + w)));
+      });
+
+      if (!out.size) {
+        // Nothing published for this style. Leave what is there rather than
+        // blanking it, and name it so the gap stays on the record.
+        unchanged++;
+        if (want.length) unverified.push(m.model);
+        return;
+      }
+      if (missed.length) unverified.push(`${m.model} (no ${missed.join("/")})`);
+      const next = [...out].sort((x, y) => {
+        const [xd, xw] = x.split("x").map(Number), [yd, yw] = y.split("x").map(Number);
+        return xd - yd || xw - yw;
+      });
+      if (next.join() !== (m.sizes || []).join()) stamped++;
+      m.sizes = next;
+    });
+    console.log(`  sizes: ${stamped} model(s) restamped from ${slug}-sizes.json` +
+      (unchanged ? `, ${unchanged} left as-is (no published list)` : ""));
+    if (unverified.length) {
+      console.log(`         ${unverified.length} model(s) the manufacturer publishes no page for: ` +
+        unverified.slice(0, 6).join(", ") + (unverified.length > 6 ? `, +${unverified.length - 6} more` : ""));
+    }
+  }
+
   brand.models.sort((a, b) => a.model.localeCompare(b.model, "en", { numeric: true }));
   totalNew += added; totalImg += got;
   console.log(`${slug}: ${got}/${entries.length} photos, ${added} new models` +
     (failed.length ? `  FAILED: ${failed.join(", ")}` : ""));
+  if (noSizes.length) {
+    console.log(`  !! ${noSizes.length} new model(s) added with NO sizes — nothing published and ` +
+      `nothing to infer from: ${noSizes.slice(0, 8).join(", ")}`);
+  }
 }
 
 // ---- serialize brands.js ----

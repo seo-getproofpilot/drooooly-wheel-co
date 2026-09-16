@@ -678,7 +678,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 
 /* ===== audience tiles ===== */
 .aud{padding:clamp(26px,3vw,42px) 0 clamp(60px,7vw,100px)}
-.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+/* Two lanes, not four — see index.html. Wider cards, so the photo behind them
+   reads as a truck rather than a texture. */
+.aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .aud-card{position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;
   border-radius:16px;overflow:hidden;border:1px solid var(--line);isolation:isolate;
   background:linear-gradient(180deg,#111621,#0a0c11);transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
@@ -1414,30 +1416,71 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 /* ============================================================
    v22 — dramatic "find your fit" vehicle-selector band
    ============================================================ */
-.fitbar{position:relative;overflow:hidden;padding:clamp(10px,1.2vw,16px) 0 clamp(10px,1.1vw,14px);background:#fff;border-block:1px solid var(--line)}
-.fitbar__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-/* STACKED / centered layout: headline on top, fitment console below, shop links below that.
-   Wheels sit in a strict, mirrored TEMPLATE — two matching pairs flanking the centered
-   column (same size, same opacity, symmetric left/right), never behind the copy. */
-.fitbar__bg .fw{position:absolute;width:clamp(150px,13vw,208px);object-fit:contain;
-  filter:grayscale(1) contrast(1.5);opacity:.3}
-.fitbar__bg .fw--tl{left:5%;top:12%}
-.fitbar__bg .fw--bl{left:5%;bottom:9%}
-.fitbar__bg .fw--tr{right:5%;top:12%}
-.fitbar__bg .fw--br{right:5%;bottom:9%}
-/* no gutter room for the flanking wheels on smaller screens — hide the whole set */
-@media(max-width:1100px){ .fitbar__bg{display:none} }
+/* v180 — the fitment band, rebuilt as three columns.
 
-.fitbar__inner{position:relative;z-index:2;max-width:680px;margin-inline:auto;text-align:center}
+   REPLACES the v22 centred-stack layout. The wheels used to be four decorative
+   images at opacity:.3 behind a white ground, hidden entirely below 1100px —
+   so the two things we actually sell were ghosts on desktop and absent
+   everywhere else. They are content now: full opacity, clickable, present at
+   every width, and flanking the finder rather than hiding behind it. */
+.fitbar{position:relative;padding:clamp(20px,2.6vw,38px) 0;background:#fff;
+  border-block:1px solid var(--line)}
+
+/* Mobile: the finder comes first, then the two shop panels side by side.
+   Desktop: wheels | finder | tires. The centre keeps a real minimum so the
+   three selects never crush. */
+.fitbar__inner{display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(14px,2vw,28px);align-items:center}
+.fitcore{grid-column:1/-1;order:-1}
+/* Three across only when the flanks get real room. At 1000px the centre's
+   600px floor left them 163px each — narrower than the stacked layout gives at
+   768px, which is the wrong way round. Below this the two-up stack wins. */
+@media(min-width:1140px){
+  /* The centre only needs room for three selects; everything past that is
+     better spent on the two things we sell. Dropping its ceiling from 600 to
+     560 hands ~40px per side back to the panels. */
+  .fitbar__inner{grid-template-columns:minmax(240px,1fr) minmax(420px,560px) minmax(240px,1fr);
+    gap:clamp(20px,2.6vw,40px)}
+  .fitcore{grid-column:auto;order:0}
+}
+
+.fitbar__lead{text-align:center}
 .fitbar__lead .kicker{color:var(--blue-2)}
-.fitbar__title{font-family:var(--display);font-size:clamp(26px,3.6vw,40px);line-height:1.03;
-  letter-spacing:-.01em;color:#0b0d12;margin:9px 0 0}
+.fitbar__title{font-family:var(--display);font-size:clamp(30px,4.6vw,52px);line-height:1.02;
+  letter-spacing:-.01em;color:#0b0d12;margin:9px 0 0;text-transform:uppercase}
 .fitbar__title em{font-style:normal;color:var(--blue-2)}
-.fitbar__sub{color:var(--muted);font-size:15px;line-height:1.5;margin:9px auto 0;max-width:600px}
+.fitbar__sub{color:var(--muted);font-size:15px;line-height:1.5;margin:10px auto 0;max-width:520px}
 
-/* light selector console — slightly larger, centered under the headline */
+/* ---- the two shop panels ----
+   Same shape both sides so neither reads as the primary. The media box is a
+   fixed height with object-fit:contain, so a 900px wheel render and a 506px
+   tire sit at the same visual weight without either being upscaled past what
+   its pixels support. */
+.fitpanel{display:flex;flex-direction:column;align-items:center;gap:12px;
+  padding:26px 18px 22px;text-decoration:none;
+  background:linear-gradient(180deg,#fff,#f2f4f7);border:1px solid var(--line);border-radius:16px;
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease)}
+.fitpanel:hover{transform:translateY(-3px);border-color:var(--line-2);
+  box-shadow:0 18px 40px rgba(0,0,0,.13)}
+/* Capped at 264px on purpose. The wheel render is 900px so it has room to
+   spare, but the tire is 506px — past ~264 it stops being sharp on a 2x screen,
+   and a soft tire beside a crisp wheel is worse than both being a little
+   smaller. Raise this only with a bigger tire asset. */
+.fitpanel__media{display:flex;align-items:center;justify-content:center;
+  width:100%;height:clamp(150px,19vw,264px)}
+.fitpanel__media img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  /* no greyscale, no opacity — this is the product */
+  filter:drop-shadow(0 14px 22px rgba(0,0,0,.16))}
+.fitpanel__label{display:flex;align-items:center;gap:8px;font-family:var(--label);
+  font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#0b0d12;
+  text-align:center}
+.fitpanel__label b{font-weight:800}
+.fitpanel__label i{font-style:normal;color:var(--blue-2);transition:transform .22s var(--ease)}
+.fitpanel:hover .fitpanel__label i{transform:translateX(3px)}
+
+/* light selector console */
 .fitbar .vehmod{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;
-  box-shadow:0 26px 60px rgba(0,0,0,.15);max-width:640px;margin:14px auto 0;text-align:left}
+  box-shadow:0 26px 60px rgba(0,0,0,.15);margin:14px auto 0;text-align:left}
 .fitbar .vehmod__head{color:#111214;font-family:var(--body);font-weight:700;font-size:15.5px;
   text-transform:none;letter-spacing:-.01em;margin-bottom:13px;display:flex;align-items:center;gap:9px}
 .fitbar .vehmod__head svg{stroke:var(--blue-2)}
@@ -1445,20 +1488,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   color:#111214;border-radius:10px;font-size:14px}
 .fitbar .vehmod select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.15)}
 .fitbar .vehmod .btn--chrome{height:50px}
-.fitbar .vehmod__note{margin-top:10px}
-.fitbar .vehmod__note{font-family:var(--body);font-size:12px;color:var(--muted);letter-spacing:0;text-transform:none}
-
-/* shop wheels / shop tires — split control right under the console */
-.fitbar__shop{max-width:640px;margin:10px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fitbar__shop a{display:flex;align-items:center;justify-content:center;gap:11px;min-height:50px;padding:0 16px;
-  border-radius:12px;font-family:var(--label);text-transform:uppercase;letter-spacing:.09em;
-  font-size:11.5px;font-weight:700;text-decoration:none;border:1px solid var(--line-2);
-  background:#fff;color:#0b0d12;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.fitbar__shop a .ic-wheel{width:56px;height:56px;flex:none;object-fit:contain;filter:grayscale(1) contrast(1.32) brightness(.9)}
-.fitbar__shop a .ic-tire{width:54px;height:54px;flex:none;object-fit:contain}
-.fitbar__shop a:hover{transform:translateY(-2px);border-color:#0b0d12;box-shadow:0 12px 26px rgba(0,0,0,.12)}
-.fitbar__shop a b{font-weight:800}
-@media(max-width:520px){ .fitbar__shop{grid-template-columns:1fr} }
+.fitbar .vehmod__note{margin-top:10px;font-family:var(--body);font-size:12px;color:var(--muted);
+  letter-spacing:0;text-transform:none}
 
 /* ============================================================
    v24 — homepage financing lender chips
@@ -1688,16 +1719,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
    v60 — MOBILE-ONLY refinements (end of file so they win the cascade)
    ============================================================ */
 @media(max-width:560px){
-  /* Shop all wheels / tires: custom side-by-side tiles (icon on top) */
-  .fitbar__shop{grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-  .fitbar__shop a{flex-direction:column;gap:9px;min-height:0;padding:16px 8px 13px;
-    background:linear-gradient(180deg,#ffffff,#eceff3);border:1px solid #e0e3e9;border-radius:16px;
-    box-shadow:0 6px 16px rgba(0,0,0,.07);font-size:11px;letter-spacing:.05em}
-  .fitbar__shop a:hover,.fitbar__shop a:active{transform:translateY(-2px);border-color:#c9cdd4;
-    box-shadow:0 12px 26px rgba(0,0,0,.12)}
-  .fitbar__shop a .ic-wheel{width:78px;height:78px;filter:grayscale(1) contrast(1.35) brightness(.86)}
-  .fitbar__shop a .ic-tire{width:74px;height:74px}
-  .fitbar__shop a span{display:block;color:#0b0d12}
+  /* The v180 .fitpanel layout is responsive on its own — these overrides
+     styled .fitbar__shop, which no longer exists. */
 
   /* Hero: zoom out so the whole truck photo shows (like desktop) */
   .cine__bg img{object-fit:contain;object-position:center 34%;background:#0b0b0c}
@@ -1728,7 +1751,6 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
   /* branded lettering on the shop tiles for consistency */
-  .fitbar__shop a{font-family:var(--display);font-weight:400;letter-spacing:.01em;font-size:9.5px}
 }
 
 /* ============================================================
@@ -2813,48 +2835,112 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   -webkit-text-fill-color:transparent;color:transparent}
 
 /* ============================================================
-   v176 — wheel spec block, rebuilt.
+   v179 — wheel spec block: ruled, not boxed.
 
-   SUPERSEDES the v149 / v150-stray / v166 / v167 fragments, which were
-   REMOVED rather than overridden. Four blocks were fighting over .wspec* on
-   later-wins ties, and the fifth append would have been the bug, not the fix.
-   This is now the only place these selectors are defined —
-   `grep -n "wspec\|wsize" styles.css` should return this block alone.
+   SUPERSEDES the v176 block, which was REMOVED rather than overridden. Same
+   standing rule as before: `grep -n "wspec\|wsize" styles.css` returns this
+   block and nothing else. Five fragments once fought over these selectors on
+   later-wins ties, and a sixth append would have been the bug, not the fix.
 
-   One treatment everywhere: label above, value left-aligned. The old block
-   right-aligned values EXCEPT bolt patterns, which needed its own variant
-   because a six-item list broke the alignment. When a layout needs a per-row
-   escape hatch, the escape hatch was the correct rule.
+   v166 took every hairline off this page because a stack of boxes read as a
+   form. That was right about boxes and wrong about rules. A border that
+   ENCLOSES an element says "this is a thing" — four of those in a column is a
+   form. A border that SEPARATES two rows of a table says nothing about
+   objecthood; it just lets you track across six diameters without losing your
+   place. This block adds the second kind and none of the first: no frame, no
+   side edges, no radius, no chamfer. It is the grammar the .trust strip has
+   used since v18 — rules between the cells, nothing around the outside.
+
+   The rule deliberately NOT here is a vertical one in the column gutter. That
+   is the move that turns a table into a spreadsheet. The tabular figures hold
+   the column; leave the gutter open.
    ============================================================ */
-.wspecs{margin:0 0 6px}
-.wspec{display:block;padding:0 0 15px}
-/* child combinator, not descendant — the nested spans inside the size table
-   inheriting label styling is what forced the old `.wspec--sizes b` override */
-.wspec>span{display:block;font-family:var(--label);font-size:10.5px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
-.wspec>b{display:block;font-size:13.5px;font-weight:600;text-align:left;line-height:1.5}
+
+/* There is no spacing scale in this file, and ad-hoc 15/16/18/20/30px values
+   are most of why this block read as thrown together rather than set. It
+   declares its own scale and every gap below comes from it. */
+.wspecs{--s1:6px;--s2:10px;--s3:16px;--s4:22px;--s5:32px;margin:0 0 var(--s3)}
+.wspecs>.wspec:last-child{padding-bottom:0}
+.wspec{display:block;padding:0 0 var(--s3)}
+
+/* Child combinator, not descendant — the nested spans inside the size table
+   inheriting label styling is what forced the old `.wspec--sizes b` override.
+   .wsizeask>b depends on this scoping too. */
+.wspec>span{display:block;font-family:var(--label);font-size:10.5px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:var(--s1)}
+.wspec>b{display:block;font-size:13.5px;font-weight:600;color:var(--text);
+  text-align:left;line-height:1.5;overflow-wrap:break-word}
 .wspec__hint{display:block;font-size:12.5px;font-weight:400;color:var(--muted);
-  line-height:1.55;margin-top:4px;max-width:52ch}
+  line-height:1.55;margin-top:var(--s1);max-width:52ch}
 
-/* One border, where the live finish readout ends and the hard specs begin. */
-.wspecs--rest{border-top:1px solid var(--line);padding-top:18px;margin-top:16px;
+/* One rule where the live finish readout ends and the hard specs begin — and a
+   name on it, because a section that is named is a section. */
+.wspecs--rest{border-top:1px solid var(--line);padding-top:var(--s4);margin-top:0;
   display:grid;grid-template-columns:1fr;gap:0}
+.wspecs__h{grid-column:1/-1;font-family:var(--display);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text);margin:0 0 var(--s4)}
 
-/* Diameter in a fixed gutter, widths beside it — a real table, so the eye can
-   run down either column. */
-.wsizetable{display:grid;grid-template-columns:auto 1fr;column-gap:20px;row-gap:7px;
-  align-items:baseline;margin-top:2px}
-.wsizetable__h{font-family:var(--label);font-size:9.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--soft);font-weight:500;padding-bottom:2px}
-.wsizerow__dia{font-family:var(--label);font-size:12px;letter-spacing:.05em;
-  color:var(--soft);font-weight:500;white-space:nowrap}
-.wsizerow__w{font-size:13.5px;font-weight:600;color:var(--text)}
-.wsizerow__note{font-size:13px;font-weight:400;color:var(--muted)}
+/* ---- the table --------------------------------------------------------
+   Tabular figures so 10/11/12/14 stack into a real column instead of drifting.
+   Inter carries tnum, so this costs no new font and no new weight. */
+/* align-items:stretch, NOT baseline. Baseline sizes each cell to its own
+   content, so the two cells in a row started half a pixel apart and every row
+   rule came out with a notch in it where the columns meet. Stretch makes both
+   cells share the row box, so their top borders are one continuous line. Equal
+   padding-top on both keeps the text aligned anyway. */
+.wsizetable{display:grid;grid-template-columns:auto minmax(0,1fr);
+  column-gap:0;row-gap:0;align-items:stretch;margin-top:var(--s1);
+  border-bottom:1px solid var(--line);
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 
-@media(min-width:520px){
-  /* Sizes and Offset keep the full width; the two flat rows pair up. Not below
-     520px — six bolt patterns will not survive a 260px column. */
-  .wspecs--rest{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px}
+/* The gutter is padding on the key cell, not column-gap. With a gap, every row
+   rule would have a hole punched through the middle of it. */
+.wsizetable>*{padding:10px 0;border-top:1px solid var(--line)}
+.wsizetable>*:nth-child(odd){padding-right:var(--s4)}
+/* Nothing rules the top edge — the section already opened. Two cells for a
+   headless table, four when there is a head row (whose own border-bottom is
+   the boundary). Rows are always exactly two cells, so this counts rows. */
+.wsizetable>*:nth-child(-n+2){border-top:0}
+.wsizetable--headed>*:nth-child(-n+4){border-top:0}
+
+.wsizetable__h{font-family:var(--label);font-size:9.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft);
+  padding-top:0;padding-bottom:8px;border-bottom:1px solid var(--line-2)}
+
+/* Diameter is the key you scan DOWN, widths are what you read ACROSS, so the
+   key gets the weight. The old table did the opposite — 12px in --soft against
+   13.5/600 widths — which made the column you navigate by the faintest thing
+   in it. The offset table puts a width in this same cell; it is the key column
+   in both, which is why it keeps the name. */
+.wsizerow__dia{font-family:var(--label);font-size:14px;font-weight:700;letter-spacing:.01em;
+  color:var(--text);white-space:nowrap}
+.wsizerow__note{font-size:12.5px;font-weight:400;color:var(--muted);line-height:1.5}
+.wsizerow__off{font-size:13px;font-weight:500;color:var(--text);line-height:1.45}
+
+/* Widths and bolt patterns are lists, not sentences. As one joined text run a
+   wrap strands the separator at the end of a line; as items the gap IS the
+   separator, so there is nothing left to orphan. */
+.wsizerow__w,.wspec__list{display:flex;flex-wrap:wrap;align-items:baseline;
+  column-gap:14px;row-gap:5px;font-size:13.5px;font-weight:600;color:var(--text)}
+
+/* The cut-to-order line is a footnote to the table, not a new section, so it
+   gets no rule of its own — the table's bottom edge already closed the band. */
+.wsizeask{margin-top:var(--s2);font-size:12.5px;font-weight:400;color:var(--muted);
+  line-height:1.55;max-width:52ch}
+.wsizeask+.wsizeask{margin-top:var(--s1)}
+.wsizeask>b{font-weight:600;color:var(--text)}
+
+/* ---- pairing ----------------------------------------------------------
+   The old rule paired the flat rows at a 520px VIEWPORT. But .winfo is a .95fr
+   column from 820px up, so the narrowest two-column case on the site was an
+   820px window — about 160px per column, with six bolt patterns in it, which is
+   worse than not pairing at all. The question was never how wide the window is,
+   it is how wide this column is. Ask the column. */
+.winfo{container:winfo/inline-size}
+@container winfo (min-width:460px){
+  .wspecs--rest{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s5)}
+  /* Sizes and Offset are tables and want the full measure; only the two flat
+     rows pair up. */
   .wspec--sizes,.wspec--offset{grid-column:1/-1}
 }
 /* Half the catalogue has no photo yet — say so rather than 404 on "undefined" */
@@ -2864,3 +2950,60 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   text-transform:uppercase;color:var(--soft);text-align:center;padding:20px}
 .wmedia__none span{font-family:var(--body);font-size:12.5px;letter-spacing:0;
   text-transform:none;color:var(--muted);font-weight:400}
+
+/* ============================================================
+   v180 — build lanes on the shop page, and a shop card you can click.
+
+   The shop grid was the only page listing all 756 wheels and NONE of its cards
+   linked anywhere: productCard rendered an <article> with a favourite button
+   and an add-to-cart, so every wheel page — sizes, offsets, bolt patterns —
+   was unreachable from it. Brand pages have always linked through. This adds
+   the link as a full-card overlay rather than wrapping the card in an <a>,
+   because the card already contains two real buttons that must stay clickable.
+   ============================================================ */
+/* The stack matters here and the obvious z-index:1 is wrong: .prod__media img
+   is already position:relative;z-index:2 (styles.css:484, for the hover zoom
+   and the drop-shadow), so a link at 1 sits UNDER the wheel photo — the one
+   part of the card people actually aim at. The overlay goes above the image;
+   the two real controls go above the overlay. */
+.prod__link{position:absolute;inset:0;z-index:4;border-radius:inherit}
+.prod__link:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.prod__actions{position:relative;z-index:5}
+.prod__fav{z-index:5}
+.prod:hover{border-color:var(--line-2)}
+
+/* The sizes in this style that suit the lane you arrived from. Same wheel,
+   different answer per lane — annotation, never a filter: a narrow size is a
+   legitimate choice on a lifted truck, it just isn't the usual one. */
+.prod__lane{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 8px;margin-top:9px;
+  font-variant-numeric:tabular-nums}
+.prod__lane span{width:100%;font-family:var(--label);font-size:9.5px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.prod__lane b{font-size:12px;font-weight:600;color:var(--text);
+  background:var(--panel-2);border:1px solid var(--line);border-radius:5px;padding:2px 7px}
+.prod__lane i{font-style:normal;font-size:11.5px;color:var(--muted)}
+
+/* Lane header strip under the shop title. */
+.lanebar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:16px;
+  font-variant-numeric:tabular-nums}
+.lanebar__h{font-family:var(--label);font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft)}
+.lanebar b{font-family:var(--body);font-size:13px;font-weight:600;color:var(--text);
+  background:#fff;border:1px solid var(--line-2);border-radius:6px;padding:4px 10px}
+
+/* The lane photo strip reuses .wbuilds wholesale from the wheel page — same
+   component, same three-photo floor, same link-back credit. Only the outer
+   spacing differs, because here it closes a page rather than a column. */
+#shopBuilds .wbuilds{margin-top:8px}
+
+/* ---- lane photo strip -------------------------------------------------
+   Wider and denser than the wheel-page strip: this closes a browsing page
+   rather than sitting in a column, and there are more photos to show. */
+#shopBuilds .lanebuilds{margin:34px 0 8px}
+#shopBuilds .wbuilds__grid{grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){ #shopBuilds .wbuilds__grid{grid-template-columns:repeat(3,1fr)} }
+@media(min-width:1100px){ #shopBuilds .wbuilds__grid{grid-template-columns:repeat(4,1fr);gap:14px} }
+/* Our own photos: same tile, no caption and no outbound link, because there is
+   nowhere honest to send someone and nothing verified to say about them. */
+.wbshot--own{display:block;margin:0;position:relative;overflow:hidden;background:var(--panel-2)}
+.wbshot--own img{display:block;width:100%;height:100%;object-fit:cover}

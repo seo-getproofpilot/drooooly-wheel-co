@@ -10,20 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="canonical" href="https://seo-getproofpilot.github.io/drooooly-wheel-co/" />
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=178" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=180" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="DROOOLY Wheel Co." />
 <meta property="og:title" content="DROOOLY Wheel Co. — Baller Forged Wheel &amp; Tire Packages" />
 <meta property="og:description" content="Forged wheel & tire packages that leave 'em drooling — trucks, cars, vans. JTX, American Force, KG1, Fuel, Hostile, Amani and more. Hand-spec'd for your exact truck. Financing available. Grimsley, TN — shipping nationwide." />
 <meta property="og:url" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/" />
-<meta property="og:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=178" />
+<meta property="og:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=180" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="DROOOLY Wheel Co. — Baller Forged Wheel &amp; Tire Packages" />
 <meta name="twitter:description" content="Forged wheel & tire packages that leave 'em drooling — trucks, cars, vans. JTX, American Force, KG1, Fuel, Hostile, Amani and more. Hand-spec'd for your exact truck. Financing available. Grimsley, TN — shipping nationwide." />
-<meta name="twitter:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=178" />
-<link rel="stylesheet" href="styles.css?v=178" />
+<meta name="twitter:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=180" />
+<link rel="stylesheet" href="styles.css?v=180" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,8 +56,8 @@
 <!-- Startup sequence: outline wordmark → chrome "light up" → plate lifts to hero -->
 <div class="intro" id="intro" aria-hidden="true">
   <div class="intro__logo">
-    <img class="intro__outline" src="assets/logo-outline.png?v=178" alt="" />
-    <img class="intro__filled"  src="assets/logo-filled.png?v=178"  alt="" />
+    <img class="intro__outline" src="assets/logo-outline.png?v=180" alt="" />
+    <img class="intro__filled"  src="assets/logo-filled.png?v=180"  alt="" />
     <span class="intro__glint"></span>
   </div>
   <span class="intro__skip">Click to skip</span>
@@ -109,7 +109,7 @@
   <div class="nav shopnav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="brand" aria-label="DROOOLY Wheel Co. home">
-        <img src="assets/logo-wordmark.png?v=178" alt="DROOOLY Wheel Co." class="brand__img brand__img--emblem"
+        <img src="assets/logo-wordmark.png?v=180" alt="DROOOLY Wheel Co." class="brand__img brand__img--emblem"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <span class="brand__fallback" style="display:none" aria-hidden="true"><b>DROOOLY</b><i>Wheel&nbsp;Co.</i></span>
       </a>
@@ -151,7 +151,7 @@
 
 <!-- Cinematic hero with in-hero brand rotisserie -->
 <section class="cine">
-  <div class="cine__bg"><img class="cine__bg-fill" src="assets/truck-hero.jpg?v=178" alt="" aria-hidden="true" /><img src="assets/truck-hero.jpg?v=178" alt="Lifted Ford F-450 dually on forged wheels at sunset" /></div>
+  <div class="cine__bg"><img class="cine__bg-fill" src="assets/truck-hero.jpg?v=180" alt="" aria-hidden="true" /><img src="assets/truck-hero.jpg?v=180" alt="Lifted Ford F-450 dually on forged wheels at sunset" /></div>
   <div class="cine__scrim"></div>
   <div class="grain"></div>
   <div class="cine__inner">
@@ -202,38 +202,46 @@
 
 <!-- Fitment bar -->
 <section class="fitbar" id="fitbar">
-  <div class="fitbar__bg" aria-hidden="true">
-    <img class="fw fw--tl" src="assets/wheels/kg1-master.png" alt="" loading="lazy" />
-    <img class="fw fw--tr" src="assets/wheels/kg1-master.png" alt="" loading="lazy" />
-    <img class="fw fw--bl" src="assets/wheels/hostile-savage.png" alt="" loading="lazy" />
-    <img class="fw fw--br" src="assets/wheels/hostile-savage.png" alt="" loading="lazy" />
-  </div>
   <div class="wrap fitbar__inner">
-    <div class="fitbar__lead fade">
-      <span class="kicker">Shop by vehicle</span>
-      <h2 class="fitbar__title">Fitment verified<br><em>before we build it.</em></h2>
-      <p class="fitbar__sub">Tell us what you drive — we'll confirm the specs on your exact truck before anything ships.</p>
-    </div>
-    <div class="vehmod fade" id="vehicle" data-d="1">
-      <div class="vehmod__head"><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg> Find wheels that fit your ride</div>
-      <div class="vehmod__row">
-        <select id="vehYear" aria-label="Year"></select>
-        <select id="vehMake" aria-label="Make"></select>
-        <select id="vehModel" aria-label="Model"></select>
+
+    <!-- The wheels and tires are the product, so they are content now, not
+         decoration. They used to be four ghosts at 30% opacity that vanished
+         entirely below 1100px; these are clickable, full opacity, and present
+         at every width. -->
+    <a class="fitpanel fade" href="shop.html">
+      <span class="fitpanel__media">
+        <img src="assets/wheels/jtx/single/savage-polished.webp" width="900" height="907"
+             alt="JTX Forged Savage wheel, polished" loading="lazy" />
+      </span>
+      <span class="fitpanel__label">Shop all <b>wheels</b><i aria-hidden="true">&rarr;</i></span>
+    </a>
+
+    <div class="fitcore">
+      <div class="fitbar__lead fade">
+        <span class="kicker">Shop by vehicle</span>
+        <h2 class="fitbar__title">Verified <em>fitment</em></h2>
+        <p class="fitbar__sub">Tell us what you drive — we'll confirm the specs on your exact truck before anything ships.</p>
       </div>
-      <button class="btn btn--chrome btn--block" id="vehFind" type="button">Find my fitment</button>
-      <div class="vehmod__note">Verified fitment · single, dually &amp; super-single setups</div>
+      <div class="vehmod fade" id="vehicle" data-d="1">
+        <div class="vehmod__head"><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg> Find wheels that fit your ride</div>
+        <div class="vehmod__row">
+          <select id="vehYear" aria-label="Year"></select>
+          <select id="vehMake" aria-label="Make"></select>
+          <select id="vehModel" aria-label="Model"></select>
+        </div>
+        <button class="btn btn--chrome btn--block" id="vehFind" type="button">Find my fitment</button>
+        <div class="vehmod__note">Verified fitment · single, dually &amp; super-single setups</div>
+      </div>
     </div>
-    <div class="fitbar__shop fade" data-d="2">
-      <a href="shop.html">
-        <img class="ic-wheel" src="assets/wheels/jtx-ace.png" alt="" loading="lazy" />
-        <span>Shop all <b>wheels</b></span>
-      </a>
-      <a href="tires.html">
-        <img class="ic-tire" src="assets/tire-mt.png" alt="" loading="lazy" />
-        <span>Shop all <b>tires</b></span>
-      </a>
-    </div>
+
+    <a class="fitpanel fade" data-d="2" href="tires.html">
+      <span class="fitpanel__media">
+        <img src="assets/tire-mt.png" width="506" height="500"
+             alt="Mud-terrain truck tire" loading="lazy" />
+      </span>
+      <span class="fitpanel__label">Shop all <b>tires</b><i aria-hidden="true">&rarr;</i></span>
+    </a>
+
   </div>
 </section>
 
@@ -242,13 +250,15 @@
   <div class="wrap">
     <div class="sec-row">
       <div><span class="kicker fade">Who's it for</span><h2 class="section-title fade" data-d="1">What are you building?</h2></div>
-      <p class="section-note fade" data-d="2">Trucks, cars, vans — lifted, lowered or stock. Pick your lane and we'll spec the set that makes it hit different.</p>
+      <p class="section-note fade" data-d="2">Two lanes, both forged. Tell us which one you're in and we'll spec the set — sizes, offset and bolt pattern confirmed before anything is cut.</p>
     </div>
+    <!-- Two cards, not four. "Lowered &amp; street" and "Cars &amp; vans" were pointing at
+         inventory we do not carry — every brand in the catalog is a forged truck,
+         off-road or dually brand — and three of the four cards resolved to the same
+         two URLs. These two are the lanes the catalog actually supports. -->
     <div class="aud-grid">
-      <a class="aud-card fade" data-d="1" data-n="01" href="shop.html?config=dually"><img class="aud-card__bg" src="assets/builds/lifted-1.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Lifted<br>trucks</h3><p>Duallies, super singles &amp; big-lip forged on 24s–26s.</p><span class="aud-card__go">Shop lifted →</span></a>
-      <a class="aud-card fade" data-d="2" data-n="02" href="shop.html"><img class="aud-card__bg" src="assets/builds/lowered-28.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Lowered<br>&amp; street</h3><p>Deep concave, mesh &amp; billet for the slammed look.</p><span class="aud-card__go">Shop street →</span></a>
-      <a class="aud-card fade" data-d="3" data-n="03" href="shop.html?config=dually"><img class="aud-card__bg" src="assets/builds/dually-11.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Dually &amp;<br>super single</h3><p>Big-and-bold sets that own the lane.</p><span class="aud-card__go">Shop duallies →</span></a>
-      <a class="aud-card fade" data-d="4" data-n="04" href="shop.html"><img class="aud-card__bg" src="assets/builds/car-37.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Cars<br>&amp; vans</h3><p>Forged fitments for whatever you want turning heads.</p><span class="aud-card__go">Shop all →</span></a>
+      <a class="aud-card fade" data-d="1" href="shop.html?build=lifted"><img class="aud-card__bg" src="assets/builds/lifted-1.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Lifted<br>trucks</h3><p>Big-lip forged, 20s through 30s, 10 to 16 inches wide. The wider you go, the more room the truck needs.</p><span class="aud-card__go">Shop lifted →</span></a>
+      <a class="aud-card fade" data-d="2" href="shop.html?build=dually"><img class="aud-card__bg" src="assets/builds/dually-11.jpg" alt="" aria-hidden="true" loading="lazy"><h3>Dually &amp;<br>super single</h3><p>Rear pairs run 8.25 wide. Fronts are your call — matched narrow, or a wide super single. Sets are six wheels.</p><span class="aud-card__go">Shop duallies →</span></a>
     </div>
   </div>
 </section>
@@ -374,10 +384,10 @@
       <div class="fin-lenders fade" data-d="3">
         <span class="fin-lenders__label">Financing through</span>
         <div class="fin-lenders__row">
-          <span class="fin-logo"><img src="assets/lenders/affirm.svg?v=178" alt="Affirm" loading="lazy" /></span>
-          <span class="fin-logo fin-logo--klarna"><img src="assets/lenders/klarna.svg?v=178" alt="Klarna" loading="lazy" /></span>
-          <span class="fin-logo"><img src="assets/lenders/paypal.svg?v=178" alt="PayPal Credit" loading="lazy" /></span>
-          <span class="fin-logo"><img src="assets/lenders/snap.svg?v=178" alt="Snap Finance" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/affirm.svg?v=180" alt="Affirm" loading="lazy" /></span>
+          <span class="fin-logo fin-logo--klarna"><img src="assets/lenders/klarna.svg?v=180" alt="Klarna" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/paypal.svg?v=180" alt="PayPal Credit" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/snap.svg?v=180" alt="Snap Finance" loading="lazy" /></span>
         </div>
       </div>
       <a href="financing.html" class="btn btn--chrome fade" data-d="4">Prequalify now</a>
@@ -432,8 +442,8 @@
 <section class="cta" id="fitment">
   <div class="cta__bg" aria-hidden="true">
     <picture>
-      <source media="(max-width:640px)" srcset="assets/cta-truck-mobile.jpg?v=178" />
-      <img src="assets/cta-truck-desktop.jpg?v=178" alt="" loading="lazy" />
+      <source media="(max-width:640px)" srcset="assets/cta-truck-mobile.jpg?v=180" />
+      <img src="assets/cta-truck-desktop.jpg?v=180" alt="" loading="lazy" />
     </picture>
   </div>
   <div class="wrap cta__inner">
@@ -480,11 +490,12 @@
   </div>
 </footer>
 
-<script src="brands.js?v=178"></script>
-<script src="finishes.js?v=178"></script>
-<script src="builds-data.js?v=178"></script>
-<script src="catalog.js?v=178"></script>
-<script src="cart.js?v=178"></script>
-<script src="script.js?v=178"></script>
+<script src="brands.js?v=180"></script>
+<script src="finishes.js?v=180"></script>
+<script src="builds-data.js?v=180"></script>
+<script src="catalog.js?v=180"></script>
+<script src="cart.js?v=180"></script>
+<script src="vehicles.js?v=180"></script>
+<script src="script.js?v=180"></script>
 </body>
 </html>

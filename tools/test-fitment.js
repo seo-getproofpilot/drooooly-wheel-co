@@ -88,6 +88,40 @@ const offenders = strings.filter(function (s) { return BANNED.test(s); });
 ok("no clearance-claim language in any emitted string", offenders.length, 0);
 if (offenders.length) console.log("       offenders:", offenders);
 
+/* The guard above only sees what fitment.js emits. Most of the copy a customer
+   actually reads lives in the page scripts — the spec block, the offset
+   explainer, the cut-to-order line, the build-lane headers. Those were outside
+   the guard.
+
+   This scans the whole comment-stripped source rather than trying to pick out
+   string literals. The literal-extracting version this replaces looked healthy
+   (766 literals found) while being silently WRONG: six trailing `//` comments
+   contain apostrophes ("can't", "you're"), each opened a bogus single-quoted
+   string that swallowed everything to the next apostrophe, and the scan walked
+   out of alignment and skipped whole regions — including, when tested, an
+   injected violation. A count is not a proof of coverage.
+
+   Scanning everything can in principle flag an identifier (a variable called
+   `approved`). That is the right failure mode: loud and visible, rather than a
+   guard that quietly checks nothing. */
+["wheel.js", "catalog.js", "builds.js", "script.js"].forEach(function (file) {
+  const raw = require("fs").readFileSync(path.resolve(__dirname, "..", file), "utf8");
+  const src = raw
+    .replace(/\/\*[\s\S]*?\*\//g, " ")          // block comments
+    /* Line comments anywhere, not just at line start. The (^|[^:]) guard keeps
+       "https://" intact. */
+    .replace(/(^|[^:])\/\/[^\n]*/g, "$1");
+  const hits = [];
+  src.split("\n").forEach(function (ln, i) {
+    const m = ln.match(BANNED);
+    if (m) hits.push(file + ":" + (i + 1) + " [" + m[0] + "] " + ln.trim().slice(0, 70));
+  });
+  ok("no clearance-claim language in " + file, hits.length, 0);
+  if (hits.length) hits.slice(0, 5).forEach(function (h) { console.log("       " + h); });
+  // Comment-stripping must not have eaten the file.
+  ok(file + " survived comment-stripping", src.length > raw.length * 0.5, true);
+});
+
 /* ---- shipped vehicle data ----
    The formula being right is worth nothing if the numbers behind it are wrong:
    a factory truck on its factory wheel must read as roughly flush, not as
@@ -235,9 +269,34 @@ try {
   const rows = (m, k) => F.sizeRowsFor(m, k).map((r) => r.dia + ":" + r.widths.join("/")).join(" ");
 
   const cf = pick("jtx", "Centerfire");
-  ok("Centerfire single drops 8.25 and the 28 row", rows(cf, "single"), "22:12 24:14 26:16");
-  ok("Centerfire dually keeps everything", rows(cf, "dually"), "22:8.25/12 24:8.25/14 26:8.25/16 28:8.25");
+  const cfSingle = F.sizeRowsFor(cf, "single");
+  /* These assert JTX's PUBLISHED list, scraped from their product pages. The
+     previous expectation here ("22:12 24:14 26:16") was three sizes that nobody
+     ever published — it came from a hardcoded fallback in build-featured.js and
+     this test was locking it in. */
+  ok("Centerfire single spans all six published diameters",
+     cfSingle.map((r) => r.dia).join("/"), "20/22/24/26/28/30");
+  ok("Centerfire single never advertises the dually width",
+     cfSingle.some((r) => r.widths.indexOf(8.25) > -1), false);
+  ok("Centerfire single carries the 22x11 JTX actually build",
+     cfSingle.find((r) => r.dia === 22).widths.join("/"), "10/11/12/14");
+  ok("Centerfire dually still shows the rear width",
+     F.sizeRowsFor(cf, "dually").some((r) => r.widths.indexOf(8.25) > -1), true);
   ok("no series context shows everything", rows(cf, null), rows(cf, "dually"));
+
+  /* The scrape found JTX vary the dually front list style to style — 60 pages
+     start at 22", eight at 24", and Widow at 26". Collapsing that back to one
+     line-wide list would be the same invention in a new place. */
+  const widow = pick("jtx", "Widow");
+  ok("per-model dually variation survives — Widow has no 22\" or 24\" rear",
+     (widow.sizes || []).filter((x) => /x8\.25$/.test(x)).join(","),
+     "26x8.25,28x8.25,30x8.25");
+
+  const INVENTED = ["22x12,24x14,26x16,28x16,30x16", "22x12,24x14,26x16"];
+  const stale = BR.find((b) => b.slug === "jtx").models
+    .filter((m) => INVENTED.indexOf((m.sizes || []).join(",")) > -1);
+  ok("no JTX model still carries an invented size list", stale.length, 0);
+  if (stale.length) console.log("       offenders:", stale.slice(0, 5).map((m) => m.model).join(", "));
 
   // dually-only style asked for as a single: the guard must fire
   const combat = pick("jtx", "Combat");
@@ -287,6 +346,8 @@ try {
   ok("bySize beats widths for 24x12", F.offsetFor(OFF, "single", 24, 12).typical, -51);
   ok("16\" single resolves", F.offsetFor(OFF, "single", 26, 16).typical, -101);
   ok("10\" is an explicit gap, not a guess", F.offsetFor(OFF, "single", 22, 10), null);
+  // JTX build 22x11; nobody publishes an ET for it. Declared, not omitted.
+  ok("11\" is a declared gap, not a missing key", F.offsetFor(OFF, "single", 22, 11), null);
   ok("dually rear resolves", F.offsetFor(OFF, "duallyRear", 24, 8.25).typical, 120);
   ok("wide front has no published figure", F.offsetFor(OFF, "superSingle", 26, 16), null);
   ok("unknown role returns null", F.offsetFor(OFF, "nonsense", 24, 14), null);

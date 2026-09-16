@@ -52,6 +52,21 @@ const FINISHES = ["Polished", "Brushed", "Black Milled", "Black", "Chrome", "Bro
 /* Everything before the wheel model is the truck; everything the model, size
    and boilerplate leave behind is noise. Returns null rather than guessing
    when the vehicle can't be read cleanly. */
+/* Which lane a photo belongs to. Read BEFORE parseVehicle strips its words —
+   "lifted" is boilerplate in a vehicle name but it is the single most useful
+   token in the whole filename, and it used to be thrown away. */
+function lanesFor(flat, size) {
+  const lanes = [];
+  const m = size && /^(\d+)x([\d.]+)$/.exec(size);
+  const w = m ? +m[2] : null;
+  const dually = /\b(dually|drw|f-?450|f-?550|dbo)\b/i.test(flat) || w === 8.25;
+  if (dually) lanes.push("dually");
+  // A wide wheel on a single-rear truck is the lifted lane. 8.25 never is —
+  // that is a dually rear, however wide the truck.
+  if (!dually && (/\blifted\b/i.test(flat) || (w !== null && w >= 12))) lanes.push("lifted");
+  return lanes;
+}
+
 function parseVehicle(words, modelIdx) {
   const before = words.slice(0, modelIdx);
   const keep = before.filter((w) =>
@@ -84,12 +99,14 @@ function parse(url, models) {
   const finish = FINISHES.find((f) =>
     new RegExp("\\b" + f.replace(/\s+/g, "[\\s-]+") + "\\b", "i").test(flat)) || null;
 
+  const size = sm ? `${sm[1]}x${sm[2]}` : (dm ? `${dm[1]}"` : null);
   return {
     model,
     url,
     vehicle: parseVehicle(words, modelIdx < 0 ? words.length : modelIdx),
-    size: sm ? `${sm[1]}x${sm[2]}` : (dm ? `${dm[1]}"` : null),
-    finish
+    size,
+    finish,
+    lanes: lanesFor(flat, size)
   };
 }
 
@@ -119,6 +136,57 @@ urls.forEach((u) => {
   (byModel[rec.model] = byModel[rec.model] || []).push(rec);
 });
 
+/* ---- lane photos -------------------------------------------------------
+   The homepage lanes ("lifted trucks", "dually & super single") need photos of
+   the KIND of truck, not of one wheel model, so they are indexed separately
+   from `models` — which stays exactly as it was, keyed by wheel, feeding the
+   wheel pages.
+
+   Two possible sources per lane, and a lane uses ONE of them so its credit line
+   stays true:
+     1. The manufacturer gallery, hot-linked, credited, every tile linking back.
+     2. assets/builds/*.jpg — photos already in this repo and already on the
+        homepage, named by build type.
+
+   Manufacturer first, local only as a fallback, because a hot-linked photo
+   carries its own attribution. The dually lane needs the fallback: JTX's
+   gallery contains no dually trucks at all (checked all 70 cached URLs), their
+   dually product pages carry no truck photography, and the other dually brands
+   we carry have no scrapeable gallery — Vision's 510-image gallery has exactly
+   one dually in it.
+
+   Local photos carry NO caption. The homepage captions for these same files are
+   fabricated (LAUNCH-CHECKLIST 1.5) — showing the photo is one thing, repeating
+   an invented "6\" lift · 24x14 · 37s" under it is another. */
+const LOCAL_DIR = path.join(ROOT, "assets", "builds");
+const LOCAL_LANE = { lifted: "lifted", dually: "dually" };
+function localLanePhotos() {
+  if (!fs.existsSync(LOCAL_DIR)) return {};
+  const out = {};
+  fs.readdirSync(LOCAL_DIR).filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f)).sort()
+    .forEach((f) => {
+      const lane = LOCAL_LANE[(f.split("-")[0] || "").toLowerCase()];
+      if (!lane) return;
+      (out[lane] = out[lane] || []).push({
+        url: "assets/builds/" + f, vehicle: null, size: null, finish: null, local: true
+      });
+    });
+  return out;
+}
+
+const laneFromGallery = {};
+Object.keys(byModel).forEach((m) => byModel[m].forEach((rec) => {
+  (rec.lanes || []).forEach((l) => { (laneFromGallery[l] = laneFromGallery[l] || []).push(rec); });
+}));
+const laneLocal = localLanePhotos();
+const lanes = {};
+[...new Set([...Object.keys(laneFromGallery), ...Object.keys(laneLocal)])].forEach((l) => {
+  const g = laneFromGallery[l] || [], loc = laneLocal[l] || [];
+  if (g.length >= MIN_PHOTOS) lanes[l] = { source: "gallery", credit: brand.name, photos: g };
+  else if (loc.length >= MIN_PHOTOS) lanes[l] = { source: "local", credit: null, photos: loc };
+  // Below the floor on both: the lane shows no strip at all.
+});
+
 const payload = {
   brand: brand.name,
   brandSlug: brand.slug,
@@ -126,6 +194,7 @@ const payload = {
   captured: new Date().toISOString().slice(0, 10),
   hosted: false,
   minPhotos: MIN_PHOTOS,
+  lanes: lanes,
   models: {}
 };
 Object.keys(byModel).sort().forEach((m) => { payload.models[m] = byModel[m]; });
@@ -137,6 +206,15 @@ fs.writeFileSync(OUT_JS,
   `   Source: ${GALLERY} (captured ${payload.captured})\n` +
   `   URLs only; no image bytes are copied into this repo. */\n` +
   "window.WHEEL_BUILDS = " + JSON.stringify(payload) + ";\n");
+
+console.log("lane strips:");
+["lifted", "dually"].forEach(function (l) {
+  const e = lanes[l];
+  const g = (laneFromGallery[l] || []).length, loc = (laneLocal[l] || []).length;
+  console.log("  " + l.padEnd(8) + (e
+    ? e.photos.length + " photo(s) from " + e.source + (e.credit ? " (" + e.credit + ")" : " (ours)")
+    : "NO STRIP — gallery " + g + ", local " + loc + ", floor " + MIN_PHOTOS));
+});
 
 const shown = Object.keys(byModel).filter((m) => byModel[m].length >= MIN_PHOTOS);
 console.log(`matched ${matched} of ${urls.length} photos to ${Object.keys(byModel).length} models`);

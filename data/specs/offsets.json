@@ -30,6 +30,11 @@
           "confidence": "none",
           "_note": "GAP — searched; no reliable public figure for 10\" forged truck wheels."
         },
+        "11": {
+          "typical": null,
+          "confidence": "none",
+          "_note": "GAP — JTX build 22x11 but nobody publishes an ET for an 11\" forged truck wheel. Declared rather than omitted so the page prints \"Not published\" instead of skipping the width."
+        },
         "12": {
           "typical": -44,
           "confidence": "listing",
