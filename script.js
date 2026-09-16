@@ -49,6 +49,12 @@ var VEH = (function () {
       }
     };
   }
+  /* Years are customer context for the quote, not a fitment input — matchVehicle
+     matches on make and model and ignores the year entirely. So the range stays
+     as wide as it was rather than shrinking to the oldest platform we model
+     (2017): a 2016 Super Duty owner still routes to the right single/dual lane,
+     and narrowing a lead form buys nothing. */
+  var YEAR_FLOOR = 2015;
   var newest = 0, oldest = 9999, makes = {};
   list.forEach(function (v) {
     if (v.years[1] > newest) newest = v.years[1];
@@ -58,7 +64,7 @@ var VEH = (function () {
   });
   Object.keys(makes).forEach(function (k) { makes[k].sort(); });
   var years = [];
-  for (var y = newest; y >= oldest; y--) years.push(y);
+  for (var y = newest; y >= Math.min(oldest, YEAR_FLOOR); y--) years.push(y);
   return { years: years, makes: makes };
 })();
 function getVeh() { try { return JSON.parse(localStorage.getItem('drooolyVehicle')); } catch (e) { return null; } }
