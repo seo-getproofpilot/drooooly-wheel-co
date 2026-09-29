@@ -3085,3 +3085,43 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .fitbar .vehmod select,
   #shopSort{font-size:16px}
 }
+
+/* ============================================================
+   v185 — paired buttons match each other.
+
+   "Find your set" and "Get fitted" sit side by side with identical height and
+   padding, but the buttons shrink-wrap their labels, so they came out 212px
+   and 172px. Grid with equal 1fr columns sizes both to the wider one; the
+   group still shrink-wraps (width:fit-content), so the pair does not stretch
+   across the column. Label-agnostic — change the wording and they stay level.
+   ============================================================ */
+.cine__cta{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;width:fit-content}
+@media(max-width:560px){
+  /* On a phone the pair should fill the width rather than shrink-wrap. */
+  .cine__cta{width:100%}
+}
+
+/* ============================================================
+   v185 — button lettering: Inter 700, not Michroma.
+
+   Michroma ships in a single weight (400). At 12px with .04em tracking that
+   is a display face doing UI work, and it read as thin and hard to scan —
+   there was no "bolder" to reach for, because the face does not have one.
+
+   Inter 700 is already loaded (400/500/600/700) and is what .btn-add has
+   always used, so this is an existing pattern rather than a new one. Michroma
+   keeps the logo, the nav and the headings, which is where it earns its keep.
+
+   SUPERSEDES the font declarations in `.btn` (v9, ~line 1020) and on the
+   "Make 'em drool" submit (v61, ~line 1748); the chrome gradient lettering on
+   that button is untouched, it just gets a face you can read.
+   ============================================================ */
+.btn,.btn .btn-txt,
+.cta .fit-form .btn--chrome .btn-txt,
+.brands-toggle,.filter-mobile-btn{
+  font-family:var(--label);font-weight:700;font-size:12.5px;letter-spacing:.08em}
+.btn--sm,.btn--sm .btn-txt{font-size:11.5px;letter-spacing:.07em}
+@media(max-width:560px){
+  .btn,.btn .btn-txt,
+  .cta .fit-form .btn--chrome .btn-txt{font-size:12px;letter-spacing:.06em}
+}
