@@ -3310,17 +3310,11 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .mobile-nav .btn--secondary:hover::after,.tire-hero__cta .btn--secondary:hover::after,
 .tbrand-cta .btn--secondary:hover::after{background:rgba(16,20,28,.82)}
 
-/* ---- HERO · the one liquid chrome on the site ----
-   Specificity 0,2,0 so it beats the dark-ground primary above it. */
-.cine .btn--hero,.btn--hero{
-  color:#0c0e12;
-  background:var(--lip-dark), var(--fill-chrome);
-  text-shadow:0 1px 0 rgba(255,255,255,.5);
-  filter:drop-shadow(0 8px 18px rgba(0,0,0,.55))}
-.cine .btn--hero:hover,.btn--hero:hover{
-  color:#0c0e12;
-  background:var(--lip-dark), var(--fill-chrome);
-  filter:drop-shadow(0 14px 28px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(31,123,255,.45)) brightness(1.05)}
+/* ---- HERO ----
+   v199's liquid-chrome hero was removed in v201, which paints this button
+   at the end of the file as a polished lip. Two rules for one button, the
+   loser only losing on source order, is how this stylesheet has gone wrong
+   before — so the dead one is gone rather than left to be re-found. */
 
 /* ---- arrows ----
    The cap on the button is gone: the divider plus a blue glyph read as a
