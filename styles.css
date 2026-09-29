@@ -3205,3 +3205,42 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .site-header .brand{margin-left:clamp(16px,2.2vw,32px)}
   .site-header .brand__img--emblem{width:clamp(300px,33vw,460px)}
 }
+
+/* ============================================================
+   v194 — mobile type floor.
+
+   The phone layout carried a lot of text between 8.5px and 10.5px — not
+   shrunk-down desktop type but its own, smaller scale, which is how you end up
+   squinting at a call to action. Worst offenders were "As low as" at 8.5px,
+   and the hero stat line, the gallery captions and the "Shop lifted" /
+   "Shop JTX Forged" links all at 9-9.5px.
+
+   Raised so the phone reads like the desktop page rather than a compressed
+   version of it. CTAs and product specs get ~11.5px, secondary labels and
+   captions ~10.5px. Nothing here changes desktop.
+   ============================================================ */
+@media(max-width:560px){
+  .show2-mo span{font-size:10px}          /* "As low as" — was 8.5 */
+  .cine__util{font-size:10px}             /* 21 forged brands · 750+ models */
+  .show2-tag{font-size:10px}              /* BEST SELLER / NEW */
+  .gallery-cap{font-size:10.5px}          /* 37 build captions */
+  /* .blogo-grid prefix to match the specificity of the max-width:620px block
+     that sets these to 9px; a bare .blogo-tag loses to it regardless of order. */
+  .blogo-grid .blogo-tag{font-size:10.5px}   /* SHOP JTX FORGED → */
+  .cta .fit-form label{font-size:10.5px}  /* NAME / PHONE / RIDE */
+  .fin-lenders__label{font-size:11px}
+  .aud-card__go{font-size:11px}           /* SHOP LIFTED → */
+  .show2-meta{font-size:11.5px}           /* Dually · Polished · 22″–30″ */
+  .show2-build{font-size:11.5px}          /* RUN THESE → */
+  .pay span{font-size:10px}               /* VISA / MASTERCARD / ... footer badges */
+
+  /* shop.html cards */
+  .prod__brand{font-size:10.5px}          /* JTX FORGED */
+  .prod__set{font-size:10.5px}            /* Full set & tire pricing at fitment */
+  .prod__price small{font-size:10px}      /* / wheel */
+  .cfg{font-size:10px}                    /* SINGLE / DUALLY / SUPER SINGLE badges */
+
+  /* wheel.html spec table — column headers were 9.5px, which is small for the
+     thing that tells you what the numbers underneath mean. */
+  .wsizetable__h{font-size:10.5px}
+}
