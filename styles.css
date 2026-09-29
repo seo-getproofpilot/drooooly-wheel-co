@@ -1367,7 +1367,13 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .trust__ic{width:21px;height:21px;fill:none;stroke:var(--ink);stroke-width:1.6;
   stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 .trust__ic--star{fill:#f5a623;stroke:none}
-@media(max-width:760px){
+/* Was max-width:760px, which left a dead band from 761px to about 1075px: the
+   four items need ~1027px of content, .trust__item is white-space:nowrap so it
+   cannot shrink below that, and .trust__row was flex-wrap:nowrap — so the
+   fourth item simply hung 28px past the right edge and gave the whole page a
+   horizontal scrollbar at 1024. Wrapping to 2-up starts before they stop
+   fitting now. */
+@media(max-width:1100px){
   .trust__row{flex-wrap:wrap;padding:0}
   .trust__item{flex:0 0 50%;border-left:none;justify-content:flex-start;padding:12px 14px;font-size:12.5px;white-space:normal}
   .trust__item:nth-child(2n){border-left:1px solid var(--line)}
@@ -3162,4 +3168,37 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      read worse stretched across 700px than they do at a comfortable measure. */
   .fitbar .vehmod{max-width:660px;margin-inline:auto}
   .fitbar__sub{max-width:60ch}
+}
+
+/* ============================================================
+   v189 — the header logo uses the bar.
+
+   The box never matched the artwork. logo-wordmark.png is 1180x190 (6.21:1)
+   with no transparent padding, but the CSS set width AND height independently
+   — 370x66 on desktop, 150x48 on a phone. object-fit:contain then letterboxed
+   the wordmark inside that box, so what you actually saw was ~60px of logo in
+   a 66px box in a 99px bar, and on mobile a 24px logo in a 48px box. Dead
+   space above and below, at every width.
+
+   Fix is the same everywhere: height:auto, so the box follows the artwork
+   instead of boxing it. Width drives, height follows, aspect is never touched
+   — object-fit:contain stays as the backstop. Then widen, using the slack that
+   was already in the row: 205px spare at 1440, 61px spare on a 375 phone.
+
+   Also drops `.brand`'s margin-left:clamp(24px,5vw,96px) — 72px at 1440 — on
+   top of the 80px the nav row already insets.
+   ============================================================ */
+.site-header .brand__img--emblem{height:auto}
+
+@media(max-width:560px){
+  /* 59px bar, and the row ends 61px short of the inset. 200px of logo renders
+     32px tall — half the bar, against 24px before. */
+  .site-header .brand__img--emblem{width:200px}
+}
+@media(min-width:561px) and (max-width:899px){
+  .site-header .brand__img--emblem{width:clamp(230px,32vw,300px)}
+}
+@media(min-width:900px){
+  .site-header .brand{margin-left:clamp(16px,2.2vw,32px)}
+  .site-header .brand__img--emblem{width:clamp(300px,33vw,460px)}
 }
