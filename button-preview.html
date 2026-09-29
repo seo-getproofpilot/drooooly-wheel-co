@@ -63,6 +63,14 @@ iframe{display:block;border:0;width:1280px;height:840px;background:#fff}
     <button class="pill sec" data-s="s-bare">C &middot; Bare</button>
   </div>
   <div class="top__r">
+    <span class="lbl">Hero&nbsp;pair</span>
+    <button class="pill hp" data-h="" aria-pressed="true">Live (lip + forged)</button>
+    <button class="pill hp" data-h="h-a">A &middot; Chrome + blue chrome</button>
+    <button class="pill hp" data-h="h-b">B &middot; Chrome + brushed nickel</button>
+    <button class="pill hp" data-h="h-c">C &middot; Blue chrome leads</button>
+    <button class="pill hp" data-h="h-d">D &middot; Chrome + smoked, blue lip</button>
+  </div>
+  <div class="top__r">
     <span class="lbl">Page</span>
     <button class="pill pg" data-p="index.html" aria-pressed="true">Home</button>
     <button class="pill pg" data-p="financing.html">Financing</button>
@@ -86,7 +94,7 @@ iframe{display:block;border:0;width:1280px;height:840px;background:#fff}
 </div>
 
 <script>
-var current = "", secondary = "", page = "index.html";
+var current = "", secondary = "", heropair = "", page = "index.html";
 function bust(p){ return p + (p.indexOf('?')>-1?'&':'?') + 'pv=' + Date.now(); }
 var f = document.getElementById('f'), frame = document.getElementById('frame');
 
@@ -104,13 +112,14 @@ function inject(){
   d.querySelectorAll('.fade,.mask').forEach(function(el){ el.classList.add('in'); });
   if(!d.getElementById('cxsheet')){
     var l = d.createElement('link');
-    l.id='cxsheet'; l.rel='stylesheet'; l.href='concepts.css?v=3';
+    l.id='cxsheet'; l.rel='stylesheet'; l.href='concepts.css?v=4';
     d.head.appendChild(l);
   }
   var html = d.documentElement;
-  html.className = html.className.replace(/\b[cs]-[a-z-]+\b/g,'').replace(/\s+/g,' ').trim();
+  html.className = html.className.replace(/\b[csh]-[a-z-]+\b/g,'').replace(/\s+/g,' ').trim();
   if(current) html.classList.add(current);
   if(secondary) html.classList.add(secondary);
+  if(heropair) html.classList.add(heropair);
 }
 f.addEventListener('load', function(){ inject(); setTimeout(inject, 700); setTimeout(inject, 1800); });
 
@@ -126,6 +135,11 @@ document.querySelectorAll('[data-c]').forEach(function(b){
 document.querySelectorAll('.sec').forEach(function(b){
   b.addEventListener('click', function(){
     secondary = b.dataset.s; press('.sec', b); inject();
+  });
+});
+document.querySelectorAll('.hp').forEach(function(b){
+  b.addEventListener('click', function(){
+    heropair = b.dataset.h; press('.hp', b); inject();
   });
 });
 document.querySelectorAll('.pg').forEach(function(b){
