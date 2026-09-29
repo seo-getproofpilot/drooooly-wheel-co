@@ -3439,3 +3439,94 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   color:#fff;background:var(--lip-light), var(--btn-ink)}
 .cta .fit-form .btn--primary:hover{
   color:#fff;background:var(--lip-light), #16191f}
+
+/* ============================================================
+   v201 — THE HERO PAIR IS A WHEEL
+
+   Replaces the liquid-chrome hero button. Same principle as v199:
+   there is ONE special button on the site and it is this one. The lip
+   does not go on the nav or the other primaries — 44 buttons wearing a
+   polished lip is the "30 of 44 were chrome" problem again in a new
+   finish.
+
+     PRIMARY    black face inside a polished 4px lip, bright spot
+                orbiting 150deg over .5s on hover.
+     SECONDARY  the same lip in unpolished graphite over dark glass —
+                the black finish of the same wheel, not a pane of
+                smoked glass belonging to some other object.
+
+   Travel is a short arc, not a lap. A full 360 reads as a ring
+   spinning, and the movement becomes the subject instead of the button.
+
+   --lipang is registered so it can be transitioned; the element also
+   sets it directly, so if @property is unsupported the ring still
+   renders at its rest angle and only the animation is lost.
+   ============================================================ */
+@property --lipang{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+.cine .btn--hero,.btn--hero{
+  --lipang:0deg;
+  color:#e9eef4;
+  background:#0a0c10;
+  text-shadow:none;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.6))}
+/* the ring sits above the face and below the label — the same negative
+   z-index trick the hairline secondary uses. clip-path carries it round
+   the machined corner, so the lip follows the cut. */
+.cine .btn--hero::after,.btn--hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;padding:4px;
+  background:conic-gradient(from var(--lipang),#ffffff,#9aa4b0 9%,#2a3039 22%,#e8eef5 34%,
+    #4e5761 47%,#c3ccd6 62%,#232830 78%,#8f99a5 90%,#ffffff);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:--lipang .5s cubic-bezier(.22,.7,.3,1),filter .35s;
+  pointer-events:none}
+.cine .btn--hero:hover,.btn--hero:hover{
+  color:#fff;background:#0a0c10;
+  filter:drop-shadow(0 16px 32px rgba(0,0,0,.66))}
+.cine .btn--hero:hover::after,.btn--hero:hover::after{
+  --lipang:150deg;filter:brightness(1.14)}
+/* the site's catch-light sweep belongs to the flat faces, not this one */
+.cine .btn--hero::before,.btn--hero::before{display:none}
+
+/* ---- the partner ----
+   Scoped to .cine__cta so only the hero's secondary changes; the
+   financing and tires secondaries keep the glass hairline. */
+/* Nearly opaque, and that is deliberate. At .62 the label washed out where
+   the mobile crop puts this button over a polished wheel; at .84 it measured
+   a fine 11.9:1 but the face lifted to ~45 luminance against the primary's
+   11, so on a bright backdrop the SECONDARY read as the louder of the two.
+   A hero button's weight should not depend on what the photo does behind it.
+
+   At .92 both faces sit at the same darkness whatever is behind them, and
+   the thing that separates them is the lip: polished on the primary, satin
+   here. Which is the two-finishes idea working as intended. */
+.cine__cta .btn--secondary{
+  --lipang:0deg;
+  color:#eef3f8;background:rgba(8,10,14,.92);
+  backdrop-filter:blur(4px);border:none;box-shadow:none;filter:none}
+/* the catch-light sweep belongs to the flat faces */
+.cine__cta .btn--secondary::before{display:none}
+/* backdrop-filter:none and clip-path:none are corrections, not decoration.
+   The older hairline rule put a blur on this pseudo, and a backdrop-filter
+   applies to the element's whole box regardless of the mask — so the ring
+   was blurring the bright wheel behind it across the entire button and
+   painting it back as a grey wash over the face. The blur belongs on the
+   button, not on the lip. The parent's clip-path already rounds the cut
+   corner, so the pseudo inheriting one as well does nothing but confuse. */
+.cine__cta .btn--secondary::after{
+  content:"";position:absolute;inset:0;z-index:-1;padding:4px;
+  backdrop-filter:none;clip-path:none;
+  background:conic-gradient(from 0deg,#5a626c,#343b44 12%,#1b2027 26%,#6b7480 40%,
+    #2a3038 54%,#4d555f 70%,#1d222a 84%,#5a626c);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:filter .4s;pointer-events:none}
+.cine__cta .btn--secondary:hover{color:#fff;background:rgba(14,18,25,.96)}
+.cine__cta .btn--secondary:hover::after{filter:brightness(1.5)}
+
+/* The lip's orbit is decoration; the brightness still marks the hover. */
+@media(prefers-reduced-motion:reduce){
+  .cine .btn--hero::after,.btn--hero::after{transition:filter .35s}
+  .cine .btn--hero:hover::after,.btn--hero:hover::after{--lipang:0deg}
+}
