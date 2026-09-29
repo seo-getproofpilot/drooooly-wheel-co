@@ -192,3 +192,56 @@
 
 /* every concept keeps the grain, which is what stops a flat fill reading as plastic */
 [class*="c-"] .btn--primary{background-blend-mode:normal}
+
+/* ============================================================
+   HERO SECONDARY — a partner for the polished lip.
+
+   With 12 on the primary, the hero's "Get fitted" is still the site's
+   glass hairline, which belongs to a different object: the primary is a
+   machined part with a lip and the secondary is a pane of smoked glass.
+   Three ways to make them the same part in two finishes.
+
+   These are independent of the concept class, so any of them can sit
+   next to any primary. .s-* only ever touches .btn--secondary.
+   ============================================================ */
+
+/* A · SATIN LIP — same 4px lip, unpolished. The black-finish version of
+   the same wheel, which is how these actually ship. */
+.s-satin .btn--secondary{
+  background:rgba(10,12,16,.62) !important;color:#dfe6ee !important;
+  backdrop-filter:blur(3px) !important;filter:none !important;box-shadow:none !important}
+.s-satin .btn--secondary::after{
+  content:"" !important;position:absolute !important;inset:0 !important;z-index:-1 !important;
+  padding:4px !important;clip-path:none !important;background:none !important;
+  pointer-events:none !important;
+  background-image:conic-gradient(from 0deg,#5a626c,#343b44 12%,#1b2027 26%,#6b7480 40%,
+    #2a3038 54%,#4d555f 70%,#1d222a 84%,#5a626c) !important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite:xor !important;mask-composite:exclude !important;
+  transition:filter .4s !important}
+.s-satin .btn--secondary:hover{background:rgba(14,18,24,.78) !important;color:#fff !important}
+.s-satin .btn--secondary:hover::after{filter:brightness(1.5) !important}
+
+/* B · MACHINED EDGE — no lip, a single bright cut line. Lets the primary
+   keep all the metal and reads as the shoulder of the same part. */
+.s-machined .btn--secondary{
+  background:rgba(8,10,14,.6) !important;color:#e4ebf2 !important;
+  backdrop-filter:blur(3px) !important;filter:none !important;box-shadow:none !important}
+.s-machined .btn--secondary::after{
+  content:"" !important;position:absolute !important;inset:0 !important;z-index:-1 !important;
+  padding:1px !important;clip-path:none !important;background:none !important;
+  pointer-events:none !important;
+  background-image:linear-gradient(180deg,#dfe7f0 0%,#7b8591 26%,#363d46 62%,#1c2129 100%) !important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite:xor !important;mask-composite:exclude !important;
+  transition:filter .35s !important}
+.s-machined .btn--secondary:hover{background:rgba(12,16,22,.8) !important;color:#fff !important}
+.s-machined .btn--secondary:hover::after{filter:brightness(1.45) !important}
+
+/* C · BARE — no ring at all. The quietest option: the primary is the
+   only object on the hero and this is just the other thing you can do. */
+.s-bare .btn--secondary{
+  background:rgba(8,10,14,.5) !important;color:#dbe3ec !important;
+  backdrop-filter:blur(4px) !important;filter:none !important;box-shadow:none !important}
+.s-bare .btn--secondary::after{display:none !important}
+.s-bare .btn--secondary:hover{background:rgba(14,18,24,.74) !important;color:#fff !important}
