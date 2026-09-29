@@ -1,0 +1,175 @@
+/* ============================================================
+   DROOOLY — button CONCEPTS as an overlay.
+
+   Not part of the site. button-preview.html injects this into a live
+   page inside an iframe and sets one c-* class, so each concept can be
+   seen on the real hero, the real cards and the real CTA without any
+   of it being committed to the site's own stylesheet.
+
+   Everything is !important on purpose. styles.css carries four button
+   eras layered at 0,3,0 and 0,4,0; an overlay that has to out-specify
+   all of them selector by selector would be longer than the concepts.
+   If a concept gets picked, it moves into styles.css properly and the
+   !important comes straight back out.
+
+   Each concept restyles the money buttons — .btn--primary and the hero
+   .btn--hero. .btn--secondary is left alone so the comparison is about
+   the thing that changed, except for 08, where the dark finish IS the
+   secondary idea.
+   ============================================================ */
+@property --lipang{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+:root{
+  --cx-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* the concepts own both pseudos, so the site's catch-light sweep goes quiet */
+[class*="c-"]:not(.c-light) .btn--primary::before{display:none !important}
+
+/* ================= 01 · FORGED CHROME ================= */
+.c-forged .btn--primary{
+  color:#e9eef4 !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),
+             linear-gradient(180deg,#525963 0%,#343b45 26%,#1e232a 58%,#161a20 82%,#20252c 100%) !important;
+  box-shadow:inset 1.4px 1.4px 0 rgba(226,236,247,.6),
+             inset -1.4px -1.4px 0 rgba(0,0,0,.8),
+             inset 0 3px 8px rgba(0,0,0,.42) !important;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.55)) !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.55) !important;
+  overflow:hidden !important}
+.c-forged .btn--primary::after{
+  content:"" !important;position:absolute !important;z-index:1 !important;
+  top:-60% !important;bottom:-60% !important;width:34% !important;left:-45% !important;
+  inset:auto auto auto -45% !important;height:220% !important;
+  transform:rotate(18deg) !important;background:#0000 !important;clip-path:none !important;
+  background-image:linear-gradient(90deg,transparent,rgba(255,255,255,.72),rgba(255,255,255,.18),transparent) !important;
+  transition:left .55s cubic-bezier(.35,.1,.25,1) !important;pointer-events:none !important}
+.c-forged .btn--primary:hover::after{left:120% !important}
+.c-forged .btn--primary:active{
+  box-shadow:inset 1.4px 1.4px 0 rgba(226,236,247,.3),inset 0 5px 12px rgba(0,0,0,.6) !important;
+  transform:translateY(2px) !important}
+
+/* ================= 03 · FLOATING CHROME PLATE ================= */
+.c-plate .btn--primary{
+  color:#eaeff5 !important;background:#0b0d12 !important;
+  clip-path:none !important;border-radius:2px !important;
+  box-shadow:0 18px 40px rgba(0,0,0,.72),0 3px 8px rgba(0,0,0,.5) !important;
+  filter:none !important;text-shadow:none !important;overflow:visible !important}
+.c-plate .btn--primary::after{
+  content:"" !important;position:absolute !important;inset:0 !important;z-index:1 !important;
+  border-radius:2px !important;padding:1px !important;clip-path:none !important;
+  background:linear-gradient(180deg,#f2f6fa 0%,#aeb8c4 16%,#4c545e 46%,#262b33 78%,#161a20 100%) !important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite:xor !important;mask-composite:exclude !important;
+  transition:background .35s,filter .35s !important;pointer-events:none !important}
+.c-plate .btn--primary:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 30px 58px rgba(0,0,0,.8),0 4px 10px rgba(0,0,0,.55) !important}
+.c-plate .btn--primary:hover::after{
+  background:linear-gradient(180deg,#ffffff 0%,#dbe3ec 16%,#79838f 46%,#343b44 78%,#1d222a 100%) !important;
+  filter:drop-shadow(0 0 5px rgba(210,228,255,.45)) !important}
+
+/* ================= 05 · CHROME LIQUID ================= */
+.c-liquid .btn--primary{
+  --mx:50%;--my:50%;color:#10141a !important;text-shadow:0 1px 0 rgba(255,255,255,.5) !important;
+  background:
+    radial-gradient(130% 90% at var(--mx) var(--my),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e6ecf3,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#9ba5b1,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e2e8ef 0%,#b9c2cc 32%,#78828e 52%,#cdd5de 72%,#eef3f8 100%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.3) !important;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.5)) !important}
+
+/* ================= 07 · FLOATING CENTER CAP =================
+   Built from two background layers rather than a pseudo-element disc.
+   The site's buttons hold bare text nodes, not a wrapped span, so an
+   overlay disc paints straight over the label and there is nothing to
+   raise above it. border-box/padding-box does the same job underneath
+   the text: conic ring on the border, black face inside it. */
+.c-cap .btn--primary{
+  clip-path:none !important;border-radius:99px !important;
+  border:5px solid transparent !important;
+  color:#c3ccd6 !important;text-shadow:0 1px 0 rgba(0,0,0,.9) !important;
+  background:
+    radial-gradient(130% 180% at 32% 16%,#2f353f,#12161c 55%,#080a0e) padding-box,
+    conic-gradient(from 210deg,#f4f8fc,#8b95a1 12%,#2b313a 27%,#c9d2dc 43%,
+      #5c656f 58%,#eef3f8 71%,#39404a 86%,#f4f8fc) border-box !important;
+  box-shadow:0 18px 38px rgba(0,0,0,.72),inset 0 2px 6px rgba(0,0,0,.7) !important;
+  filter:none !important;overflow:visible !important}
+.c-cap .btn--primary::after{display:none !important}
+.c-cap .btn--primary .cap{border-left-color:rgba(255,255,255,.14) !important}
+.c-cap .btn--primary:hover{
+  color:#e8eef5 !important;transform:translateY(-4px) !important;
+  box-shadow:0 28px 52px rgba(0,0,0,.8),inset 0 2px 6px rgba(0,0,0,.6),
+    0 0 24px rgba(190,215,250,.22) !important}
+
+/* ================= 08 · BLACK CHROME · MURDERED OUT =================
+   The one concept that also takes the secondary, because a finish that
+   hides at rest is a secondary-action idea by nature. */
+.c-murder .btn--primary{
+  color:#5d6773 !important;
+  background:linear-gradient(180deg,#15181d 0%,#0d1014 40%,#090b0e 62%,#111419 100%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.9) !important;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.5)) !important;text-shadow:none !important;
+  transition:color .4s,background .5s,box-shadow .4s,transform .22s !important}
+.c-murder .btn--primary::after{
+  content:"" !important;position:absolute !important;inset:0 !important;z-index:1 !important;
+  opacity:0 !important;clip-path:none !important;pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,.05) 34%,
+    rgba(0,0,0,.25) 52%,rgba(255,255,255,.14) 74%,rgba(255,255,255,.3) 100%) !important;
+  transition:opacity .45s !important}
+.c-murder .btn--primary:hover{
+  color:#f2f6fa !important;
+  background:linear-gradient(180deg,#3c434d 0%,#20262e 38%,#0f1318 60%,#2a313a 100%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(0,0,0,.9) !important;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.65)) drop-shadow(0 0 18px rgba(150,180,220,.16)) !important}
+.c-murder .btn--primary:hover::after{opacity:1 !important}
+
+/* ================= 12 · POLISHED LIP ================= */
+.c-lip .btn--primary{
+  color:#e9eef4 !important;background:#0a0c10 !important;text-shadow:none !important;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.6)) !important;overflow:hidden !important}
+.c-lip .btn--primary::after{
+  content:"" !important;position:absolute !important;inset:0 !important;z-index:1 !important;
+  padding:4px !important;clip-path:none !important;pointer-events:none !important;
+  background:conic-gradient(from var(--lipang),#ffffff,#9aa4b0 9%,#2a3039 22%,#e8eef5 34%,
+    #4e5761 47%,#c3ccd6 62%,#232830 78%,#8f99a5 90%,#ffffff) !important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite:xor !important;mask-composite:exclude !important;
+  transition:--lipang .9s linear,filter .35s !important}
+.c-lip .btn--primary:hover::after{--lipang:360deg !important;filter:brightness(1.2) !important}
+
+/* ================= ★ · THE LIGHT MOVES, NOT THE BUTTON =================
+   The only concept that does not touch `background` at all.
+
+   First attempt set background-image and killed the hero button's face:
+   .btn--hero paints its chrome with gradients, so its background-COLOR is
+   transparent and replacing the image list left dark text on a dark photo.
+   Which is the point of the idea anyway — this is a finish, not a colour.
+   So the machining and the sweep are two overlays over whatever face the
+   button already has, pale on dark grounds and black on light ones. */
+.c-light .btn--primary{overflow:hidden !important;
+  transition:box-shadow .3s,transform .1s,color .45s !important}
+.c-light .btn--primary::before{
+  display:block !important;content:"" !important;position:absolute !important;
+  inset:0 !important;left:0 !important;width:auto !important;height:auto !important;
+  z-index:1 !important;transform:none !important;clip-path:none !important;
+  pointer-events:none !important;opacity:1 !important;
+  background:repeating-linear-gradient(92deg,
+    rgba(255,255,255,.05) 0 1px, rgba(0,0,0,.05) 1px 2px, transparent 2px 3px) !important;
+  mix-blend-mode:overlay !important}
+.c-light .btn--primary::after{
+  content:"" !important;position:absolute !important;z-index:2 !important;
+  inset:-70% auto -70% -40% !important;width:22% !important;
+  transform:rotate(14deg) !important;clip-path:none !important;pointer-events:none !important;
+  background:linear-gradient(90deg,transparent,rgba(214,232,255,.3) 26%,rgba(255,255,255,.95) 50%,
+    rgba(214,232,255,.3) 74%,transparent) !important;filter:blur(.4px) !important;
+  mix-blend-mode:screen !important}
+.c-light .btn--primary:hover::after,
+.c-light .btn--primary:active::after{
+  animation:cxsweep .52s cubic-bezier(.4,0,.25,1) forwards !important}
+.c-light .btn--primary:active{transform:translateY(2px) !important}
+@keyframes cxsweep{from{left:-40%}to{left:118%}}
+
+/* every concept keeps the grain, which is what stops a flat fill reading as plastic */
+[class*="c-"] .btn--primary{background-blend-mode:normal}

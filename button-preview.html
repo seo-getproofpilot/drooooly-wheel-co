@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Buttons, on the actual site — DROOOLY</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   Concepts on the REAL pages, without changing the real pages.
+
+   The site loads in an iframe; picking a concept injects
+   concepts.css into that document and sets one c-* class on it.
+   Nothing is written to any site file — reload and it is gone.
+   ============================================================ */
+*{box-sizing:border-box}
+body{margin:0;background:#05070a;color:#e8edf3;font-family:Inter,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow:hidden;height:100vh;display:flex;flex-direction:column}
+
+.top{flex:none;border-bottom:1px solid rgba(255,255,255,.1);background:#080a0e}
+.top__r{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:11px 18px}
+.top__r + .top__r{border-top:1px solid rgba(255,255,255,.06)}
+.lbl{font-family:Michroma;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:#6f7a87;margin-right:4px;flex:none;width:74px}
+.pill{font-family:Michroma;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+  padding:8px 13px;border:1px solid rgba(255,255,255,.13);background:#0e1116;color:#aab4c0;
+  cursor:pointer;border-radius:2px;transition:.16s;white-space:nowrap}
+.pill:hover{border-color:rgba(255,255,255,.3);color:#e7edf4}
+.pill[aria-pressed="true"]{background:#1f7bff;border-color:#1f7bff;color:#fff}
+.pill--live[aria-pressed="true"]{background:#2a3038;border-color:#59636f;color:#fff}
+.note{color:#6f7a87;font-size:11.5px;padding:0 18px 11px;line-height:1.6}
+.note b{color:#b9c2cc;font-weight:600}
+
+.stage{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:22px 0 40px;background:#05070a}
+.frame{position:relative;transform-origin:top center;background:#000;
+  box-shadow:0 30px 80px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.09)}
+iframe{display:block;border:0;width:1280px;height:840px;background:#fff}
+.frame.mob iframe{width:390px;height:780px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top__r">
+    <span class="lbl">Concept</span>
+    <button class="pill pill--live" data-c="" aria-pressed="true">Live site</button>
+    <button class="pill" data-c="c-forged">01 Forged</button>
+    <button class="pill" data-c="c-plate">03 Plate</button>
+    <button class="pill" data-c="c-liquid">05 Liquid</button>
+    <button class="pill" data-c="c-cap">07 Center cap</button>
+    <button class="pill" data-c="c-murder">08 Murdered</button>
+    <button class="pill" data-c="c-lip">12 Polished lip</button>
+    <button class="pill" data-c="c-light">&#9733; The light</button>
+  </div>
+  <div class="top__r">
+    <span class="lbl">Page</span>
+    <button class="pill pg" data-p="index.html" aria-pressed="true">Home</button>
+    <button class="pill pg" data-p="financing.html">Financing</button>
+    <button class="pill pg" data-p="tires.html">Tires</button>
+    <button class="pill pg" data-p="shop.html">Shop</button>
+    <span class="lbl" style="width:auto;margin-left:14px">Jump</span>
+    <button class="pill jp" data-s=".cine__cta">Hero</button>
+    <button class="pill jp" data-s=".fitbar">Fitment</button>
+    <button class="pill jp" data-s=".aud-grid">Build cards</button>
+    <button class="pill jp" data-s=".cta">Consult</button>
+    <span class="lbl" style="width:auto;margin-left:14px">Width</span>
+    <button class="pill vw" data-v="desk" aria-pressed="true">Desktop</button>
+    <button class="pill vw" data-v="mob">Phone</button>
+  </div>
+  <p class="note"><b>This is the real page</b>, loaded live, with the concept injected into it.
+     Nothing is saved to the site — reload and it is the live design again. Hover the buttons inside the frame.</p>
+</div>
+
+<div class="stage" id="stage">
+  <div class="frame" id="frame"><iframe id="f"></iframe></div>
+</div>
+
+<script>
+var current = "", page = "index.html";
+function bust(p){ return p + (p.indexOf('?')>-1?'&':'?') + 'pv=' + Date.now(); }
+var f = document.getElementById('f'), frame = document.getElementById('frame');
+
+function inject(){
+  var d;
+  try { d = f.contentDocument; } catch(e){ return; }
+  if(!d || !d.documentElement) return;
+  // the intro plate would cover the page on every reload
+  var intro = d.getElementById('intro'); if(intro) intro.remove();
+  // intro-run holds the header and hero hidden until the plate finishes;
+  // removing the plate alone leaves the page blank
+  d.documentElement.classList.remove('intro-run');
+  try{ d.defaultView.sessionStorage.setItem('introSeen','1'); }catch(e){}
+  // reveal scroll-triggered content so buttons below the fold are visible
+  d.querySelectorAll('.fade,.mask').forEach(function(el){ el.classList.add('in'); });
+  if(!d.getElementById('cxsheet')){
+    var l = d.createElement('link');
+    l.id='cxsheet'; l.rel='stylesheet'; l.href='concepts.css?v=1';
+    d.head.appendChild(l);
+  }
+  var html = d.documentElement;
+  html.className = html.className.replace(/\bc-[a-z]+\b/g,'').replace(/\s+/g,' ').trim();
+  if(current) html.classList.add(current);
+}
+f.addEventListener('load', function(){ inject(); setTimeout(inject, 700); setTimeout(inject, 1800); });
+
+function press(sel, el){
+  document.querySelectorAll(sel).forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+  el.setAttribute('aria-pressed','true');
+}
+document.querySelectorAll('[data-c]').forEach(function(b){
+  b.addEventListener('click', function(){
+    current = b.dataset.c; press('[data-c]', b); inject();
+  });
+});
+document.querySelectorAll('.pg').forEach(function(b){
+  b.addEventListener('click', function(){
+    page = b.dataset.p; press('.pg', b); f.src = bust(page);
+  });
+});
+document.querySelectorAll('.jp').forEach(function(b){
+  b.addEventListener('click', function(){
+    var d = f.contentDocument; if(!d) return;
+    var t = d.querySelector(b.dataset.s); if(!t) return;
+    var top = t.getBoundingClientRect().top + d.defaultView.scrollY - 110;
+    d.defaultView.scrollTo({ top: top, behavior:'smooth' });
+  });
+});
+function getScale(){
+  var w = frame.classList.contains('mob') ? 390 : 1280;
+  var avail = document.getElementById('stage').clientWidth - 48;
+  return Math.min(1, avail / w);
+}
+function fit(){
+  var s = getScale();
+  frame.style.transform = 'scale(' + s + ')';
+  frame.style.marginBottom = (frame.offsetHeight * (s - 1)) + 'px';
+}
+document.querySelectorAll('.vw').forEach(function(b){
+  b.addEventListener('click', function(){
+    press('.vw', b); frame.classList.toggle('mob', b.dataset.v === 'mob'); fit();
+  });
+});
+window.addEventListener('resize', fit);
+fit();
+f.src = bust(page);
+</script>
+</body>
+</html>
