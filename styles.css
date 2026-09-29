@@ -3484,8 +3484,15 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .cine .btn--hero::before,.btn--hero::before{display:none}
 
 /* ---- the partner ----
-   Scoped to .cine__cta so only the hero's secondary changes; the
-   financing and tires secondaries keep the glass hairline. */
+   Was a satin lip: the same black face as the primary with an unpolished
+   ring. Correct as an idea, wrong on this hero — two black faces on an
+   already-dark photo is black on black, and the pair read as one wide
+   smudge rather than two buttons.
+
+   Forged gunmetal instead. It sits a full value-step lighter than the
+   primary so the two separate at a glance, and the bevelled perimeter
+   still belongs to the same family as the lip. Scoped to .cine__cta, so
+   the financing and tires secondaries keep the glass hairline. */
 /* Nearly opaque, and that is deliberate. At .62 the label washed out where
    the mobile crop puts this button over a polished wheel; at .84 it measured
    a fine 11.9:1 but the face lifted to ~45 luminance against the primary's
@@ -3496,31 +3503,112 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    the thing that separates them is the lip: polished on the primary, satin
    here. Which is the two-finishes idea working as intended. */
 .cine__cta .btn--secondary{
-  --lipang:0deg;
-  color:#eef3f8;background:rgba(8,10,14,.92);
-  backdrop-filter:blur(4px);border:none;box-shadow:none;filter:none}
+  color:#e9eef4;backdrop-filter:none;border:none;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),
+    linear-gradient(180deg,#525963 0%,#343b45 26%,#1e232a 58%,#161a20 82%,#20252c 100%);
+  /* inset shadows are clipped by clip-path, so the bevel follows the cut
+     corner; the drop shadow has to be a filter or it is clipped away */
+  box-shadow:inset 1.4px 1.4px 0 rgba(226,236,247,.55),
+             inset -1.4px -1.4px 0 rgba(0,0,0,.8),
+             inset 0 3px 8px rgba(0,0,0,.4);
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.5));
+  text-shadow:0 1px 0 rgba(0,0,0,.5)}
+.cine__cta .btn--secondary:hover{
+  color:#fff;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%),
+    linear-gradient(180deg,#5e6670 0%,#3e4650 26%,#262c34 58%,#1c2128 82%,#282f37 100%);
+  filter:drop-shadow(0 14px 28px rgba(0,0,0,.56))}
+.cine__cta .btn--secondary::after{display:none}
 /* the catch-light sweep belongs to the flat faces */
 .cine__cta .btn--secondary::before{display:none}
-/* backdrop-filter:none and clip-path:none are corrections, not decoration.
-   The older hairline rule put a blur on this pseudo, and a backdrop-filter
-   applies to the element's whole box regardless of the mask — so the ring
-   was blurring the bright wheel behind it across the entire button and
-   painting it back as a grey wash over the face. The blur belongs on the
-   button, not on the lip. The parent's clip-path already rounds the cut
-   corner, so the pseudo inheriting one as well does nothing but confuse. */
-.cine__cta .btn--secondary::after{
-  content:"";position:absolute;inset:0;z-index:-1;padding:4px;
-  backdrop-filter:none;clip-path:none;
-  background:conic-gradient(from 0deg,#5a626c,#343b44 12%,#1b2027 26%,#6b7480 40%,
-    #2a3038 54%,#4d555f 70%,#1d222a 84%,#5a626c);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  transition:filter .4s;pointer-events:none}
-.cine__cta .btn--secondary:hover{color:#fff;background:rgba(14,18,25,.96)}
-.cine__cta .btn--secondary:hover::after{filter:brightness(1.5)}
-
 /* The lip's orbit is decoration; the brightness still marks the hover. */
 @media(prefers-reduced-motion:reduce){
   .cine .btn--hero::after,.btn--hero::after{transition:filter .35s}
   .cine .btn--hero:hover::after,.btn--hero:hover::after{--lipang:0deg}
 }
+
+/* ============================================================
+   v203 — CUSTOM FINISHES, PLACED
+
+   Not every button. Four places where a made object beats a flat one,
+   each with a different job so they don't read as one texture smeared
+   across the site. Everything not listed here keeps the flat primary
+   and the glass hairline — that contrast is what makes these land.
+
+     cart            07 centre cap    a round control, so: a real cap
+     nav Get fitted  05 liquid chrome the menu needs to pop off black
+     consult submit  03 chrome plate  a black plate on the white card
+     hero pair       12 lip + forged  (above, v201)
+   ============================================================ */
+
+/* ---- CART · the centre cap ----
+   44x44 and already square, which is the one control on the site that
+   wants to be round. Ring and face are background layers on border-box /
+   padding-box rather than a pseudo-element, so the icon and the count
+   badge stay on top of them. */
+.cart-btn,.nav .cart-btn{
+  border-radius:50%;border:4px solid transparent;color:#d3dce6;
+  background:
+    radial-gradient(130% 180% at 32% 16%,#2f353f,#12161c 55%,#080a0e) padding-box,
+    conic-gradient(from 210deg,#f4f8fc,#8b95a1 12%,#2b313a 27%,#c9d2dc 43%,
+      #5c656f 58%,#eef3f8 71%,#39404a 86%,#f4f8fc) border-box;
+  box-shadow:0 8px 18px rgba(0,0,0,.5),inset 0 2px 6px rgba(0,0,0,.65);
+  transition:transform .5s cubic-bezier(.2,.7,.3,1),box-shadow .35s,color .25s}
+.cart-btn:hover,.nav .cart-btn:hover{
+  color:#fff;border-color:transparent;
+  transform:rotate(9deg);
+  box-shadow:0 14px 28px rgba(0,0,0,.6),inset 0 2px 6px rgba(0,0,0,.6),
+    0 0 20px rgba(190,215,250,.22)}
+/* the cart icon is the one thing that must not turn with the cap */
+.cart-btn svg{transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.cart-btn:hover svg{transform:rotate(-9deg)}
+@media(prefers-reduced-motion:reduce){
+  .cart-btn:hover,.nav .cart-btn:hover{transform:none}
+  .cart-btn:hover svg{transform:none}
+}
+
+/* ---- NAV · liquid chrome with an edge ----
+   The flat near-white slab did not belong to a bar full of machined
+   things. Chrome, as asked, plus a cut line around it so it reads as a
+   part rather than a painted rectangle. The irregular reflections are
+   what stop it looking like a plain light fill. */
+.nav .btn--primary{
+  color:#10141a;text-shadow:0 1px 0 rgba(255,255,255,.55);
+  background:
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e6ecf3,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#9ba5b1,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e8edf3 0%,#c2cbd5 32%,#848e9a 52%,#d3dae2 72%,#f1f5f9 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.75),
+             inset 0 -2px 5px rgba(0,0,0,.28);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+.nav .btn--primary:hover{
+  color:#05070a;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.95),
+             inset 0 -2px 5px rgba(0,0,0,.24);
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.55)) drop-shadow(0 0 14px rgba(31,123,255,.34))}
+
+/* ---- CONSULT SUBMIT · the chrome plate ----
+   Sits on the white console card, so it is the one place a black plate
+   with a bright perimeter has something to read against. This is the
+   destination moment — the button at the end of the conversation. */
+.cta .fit-form .btn--primary{
+  color:#eaeff5;background:#0b0d12;
+  box-shadow:0 18px 40px rgba(0,0,0,.4),0 3px 8px rgba(0,0,0,.3);
+  filter:none;text-shadow:none}
+.cta .fit-form .btn--primary::after{
+  content:"";position:absolute;inset:0;z-index:-1;padding:1px;
+  clip-path:none;backdrop-filter:none;
+  background:linear-gradient(180deg,#f2f6fa 0%,#aeb8c4 16%,#4c545e 46%,#262b33 78%,#161a20 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:background .35s,filter .35s;pointer-events:none}
+.cta .fit-form .btn--primary:hover{
+  color:#fff;background:#0b0d12;
+  transform:translateY(-3px);
+  box-shadow:0 26px 52px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.32)}
+.cta .fit-form .btn--primary:hover::after{
+  background:linear-gradient(180deg,#ffffff 0%,#dbe3ec 16%,#79838f 46%,#343b44 78%,#1d222a 100%);
+  filter:drop-shadow(0 0 5px rgba(210,228,255,.5))}
