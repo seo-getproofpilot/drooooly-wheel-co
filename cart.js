@@ -36,7 +36,7 @@
       '<div class="cart-foot">' +
         '<div class="cart-sub"><span>Subtotal</span><b class="cart-sub-v">$0</b></div>' +
         '<p class="cart-foot__note">Per-wheel pricing. A DROOOLY specialist confirms your dually/super-single set count, tires &amp; final out-the-door total on your fitment consult.</p>' +
-        '<a href="index.html#fitment" class="btn btn--chrome">Checkout &amp; get fitted</a>' +
+        '<a href="index.html#fitment" class="btn btn--primary">Checkout &amp; get fitted</a>' +
       '</div>';
     document.body.appendChild(overlay); document.body.appendChild(drawer);
     drawer.querySelector(".cart-drawer__close").addEventListener("click", close);

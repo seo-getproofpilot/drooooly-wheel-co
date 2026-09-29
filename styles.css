@@ -67,14 +67,14 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);
   transition:left .6s var(--ease);pointer-events:none}
 .btn:hover::before{left:160%}
-.btn--chrome{color:#0a0c0e;background:linear-gradient(180deg,#fff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
+.btn--primary{color:#0a0c0e;background:linear-gradient(180deg,#fff,#dfe4e9 46%,#aeb6be 62%,#eef2f5);
   box-shadow:0 6px 18px rgba(0,0,0,.45)}
-.btn--chrome:hover{transform:translateY(-3px) scale(1.03);
+.btn--primary:hover{transform:translateY(-3px) scale(1.03);
   box-shadow:0 16px 34px rgba(0,0,0,.3),0 6px 16px rgba(0,0,0,.22)}
-.btn--ghost{color:#fff;border:1.5px solid transparent;
+.btn--secondary{color:#fff;border:1.5px solid transparent;
   background:linear-gradient(rgba(10,11,14,.6),rgba(10,11,14,.6)) padding-box,
     linear-gradient(100deg,var(--blue-2),var(--blue) 60%,var(--blue-deep)) border-box;backdrop-filter:blur(10px)}
-.btn--ghost:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 26px rgba(31,123,255,.4),0 14px 30px rgba(0,0,0,.45)}
+.btn--secondary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 26px rgba(31,123,255,.4),0 14px 30px rgba(0,0,0,.45)}
 .btn--sm{min-height:44px;padding:0 18px;font-size:11px}
 .btn--block{width:100%}
 
@@ -838,14 +838,14 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .brandband__tag{color:#9aa0a8}
 
 /* --- BUTTONS --- */
-.btn--chrome{color:#fff;background:linear-gradient(180deg,#1b1b1e,#0b0b0c);box-shadow:0 6px 16px rgba(0,0,0,.22)}
-.btn--chrome:hover{color:#fff;box-shadow:0 14px 30px rgba(0,0,0,.3),0 6px 16px rgba(0,0,0,.2)}
-.btn--ghost{color:#111214;border:1.5px solid var(--line-2);background:#fff}
-.btn--ghost:hover{color:#111214;border-color:#111214;box-shadow:0 10px 24px rgba(0,0,0,.14)}
+.btn--primary{color:#fff;background:linear-gradient(180deg,#1b1b1e,#0b0b0c);box-shadow:0 6px 16px rgba(0,0,0,.22)}
+.btn--primary:hover{color:#fff;box-shadow:0 14px 30px rgba(0,0,0,.3),0 6px 16px rgba(0,0,0,.2)}
+.btn--secondary{color:#111214;border:1.5px solid var(--line-2);background:#fff}
+.btn--secondary:hover{color:#111214;border-color:#111214;box-shadow:0 10px 24px rgba(0,0,0,.14)}
 /* on dark contexts, invert buttons to white */
-.cine .btn--chrome,.nav .btn--chrome,.site-footer .btn--chrome,.brands .btn--chrome{color:#0a0c0e;background:linear-gradient(180deg,#fff,#dfe4e9 46%,#aeb6be 62%,#eef2f5)}
-.cine .btn--ghost{color:#fff;background:linear-gradient(rgba(10,11,14,.5),rgba(10,11,14,.5)) padding-box,linear-gradient(100deg,#fff,#c9ccd2) border-box}
-.cine .btn--ghost:hover{color:#fff;border-color:transparent}
+.cine .btn--primary,.nav .btn--primary,.site-footer .btn--primary,.brands .btn--primary{color:#0a0c0e;background:linear-gradient(180deg,#fff,#dfe4e9 46%,#aeb6be 62%,#eef2f5)}
+.cine .btn--secondary{color:#fff;background:linear-gradient(rgba(10,11,14,.5),rgba(10,11,14,.5)) padding-box,linear-gradient(100deg,#fff,#c9ccd2) border-box}
+.cine .btn--secondary:hover{color:#fff;border-color:transparent}
 
 /* --- CHROME TEXT → dark (for light bg) --- */
 .chrome{background:linear-gradient(180deg,#2a2c30,#0e0f11 60%,#3a3d42);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -1403,9 +1403,9 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   font-family:var(--label);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
   color:#8b9199;transition:color .25s;pointer-events:none;
   max-width:calc(100% - 28px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.blogo-tag em{font-style:normal;transition:transform .25s}
+.blogo-tag i{font-style:normal;transition:transform .25s}
 .blogo-tile:hover .blogo-tag{color:var(--blue-2)}
-.blogo-tile:hover .blogo-tag em{transform:translateX(3px)}
+.blogo-tile:hover .blogo-tag i{transform:translateX(3px)}
 
 /* gallery: always-on build-spec caption */
 .gallery-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:24px 12px 10px;
@@ -1416,10 +1416,10 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 
 /* hero secondary: solid brand-blue button (no outline) that pops off the photo */
 /* Get fitted: black chrome finish (metallic dark gradient), white Michroma text */
-.cine .btn--ghost{color:#fff;border:none;
+.cine .btn--secondary{color:#fff;border:none;
   background:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
   box-shadow:0 12px 28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2)}
-.cine .btn--ghost:hover{color:#fff;border:none;transform:translateY(-3px) scale(1.03);
+.cine .btn--secondary:hover{color:#fff;border:none;transform:translateY(-3px) scale(1.03);
   background:linear-gradient(180deg,#54545a 0%,#28282d 42%,#0c0c0f 58%,#1f1f23 74%,#48484e 100%);
   box-shadow:0 16px 36px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.24)}
 
@@ -1500,7 +1500,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .fitbar .vehmod select{height:48px;background:#f4f5f7;border:1px solid var(--line-2);
   color:#111214;border-radius:10px;font-size:14px}
 .fitbar .vehmod select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.15)}
-.fitbar .vehmod .btn--chrome{height:50px}
+.fitbar .vehmod .btn--primary{height:50px}
 .fitbar .vehmod__note{margin-top:10px;font-family:var(--body);font-size:12px;color:var(--muted);
   letter-spacing:0;text-transform:none}
 
@@ -1528,7 +1528,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .nav__inner{min-height:58px;gap:10px}
   .brand__img--emblem{width:150px}
   .nav__actions{gap:8px;margin-left:auto}
-  .nav__actions .btn--chrome{display:none}
+  .nav__actions .btn--primary{display:none}
   .cine{padding-top:82px;padding-bottom:128px}
   .mobile-nav{top:82px}
 
@@ -1552,7 +1552,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 /* ============================================================
    v31 — wider nav CTA · darker brand-card tags
    ============================================================ */
-.nav__actions .btn--chrome{padding-inline:34px}
+.nav__actions .btn--primary{padding-inline:34px}
 .blogo-tag{color:#23272e}
 
 /* ============================================================
@@ -1609,13 +1609,13 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .cta .fit-form input:focus,.cta .fit-form select:focus{
   outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.15)}
 /* black chrome — same finish as the hero "Get fitted" button, white Michroma text */
-.cta .fit-form .btn--chrome{height:54px;margin-top:6px;color:#fff;
+.cta .fit-form .btn--primary{height:54px;margin-top:6px;color:#fff;
   background:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
   box-shadow:0 12px 28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2);
   transition:background .28s ease,color .2s ease,box-shadow .25s ease,transform .18s ease}
-.cta .fit-form .btn--chrome:hover,
-.cta .fit-form .btn--chrome:active,
-.cta .fit-form .btn--chrome:focus-visible{color:#fff;
+.cta .fit-form .btn--primary:hover,
+.cta .fit-form .btn--primary:active,
+.cta .fit-form .btn--primary:focus-visible{color:#fff;
   background:linear-gradient(180deg,#54545a 0%,#28282d 42%,#0c0c0f 58%,#1f1f23 74%,#48484e 100%);
   box-shadow:0 16px 36px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.24)}
 .cta .fit-form__ok{color:#1f9d57}
@@ -1717,7 +1717,7 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
     display:block;text-align:center;max-width:none;padding:0;
     white-space:normal;overflow:visible;text-overflow:clip;
     font-size:9px;letter-spacing:.02em;line-height:1.18}
-  .blogo-grid .blogo-tag em{margin-left:3px}
+  .blogo-grid .blogo-tag i{margin-left:3px}
 }
 
 /* ============================================================
@@ -1752,13 +1752,13 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   .brands-toggle{font-size:10.5px;padding:14px 30px}
 
   /* Make 'em drool: black button with chrome lettering (Michroma) */
-  .cta .fit-form .btn--chrome{
+  .cta .fit-form .btn--primary{
     background:linear-gradient(180deg,#1d1d20,#08080a);
     box-shadow:0 14px 30px rgba(0,0,0,.5)}
-  .cta .fit-form .btn--chrome:hover,.cta .fit-form .btn--chrome:active{
+  .cta .fit-form .btn--primary:hover,.cta .fit-form .btn--primary:active{
     background:linear-gradient(180deg,#26262a,#101013);
     box-shadow:0 16px 34px rgba(0,0,0,.55)}
-  .cta .fit-form .btn--chrome .btn-txt{
+  .cta .fit-form .btn--primary .btn-txt{
     font-family:var(--display);font-weight:400;letter-spacing:.03em;
     background:linear-gradient(180deg,#ffffff,#d5dae0 44%,#9aa2ac 60%,#f0f3f6);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
@@ -1904,12 +1904,12 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .wheelmore p{max-width:56ch;margin:0 auto;color:var(--muted);font-size:clamp(13.5px,1.1vw,15px);line-height:1.6}
 .wheelmore__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
 .wheelmore__btns .btn{min-height:50px;padding-inline:24px}
-.wheelmore__btns .btn--chrome{border:none;color:#fff;
+.wheelmore__btns .btn--primary{border:none;color:#fff;
   background:linear-gradient(180deg,#48484d 0%,#202024 42%,#09090b 58%,#18181b 74%,#3c3c41 100%);
   box-shadow:0 12px 28px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.2)}
-.wheelmore__btns .btn--chrome .btn-txt{background:linear-gradient(180deg,#ffffff,#d5dae0 44%,#9aa2ac 60%,#f0f3f6);
+.wheelmore__btns .btn--primary .btn-txt{background:linear-gradient(180deg,#ffffff,#d5dae0 44%,#9aa2ac 60%,#f0f3f6);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.wheelmore__btns .btn--ghost{border:1px solid #c3c8cf;color:#0b0d12;background:#fff}
+.wheelmore__btns .btn--secondary{border:1px solid #c3c8cf;color:#0b0d12;background:#fff}
 
 @media(max-width:1100px){ .wheelgrid{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:820px){ .wheelgrid{grid-template-columns:repeat(2,1fr)} }
@@ -2111,11 +2111,11 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .btn .btn-txt,.brands-toggle .btn-txt{position:relative;z-index:2}
 
 /* lift only — scaling a machined edge shimmers and reads cheap */
-.btn:hover,.btn--chrome:hover,.btn--ghost:hover,
-.cine .btn--ghost:hover,.cta .fit-form .btn--chrome:hover,.brands-toggle:hover{
+.btn:hover,.btn--primary:hover,.btn--secondary:hover,
+.cine .btn--secondary:hover,.cta .fit-form .btn--primary:hover,.brands-toggle:hover{
   transform:translateY(-2px)}
-.btn:active,.cine .btn--ghost:active,
-.cta .fit-form .btn--chrome:active,.brands-toggle:active{
+.btn:active,.cine .btn--secondary:active,
+.cta .fit-form .btn--primary:active,.brands-toggle:active{
   transform:translateY(0);transition-duration:.08s}
 /* tight chrome catch-light */
 .btn::before{width:32%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
@@ -2123,56 +2123,10 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 .btn:focus-visible,.brands-toggle:focus-visible,.btn-add:focus-visible{
   outline:2px solid var(--blue-2);outline-offset:3px}
 
-/* ---- PRIMARY · liquid chrome billet (dark backgrounds) ---- */
-.cine .btn--chrome,.nav .btn--chrome,.site-footer .btn--chrome,.brands .btn--chrome,
-.tire-hero__cta .btn--chrome,.tbrand-cta .btn--chrome,.mobile-nav .btn--chrome{
-  color:#0c0e12;background:var(--fill-chrome);
-  text-shadow:0 1px 0 rgba(255,255,255,.5);
-  filter:drop-shadow(0 8px 18px rgba(0,0,0,.55))}
-.cine .btn--chrome:hover,.nav .btn--chrome:hover,.site-footer .btn--chrome:hover,
-.brands .btn--chrome:hover,.tire-hero__cta .btn--chrome:hover,
-.tbrand-cta .btn--chrome:hover,.mobile-nav .btn--chrome:hover{
-  filter:drop-shadow(0 14px 26px rgba(0,0,0,.6)) brightness(1.06)}
-
-/* ---- SECONDARY · black chrome billet ---- */
-.cine .btn--ghost,
-.cta .fit-form .btn--chrome,
-.wheelmore__btns .btn--chrome,
-.brands-toggle{
-  border:none;color:#eef2f6;background:var(--fill-black);
-  filter:drop-shadow(0 10px 22px rgba(0,0,0,.6))}
-.cine .btn--ghost:hover,
-.cta .fit-form .btn--chrome:hover,
-.cta .fit-form .btn--chrome:active,
-.cta .fit-form .btn--chrome:focus-visible,
-.wheelmore__btns .btn--chrome:hover,
-.brands-toggle:hover{
-  border:none;color:#fff;background:var(--fill-black);
-  filter:drop-shadow(0 15px 30px rgba(0,0,0,.68)) brightness(1.16)}
-/* chrome lettering wherever a .btn-txt span exists */
-.cta .fit-form .btn--chrome .btn-txt,
-.wheelmore__btns .btn--chrome .btn-txt,
-.brands-toggle .btn-txt{
-  background:var(--chrome-text);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.brands-toggle{padding:16px 34px}
-
-/* ---- light backgrounds: primary is the black billet ---- */
-.btn--chrome{color:#eef2f6;background:var(--fill-black);
-  filter:drop-shadow(0 7px 16px rgba(0,0,0,.3))}
-.btn--chrome:hover{color:#fff;filter:drop-shadow(0 12px 24px rgba(0,0,0,.34)) brightness(1.14)}
-/* ---- light backgrounds: secondary is a chamfered hairline ----
-   ::after at z-index:-1 paints over the parent background but UNDER the
-   text, which is what gives a clean 1.5px chamfered outline. */
-.btn--ghost,.wheelmore__btns .btn--ghost{
-  color:#111214;background:rgba(11,13,18,.34);border:none;filter:none;box-shadow:none}
-.btn--ghost::after,.wheelmore__btns .btn--ghost::after{
-  content:"";position:absolute;inset:1.5px;z-index:-1;
-  clip-path:var(--clip-billet);background:#fff;transition:background .2s}
-.btn--ghost::before{display:none}
-.btn--ghost:hover,.wheelmore__btns .btn--ghost:hover{
-  color:#0b0d12;background:#0b0d12}
-.btn--ghost:hover::after,.wheelmore__btns .btn--ghost:hover::after{background:#f4f6f8}
+/* ---- v122's six fill groups were removed in v199, which redefines every
+   fill in one place at the end of this file. They were context selectors
+   (.cine .btn--primary, .nav .btn--primary, ...) at specificity 0,2,0 and
+   would have beaten the new single-class rules from further up the file. ---- */
 
 /* ---- filter chips: small chamfer keeps them in the family ---- */
 .chip,.brandquick a,.veh-chip{border-radius:0;
@@ -2185,11 +2139,11 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 
 /* the light-context hairline ::after must NOT paint over dark-context
    ghosts (hero / tire hero), which are black chrome billets */
-.cine .btn--ghost::after,
-.tire-hero__cta .btn--ghost::after,
-.tbrand-cta .btn--ghost::after{content:none}
-.cine .btn--ghost::before,
-.tire-hero__cta .btn--ghost::before{display:block}
+.cine .btn--secondary::after,
+.tire-hero__cta .btn--secondary::after,
+.tbrand-cta .btn--secondary::after{content:none}
+.cine .btn--secondary::before,
+.tire-hero__cta .btn--secondary::before{display:block}
 
 /* ============================================================
    v123 — chrome fill softened + blue-chrome hover lettering
@@ -2214,33 +2168,33 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
 }
 
 /* ---- hover: face barely moves, letters do the work ---- */
-.cine .btn--chrome:hover,.nav .btn--chrome:hover,.site-footer .btn--chrome:hover,
-.brands .btn--chrome:hover,.tire-hero__cta .btn--chrome:hover,
-.tbrand-cta .btn--chrome:hover,.mobile-nav .btn--chrome:hover{
+.cine .btn--primary:hover,.nav .btn--primary:hover,.site-footer .btn--primary:hover,
+.brands .btn--primary:hover,.tire-hero__cta .btn--primary:hover,
+.tbrand-cta .btn--primary:hover,.mobile-nav .btn--primary:hover{
   filter:drop-shadow(0 14px 26px rgba(0,0,0,.6));
   color:#1a63cc;text-shadow:0 1px 0 rgba(255,255,255,.65),0 0 16px rgba(31,123,255,.4)}
-.cine .btn--ghost:hover,
-.cta .fit-form .btn--chrome:hover,
-.cta .fit-form .btn--chrome:active,
-.cta .fit-form .btn--chrome:focus-visible,
-.wheelmore__btns .btn--chrome:hover,
+.cine .btn--secondary:hover,
+.cta .fit-form .btn--primary:hover,
+.cta .fit-form .btn--primary:active,
+.cta .fit-form .btn--primary:focus-visible,
+.wheelmore__btns .btn--primary:hover,
 .brands-toggle:hover{
   filter:drop-shadow(0 15px 30px rgba(0,0,0,.68)) brightness(1.05);
   color:#5aa2ff;text-shadow:0 0 16px rgba(31,123,255,.5)}
 /* light-page primary (black chrome face) */
-.btn--chrome:hover{color:#5aa2ff;text-shadow:0 0 16px rgba(31,123,255,.5);
+.btn--primary:hover{color:#5aa2ff;text-shadow:0 0 16px rgba(31,123,255,.5);
   filter:drop-shadow(0 12px 24px rgba(0,0,0,.34)) brightness(1.05)}
 /* light-page secondary (white face) → deeper blue stays readable */
-.btn--ghost:hover,.wheelmore__btns .btn--ghost:hover{
+.btn--secondary:hover,.wheelmore__btns .btn--secondary:hover{
   color:#1a63cc;background:#1a63cc;text-shadow:0 0 14px rgba(31,123,255,.28)}
 
 /* chrome-clipped spans must swap their gradient, or they stay silver */
-.cta .fit-form .btn--chrome:hover .btn-txt,
-.wheelmore__btns .btn--chrome:hover .btn-txt,
+.cta .fit-form .btn--primary:hover .btn-txt,
+.wheelmore__btns .btn--primary:hover .btn-txt,
 .brands-toggle:hover .btn-txt{
   background:var(--blue-txt-bright);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.btn--ghost:hover .btn-txt{
+.btn--secondary:hover .btn-txt{
   background:var(--blue-txt-deep);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
@@ -2337,19 +2291,19 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    line along the top and a dark one along the bottom of every button. With
    the chamfered shape these read as haze, not as a machined edge. Cleared.
    ============================================================ */
-.cine .btn--ghost,
-.cine .btn--ghost:hover,
-.cta .fit-form .btn--chrome,
-.cta .fit-form .btn--chrome:hover,
-.cta .fit-form .btn--chrome:active,
-.cta .fit-form .btn--chrome:focus-visible,
-.wheelmore__btns .btn--chrome,
-.wheelmore__btns .btn--chrome:hover,
+.cine .btn--secondary,
+.cine .btn--secondary:hover,
+.cta .fit-form .btn--primary,
+.cta .fit-form .btn--primary:hover,
+.cta .fit-form .btn--primary:active,
+.cta .fit-form .btn--primary:focus-visible,
+.wheelmore__btns .btn--primary,
+.wheelmore__btns .btn--primary:hover,
 .brands-toggle,
 .brands-toggle:hover,
-.btn--chrome,.btn--chrome:hover,
-.cine .btn--chrome,.cine .btn--chrome:hover,
-.nav .btn--chrome,.nav .btn--chrome:hover{
+.btn--primary,.btn--primary:hover,
+.cine .btn--primary,.cine .btn--primary:hover,
+.nav .btn--primary,.nav .btn--primary:hover{
   box-shadow:none}
 
 /* ============================================================
@@ -2755,8 +2709,8 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .wheelmore__logo{height:clamp(30px,3.6vw,44px);width:auto;margin:0 auto 16px;display:block}
 .wheelmore--brand h3{color:#fff}
 .wheelmore--brand p{color:rgba(255,255,255,.75)}
-.wheelmore--brand .btn--ghost{border-color:rgba(255,255,255,.4);color:#fff}
-.wheelmore--brand .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.wheelmore--brand .btn--secondary{border-color:rgba(255,255,255,.4);color:#fff}
+.wheelmore--brand .btn--secondary:hover{border-color:#fff;background:rgba(255,255,255,.1)}
 
 /* ============================================================
    v166 — wheel page, unboxed.
@@ -2835,16 +2789,16 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    dark, hard to read at a glance. It is the site's chrome billet now: black
    letters on the polished face, lighting up blue on hover like every other
    chrome button. */
-.wheelmore__btns .btn--chrome{
+.wheelmore__btns .btn--primary{
   background:var(--fill-chrome);color:#0a0c0e;
   filter:drop-shadow(0 8px 20px rgba(0,0,0,.45))}
-.wheelmore__btns .btn--chrome .btn-txt{
+.wheelmore__btns .btn--primary .btn-txt{
   background:none;background-image:none;
   -webkit-text-fill-color:#0a0c0e;color:#0a0c0e}
-.wheelmore__btns .btn--chrome:hover{
+.wheelmore__btns .btn--primary:hover{
   filter:drop-shadow(0 14px 28px rgba(0,0,0,.55)) brightness(1.03);
   color:#1a63cc}
-.wheelmore__btns .btn--chrome:hover .btn-txt{
+.wheelmore__btns .btn--primary:hover .btn-txt{
   background:var(--blue-txt-deep);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent}
@@ -2857,14 +2811,14 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    one is a polished face with black lettering. Hold the chrome face and let
    only the letters change, which is what every other chrome button does.
    ============================================================ */
-.wheelmore__btns .btn--chrome:hover,
-.wheelmore__btns .btn--chrome:focus-visible,
-.wheelmore__btns .btn--chrome:active{
+.wheelmore__btns .btn--primary:hover,
+.wheelmore__btns .btn--primary:focus-visible,
+.wheelmore__btns .btn--primary:active{
   background:var(--fill-chrome);
   filter:drop-shadow(0 14px 28px rgba(0,0,0,.5));
   color:#1a63cc;text-shadow:none}
-.wheelmore__btns .btn--chrome:hover .btn-txt,
-.wheelmore__btns .btn--chrome:focus-visible .btn-txt{
+.wheelmore__btns .btn--primary:hover .btn-txt,
+.wheelmore__btns .btn--primary:focus-visible .btn-txt{
   background:var(--blue-txt-deep);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent}
@@ -3071,7 +3025,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      why the form felt like it took over the screen after the first tap. */
   .cta .fit-form input,.cta .fit-form select{height:44px;font-size:16px;
     border-radius:9px;padding-inline:12px}
-  .cta .fit-form .btn--chrome{height:48px;margin-top:2px}
+  .cta .fit-form .btn--primary{height:48px;margin-top:2px}
 
   /* Only the FIRST value does anything here. The cropped photo is 1080x1040
      against a ~375x755 section, so it is scaled to fill the height and the
@@ -3129,7 +3083,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    travel further between letterforms that are already thin.
    ============================================================ */
 .btn,.btn .btn-txt,
-.cta .fit-form .btn--chrome .btn-txt,
+.cta .fit-form .btn--primary .btn-txt,
 .brands-toggle,.filter-mobile-btn{
   font-family:var(--display);font-weight:400;font-size:14px;letter-spacing:.02em}
 .btn--sm,.btn--sm .btn-txt{font-size:12.5px;letter-spacing:.02em}
@@ -3141,7 +3095,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 
 @media(max-width:560px){
   .btn,.btn .btn-txt,
-  .cta .fit-form .btn--chrome .btn-txt{font-size:12.5px;letter-spacing:.01em}
+  .cta .fit-form .btn--primary .btn-txt{font-size:12.5px;letter-spacing:.01em}
 
   /* The hero pair STACKS on a phone. Measured: side by side on a 375px screen
      each button gets ~150px, and Michroma wraps above 12px — which is the size
@@ -3267,3 +3221,240 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 @media(max-width:560px){
   .fitpanel__label{font-size:11.5px;letter-spacing:.02em;white-space:nowrap}
 }
+
+/* ============================================================
+   v199 — THREE BUTTONS, ONE CHROME
+
+   The count that drove this: btn--chrome was on 30 of 44 buttons.
+   Chrome was the default, which is exactly why none of it read as
+   special. Now there is one liquid-chrome button on the site — the
+   hero's "Find your set" — and everything else is flat.
+
+     PRIMARY    flat. Near-black on light ground, near-white on dark.
+     SECONDARY  hairline outline, no fill.
+     LINK       type + arrow cap, no box.
+     · btn--hero is a modifier on primary, not a fourth style. It is
+       the liquid chrome, and it is used once.
+
+   Geometry: ONE cut corner, bottom-right, where the arrow cap sits —
+   so the cut reads as the lead-out rather than decoration. v122 cut
+   two (top-left and bottom-right); a single machined corner is
+   quieter and survives being repeated 44 times.
+
+   The polished lip is a background layer, not a pseudo-element:
+   clip-path would crop a pseudo at the corner and leave a notch.
+   ============================================================ */
+:root{
+  --cut:14px;
+  --cut-sm:10px;
+  --clip-billet:polygon(0 0, 100% 0, 100% calc(100% - var(--cut)),
+                calc(100% - var(--cut)) 100%, 0 100%);
+  --clip-billet-sm:polygon(0 0, 100% 0, 100% calc(100% - var(--cut-sm)),
+                   calc(100% - var(--cut-sm)) 100%, 0 100%);
+  /* the turned lip on a polished wheel: a bright line, then the shadow
+     under it. 2px total, so it reads at 44px tall without shouting. */
+  --lip-light:linear-gradient(0deg, rgba(255,255,255,.34) 0 1px, rgba(0,0,0,.22) 1px 2px, transparent 2px);
+  --lip-dark:linear-gradient(0deg, rgba(255,255,255,.55) 0 1px, rgba(0,0,0,.35) 1px 2px, transparent 2px);
+  --btn-ink:#0b0d12;
+  --btn-paper:#f3f6f9;
+}
+
+/* ---- PRIMARY · flat, light ground ---- */
+.btn--primary{
+  color:#fff; border:none;
+  background:var(--lip-light), var(--btn-ink);
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.26));
+  transition:background .2s var(--ease), filter .25s var(--ease), transform .25s var(--ease)}
+.btn--primary:hover{
+  color:#fff;
+  background:var(--lip-light), #16191f;
+  filter:drop-shadow(0 12px 22px rgba(0,0,0,.3)) drop-shadow(0 0 16px rgba(31,123,255,.34))}
+
+/* ---- PRIMARY · flat, dark ground ---- */
+.cine .btn--primary,.nav .btn--primary,.site-footer .btn--primary,.brands .btn--primary,
+.tire-hero__cta .btn--primary,.tbrand-cta .btn--primary,.mobile-nav .btn--primary{
+  color:var(--btn-ink);
+  background:var(--lip-dark), var(--btn-paper);
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.5))}
+.cine .btn--primary:hover,.nav .btn--primary:hover,.site-footer .btn--primary:hover,
+.brands .btn--primary:hover,.tire-hero__cta .btn--primary:hover,
+.tbrand-cta .btn--primary:hover,.mobile-nav .btn--primary:hover{
+  color:var(--btn-ink);
+  background:var(--lip-dark), #fff;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(31,123,255,.4))}
+
+/* ---- SECONDARY · hairline, no fill ----
+   ::after at z-index:-1 paints over the parent background but under the
+   text — the trick that gives a clean cut-corner outline on one element. */
+.btn--secondary{
+  color:#111214; background:var(--line-2); border:none; filter:none; box-shadow:none}
+.btn--secondary::before{display:none}
+.btn--secondary::after{
+  content:"";position:absolute;inset:1.5px;z-index:-1;
+  clip-path:var(--clip-billet);background:#fff;transition:background .2s}
+.btn--secondary:hover{color:var(--btn-ink);background:var(--btn-ink)}
+.btn--secondary:hover::after{background:#eef1f5}
+/* on a dark ground the hairline is light and the fill is the page */
+.cine .btn--secondary,.site-footer .btn--secondary,.mobile-nav .btn--secondary,
+.tire-hero__cta .btn--secondary,.tbrand-cta .btn--secondary{
+  color:#eef2f6;background:rgba(255,255,255,.34)}
+/* translucent, not opaque: an opaque panel over the hero photo reads as a
+   grey box stuck on the picture. Dark enough that the label still carries. */
+.cine .btn--secondary::after,.site-footer .btn--secondary::after,
+.mobile-nav .btn--secondary::after,.tire-hero__cta .btn--secondary::after,
+.tbrand-cta .btn--secondary::after{background:rgba(8,10,14,.58);backdrop-filter:blur(3px)}
+.cine .btn--secondary:hover,.site-footer .btn--secondary:hover,
+.mobile-nav .btn--secondary:hover,.tire-hero__cta .btn--secondary:hover,
+.tbrand-cta .btn--secondary:hover{color:#fff;background:rgba(255,255,255,.72)}
+.cine .btn--secondary:hover::after,.site-footer .btn--secondary:hover::after,
+.mobile-nav .btn--secondary:hover::after,.tire-hero__cta .btn--secondary:hover::after,
+.tbrand-cta .btn--secondary:hover::after{background:rgba(16,20,28,.82)}
+
+/* ---- HERO · the one liquid chrome on the site ----
+   Specificity 0,2,0 so it beats the dark-ground primary above it. */
+.cine .btn--hero,.btn--hero{
+  color:#0c0e12;
+  background:var(--lip-dark), var(--fill-chrome);
+  text-shadow:0 1px 0 rgba(255,255,255,.5);
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.55))}
+.cine .btn--hero:hover,.btn--hero:hover{
+  color:#0c0e12;
+  background:var(--lip-dark), var(--fill-chrome);
+  filter:drop-shadow(0 14px 28px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(31,123,255,.45)) brightness(1.05)}
+
+/* ---- the arrow cap ----
+   Its own block on the end of the button, divided off by a hairline, so
+   every arrow on the site is the same object instead of a loose glyph.
+   The blue lives here — it is the one place the brand colour appears on
+   a button at rest. */
+/* .cine__cta .btn sets padding-inline at 0,2,0, so the cap needs to match it
+   to reach the edge. */
+.btn--go,.cine__cta .btn--go{padding-right:0}
+.btn--go .cap,
+.aud-card__go i,.show2-build i,.blogo-tag i,.prod__link i,.fitpanel__label i{
+  font-style:normal;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--blue-2);transition:transform .28s var(--ease),background .2s,color .2s}
+.btn--go .cap{
+  margin-left:18px;align-self:stretch;width:46px;
+  border-left:1px solid rgba(127,140,158,.34);
+  font-size:15px;line-height:1}
+.btn--go:hover .cap{transform:translateX(3px)}
+/* on the flat primaries the cap divider has to read against the fill */
+.btn--primary.btn--go .cap{border-left-color:rgba(255,255,255,.22)}
+.cine .btn--primary.btn--go .cap,.btn--hero.btn--go .cap{border-left-color:rgba(0,0,0,.18)}
+
+/* text links: the same cap, sized down, no box */
+.aud-card__go i,.show2-build i,.blogo-tag i,.prod__link i,.fitpanel__label i{
+  width:17px;height:17px;margin-left:7px;
+  border:1px solid rgba(31,123,255,.42);
+  font-size:10px;transform:translateY(1px)}
+.aud-card__go:hover i,.show2-build:hover i,.blogo-tag:hover i,.prod__link:hover i,
+.fitpanel:hover .fitpanel__label i{
+  background:var(--blue-2);border-color:var(--blue-2);color:#fff;
+  transform:translate(3px,1px)}
+.aud-card:hover .aud-card__go i{
+  background:var(--blue-2);border-color:var(--blue-2);color:#fff;transform:translate(3px,1px)}
+
+@media(max-width:560px){
+  :root{--cut:12px;--cut-sm:9px}
+  .btn--go .cap{width:40px;margin-left:14px;font-size:14px}
+}
+
+/* ============================================================
+   v199b — clearing the older button eras.
+
+   This file has three previous button treatments layered in it (v49's
+   black-chrome CTA submit, v123's blue hover lettering, v175's chrome
+   "view more"), and several of them are context selectors at 0,3,0 or
+   0,4,0. Being last in the file is not enough to beat those, so each
+   one is answered here at matching specificity rather than left to
+   source order — which is how this stylesheet has gone wrong before.
+
+   Two rules everywhere now: the fill is flat, and the letters are
+   solid. Chrome-clipped lettering existed to keep text legible on a
+   mirrored face; on a flat face it only makes the type thinner, which
+   was the original complaint about these buttons.
+   ============================================================ */
+.cta .fit-form .btn--primary,
+.cta .fit-form .btn--primary:hover,
+.cta .fit-form .btn--primary:active,
+.cta .fit-form .btn--primary:focus-visible,
+.wheelmore__btns .btn--primary,
+.wheelmore__btns .btn--primary:hover,
+.wheelmore__btns .btn--primary:focus-visible,
+.wheelmore__btns .btn--primary:active{
+  color:#fff;background:var(--lip-light), var(--btn-ink);
+  box-shadow:none;text-shadow:none;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.26))}
+.cta .fit-form .btn--primary:hover,
+.wheelmore__btns .btn--primary:hover{
+  background:var(--lip-light), #16191f;
+  filter:drop-shadow(0 12px 22px rgba(0,0,0,.3)) drop-shadow(0 0 16px rgba(31,123,255,.34))}
+
+/* solid letters — undo every clipped gradient that targeted a button */
+.btn .btn-txt,
+.brands-toggle .btn-txt,
+.cta .fit-form .btn--primary .btn-txt,
+.cta .fit-form .btn--primary:hover .btn-txt,
+.wheelmore__btns .btn--primary .btn-txt,
+.wheelmore__btns .btn--primary:hover .btn-txt,
+.wheelmore__btns .btn--primary:focus-visible .btn-txt,
+.btn--secondary:hover .btn-txt,
+.brands-toggle:hover .btn-txt{
+  background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  -webkit-text-fill-color:currentColor;color:inherit}
+
+/* hover keeps the label solid; the blue arrives as glow, cap and focus ring */
+.btn--primary:hover,.btn--secondary:hover,
+.cine .btn--secondary:hover,.brands-toggle:hover{text-shadow:none}
+.btn--primary:hover{color:#fff}
+.cine .btn--primary:hover,.nav .btn--primary:hover,.site-footer .btn--primary:hover,
+.brands .btn--primary:hover,.mobile-nav .btn--primary:hover{color:var(--btn-ink)}
+.cine .btn--hero:hover,.btn--hero:hover{color:#0c0e12}
+
+/* the brand-wall toggle is a primary like any other */
+.brands-toggle{
+  color:var(--btn-ink);background:var(--lip-dark), var(--btn-paper);
+  border:none;box-shadow:none;filter:drop-shadow(0 6px 16px rgba(0,0,0,.5))}
+.brands-toggle:hover{
+  color:var(--btn-ink);background:var(--lip-dark), #fff;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(31,123,255,.4))}
+
+/* ============================================================
+   v199c — the dark grounds the first pass missed.
+
+   Which sections are dark is MEASURED, not guessed: walk up from every
+   button on all eight pages to the first opaque ancestor and read its
+   luminance. .fin-hero, .fin-calc and .cta came back at 12–13 while
+   being served the light-ground treatment — a #0b0d12 button sitting on
+   a #0b0d12 section, visible only by its lip. Re-run that audit before
+   adding a section here, or this list quietly rots.
+
+   Same specificity as the v199 dark rules (0,2,0) and later in the file,
+   so these win the tie rather than depending on order alone elsewhere.
+   .cta .fit-form .btn--primary stays black at 0,3,0 — that one really is
+   on a white card inside a dark section.
+   ============================================================ */
+.fin-hero .btn--primary,.fin-calc .btn--primary,.cta .btn--primary{
+  color:var(--btn-ink);
+  background:var(--lip-dark), var(--btn-paper);
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.5))}
+.fin-hero .btn--primary:hover,.fin-calc .btn--primary:hover,.cta .btn--primary:hover{
+  color:var(--btn-ink);
+  background:var(--lip-dark), #fff;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(31,123,255,.4))}
+
+.fin-hero .btn--secondary,.fin-calc .btn--secondary,.cta .btn--secondary{
+  color:#eef2f6;background:rgba(255,255,255,.34)}
+.fin-hero .btn--secondary::after,.fin-calc .btn--secondary::after,
+.cta .btn--secondary::after{background:rgba(8,10,14,.58);backdrop-filter:blur(3px)}
+.fin-hero .btn--secondary:hover,.fin-calc .btn--secondary:hover,
+.cta .btn--secondary:hover{color:#fff;background:rgba(255,255,255,.72)}
+.fin-hero .btn--secondary:hover::after,.fin-calc .btn--secondary:hover::after,
+.cta .btn--secondary:hover::after{background:rgba(16,20,28,.82)}
+
+/* the CTA submit is on a white console card inside that dark section */
+.cta .fit-form .btn--primary{
+  color:#fff;background:var(--lip-light), var(--btn-ink)}
+.cta .fit-form .btn--primary:hover{
+  color:#fff;background:var(--lip-light), #16191f}

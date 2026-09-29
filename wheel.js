@@ -463,7 +463,7 @@
             "Everything above is what " + esc(brand.name) + " publishes for this style — " +
             "we confirm the build with them before anything is cut.</p>" +
           '<div class="wcta">' +
-            '<a class="btn btn--chrome" href="index.html?w=' +
+            '<a class="btn btn--primary" href="index.html?w=' +
               encodeURIComponent(brand.name + " " + model.model) + '#fitment">' +
               '<span class="btn-txt">Get this wheel quoted</span></a>' +
           "</div>" +

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Button Lab v3 — DROOOLY Wheel &amp; Tire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=199" />
+<style>
+  body{margin:0;background:#07090d;color:#eef2f6;font-family:Inter,system-ui,sans-serif}
+  .lab{max-width:1080px;margin:0 auto;padding:54px 28px 110px}
+  .lab h1{font-family:Michroma;font-size:22px;margin:0 0 10px;letter-spacing:.02em}
+  .lab p.sub{color:#939ca7;font-size:14px;line-height:1.7;max-width:680px;margin:0 0 34px}
+  .band{padding:38px 34px;margin:0 0 22px;border:1px solid rgba(255,255,255,.08)}
+  .band--dark{background:#0a0c10}
+  .band--photo{background:#0a0c10 url(assets/truck-hero.jpg) center/cover}
+  .band--light{background:#f4f6f8}
+  .band h2{font-family:Michroma;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    margin:0 0 4px;color:#7f8c9e}
+  .band--light h2{color:#6b7480}
+  .band p.k{font-size:12.5px;color:#939ca7;margin:0 0 22px;line-height:1.6}
+  .band--light p.k{color:#5a626c}
+  .set{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .cine{background:transparent}
+  /* .cine__cta is a grid on the real page; here the row should just flow */
+  .lab .cine__cta{display:flex;grid-auto-flow:row;gap:16px;width:auto}
+  .band--photo{min-height:200px;display:flex;flex-direction:column;justify-content:flex-end}
+</style>
+</head>
+<body>
+<div class="lab">
+  <h1>Three buttons, one chrome</h1>
+  <p class="sub">Every button on the site, rendered from the live <code>styles.css</code> —
+     change the stylesheet and this page changes with it. Hover each one.</p>
+
+  <div class="band band--photo cine">
+    <h2>Dark ground · the hero</h2>
+    <p class="k">Primary is the one liquid-chrome button on the site. Secondary is glass with a hairline.</p>
+    <div class="set cine__cta">
+      <a href="#" class="btn btn--primary btn--hero btn--go">Find your set<span class="cap">&rarr;</span></a>
+      <a href="#" class="btn btn--secondary">Get fitted</a>
+    </div>
+  </div>
+
+  <div class="band band--dark nav">
+    <h2>Dark ground · everywhere else</h2>
+    <p class="k">Flat near-white. No chrome — that is the point of the chrome above.</p>
+    <div class="set">
+      <a href="#" class="btn btn--primary">Get fitted</a>
+      <a href="#" class="btn btn--primary btn--go">Shop wheels<span class="cap">&rarr;</span></a>
+      <a href="#" class="btn btn--primary btn--sm">Get fitted</a>
+      <a href="#" class="btn btn--secondary">See your monthly</a>
+    </div>
+  </div>
+
+  <div class="band band--light">
+    <h2>Light ground</h2>
+    <p class="k">Flat near-black, white label. Secondary is a hairline on the page.</p>
+    <div class="set">
+      <a href="#" class="btn btn--primary">Prequalify now</a>
+      <a href="#" class="btn btn--primary btn--go">Shop wheels<span class="cap">&rarr;</span></a>
+      <a href="#" class="btn btn--secondary">Talk to a specialist</a>
+      <a href="#" class="btn btn--primary btn--sm">Get fitted</a>
+    </div>
+  </div>
+
+  <div class="band band--dark">
+    <h2>The arrow cap, small</h2>
+    <p class="k">The same object on text links, so every arrow on the site is one thing.</p>
+    <div class="set" style="gap:28px">
+      <a href="#" class="show2-build" style="color:#eef2f6;text-decoration:none;font-size:13px">Run these <i>&rarr;</i></a>
+      <span class="aud-card__go" style="color:#eef2f6;font-size:13px">Shop lifted <i>&rarr;</i></span>
+      <a href="#" class="blogo-tag" style="color:#eef2f6;text-decoration:none;font-size:13px">Shop JTX Forged <i>&rarr;</i></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

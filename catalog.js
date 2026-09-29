@@ -176,7 +176,7 @@
       var extra = i >= VISIBLE ? " blogo-tile--extra" : "";
       return '<a class="blogo-tile fade' + extra + '" data-d="' + ((i % 6) + 1) + '" href="brand.html?brand=' + b.slug + '" aria-label="Shop ' + b.name + '">' +
         '<img class="blogo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + b.name + '" loading="lazy">' +
-        '<span class="blogo-tag">Shop ' + b.name + ' <em>→</em></span></a>';
+        '<span class="blogo-tag">Shop ' + b.name + ' <i>→</i></span></a>';
     }).join("");
 
     // add the show-all / show-fewer toggle once
@@ -818,7 +818,7 @@
               '<p>We show the most popular styles. See the whole lineup on ' + esc(b.name) +
                 '&rsquo;s site, then come back with the one you want — we build the set, mount the tires and quote it out the door.</p>' +
               '<div class="wheelmore__btns">' +
-                '<a class="btn btn--chrome" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
+                '<a class="btn btn--primary" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                   '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
               '</div>' +
             '</div>'
@@ -950,9 +950,9 @@
           ? '<div class="wheelmore"><h3>See the full ' + esc(b.name) + ' range</h3>' +
             '<p>Browse every tread on ' + esc(b.name) + '&rsquo;s site — then come back and we&rsquo;ll mount and balance them to your wheels.</p>' +
             '<div class="wheelmore__btns">' +
-              '<a class="btn btn--chrome" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
+              '<a class="btn btn--primary" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                 '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
-              '<a class="btn btn--ghost" href="index.html#fitment">Get fitted</a></div></div>'
+              '<a class="btn btn--secondary" href="index.html#fitment">Get fitted</a></div></div>'
           : '') +
         '<p class="wheelwrap__note">Sizes shown are what we stock for truck fitments. Tell us your wheels and we&rsquo;ll confirm the right size — <a href="index.html#fitment">get fitted</a>.</p>' +
       '</section>';
