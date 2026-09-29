@@ -1462,12 +1462,15 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
    fixed height with object-fit:contain, so a 900px wheel render and a 506px
    tire sit at the same visual weight without either being upscaled past what
    its pixels support. */
+/* No card. The wheel and the tire sit on the page — the boxes were framing the
+   product instead of showing it, and the band already has a white ground, so
+   the border and the near-white fill were drawing a rectangle for no reason.
+   Hover moves the product itself rather than lifting a card. */
 .fitpanel{display:flex;flex-direction:column;align-items:center;gap:12px;
-  padding:26px 18px 22px;text-decoration:none;
-  background:linear-gradient(180deg,#fff,#f2f4f7);border:1px solid var(--line);border-radius:16px;
-  transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease)}
-.fitpanel:hover{transform:translateY(-3px);border-color:var(--line-2);
-  box-shadow:0 18px 40px rgba(0,0,0,.13)}
+  padding:14px 8px 10px;text-decoration:none;
+  background:none;border:0;border-radius:0;
+  transition:transform .22s var(--ease)}
+.fitpanel:hover{transform:translateY(-3px)}
 /* Capped at 264px on purpose. The wheel render is 900px so it has room to
    spare, but the tire is 506px — past ~264 it stops being sharp on a 2x screen,
    and a soft tire beside a crisp wheel is worse than both being a little
