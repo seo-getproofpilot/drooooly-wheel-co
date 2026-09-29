@@ -3102,26 +3102,64 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 }
 
 /* ============================================================
-   v185 — button lettering: Inter 700, not Michroma.
+   v186 — button lettering: Michroma, sized to be read.
 
-   Michroma ships in a single weight (400). At 12px with .04em tracking that
-   is a display face doing UI work, and it read as thin and hard to scan —
-   there was no "bolder" to reach for, because the face does not have one.
+   REPLACES the v185 Inter experiment. Inter 700 was more legible in isolation
+   but it did not belong to this page — Michroma is the logo, the nav and every
+   heading, and the buttons were the only thing speaking a different language.
+   The original problem was never the face, it was 12px: a wide, single-weight
+   display face set small enough that you had to hover to read it.
 
-   Inter 700 is already loaded (400/500/600/700) and is what .btn-add has
-   always used, so this is an existing pattern rather than a new one. Michroma
-   keeps the logo, the nav and the headings, which is where it earns its keep.
-
-   SUPERSEDES the font declarations in `.btn` (v9, ~line 1020) and on the
-   "Make 'em drool" submit (v61, ~line 1748); the chrome gradient lettering on
-   that button is untouched, it just gets a face you can read.
+   So: Michroma, and enough size to carry it. 14px sitewide, 16px in the hero
+   where the two buttons are the main event, with tracking pulled in — wide
+   tracking is what made the small size unreadable, because the eye has to
+   travel further between letterforms that are already thin.
    ============================================================ */
 .btn,.btn .btn-txt,
 .cta .fit-form .btn--chrome .btn-txt,
 .brands-toggle,.filter-mobile-btn{
-  font-family:var(--label);font-weight:700;font-size:12.5px;letter-spacing:.08em}
-.btn--sm,.btn--sm .btn-txt{font-size:11.5px;letter-spacing:.07em}
+  font-family:var(--display);font-weight:400;font-size:14px;letter-spacing:.02em}
+.btn--sm,.btn--sm .btn-txt{font-size:12.5px;letter-spacing:.02em}
+
+/* The hero pair carries the page, so it gets the bigger treatment and a taller
+   box to sit in. */
+.cine__cta .btn{min-height:62px;padding-inline:38px}
+.cine__cta .btn,.cine__cta .btn .btn-txt{font-size:16px;letter-spacing:.015em}
+
 @media(max-width:560px){
   .btn,.btn .btn-txt,
-  .cta .fit-form .btn--chrome .btn-txt{font-size:12px;letter-spacing:.06em}
+  .cta .fit-form .btn--chrome .btn-txt{font-size:12.5px;letter-spacing:.01em}
+
+  /* The hero pair STACKS on a phone. Measured: side by side on a 375px screen
+     each button gets ~150px, and Michroma wraps above 12px — which is the size
+     that was too small to read in the first place. Stacked, they take the full
+     327px and carry 15px comfortably. Costs one button of height; buys a label
+     you can read without hovering, which was the point. */
+  .cine__cta{grid-auto-flow:row;grid-auto-columns:auto;gap:10px}
+  .cine__cta .btn{min-height:56px;padding-inline:20px}
+  .cine__cta .btn,.cine__cta .btn .btn-txt{font-size:15px;letter-spacing:.015em}
+}
+
+/* ============================================================
+   v186 — the fitment band uses the page.
+
+   .fitbar__inner is a .wrap, so it was capped at --max (1280px) and centred.
+   On a wide monitor that left a deep empty gutter either side while the finder
+   itself sat in a 560px column — the band read as a narrow strip floating in
+   white space.
+
+   Wider container, and the centre column takes whatever is left after two
+   fixed-ish panels rather than being capped at 560. The panels stay about 330
+   so the wheel and the tire keep their proportions (their sources cap at 264px
+   of crisp image); everything gained goes to the finder, which is the part
+   that was cramped.
+   ============================================================ */
+@media(min-width:1140px){
+  .fitbar__inner{width:min(100% - 72px,1560px);
+    grid-template-columns:minmax(250px,330px) minmax(0,1fr) minmax(250px,330px);
+    gap:clamp(28px,4vw,72px)}
+  /* The form stops growing before it turns into a letterbox; the three selects
+     read worse stretched across 700px than they do at a comfortable measure. */
+  .fitbar .vehmod{max-width:660px;margin-inline:auto}
+  .fitbar__sub{max-width:60ch}
 }
