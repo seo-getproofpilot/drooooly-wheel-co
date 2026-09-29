@@ -23,8 +23,8 @@
   function logoSrc(b) { return "assets/brands/" + (LOGO[b.slug] || (b.slug + ".png")); }
   function logoFx(b) { return FX[b.slug] || ""; }
 
-  var CONFIG_ORDER = ["single", "dually", "super single"];
-  function cfgLabel(c) { return { "single":"Single","dually":"Dually","super single":"Super Single" }[c] || c; }
+  var CONFIG_ORDER = ["single", "dually", "super single", "utv"];
+  function cfgLabel(c) { return { "single":"Single","dually":"Dually","super single":"Super Single","utv":"Side-by-side" }[c] || c; }
   function cfgKey(c) { return c.replace(/\s+/g, "-"); }
   function money(n) { return "$" + n.toLocaleString("en-US"); }
   function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h; }
@@ -94,6 +94,15 @@
           ? '<div class="prod__lane"><span>' + esc(lane.note) + '</span>' +
             sizes.slice(0, 4).map(function (x) { return "<b>" + fmtSize(x) + "</b>"; }).join("") +
             (sizes.length > 4 ? '<i>+' + (sizes.length - 4) + " more</i>" : "") + "</div>"
+          : "") +
+        /* A size tells a truck buyer what they need to know. A side-by-side
+           buyer needs the bolt pattern first — 4x137 Can-Am and 4x156 Polaris
+           are the same wheel in two incompatible drillings, and picking the
+           wrong one is the single most common way this order goes wrong. */
+        (lane && lane.bolts && m.bolts && m.bolts.length
+          ? '<div class="prod__lane"><span>Bolt patterns</span>' +
+            m.bolts.slice(0, 4).map(function (x) { return "<b>" + esc(x) + "</b>"; }).join("") +
+            (m.bolts.length > 4 ? '<i>+' + (m.bolts.length - 4) + " more</i>" : "") + "</div>"
           : "") +
         '<div class="prod__price"><b>' + money(p) + '</b><small>/ wheel</small></div>' +
         '<div class="prod__set">Full set &amp; tire pricing at fitment</div>' +
@@ -257,6 +266,28 @@
         return c.indexOf("dually") > -1 || c.indexOf("super single") > -1;
       },
       suits: function (sz) { return sz.w !== null && sz.w !== 8.25; }
+    },
+    /* Side-by-sides and sand cars. The only lane that isn't a truck, and the
+       only one whose wheels the catalog didn't carry until we pulled Method's
+       and Raceline's own UTV listings in (tools/scrape-utv.js). Both brands
+       were already here, so this is a product line we added, not a brand.
+
+       Bolt pattern does the work this lane's customer actually cares about:
+       4x137 is Can-Am, 4x156 is Polaris, and the two are not interchangeable. */
+    utv: {
+      title: "Side-by-sides & sand",
+      sub: "Beadlock and bead-grip in 14s and 15s, on 4x137 for a Can-Am or 4x156 for a RZR. " +
+           "Sand cars run the wide rear and the narrow front off the same shelf. " +
+           "Tell us the machine and where you ride it and we'll spec the set.",
+      note: "Sizes for a side-by-side",
+      common: ["14x7", "15x7", "15x10"],
+      bolts: true,
+      match: function (m) { return (m.configs || []).indexOf("utv") > -1; },
+      /* Raceline's utv-atv line runs down to 9x8 and 10x5 — genuine quad
+         sizes, kept in the catalog because they publish them, but a sport
+         quad wheel is not what someone building a side-by-side is shopping
+         for. 14 is the smallest wheel any of these machines takes. */
+      suits: function (sz) { return sz.d >= 14; }
     }
   };
 
@@ -273,8 +304,10 @@
   }
   function fmtSize(s) { return s.replace("x", "×") + '"'; }
 
-  var DIA_BUCKETS = [["20","20\""],["22","22\""],["24","24\""],["26","26\"+"]];
-  function diaBucket(m) { var d = maxDia(m); if (d >= 26) return "26"; if (d >= 24) return "24"; if (d >= 22) return "22"; return "20"; }
+  /* 15 exists because the UTV line is 14s and 15s. Without it every
+     side-by-side wheel answered to the "20"" filter, which is just wrong. */
+  var DIA_BUCKETS = [["15","14\u201315\""],["20","20\""],["22","22\""],["24","24\""],["26","26\"+"]];
+  function diaBucket(m) { var d = maxDia(m); if (d >= 26) return "26"; if (d >= 24) return "24"; if (d >= 22) return "22"; if (d >= 16) return "20"; return "15"; }
 
   function renderShop(root) {
     var params = new URLSearchParams(location.search);
@@ -291,7 +324,10 @@
     var lane = LANES[params.get("build")] || null;
 
     // heading
-    var title = "All wheels", sub = "Every forged wheel we carry — hand-spec'd for your exact truck.";
+    /* Not "every forged wheel ... for your exact truck" any more: the grid now
+       also holds 25 cast and bead-grip UTV styles, which are neither forged nor
+       for a truck. */
+    var title = "All wheels", sub = "Every wheel we carry — trucks, duallies and side-by-sides, hand-spec'd to your setup.";
     if (state.brands.length === 1 && bySlug[state.brands[0]]) { var bb = bySlug[state.brands[0]]; title = bb.name; sub = bb.tagline || sub; }
     else if (cat === "packages") { title = "Wheel &amp; Tire Packages"; sub = "Complete, mounted &amp; balanced — wheels, tires, TPMS and lugs, out the door."; }
     else if (state.configs.indexOf("dually") > -1 || state.configs.indexOf("super single") > -1) { title = "Dually &amp; Super Single"; sub = "Big-and-bold forged dually and super-single setups that own the lane."; }

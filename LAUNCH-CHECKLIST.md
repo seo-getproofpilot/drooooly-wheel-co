@@ -47,6 +47,11 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 
 ---
 
+- 🔴 **1.6 · The side-by-side card photo** (`assets/builds/utv-1.jpg`). Cropped from a
+  Raceline marketing image (`Product_Detail_1500x1200_OffroadProven1.jpg`) — their logo
+  and headline were cropped off, but the photograph underneath is still theirs and we
+  now host it. Same footing as 1.4, and the same permission is needed.
+
 ## 2. Pricing — CLAUDE.md rule 4
 
 | # | What | Status |
@@ -60,6 +65,18 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 | 2.7 | **"4.9 · 1,200+ trucks fitted" is fabricated**, and so are the Instagram counts (438 posts / 41.2k followers / 163 following) and the financing figures ("as low as $312/mo", "$0 down", "terms up to 24 months", "0% intro offers"). A launching shop has not fitted 1,200 trucks. These are the claims most likely to be challenged by a brand rep or a lender. | 🔴 Decide per claim: substantiate, soften, or remove. |
 
 ---
+
+- 🔴 **2.8 · The shop grid ignores every real price we hold.** `allProducts()` prices each
+  card with `priceEach()` (`catalog.js:37`) — a formula over brand kind and diameter with a
+  hash for jitter. It never reads `model.priceFrom`, so JTX Ace shows **$1,320** against a
+  stored `priceFrom: 897`, and the 25 UTV styles show formula numbers against Method's and
+  Raceline's own advertised prices. Preferring `priceFrom` is a one-line change, but it moves
+  the displayed price on ~241 models, so it needs a MAP decision rather than a quiet fix.
+- 🟡 **2.9 · UTV prices are the manufacturer's advertised price**, read from Method's and
+  Raceline's storefronts (per wheel; set-of-four is that times four). Real numbers, but not
+  yet checked against dealer cost or either brand's MAP terms. One style — Method 413 UTV
+  Forged Beadlock — is sold out at every variant, so it has no published price and still
+  falls back to the formula.
 
 ## 3. Brands — CLAUDE.md rule 3
 
@@ -109,6 +126,17 @@ each one is a phone call away from being better.
 
 ---
 
+- 🟡 **4.25 · The UTV line is a new product category from existing brands.** Method and
+  Raceline were already in the catalog as truck brands, so rule 3 is satisfied on the brand —
+  but a distributor agreement for truck wheels does not automatically cover a side-by-side
+  programme. Confirm both lines are on the same account before launch.
+- 🟡 **4.26 · Nine UTV styles ship with no finish.** Raceline's older listings state the
+  finish only in the product photograph, in no field we can read. Left empty rather than
+  guessed — a swatch we invented would be a colour the customer can't order.
+- 🟡 **4.27 · No build photos for the side-by-side lane.** `shop.html?build=utv` renders no
+  photo strip because `builds-data.js` has no `utv` entry. Correct behaviour, but it means
+  the newest lane is the one with no proof underneath it.
+
 ## 5. Feature debt
 
 | # | What | Status |
@@ -146,6 +174,14 @@ each one is a phone call away from being better.
 - 🟢 No dead links or missing image files on the homepage; every in-page anchor resolves.
 - 🟢 `styles.css` braces balance. A stray top-level `}` (left over from an old media query)
   was removed; browsers had been discarding it.
+- 🟢 UTV sizes, bolt patterns and prices are scraped from Method's and Raceline's own
+  product feeds (`tools/scrape-utv.js` → `data/specs/utv-models.json`) — published specs,
+  nothing inferred. Quad sizes are kept as published and filtered at display, not deleted.
+- 🟢 The UTV merge refuses to overwrite a same-named truck wheel. Raceline builds both a
+  truck Hostage and a UTV A92 Hostage; the first pass collapsed them and took the truck
+  wheel's sizes, finishes, price and featured rank with it. The merge now throws instead.
+- 🟢 The language guard covers the new lane copy — proven by injecting a violation into
+  `catalog.js` and watching the suite fail, then pass again once removed.
 
 ---
 

@@ -305,6 +305,73 @@ for (const file of files) {
   }
 }
 
+/* ---- UTV / sand lane -------------------------------------------------
+   data/specs/utv-models.json is written by tools/scrape-utv.js from Method's
+   and Raceline's own product feeds. Both brands are already in the catalog,
+   so this adds a product line we didn't carry, not a brand we can't sell.
+
+   These merge like any other model. Their configs are ["utv"] alone, which
+   keeps them out of the lifted and dually lanes — those match on "single"
+   and "dually"/"super single" — without anything here having to know about
+   those lanes.
+
+   Sizes go in exactly as published, quad sizes included. Raceline's utv-atv
+   line genuinely spans both, and the lane decides what to show; the catalog
+   is not the place to edit the manufacturer down.                        */
+const utvFile = path.join(ROOT, "data/specs/utv-models.json");
+if (fs.existsSync(utvFile)) {
+  const utv = JSON.parse(fs.readFileSync(utvFile, "utf8"));
+  for (const [slug, list] of Object.entries(utv.brands || {})) {
+    const brand = BRANDS.find((b) => b.slug === slug);
+    if (!brand) { console.log(`utv: no "${slug}" brand in the catalog — ${list.length} model(s) skipped`); continue; }
+    const dir = path.join(ROOT, "assets/wheels", slug);
+    fs.mkdirSync(dir, { recursive: true });
+    let added = 0, updated = 0, got = 0, noFinish = [], noPrice = [];
+    const pending = [];
+    for (const e of list) {
+      if (!e.sizes || !e.sizes.length) continue;
+      /* Match only models already marked utv. A truck wheel and a UTV wheel
+         that share a name are two different wheels — Raceline's Hostage is
+         both — and restamping the truck one would take its sizes, finishes,
+         price and featured rank with it. Loud, not silent, if it happens. */
+      const clash = brand.models.find((x) => norm(x.model) === norm(e.model) && (x.configs || []).indexOf("utv") < 0);
+      if (clash) throw new Error(`utv ${slug}: "${e.model}" collides with the non-UTV model "${clash.model}" — give the UTV entry the manufacturer's code so they stay separate`);
+      let m = brand.models.find((x) => norm(x.model) === norm(e.model));
+      if (!m) { m = { model: e.model, configs: ["utv"], sizes: [], finishes: [] }; brand.models.push(m); added++; }
+      else updated++;
+      m.configs = ["utv"];
+      m.sizes = e.sizes.slice();
+      m.finishes = e.finishes.slice();
+      if (e.bolts && e.bolts.length) m.bolts = e.bolts.slice();
+      /* The manufacturer's own advertised price. Without it catalog.js falls
+         back to priceEach(), a formula over brand kind and diameter — fine as
+         a placeholder for a catalog we haven't costed, wrong to keep when the
+         brand publishes the number. A set of these is four. */
+      if (e.priceFrom) { m.priceFrom = e.priceFrom; m.priceSet = e.priceFrom * 4; m.priceSetQty = 4; }
+      else noPrice.push(e.model);
+      if (!m.finishes.length) noFinish.push(e.model);
+      if (e.img) {
+        const base = norm(e.model);
+        const ext = (e.img.split("?")[0].match(/\.(png|jpe?g|webp)$/i) || [".png"])[0];
+        const raw = path.join(dir, base + ".raw" + ext.toLowerCase());
+        if (!fs.existsSync(path.join(dir, base + ".png")) && download(e.img, raw) === "200") {
+          pending.push(raw); got++;
+        }
+        m.img = `assets/wheels/${slug}/${base}.png`;
+      }
+    }
+    if (pending.length) normalize(pending);
+    brand.models.sort((a, b) => a.model.localeCompare(b.model, "en", { numeric: true }));
+    console.log(`utv ${slug}: ${added} new, ${updated} restamped, ${got} photo(s)`);
+    /* A finish we can't source is left empty rather than named. Raceline's
+       older listings put the finish only in the product photo, not in any
+       field, and a swatch we invented would be a colour the customer can't
+       actually order. */
+    if (noFinish.length) console.log(`  no finish published: ${noFinish.join(", ")}`);
+    if (noPrice.length) console.log(`  no price published (sold out everywhere): ${noPrice.join(", ")}`);
+  }
+}
+
 // ---- serialize brands.js ----
 const q = (s) => JSON.stringify(s);
 const arr = (a) => "[" + a.map(q).join(",") + "]";

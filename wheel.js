@@ -263,10 +263,14 @@
        SKU, we just don't hold it. Saying "cut to order" on a cast style would
        be plainly untrue. */
     var forged = brand.kind === "Forged";
-    var head = forged ? "Cut to your truck" : "Confirmed on your quote";
+    /* The UTV styles are the one thing in the catalog that isn't a truck.
+       "We confirm it for your truck" on a RZR wheel reads like boilerplate
+       nobody checked — because it would be. */
+    var rig = (model.configs || []).indexOf("utv") > -1 ? "machine" : "truck";
+    var head = forged ? "Cut to your " + rig : "Confirmed on your quote";
     var why = forged
       ? esc(brand.name) + " cut to order, so a style has no fixed ET."
-      : esc(brand.name) + " publish offset per fitment rather than per style, so we confirm it for your truck.";
+      : esc(brand.name) + " publish offset per fitment rather than per style, so we confirm it for your " + rig + ".";
     return '<div class="wspec wspec--offset"><span>Offset</span>' +
       "<b>" + head +
         '<span class="wspec__hint">How far the wheel sits in or out — lower numbers sit further out. ' +

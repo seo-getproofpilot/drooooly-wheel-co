@@ -680,7 +680,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 .aud{padding:clamp(26px,3vw,42px) 0 clamp(60px,7vw,100px)}
 /* Two lanes, not four — see index.html. Wider cards, so the photo behind them
    reads as a truck rather than a texture. */
-.aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .aud-card{position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;
   border-radius:16px;overflow:hidden;border:1px solid var(--line);isolation:isolate;
   background:linear-gradient(180deg,#111621,#0a0c11);transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
@@ -726,7 +726,10 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 .social-cell:hover img{transform:scale(1.08)}
 
 @media(max-width:1000px){
+  /* Three cards into two columns: the third takes the full second row
+     rather than sitting half-width beside a gap. */
   .aud-grid{grid-template-columns:repeat(2,1fr)}
+  .aud-grid .aud-card:nth-child(3){grid-column:1/-1;min-height:250px}
   .look-grid{grid-template-columns:repeat(2,1fr)}
   .social-grid{grid-template-columns:repeat(3,1fr)}
   .cine__emblem{opacity:.4;right:-30%}
@@ -734,6 +737,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 @media(max-width:560px){
   /* "What are you building?" — 2-up side by side + compact so it takes less height */
   .aud-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .aud-grid .aud-card:nth-child(3){grid-column:1/-1;min-height:160px}
   .aud-card{min-height:186px;padding:15px 14px}
   .aud-card h3{font-size:17px}
   .aud-card p{font-size:11px;margin-top:5px;line-height:1.35}
@@ -3239,8 +3243,27 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .prod__set{font-size:10.5px}            /* Full set & tire pricing at fitment */
   .prod__price small{font-size:10px}      /* / wheel */
   .cfg{font-size:10px}                    /* SINGLE / DUALLY / SUPER SINGLE badges */
+  /* The lane label on a product card — "SIZES FOR A SIDE-BY-SIDE",
+     "BOLT PATTERNS". Missed in the first sweep because shop.html only renders
+     .prod__lane when a ?build= lane is on, and the sweep hit shop.html bare. */
+  .prod__lane span{font-size:10.5px}
 
   /* wheel.html spec table — column headers were 9.5px, which is small for the
      thing that tells you what the numbers underneath mean. */
   .wsizetable__h{font-size:10.5px}
+}
+
+/* ============================================================
+   v198 — "Shop all wheels" fit one line on a phone
+
+   At 375 the three-column fitment band leaves each flank 143px, and
+   "SHOP ALL WHEELS →" measured 159px. It wrapped; "SHOP ALL TIRES →"
+   didn't. The two panels then stood at different heights — the same
+   mismatched-pair problem that was fixed on the paired buttons.
+
+   11.5px at .02em measures 136px, so it holds with room to spare
+   rather than sitting a couple of pixels off the edge.
+   ============================================================ */
+@media(max-width:560px){
+  .fitpanel__label{font-size:11.5px;letter-spacing:.02em;white-space:nowrap}
 }
