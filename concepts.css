@@ -361,3 +361,72 @@
   color:#fff !important;
   background:linear-gradient(180deg,#56626f 0%,#3d4753 30%,#2a333e 52%,#39424e 74%,#4d5865 100%) !important}
 .h-d .cine__cta .btn--secondary:hover::after{filter:brightness(1.45) !important}
+
+/* ============================================================
+   HERO — 05 liquid, three edges, grey partner.
+
+   Direction taken: 05 liquid is the face for "Find your set". The chrome
+   conic lip comes off — a chrome ring around a chrome face is chrome on
+   chrome, which is why it mushed instead of reading as an edge. Blue is
+   out of the hero entirely.
+
+   "Get fitted" is the same object in a lighter grey: pewter, not
+   gunmetal and not chrome. No bright white highlight, so it never
+   competes with the primary, but nowhere near the black it was.
+
+   Only the EDGE changes between E, F and G. Faces are identical, so
+   what you are comparing is one decision.
+   ============================================================ */
+[class*="h-"] .cine__cta .btn--hero::after,
+[class*="h-"] .cine__cta .btn--secondary::after{display:none !important}
+
+/* the shared faces */
+.h-e .cine__cta .btn--hero,.h-f .cine__cta .btn--hero,.h-g .cine__cta .btn--hero{
+  color:#0d1116 !important;text-shadow:0 1px 0 rgba(255,255,255,.6) !important;
+  background:
+    radial-gradient(130% 90% at var(--mx,50%) var(--my,50%),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e9eff5,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#a6b0bc,rgba(255,255,255,0) 58%),
+    linear-gradient(170deg,#ffffff 0%,#eef2f6 22%,#d5dce4 46%,#b9c2cc 62%,#dde3ea 82%,#fafbfc 100%) !important;
+  transition:filter .3s,transform .22s,box-shadow .3s !important}
+.h-e .cine__cta .btn--secondary,.h-f .cine__cta .btn--secondary,.h-g .cine__cta .btn--secondary{
+  color:#171b21 !important;text-shadow:0 1px 0 rgba(255,255,255,.4) !important;
+  backdrop-filter:none !important;
+  background:linear-gradient(172deg,#dbe0e6 0%,#c4cbd3 26%,#aab3bd 50%,#bac2cb 74%,#d6dce2 100%) !important;
+  transition:filter .3s,transform .22s,box-shadow .3s !important}
+
+/* ---- E · graphite shoulder ----
+   A dark cut line, the way a polished face meets its machined shoulder.
+   Separates both buttons from the photo without adding any brightness. */
+.h-e .cine__cta .btn--hero{
+  box-shadow:inset 0 0 0 1.5px rgba(22,28,36,.78),inset 0 1px 0 rgba(255,255,255,.85) !important;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.6)) !important}
+.h-e .cine__cta .btn--secondary{
+  box-shadow:inset 0 0 0 1.5px rgba(22,28,36,.62),inset 0 1px 0 rgba(255,255,255,.6) !important;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.55)) !important}
+.h-e .cine__cta .btn:hover{filter:drop-shadow(0 16px 32px rgba(0,0,0,.65)) brightness(1.03) !important}
+
+/* ---- F · no edge, shadow only ----
+   Nothing drawn around it. The metal simply sits above the photo and the
+   shadow does the separating. The quietest of the three. */
+.h-f .cine__cta .btn--hero{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.22) !important;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.66)) !important}
+.h-f .cine__cta .btn--secondary{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -2px 6px rgba(0,0,0,.26) !important;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.6)) !important}
+.h-f .cine__cta .btn:hover{filter:drop-shadow(0 20px 38px rgba(0,0,0,.7)) brightness(1.03) !important}
+
+/* ---- G · formed bevel ----
+   No outline either, but the edge is rolled: light along the top, dark
+   underneath, so it reads as a pressed part rather than a flat panel. */
+.h-g .cine__cta .btn--hero{
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.95),inset 0 -2px 0 rgba(30,38,48,.55),
+             inset 2px 0 0 rgba(255,255,255,.4),inset -2px 0 0 rgba(30,38,48,.3) !important;
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.62)) !important}
+.h-g .cine__cta .btn--secondary{
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.7),inset 0 -2px 0 rgba(30,38,48,.55),
+             inset 2px 0 0 rgba(255,255,255,.3),inset -2px 0 0 rgba(30,38,48,.32) !important;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.58)) !important}
+.h-g .cine__cta .btn:hover{filter:drop-shadow(0 16px 34px rgba(0,0,0,.66)) brightness(1.03) !important}
