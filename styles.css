@@ -1722,8 +1722,8 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
   /* The v180 .fitpanel layout is responsive on its own — these overrides
      styled .fitbar__shop, which no longer exists. */
 
-  /* Hero: zoom out so the whole truck photo shows (like desktop) */
-  .cine__bg img{object-fit:contain;object-position:center 34%;background:#0b0b0c}
+  /* Hero image handling moved to the v181 block at the end of this file,
+     which serves a portrait crop instead of letterboxing a landscape one. */
   /* pure opaque black at the header edge (rgb 0,0,0 = same as the nav) fading down,
      so there's no visible seam between the header and the hero */
   .cine__scrim{background:linear-gradient(180deg,#000 0%,#000 12%,rgba(0,0,0,.66) 24%,rgba(0,0,0,.26) 38%,rgba(6,8,12,.32) 52%,rgba(6,8,12,.46) 72%,rgba(6,8,12,.76) 100%)}
@@ -1754,22 +1754,45 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 }
 
 /* ============================================================
-   v63 — MOBILE-ONLY: fill the hero letterbox with a blurred copy of the
-   same photo so there are no flat dark blanks above/below the truck
+   v181 — MOBILE HERO: a real portrait crop, so the blur hack can go.
+
+   SUPERSEDES v63. The hero photo is a 1672x941 landscape. On a phone the hero
+   box is about 375x680, so object-fit:cover showed roughly a quarter of the
+   photo's width — a vertical slice through the truck's rear door. v63 papered
+   over that with a blurred, scaled copy of the same photo underneath, which is
+   what you do when a landscape image is all you have.
+
+   assets/truck-hero-mobile.jpg is that same photo cropped to 621x941 around the
+   grille and front wheel, served by a <source> at <=560px. With a portrait
+   source there is no letterbox to fill, so the blurred underlay stays off.
    ============================================================ */
 .cine__bg-fill{display:none}
 @media(max-width:560px){
-  /* blurred cover-fill fills the whole hero; the sharp truck is sized to its natural
-     band (no transparent letterbox to rely on) and floated over the fill */
-  .cine__bg img{position:absolute;left:0}
-  .cine__bg img.cine__bg-fill{display:block;top:0;width:100%;height:100%;object-fit:cover;object-position:center;
-    z-index:0;filter:blur(22px) brightness(.92) saturate(1.3);transform:scale(1.2);pointer-events:none}
-  /* big sharp truck that fills the hero (cover) so the blurred fill barely shows;
-     only a soft bottom fade blends it into the dark rotisserie area */
-  .cine__bg img:not(.cine__bg-fill){inset:0;top:0;left:0;width:100%;height:100%;object-fit:cover;
-    object-position:54% 40%;z-index:1;transform:none;
-    -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 82%,transparent 99%);
-    mask-image:linear-gradient(to bottom,#000 0,#000 82%,transparent 99%)}
+  .cine__bg img{object-fit:cover;object-position:center 46%;background:#0b0b0c}
+  /* Bottom fade stays: it blends the photo into the dark band below rather
+     than ending on a hard horizontal edge. */
+  .cine__bg picture img{
+    -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%)}
+
+  /* The headline was breaking into four lines. Two causes: the h1 carries
+     max-width:12ch and "Make 'em stare." is fifteen characters, and a rule at
+     <=480px drops the .ln nowrap that keeps each phrase whole. Both lifted
+     here, at a size measured to fit one line from 320px up — Michroma is wide,
+     so this is smaller than it looks. */
+  .cine__title{max-width:none;font-size:clamp(18px,7.2vw,32px);line-height:1.06}
+  .cine__title .ln{white-space:nowrap}
+
+  /* The truck is white and so is the headline. The old scrim sat at .26-.46
+     through the text band — fine over a dark slice of the landscape photo,
+     not fine over a chrome grille. */
+  .cine__scrim{background:linear-gradient(180deg,
+    #000 0%,#000 10%,
+    rgba(0,0,0,.72) 22%,
+    rgba(0,0,0,.58) 34%,
+    rgba(6,8,12,.56) 50%,
+    rgba(6,8,12,.60) 68%,
+    rgba(6,8,12,.82) 100%)}
 }
 
 /* ============================================================
@@ -1923,7 +1946,6 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
   .wheel__fin{gap:20px}
   .wheel__sw{width:18px;height:18px;border-width:9px}
   .wheel__finname{display:block;font-size:10.5px}
-}
 }
 
 /* v97 — Showroom card: fitments as a plain note, not selectable-looking chips.
@@ -3007,3 +3029,59 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    nowhere honest to send someone and nothing verified to say about them. */
 .wbshot--own{display:block;margin:0;position:relative;overflow:hidden;background:var(--panel-2)}
 .wbshot--own img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ============================================================
+   v181 — MOBILE CTA: a smaller form, and a truck you can actually see.
+
+   The section is a photo of a bagged Chevy dually with a white form card on
+   top of it. On a phone the card was 331x562 — it covered the truck entirely,
+   so the "background" was sky and two 22px slivers of asphalt. It also read as
+   blown up next to the rest of the page: 50px fields, 22px padding, 8px label
+   gaps, all sized for a desktop column.
+
+   Two changes: shrink the card so it stops being the whole section, and crop
+   the dead sky off the mobile photo (assets/cta-truck-mobile.jpg) so the truck
+   sits in the band above the card rather than behind it.
+   ============================================================ */
+@media(max-width:560px){
+  /* Give the photo room at the top of the section instead of spending it on
+     padding, and stop the heading block pushing the card down the page. */
+  .cta{padding:40px 0 44px}
+  .cta__title{font-size:clamp(23px,7vw,30px);margin:8px 0 10px}
+  .cta__lead{font-size:14.5px;line-height:1.5;margin-bottom:20px;max-width:34ch;
+    margin-inline:auto}
+
+  .cta .fit-form{padding:16px 16px 18px;border-radius:14px}
+  .cta .fit-form label{gap:5px;font-size:9.5px;letter-spacing:.1em}
+  /* 16px, not 15px. Safari on iOS zooms the whole page in when you focus an
+     input whose font-size is under 16px, and then leaves it zoomed — which is
+     why the form felt like it took over the screen after the first tap. */
+  .cta .fit-form input,.cta .fit-form select{height:44px;font-size:16px;
+    border-radius:9px;padding-inline:12px}
+  .cta .fit-form .btn--chrome{height:48px;margin-top:2px}
+
+  /* Only the FIRST value does anything here. The cropped photo is 1080x1040
+     against a ~375x755 section, so it is scaled to fill the height and the
+     whole height is already visible — a vertical object-position has nothing
+     left to move. Horizontal is what picks the part of the truck you see. */
+  .cta__bg img{object-position:68% center}
+}
+
+/* ============================================================
+   v183 — iOS input zoom, sitewide.
+
+   Safari on iPhone zooms the whole page in when you focus an input, select or
+   textarea whose font-size is under 16px, and does not zoom back out. It hit
+   the three selects in the homepage fitment finder (14px) and the shop sort
+   (13px) — i.e. the primary conversion control on the site and the main way
+   to reorder the catalogue.
+
+   16px is the threshold, not a preference; anything below it triggers the
+   zoom. Applied only where a phone is doing the tapping, so the desktop type
+   scale is untouched.
+   ============================================================ */
+@media(max-width:560px){
+  input,select,textarea,
+  .fitbar .vehmod select,
+  #shopSort{font-size:16px}
+}
