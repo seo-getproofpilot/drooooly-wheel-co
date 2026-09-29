@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Button Concepts — DROOOLY Wheel &amp; Tire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   DROOOLY — button concepts, built to be looked at.
+   Nothing here is wired into the site. Self-contained on purpose:
+   these should be judged on their own, not through styles.css.
+   ============================================================ */
+@property --lip{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+:root{
+  --blue:#1f7bff; --blue-2:#4f9bff;
+  --ink:#07090d;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#e8edf3;
+  font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+.wrap{max-width:1140px;margin:0 auto;padding:46px 26px 120px}
+h1{font-family:Michroma;font-size:21px;letter-spacing:.02em;margin:0 0 10px}
+.lede{color:#98a2ae;font-size:14px;line-height:1.75;max-width:700px;margin:0 0 22px}
+.lede b{color:#dfe6ee;font-weight:600}
+
+.bar{position:sticky;top:0;z-index:20;background:rgba(7,9,13,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.09);
+  padding:13px 26px;margin:0 -26px 34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.toggle{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  font-family:Michroma;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#cfd7e0}
+.toggle input{width:34px;height:19px;appearance:none;background:#252b33;border-radius:99px;
+  position:relative;cursor:pointer;transition:background .2s;flex:none}
+.toggle input::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;
+  border-radius:50%;background:#8d97a3;transition:transform .2s,background .2s}
+.toggle input:checked{background:var(--blue)}
+.toggle input:checked::after{transform:translateX(15px);background:#fff}
+.bar .hint{color:#77818e;font-size:12px}
+
+.card{border:1px solid rgba(255,255,255,.085);background:#0a0c11;
+  margin:0 0 20px;overflow:hidden}
+.card__h{padding:20px 26px 0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.num{font-family:Michroma;font-size:11px;color:var(--blue-2);letter-spacing:.1em}
+.card__h h2{font-family:Michroma;font-size:15px;margin:0;letter-spacing:.01em}
+.card__d{padding:8px 26px 0;color:#8e98a4;font-size:13px;line-height:1.7;max-width:720px;margin:0}
+.card__d em{color:#b9c2cc;font-style:normal}
+.stage{padding:38px 26px 30px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.stage--lit{background:
+  radial-gradient(900px 300px at 30% -40%, rgba(120,150,190,.12), transparent 70%), #08090d}
+.tech{padding:0 26px 20px;color:#6e7884;font-size:11.5px;line-height:1.65;max-width:720px}
+.tech code{color:#93a0ae;font-size:11px}
+
+/* shared button shell */
+.b{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;
+  min-height:56px;padding:0 34px;border:0;cursor:pointer;text-decoration:none;
+  font-family:Michroma;font-weight:400;font-size:14px;letter-spacing:.03em;
+  text-transform:uppercase;color:#e9eef4;overflow:hidden;
+  transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .3s, filter .3s}
+.b:active{transform:translateY(2px)}
+.b .t{position:relative;z-index:4}
+.b::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background-image:var(--grain);background-size:120px;opacity:.05;mix-blend-mode:overlay}
+
+/* ---------- 1 · FORGED CHROME ---------- */
+.b-forged{border-radius:3px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),
+    linear-gradient(180deg,#525963 0%,#343b45 26%,#1e232a 58%,#161a20 82%,#20252c 100%);
+  box-shadow:
+    inset 1.4px 1.4px 0 rgba(226,236,247,.6),
+    inset -1.4px -1.4px 0 rgba(0,0,0,.8),
+    inset 0 3px 8px rgba(0,0,0,.42),
+    0 12px 26px rgba(0,0,0,.66)}
+.b-forged::before{content:"";position:absolute;z-index:2;top:-60%;bottom:-60%;width:34%;
+  left:-45%;transform:rotate(18deg);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),rgba(255,255,255,.18),transparent);
+  transition:left .55s cubic-bezier(.35,.1,.25,1)}
+.b-forged:hover::before{left:120%}
+/* frozen: loop it, otherwise the sweep has already finished and a screenshot
+   shows an empty button */
+.hov .b-forged::before{animation:sweep 1.9s cubic-bezier(.35,.1,.25,1) infinite}
+.b-forged:active{box-shadow:
+    inset 1.4px 1.4px 0 rgba(226,236,247,.35),
+    inset -1px -1px 0 rgba(0,0,0,.7),
+    inset 0 5px 12px rgba(0,0,0,.6),
+    0 4px 10px rgba(0,0,0,.5)}
+
+/* ---------- 3 · FLOATING CHROME PLATE ---------- */
+.b-plate{border-radius:2px;background:#0b0d12;color:#eaeff5;
+  box-shadow:0 20px 44px rgba(0,0,0,.8),0 3px 8px rgba(0,0,0,.6)}
+.b-plate::before{content:"";position:absolute;inset:0;z-index:2;border-radius:2px;padding:1px;
+  pointer-events:none;
+  background:linear-gradient(180deg,#f2f6fa 0%,#aeb8c4 16%,#4c545e 46%,#262b33 78%,#161a20 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:background .35s,filter .35s}
+.b-plate:hover,.hov .b-plate{transform:translateY(-5px);
+  box-shadow:0 32px 60px rgba(0,0,0,.85),0 4px 10px rgba(0,0,0,.6)}
+.b-plate:hover::before,.hov .b-plate::before{
+  background:linear-gradient(180deg,#ffffff 0%,#dbe3ec 16%,#79838f 46%,#343b44 78%,#1d222a 100%);
+  filter:drop-shadow(0 0 5px rgba(210,228,255,.45))}
+
+/* ---------- 5 · LIQUID CHROME ---------- */
+.b-liquid{border-radius:4px;color:#10141a;--mx:50%;--my:50%;
+  background:
+    radial-gradient(130% 90% at var(--mx) var(--my), rgba(255,255,255,.96), rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%, #ffffff, rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%, #e6ecf3, rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%, #9ba5b1, rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e2e8ef 0%,#b9c2cc 32%,#78828e 52%,#cdd5de 72%,#eef3f8 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.3),
+    0 14px 30px rgba(0,0,0,.6);
+  transition:background-position .2s, transform .22s, box-shadow .3s}
+.hov .b-liquid{--mx:78%;--my:28%}
+
+/* ---------- 7 · FLOATING CENTER CAP ---------- */
+.cap{position:relative;width:118px;height:118px;border-radius:50%;flex:none;cursor:pointer;
+  background:conic-gradient(from 210deg,#f4f8fc,#8b95a1 12%,#2b313a 27%,#c9d2dc 43%,
+    #5c656f 58%,#eef3f8 71%,#39404a 86%,#f4f8fc);
+  box-shadow:0 20px 40px rgba(0,0,0,.78),inset 0 0 0 1px rgba(255,255,255,.34);
+  transition:transform .5s cubic-bezier(.2,.7,.3,1),box-shadow .4s;
+  display:grid;place-items:center;border:0;padding:0}
+.cap__inner{position:absolute;inset:11px;border-radius:50%;
+  background:radial-gradient(120% 120% at 32% 22%,#2c323b,#11151a 52%,#080a0e);
+  box-shadow:inset 0 3px 8px rgba(0,0,0,.85),inset 0 -1px 0 rgba(255,255,255,.16),
+    0 0 0 1px rgba(0,0,0,.7)}
+.cap__mark{position:relative;z-index:2;font-family:Michroma;font-size:12.5px;letter-spacing:.06em;
+  color:#aab4c0;text-shadow:0 1px 0 rgba(0,0,0,.9),0 -1px 0 rgba(255,255,255,.14)}
+.cap:hover,.hov .cap{transform:rotate(9deg) translateY(-4px);
+  box-shadow:0 30px 56px rgba(0,0,0,.85),inset 0 0 0 1px rgba(255,255,255,.6),
+    0 0 26px rgba(190,215,250,.24)}
+.cap:hover .cap__mark,.hov .cap .cap__mark{transform:rotate(-9deg)}
+.cap__mark{transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.cap:active{transform:rotate(9deg) translateY(0)}
+/* elongated variant, for a real text label */
+.cap--pill{width:auto;height:64px;border-radius:99px;padding:0 4px}
+.cap--pill .cap__inner{inset:4px;border-radius:99px}
+.cap--pill .cap__mark{padding:0 30px;font-size:13px}
+.cap--pill:hover,.hov .cap--pill{transform:translateY(-4px)}
+.cap--pill:hover .cap__mark,.hov .cap--pill .cap__mark{transform:none}
+
+/* ---------- 8 · MURDERED OUT ---------- */
+.b-murder{border-radius:3px;color:#5d6773;
+  background:linear-gradient(180deg,#15181d 0%,#0d1014 40%,#090b0e 62%,#111419 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.9),
+    0 8px 20px rgba(0,0,0,.55);
+  transition:color .4s,background .5s,box-shadow .4s,transform .22s}
+.b-murder::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,.05) 34%,
+    rgba(0,0,0,.25) 52%,rgba(255,255,255,.14) 74%,rgba(255,255,255,.3) 100%);
+  transition:opacity .45s}
+.b-murder:hover,.hov .b-murder{color:#f2f6fa;
+  background:linear-gradient(180deg,#3c434d 0%,#20262e 38%,#0f1318 60%,#2a313a 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(0,0,0,.9),
+    0 14px 30px rgba(0,0,0,.7),0 0 22px rgba(150,180,220,.16)}
+.b-murder:hover::before,.hov .b-murder::before{opacity:1}
+
+/* ---------- 12 · POLISHED LIP ---------- */
+.b-lip{border-radius:4px;background:#0a0c10;color:#e9eef4;padding:0 30px;
+  box-shadow:0 14px 30px rgba(0,0,0,.66)}
+.b-lip::before{content:"";position:absolute;inset:0;z-index:1;border-radius:4px;padding:4px;
+  pointer-events:none;
+  background:conic-gradient(from var(--lip),#ffffff,#9aa4b0 9%,#2a3039 22%,#e8eef5 34%,
+    #4e5761 47%,#c3ccd6 62%,#232830 78%,#8f99a5 90%,#ffffff);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:--lip .9s linear, filter .35s}
+.b-lip::after{background-image:var(--grain);opacity:.04}
+.b-lip:hover::before,.hov .b-lip::before{--lip:360deg;filter:brightness(1.22)}
+.hov .b-lip::before{animation:lipspin 2.4s linear infinite}
+@keyframes lipspin{to{--lip:360deg}}
+
+/* ---------- THE LIGHT MOVES, NOT THE BUTTON ---------- */
+.b-light{border-radius:3px;color:#c3ccd6;
+  background:
+    repeating-linear-gradient(92deg,rgba(255,255,255,.028) 0 1px,transparent 1px 3px),
+    linear-gradient(180deg,#1c2026 0%,#12161b 44%,#0c0f13 66%,#171b21 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),inset 0 -1px 0 rgba(0,0,0,.85),
+    0 10px 24px rgba(0,0,0,.6);
+  transition:color .45s,box-shadow .3s,transform .1s}
+.b-light::before{content:"";position:absolute;z-index:2;top:-70%;bottom:-70%;width:22%;
+  left:-40%;transform:rotate(14deg);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(214,232,255,.28) 26%,rgba(255,255,255,.95) 50%,
+    rgba(214,232,255,.28) 74%,transparent);
+  filter:blur(.4px)}
+.b-light:hover,.hov .b-light{color:#f4f8fc;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),inset 0 -1px 0 rgba(0,0,0,.85),
+    0 14px 30px rgba(0,0,0,.65)}
+.b-light:hover::before{animation:sweep .52s cubic-bezier(.4,0,.25,1) forwards}
+.hov .b-light::before{animation:sweep 1.9s cubic-bezier(.4,0,.25,1) infinite}
+@keyframes sweep{from{left:-40%}to{left:118%}}
+.b-light:active{transform:translateY(2px);
+  box-shadow:inset 0 3px 9px rgba(0,0,0,.7),0 3px 8px rgba(0,0,0,.5)}
+.b-light:active::before{animation:sweep .52s cubic-bezier(.4,0,.25,1) forwards}
+
+/* the same treatment on a pale face, to show it is a finish not a colour */
+.b-light--pale{color:#12161c;
+  background:
+    repeating-linear-gradient(92deg,rgba(0,0,0,.03) 0 1px,transparent 1px 3px),
+    linear-gradient(180deg,#e9eef4 0%,#c6cfd9 46%,#aeb8c3 62%,#dee5ec 100%)}
+.b-light--pale:hover,.hov .b-light--pale{color:#05070a}
+
+.sm{min-height:44px;padding:0 22px;font-size:12px}
+.foot{color:#6e7884;font-size:12.5px;line-height:1.7;margin:38px 0 0;max-width:720px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Button concepts</h1>
+  <p class="lede">Seven directions, built and hoverable. <b>None of this is on the site</b> —
+     it is here to be picked from. Hover each one; the last three have a click state worth trying too.</p>
+
+  <div class="bar">
+    <label class="toggle"><input type="checkbox" id="hv"> Freeze hover state</label>
+    <span class="hint">Turns every button to its hover finish at once, and loops the animated ones.</span>
+  </div>
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="card__h"><span class="num">01</span><h2>Forged Chrome</h2></div>
+    <p class="card__d">Dark gunmetal base, beveled perimeter, bright chrome edge top-left, darker
+      underside, metallic grain, inner shadow. <em>Hover: a sharp chrome reflection sweeps diagonally.
+      Click: it depresses.</em></p>
+    <div class="stage stage--lit">
+      <button class="b b-forged"><span class="t">Find your set</span></button>
+      <button class="b b-forged sm"><span class="t">Get fitted</span></button>
+    </div>
+    <p class="tech">Bevel is four <code>inset</code> shadows, not a border — light on the top-left,
+      black on the underside, plus an inner shadow for depth. Grain is an SVG turbulence layer at 5%.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="card__h"><span class="num">03</span><h2>Floating Chrome Plate</h2></div>
+    <p class="card__d">Polished billet floating above black. Thin chrome perimeter, no obvious gradient
+      on the face, large soft shadow. <em>Hover: the plate rises and the edge brightens.</em></p>
+    <div class="stage">
+      <a href="#" class="b b-plate"><span class="t">Find your set</span></a>
+      <a href="#" class="b b-plate sm"><span class="t">Get fitted</span></a>
+    </div>
+    <p class="tech">The perimeter is a 1px gradient ring via <code>mask-composite:exclude</code>, so the
+      chrome runs bright at the top and falls to graphite at the bottom like a real machined edge.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="card__h"><span class="num">05</span><h2>Chrome Liquid</h2></div>
+    <p class="card__d">Liquid chrome poured into a shape — irregular reflections rather than one
+      uniform gradient. <em>Hover: the chrome flows toward your cursor.</em></p>
+    <div class="stage">
+      <button class="b b-liquid" data-liquid><span class="t">Find your set</span></button>
+      <button class="b b-liquid sm" data-liquid><span class="t">Get fitted</span></button>
+    </div>
+    <p class="tech">Four offset radial gradients break up the mirror; a fifth tracks the pointer through
+      <code>--mx/--my</code>. The only concept here that needs JavaScript.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <div class="card__h"><span class="num">07</span><h2>Floating Center Cap</h2></div>
+    <p class="card__d">A premium cap sitting above the page. Polished outer ring, black center, embossed
+      mark, deep bevel. <em>Hover: the cap turns and the ring catches a highlight.</em></p>
+    <div class="stage">
+      <button class="cap"><span class="cap__inner"></span><span class="cap__mark">DR</span></button>
+      <button class="cap cap--pill"><span class="cap__inner"></span><span class="cap__mark">Find your set</span></button>
+    </div>
+    <p class="tech">Ring is a <code>conic-gradient</code> — that is what gives a turned-metal look rather
+      than a plastic one. The round one rotates and counter-rotates its mark so the label stays upright;
+      the elongated one only lifts, because rotating a word reads as broken rather than premium.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <div class="card__h"><span class="num">08</span><h2>Black Chrome · Murdered Out</h2></div>
+    <p class="card__d">Black to graphite to black chrome. At rest it nearly disappears into the page.
+      <em>Hover: a chrome highlight reveals the whole button.</em></p>
+    <div class="stage">
+      <a href="#" class="b b-murder"><span class="t">Find your set</span></a>
+      <a href="#" class="b b-murder sm"><span class="t">Get fitted</span></a>
+    </div>
+    <p class="tech">The label starts at 35% grey and comes up to near-white on hover — the reveal is the
+      text as much as the finish. Worth knowing: at rest this sits below normal contrast guidance, so it
+      suits a secondary action next to something louder, not the only button on a screen.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+    <div class="card__h"><span class="num">12</span><h2>Polished Lip</h2></div>
+    <p class="card__d">A black face inside a deep polished wheel lip — bright silver at one point,
+      darkening around. <em>Hover: the highlight travels all the way around the lip.</em></p>
+    <div class="stage">
+      <a href="#" class="b b-lip"><span class="t">Find your set</span></a>
+      <a href="#" class="b b-lip sm"><span class="t">Get fitted</span></a>
+    </div>
+    <p class="tech">A 4px <code>conic-gradient</code> ring with an animated angle (<code>@property</code>),
+      so the bright spot genuinely orbits the button instead of sliding across it. Closest thing here to
+      holding an actual barrel.</p>
+  </div>
+
+  <!-- the direction -->
+  <div class="card">
+    <div class="card__h"><span class="num">&#9733;</span><h2>The light moves, not the button</h2></div>
+    <p class="card__d">A wheel under a showroom light doesn't move — the light travels across it.
+      At rest: gunmetal with barely visible machining. <em>Hover: one narrow, high-intensity chrome
+      reflection crosses it in ~520ms, then it settles back. Click: 2px depression, then the sweep.</em></p>
+    <div class="stage stage--lit">
+      <button class="b b-light"><span class="t">Find your set</span></button>
+      <button class="b b-light sm"><span class="t">Get fitted</span></button>
+      <button class="b b-light b-light--pale"><span class="t">Make 'em drool</span></button>
+    </div>
+    <p class="tech">This is a finish, not a colour — the same sweep works on the pale face on the right,
+      which is why it could run across the whole system instead of one button. The machining is a 3px
+      repeating gradient at under 3% opacity; you read it rather than see it.</p>
+  </div>
+
+  <p class="foot">Tell me which ones you want and where they go — hero, nav, product cards, the consult
+    submit — and I'll fit them to the sizes and grounds already on the site.</p>
+</div>
+
+<script>
+  document.getElementById('hv').addEventListener('change', function(){
+    document.body.classList.toggle('hov', this.checked);
+  });
+  // liquid: the pointer drags the brightest reflection with it
+  document.querySelectorAll('[data-liquid]').forEach(function(el){
+    el.addEventListener('pointermove', function(e){
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (((e.clientX-r.left)/r.width)*100).toFixed(1)+'%');
+      el.style.setProperty('--my', (((e.clientY-r.top)/r.height)*100).toFixed(1)+'%');
+    });
+    el.addEventListener('pointerleave', function(){
+      el.style.setProperty('--mx','50%'); el.style.setProperty('--my','50%');
+    });
+  });
+</script>
+</body>
+</html>
