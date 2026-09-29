@@ -24,6 +24,11 @@
 }
 /* the concepts own both pseudos, so the site's catch-light sweep goes quiet */
 [class*="c-"]:not(.c-light) .btn--primary::before{display:none !important}
+/* The arrow cap and its divider are out of every concept. On a chrome or
+   billet face the blue glyph was the loudest thing on the button, and the
+   hairline made it read as a second control bolted to the end of the first. */
+[class*="c-"] .btn--go .cap{display:none !important}
+[class*="c-"] .btn--go{padding-right:34px !important}
 
 /* ================= 01 · FORGED CHROME ================= */
 .c-forged .btn--primary{
@@ -125,19 +130,33 @@
   filter:drop-shadow(0 14px 30px rgba(0,0,0,.65)) drop-shadow(0 0 18px rgba(150,180,220,.16)) !important}
 .c-murder .btn--primary:hover::after{opacity:1 !important}
 
-/* ================= 12 · POLISHED LIP ================= */
-.c-lip .btn--primary{
+/* ================= 12 · POLISHED LIP =================
+   The first pass ran the bright spot a full 360 in .9s, which reads as a
+   ring spinning rather than a light catching an edge — the movement became
+   the subject instead of the button. Three calmer takes; the travel is a
+   short arc now, not a lap, so the highlight moves and settles.
+
+     .c-lip        catch  — 150deg over .5s, ease-out. The default.
+     .c-lip-quick  quick  — 360deg over .42s. A single fast lap.
+     .c-lip-slow   slow   — 90deg over 1.4s. Barely a drift.                */
+.c-lip .btn--primary,.c-lip-quick .btn--primary,.c-lip-slow .btn--primary{
   color:#e9eef4 !important;background:#0a0c10 !important;text-shadow:none !important;
   filter:drop-shadow(0 12px 26px rgba(0,0,0,.6)) !important;overflow:hidden !important}
-.c-lip .btn--primary::after{
+.c-lip .btn--primary::after,.c-lip-quick .btn--primary::after,.c-lip-slow .btn--primary::after{
   content:"" !important;position:absolute !important;inset:0 !important;z-index:1 !important;
   padding:4px !important;clip-path:none !important;pointer-events:none !important;
   background:conic-gradient(from var(--lipang),#ffffff,#9aa4b0 9%,#2a3039 22%,#e8eef5 34%,
     #4e5761 47%,#c3ccd6 62%,#232830 78%,#8f99a5 90%,#ffffff) !important;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
-  -webkit-mask-composite:xor !important;mask-composite:exclude !important;
-  transition:--lipang .9s linear,filter .35s !important}
-.c-lip .btn--primary:hover::after{--lipang:360deg !important;filter:brightness(1.2) !important}
+  -webkit-mask-composite:xor !important;mask-composite:exclude !important}
+.c-lip .btn--primary::after{transition:--lipang .5s cubic-bezier(.22,.7,.3,1),filter .35s !important}
+.c-lip .btn--primary:hover::after{--lipang:150deg !important;filter:brightness(1.14) !important}
+
+.c-lip-quick .btn--primary::after{transition:--lipang .42s linear,filter .3s !important}
+.c-lip-quick .btn--primary:hover::after{--lipang:360deg !important;filter:brightness(1.18) !important}
+
+.c-lip-slow .btn--primary::after{transition:--lipang 1.4s cubic-bezier(.3,.6,.3,1),filter .5s !important}
+.c-lip-slow .btn--primary:hover::after{--lipang:90deg !important;filter:brightness(1.1) !important}
 
 /* ================= ★ · THE LIGHT MOVES, NOT THE BUTTON =================
    The only concept that does not touch `background` at all.

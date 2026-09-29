@@ -3322,42 +3322,23 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   background:var(--lip-dark), var(--fill-chrome);
   filter:drop-shadow(0 14px 28px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(31,123,255,.45)) brightness(1.05)}
 
-/* ---- the arrow cap ----
-   Its own block on the end of the button, divided off by a hairline, so
-   every arrow on the site is the same object instead of a loose glyph.
-   The blue lives here — it is the one place the brand colour appears on
-   a button at rest. */
-/* .cine__cta .btn sets padding-inline at 0,2,0, so the cap needs to match it
-   to reach the edge. */
-.btn--go,.cine__cta .btn--go{padding-right:0}
-.btn--go .cap,
-.aud-card__go i,.show2-build i,.blogo-tag i,.prod__link i,.fitpanel__label i{
-  font-style:normal;display:inline-flex;align-items:center;justify-content:center;
-  color:var(--blue-2);transition:transform .28s var(--ease),background .2s,color .2s}
-.btn--go .cap{
-  margin-left:18px;align-self:stretch;width:46px;
-  border-left:1px solid rgba(127,140,158,.34);
-  font-size:15px;line-height:1}
-.btn--go:hover .cap{transform:translateX(3px)}
-/* on the flat primaries the cap divider has to read against the fill */
-.btn--primary.btn--go .cap{border-left-color:rgba(255,255,255,.22)}
-.cine .btn--primary.btn--go .cap,.btn--hero.btn--go .cap{border-left-color:rgba(0,0,0,.18)}
+/* ---- arrows ----
+   The cap on the button is gone: the divider plus a blue glyph read as a
+   second control bolted to the end of the first, and on a chrome face the
+   blue was the loudest thing on the button. Buttons carry their label only.
 
-/* text links: the same cap, sized down, no box */
+   Text links keep an arrow — it tells you the line goes somewhere — but
+   plain, in the link's own colour. The bordered blue box was the same
+   object as the button cap and drew the same complaint at a smaller size. */
 .aud-card__go i,.show2-build i,.blogo-tag i,.prod__link i,.fitpanel__label i{
-  width:17px;height:17px;margin-left:7px;
-  border:1px solid rgba(31,123,255,.42);
-  font-size:10px;transform:translateY(1px)}
+  font-style:normal;display:inline;margin-left:5px;color:inherit;
+  transition:transform .24s var(--ease)}
 .aud-card__go:hover i,.show2-build:hover i,.blogo-tag:hover i,.prod__link:hover i,
-.fitpanel:hover .fitpanel__label i{
-  background:var(--blue-2);border-color:var(--blue-2);color:#fff;
-  transform:translate(3px,1px)}
-.aud-card:hover .aud-card__go i{
-  background:var(--blue-2);border-color:var(--blue-2);color:#fff;transform:translate(3px,1px)}
+.fitpanel:hover .fitpanel__label i,.aud-card:hover .aud-card__go i{
+  display:inline-block;transform:translateX(3px)}
 
 @media(max-width:560px){
   :root{--cut:12px;--cut-sm:9px}
-  .btn--go .cap{width:40px;margin-left:14px;font-size:14px}
 }
 
 /* ============================================================
