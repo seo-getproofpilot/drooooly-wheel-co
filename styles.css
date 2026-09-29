@@ -3435,99 +3435,81 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   color:#fff;background:var(--lip-light), #16191f}
 
 /* ============================================================
-   v201 — THE HERO PAIR IS A WHEEL
+   v206 — THE HERO PAIR, SETTLED
 
-   Replaces the liquid-chrome hero button. Same principle as v199:
-   there is ONE special button on the site and it is this one. The lip
-   does not go on the nav or the other primaries — 44 buttons wearing a
-   polished lip is the "30 of 44 were chrome" problem again in a new
-   finish.
+   The polished lip is gone. On a chrome face a chrome ring is chrome on
+   chrome: no value difference for the edge to register against, so it
+   mushed instead of reading as an edge. What replaced it is the finish
+   that kept winning on its own — 05 liquid, a mirror broken up by a few
+   offset reflections so it reads as poured metal rather than a grey
+   ramp.
 
-     PRIMARY    black face inside a polished 4px lip, bright spot
-                orbiting 150deg over .5s on hover.
-     SECONDARY  the same lip in unpolished graphite over dark glass —
-                the black finish of the same wheel, not a pane of
-                smoked glass belonging to some other object.
+     PRIMARY    liquid chrome, dark label, bright rolled top edge.
+     SECONDARY  the forged gunmetal that was already here, now with a
+                brushed-steel perimeter so it has a defined edge too.
 
-   Travel is a short arc, not a lap. A full 360 reads as a ring
-   spinning, and the movement becomes the subject instead of the button.
+   Both buttons have a rim; the rim is a different metal on each. That
+   is what makes them read as one part in two finishes rather than as
+   two unrelated objects — which is the thing every earlier attempt at
+   this pair got wrong.
 
-   --lipang is registered so it can be transitioned; the element also
-   sets it directly, so if @property is unsupported the ring still
-   renders at its rest angle and only the animation is lost.
+   Dark label on the primary, light on the secondary: each is whichever
+   direction its own face is not, which is the only rule that survives
+   the hero photo changing behind them.
    ============================================================ */
-@property --lipang{syntax:'<angle>';initial-value:0deg;inherits:false}
-
 .cine .btn--hero,.btn--hero{
-  --lipang:0deg;
-  color:#e9eef4;
-  background:#0a0c10;
-  text-shadow:none;
-  filter:drop-shadow(0 12px 26px rgba(0,0,0,.6))}
-/* the ring sits above the face and below the label — the same negative
-   z-index trick the hairline secondary uses. clip-path carries it round
-   the machined corner, so the lip follows the cut. */
-.cine .btn--hero::after,.btn--hero::after{
-  content:"";position:absolute;inset:0;z-index:-1;padding:4px;
-  background:conic-gradient(from var(--lipang),#ffffff,#9aa4b0 9%,#2a3039 22%,#e8eef5 34%,
-    #4e5761 47%,#c3ccd6 62%,#232830 78%,#8f99a5 90%,#ffffff);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  transition:--lipang .5s cubic-bezier(.22,.7,.3,1),filter .35s;
-  pointer-events:none}
+  color:#0d1116;
+  text-shadow:0 1px 0 rgba(255,255,255,.6);
+  background:
+    radial-gradient(130% 90% at var(--mx,50%) var(--my,50%),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e9eff5,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#a6b0bc,rgba(255,255,255,0) 58%),
+    linear-gradient(170deg,#ffffff 0%,#eef2f6 22%,#d5dce4 46%,#b9c2cc 62%,#dde3ea 82%,#fafbfc 100%);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -2px 6px rgba(0,0,0,.24);
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.62));
+  transition:filter .3s,transform .22s}
 .cine .btn--hero:hover,.btn--hero:hover{
-  color:#fff;background:#0a0c10;
-  filter:drop-shadow(0 16px 32px rgba(0,0,0,.66))}
-.cine .btn--hero:hover::after,.btn--hero:hover::after{
-  --lipang:150deg;filter:brightness(1.14)}
-/* the site's catch-light sweep belongs to the flat faces, not this one */
+  color:#05070a;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,.68)) drop-shadow(0 0 18px rgba(31,123,255,.3))}
+.cine .btn--hero::after,.btn--hero::after{display:none}
 .cine .btn--hero::before,.btn--hero::before{display:none}
 
 /* ---- the partner ----
-   Was a satin lip: the same black face as the primary with an unpolished
-   ring. Correct as an idea, wrong on this hero — two black faces on an
-   already-dark photo is black on black, and the pair read as one wide
-   smudge rather than two buttons.
+   Forged gunmetal, which is the face that worked. What it was missing
+   was an edge: the primary had a bright rim and this had none, so they
+   read as a made object next to a plain slab.
 
-   Forged gunmetal instead. It sits a full value-step lighter than the
-   primary so the two separate at a glance, and the bevelled perimeter
-   still belongs to the same family as the lip. Scoped to .cine__cta, so
-   the financing and tires secondaries keep the glass hairline. */
-/* Nearly opaque, and that is deliberate. At .62 the label washed out where
-   the mobile crop puts this button over a polished wheel; at .84 it measured
-   a fine 11.9:1 but the face lifted to ~45 luminance against the primary's
-   11, so on a bright backdrop the SECONDARY read as the louder of the two.
-   A hero button's weight should not depend on what the photo does behind it.
-
-   At .92 both faces sit at the same darkness whatever is behind them, and
-   the thing that separates them is the lip: polished on the primary, satin
-   here. Which is the two-finishes idea working as intended. */
+   The rim is brushed steel, not chrome — light enough to draw the shape
+   against the photo, dull enough that it never competes with the mirror
+   opposite it. Built as a 1.5px gradient ring through mask-composite,
+   because a plain border cannot go light at the top and dark at the
+   bottom the way a real machined edge does. */
 .cine__cta .btn--secondary{
   color:#e9eef4;backdrop-filter:none;border:none;
   background:
     linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),
     linear-gradient(180deg,#525963 0%,#343b45 26%,#1e232a 58%,#161a20 82%,#20252c 100%);
-  /* inset shadows are clipped by clip-path, so the bevel follows the cut
-     corner; the drop shadow has to be a filter or it is clipped away */
-  box-shadow:inset 1.4px 1.4px 0 rgba(226,236,247,.55),
-             inset -1.4px -1.4px 0 rgba(0,0,0,.8),
-             inset 0 3px 8px rgba(0,0,0,.4);
-  filter:drop-shadow(0 10px 22px rgba(0,0,0,.5));
+  box-shadow:inset 0 3px 8px rgba(0,0,0,.4);
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.52));
   text-shadow:0 1px 0 rgba(0,0,0,.5)}
+.cine__cta .btn--secondary::after{
+  content:"";position:absolute;inset:0;z-index:-1;padding:1.5px;
+  clip-path:none;backdrop-filter:none;
+  background:linear-gradient(180deg,#d7dde5 0%,#98a2ae 22%,#59626d 52%,#343c46 78%,#232a33 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:background .35s,filter .35s;pointer-events:none}
+.cine__cta .btn--secondary::before{display:none}
 .cine__cta .btn--secondary:hover{
   color:#fff;
   background:
     linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%),
     linear-gradient(180deg,#5e6670 0%,#3e4650 26%,#262c34 58%,#1c2128 82%,#282f37 100%);
-  filter:drop-shadow(0 14px 28px rgba(0,0,0,.56))}
-.cine__cta .btn--secondary::after{display:none}
-/* the catch-light sweep belongs to the flat faces */
-.cine__cta .btn--secondary::before{display:none}
-/* The lip's orbit is decoration; the brightness still marks the hover. */
-@media(prefers-reduced-motion:reduce){
-  .cine .btn--hero::after,.btn--hero::after{transition:filter .35s}
-  .cine .btn--hero:hover::after,.btn--hero:hover::after{--lipang:0deg}
-}
+  filter:drop-shadow(0 14px 28px rgba(0,0,0,.58))}
+.cine__cta .btn--secondary:hover::after{
+  background:linear-gradient(180deg,#f2f6fa 0%,#b9c3cf 22%,#6f7885 52%,#424b56 78%,#2c343e 100%);
+  filter:drop-shadow(0 0 4px rgba(200,220,245,.35))}
 
 /* ============================================================
    v203 — CUSTOM FINISHES, PLACED

@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () { initVehModule(); upd
    the metal looks like it moves rather than the button. Progressive — the
    button has a perfectly good fixed reflection if this never runs. */
 (function () {
-  var sel = ".cta .fit-form .btn--primary, .fin-hero .btn--primary";
+  var sel = ".cta .fit-form .btn--primary, .fin-hero .btn--primary, .cine__cta .btn--hero";
   function bind(el) {
     el.addEventListener("pointermove", function (e) {
       var r = el.getBoundingClientRect();
