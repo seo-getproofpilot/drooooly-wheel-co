@@ -12,9 +12,23 @@
     "xf":"xf.png","method":"method.png","kmc":"kmc.svg","raceline":"raceline.png","black-rhino":"black-rhino.svg"
   };
   // white-card treatment: white-art logos → solid black; black-bg logos → dark chip
+  /* Which treatment a logo needs is a fact about the artwork, so it was
+     measured rather than eyeballed: mean luminance of the opaque pixels in
+     each file. Anything over ~185 is white-ink art that disappears on a
+     white tile.
+
+       blogo--dark  forces the art to solid black. Right for white line art
+                    with no colour worth keeping (jtx, amani, arkon, xf).
+       blogo--chip  sets it on a dark chip. Right when the colour IS the
+                    logo and flattening it to black would lose the brand.
+
+     cali (199), hardrock (224) and tis (196) had NO treatment at all and
+     were washing out — hardrock worst of the three, since its wordmark is
+     white and only the red accent was showing. */
   var FX = { "jtx":"blogo--dark","amani":"blogo--dark","arkon":"blogo--dark","xf":"blogo--dark",
     "kmc":"blogo--dark","black-rhino":"blogo--dark","liberty":"blogo--dark",
-    "fenix":"blogo--chip","fittipaldi":"blogo--chip","fuel":"blogo--chip","vision":"blogo--chip" };
+    "fenix":"blogo--chip","fittipaldi":"blogo--chip","fuel":"blogo--chip","vision":"blogo--chip",
+    "cali":"blogo--chip","hardrock":"blogo--chip","tis":"blogo--chip" };
   /* A brand's own header texture, where we hold one. Keyed here rather than in
      brands.js because that file is generated and drops hand-added fields. */
   var TEXTURE = { "jtx": "assets/brand/jtx-texture.webp" };
@@ -187,8 +201,8 @@
       btn.type = "button";
       btn.className = "brands-toggle";
       btn.setAttribute("aria-expanded", "false");
-      var labelClosed = '<span class="btn-txt">Show all ' + BRANDS.length + ' brands</span> <span class="brands-toggle__ic" aria-hidden="true">↓</span>';
-      var labelOpen = '<span class="btn-txt">Show fewer</span> <span class="brands-toggle__ic" aria-hidden="true">↑</span>';
+      var labelClosed = '<span class="btn-txt">All ' + BRANDS.length + ' brands</span>';
+      var labelOpen = '<span class="btn-txt">Show fewer</span>';
       btn.innerHTML = labelClosed;
       btn.addEventListener("click", function () {
         var open = el.classList.toggle("is-expanded");
@@ -275,7 +289,7 @@
        Bolt pattern does the work this lane's customer actually cares about:
        4x137 is Can-Am, 4x156 is Polaris, and the two are not interchangeable. */
     utv: {
-      title: "Side-by-sides & sand",
+      title: "Side-by-sides & sand cars",
       sub: "Beadlock and bead-grip in 14s and 15s, on 4x137 for a Can-Am or 4x156 for a RZR. " +
            "Sand cars run the wide rear and the narrow front off the same shelf. " +
            "Tell us the machine and where you ride it and we'll spec the set.",

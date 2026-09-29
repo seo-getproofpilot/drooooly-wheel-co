@@ -190,3 +190,22 @@ document.addEventListener('DOMContentLoaded', function () { initVehModule(); upd
   var rt;
   window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(build, 250); });
 })();
+
+/* Liquid-chrome buttons: the brightest reflection follows the pointer, so
+   the metal looks like it moves rather than the button. Progressive — the
+   button has a perfectly good fixed reflection if this never runs. */
+(function () {
+  var sel = ".cta .fit-form .btn--primary, .fin-hero .btn--primary";
+  function bind(el) {
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", (((e.clientX - r.left) / r.width) * 100).toFixed(1) + "%");
+      el.style.setProperty("--my", (((e.clientY - r.top) / r.height) * 100).toFixed(1) + "%");
+    });
+    el.addEventListener("pointerleave", function () {
+      el.style.setProperty("--mx", "50%");
+      el.style.setProperty("--my", "50%");
+    });
+  }
+  document.querySelectorAll(sel).forEach(bind);
+})();

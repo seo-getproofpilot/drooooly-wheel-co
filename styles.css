@@ -3612,3 +3612,112 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .cta .fit-form .btn--primary:hover::after{
   background:linear-gradient(180deg,#ffffff 0%,#dbe3ec 16%,#79838f 46%,#343b44 78%,#1d222a 100%);
   filter:drop-shadow(0 0 5px rgba(210,228,255,.5))}
+
+/* ============================================================
+   v204 — the brand wall, the toggle, and two more finishes
+
+   LOGOS. Every file is centred in its own canvas — that was measured,
+   not assumed. What looked broken was optical size: max-height:50px plus
+   max-width:80% meant a wide mark hit the width cap and a square one hit
+   the height cap, so JTX rendered 213x44 next to KG1 at 54x62. Nearly
+   four times the width, on the same wall.
+
+   Fix is one box for everything. Each logo gets the same 148x50 field and
+   is contained inside it, so a wide mark fills the width, a square one
+   fills the height, and the eye stops reading the difference as damage.
+   ============================================================ */
+.blogo{width:100%;max-width:148px;height:50px;max-height:none;object-fit:contain;object-position:center}
+.blogo--chip{
+  width:auto;max-width:148px;height:auto;max-height:52px;
+  padding:9px 13px;border-radius:9px;background:#0b0d11;
+  box-shadow:0 4px 12px rgba(0,0,0,.25)}
+/* the tile reserves room for the tag underneath, so centre the logo in the
+   space that is actually left rather than in the padding box */
+.blogo-tile{align-content:center}
+
+/* ---- the brand toggle ----
+   Was a chrome-lettered slab with an arrow glued on. It is a quiet
+   "there is more" control, so it reads as one now: a hairline that fills
+   in on hover, sized like a button rather than a banner. */
+.brands-toggle{
+  padding:14px 30px;border-radius:0;
+  color:#e9eef4;background:transparent;border:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);
+  filter:none;letter-spacing:.1em;
+  transition:background .25s,box-shadow .25s,color .25s,transform .2s}
+.brands-toggle:hover{
+  color:#0b0d12;background:#eef2f6;
+  box-shadow:inset 0 0 0 1px #eef2f6,0 10px 24px rgba(0,0,0,.4);
+  transform:translateY(-2px)}
+.brands-toggle .btn-txt{background:none;-webkit-text-fill-color:currentColor;color:inherit}
+
+/* ---- CONSULT SUBMIT · liquid chrome ----
+   "Make 'em drool" on a button that looks like poured metal. The name and
+   the finish finally say the same thing, and it is the loudest object on
+   the page, which is right for the one button that starts a build.
+   A graphite cut line keeps it off the white card. */
+.cta .fit-form .btn--primary{
+  --mx:50%;--my:50%;
+  color:#10141a;text-shadow:0 1px 0 rgba(255,255,255,.6);
+  background:
+    radial-gradient(130% 90% at var(--mx) var(--my),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e6ecf3,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#9ba5b1,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e8edf3 0%,#bfc8d3 32%,#7b8591 52%,#d0d8e1 72%,#f1f5f9 100%);
+  box-shadow:inset 0 0 0 1px rgba(60,70,84,.5),inset 0 1px 0 rgba(255,255,255,.9),
+             inset 0 -2px 6px rgba(0,0,0,.26);
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.28));
+  transition:background-position .2s,filter .3s,transform .22s}
+.cta .fit-form .btn--primary::after{display:none}
+.cta .fit-form .btn--primary:hover{
+  color:#05070a;transform:translateY(-3px);
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.32)) drop-shadow(0 0 18px rgba(31,123,255,.3))}
+
+/* ============================================================
+   v205 — financing should feel like the easy part
+
+   The section was accurate and cold: a dark hero, a black button and a
+   sentence about credit. Most people buying a $6k set of forged wheels
+   are financing them, so this page has to read as the comfortable route,
+   not the fine print.
+
+   Nothing here invents a rate, a figure or an approval odds claim —
+   LAUNCH-CHECKLIST 2.x already has the numbers on this page flagged.
+   What changed is warmth: light behind the headline, a button that looks
+   like the rest of the site's good ones, and a reassurance line that
+   states only what is already true elsewhere on the page.
+   ============================================================ */
+.fin-hero{position:relative;isolation:isolate}
+.fin-hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(760px 340px at 12% 12%,rgba(31,123,255,.20),transparent 68%),
+    radial-gradient(620px 300px at 88% 96%,rgba(90,162,255,.12),transparent 70%)}
+
+/* the same liquid chrome as the consult submit: this is the other button
+   on the site that starts something, and it should look like it */
+.fin-hero .btn--primary{
+  --mx:50%;--my:50%;
+  color:#10141a;text-shadow:0 1px 0 rgba(255,255,255,.6);
+  background:
+    radial-gradient(130% 90% at var(--mx) var(--my),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e6ecf3,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#9ba5b1,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e8edf3 0%,#bfc8d3 32%,#7b8591 52%,#d0d8e1 72%,#f1f5f9 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.26);
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.5));
+  transition:background-position .2s,filter .3s,transform .22s}
+.fin-hero .btn--primary:hover{
+  color:#05070a;transform:translateY(-2px);
+  filter:drop-shadow(0 16px 32px rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(31,123,255,.34))}
+
+/* a plain, warm line under the pair — soft-pull is stated on the page
+   already, this just says it where someone hesitating will read it */
+.fin-hero__ease{
+  display:flex;align-items:center;gap:9px;margin-top:20px;
+  font-family:var(--label);font-size:12.5px;color:#aeb9c6;letter-spacing:.01em}
+.fin-hero__ease b{color:#dfe7ef;font-weight:600}
+.fin-hero__ease svg{width:16px;height:16px;flex:none;stroke:var(--blue-2);stroke-width:1.9;fill:none}
+@media(max-width:560px){.fin-hero__ease{font-size:11.5px;align-items:flex-start}}
