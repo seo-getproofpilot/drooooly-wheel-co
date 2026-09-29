@@ -1,5 +1,5 @@
 /* ============================================================
-   DROOOLY Wheel Co. — tire catalog
+   DROOOLY Wheel & Tire — tire catalog
    tread : "Mud-Terrain" | "All-Terrain" | "Highway" | "All-Season" ...
    sizes : every size we list for that tread, sorted by rim diameter
    rims  : distinct rim diameters, derived from sizes

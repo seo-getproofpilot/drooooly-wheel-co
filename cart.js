@@ -1,5 +1,5 @@
 /* ============================================================
-   DROOOLY Wheel Co. — cart (localStorage) + slide-out drawer
+   DROOOLY Wheel & Tire — cart (localStorage) + slide-out drawer
    ============================================================ */
 (function () {
   var KEY = "drooolyCart";

@@ -1,4 +1,4 @@
-# LAUNCH CHECKLIST — DROOOLY Wheel Co.
+# LAUNCH CHECKLIST — DROOOLY Wheel & Tire
 
 **This build is not ready to be public.** It carries invented pricing, brand logos we
 are not yet authorised to display, and third-party photography we have not licensed.

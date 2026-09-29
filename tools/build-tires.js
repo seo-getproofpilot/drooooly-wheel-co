@@ -163,7 +163,7 @@ TIRES.sort((a, b) => a.name.localeCompare(b.name));
 const q = (s) => JSON.stringify(s);
 const arr = (a) => "[" + a.map(q).join(",") + "]";
 let out = `/* ============================================================
-   DROOOLY Wheel Co. — tire catalog
+   DROOOLY Wheel & Tire — tire catalog
    tread : "Mud-Terrain" | "All-Terrain" | "Highway" | "All-Season" ...
    sizes : every size we list for that tread, sorted by rim diameter
    rims  : distinct rim diameters, derived from sizes

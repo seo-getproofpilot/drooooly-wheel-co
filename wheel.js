@@ -485,5 +485,5 @@
   }
 
   paint();
-  document.title = brand.name + " " + model.model + " — DROOOLY Wheel Co.";
+  document.title = brand.name + " " + model.model + " — DROOOLY Wheel & Tire";
 })();

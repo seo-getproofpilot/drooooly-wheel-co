@@ -1,5 +1,5 @@
 /* ============================================================
-   DROOOLY Wheel Co. — storefront catalog
+   DROOOLY Wheel & Tire — storefront catalog
    ============================================================ */
 (function () {
   var BRANDS = window.BRANDS || [];
@@ -719,7 +719,7 @@
       if (window.__observeFades) window.__observeFades();
       return;
     }
-    document.title = b.name + " Wheels — DROOOLY Wheel Co.";
+    document.title = b.name + " Wheels — DROOOLY Wheel & Tire";
     var show = featuredModels(b);
     var total = b.models.length;
     var more = total - show.length;
@@ -731,7 +731,7 @@
     var avail = seriesFor(b);
     if (wantSeries && !avail.some(function (d) { return d.key === wantSeries; })) wantSeries = null;
     var seriesDef = wantSeries ? SERIES_DEFS.filter(function (d) { return d.key === wantSeries; })[0] : null;
-    if (seriesDef) document.title = b.name + " " + seriesDef.title + " — DROOOLY Wheel Co.";
+    if (seriesDef) document.title = b.name + " " + seriesDef.title + " — DROOOLY Wheel & Tire";
 
     root.innerHTML =
       '<section class="wheelhero' + (textureFor(b) ? " wheelhero--brand" : "") + '"' +
@@ -885,7 +885,7 @@
       if (window.__observeFades) window.__observeFades();
       return;
     }
-    document.title = b.name + " Tires — DROOOLY Wheel Co.";
+    document.title = b.name + " Tires — DROOOLY Wheel & Tire";
     var host = (b.site || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
     var sizeCount = b.models.reduce(function (a, m) { return a + (m.sizes ? m.sizes.length : 0); }, 0);
 

@@ -309,7 +309,7 @@ for (const file of files) {
 const q = (s) => JSON.stringify(s);
 const arr = (a) => "[" + a.map(q).join(",") + "]";
 let out = `/* ============================================================
-   DROOOLY Wheel Co. — brand + wheel catalog data
+   DROOOLY Wheel & Tire — brand + wheel catalog data
    configs: "single" | "dually" | "super single"
    img  (optional): local product photo under assets/wheels/<brand>/
    feat (optional): featured rank — these show on the brand page;

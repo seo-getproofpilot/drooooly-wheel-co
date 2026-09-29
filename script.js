@@ -1,4 +1,4 @@
-// DROOOLY Wheel Co. — site behaviors
+// DROOOLY Wheel & Tire — site behaviors
 
 // ---- nav scroll state ----
 var nav = document.getElementById('nav');

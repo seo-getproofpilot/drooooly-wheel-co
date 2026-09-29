@@ -1,4 +1,4 @@
-# CLAUDE.md — Droooly Wheel Co
+# CLAUDE.md — Droooly Wheel & Tire
 
 Drop this folder at the root of the site repo. Claude Code reads `CLAUDE.md` automatically on every session, so this is the persistent brief — no re-explaining the project.
 
