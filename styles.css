@@ -3467,39 +3467,53 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    the hero photo changing behind them.
    ============================================================ */
 .cine .btn--hero,.btn--hero{
-  /* The FACE IS A DIAGONAL BAND, not a vertical ramp. That was the thing I
-     kept missing: sampling the approved button on an 8x11 grid gives bright
-     along the top-left to bottom-right diagonal (237 and 232 at those
-     corners, 242 through the middle) and dark at the other two — 134 at
-     top-right, 112 at bottom-left.
+  /* FITTED, not eyeballed. Every pixel of the approved button (19,801 of
+     them, with the label and the cut corner masked out) was projected onto
+     the CSS 45deg gradient axis and averaged into 40 bins. These stops are
+     that profile read straight back out.
 
-     A 45deg gradient running dark - light - dark reproduces exactly that:
-     the two ends of the axis are the dark corners, and both remaining
-     corners sit mid-axis, which is why they read bright. The radial stack
-     that was here before could not make that shape at all, which is why
-     three rounds of re-tinting it never matched.
+     The thing three earlier attempts got wrong: this face is FLAT. It runs
+     138 at the dark end, 221 through the middle, 137 at the other end — a
+     range of 84. Every version I built by eye had 130-plus of range, which
+     is why it kept looking harsher and more streaked than the reference.
+     It is a gentle lift across a mostly even silver, not a mirror.
 
-     The pointer radial stays, small and near the top-left at rest, so the
-     metal still moves under the cursor without washing the band out. */
+     No inset highlight and no inner shadow: scanning all four edges of the
+     reference shows background going straight into face with no line
+     either side. Do not add a rim here.
+
+     The button is wide and short, so the 45deg axis runs off the box and
+     only about 4-79% of the gradient is ever visible; the 0% and 100%
+     stops just carry the ends out cleanly. */
   color:#10141a;
   text-shadow:0 1px 0 rgba(255,255,255,.5);
-  background:
-    radial-gradient(90% 150% at var(--mx,22%) var(--my,16%),rgba(255,255,255,.55),rgba(255,255,255,0) 52%),
-    linear-gradient(45deg,
-      #6b7178 0%,
-      #a9b2bc 16%,
-      #dfe5ec 34%,
-      #f7f9fb 50%,
-      #dbe2e9 66%,
-      #9ea7b1 85%,
-      #767e87 100%);
-  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.26);
+  background:linear-gradient(45deg,
+    #7b848e 0%,
+    #838c96 4%,
+    #c4cacf 14%,
+    #d4d8dc 24%,
+    #dadee2 34%,
+    #d8dde2 44%,
+    #ccd1d8 54%,
+    #c6cdd4 64%,
+    #949da8 74%,
+    #838a94 79%,
+    #7a828c 100%);
+  box-shadow:none;
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.62));
   transition:filter .3s,transform .22s}
+/* The liquid movement lives on an overlay that is invisible at rest, so the
+   resting button stays exactly the fitted profile and nothing is added to
+   it until the cursor is actually on it. */
+.cine .btn--hero::after,.btn--hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;pointer-events:none;
+  background:radial-gradient(85% 150% at var(--mx,30%) var(--my,25%),
+    rgba(255,255,255,.75),rgba(255,255,255,0) 55%);
+  transition:opacity .35s}
+.cine .btn--hero:hover::after,.btn--hero:hover::after{opacity:1}
 .cine .btn--hero:hover,.btn--hero:hover{
   color:#05070a;
   filter:drop-shadow(0 16px 32px rgba(0,0,0,.56)) drop-shadow(0 0 18px rgba(31,123,255,.3))}
-.cine .btn--hero::after,.btn--hero::after{display:none}
 .cine .btn--hero::before,.btn--hero::before{display:none}
 
 /* ---- the partner ----
