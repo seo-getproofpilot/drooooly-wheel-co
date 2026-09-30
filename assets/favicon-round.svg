@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".22" stop-color="#e9eef4"/>
+      <stop offset=".5" stop-color="#8c97a4"/><stop offset=".56" stop-color="#5c6672"/>
+      <stop offset=".78" stop-color="#d3dae1"/><stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="13" fill="#07080b"/>
+  <!-- the D from the wordmark: squared, with the leading edge raked back -->
+  <path d="M14 17 H41 a13 13 0 0 1 0 30 H14 l7-8 h19 a7 7 0 0 0 0-14 H21 Z" fill="url(#c)"/>
+  <path d="M27 28 h13 a4 4 0 0 1 0 8 H27 Z" fill="#07080b"/>
+  <path d="M46 14 l8 3 -6 4 Z" fill="#1f7bff"/>
+</svg>
