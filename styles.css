@@ -3991,12 +3991,19 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    reads as one bar rather than four stranded words. --navpad drives the
    padding AND the underline accent, which were drifting apart (12px
    padding against an 18px underline under 1200).
+
+   Pulled back once: the first pass ran the rail to 1760 with 46px of
+   padding per item, and at 1920 that put the logo at x=99 and the cart at
+   x=1840 — the bar was used, but the pieces had drifted apart. Now 1580
+   and 30px, which at 1920 is a logo at 181 and a cart at 1750. The logo
+   keeps the smallest indent of anything on the bar, so it still sits
+   furthest out; everything else comes in behind it.
    ============================================================ */
 .site-header{--navpad:12px}
 @media(min-width:1440px){
-  .site-header .nav__inner{width:min(100% - 160px,1760px)}
-  .site-header .brand{margin-left:clamp(0px,1vw,24px)}
-  .site-header{--navpad:clamp(20px,2.4vw,46px)}
+  .site-header .nav__inner{width:min(100% - 120px,1580px)}
+  .site-header .brand{margin-left:clamp(0px,.6vw,14px)}
+  .site-header{--navpad:clamp(18px,1.6vw,30px)}
 }
 .nav__links .nav__top,.nav__links .nav__top--solo{padding-left:var(--navpad);padding-right:var(--navpad)}
 .nav .nav__top::after,.nav .nav__top--solo::after{left:var(--navpad);right:calc(100% - var(--navpad))}
@@ -4206,3 +4213,53 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .cine__cta{gap:12px}
   .cine__cta .btn{min-height:52px}
 }
+
+/* ============================================================
+   v236 — the chrome ring was never clipped to the machined corner
+
+   The 2px chrome ring is a ::after with `clip-path:none`, which was read
+   as "no clip needed, the parent clips it". It does not: the ring is a
+   full rectangle while the face is a polygon with 12px cut off the
+   bottom-right, so a pale triangle of ring sat in the notch on every
+   button that carries it — the hero pair, the brand toggle and
+   "Prequalify now". On the dark hero it passes as a highlight. On the
+   white financing section it is a grey tail hanging off the corner, and
+   that is the thing that reads as broken.
+
+   clip-path:inherit takes the parent's own polygon, so the ring follows
+   whatever corner that button has rather than a number copied here.
+   ============================================================ */
+.cine .btn--hero::after,.btn--hero::after,
+.brands-toggle::after,
+.financing .btn--primary::after,
+.fin-hero .btn--primary::after{clip-path:inherit}
+
+/* ============================================================
+   v236b — "Prequalify now" goes black chrome
+
+   v230c gave it the hero's polished face. That face is built to sit on a
+   photograph; the homepage financing section is white, so a light chrome
+   button on a light ground had nothing to push against — a shiny strip
+   with pale edges, which is exactly how it read on a phone.
+
+   The site already has the right button for a white ground: the black
+   chrome on "Make 'em drool" in the consult form. Same face here, white
+   Michroma on it, and the chrome ring — now clipped — reads as a real
+   polished edge against the black instead of vanishing into the page.
+
+   Only the homepage section. .fin-hero is the financing page's own hero,
+   which is dark, and the polished face is right there.
+   ============================================================ */
+.financing .btn--primary{
+  color:#fff;text-shadow:none;
+  background:linear-gradient(180deg,#4a4a50 0%,#212126 42%,#0a0a0c 58%,#19191d 74%,#3e3e44 100%);
+  box-shadow:0 14px 30px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.22);
+  filter:none}
+.financing .btn--primary::after{
+  background:linear-gradient(180deg,#f2f6fa 0%,#cdd5de 16%,#7d8792 38%,#3a424c 54%,
+    #8d97a3 72%,#dee5ed 88%,#f7fafc 100%)}
+.financing .btn--primary:hover{
+  color:#fff;text-shadow:none;
+  background:linear-gradient(180deg,#56565d 0%,#292930 42%,#0e0e11 58%,#212127 74%,#4a4a51 100%);
+  box-shadow:0 18px 38px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.26);
+  filter:none}
