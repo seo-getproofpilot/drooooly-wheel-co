@@ -1,29 +1,44 @@
 <!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
-<title>Hero button vs the approved screenshot — DROOOLY</title>
+<title>Find your set — measured against the approved screenshot</title>
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=208">
+<link rel="stylesheet" href="styles.css?v=211">
 <style>
-/* A check, not a design page: the approved screenshot and the live button
-   at the same size, so "does it match" stops being a matter of memory. */
-body{margin:0;background:#0b0f15;color:#dfe6ee;font-family:Inter,sans-serif;padding:30px 34px 70px}
-h1{font-family:Michroma;font-size:17px;margin:0 0 8px}
-p.sub{color:#8e99a6;font-size:13px;line-height:1.7;max-width:640px;margin:0 0 26px}
+body{margin:0;background:#0b0f15;color:#dfe6ee;font-family:Inter,sans-serif;padding:28px 34px 80px}
+h1{font-family:Michroma;font-size:16px;margin:0 0 6px}
+p.sub{color:#8e99a6;font-size:13px;line-height:1.7;max-width:660px;margin:0 0 24px}
 h2{font-family:Michroma;font-size:10.5px;letter-spacing:.12em;color:#8894a4;margin:0 0 9px;text-transform:uppercase}
-.stack{display:flex;flex-direction:column;gap:22px}
+.stack{display:flex;flex-direction:column;gap:24px}
 .cell img{display:block}
-.live{width:394px;min-height:69px;padding:0 34px;font-size:16px}
-.note{color:#6f7a87;font-size:12px;margin-top:6px}
+/* the reference crop is 410x84 with the button at 7,7 sized 394x69 */
+.rig{position:relative;width:410px;height:84px;background:#07080b}
+.rig .live{position:absolute;left:7px;top:7px;width:394px;height:69px;min-height:0;
+  padding:0 34px;font-size:16px}
+.rig img{position:absolute;inset:0}
+/* difference: anything identical renders black, anything off glows */
+.diff img{mix-blend-mode:difference}
+.note{color:#6f7a87;font-size:12px;margin-top:7px;max-width:640px;line-height:1.6}
 </style></head><body>
-<h1>Hero button &mdash; check against the approved screenshot</h1>
-<p class="sub">Both at the same size. The stops in the live button were read back out of the
-   screenshot on an 8&times;11 grid rather than picked by eye: its darkest in-face value is
-   <b>192</b>, and the live fill's darkest stop is <b>#b9c2cc</b>, which is 192.</p>
+<h1>Find your set &mdash; against the approved screenshot</h1>
+<p class="sub">Same size, same position. The third rig overlays your screenshot on the live
+   button with a difference blend: <b>where the two match it goes black</b>. Anything that
+   glows is a real difference, not an opinion.</p>
+
 <div class="stack">
-  <div class="cell"><h2>Approved screenshot</h2><img src="assets/ref-hero-approved.png" alt="approved hero button"></div>
-  <div class="cell"><h2>Live now</h2>
-    <a href="#" class="btn btn--primary btn--hero live">Find your set</a>
-    <p class="note">Hover it &mdash; the brightest reflection follows the pointer.</p>
+  <div class="cell"><h2>1 &mdash; your screenshot</h2>
+    <div class="rig"><img src="assets/ref-hero-approved.png" alt=""></div></div>
+
+  <div class="cell"><h2>2 &mdash; live now</h2>
+    <div class="rig"><a href="#" class="btn btn--primary btn--hero live">Find your set</a></div></div>
+
+  <div class="cell"><h2>3 &mdash; difference (black = identical)</h2>
+    <div class="rig diff">
+      <a href="#" class="btn btn--primary btn--hero live">Find your set</a>
+      <img src="assets/ref-hero-approved.png" alt="">
+    </div>
+    <p class="note">The label will always glow &mdash; your screenshot is a scaled capture, so the
+       text does not land on the same pixels. What matters is the <b>face</b>: if the metal
+       matches, the areas either side of the label go dark.</p>
   </div>
 </div>
 </body></html>

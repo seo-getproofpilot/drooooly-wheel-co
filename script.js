@@ -203,8 +203,11 @@ document.addEventListener('DOMContentLoaded', function () { initVehModule(); upd
       el.style.setProperty("--my", (((e.clientY - r.top) / r.height) * 100).toFixed(1) + "%");
     });
     el.addEventListener("pointerleave", function () {
-      el.style.setProperty("--mx", "50%");
-      el.style.setProperty("--my", "50%");
+      // back to the rest position, which is NOT centre: the approved hero
+      // has its highlight up in the top-left, and returning to 50%/50%
+      // left a white blob in the middle that nothing else in the design has.
+      el.style.removeProperty("--mx");
+      el.style.removeProperty("--my");
     });
   }
   document.querySelectorAll(sel).forEach(bind);

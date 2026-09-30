@@ -3467,22 +3467,33 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    the hero photo changing behind them.
    ============================================================ */
 .cine .btn--hero,.btn--hero{
-  /* MEASURED, not chosen. These stops were read back out of the approved
-     screenshot pixel by pixel: sampling the face on a 8x11 grid, the
-     darkest in-face value is 192 at ~62% height, which is #b9c2cc. The
-     stock 05 fill puts #78828e (128) at 52% instead — 64 points darker —
-     and that is why the verbatim version rendered dull beside the
-     screenshot. 05's radial STRUCTURE was right all along; only the base
-     linear was too dark. Keep the structure, keep these stops. */
+  /* The FACE IS A DIAGONAL BAND, not a vertical ramp. That was the thing I
+     kept missing: sampling the approved button on an 8x11 grid gives bright
+     along the top-left to bottom-right diagonal (237 and 232 at those
+     corners, 242 through the middle) and dark at the other two — 134 at
+     top-right, 112 at bottom-left.
+
+     A 45deg gradient running dark - light - dark reproduces exactly that:
+     the two ends of the axis are the dark corners, and both remaining
+     corners sit mid-axis, which is why they read bright. The radial stack
+     that was here before could not make that shape at all, which is why
+     three rounds of re-tinting it never matched.
+
+     The pointer radial stays, small and near the top-left at rest, so the
+     metal still moves under the cursor without washing the band out. */
   color:#10141a;
   text-shadow:0 1px 0 rgba(255,255,255,.5);
   background:
-    radial-gradient(130% 90% at var(--mx,50%) var(--my,50%),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
-    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
-    radial-gradient(75% 60% at 82% 88%,#e9eff5,rgba(255,255,255,0) 60%),
-    radial-gradient(45% 80% at 62% 30%,#a6b0bc,rgba(255,255,255,0) 58%),
-    linear-gradient(170deg,#ffffff 0%,#eef2f6 22%,#d5dce4 46%,#b9c2cc 62%,#dde3ea 82%,#fafbfc 100%);
-  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -2px 6px rgba(0,0,0,.24);
+    radial-gradient(90% 150% at var(--mx,22%) var(--my,16%),rgba(255,255,255,.55),rgba(255,255,255,0) 52%),
+    linear-gradient(45deg,
+      #6b7178 0%,
+      #a9b2bc 16%,
+      #dfe5ec 34%,
+      #f7f9fb 50%,
+      #dbe2e9 66%,
+      #9ea7b1 85%,
+      #767e87 100%);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.26);
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.62));
   transition:filter .3s,transform .22s}
 .cine .btn--hero:hover,.btn--hero:hover{
