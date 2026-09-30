@@ -3908,3 +3908,60 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .nav__actions{gap:22px}
 .nav__actions .btn--sm{padding-inline:24px}
 @media(max-width:1100px){ .nav__actions{gap:16px} }
+
+/* ============================================================
+   v227 — phone in the bar, Get fitted takes over past the hero
+
+   Measured before building: phone + Get fitted + cart + gaps needs 354px
+   and the cluster has about 321px at a 1280 viewport, so all three never
+   fit — the cart was being pushed off the bar. Hence the handover rather
+   than showing both.
+
+   The phone is what sits there at rest, because it is the thing the hero
+   does NOT already offer; "Get fitted" is twelve inches below it until
+   you scroll. Past the hero the button fades in and the phone fades out,
+   over 220ms, which reads as the bar changing gear rather than a control
+   being swapped underneath you.
+   ============================================================ */
+.nav__tel{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  color:#e7edf4;font-family:var(--label);font-size:13.5px;font-weight:600;
+  letter-spacing:.01em;white-space:nowrap;transition:color .2s,opacity .22s,transform .22s}
+.nav__tel svg{width:17px;height:17px;flex:none;fill:none;stroke:var(--blue-2);
+  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.nav__tel:hover{color:#fff}
+.nav__tel:hover svg{stroke:#7db4ff}
+.nav__gf{white-space:nowrap}
+
+/* The handover. Only the homepage has a hero, so only there does the
+   button start hidden — every other page shows it from the top. */
+.js-heroswap .nav__gf{
+  position:absolute;right:0;opacity:0;transform:translateY(-6px);
+  pointer-events:none;transition:opacity .22s,transform .22s}
+.js-heroswap .nav__actions{position:relative}
+.js-heroswap.past-hero .nav__gf{position:static;opacity:1;transform:none;pointer-events:auto}
+.js-heroswap.past-hero .nav__tel{
+  position:absolute;right:0;opacity:0;transform:translateY(6px);pointer-events:none}
+
+@media(prefers-reduced-motion:reduce){
+  .nav__tel,.js-heroswap .nav__gf{transition:none}
+}
+/* Narrow bars cannot hold a ten-digit number and a button, so the phone
+   keeps its icon and drops the digits — still one tap to dial. */
+@media(max-width:1180px){
+  .nav__tel span{display:none}
+  .nav__tel{gap:0}
+}
+
+/* Inner pages have no hero, so there is no handover — the phone and
+   "Get fitted" sit in the bar together, and that cluster does not fit.
+   MEASURED on shop.html: brand 460 + links 451 + actions 374 = 1285 in a
+   rail that caps at 1360, before the 32px gaps. The cart was running to
+   x=1333 against a rail ending at 1258 and being clipped off the right
+   edge, silently, on every page but the homepage — and the overflow is a
+   constant ~73px at 1280, 1440 and 1600, because the rail is capped, so
+   no viewport is wide enough to rescue it. On those pages the phone
+   therefore keeps its icon and drops the digits at every width; the
+   number itself is in the footer. Icon-only takes actions to 257, which
+   clears the rail with room to spare. */
+html:not(.js-heroswap) .nav__tel span{display:none}
+html:not(.js-heroswap) .nav__tel{gap:0}

@@ -143,6 +143,17 @@ each one is a phone call away from being better.
   the right one — check before launch, and note the follower counts on that section are
   still fabricated (see 1.x).
 
+- 🔴 **4.29 · The header phone number is a personal cell, and its area code is wrong for
+  the business.** `602-332-5400` is Chris's own number, supplied as a placeholder — "we will
+  change this later." It now sits in the header of all eight pages, in the footer, and in
+  the `telephone` field of the homepage Store JSON-LD, which is the copy search engines and
+  map listings read. Two separate problems: (a) every enquiry from the site rings a personal
+  phone, and (b) **602 is Phoenix** while the business is in Grimsley, TN — a 931 or 615
+  number is what a local customer expects, and a mismatched area code in structured data
+  works against local search. Replace with the business line before launch; the string
+  appears as both `602-332-5400` (display) and `+16023325400` / `+1-602-332-5400` (tel: and
+  JSON-LD), so grep for all three.
+
 ## 5. Feature debt
 
 | # | What | Status |
