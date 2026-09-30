@@ -10,20 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="canonical" href="https://seo-getproofpilot.github.io/drooooly-wheel-co/" />
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=219" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=221" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="DROOOLY Wheel &amp; Tire" />
 <meta property="og:title" content="DROOOLY Wheel &amp; Tire — Baller Forged Packages for Lifted Trucks" />
 <meta property="og:description" content="Forged wheel & tire packages that leave 'em drooling — trucks, cars, vans. JTX, American Force, KG1, Fuel, Hostile, Amani and more. Hand-spec'd for your exact truck. Financing available. Grimsley, TN — shipping nationwide." />
 <meta property="og:url" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/" />
-<meta property="og:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=219" />
+<meta property="og:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=221" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="DROOOLY Wheel &amp; Tire — Baller Forged Packages for Lifted Trucks" />
 <meta name="twitter:description" content="Forged wheel & tire packages that leave 'em drooling — trucks, cars, vans. JTX, American Force, KG1, Fuel, Hostile, Amani and more. Hand-spec'd for your exact truck. Financing available. Grimsley, TN — shipping nationwide." />
-<meta name="twitter:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=219" />
-<link rel="stylesheet" href="styles.css?v=219" />
+<meta name="twitter:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=221" />
+<link rel="stylesheet" href="styles.css?v=221" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,8 +56,8 @@
 <!-- Startup sequence: outline wordmark → chrome "light up" → plate lifts to hero -->
 <div class="intro" id="intro" aria-hidden="true">
   <div class="intro__logo">
-    <img class="intro__outline" src="assets/logo-outline.png?v=219" alt="" />
-    <img class="intro__filled"  src="assets/logo-filled.png?v=219"  alt="" />
+    <img class="intro__outline" src="assets/logo-outline.png?v=221" alt="" />
+    <img class="intro__filled"  src="assets/logo-filled.png?v=221"  alt="" />
     <span class="intro__glint"></span>
   </div>
   <span class="intro__skip">Click to skip</span>
@@ -90,6 +90,11 @@
   el.addEventListener('animationstart', function (e) {
     if (e.animationName === 'introOut') setTimeout(release, 160);
   });
+  // A plain timer as well as the animation event. A backgrounded tab throttles
+  // animations, so animationstart may never fire — and then the hero sat blank
+  // until the 6s failsafe. This releases it on schedule either way; release()
+  // is idempotent, so whichever runs first wins and the other is a no-op.
+  setTimeout(release, 1900);
   el.addEventListener('animationend', function (e) { if (e.animationName === 'introOut') done(); });
   function skip() {
     el.style.animation = 'introOut .34s cubic-bezier(.66,0,.28,1) forwards';
@@ -98,9 +103,9 @@
   }
   el.addEventListener('click', skip);
   window.addEventListener('keydown', skip, { once: true });
-  // failsafe: never trap the visitor. Sequence ends ~3.85s, so this sits
+  // failsafe: never trap the visitor. Sequence ends ~2.55s, so this sits
   // well clear of it — a slow frame must not clip the exit animation.
-  setTimeout(function(){ release(); done(); }, 6000);
+  setTimeout(function(){ release(); done(); }, 4200);
 })();
 </script>
 
@@ -109,7 +114,7 @@
   <div class="nav shopnav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="brand" aria-label="DROOOLY Wheel &amp; Tire home">
-        <img src="assets/logo-wordmark.png?v=219" alt="DROOOLY Wheel &amp; Tire" class="brand__img brand__img--emblem"
+        <img src="assets/logo-wordmark.png?v=221" alt="DROOOLY Wheel &amp; Tire" class="brand__img brand__img--emblem"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <span class="brand__fallback" style="display:none" aria-hidden="true"><b>DROOOLY</b><i>Wheel &amp; Tire</i></span>
       </a>
@@ -151,7 +156,7 @@
 
 <!-- Cinematic hero with in-hero brand rotisserie -->
 <section class="cine">
-  <div class="cine__bg"><img class="cine__bg-fill" src="assets/truck-hero.jpg?v=219" alt="" aria-hidden="true" /><picture><source media="(max-width:560px)" srcset="assets/truck-hero-mobile.jpg?v=219" /><img src="assets/truck-hero.jpg?v=219" alt="Lifted Ford F-450 dually on forged wheels at sunset" /></picture></div>
+  <div class="cine__bg"><img class="cine__bg-fill" src="assets/truck-hero.jpg?v=221" alt="" aria-hidden="true" /><picture><source media="(max-width:560px)" srcset="assets/truck-hero-mobile.jpg?v=221" /><img src="assets/truck-hero.jpg?v=221" alt="Lifted Ford F-450 dually on forged wheels at sunset" /></picture></div>
   <div class="cine__scrim"></div>
   <div class="grain"></div>
   <div class="cine__inner">
@@ -385,10 +390,10 @@
       <div class="fin-lenders fade" data-d="3">
         <span class="fin-lenders__label">Financing through</span>
         <div class="fin-lenders__row">
-          <span class="fin-logo"><img src="assets/lenders/affirm.svg?v=219" alt="Affirm" loading="lazy" /></span>
-          <span class="fin-logo fin-logo--klarna"><img src="assets/lenders/klarna.svg?v=219" alt="Klarna" loading="lazy" /></span>
-          <span class="fin-logo"><img src="assets/lenders/paypal.svg?v=219" alt="PayPal Credit" loading="lazy" /></span>
-          <span class="fin-logo"><img src="assets/lenders/snap.svg?v=219" alt="Snap Finance" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/affirm.svg?v=221" alt="Affirm" loading="lazy" /></span>
+          <span class="fin-logo fin-logo--klarna"><img src="assets/lenders/klarna.svg?v=221" alt="Klarna" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/paypal.svg?v=221" alt="PayPal Credit" loading="lazy" /></span>
+          <span class="fin-logo"><img src="assets/lenders/snap.svg?v=221" alt="Snap Finance" loading="lazy" /></span>
         </div>
       </div>
       <a href="financing.html" class="btn btn--primary fade" data-d="4">Prequalify now</a>
@@ -414,7 +419,7 @@
         <div class="ig__meta">
           <div class="ig__row">
             <span class="ig__handle">drooolywheelco</span>
-            <a href="#" class="ig__follow" aria-label="Follow DROOOLY on Instagram"><svg viewBox="0 0 24 24" width="15" height="15"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg> Follow</a>
+            <a href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" class="ig__follow" aria-label="Follow DROOOLY on Instagram"><svg viewBox="0 0 24 24" width="15" height="15"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg> Follow</a>
           </div>
           <div class="ig__stats"><span><b>438</b> posts</span><span><b>41.2k</b> followers</span><span><b>163</b> following</span></div>
           <div class="ig__bio">
@@ -425,16 +430,16 @@
         </div>
       </div>
       <div class="ig__grid">
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lifted-3.jpg" alt="Lifted truck on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/dually-33.jpg" alt="Dually on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lowered-28.jpg" alt="Lowered truck on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lifted-20.jpg" alt="Lifted truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/car-38.jpg" alt="Car on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/dually-35.jpg" alt="Dually truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lifted-13.jpg" alt="Lifted truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
-        <a class="ig__cell" href="#" aria-label="Instagram build post"><img src="assets/builds/lowered-30.jpg" alt="Lowered truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/lifted-3.jpg" alt="Lifted truck on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/dually-33.jpg" alt="Dually on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/lowered-28.jpg" alt="Lowered truck on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/lifted-20.jpg" alt="Lifted truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/car-38.jpg" alt="Car on forged wheels" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/dually-35.jpg" alt="Dually truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/lifted-13.jpg" alt="Lifted truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
+        <a class="ig__cell" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" aria-label="Instagram build post"><img src="assets/builds/lowered-30.jpg" alt="Lowered truck build" loading="lazy" /><span class="ig__ov"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7.5-4.9-10-9.2C.6 9 1.6 5.5 4.6 4.6 6.8 4 8.8 5 12 8.2 15.2 5 17.2 4 19.4 4.6c3 .9 4 4.4 2.6 7.2C19.5 16.1 12 21 12 21z"/></svg></span></a>
       </div>
-      <a class="ig__cta" href="#">View more on Instagram →</a>
+      <a class="ig__cta" href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener">View more on Instagram →</a>
     </div>
   </div>
 </section>
@@ -443,8 +448,8 @@
 <section class="cta" id="fitment">
   <div class="cta__bg" aria-hidden="true">
     <picture>
-      <source media="(max-width:640px)" srcset="assets/cta-truck-mobile.jpg?v=219" />
-      <img src="assets/cta-truck-desktop.jpg?v=219" alt="" loading="lazy" />
+      <source media="(max-width:640px)" srcset="assets/cta-truck-mobile.jpg?v=221" />
+      <img src="assets/cta-truck-desktop.jpg?v=221" alt="" loading="lazy" />
     </picture>
   </div>
   <div class="wrap cta__inner">
@@ -472,7 +477,7 @@
 <footer class="site-footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="assets/logo-wordmark.png?v=219" alt="DROOOLY Wheel &amp; Tire" class="footer__logo" style="height:34px" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <img src="assets/logo-wordmark.png?v=221" alt="DROOOLY Wheel &amp; Tire" class="footer__logo" style="height:34px" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL &amp; TIRE</span>
       <p>Leave 'em drooling.</p>
       <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
@@ -481,7 +486,7 @@
     <div class="footer__cols">
       <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="tires.html">All tires</a><a href="builds.html">On real trucks</a><a href="shop.html?cat=packages">Packages</a><a href="shop.html?config=dually">Duallies</a><a href="#brands">Brands</a></div>
       <div class="footer__col"><h4>Company</h4><a href="#builds">Builds</a><a href="#financing">Financing</a><a href="#fitment">Get fitted</a><a href="index.html#fitment">Contact</a></div>
-      <div class="footer__col"><h4>Follow</h4><a href="#">@drooolywheelco</a></div>
+      <div class="footer__col"><h4>Follow</h4><a href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener">@drooolywheelco</a></div>
     </div>
   </div>
   <div class="footer__bottom">
@@ -490,12 +495,12 @@
   </div>
 </footer>
 
-<script src="brands.js?v=219"></script>
-<script src="finishes.js?v=219"></script>
-<script src="builds-data.js?v=219"></script>
-<script src="catalog.js?v=219"></script>
-<script src="cart.js?v=219"></script>
-<script src="vehicles.js?v=219"></script>
-<script src="script.js?v=219"></script>
+<script src="brands.js?v=221"></script>
+<script src="finishes.js?v=221"></script>
+<script src="builds-data.js?v=221"></script>
+<script src="catalog.js?v=221"></script>
+<script src="cart.js?v=221"></script>
+<script src="vehicles.js?v=221"></script>
+<script src="script.js?v=221"></script>
 </body>
 </html>

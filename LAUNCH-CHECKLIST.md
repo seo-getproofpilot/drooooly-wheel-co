@@ -137,6 +137,12 @@ each one is a phone call away from being better.
   photo strip because `builds-data.js` has no `utv` entry. Correct behaviour, but it means
   the newest lane is the one with no proof underneath it.
 
+- 🟡 **4.28 · The Instagram links point at instagram.com/drooolywheelco.** They were all
+  `href="#"`, which reads as broken when a client clicks one, so they now go to the handle
+  the page already prints in three places. Nobody has confirmed that account exists or is
+  the right one — check before launch, and note the follower counts on that section are
+  still fabricated (see 1.x).
+
 ## 5. Feature debt
 
 | # | What | Status |
