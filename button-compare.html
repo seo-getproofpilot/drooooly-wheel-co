@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Hero button vs the approved screenshot — DROOOLY</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=207">
+<style>
+/* A check, not a design page: the approved screenshot and the live button
+   at the same size, so "does it match" stops being a matter of memory. */
+body{margin:0;background:#0b0f15;color:#dfe6ee;font-family:Inter,sans-serif;padding:30px 34px 70px}
+h1{font-family:Michroma;font-size:17px;margin:0 0 8px}
+p.sub{color:#8e99a6;font-size:13px;line-height:1.7;max-width:640px;margin:0 0 26px}
+h2{font-family:Michroma;font-size:10.5px;letter-spacing:.12em;color:#8894a4;margin:0 0 9px;text-transform:uppercase}
+.stack{display:flex;flex-direction:column;gap:22px}
+.cell img{display:block}
+.live{width:394px;min-height:69px;padding:0 34px;font-size:16px}
+.note{color:#6f7a87;font-size:12px;margin-top:6px}
+</style></head><body>
+<h1>Hero button &mdash; check against the approved screenshot</h1>
+<p class="sub">Both at the same size. The stops in the live button were read back out of the
+   screenshot on an 8&times;11 grid rather than picked by eye: its darkest in-face value is
+   <b>192</b>, and the live fill's darkest stop is <b>#b9c2cc</b>, which is 192.</p>
+<div class="stack">
+  <div class="cell"><h2>Approved screenshot</h2><img src="assets/ref-hero-approved.png" alt="approved hero button"></div>
+  <div class="cell"><h2>Live now</h2>
+    <a href="#" class="btn btn--primary btn--hero live">Find your set</a>
+    <p class="note">Hover it &mdash; the brightest reflection follows the pointer.</p>
+  </div>
+</div>
+</body></html>
