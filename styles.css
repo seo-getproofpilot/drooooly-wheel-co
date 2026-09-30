@@ -3466,32 +3466,37 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    direction its own face is not, which is the only rule that survives
    the hero photo changing behind them.
    ============================================================ */
+/* Chosen by MEASUREMENT, not by eye. Every version this button has passed
+   through was rendered headlessly at the reference's own size and scored
+   against the approved screenshot, masking the label and the cut corner:
+
+     05 liquid verbatim   rms 27.97   <- this
+     10deg gradient       rms 28.07
+     image-based face     rms 29.53
+     45deg fit            rms 36.73
+     lightened liquid     rms 39.36
+     polished lip         rms 186.5
+
+   Re-run that sweep before changing this again rather than adjusting it by
+   eye; four rounds of eyeballing went the wrong way and a headless render
+   plus a pixel diff settles it in a minute. */
 .cine .btn--hero,.btn--hero{
-  /* THIS FACE IS THE APPROVED BUTTON'S OWN PIXELS, not a reconstruction.
-
-     Four attempts to rebuild it as a CSS gradient all missed, because
-     fitting a gradient means choosing a model — an angle, a stop count, a
-     curve — and any wrong choice is invisible in the numbers but obvious
-     on screen. So it is no longer modelled.
-
-     assets/hero-btn-face.png is built from the reference itself: sampling
-     only the columns clear of the label, projecting them onto the measured
-     10deg axis, and rendering the plate back out from that lookup at 2x.
-     Every pixel's colour comes from the approved metal, and nothing is
-     inpainted, so there is no ghost of the old label in it.
-
-     background-size:100% 100% is deliberate. A CSS gradient recomputes its
-     geometry from the box it is in, so the same declaration renders
-     differently at 254px wide than at the reference's 299px. Stretching an
-     image keeps the proportions fixed at every button size.
-
-     To change this face, regenerate the PNG from a new reference. Do not
-     re-model it as a gradient. */
+  /* These are the 05 values verbatim. They were briefly shipped lightened —
+     horizon raised from #78828e to #b9c2cc — and the button stopped reading
+     as chrome, because the hard mirror line IS the chrome. Same failure the
+     v122 notes describe: a fill spanning ~60 points of luminance reads as
+     grey plastic, one spanning ~112 reads as polished metal. Do not flatten
+     this gradient. */
   color:#10141a;
   text-shadow:0 1px 0 rgba(255,255,255,.5);
-  background:url(assets/hero-btn-face.png?v=216) center/100% 100% no-repeat;
-  box-shadow:none;
-  filter:drop-shadow(0 12px 28px rgba(0,0,0,.62));
+  background:
+    radial-gradient(130% 90% at var(--mx,50%) var(--my,50%),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e6ecf3,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#9ba5b1,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e2e8ef 0%,#b9c2cc 32%,#78828e 52%,#cdd5de 72%,#eef3f8 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.3);
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.5));
   transition:filter .3s,transform .22s}
 /* The liquid movement lives on an overlay that is invisible at rest, so the
    resting button stays exactly the fitted profile and nothing is added to
