@@ -3895,3 +3895,16 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     linear-gradient(180deg,#525b67 0%,#353d47 26%,#1d232b 58%,#181d25 82%,#262d37 100%);
   filter:drop-shadow(0 18px 34px rgba(0,0,0,.4)) drop-shadow(0 0 16px rgba(31,123,255,.3))}
 .cta .fit-form .btn--primary .btn-txt{color:inherit;-webkit-text-fill-color:currentColor;background:none}
+
+/* ============================================================
+   v226 — breathing room in the header action cluster
+
+   "Get fitted" and the cart were 12px apart, which on a 46px button and a
+   44px round cap reads as one joined object rather than two controls.
+   22px separates them without either drifting off on its own, and the
+   button gets a little more inside it so the label is not hard against
+   the chrome rim.
+   ============================================================ */
+.nav__actions{gap:22px}
+.nav__actions .btn--sm{padding-inline:24px}
+@media(max-width:1100px){ .nav__actions{gap:16px} }
