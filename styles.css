@@ -3467,40 +3467,29 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    the hero photo changing behind them.
    ============================================================ */
 .cine .btn--hero,.btn--hero{
-  /* The angle was SOLVED, not assumed. Fitting the approved button at every
-     angle from 0 to 175 and measuring the residual: 10deg gives rms 15.4,
-     45deg gives 27.9. It is very nearly a vertical gradient, tilted ten
-     degrees — not the diagonal band I built from reading its corners.
+  /* THIS FACE IS THE APPROVED BUTTON'S OWN PIXELS, not a reconstruction.
 
-     Profile at 10deg over 19,801 face pixels: 128 at the bottom, 235
-     through the middle, 137 at the top. A bright band straight across the
-     face. No inset highlight and no inner shadow — the reference has
-     neither.
+     Four attempts to rebuild it as a CSS gradient all missed, because
+     fitting a gradient means choosing a model — an angle, a stop count, a
+     curve — and any wrong choice is invisible in the numbers but obvious
+     on screen. So it is no longer modelled.
 
-     If this needs changing again, re-run the angle sweep first. Every
-     wrong version of this button came from assuming the geometry and
-     then arguing about colour. */
+     assets/hero-btn-face.png is built from the reference itself: sampling
+     only the columns clear of the label, projecting them onto the measured
+     10deg axis, and rendering the plate back out from that lookup at 2x.
+     Every pixel's colour comes from the approved metal, and nothing is
+     inpainted, so there is no ghost of the old label in it.
+
+     background-size:100% 100% is deliberate. A CSS gradient recomputes its
+     geometry from the box it is in, so the same declaration renders
+     differently at 254px wide than at the reference's 299px. Stretching an
+     image keeps the proportions fixed at every button size.
+
+     To change this face, regenerate the PNG from a new reference. Do not
+     re-model it as a gradient. */
   color:#10141a;
   text-shadow:0 1px 0 rgba(255,255,255,.5);
-  background:linear-gradient(10deg,
-    #767e88 0%,
-    #828b94 11%,
-    #929ba4 16%,
-    #a1a9b1 20%,
-    #b0b7bf 25%,
-    #c5cbd1 30%,
-    #d4d9df 39%,
-    #dce0e5 43%,
-    #e8ecef 52%,
-    #e1e5e9 61%,
-    #dadee3 66%,
-    #ced4da 70%,
-    #bec5cc 75%,
-    #aeb6bf 80%,
-    #9fa8b2 84%,
-    #9099a4 89%,
-    #818b97 98%,
-    #7d8794 100%);
+  background:url(assets/hero-btn-face.png?v=215) center/100% 100% no-repeat;
   box-shadow:none;
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.62));
   transition:filter .3s,transform .22s}
