@@ -3632,24 +3632,11 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    Sits on the white console card, so it is the one place a black plate
    with a bright perimeter has something to read against. This is the
    destination moment — the button at the end of the conversation. */
-.cta .fit-form .btn--primary{
-  color:#eaeff5;background:#0b0d12;
-  box-shadow:0 18px 40px rgba(0,0,0,.4),0 3px 8px rgba(0,0,0,.3);
-  filter:none;text-shadow:none}
-.cta .fit-form .btn--primary::after{
-  content:"";position:absolute;inset:0;z-index:-1;padding:1px;
-  clip-path:none;backdrop-filter:none;
-  background:linear-gradient(180deg,#f2f6fa 0%,#aeb8c4 16%,#4c545e 46%,#262b33 78%,#161a20 100%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  transition:background .35s,filter .35s;pointer-events:none}
-.cta .fit-form .btn--primary:hover{
-  color:#fff;background:#0b0d12;
-  transform:translateY(-3px);
-  box-shadow:0 26px 52px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.32)}
-.cta .fit-form .btn--primary:hover::after{
-  background:linear-gradient(180deg,#ffffff 0%,#dbe3ec 16%,#79838f 46%,#343b44 78%,#1d222a 100%);
-  filter:drop-shadow(0 0 5px rgba(210,228,255,.5))}
+/* v203's chrome-plate treatment for this button was removed in v219. It was
+   superseded by the liquid chrome further down, but its :hover still set
+   background:#0b0d12 — and the newer :hover sets only colour, so on hover the
+   black background came back under near-black text and the label vanished.
+   Deleted rather than patched, so there is one hover state for this button. */
 
 /* ============================================================
    v204 — the brand wall, the toggle, and two more finishes
@@ -3759,3 +3746,36 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .fin-hero__ease b{color:#dfe7ef;font-weight:600}
 .fin-hero__ease svg{width:16px;height:16px;flex:none;stroke:var(--blue-2);stroke-width:1.9;fill:none}
 @media(max-width:560px){.fin-hero__ease{font-size:11.5px;align-items:flex-start}}
+
+/* ============================================================
+   v219 — the consult submit gets the hero's chrome border
+
+   "Make 'em drool" is the other button on the site that starts a build,
+   so it now carries the same 2px polished ring as the hero pair: white
+   at the top, graphite at the mirror line, white again at the bottom.
+
+   Its hover is stated in full here — colour, background AND ring — rather
+   than only the parts that change. Leaving a property out is what let a
+   deleted era's black background win on hover and black out the label.
+   ============================================================ */
+.cta .fit-form .btn--primary{position:relative;isolation:isolate}
+.cta .fit-form .btn--primary::after{
+  display:block;content:"";position:absolute;inset:0;z-index:-1;padding:2px;
+  clip-path:none;backdrop-filter:none;pointer-events:none;
+  background:linear-gradient(180deg,#ffffff 0%,#eaf0f6 13%,#a3adb9 34%,#48505b 54%,
+    #929ca8 72%,#e4eaf1 89%,#ffffff 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:filter .35s}
+.cta .fit-form .btn--primary:hover{
+  color:#10141a;
+  text-shadow:0 1px 0 rgba(255,255,255,.6);
+  background:
+    radial-gradient(130% 90% at var(--mx,50%) var(--my,50%),rgba(255,255,255,.98),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#eef3f8,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#a7b1bd,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#f2f6fa 0%,#ccd4de 32%,#8a94a0 52%,#dbe2ea 72%,#fbfcfd 100%);
+  transform:translateY(-3px);
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.32)) drop-shadow(0 0 18px rgba(31,123,255,.3))}
+.cta .fit-form .btn--primary:hover::after{filter:brightness(1.18)}
