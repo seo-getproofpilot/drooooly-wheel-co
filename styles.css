@@ -3957,11 +3957,252 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    MEASURED on shop.html: brand 460 + links 451 + actions 374 = 1285 in a
    rail that caps at 1360, before the 32px gaps. The cart was running to
    x=1333 against a rail ending at 1258 and being clipped off the right
-   edge, silently, on every page but the homepage — and the overflow is a
-   constant ~73px at 1280, 1440 and 1600, because the rail is capped, so
-   no viewport is wide enough to rescue it. On those pages the phone
-   therefore keeps its icon and drops the digits at every width; the
-   number itself is in the footer. Icon-only takes actions to 257, which
-   clears the rail with room to spare. */
-html:not(.js-heroswap) .nav__tel span{display:none}
-html:not(.js-heroswap) .nav__tel{gap:0}
+   edge, silently, on every page but the homepage. On those pages the
+   phone therefore keeps its icon and drops the digits; the number itself
+   is in the footer. Icon-only takes actions from 374 to 257, which clears
+   the rail with room to spare.
+
+   Re-measured after v229 widened the header rail: with the digits shown,
+   the cart overruns by 236px at 1440, 108px at 1600, 28px at 1700 and 0
+   at 1920 — so the digits come back at 1760, where the rail is finally
+   wide enough to carry the whole cluster. */
+@media(max-width:1759px){
+  html:not(.js-heroswap) .nav__tel span{display:none}
+  html:not(.js-heroswap) .nav__tel{gap:0}
+}
+
+/* ============================================================
+   v229 — the header bar, spread out
+   MEASURED at 1920 before the change: the rail ran 320 → 1600, so 320px
+   of dead bar sat on each side and the whole cluster — logo, menu,
+   actions — huddled in the middle of a very wide monitor. --max is
+   1280px, which is right for a column of text and wrong for a nav bar.
+
+   So the header gets its own rail: an 80px gutter each side until it
+   caps at 1760, which is wide enough to use the bar and narrow enough
+   that the cluster does not smear across an ultrawide. At 1440 that
+   computes to exactly the old 1280, so nothing below this breakpoint
+   moves. The logo's own indent drops from 96px to about 19px, because
+   the rail is now doing that work — it sits in from the corner without
+   being marooned in the middle.
+
+   The menu spreads by growing each item's padding with the viewport
+   rather than by pushing the items apart, so the gaps stay equal and it
+   reads as one bar rather than four stranded words. --navpad drives the
+   padding AND the underline accent, which were drifting apart (12px
+   padding against an 18px underline under 1200).
+   ============================================================ */
+.site-header{--navpad:12px}
+@media(min-width:1440px){
+  .site-header .nav__inner{width:min(100% - 160px,1760px)}
+  .site-header .brand{margin-left:clamp(0px,1vw,24px)}
+  .site-header{--navpad:clamp(20px,2.4vw,46px)}
+}
+.nav__links .nav__top,.nav__links .nav__top--solo{padding-left:var(--navpad);padding-right:var(--navpad)}
+.nav .nav__top::after,.nav .nav__top--solo::after{left:var(--navpad);right:calc(100% - var(--navpad))}
+.nav .nav__item:hover .nav__top::after,.nav .nav__top--solo:hover::after{right:var(--navpad)}
+
+/* ============================================================
+   v229b — phones: menu icon between the logo and the cart
+   The markup order is brand → links → actions(phone, Get fitted, cart) →
+   hamburger, so on a phone the cart landed mid-bar with the burger last.
+   Chris wants the burger in the middle and the cart hard right.
+
+   .nav__actions becomes display:contents at phone width, which dissolves
+   its box and hands its children to .nav__inner as flex items, so the
+   burger can be ordered between them. Safe only here: "Get fitted" is
+   already display:none under 640, and it is that button which relies on
+   .nav__actions being a positioned box for the hero handover.
+   ============================================================ */
+@media(max-width:640px){
+  .nav__actions{display:contents}
+  .site-header .brand{order:1}
+  .nav__tel{order:2;margin-left:auto}
+  .hamburger{order:3;margin-left:0}
+  .cart-btn{order:4}
+  /* Past the hero the homepage fades the phone out in favour of the
+     "Get fitted" button — but that button is hidden at this width, so the
+     swap left the bar with no way to call at all. On a phone the number
+     is the most useful control on the bar, so it stays put. */
+  .js-heroswap.past-hero .nav__tel{position:static;opacity:1;transform:none;pointer-events:auto}
+}
+
+/* ============================================================
+   v230 — MOBILE HERO: the whole truck, not a slice of it
+
+   SUPERSEDES the crop half of v181. The photo is a 1672x941 landscape of
+   a lifted F-450 shot three-quarter front — the subject only reads at
+   landscape proportions. The hero box on a phone is 390x712, so any
+   object-fit:cover of it is a fragment: v181 cropped a portrait 621x941
+   around the grille, and cover then took another 17% off that, which is
+   why the grille filled the middle band and the wheels ran off the
+   bottom. Enormous, and unreadable as a truck.
+
+   A portrait box cannot hold a landscape subject at a sane size, so the
+   photo stops trying to be a background and becomes a band: full width,
+   its own aspect ratio (390 wide renders 219 tall), sitting on the floor
+   of the hero with the text on flat black above it. You see the entire
+   truck, at the size the photograph was composed for.
+
+   The landscape file is already in the markup as .cine__bg-fill, the
+   underlay v181 retired, so this needs no new asset — it swaps which of
+   the two images is the visible one.
+   ============================================================ */
+@media(max-width:560px){
+  .cine{min-height:0;display:block;padding:104px 0 0}
+  .cine__bg picture{display:none}
+  .cine__bg img.cine__bg-fill{display:block;position:absolute;left:0;right:0;bottom:104px;
+    width:100%;height:auto;object-fit:contain;object-position:center;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%)}
+  /* The text no longer sits over a chrome grille, so the scrim goes back
+     to being a vignette instead of the near-blackout v181 needed. */
+  .cine__scrim{background:linear-gradient(180deg,
+    rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 26%,
+    rgba(6,8,12,.42) 52%,rgba(6,8,12,.55) 78%,rgba(6,8,12,.88) 100%)}
+  /* Room under the copy for the band plus the brand rotisserie. */
+  .cine__inner{padding-bottom:calc(219px + 118px)}
+  .cine .cine__cta{margin-top:26px}
+}
+
+/* ============================================================
+   v230b — phones: the lineup, the gallery, the hero buttons
+   ============================================================ */
+
+/* The card footer put the price and "Put these on" on one row with
+   justify-content:space-between and no wrap. MEASURED at a 560 viewport,
+   where the grid goes two-up: the card is 250px, the footer 212px, and
+   the two children sum to 210-211. One or two pixels of slack, so a name
+   or a price a hair wider than the ones we happen to ship would push the
+   link into the price. Wrapping costs nothing when it fits and drops the
+   link onto its own line when it does not. */
+.show2-foot{flex-wrap:wrap;row-gap:10px}
+.show2-mo,.show2-build{min-width:0}
+
+@media(max-width:640px){
+  /* "View all wheels" reads as a heading on desktop, where it sits on the
+     same line as the title. Stacked on a phone it becomes a stray link
+     under the kicker, so it goes. The menu still carries
+     "Wheels · all brands". */
+  .show2 .view-all{display:none}
+
+  /* The gallery is 37 build photos. On a phone that is 2,700px of thumb
+     work before the financing section, and every one of them is a
+     third-party photo we are hotlinking. Half of them make the point.
+     display:none also stops the hidden ones being fetched, because they
+     are loading="lazy" and never enter the viewport. */
+  .gallery-grid .gallery-item:nth-child(n+19){display:none}
+}
+
+/* ============================================================
+   v230c — "Prequalify now" gets the same edges as everything else
+
+   The v228 block set out to give the financing button and the brand
+   toggle "the same liquid chrome face" as the hero pair. It did not: the
+   face stops were lighter (#e8edf3/#bfc8d3/#7b8591/#d0d8e1/#f1f5f9
+   against the hero's #e2e8ef/#b9c2cc/#78828e/#cdd5de/#eef3f8) and, the
+   part you actually see, it set box-shadow:none where the hero carries
+   inset 0 1px 0 rgba(255,255,255,.9) and inset 0 -2px 6px rgba(0,0,0,.3).
+
+   Those two insets are the lit top edge and the shaded bottom edge — the
+   thing that makes the button look machined rather than printed. Without
+   them the button is a flat panel with a notch out of one corner, which
+   is exactly how it read on a phone. The 2px chrome ring was identical on
+   both all along; it was never the ring that was missing.
+
+   Same values as .btn--hero now, verbatim, so there is one face.
+   ============================================================ */
+.brands-toggle,
+.financing .btn--primary,
+.fin-hero .btn--primary{
+  background:
+    radial-gradient(130% 90% at var(--mx,50%) var(--my,50%),rgba(255,255,255,.96),rgba(255,255,255,0) 46%),
+    radial-gradient(60% 120% at 18% 12%,#ffffff,rgba(255,255,255,0) 55%),
+    radial-gradient(75% 60% at 82% 88%,#e6ecf3,rgba(255,255,255,0) 60%),
+    radial-gradient(45% 80% at 62% 30%,#9ba5b1,rgba(255,255,255,0) 58%),
+    linear-gradient(168deg,#e2e8ef 0%,#b9c2cc 32%,#78828e 52%,#cdd5de 72%,#eef3f8 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 6px rgba(0,0,0,.3)}
+.brands-toggle:hover,
+.financing .btn--primary:hover,
+.fin-hero .btn--primary:hover{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -2px 6px rgba(0,0,0,.34)}
+
+@media(max-width:640px){
+  /* It is the only call to action in the section, sitting alone under the
+     lender logos — at 226px in a 390px column it read as a leftover. */
+  .financing .btn--primary{width:100%;justify-content:center}
+}
+
+/* ============================================================
+   v230d — "Let's build your setup" on a phone: a form, not a wall
+
+   MEASURED before: the white card was 503px of a 745px section — 68% of
+   it — so the truck photograph it sits on was a 60px strip at the top and
+   nothing else. Five full-width fields stacked, each 50px tall with an
+   8px gap under its label.
+
+   Name and Phone go back side by side (they are the two short ones; Ride
+   and The look keep the full width, because "2023 Ford F-350 DRW" needs
+   it), and every vertical measure comes in a few pixels. Nothing is
+   removed and no field gets smaller than a 44px tap target.
+   ============================================================ */
+@media(max-width:640px){
+  .cta .fit-form{padding:18px 16px}
+  .cta .fit-form__row{margin-bottom:12px;gap:12px}
+  /* An <input> carries an intrinsic default width of about 20 characters,
+     so a 1fr 1fr grid does not shrink it — the Phone field ran off the
+     right edge of the card. min-width:0 lets the track do its job. */
+  .cta .fit-form__row:first-child{grid-template-columns:1fr 1fr}
+  .cta .fit-form__row:first-child label{min-width:0}
+  .cta .fit-form input,.cta .fit-form select{min-width:0;width:100%}
+  .cta .fit-form label{gap:5px}
+  .cta .fit-form__full{margin-bottom:12px}
+  .cta .fit-form input,.cta .fit-form select{height:44px;padding:11px 12px}
+  .cta .fit-form .btn--primary{height:48px;margin-top:2px}
+}
+
+/* ============================================================
+   v230e — the black dually gets to be in the picture
+
+   The CTA background is a slammed black Silverado dually, 1080x1040. On a
+   phone it was object-fit:cover in a 390x647 box, which fills the height
+   and crops the WIDTH — at object-position 68% you saw the tailgate and
+   a wheel, and the form covered the rest. Chris asked for the form to sit
+   under the black dually rather than on top of it.
+
+   So on a phone the photo stops being a full-bleed fill and becomes a
+   band across the top at its own proportions: 390 wide renders 376 tall
+   and the whole truck is in frame. The copy starts at 60vw — about 62%
+   down the band, on the empty tarmac below the truck, where it is
+   legible — and the form follows underneath on the section's own ground.
+
+   The section gets taller doing this. That is the trade: you cannot show
+   a whole vehicle and a five-field form in one phone screen, and the
+   photograph was the part that was being thrown away.
+   ============================================================ */
+/* Scoped to .cta--photo, which is the homepage section: shop.html and
+   financing.html reuse .cta for the same form with no photograph behind
+   it, and a 60vw pad above nothing is just a hole. */
+@media(max-width:640px){
+  .cta--photo{padding-top:0;padding-bottom:clamp(44px,9vw,68px)}
+  .cta--photo .cta__bg{inset:0 0 auto 0;height:auto;aspect-ratio:1080/1040}
+  .cta--photo .cta__bg picture{position:static;display:block}
+  .cta--photo .cta__bg img{width:100%;height:auto;object-fit:contain;object-position:center top;opacity:1}
+  .cta--photo .cta__bg::after{
+    background:linear-gradient(180deg,
+      rgba(8,10,14,.86) 0%,
+      rgba(8,10,14,.34) 9%,
+      rgba(8,10,14,.18) 34%,
+      rgba(8,10,14,.5) 58%,
+      rgba(8,10,14,.92) 82%,
+      #0a0c10 100%)}
+  .cta--photo .cta__inner{padding-top:60vw}
+}
+
+/* Hero buttons on a phone: 56px of height each, stacked, was a lot of
+   slab under a headline. 52 is still well over the 44px tap minimum and
+   lets the pair read as two controls rather than one block. */
+@media(max-width:560px){
+  .cine__cta{gap:12px}
+  .cine__cta .btn{min-height:52px}
+}
