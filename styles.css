@@ -4537,13 +4537,17 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        ground the copy sits on, and the top, which was ending on a hard
        horizontal line across the sky. Intersecting two gradients masks
        both without touching the right edge, where the sun is. */
-    /* 11% of the frame's own width = 32% of the hero, and the truck's nose
-       lands at 34% — so the frame is solid before any of the truck reaches
-       it. At 15% the fade was still running under the front bumper, which
-       is what read as soft. */
-    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 11%),
+    /* Staggered, not straight. 104deg tilts the fade's axis down-right, so
+       a point high in the frame projects shorter along it and stays soft
+       longer: the blur reaches further across the SKY, where there is
+       nothing to lose, and pulls back over the road, where the truck's
+       nose is. That buys the headline — which sits high — more blurred
+       ground under it without ever going soft on the bumper, and it leaves
+       the handover running on a slant instead of a vertical the eye can
+       follow. The extra 4 points of fade is what the tilt costs. */
+    -webkit-mask-image:linear-gradient(104deg,transparent 0,#000 15%),
       linear-gradient(to bottom,transparent 0,#000 4%);
-    mask-image:linear-gradient(to right,transparent 0,#000 11%),
+    mask-image:linear-gradient(104deg,transparent 0,#000 15%),
       linear-gradient(to bottom,transparent 0,#000 4%);
     -webkit-mask-composite:source-in;mask-composite:intersect}
 
@@ -4575,7 +4579,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        The old wash PEAKED at 30% — right where the frame becomes opaque —
        which drew a dark stripe along the exact line it was meant to hide.
        What is left runs strictly downhill from the left edge. */
-    radial-gradient(1180px 660px at 20% 44%,rgba(10,7,6,.62),rgba(10,7,6,.3) 46%,rgba(10,7,6,0) 74%),
+    radial-gradient(46% 42% at 17% 45%,rgba(10,7,6,.66),rgba(10,7,6,.3) 52%,rgba(10,7,6,0) 78%),
     linear-gradient(90deg,rgba(20,11,6,.34) 0%,rgba(20,11,6,.24) 26%,
       rgba(16,10,7,.12) 46%,rgba(10,8,8,.03) 62%,rgba(5,7,11,0) 76%),
     linear-gradient(0deg,rgba(14,9,6,.62) 0%,rgba(14,9,6,0) 40%)}
