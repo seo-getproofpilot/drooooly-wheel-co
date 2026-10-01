@@ -47,9 +47,10 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 
 ---
 
-- 🔴 **1.8 · The homepage hero photograph** (`assets/hero-c10-v2.jpg`). Supplied by Chris on
-  2026-09-30, a reframed version of `hero-c10.jpg` from the same day with the truck moved
-  right inside the frame; both replaced the white F-450 dually that was there before. Provenance
+- 🔴 **1.8 · The homepage hero photograph** (`assets/hero-c10.jpg`). Supplied by Chris on
+  2026-09-30, replacing the white F-450 dually that was there before. A reframed version
+  (`hero-c10-v2.jpg`) was live briefly and reverted — it was a full regeneration rather than
+  a reposition, and lost grille, bumper and wheel detail. Provenance
   unknown: nobody has said who shot it, whether it is licensed, or whether it is generated
   rather than photographed. It is the first thing anyone sees on the site, so it is the
   worst one to be unsure about — establish the source before launch. The previous hero is
