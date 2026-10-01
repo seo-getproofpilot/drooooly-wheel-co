@@ -4560,8 +4560,24 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      edge, and the top of this layout is ground, not photo — all it was
      doing was greying the sky. */
   .cine__scrim{background:
-    linear-gradient(90deg,rgba(20,11,6,0) 0%,rgba(20,11,6,.1) 18%,
-      rgba(20,11,6,.46) 30%,rgba(16,10,7,.3) 46%,rgba(10,8,8,.06) 62%,rgba(5,7,11,0) 76%),
+    /* A POOL, not an edge. MEASURED at 1280/1440/1920, the headline's text
+       runs to x=772/780/792 while the photograph becomes opaque at
+       395/444/593 — so the headline always crosses the boundary, and no
+       amount of moving it fixes that: the truck's nose sits 13.2% into the
+       frame, so the frame's fade can never be longer than that without
+       softening the nose, and pushing the frame right enough to clear the
+       headline at 1280 would leave it 42% of the hero wide. The boundary
+       has to stop being visible instead of being moved. This soft ellipse
+       sits under the copy and crosses that boundary with it, so the type
+       has one continuous ground of its own and the handover underneath has
+       nothing to line up against.
+
+       The old wash PEAKED at 30% — right where the frame becomes opaque —
+       which drew a dark stripe along the exact line it was meant to hide.
+       What is left runs strictly downhill from the left edge. */
+    radial-gradient(1180px 660px at 20% 44%,rgba(10,7,6,.62),rgba(10,7,6,.3) 46%,rgba(10,7,6,0) 74%),
+    linear-gradient(90deg,rgba(20,11,6,.34) 0%,rgba(20,11,6,.24) 26%,
+      rgba(16,10,7,.12) 46%,rgba(10,8,8,.03) 62%,rgba(5,7,11,0) 76%),
     linear-gradient(0deg,rgba(14,9,6,.62) 0%,rgba(14,9,6,0) 40%)}
 }
 
