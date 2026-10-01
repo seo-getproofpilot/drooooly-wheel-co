@@ -4401,3 +4401,26 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    being squeezed. 10px gaps leave 57, and the 46px cap sits in it with
    room to spare. */
 @media(max-width:640px){.site-header .nav__inner{gap:10px}}
+
+/* ============================================================
+   v250 — the number up again, and moved off the cart
+
+   Up a point on the menu rather than a point under it: it is the only
+   thing on the bar someone acts on without clicking, so it can be the
+   largest label there. Icon 19 -> 21 to keep pace.
+
+   Then it moves left instead of growing into the cart. The cluster is
+   right-aligned, so the cart is already pinned to the rail and does not
+   actually move — but a bigger number closes the visual distance to it,
+   which reads as crowding. 12px of margin on the number re-opens it,
+   applied only where the bar can pay: the homepage, whose cluster is
+   just the number and the cart, and inner pages from 1760, which is
+   where their digits appear at all. Below that the number is an icon on
+   those pages and there is nothing to re-open.
+   ============================================================ */
+.nav__tel{font-size:calc(var(--navfs,13.5px) + 1px)}
+.nav__tel svg{width:21px;height:21px}
+@media(min-width:1001px){
+  html.js-heroswap .nav__tel{margin-right:12px}
+}
+@media(min-width:1760px){.nav__tel{margin-right:12px}}
