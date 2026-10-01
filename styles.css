@@ -4494,13 +4494,13 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      own border inward and leaves a pale halo otherwise. */
   /* No band above the photograph at all, which is what the top blur was
      papering over. The frame is 76% of the width at 941/1672, so its
-     height is 42.8vw — 547px at 1280, 684 at 1600. The hero is now that
-     plus the brand rail plus 30, floored at 700 so the copy always fits
-     and capped at the viewport, so the frame's top sits within about 30px
-     of the header at every width instead of 313px below it at 1280. The
-     photograph ends where the rail begins rather than running behind it. */
+     height is 42.8vw — 547px at 1280, 684 at 1600. The hero is now exactly
+     that, floored at 540 and capped at the viewport, and the frame runs
+     from the hero's top edge to its bottom edge: no band above it, no gap
+     below it, nothing for the eye to find. The brand rail lies over the
+     road at the foot of the picture rather than sitting under it. */
   .cine{background:#0a0806;
-    min-height:max(700px,min(100svh,calc(42.8vw + 152px)))}
+    min-height:max(540px,min(100svh,calc(42.8vw)))}
   .cine::after{display:none}
   /* THREE copies, not one. A single blurred ground gave one handover: the
      sharp frame's masked edge dropped straight onto a uniformly 52px-blurred
@@ -4528,18 +4528,18 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     display:block;position:absolute;top:0;bottom:0;left:0;right:auto;
     width:820%;max-width:none;height:100%;object-fit:fill;
     transform:none}
-  .cine__bg img.cine__bg-blur--far{filter:blur(72px) saturate(.88) brightness(.54)}
-  .cine__bg img.cine__bg-blur--mid{filter:blur(34px) saturate(.9) brightness(.64);
+  .cine__bg img.cine__bg-blur--far{filter:blur(72px) saturate(.8) brightness(.3)}
+  .cine__bg img.cine__bg-blur--mid{filter:blur(34px) saturate(.84) brightness(.42);
     -webkit-mask-image:linear-gradient(to right,transparent -6%,#000 16%);
     mask-image:linear-gradient(to right,transparent -6%,#000 16%)}
   .cine__bg img.cine__bg-fill{
-    filter:blur(12px) saturate(.94) brightness(.78);
+    filter:blur(12px) saturate(.9) brightness(.6);
     -webkit-mask-image:linear-gradient(to right,transparent 6%,#000 30%);
     mask-image:linear-gradient(to right,transparent 6%,#000 30%)}
 
   .cine__bg picture{position:absolute;inset:0}
   .cine__bg picture img{
-    position:absolute;right:0;left:auto;bottom:122px;top:auto;
+    position:absolute;right:0;left:auto;bottom:0;top:auto;
     width:76%;height:auto;object-fit:contain;object-position:right bottom;
     /* Two edges to hide, not one: the left, where the photo meets the
        ground the copy sits on, and the top, which was ending on a hard
@@ -4592,7 +4592,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        The old wash PEAKED at 30% — right where the frame becomes opaque —
        which drew a dark stripe along the exact line it was meant to hide.
        What is left runs strictly downhill from the left edge. */
-    radial-gradient(46% 42% at 17% 45%,rgba(10,7,6,.66),rgba(10,7,6,.3) 52%,rgba(10,7,6,0) 78%),
+    radial-gradient(860px 56% at 260px 44%,rgba(10,7,6,.74),rgba(10,7,6,.42) 54%,rgba(10,7,6,0) 84%),
     linear-gradient(90deg,rgba(20,11,6,.34) 0%,rgba(20,11,6,.24) 26%,
       rgba(16,10,7,.12) 46%,rgba(10,8,8,.03) 62%,rgba(5,7,11,0) 76%),
     linear-gradient(0deg,rgba(14,9,6,.62) 0%,rgba(14,9,6,0) 40%)}
