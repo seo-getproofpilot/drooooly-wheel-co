@@ -4564,11 +4564,20 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        without showing an edge because the ground behind it is the same
        photograph at the same brightness: the only thing that changes
        across the handover is focus, not exposure, which is what made the
-       earlier version read as a seam. 104deg tilts the axis down-right so
-       the fade reaches further across the sky and pulls back over the
-       road, where the truck is. */
-    -webkit-mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.55) 7%,#000 16%);
-    mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.55) 7%,#000 16%)}
+       earlier version read as a seam.
+
+       STRAIGHT, not tilted. The 104deg stagger is what put the hard line
+       back. A tilted gradient's position depends on y as well as x, so at
+       the frame's bottom-left corner it had already travelled 194px along
+       its own axis — 12% of the gradient line, against a fade that
+       completes at 16% — meaning the frame arrived about 77% opaque at the
+       very edge of its own box. That is a hard vertical boundary in the
+       lower third, exactly where the road is, and no amount of feathering
+       elsewhere hides it. With `to right` the mask depends on x alone, so
+       it is 0 along the entire left edge and the frame always fades in
+       from nothing. */
+    -webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.5) 7%,#000 17%);
+    mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.5) 7%,#000 17%)}
 
   /* The horizontal wash starts at 22%, not at 0. Its whole job was to
      darken a photograph that is no longer over there — the photo now
