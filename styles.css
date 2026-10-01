@@ -4804,3 +4804,30 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     linear-gradient(to bottom,#000 0,#000 72%,transparent 100%);
   -webkit-mask-composite:source-in;mask-composite:intersect}
 @media(max-width:900px){.fin-hero__art{display:none}}
+
+/* ============================================================
+   v315 — hero buttons down a size
+
+   62px tall on 38px of side padding was sized when the hero was shorter
+   and the truck further right. With the frame where it is now the pair
+   ran under the grille. 52 and 28 — about 16% off the height and a
+   quarter off the padding, which pulls the pair in by roughly 40px
+   without making either button look timid. Both still clear the 44px
+   minimum tap target by a wide margin.
+   ============================================================ */
+@media(min-width:1200px){
+  .cine__cta .btn{min-height:52px;padding-inline:28px;font-size:11.5px;letter-spacing:.11em}
+}
+/* 1200-1439 needs more than that. MEASURED at 1280: the frame is 76% of the
+   width so the bumper lands at x=436, and the pair at 28px padding still ran
+   to 474 — 39px INTO the truck. 18px of padding and a 10px gap pulls it to
+   430, clearing by 5. Measured across the range with the tighter padding:
+   -18 at 1200, +5 at 1280, +30 at 1366, +30 at 1440, +54 at 1600, +159 at
+   1920 — so it clears from about 1240 up, and the roomier padding comes
+   back at 1520 where there is space for it. Below 1240 the truck is simply
+   too close to the copy for two side-by-side buttons; that is the same
+   squeeze the 821-1199 band has, one notch wider. */
+@media(min-width:1200px) and (max-width:1519px){
+  .cine__cta{gap:10px}
+  .cine__cta .btn{padding-inline:18px}
+}
