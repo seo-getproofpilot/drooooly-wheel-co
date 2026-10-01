@@ -2005,9 +2005,15 @@ a.wheel:hover .wheel__quote{color:var(--blue-2)}
    v112 — Tire catalog: brand grid logos + tread cards
    ============================================================ */
 .tirelogo{max-height:clamp(34px,4.4vw,58px);width:auto;max-width:min(70%,340px)}
+/* The tyre makers are in colour from the start. grayscale(1) brightness(0)
+   was knocking every logo down to a black silhouette and only restoring it
+   on hover — so BFGoodrich's red and Amp's orange, the things that make a
+   brand recognisable at a glance, were invisible until you happened to
+   point at one. Hover now lifts the opacity instead, which still gives the
+   tile something to do without hiding the brand to do it. */
 .tbrand__logo{max-height:46px;max-width:80%;width:auto;object-fit:contain;
-  filter:grayscale(1) brightness(0) opacity(.86);transition:filter .2s ease,opacity .2s ease}
-.tbrand:hover .tbrand__logo{filter:grayscale(0) brightness(1) opacity(1)}
+  opacity:.92;transition:opacity .2s ease,transform .2s ease}
+.tbrand:hover .tbrand__logo{opacity:1;transform:scale(1.03)}
 
 .tiregrid{grid-template-columns:repeat(4,1fr)}
 .tire{display:flex;flex-direction:column;align-items:center;text-align:center;
@@ -4114,12 +4120,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .show2-mo,.show2-build{min-width:0}
 
 @media(max-width:640px){
-  /* "View all wheels" reads as a heading on desktop, where it sits on the
-     same line as the title. Stacked on a phone it becomes a stray link
-     under the kicker, so it goes. The menu still carries
-     "Wheels · all brands". */
-  .show2 .view-all{display:none}
-
   /* The gallery is 37 build photos. On a phone that is 2,700px of thumb
      work before the financing section, and every one of them is a
      third-party photo we are hotlinking. Half of them make the point.
