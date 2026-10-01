@@ -4666,3 +4666,24 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     -webkit-mask-composite:source-in;mask-composite:intersect}
   .cine__inner{padding-bottom:calc(462px + 118px)}
 }
+
+/* ============================================================
+   v296 — no white seam above "Let's build your setup"
+
+   The Instagram section is white and the consult section is a dark
+   photograph, so the join between them is a hard white-to-black edge. It
+   is invisible while you are scrolling past, and very visible when you
+   stop with it just under the sticky nav — which is where it sits when
+   you come down to the form. MEASURED: a 27px band of white between the
+   nav's lower edge and the photograph's top.
+
+   The white section now ends in the dark one's colour. 96px of fade,
+   which is inside its own bottom padding (60-100px) so no Instagram tile
+   is dimmed by it, and the photograph below starts out of black rather
+   than off a white line.
+   ============================================================ */
+.social{position:relative}
+.social::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;
+  pointer-events:none;z-index:1;
+  background:linear-gradient(180deg,rgba(10,12,16,0) 0%,rgba(10,12,16,.55) 56%,#0a0c10 100%)}
+.social > *{position:relative;z-index:2}
