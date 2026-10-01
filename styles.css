@@ -4492,11 +4492,40 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      own border inward and leaves a pale halo otherwise. */
   .cine{background:#0a0806}
   .cine::after{display:none}
+  /* THREE copies, not one. A single blurred ground gave one handover: the
+     sharp frame's masked edge dropped straight onto a uniformly 52px-blurred
+     plate, and that handover is all there was — about 160px of hero to do it
+     in, because the sharp frame starts at 24% and the truck's nose is at 34%,
+     so its own fade can never be wider than those ten points.
+
+     Carrying it further means ramping the GROUND, not the frame. Each copy
+     is full-bleed cover, identical geometry so they cannot drift against
+     each other, and each is masked to hand over to the next going left:
+     12px nearest the photograph, then 34, then 72 under the copy. Brightness
+     steps down with it, so the picture also sinks into shadow on its way to
+     the text rather than being dimmed flat everywhere. The ramp now spans
+     the left third of the hero instead of one seam.
+
+     All three overscale, because a blur of this radius pulls the frame's own
+     border inward and leaves a pale halo at the edges otherwise. */
+  /* All three plates show the photo's own LEFT MARGIN, magnified. The
+     first attempt used the whole frame at hero size, and that put a second
+     truck — blurred, but unmistakably a truck — right under the headline.
+     The photograph's truck begins 13% across, so a plate 800% wide anchored
+     left shows only what is to the left of it: road, scrub, horizon, sky.
+     Same file, same colours, same horizon line, no ghost. */
+  .cine__bg img.cine__bg-blur,.cine__bg img.cine__bg-fill{
+    display:block;position:absolute;top:0;bottom:0;left:0;right:auto;
+    width:700%;max-width:none;height:100%;object-fit:cover;object-position:0% 34%;
+    transform:none}
+  .cine__bg img.cine__bg-blur--far{filter:blur(72px) saturate(.88) brightness(.54)}
+  .cine__bg img.cine__bg-blur--mid{filter:blur(34px) saturate(.9) brightness(.64);
+    -webkit-mask-image:linear-gradient(to right,transparent -6%,#000 16%);
+    mask-image:linear-gradient(to right,transparent -6%,#000 16%)}
   .cine__bg img.cine__bg-fill{
-    display:block;position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:34% 52%;
-    transform:scale(1.14);transform-origin:38% 50%;
-    filter:blur(52px) saturate(.9) brightness(.62)}
+    filter:blur(12px) saturate(.94) brightness(.78);
+    -webkit-mask-image:linear-gradient(to right,transparent 6%,#000 30%);
+    mask-image:linear-gradient(to right,transparent 6%,#000 30%)}
 
   .cine__bg picture{position:absolute;inset:0}
   .cine__bg picture img{
@@ -4506,9 +4535,13 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        ground the copy sits on, and the top, which was ending on a hard
        horizontal line across the sky. Intersecting two gradients masks
        both without touching the right edge, where the sun is. */
-    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 15%),
+    /* 11% of the frame's own width = 32% of the hero, and the truck's nose
+       lands at 34% — so the frame is solid before any of the truck reaches
+       it. At 15% the fade was still running under the front bumper, which
+       is what read as soft. */
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 11%),
       linear-gradient(to bottom,transparent 0,#000 13%);
-    mask-image:linear-gradient(to right,transparent 0,#000 15%),
+    mask-image:linear-gradient(to right,transparent 0,#000 11%),
       linear-gradient(to bottom,transparent 0,#000 13%);
     -webkit-mask-composite:source-in;mask-composite:intersect}
 
@@ -4524,3 +4557,8 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     linear-gradient(0deg,rgba(14,9,6,.62) 0%,rgba(14,9,6,0) 40%),
     linear-gradient(180deg,rgba(10,7,6,.46) 0%,rgba(10,7,6,0) 22%)}
 }
+
+/* The two extra blur plates exist only for the desktop ramp. Below 1200
+   the hero is a full-bleed crop or, under 820, a band — neither wants
+   them, and .cine__bg-fill goes back to being the band's own image. */
+.cine__bg-blur{display:none}
