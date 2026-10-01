@@ -4482,12 +4482,21 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    to the picture.
    ============================================================ */
 @media(min-width:1200px){
-  .cine{background:
-    radial-gradient(1000px 760px at 4% 56%,rgba(126,56,18,.5),transparent 64%),
-    radial-gradient(1250px 860px at 24% 22%,rgba(78,34,14,.5),transparent 68%),
-    radial-gradient(760px 520px at 0% 98%,rgba(150,72,26,.28),transparent 62%),
-    #0a0806}
+  /* The ground is the photograph itself, out of focus. An ember gradient
+     was a guess at the colours in the picture; this IS the colours in the
+     picture — same file, filling the hero, blurred to 46px and dimmed, so
+     the sharp frame's masked left edge fades into a continuation of its
+     own landscape instead of into a flat panel. .cine__bg-fill is already
+     in the markup carrying the same src, unused above 820 since v181.
+     Scaled past the edges because a blur of that radius pulls the frame's
+     own border inward and leaves a pale halo otherwise. */
+  .cine{background:#0a0806}
   .cine::after{display:none}
+  .cine__bg img.cine__bg-fill{
+    display:block;position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:34% 52%;
+    transform:scale(1.14);transform-origin:38% 50%;
+    filter:blur(52px) saturate(.9) brightness(.62)}
 
   .cine__bg picture{position:absolute;inset:0}
   .cine__bg picture img{
