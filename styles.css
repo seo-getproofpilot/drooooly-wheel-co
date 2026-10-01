@@ -4074,7 +4074,10 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    a landscape photo on a portrait-ish screen at any width below the one
    where the inset layout takes over. */
 @media(max-width:1199px){
-  .cine{min-height:0;display:block;padding:104px 0 0}
+  /* 100svh here too, for the same reason as the desktop rule: the hero owns
+     the first screen and the trust bar starts under it. The band layout is
+     usually taller than that anyway; this only matters on a short phone. */
+  .cine{min-height:100svh;display:block;padding:104px 0 0}
   .cine__bg picture{display:none}
   .cine__bg img.cine__bg-fill{display:block;position:absolute;left:0;right:0;bottom:104px;
     width:100%;height:auto;object-fit:contain;object-position:center;
@@ -4494,13 +4497,26 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      own border inward and leaves a pale halo otherwise. */
   /* No band above the photograph at all, which is what the top blur was
      papering over. The frame is 76% of the width at 941/1672, so its
-     height is 42.8vw — 547px at 1280, 684 at 1600. The hero is now exactly
-     that, floored at 540 and capped at the viewport, and the frame runs
-     from the hero's top edge to its bottom edge: no band above it, no gap
-     below it, nothing for the eye to find. The brand rail lies over the
-     road at the foot of the picture rather than sitting under it. */
+     height is 42.8vw — 547px at 1280, 684 at 1600.
+
+     The hero takes the whole first screen: 100svh is the floor, and the
+     frame's own height is the floor above that so a very wide window still
+     gets the entire picture. It was sized to the photograph alone, which
+     made it SHORTER than the viewport at most sizes — the trust bar and the
+     top of "Verified fitment" sat in view before you had scrolled at all.
+     The brand rail stays pinned to the hero's foot either way, so the next
+     section now starts below the fold. Where the viewport is taller than
+     the frame, the difference goes above it as sky: the blur plates fill it
+     with the photo's own, which is why that band no longer reads as haze.
+
+     The frame is centred in that slack rather than sitting on the floor of
+     the hero. Pinned to the bottom, every pixel of leftover height piled up
+     above it — 253px at 1280x800. Centred, it splits: about 126 above and
+     126 below, and the brand rail is 120 tall, so the lower half is behind
+     the rail and only the upper half is ever seen. Same arithmetic at every
+     size: roughly 110-130px, instead of 96 at one and 253 at another. */
   .cine{background:#0a0806;
-    min-height:max(540px,min(100svh,calc(42.8vw)))}
+    min-height:max(100svh,calc(42.8vw))}
   .cine::after{display:none}
   /* THREE copies, not one. A single blurred ground gave one handover: the
      sharp frame's masked edge dropped straight onto a uniformly 52px-blurred
@@ -4539,7 +4555,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 
   .cine__bg picture{position:absolute;inset:0}
   .cine__bg picture img{
-    position:absolute;right:0;left:auto;bottom:0;top:auto;
+    position:absolute;right:0;left:auto;top:50%;bottom:auto;translate:0 -50%;
     width:76%;height:auto;object-fit:contain;object-position:right bottom;
     /* Two edges to hide, not one: the left, where the photo meets the
        ground the copy sits on, and the top, which was ending on a hard
