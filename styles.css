@@ -4492,7 +4492,15 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      in the markup carrying the same src, unused above 820 since v181.
      Scaled past the edges because a blur of that radius pulls the frame's
      own border inward and leaves a pale halo otherwise. */
-  .cine{background:#0a0806}
+  /* No band above the photograph at all, which is what the top blur was
+     papering over. The frame is 76% of the width at 941/1672, so its
+     height is 42.8vw — 547px at 1280, 684 at 1600. The hero is now that
+     plus the brand rail plus 30, floored at 700 so the copy always fits
+     and capped at the viewport, so the frame's top sits within about 30px
+     of the header at every width instead of 313px below it at 1280. The
+     photograph ends where the rail begins rather than running behind it. */
+  .cine{background:#0a0806;
+    min-height:max(700px,min(100svh,calc(42.8vw + 152px)))}
   .cine::after{display:none}
   /* THREE copies, not one. A single blurred ground gave one handover: the
      sharp frame's masked edge dropped straight onto a uniformly 52px-blurred
@@ -4531,7 +4539,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 
   .cine__bg picture{position:absolute;inset:0}
   .cine__bg picture img{
-    position:absolute;right:0;left:auto;bottom:40px;top:auto;
+    position:absolute;right:0;left:auto;bottom:122px;top:auto;
     width:76%;height:auto;object-fit:contain;object-position:right bottom;
     /* Two edges to hide, not one: the left, where the photo meets the
        ground the copy sits on, and the top, which was ending on a hard
@@ -4545,11 +4553,16 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        ground under it without ever going soft on the bumper, and it leaves
        the handover running on a slant instead of a vertical the eye can
        follow. The extra 4 points of fade is what the tilt costs. */
-    -webkit-mask-image:linear-gradient(104deg,transparent 0,#000 15%),
-      linear-gradient(to bottom,transparent 0,#000 4%);
-    mask-image:linear-gradient(104deg,transparent 0,#000 15%),
-      linear-gradient(to bottom,transparent 0,#000 4%);
-    -webkit-mask-composite:source-in;mask-composite:intersect}
+    /* One mask now, on the left only. The top fade is gone: it existed to
+       dissolve the frame's top edge into the ground above it, and there is
+       no longer any ground up there to dissolve into. And the left fade
+       runs to 34% of the frame rather than 15 — a 330px feather at 1600
+       instead of 145 — so the focus falls away gradually enough to read as
+       depth of field rather than as a boundary. 104deg tilts its axis
+       down-right, so it reaches further across the sky and pulls back over
+       the road where the truck is. */
+    -webkit-mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.5) 26%,#000 52%);
+    mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.5) 26%,#000 52%)}
 
   /* The horizontal wash starts at 22%, not at 0. Its whole job was to
      darken a photograph that is no longer over there — the photo now
