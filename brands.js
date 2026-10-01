@@ -522,7 +522,7 @@ window.BRANDS = [
       { model: "Dynamo", configs: ["single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/fuel/dynamo.png", feat: 14 },
       { model: "FF09", configs: ["single"], sizes: ["22x10","22x12","24x14","26x14"], finishes: ["Polished","Gloss Black Milled","Matte Black Milled"] },
       { model: "FF09D", configs: ["dually","super single"], sizes: ["20x8.25","22x8.25","24x8.25"], finishes: ["Polished","Gloss Black Milled"] },
-      { model: "FF19", configs: ["single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"] },
+      { model: "FF19", configs: ["single"], sizes: ["22x10","22x12","24x14","28x10"], finishes: ["Polished","Gloss Black Milled"], img: "assets/wheels/fuel-ff19.png" },
       { model: "FF19D", configs: ["dually","super single"], sizes: ["22x8.25","24x8.25","22x12"], finishes: ["Polished","Gloss Black Milled"] },
       { model: "FF29", configs: ["single"], sizes: ["22x12","24x14","26x14"], finishes: ["Gloss Black Milled","Brushed","Polished"] },
       { model: "FF39", configs: ["single"], sizes: ["22x10","22x12","24x14"], finishes: ["Polished"] },
@@ -582,7 +582,7 @@ window.BRANDS = [
       { model: "H404 Ghost", configs: ["dually","super single"], sizes: ["20x8.25","22x8.25","22x12"], finishes: ["Gloss Black","Gloss Black Milled"] },
       { model: "HF02 Superbeast", configs: ["single"], sizes: ["22x12","24x12","26x12"], finishes: ["Polished"] },
       { model: "HF07 Tomahawk", configs: ["single"], sizes: ["22x12","24x12","26x14"], finishes: ["Polished","Gloss Black"] },
-      { model: "HF08 Savage", configs: ["single"], sizes: ["22x12","24x12","26x12"], finishes: ["Polished","Gloss Black"] },
+      { model: "HF08 Savage", configs: ["single"], sizes: ["22x12","24x12","26x12"], finishes: ["Polished","Gloss Black"], img: "assets/wheels/hostile-savage.png" },
       { model: "HF17 Trident", configs: ["single"], sizes: ["22x12","24x12","26x14"], finishes: ["Polished","Gloss Black"] },
       { model: "HF108 Sprocket", configs: ["single"], sizes: ["22x12","24x12","26x14"], finishes: ["Polished"] },
       { model: "HF127 Titan", configs: ["single"], sizes: ["24x12","26x14"], finishes: ["Polished","Gloss Black"] },
@@ -608,7 +608,7 @@ window.BRANDS = [
       { model: "Devine", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
       { model: "Empire", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
       { model: "Magnolia", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
-      { model: "Napoliano", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] },
+      { model: "Napoliano", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani-napoliano.png" },
       { model: "Perdomo", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"] }
     ]
   },
