@@ -4454,3 +4454,53 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     linear-gradient(0deg,rgba(5,7,11,.74) 0%,rgba(5,7,11,0) 44%),
     linear-gradient(180deg,rgba(5,7,11,.52) 0%,rgba(5,7,11,0) 24%)}
 }
+
+/* ============================================================
+   v254 — moving the truck right without losing the sun
+
+   Worth writing down why this is not an object-position change. The hero
+   box at 1600x900 is 1.78 and the photo is 1672x941, also 1.78 — so the
+   whole photo is already on screen and there is nothing to pan. Any
+   object-position that moves the truck right has to crop the right-hand
+   side, which is exactly where the sun is. Padding the canvas on the left
+   does nothing either: with the right edge pinned, the truck's distance
+   from it is fixed by the photograph.
+
+   What DOES move it: giving the photo less than the full width of the
+   hero and fitting the whole frame into that. The photo sits in the right
+   76%, scaled to fit rather than cropped, so the entire scene — truck,
+   road, sun — is intact and simply lands further right. The left quarter
+   is the hero's own dark ground, which is where the headline was always
+   sitting anyway: the old scrim had already blacked that area out, so the
+   copy loses nothing.
+
+   From 1200 only. Below that the hero is close to square — at 1024x900 a
+   76%-wide photo is 778x438 sitting in a 900-tall box, which is more dark
+   ground than photograph — so that range keeps the full-bleed crop and
+   the heavier scrim from v251.
+   ============================================================ */
+@media(min-width:1200px){
+  .cine__bg picture{position:absolute;inset:0}
+  .cine__bg picture img{
+    position:absolute;right:0;left:auto;bottom:40px;top:auto;
+    width:76%;height:auto;object-fit:contain;object-position:right bottom;
+    /* Two edges to hide, not one: the left, where the photo meets the dark
+       ground the copy sits on, and the top, which was ending on a hard
+       horizontal line across the sky. Intersecting two gradients masks
+       both without touching the right edge, where the sun is. */
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 15%),
+      linear-gradient(to bottom,transparent 0,#000 13%);
+    mask-image:linear-gradient(to right,transparent 0,#000 15%),
+      linear-gradient(to bottom,transparent 0,#000 13%);
+    -webkit-mask-composite:source-in;mask-composite:intersect}
+
+  /* The headline no longer sits on the truck's white cab — it sits on the
+     hero's own ground — so the heavy wash v251 needed comes back off and
+     the photograph gets its contrast back. Close to the values the F-450
+     shot used. */
+  .cine__scrim{background:
+    linear-gradient(96deg,rgba(5,7,11,.9) 0%,rgba(5,7,11,.72) 24%,
+      rgba(5,7,11,.3) 44%,rgba(5,7,11,.06) 62%,rgba(5,7,11,0) 76%),
+    linear-gradient(0deg,rgba(5,7,11,.7) 0%,rgba(5,7,11,0) 40%),
+    linear-gradient(180deg,rgba(5,7,11,.5) 0%,rgba(5,7,11,0) 22%)}
+}
