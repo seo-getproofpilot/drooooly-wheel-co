@@ -4354,3 +4354,50 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 @media(max-width:1259px){
   .nav__actions .btn--primary{display:none}
 }
+
+/* ============================================================
+   v246 — the phone and the cart, up to match the menu
+
+   The menu went to 15/16px in v245 and left these two behind: the number
+   at 13.5px and the cart at 44px were now the small things on the bar,
+   and 22px of gap read as them being crowded together.
+
+   The number tracks --navfs so it never drifts from the menu again. The
+   cart goes to 50 — it is a round cap built from gradients, so it scales
+   without redrawing. Gap 22 -> 32.
+   ============================================================ */
+.nav__tel{font-size:calc(var(--navfs,13.5px) - 1px)}
+.nav__tel svg{width:19px;height:19px}
+@media(min-width:1001px){
+  .nav__actions{gap:22px}
+  .cart-btn,.nav .cart-btn{width:50px;height:50px}
+  .cart-btn svg{width:23px;height:23px}
+}
+/* The wider gap only where the bar can pay for it. MEASURED on shop.html
+   with 32px: the cart runs 5px past the rail at 1280 and 17px at 1440,
+   and clears at 1500 — because an inner page has "Get fitted" sitting
+   BETWEEN the phone and the cart, so it pays for two gaps, not one.
+   The homepage never does: its button is out of the flow until you pass
+   the hero, and by then the phone has gone. So it gets the wider gap at
+   every width, and the inner pages get it from 1500. */
+@media(min-width:1500px){.nav__actions{gap:32px}}
+@media(min-width:1001px){html.js-heroswap .nav__actions{gap:32px}}
+@media(max-width:1100px){.nav__actions{gap:20px}}
+/* The phone bar is 58-62px tall, so the cap stops short of filling it. */
+@media(max-width:640px){
+  .cart-btn,.nav .cart-btn{width:46px;height:46px}
+  .cart-btn svg{width:21px;height:21px}
+}
+
+/* The cap is a circle and must never be squashed into an oval. At phone
+   width .nav__actions is display:contents, so the cart becomes a direct
+   flex item of .nav__inner and was shrinking: MEASURED 33px wide against
+   its 46px height. flex:none on all three. */
+.cart-btn,.nav__tel,.hamburger{flex:none}
+
+/* Phone bar arithmetic, measured at 390: the rail is 346 wide and the
+   inner gap was resolving to 18px, so logo 200 + 18 + phone 19 + 18 +
+   burger 40 + 18 left exactly 33px for the cart — which is why it was
+   being squeezed. 10px gaps leave 57, and the 46px cap sits in it with
+   room to spare. */
+@media(max-width:640px){.site-header .nav__inner{gap:10px}}
