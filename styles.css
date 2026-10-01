@@ -4008,8 +4008,15 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 @media(min-width:1440px){
   .site-header .nav__inner{width:min(100% - 120px,1580px)}
   .site-header .brand{margin-left:clamp(0px,.6vw,14px)}
-  .site-header{--navpad:clamp(18px,1.6vw,30px)}
 }
+/* --navpad lifts only at 1440. It was briefly lifted from 1201, to make
+   room for a padding-based caret compensation — but the caret is out of
+   the flow now and does not need that room, and MEASURED on shop.html at
+   1280 the wider padding put the cart 45px past the rail: that page
+   carries the logo, the menu, the phone, "Get fitted" AND the cart all in
+   flow, and at 1280 there is only about 491px for the menu. 12px it
+   stays below 1440. */
+@media(min-width:1440px){.site-header{--navpad:clamp(12px,1.3vw,30px)}}
 .nav__links .nav__top,.nav__links .nav__top--solo{padding-left:var(--navpad);padding-right:var(--navpad)}
 .nav .nav__top::after,.nav .nav__top--solo::after{left:var(--navpad);right:calc(100% - var(--navpad))}
 .nav .nav__item:hover .nav__top::after,.nav .nav__top--solo:hover::after{right:var(--navpad)}
@@ -4288,4 +4295,62 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 @media(max-width:640px){
   .fin-hero__cta{gap:12px}
   .fin-hero__cta .btn{width:100%;justify-content:center;min-height:52px}
+}
+
+/* ============================================================
+   v239 — the menu, bigger, and evenly spaced for real
+
+   Two things. The size: 13.5px of Michroma against a 66px logo and a
+   13.5px phone number read as the smallest thing on the bar. 15px from
+   1201 up, 16px from 1440, and the carets grow with it.
+
+   The spacing: all four items already carried an identical 30px of
+   padding on each side — that part was never wrong. What is wrong is
+   that WHEELS and BUILDS each carry a caret INSIDE that box, 12px wide
+   with a 3px margin, so the distance from the end of the WORD to the
+   next word is 15px greater on those two than it is on TIRES and
+   FINANCING. Equal padding, unequal gaps, which is what the eye catches.
+
+   The caret-bearing items give that 17px back out of their right
+   padding, so every item's box is text + caret + 2 x --navpad and the
+   words sit at equal distances. The hover underline needs no change:
+   it ends at --navpad from the right edge, which is still exactly the
+   end of the word once the caret occupies the space the padding gave up.
+   ============================================================ */
+.site-header{--navfs:15px;--caret:17px}
+@media(max-width:1200px){.site-header{--navfs:12.5px;--caret:15px}}
+@media(min-width:1440px){.site-header{--navfs:16px}}
+.nav__links .nav__top,.nav__links .nav__top--solo{font-size:var(--navfs)}
+/* The caret comes out of the flow entirely. Compensating for it in the
+   padding did not survive measurement: .nav__top is a flex box with a
+   6px gap and the svg carries a 4px margin, so the caret's real footprint
+   is 23px, more than the 18-19px of padding there is to give back at the
+   narrow end of the range. Absolutely positioned, the item's box is text
+   plus equal padding — the same arithmetic as TIRES and FINANCING — and
+   it stays that way at every width. Anchored to 100% - --navpad, which IS
+   the end of the word, so the caret sits 5px off its own label rather
+   than a fixed distance from a box edge that moves. */
+.nav__links .nav__top svg{position:absolute;margin:0;
+  left:calc(100% - var(--navpad) + 5px);top:50%;translate:0 -50%;
+  width:calc(var(--caret) - 4px);height:calc(var(--caret) - 4px)}
+
+/* ============================================================
+   v243 — the bar cannot hold everything under 1200
+
+   Found while checking the new menu size, and NOT caused by it: the font
+   and padding in this band are untouched. On shop.html the cart ran past
+   the rail by 20px at 1100 and 72px at 1020 — the same silent clipping
+   that was fixed above 1280, just further down the range. Inner pages
+   carry the logo, four menu items, the phone, "Get fitted" AND the cart,
+   and below 1200 that is more than the rail holds.
+
+   "Get fitted" is the one item with a home elsewhere on every page — the
+   footer, the page's own CTA, and the mobile menu below 1000 — so it is
+   the one that goes. The phone stays, because it is the only thing on the
+   bar you cannot get to any other way in one tap. Same rule that already
+   applied under 640, lifted to 1259 — measured: with the button shown the
+   cart overruns by 28px at 1201 and 3px at 1240, and clears at 1260.
+   ============================================================ */
+@media(max-width:1259px){
+  .nav__actions .btn--primary{display:none}
 }
