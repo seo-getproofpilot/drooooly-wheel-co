@@ -166,6 +166,16 @@ each one is a phone call away from being better.
   appears as both `602-332-5400` (display) and `+16023325400` / `+1-602-332-5400` (tel: and
   JSON-LD), so grep for all three.
 
+- 🟡 **4.30 · buddy.html is a one-off page that must not survive launch.** Built
+  2026-09-30 to show one person one truck: a green '73 C10 belonging to a friend of
+  Chris's, composited onto the homepage sunset plate. It is `noindex, nofollow`, it is
+  not in the nav, not in `sitemap.xml`, and nothing links to it — you only reach it if
+  you have the URL. Two things to settle before launch: **delete it** (it has nothing to
+  do with the business), and note that the photograph is a third party's vehicle supplied
+  by Chris, so the same rights question as section 1 applies to `assets/buddy-c10.jpg`
+  if it is ever reused. The original photo was uploaded to Chris's own Canva account to
+  cut the truck out of its background; that asset can be deleted there too.
+
 ## 5. Feature debt
 
 | # | What | Status |
