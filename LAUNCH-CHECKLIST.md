@@ -176,6 +176,29 @@ each one is a phone call away from being better.
   if it is ever reused. The original photo was uploaded to Chris's own Canva account to
   cut the truck out of its background; that asset can be deleted there too.
 
+- 🟡 **4.31 · 377 of 781 wheel models have no photograph.** Every `img` path that IS
+  recorded resolves on disk — nothing is broken — but nearly half the catalogue has no
+  art at all, and it is very unevenly spread: JTX 135 of 154 and Hardrock 24 of 25
+  against American Force **32 of 287** and Liberty Forged **0 of 7**. Brand pages degrade
+  honestly (Liberty shows series and "get pricing" rather than empty frames) so this is
+  not a bug, but a brand page with no wheel on it does not sell a wheel. American Force
+  is the one to fix first on volume alone.
+
+- 🟡 **4.32 · Tyre brand logos are hotlinked or absent.** Of seven brands, three
+  (BFGoodrich, Nitto, Toyo) load a logo from Wikipedia or the manufacturer's own server;
+  **Fury Offroad's URL is dead** (`furyoffroad.com/wp-content/uploads/2021/03/fury-logo.png`
+  returns nothing) and AMP, Falken and Mickey Thompson are `"logo": null` in
+  `data/tires/*.json`. Those four fall back to the brand name in text. Host all seven
+  locally and the rights question joins section 1.
+
+- 🟡 **4.33 · The financing page claims an in-house credit line.** The sixth partner card
+  ("Fitment line — full dually packages running $8k+? Talk to a specialist about our
+  in-house extended terms and commercial fleet financing") describes a facility nobody
+  has confirmed exists. Related to 2.7, which covers the financing *figures*; this is the
+  existence of the product itself. The heading was corrected from "Five ways" to "Six"
+  to match the six cards on the page — if the in-house line is not real, the card goes
+  and the heading goes back to five.
+
 ## 5. Feature debt
 
 | # | What | Status |
