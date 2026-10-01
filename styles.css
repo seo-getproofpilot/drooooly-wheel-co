@@ -4555,14 +4555,20 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        follow. The extra 4 points of fade is what the tilt costs. */
     /* One mask now, on the left only. The top fade is gone: it existed to
        dissolve the frame's top edge into the ground above it, and there is
-       no longer any ground up there to dissolve into. And the left fade
-       runs to 34% of the frame rather than 15 — a 330px feather at 1600
-       instead of 145 — so the focus falls away gradually enough to read as
-       depth of field rather than as a boundary. 104deg tilts its axis
-       down-right, so it reaches further across the sky and pulls back over
-       the road where the truck is. */
-    -webkit-mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.5) 26%,#000 52%);
-    mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.5) 26%,#000 52%)}
+       no longer any ground up there to dissolve into.
+
+       The fade completes at 16% of the frame, which is just past the
+       truck's bumper at 13.2%, so nothing on the truck is soft — the
+       reference has it sharp front to back. A longer fade was tried (52%)
+       and it put the whole front end out of focus. It can be short now
+       without showing an edge because the ground behind it is the same
+       photograph at the same brightness: the only thing that changes
+       across the handover is focus, not exposure, which is what made the
+       earlier version read as a seam. 104deg tilts the axis down-right so
+       the fade reaches further across the sky and pulls back over the
+       road, where the truck is. */
+    -webkit-mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.55) 7%,#000 16%);
+    mask-image:linear-gradient(104deg,transparent 0,rgba(0,0,0,.55) 7%,#000 16%)}
 
   /* The horizontal wash starts at 22%, not at 0. Its whole job was to
      darken a photograph that is no longer over there — the photo now
@@ -4592,7 +4598,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
        The old wash PEAKED at 30% — right where the frame becomes opaque —
        which drew a dark stripe along the exact line it was meant to hide.
        What is left runs strictly downhill from the left edge. */
-    radial-gradient(900px 58% at 280px 44%,rgba(10,7,6,.5),rgba(10,7,6,.26) 54%,rgba(10,7,6,0) 84%),
+    radial-gradient(900px 58% at 280px 44%,rgba(10,7,6,.64),rgba(10,7,6,.4) 56%,rgba(10,7,6,0) 86%),
     linear-gradient(90deg,rgba(20,11,6,.2) 0%,rgba(20,11,6,.14) 26%,
       rgba(16,10,7,.06) 46%,rgba(10,8,8,.02) 62%,rgba(5,7,11,0) 76%),
     linear-gradient(0deg,rgba(14,9,6,.62) 0%,rgba(14,9,6,0) 40%)}
