@@ -4067,11 +4067,13 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    underlay v181 retired, so this needs no new asset — it swaps which of
    the two images is the visible one.
    ============================================================ */
-/* Extended from 560 to 820 with the C10 photo (v251): at 768 the cover
-   crop showed a slice of cab and bed with the headline over the bright
-   white door, and the band treatment is the answer to a landscape photo
-   on a portrait screen at any width, not just a phone's. */
-@media(max-width:820px){
+/* Extended from 560 to 820 with the C10 photo (v251), and to 1199 with
+   v270: at 768 the cover crop showed a slice of cab and bed with the
+   headline over the bright white door, and at 1024 it was worse — the
+   headline ran straight across the windshield. The band is the answer to
+   a landscape photo on a portrait-ish screen at any width below the one
+   where the inset layout takes over. */
+@media(max-width:1199px){
   .cine{min-height:0;display:block;padding:104px 0 0}
   .cine__bg picture{display:none}
   .cine__bg img.cine__bg-fill{display:block;position:absolute;left:0;right:0;bottom:104px;
@@ -4562,3 +4564,61 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    the hero is a full-bleed crop or, under 820, a band — neither wants
    them, and .cine__bg-fill goes back to being the band's own image. */
 .cine__bg-blur{display:none}
+
+/* ============================================================
+   v269 — the phone hero gets the same treatment, vertically
+
+   On a phone the copy sits ABOVE the photograph rather than beside it, so
+   the flat-black objection applies to the band's top edge instead of its
+   left. The band already masks its own top 16% to transparent — and what
+   it was fading into was #0b0b0c, a cold neutral, so the sky stopped
+   existing at a line.
+
+   MEASURED off the photograph: its top 4% averages rgb(142,100,81) and
+   the next band rgb(160,103,75). The ground now climbs toward that from
+   near-black at the top of the hero, so the band's masked sky carries on
+   up into the copy area as dusk rather than ending. No blur plates here:
+   on a 390-wide screen a cover crop of a 1.78 photo is a 28% vertical
+   slice, and the truck occupies 13%-84% of the width, so every slice that
+   could serve as a blurred ground has the truck in it. A gradient mixed
+   from the photo's own sky has no such problem.
+   ============================================================ */
+@media(max-width:1199px){
+  .cine{background:
+    radial-gradient(120% 60% at 50% 72%,rgba(150,76,34,.34),transparent 70%),
+    linear-gradient(180deg,
+      #07070a 0%,#0a0909 22%,#120d0c 38%,#1f1310 50%,
+      #331e15 58%,#47291a 64%,#311d14 76%,#140d0a 100%)}
+  .cine::after{display:none}
+  /* And the scrim has to let go of the top half, for the same reason the
+     desktop one did: it was written to darken a full-bleed photograph and
+     there is no photograph up there any more, only the ground. At .92 over
+     the first quarter it was flattening the dusk straight back to black.
+     It starts at the band instead. */
+  .cine__scrim{background:linear-gradient(180deg,
+    rgba(6,8,12,0) 0%,rgba(6,8,12,0) 44%,
+    rgba(6,8,12,.16) 56%,rgba(6,8,12,.26) 72%,rgba(6,8,12,.66) 100%)}
+}
+
+/* ============================================================
+   v271 — the band stops growing before it runs off the screen
+
+   The band is 56.3vw tall because that is the photo's own ratio, which is
+   right on a phone and wrong by 1024: MEASURED at 1024x900 the hero came
+   to 1124px, 224 below the fold, and at 1199 it was 1242 — you would see
+   the copy and the roof of the truck and nothing else. Above 820 the band
+   caps at 820px wide, right-aligned, so its height stops at 462 and the
+   hero lands just under 1000 whatever the window does. The ground it
+   leaves on the left is the same warm dusk the phone gets, which is also
+   the shape the 1200+ layout takes — so the three sizes read as one idea
+   rather than three.
+   ============================================================ */
+@media(min-width:821px) and (max-width:1199px){
+  .cine__bg img.cine__bg-fill{width:820px;max-width:100%;left:auto;right:0;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),
+      linear-gradient(to right,transparent 0,#000 13%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),
+      linear-gradient(to right,transparent 0,#000 13%);
+    -webkit-mask-composite:source-in;mask-composite:intersect}
+  .cine__inner{padding-bottom:calc(462px + 118px)}
+}
