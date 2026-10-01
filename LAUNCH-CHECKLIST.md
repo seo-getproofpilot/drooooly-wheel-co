@@ -47,6 +47,16 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 
 ---
 
+- 🔴 **1.8 · The homepage hero photograph** (`assets/hero-c10.jpg`). Supplied by Chris on
+  2026-09-30 and swapped in over the white F-450 dually that was there before. Provenance
+  unknown: nobody has said who shot it, whether it is licensed, or whether it is generated
+  rather than photographed. It is the first thing anyone sees on the site, so it is the
+  worst one to be unsure about — establish the source before launch. The previous hero is
+  **kept on disk and unused** (`assets/truck-hero.jpg` plus its portrait crop
+  `assets/truck-hero-mobile.jpg`) so the swap can be reversed by changing two `src` values
+  in `index.html`; its own rights were never confirmed either, so reverting does not clear
+  this item, it only changes which photo it is about.
+
 - 🔴 **1.6 · The side-by-side card photo** (`assets/builds/utv-1.jpg`). Cropped from a
   Raceline marketing image (`Product_Detail_1500x1200_OffroadProven1.jpg`) — their logo
   and headline were cropped off, but the photograph underneath is still theirs and we
