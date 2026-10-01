@@ -4091,7 +4091,11 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   /* Room under the copy for the band plus the brand rotisserie. */
   /* The band is 941/1672 of the viewport width — 219px at 390, 432 at
      768 — so the clearance has to scale with it, not sit at 219. */
-  .cine__inner{padding-bottom:calc(56.3vw + 118px)}
+  /* 118 -> 78: the phone hero came to 792 against an 844 viewport, which
+     left only 52px of the callout strip showing at the fold. 40px off the
+     copy's clearance brings the hero to 756 and the whole 84px strip into
+     the first screen, which is what it is there for. */
+  .cine__inner{padding-bottom:calc(56.3vw + 78px)}
   .cine .cine__cta{margin-top:26px}
 }
 
@@ -4712,3 +4716,70 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   pointer-events:none;z-index:1;
   background:linear-gradient(180deg,rgba(10,12,16,0) 0%,rgba(10,12,16,.55) 56%,#0a0c10 100%)}
 .social > *{position:relative;z-index:2}
+
+/* ============================================================
+   v305 — the first screen ends on the callouts, and the brand rail
+   grows into the room the taller hero gave it
+
+   THE CALLOUTS. The hero was a full 100svh, so the trust strip began
+   exactly at the fold and you never saw it without scrolling. Chris wants
+   it inside the first screen, under the rail. So the hero is the viewport
+   minus the strip's own height, and the two together come to exactly one
+   screen. --trusth carries that height per breakpoint, because the strip
+   is one row of four on a desktop (64px) and a 2x2 grid below 1000 (84px),
+   and the figure has to match what the strip actually measures or the sum
+   misses by exactly the error — it was out by 4px at 390 until I measured
+   it rather than estimated it.
+
+   One range cannot do this: 821-1199. There the hero is the band layout,
+   whose content comes to 1010px at 1024 wide, well past any viewport, so
+   the strip starts below the fold no matter what the height says. That is
+   the band's own geometry, not a bug to tune.
+
+   THE RAIL. 32px logos and 97px wheels were sized for a hero that had
+   less height to spare. 44 and 126 now — the brand marks are legible
+   rather than decorative, and the wheels read as wheels. Card and gap
+   grow with them so the spacing stays proportional.
+   ============================================================ */
+.site-header ~ *{--x:0} /* no-op anchor so this block has a stable home */
+
+:root{--trusth:64px}
+@media(max-width:1199px){:root{--trusth:84px}}
+@media(max-width:620px){:root{--trusth:84px}}
+
+.cine{min-height:calc(100svh - var(--trusth))}
+
+/* brand rail, larger */
+.hero-rot .mq-card{width:184px;gap:14px}
+.hero-rot .mq-card__logo{height:44px;max-width:176px}
+.hero-rot .mq-card__wheel{width:126px;height:126px}
+.hero-rot .marquee__track{gap:56px}
+@media(max-width:1000px){
+  .hero-rot .mq-card{width:150px;gap:12px}
+  .hero-rot .mq-card__logo{height:36px;max-width:142px}
+  .hero-rot .mq-card__wheel{width:104px;height:104px}
+  .hero-rot .marquee__track{gap:44px}
+}
+@media(max-width:560px){
+  .hero-rot .mq-card{width:124px;gap:10px}
+  .hero-rot .mq-card__logo{height:30px;max-width:118px}
+  .hero-rot .mq-card__wheel{width:86px;height:86px}
+  .hero-rot .marquee__track{gap:34px}
+}
+
+/* callouts: tighter everywhere, and properly compact on a phone, where a
+   2x2 grid of full-size rows was eating a quarter of the screen */
+@media(max-width:1199px){
+  .trust__item{padding:10px 14px;font-size:12px;gap:8px}
+  .trust__ic{width:18px;height:18px}
+}
+@media(max-width:620px){
+  /* Two lines per item is unavoidable at 390 — "Fitment verified before we
+     build" needs about 170px at any readable size and the column is 159 —
+     and the trailing half of each phrase is not droppable: "Fitment
+     verified" on its own reads as a guarantee, which is the one thing the
+     copy rules forbid. So the saving comes out of the padding and the
+     leading instead. */
+  .trust__item{padding:7px 10px;font-size:10.5px;gap:6px;line-height:1.25}
+  .trust__ic{width:15px;height:15px}
+}
