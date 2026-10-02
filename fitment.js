@@ -325,10 +325,38 @@
 
   /* Dropdown feeds. Years descend because a customer picks a recent truck far
      more often than a 2001. */
-  function boltMakes(table) {
-    var t = boltTable(table), seen = {}, out = [];
-    (t.patterns || []).forEach(function (r) { if (!seen[r.make]) { seen[r.make] = 1; out.push(r.make); } });
+  /* Year-aware, because the make itself can change with the year. Ram became
+     its own brand for 2011; before that the same truck is a Dodge Ram. Listing
+     both makes at every year would offer a 2006 RAM and a 2020 Dodge, neither
+     of which was ever built. First argument may be the table instead, for
+     callers that do not care about the year. */
+  function boltMakes(year, table) {
+    if (year && typeof year === "object") { table = year; year = null; }
+    var t = boltTable(table), y = parseInt(year, 10), seen = {}, out = [];
+    (t.patterns || []).forEach(function (r) {
+      if (y && !(y >= r.from && y <= r.to)) return;
+      if (!seen[r.make]) { seen[r.make] = 1; out.push(r.make); }
+    });
     return out.sort();
+  }
+
+  /* Trucks and side-by-sides in separate groups. 15 makes is a short list, but
+     "Can-Am" sitting between Cadillac and Chevrolet reads as a mistake, and
+     Honda builds both a Ridgeline and a Talon — so it belongs in both groups
+     rather than in one and confusing the other. */
+  function boltMakeGroups(year, table) {
+    if (year && typeof year === "object") { table = year; year = null; }
+    var t = boltTable(table), y = parseInt(year, 10);
+    var truck = [], utv = [], seenT = {}, seenU = {};
+    (t.patterns || []).forEach(function (r) {
+      if (y && !(y >= r.from && y <= r.to)) return;
+      if (r.config === "utv") { if (!seenU[r.make]) { seenU[r.make] = 1; utv.push(r.make); } }
+      else if (!seenT[r.make]) { seenT[r.make] = 1; truck.push(r.make); }
+    });
+    var g = [];
+    if (truck.length) g.push({ label: "Trucks, SUVs & vans", makes: truck.sort() });
+    if (utv.length) g.push({ label: "Side-by-sides", makes: utv.sort() });
+    return g;
   }
   function boltModels(make, year, table) {
     var t = boltTable(table), mk = normMake(make, t), y = parseInt(year, 10);
@@ -452,6 +480,7 @@
     placement: placement,
     boltPattern: boltPattern,
     boltMakes: boltMakes,
+    boltMakeGroups: boltMakeGroups,
     boltModels: boltModels,
     boltYears: boltYears,
     LANES: LANES,

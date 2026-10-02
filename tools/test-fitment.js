@@ -416,6 +416,22 @@ ok("an unknown make is a miss", bp(2020, "Scania", "R500"), null);
 ok("lanes map from config", F.laneForConfig("drw") + "/" + F.laneForConfig("utv") + "/" + F.laneForConfig("srw"),
    "dually/utv/truck");
 ok("makes list is populated", F.boltMakes(BT).length > 10, true);
+ok("a 2006 truck is a Dodge Ram", bp(2006, "Dodge", "Ram 2500"), "8x165.1");
+ok("the same truck in 2020 is a RAM", bp(2020, "RAM", "2500"), "8x165.1");
+ok("RAM did not exist in 2006", bp(2006, "RAM", "2500"), null);
+ok("Dodge Ram did not exist in 2020", bp(2020, "Dodge", "Ram 2500"), null);
+ok("the Dakota stayed a Dodge", bp(2008, "Dodge", "Dakota"), "6x114.3");
+ok("2006 offers Dodge and not RAM",
+   F.boltMakes(2006, BT).indexOf("Dodge") > -1 && F.boltMakes(2006, BT).indexOf("RAM") < 0, true);
+ok("2020 offers RAM and not Dodge",
+   F.boltMakes(2020, BT).indexOf("RAM") > -1 && F.boltMakes(2020, BT).indexOf("Dodge") < 0, true);
+ok("2006 has no side-by-side group", F.boltMakeGroups(2006, BT).length, 1);
+ok("2020 groups trucks and side-by-sides", F.boltMakeGroups(2020, BT).length, 2);
+ok("Honda is in both groups, since it builds a Ridgeline and a Talon",
+   F.boltMakeGroups(2020, BT).filter(g => g.makes.indexOf("Honda") > -1).length, 2);
+ok("no make is lost by grouping",
+   F.boltMakeGroups(2020, BT).reduce((a2, g) => a2.concat(g.makes), []).filter((v2, i2, a2) => a2.indexOf(v2) === i2).sort().join(","),
+   F.boltMakes(2020, BT).sort().join(","));
 ok("models narrow by year", F.boltModels("Toyota", 2015, BT).indexOf("Tundra") > -1, true);
 ok("every entry declares its confidence",
    BT.patterns.filter(r => r.confidence !== "high" && r.confidence !== "check").length, 0);

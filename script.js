@@ -84,21 +84,38 @@ function initVehModule() {
      HD and a 2011 are different wheels and offering both under one year
      would be offering a wrong answer. */
   var BOLTS = window.Fitment && window.VEHICLE_BOLTS ? window.Fitment : null;
-  function makesList() { return BOLTS ? BOLTS.boltMakes() : Object.keys(VEH.makes); }
   function modelsList(make, year) { return BOLTS ? BOLTS.boltModels(make, year) : (VEH.makes[make] || []); }
 
-  fillSelect(y, BOLTS ? BOLTS.boltYears() : VEH.years, 'Year');
-  fillSelect(mk, makesList(), 'Make');
-  fillSelect(md, [], 'Model');
+  /* Trucks and side-by-sides in separate <optgroup>s. Native to a select, so
+     it costs nothing in behaviour and stops "Can-Am" reading as a typo
+     between Cadillac and Chevrolet. */
+  function fillMakes(year) {
+    var keep = mk.value;
+    if (!BOLTS) { fillSelect(mk, Object.keys(VEH.makes), 'Make'); if (keep) mk.value = keep; return; }
+    var groups = BOLTS.boltMakeGroups(year);
+    var html = '<option value="">Make</option>';
+    groups.forEach(function (g) {
+      html += '<optgroup label="' + g.label + '">' +
+        g.makes.map(function (m) { return '<option>' + m + '</option>'; }).join('') + '</optgroup>';
+    });
+    mk.innerHTML = html;
+    /* The make itself can expire: Dodge does not exist after 2010 and RAM does
+       not exist before 2011, so a year change can invalidate the selection. */
+    if (keep) { mk.value = keep; if (mk.value !== keep) mk.value = ''; }
+  }
   function refillModels() {
     var keep = md.value;
     fillSelect(md, modelsList(mk.value, y.value), 'Model');
-    if (keep) md.value = keep;
+    if (keep) { md.value = keep; if (md.value !== keep) md.value = ''; }
   }
+
+  fillSelect(y, BOLTS ? BOLTS.boltYears() : VEH.years, 'Year');
+  fillMakes('');
+  fillSelect(md, [], 'Model');
   mk.addEventListener('change', refillModels);
-  y.addEventListener('change', refillModels);
+  y.addEventListener('change', function () { fillMakes(y.value); refillModels(); });
   var v = getVeh();
-  if (v) { y.value = v.year; fillSelect(mk, makesList(), 'Make'); mk.value = v.make; fillSelect(md, modelsList(v.make, v.year), 'Model'); md.value = v.model; }
+  if (v) { y.value = v.year; fillMakes(v.year); mk.value = v.make; fillSelect(md, modelsList(v.make, v.year), 'Model'); md.value = v.model; }
   var btn = document.getElementById('vehFind');
   if (btn) btn.addEventListener('click', function () {
     if (!y.value || !mk.value || !md.value) { [y, mk, md].forEach(function (s) { if (!s.value) s.style.borderColor = '#c0392b'; }); return; }
