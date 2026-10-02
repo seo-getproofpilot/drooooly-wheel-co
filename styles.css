@@ -4919,3 +4919,84 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* The extra 80px of photograph only above 1300 — at 1024 a 1000px band is
    taller than the laptop screen it is being read on. */
 @media(min-width:1300px){.cta--photo{min-height:1060px}}
+
+/* ============================================================
+   v322 — the white-to-photograph join, properly blended
+
+   MEASURED the applied values rather than the authored ones, because
+   three rules were fighting over this seam.
+
+   WHY THERE WAS A LINE — three separate causes, all at the same pixel:
+
+   1. THE TWO BLACKS DID NOT MATCH. The white section faded down to
+      rgb(10,12,16); the photograph's overlay opened on rgb(8,10,14).
+      Two points apart, held against each other along a 1512px edge,
+      which is exactly the condition the eye is best at finding. Both
+      are #0a0c10 now.
+
+   2. THE RAMP WAS TOO STEEP AND STARTED TOO EARLY. The overlay went
+      from opaque to .6 in 12% of the section — 127px — so the sky
+      arrived almost immediately below the join. Worse, a linear ramp
+      has constant slope, and a slope that starts abruptly reads as an
+      edge even when the colours cross smoothly. The ramp is a
+      smoothstep now: zero slope where it meets the black, zero slope
+      where it settles, 1.0 held to 3% and easing to .30 by 46% (490px
+      rather than 127). That is the black leading further onto the
+      photograph, which is what was asked for.
+
+   3. A BLUE GLOW SAT AT 4%. radial-gradient(... at 50% 4%) put a blue
+      cast 42px below the join and none above it — a colour step riding
+      along with the luminance step. Moved to 22%, where it reads as an
+      accent instead of an edge.
+
+   THE BLUR. A 300px backdrop-filter band at the top of the photograph,
+   masked so it falls off to nothing, so the sky emerges soft and
+   resolves as it comes down rather than arriving sharp. Where
+   backdrop-filter is not supported this simply does not paint and the
+   smoothstep ramp above still carries the blend on its own.
+
+   The white side gets a longer runway too: 96px to 170px. The first
+   third of that is under .06 opacity, so it crosses the bottom of the
+   Instagram card without greying it.
+   ============================================================ */
+/* 641 and up, not 1000: below 641 the photograph becomes a contained band
+   with its own overlay (the max-width:640 block above), but 641-999 uses the
+   same cover layout as the desktop and had the same seam. */
+@media(min-width:641px){
+  .social::after{height:170px;
+    background:linear-gradient(180deg,
+      rgba(10,12,16,0) 0%,
+      rgba(10,12,16,.03) 22%,
+      rgba(10,12,16,.10) 38%,
+      rgba(10,12,16,.22) 50%,
+      rgba(10,12,16,.40) 62%,
+      rgba(10,12,16,.62) 74%,
+      rgba(10,12,16,.82) 85%,
+      rgba(10,12,16,.94) 93%,
+      #0a0c10 100%)}
+
+  /* z-index so the dark ramp still paints over the blur band below it */
+  .cta--photo .cta__bg::after{z-index:2;
+    background:
+      linear-gradient(180deg,
+        #0a0c10 0%,
+        #0a0c10 3%,
+        rgba(10,12,16,.974) 8%,
+        rgba(10,12,16,.904) 13%,
+        rgba(10,12,16,.804) 18%,
+        rgba(10,12,16,.662) 24%,
+        rgba(10,12,16,.518) 30%,
+        rgba(10,12,16,.396) 36%,
+        rgba(10,12,16,.327) 41%,
+        rgba(10,12,16,.300) 46%,
+        rgba(10,12,16,.330) 56%,
+        rgba(10,12,16,.900) 100%),
+      radial-gradient(900px 520px at 50% 72%,rgba(10,12,16,.34),transparent 76%),
+      radial-gradient(760px 360px at 50% 22%,rgba(31,123,255,.13),transparent 58%)}
+
+  .cta--photo .cta__bg::before{content:"";position:absolute;left:0;right:0;top:0;height:300px;
+    z-index:1;pointer-events:none;
+    -webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.92) 34%,rgba(0,0,0,.58) 62%,rgba(0,0,0,.2) 84%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.92) 34%,rgba(0,0,0,.58) 62%,rgba(0,0,0,.2) 84%,transparent 100%)}
+}
