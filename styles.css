@@ -4804,7 +4804,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    variable moves to the truth instead — which is the whole point of having
    it: hero + strip must equal one screen, and that only works if this number
    is what the strip actually measures. */
-@media(max-width:620px){:root{--trusth:104px}}
+@media(max-width:620px){:root{--trusth:120px}}
 
 .cine{min-height:calc(100svh - var(--trusth))}
 
@@ -5453,16 +5453,36 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    one screen. Change the padding here and the first screen is wrong by the
    difference, so the measured height is held at 64 and re-checked.
    ============================================================ */
+/* MACHINED, not tinted. The first pass just darkened the band, which Chris
+   read correctly as a colour change rather than a material. This is the same
+   surface the hero buttons are cut from — a vertical light profile with a
+   hard cut line through it — inverted for a dark band, plus fine horizontal
+   striations for the brush. Three layers, bottom to top:
+     1. the steel profile: bright shoulder, dark groove at 54%, recovery
+     2. the brush: 1px striations every 3px, barely there
+     3. a soft overhead key so the middle of the bar catches more light
+   No blue anywhere in it. */
 .trust{
   background:
-    radial-gradient(760px 150px at 50% 0%,rgba(31,123,255,.13),transparent 70%),
-    linear-gradient(180deg,#0a0b0e,#101319 62%,#0b0d11);
+    radial-gradient(1000px 130px at 50% 16%,rgba(255,255,255,.07),transparent 74%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,rgba(0,0,0,.055) 1px 3px),
+    linear-gradient(180deg,
+      #23272c 0%,     /* top edge, in shadow under the lip */
+      #3c434b 18%,
+      #596069 38%,
+      #6c747e 45%,    /* the shoulder — where the light actually lands */
+      #7b838d 47%,    /* a specular line along the turn */
+      #0d1014 53%,    /* the cut: 100+ levels in six pixels is what reads as milled */
+      #333a42 68%,
+      #1c2026 86%,
+      #0e1115 100%);
   border-top:0;
-  border-bottom:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(0,0,0,.6);
   position:relative;overflow:hidden}
-/* a lit edge where it meets the hero, so the two read as one piece */
-.trust::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(31,123,255,.5) 22%,rgba(150,185,255,.65) 50%,rgba(31,123,255,.5) 78%,transparent)}
+/* the machined lip: a bright edge on top, a shadow under it */
+.trust::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.04));
+  box-shadow:0 1px 0 rgba(0,0,0,.45)}
 
 /* The height is DECLARED, not emergent. --trusth tells the hero how much of
    the screen this strip takes; previously that number came out of padding
@@ -5476,22 +5496,36 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 @media(min-width:1200px){.trust__row{width:min(100% - 80px,1500px)}}
 @media(min-width:1440px){.trust__row{width:min(100% - 120px,1580px)}}
 
-.trust__item{color:#aab2bd;border-left:1px solid transparent;position:relative;
-  font-family:var(--body);font-size:13px;gap:13px}
+.trust__item{color:#b9c1cb;border-left:1px solid transparent;position:relative;text-shadow:0 1px 2px rgba(0,0,0,.6);
+  font-family:var(--body);font-size:12.5px;gap:12px}
 /* the divider as a hairline that fades at both ends rather than a full rule */
-.trust__item + .trust__item::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:1px;
-  background:linear-gradient(180deg,transparent,rgba(255,255,255,.16),transparent)}
-.trust__item b{color:#fff;font-weight:700}
+/* a milled channel: a dark cut with a lit edge beside it, which is what a
+   groove in metal actually looks like */
+.trust__item + .trust__item::before{content:"";position:absolute;left:0;top:16%;bottom:16%;width:2px;
+  background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(255,255,255,.1));
+  border-radius:2px}
+/* the lead phrase in the DROOOLY face. Michroma is wide, so it carries the
+   short lead only and the qualifier stays in Inter — the same split the nav
+   and the showcase cards use. */
+.trust__item b{font-family:var(--display);font-weight:400;font-size:11px;
+  letter-spacing:.015em;color:#fbfdff;text-transform:uppercase;
+  text-shadow:0 1px 2px rgba(0,0,0,.75)}
 
 /* the machined tile the orphan .trust__ico rule was describing */
-.trust__ic{width:19px;height:19px;stroke:#6fb0ff;stroke-width:1.75;overflow:visible;
-  filter:drop-shadow(0 0 7px rgba(31,123,255,.55))}
-.trust__ic--star{fill:#f7b733;stroke:none;filter:drop-shadow(0 0 7px rgba(247,183,51,.5))}
+/* STEEL, not blue. Chris: "the credit card doesn't need to be blue, the icon
+   for 50 states doesn't need to be blue... a lot of it's blue on blue."
+   Brushed-nickel stroke with a dark edge under it so the glyph reads as cut
+   into the panel rather than printed on it. The star keeps its gold — it is
+   a rating, it is the one piece of colour on the bar, and it is not blue. */
+.trust__ic{width:18px;height:18px;stroke:#eef3f8;stroke-width:1.7;overflow:visible;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
+.trust__ic--star{fill:#f0b53f;stroke:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
 
 @media(max-width:1199px){
   /* 2x2 below 1000: --trusth is 84, so the row is 82 plus the two borders */
   .trust__row{min-height:82px}
-  .trust__item{font-size:12.5px;gap:10px;padding:12px 10px}
+  .trust__item{min-width:0;font-size:12px;gap:10px;padding:12px 10px}
+  .trust__item b{font-size:10.5px}
   .trust__item + .trust__item::before{top:18%;bottom:18%}
 }
 @media(max-width:620px){
@@ -5499,9 +5533,21 @@ html.intro-run .hero-rot{opacity:0;transition:none}
      cell 78px and the strip 159 against a declared --trusth of 84 — which
      would have pushed the hero nearly a hundred pixels past the fold, the
      exact error the variable exists to prevent. */
-  .trust__row{min-height:102px}
-  .trust__item{font-size:11.5px;padding:10px 8px;white-space:normal;line-height:1.35;gap:9px}
-  .trust__ic{width:17px;height:17px}
+  .trust__row{min-height:118px}
+  /* A flex child defaults to min-width:auto, so it refuses to shrink below
+     its own content — the cell stayed 166 wide while the text inside ran past
+     it and got clipped by the bar's overflow:hidden. min-width:0 lets the box
+     actually constrain the text so it wraps instead of spilling. This is why
+     the measured scrollWidth looked fine: the overflow was inline, not
+     layout. */
+  .trust__item{min-width:0;overflow-wrap:break-word;font-size:11px;padding:10px 8px;white-space:normal;line-height:1.4;gap:9px}
+  /* Michroma stays on a phone too. It looked like it was being clipped in a
+     headless capture, but that was the shot landing before the webfonts
+     settled — laid out on fallback metrics, which are wider here. MEASURED
+     with document.fonts.ready: the text right edges are 180/345/180/335
+     against cells ending at 188/353. Nothing spills. */
+  .trust__item b{font-size:9.5px;letter-spacing:.01em}
+  .trust__ic{width:16px;height:16px}
   /* on a phone the 2x2 grid's left-hand cells have no neighbour to divide from */
   .trust__item:nth-child(odd)::before{display:none}
 }
