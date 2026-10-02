@@ -5505,3 +5505,28 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   /* on a phone the 2x2 grid's left-hand cells have no neighbour to divide from */
   .trust__item:nth-child(odd)::before{display:none}
 }
+
+/* ===== v340 — a photo card in the showcase row =====
+   Price Designs' card was a frame cut out of their promo GIF floating on the
+   same light stage as everyone else, and it looked exactly as thin as that
+   description. They do publish real photography — it is just not in the
+   product feed, only in the rendered page — so this card carries a
+   photograph edge to edge instead of a cutout.
+
+   It is a BRAND card, not a SKU card: the wheel in the shot is one of their
+   side-by-side beadlocks, so labelling it "17x9 Beadlock" would have named
+   the wrong product. It says what is true — the brand, what they build, and
+   where — and goes to the builder. */
+.show2-stage--photo{background:#0b0d11}
+.show2-stage--photo .show2-img{width:100%;height:100%;object-fit:cover;
+  padding:0;filter:none;transform:none}
+.show2-stage--photo::before,.show2-stage--photo::after{display:none}
+.show2-card--photo:hover .show2-img{transform:scale(1.045)}
+.show2-stage--photo .show2-tag{background:rgba(8,10,14,.78);color:#fff;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+/* the four cards share a row, so they share a height — the photo card's copy
+   runs to two lines where the others run to one */
+.show2-grid{align-items:stretch}
+.show2-card{display:flex;flex-direction:column}
+.show2-body{display:flex;flex-direction:column;flex:1}
+.show2-foot{margin-top:auto}
