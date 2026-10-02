@@ -394,7 +394,7 @@
           (state.veh ? "<b>" + esc(state.veh) + "</b> — " : "") +
           (pre.length - ask) + " we can cut to this pattern" +
           (ask ? ", " + ask + " more we would confirm with the maker first" : "") + ". " +
-          "Width, offset and what clears your fender is the next conversation." +
+          '<span class="boltbar__tail">Width, offset and what clears your fender is the next conversation.</span>' +
         "</span>" +
         '<a class="boltbar__x" href="shop.html">Clear</a></div>';
     } else if (laneEl && lane) {
@@ -474,6 +474,7 @@
         return (x.basis === "unknown" ? 1 : 0) - (y2.basis === "unknown" ? 1 : 0);
       });
       document.getElementById("shopCount").innerHTML = "<b>" + list.length + "</b> product" + (list.length === 1 ? "" : "s");
+      if (window.__syncShowBar) window.__syncShowBar(list.length);
       var grid = document.getElementById("shopGrid");
       grid.innerHTML = list.length ? list.map(function (p) {
           return productCard(p.b, p.m, null, lane, state.bolt ? { basis: p.basis, label: p.boltLabel } : null);
@@ -549,8 +550,45 @@
     if (params.get("q")) { var s = document.querySelector(".search input"); if (s) s.value = params.get("q"); }
     sortSel.addEventListener("change", function () { state.sort = sortSel.value; draw(); });
     // mobile filter toggle
+    /* MOBILE DRAWER. The sidebar is a full-height fixed overlay on a phone
+       with no backdrop and no close control — the Filters button that opened
+       it is behind it. So you tick "22 inch", the count changes somewhere you
+       cannot see, and there is no way back to the results. Same complaint as
+       the desktop scroll jump, different cause.
+
+       Two additions, both mobile-only: tap the backdrop to dismiss, and a
+       sticky bar that says how many wheels are waiting and takes you to
+       them. */
+    var side = document.getElementById("filtersSide");
+    var backdrop = document.createElement("div");
+    backdrop.className = "filters-backdrop";
+    document.body.appendChild(backdrop);
+
+    var showBar = document.createElement("button");
+    showBar.className = "filters-show";
+    showBar.type = "button";
+    side.appendChild(showBar);
+
+    function closeDrawer() {
+      side.classList.remove("open");
+      document.body.classList.remove("filters-open");
+      var g = document.getElementById("shopCount");
+      if (g) {
+        var top = g.getBoundingClientRect().top + (window.pageYOffset || 0) - 80;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      }
+    }
+    function openDrawer() { side.classList.add("open"); document.body.classList.add("filters-open"); }
+    window.__syncShowBar = function (n) {
+      showBar.textContent = n ? "Show " + n + " wheel" + (n === 1 ? "" : "s") : "No wheels match";
+      showBar.disabled = !n;
+    };
+    backdrop.addEventListener("click", closeDrawer);
+    showBar.addEventListener("click", closeDrawer);
     var mb = document.getElementById("filterMobileBtn");
-    if (mb) mb.addEventListener("click", function () { document.getElementById("filtersSide").classList.toggle("open"); });
+    if (mb) mb.addEventListener("click", function () {
+      side.classList.contains("open") ? closeDrawer() : openDrawer();
+    });
     draw();
   }
 

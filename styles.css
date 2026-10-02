@@ -5252,3 +5252,51 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .boltbar__t{font-size:13px;flex-basis:100%}
   .boltbar__x{margin-left:auto}
 }
+
+/* ===== v332 — the mobile filter drawer could be opened but not left =====
+   It is a fixed, full-height overlay with no backdrop, and the Filters button
+   that opens it sits underneath. Tick a filter and the result count changes
+   somewhere you cannot see, with no way back to the grid. Same complaint as
+   the desktop scroll jump, different cause.
+
+   Desktop is untouched: the sidebar there is a sticky column that never
+   covers anything, so neither of these controls is rendered above 1000. */
+.filters-backdrop{display:none}
+.filters-show{display:none}
+@media(max-width:1000px){
+  /* The drawer has top:0 and bottom:0 but was measuring 1472px tall on a
+     812px screen — the height was resolving to its content, so it never
+     scrolled internally and the sticky bar below sat 600px off the bottom of
+     the phone. Pinning the height makes it a real scroll container. dvh so
+     the mobile browser chrome collapsing does not cut the bar off. */
+  .filters-side{height:100vh;height:100dvh;max-height:100dvh;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:0}
+
+  .filters-backdrop{display:block;position:fixed;inset:0;z-index:79;
+    background:rgba(4,5,7,.55);opacity:0;visibility:hidden;
+    transition:opacity .3s ease,visibility .3s ease}
+  body.filters-open .filters-backdrop{opacity:1;visibility:visible}
+  /* the page itself must not scroll behind an open drawer */
+  body.filters-open{overflow:hidden}
+
+  .filters-show{display:block;position:sticky;bottom:0;z-index:2;
+    width:100%;margin-top:18px;min-height:52px;
+    /* its own backing, or the list scrolls visibly underneath it */
+    box-shadow:0 -14px 18px -6px var(--bg-2),0 6px 22px rgba(31,123,255,.34);border:0;cursor:pointer;
+    font-family:var(--label);font-size:12px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:#fff;border-radius:11px;
+    background:linear-gradient(180deg,var(--blue-2),var(--blue))}
+  .filters-show:disabled{background:#3a3f47;box-shadow:none;color:#9aa0a8;cursor:default}
+}
+
+/* The bolt bar was 186px on a 375 screen — a quarter of the viewport before a
+   single wheel. The pattern chip and the clear link share a row, the sentence
+   drops under them, and the trailing line about width and offset is cut: it
+   is on every product page already, and a phone has no room to say it twice. */
+@media(max-width:640px){
+  .boltbar{padding:12px 14px;gap:10px;align-items:center}
+  .boltbar__p{font-size:13px;padding:6px 10px}
+  .boltbar__t{font-size:12.5px;line-height:1.5;flex-basis:100%;order:3}
+  .boltbar__x{margin-left:auto;order:2}
+  .boltbar__t .boltbar__tail{display:none}
+}
