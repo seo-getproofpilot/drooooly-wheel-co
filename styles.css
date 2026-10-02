@@ -5579,3 +5579,61 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .show2-card{display:flex;flex-direction:column}
 .show2-body{display:flex;flex-direction:column;flex:1}
 .show2-foot{margin-top:auto}
+
+/* ============================================================
+   v350 — the wheel builder
+
+   Almost all of this page is the .v* system that has been sitting in this
+   file unused since the visualizer was pulled: .vizpage, .vizgrid, .vizpanel,
+   .vizstage, .vfld, .vchips/.vchip, .vchip--stack, .vreadout/.vstat, .vnote,
+   .vcta. It was designed for exactly this and needed four additions.
+   ============================================================ */
+
+/* 1. The stage goes on the RIGHT. .vizgrid is 330px 1fr — a narrow control
+      column first, which suits a visualizer whose point is the picture. A
+      builder's point is the choices, so they take the wide side. */
+@media(min-width:820px){
+  .vizgrid--build{grid-template-columns:1fr 330px}
+  .vizgrid--build .vizstage{position:sticky;top:96px}
+}
+
+/* 2. .fit-form styles input and select and NOT textarea — there is no
+      textarea rule anywhere in this file beyond `font:inherit`. So the notes
+      field would have rendered as a raw browser control. This is the .vfld
+      select declaration, cloned for a textarea. */
+.vfld textarea{width:100%;background:#fff;border:1px solid var(--line-2);color:var(--text);
+  padding:12px;font-family:var(--body);font-size:14px;min-height:92px;resize:vertical}
+.vfld textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.18)}
+
+/* 3. The stage: the wheel, then the one number that moves. */
+.bhero{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);
+  background:var(--bg-2);display:block}
+.bprice{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin:14px 0 0!important}
+.bprice span{font-family:var(--label);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--soft)}
+.bprice b{font-family:var(--display);font-size:24px;color:#111214;line-height:1}
+#bPer{margin-top:6px}
+.vizgrid--build .vreadout{grid-template-columns:1fr}
+
+/* a chip row is a set of choices, so it should read as one group */
+.vchip{transition:border-color .2s,color .2s,background .2s,transform .2s}
+.vchip:active{transform:translateY(1px)}
+.vchip.on i{opacity:.8}
+
+/* 4. On a phone this is ten steps in one column, and the total scrolls away
+      from you. It comes along instead. */
+@media(max-width:819px){
+  .vizgrid--build .vizstage{position:static}
+  .bbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;
+    gap:12px;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(14,16,19,.97),#0b0d10);
+    border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -14px 34px rgba(0,0,0,.4)}
+  .bbar__v{flex:1;min-width:0;line-height:1.2}
+  .bbar__v span{display:block;font-family:var(--label);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:#8d949d}
+  .bbar__v b{font-family:var(--display);font-size:17px;color:#fff}
+  .bbar .btn{min-height:44px;padding-inline:20px;flex:none}
+  body.has-bbar{padding-bottom:78px}
+}
+@media(min-width:820px){.bbar{display:none}}

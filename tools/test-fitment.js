@@ -524,6 +524,83 @@ section("vehicles.js agrees with the bolt table");
   if (mismatches.length) mismatches.forEach(x => console.log("       " + x));
 }
 
+/* ---- the wheel builder ----
+   The spec is Price Designs' own pricing. If a figure here drifts, a customer
+   is quoted the wrong money for a real set of wheels. */
+section("wheel builder");
+{
+  const SPEC = require(path.resolve(__dirname, "..", "data/builders/pd-truck-17x9.json"));
+  const stepById = id => SPEC.steps.filter(s => s.id === id)[0];
+  const opt = (stepId, v) => (stepById(stepId).options || []).filter(o => o.v === v)[0];
+  const addOf = (stepId, v) => { const o = opt(stepId, v); return o && o.add ? o.add : 0; };
+
+  ok("base price is his published figure", SPEC.basePrice, 5400);
+  ok("it is a set of four", SPEC.setOf, 4);
+  ok("ten steps", SPEC.steps.length, 10);
+
+  /* The figure from the plan, computed the long way round */
+  const hand = SPEC.basePrice + addOf("wheelFinish", "Triple chrome plating")
+             + addOf("ringFinish", "Gloss black") + addOf("floatingCaps", "Yes — machined insert")
+             + addOf("lugNuts", "Titanium");
+  ok("a loaded build totals $9,060", hand, 9060);
+
+  /* and the ceiling, which is what a customer can actually reach */
+  const ceiling = SPEC.steps.filter(s => s.type === "chips").reduce((n, st) =>
+    n + Math.max(...(st.options || []).map(o => o.add || 0), 0), SPEC.basePrice);
+  ok("the most expensive build is $9,500", ceiling, 9500);
+
+  ok("triple chrome on the wheel is the biggest single option", addOf("wheelFinish", "Triple chrome plating"), 2400);
+  ok("a colour on the wheel", addOf("wheelFinish", "Bronze"), 600);
+  ok("a colour on the ring is cheaper than on the wheel",
+     addOf("ringFinish", "Bronze") < addOf("wheelFinish", "Bronze"), true);
+  ok("machined is the no-cost finish both times",
+     addOf("wheelFinish", "Machined") + addOf("ringFinish", "Machined"), 0);
+
+  /* Every {token} must name an EARLIER step, or a heading renders with a
+     placeholder in it in front of a customer. */
+  const seen = [];
+  const badTokens = [];
+  SPEC.steps.forEach(st => {
+    (String(st.label).match(/\{(\w+)\}/g) || []).forEach(t => {
+      if (seen.indexOf(t.slice(1, -1)) < 0) badTokens.push(st.id + " -> " + t);
+    });
+    seen.push(st.id);
+  });
+  ok("every dynamic heading resolves from an earlier step", badTokens.length, 0);
+  if (badTokens.length) badTokens.forEach(t => console.log("       " + t));
+
+  /* The fitment tie-in only works if these are patterns the finder knows */
+  const VT = require(path.resolve(__dirname, "..", "data/fitment/vehicle-bolt-patterns.json"));
+  const known = new Set(VT.patterns.map(r => r.bolt));
+  const lugs = stepById("lug").options;
+  ok("five lug patterns", lugs.length, 5);
+  ok("every one is a pattern real trucks use", lugs.filter(o => !known.has(o.bolt)).length, 0);
+  ok("an F-250's 8x170 is offered", lugs.some(o => o.bolt === "8x170"), true);
+  /* and the ones it deliberately does NOT cover */
+  ok("the F-450's ten-lug is NOT offered", lugs.some(o => o.bolt === "10x225"), false);
+  ok("a half-ton Ram's 5x139.7 is NOT offered", lugs.some(o => o.bolt === "5x139.7"), false);
+
+  ok("every add is a number, never a string",
+     SPEC.steps.filter(s => s.type === "chips")
+       .flatMap(s => s.options).filter(o => o.add !== undefined && typeof o.add !== "number").length, 0);
+  ok("the hero image is on disk",
+     require("fs").existsSync(path.resolve(__dirname, "..", SPEC.image)), true);
+
+  /* "SIMULATED" is a safety word, not a style word — a simulated ring does not
+     clamp the bead. It must survive any copy edit. */
+  ok("the word SIMULATED survives in the included line", /SIMULATED/.test(SPEC.includes), true);
+
+  /* the catalogue entry and the spec must agree about the price */
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "brands.js"));
+  const pd = global.window.BRANDS.find(b => b.slug === "price-designs");
+  const buildable = pd.models.filter(m => m.builder)[0];
+  ok("the catalogue marks one model buildable", !!buildable, true);
+  ok("...pointing at this spec", buildable.builder, SPEC.id);
+  ok("...and quoting the same set price", buildable.priceSet, SPEC.basePrice);
+  ok("...for the same number of wheels", buildable.priceSetQty, SPEC.setOf);
+}
+
 /* ---- catalogue integrity ----
    Every one of these is a bug that actually shipped. */
 section("catalogue integrity");

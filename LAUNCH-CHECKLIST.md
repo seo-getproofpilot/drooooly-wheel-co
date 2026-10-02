@@ -97,6 +97,17 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
   Forged Beadlock — is sold out at every variant, so it has no published price and still
   falls back to the formula.
 
+- 🔴 **2.8 — the wheel builder prints the first hard prices on the site.** Every
+  other product is quote-gated; `build.html` quotes a real $5,400 set and a real
+  running total up to $9,500. The figures are **Price Designs' own published
+  retail**, read off his storefront on 2026-10-02 and recorded with their source
+  in `data/builders/pd-truck-17x9.json`. Chris approved showing them.
+
+  What still needs confirming with Kade: **that our dealer price leaves margin at
+  his retail.** Publishing his retail as ours is only safe if we buy below it. If
+  the margin is not there, the fix is one number per row in that JSON — the
+  builder, the card and the tests all read from it.
+
 ## 3. Brands — CLAUDE.md rule 3
 
 | # | What | Status |
@@ -276,6 +287,22 @@ each one is a phone call away from being better.
   bolt patterns on the UTV entries are the machine's own (X3 4x137, RZR/Pro R
   4x156), not a claim about what Price Designs will drill; the truck blank
   carries none and answers "confirmed before we build".
+
+- 🟡 **4.41 — the builder has no cart and no checkout, deliberately.** Chris:
+  "the payment side of it, or how you can add it to your cart, let's do that at
+  the very end." So `builder.js` ends at a serialised build object which is
+  stored to `localStorage.drooolyBuild` and handed to the consult form as text,
+  the same way `?w=` already works from a wheel page.
+
+  **Three things must change in `cart.js` before that seam closes**, and none are
+  cosmetic. They are written out at the single call site in `builder.js`:
+  (1) `cart.js:18` stores exactly `{key, brand, name, price, img, qty}` and drops
+  unknown fields, so `choices` and `notes` would vanish on the way in;
+  (2) `render()` concatenates brand and name into `innerHTML` **unescaped** —
+  nothing user-controlled reaches it today, but a build carrying a free-text note
+  would be the first, and that is an XSS hole; (3) `key` is the dedupe identity,
+  so two different builds of the same wheel would merge into one line at qty 2.
+  `configId` is already the right key and the total is already integer dollars.
 
 ## 5. Feature debt
 

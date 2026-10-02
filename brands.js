@@ -868,8 +868,15 @@ window.BRANDS = [
         finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"] },
       { model: "Sand Car", configs: ["utv"], sizes: ["15x6","15x7","15x8"],
         finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"] },
+      /* `builder` makes this a configurable product: the card links to
+         build.html instead of wheel.html and offers "Build yours" instead of
+         add-to-cart, because adding an unconfigured build-your-own to a cart
+         at base price would be a lie. priceSet is Price Designs' own published
+         base for the set of four — the builder prices every option from the
+         same figures. */
       { model: "17x9 Simulated Beadlock", configs: ["single"], sizes: ["17x9"],
-        finishes: ["Polished","Black Ring"], img: "assets/wheels/price-designs/truck-17x9-beadlock.png", feat: true }
+        finishes: ["Polished","Black Ring"], img: "assets/wheels/price-designs/truck-17x9-beadlock.png",
+        feat: true, builder: "pd-truck-17x9", priceSet: 5400, priceSetQty: 4 }
     ]
   },
 

@@ -112,8 +112,9 @@
        link, so the only page listing all 756 wheels could not reach any of
        their pages. Brand pages have always linked through (wheelCard); this
        one never did. */
-    var href = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
-               "&model=" + encodeURIComponent(m.model);
+    var href = m.builder
+      ? "build.html?b=" + encodeURIComponent(m.builder)
+      : "wheel.html?brand=" + encodeURIComponent(brand.slug) + "&model=" + encodeURIComponent(m.model);
     var sizes = lane ? laneSizes(lane, m) : [];
     return '<article class="prod fade">' +
       '<a class="prod__link" href="' + esc(href) + '" aria-label="' +
@@ -157,16 +158,28 @@
             m.bolts.slice(0, 4).map(function (x) { return "<b>" + esc(x) + "</b>"; }).join("") +
             (m.bolts.length > 4 ? '<i>+' + (m.bolts.length - 4) + " more</i>" : "") + "</div>"
           : "") +
-        '<div class="prod__price"><b>' + money(p) + '</b><small>/ wheel</small></div>' +
-        '<div class="prod__set">Full set &amp; tire pricing at fitment</div>' +
+        /* A buildable product prices from the vendor's own published set
+           figure, not from priceEach()'s synthetic per-wheel estimate. An
+           invented $1,805/wheel on a card that leads to a builder quoting a
+           real $5,400 set is the site contradicting itself. */
+        (m.builder
+          ? '<div class="prod__price"><b>' + money(m.priceSet) + '</b><small>/ set of ' + (m.priceSetQty || 4) + '</small></div>' +
+            '<div class="prod__set">Built to order \u2014 options priced as you build</div>'
+          : '<div class="prod__price"><b>' + money(p) + '</b><small>/ wheel</small></div>' +
+            '<div class="prod__set">Full set &amp; tire pricing at fitment</div>') +
         '<div class="prod__actions">' +
-          '<button class="btn-add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + p + '" data-img="' + thumb(m) + '">' +
-            '<span class="btn-txt"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to cart</span>' +
-          '</button>' +
+          /* A configurable product has nothing to add until it is configured,
+             so the primary action is the builder rather than the cart. The
+             same chrome button either way — it is the same weight of decision. */
+          (m.builder
+            ? '<a class="btn-add" href="' + esc(href) + '"><span class="btn-txt">Build yours \u2192</span></a>'
+            : '<button class="btn-add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + p + '" data-img="' + thumb(m) + '">' +
+              '<span class="btn-txt"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to cart</span>' +
+              '</button>') +
           /* Two actions, not one. Every card carried the same grey slab and
              nothing else, so the grid had one weight all the way down and no
              way to say "show me this one" without committing to the cart. */
-          '<a class="prod__see" href="' + esc(href) + '">See the wheel <i>\u2192</i></a>' +
+          (m.builder ? '' : '<a class="prod__see" href="' + esc(href) + '">See the wheel <i>\u2192</i></a>') +
         '</div>' +
       '</div></article>';
   }
