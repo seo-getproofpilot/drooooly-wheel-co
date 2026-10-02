@@ -77,6 +77,30 @@
   function badges(m) { return m.configs.map(function (c) { return '<span class="cfg cfg--' + cfgKey(c) + '">' + cfgLabel(c) + '</span>'; }).join(""); }
   function esc(s) { return String(s).replace(/"/g, "&quot;"); }
 
+  /* The brand's logo file. Extensions vary across the 21 (png/svg/jpg/webp),
+     so read it from the manifest rather than guessing one. */
+  var BRAND_LOGO = {"amani":"png","american-force":"svg","arkon":"png","axe":"png","black-rhino":"svg",
+    "cali":"png","fenix":"jpg","fittipaldi":"png","fuel":"svg","hardcore":"png","hardrock":"png",
+    "hostile":"png","jtx":"png","kg1":"png","kmc":"svg","liberty":"png","method":"png",
+    "raceline":"png","tis":"webp","vision":"png","xf":"png"};
+  function brandLogo(b) { return "assets/brands/" + b.slug + "." + (BRAND_LOGO[b.slug] || "png"); }
+
+  /* "Dually · Polished · 22\u2033\u201330\u2033". Every part read from the catalogue —
+     if a brand publishes no width we say the diameter range only, and if it
+     publishes nothing we leave that part out rather than inventing a range. */
+  function specLine(b, m) {
+    var parts = [];
+    var cfg = (m.configs || []).map(cfgLabel);
+    /* "Single +2" told nobody anything. Three configs is the most any wheel
+       carries, so say all of them. */
+    if (cfg.length) parts.push(cfg.join(" · "));
+    if (m.finishes && m.finishes[0]) parts.push(m.finishes[0]);
+    var dias = (window.Fitment ? window.Fitment.diametersFor(m) : []);
+    if (dias.length === 1) parts.push(dias[0] + "\u2033");
+    else if (dias.length > 1) parts.push(dias[0] + "\u2033\u2013" + dias[dias.length - 1] + "\u2033");
+    return parts.join(" · ");
+  }
+
   // ---- product card ----
   function productCard(brand, m, tag, lane, bolt) {
     var p = priceEach(brand, m), r = rating(brand, m);
@@ -100,10 +124,18 @@
         mediaInner +
       '</div>' +
       '<div class="prod__body">' +
-        '<div class="prod__brand">' + brand.name + '</div>' +
+        /* The brand's own mark, not its name set in blue. The curated
+           showcase on the homepage has always done this; the shop grid was
+           the one place a brand showed up as blue text, which is most of why
+           the page read as "everything is blue". All 21 brands have a logo. */
+        '<img class="prod__logo" src="' + esc(brandLogo(brand)) + '" alt="' + esc(brand.name) + '" loading="lazy" />' +
         '<h3 class="prod__name">' + m.model + '</h3>' +
-        '<div class="prod__rate"><span class="prod__stars">★★★★★</span> ' + r.v + ' <span>(' + r.n + ')</span></div>' +
-        '<div class="prod__badges">' + badges(m) + '</div>' +
+        /* One spec line in the showcase's own words — "Dually · Polished ·
+           22\u2033\u201330\u2033" — in place of a star rating and a row of blue
+           pills. The rating was invented from a hash of the model name
+           (LAUNCH-CHECKLIST 5.x): it looked like data, carried none, and
+           every card wore the same blue. This line is read off the catalogue. */
+        '<div class="prod__meta">' + esc(specLine(brand, m)) + '</div>' +
         /* The basis is on the card, not just in the header, because the
            customer scrolling past twelve wheels never reads the header
            twice. "Cut to" is a process we control; "confirm" is one we do
@@ -129,8 +161,12 @@
         '<div class="prod__set">Full set &amp; tire pricing at fitment</div>' +
         '<div class="prod__actions">' +
           '<button class="btn-add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + p + '" data-img="' + thumb(m) + '">' +
-            '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to cart' +
+            '<span class="btn-txt"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to cart</span>' +
           '</button>' +
+          /* Two actions, not one. Every card carried the same grey slab and
+             nothing else, so the grid had one weight all the way down and no
+             way to say "show me this one" without committing to the cart. */
+          '<a class="prod__see" href="' + esc(href) + '">See the wheel <i>\u2192</i></a>' +
         '</div>' +
       '</div></article>';
   }

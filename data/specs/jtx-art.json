@@ -1,0 +1,142 @@
+{
+ "scraped": "2026-10-02",
+ "source": "https://jtxforged.com/dually-series/",
+ "note": "JTX dually renders from their own dually-series index. Rights: LAUNCH-CHECKLIST 1.1.",
+ "art": [
+  {
+   "model": "Avalon",
+   "file": "assets/wheels/jtx/avalon.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/02/26-AST-DUALLY-AVALON-MAIN-P.png",
+   "sha1": "ca14dbc299450e88b75711e473cb5a47539e5e9f",
+   "bytes": 297182
+  },
+  {
+   "model": "D-200",
+   "file": "assets/wheels/jtx/d200.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/01/26-AST-DUALLY-D-200-12-24-24-MAIN-P.png",
+   "sha1": "4a3b90b51705836a15a9e7783f33c5459092a80e",
+   "bytes": 296275
+  },
+  {
+   "model": "D-201",
+   "file": "assets/wheels/jtx/d201.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/01/26-AST-DUALLY-D-201-12-24-24-MAIN-P.png",
+   "sha1": "489c48bae2de6c601efc56fa90b9a1ff50bafefe",
+   "bytes": 266600
+  },
+  {
+   "model": "D-202",
+   "file": "assets/wheels/jtx/d202.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/01/26-AST-DUALLY-D-202-12-24-24-MAIN-P.png",
+   "sha1": "288fb096b4ca7cc9ecc6d78a2b13bb258bf715d6",
+   "bytes": 292588
+  },
+  {
+   "model": "D-203",
+   "file": "assets/wheels/jtx/d203.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/01/26-AST-DUALLY-D-203-1-3-25-MAIN-P.png",
+   "sha1": "ac999703a5011870e2dd073da0863041481a1839",
+   "bytes": 325939
+  },
+  {
+   "model": "D-204",
+   "file": "assets/wheels/jtx/d204.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/01/26-AST-DUALLY-D-204-1-3-25-MAIN-P.png",
+   "sha1": "f32aa7c0a4b0153411b5e28e37efd2ead1e2de3b",
+   "bytes": 347998
+  },
+  {
+   "model": "D-205",
+   "file": "assets/wheels/jtx/d205.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/01/26-AST-DUALLY-D-205-1-3-25-MAIN-P.png",
+   "sha1": "ce801946eab35117ae5b030eabf64f2894f633cb",
+   "bytes": 312992
+  },
+  {
+   "model": "D-206",
+   "file": "assets/wheels/jtx/d206.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-206-MAIN-P.png",
+   "sha1": "347ad21dacb15839a6e36b2be1ed172fbfe52db5",
+   "bytes": 325239
+  },
+  {
+   "model": "D-207",
+   "file": "assets/wheels/jtx/d207.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-207-MAIN-P.png",
+   "sha1": "1046f442990d4f9544e19bf82997403cc6ac07ba",
+   "bytes": 255094
+  },
+  {
+   "model": "D-208",
+   "file": "assets/wheels/jtx/d208.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-208-MAIN-P.png",
+   "sha1": "6137e5ba94f781d82f4a35940e5f0cdf4747da51",
+   "bytes": 315162
+  },
+  {
+   "model": "D-209",
+   "file": "assets/wheels/jtx/d209.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-209-MAIN-P-2048x1438.png",
+   "sha1": "c63a3cd750b69b873379605ad2586b7371b3b97d",
+   "bytes": 728230
+  },
+  {
+   "model": "D-210",
+   "file": "assets/wheels/jtx/d210.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-210-MAIN-P.png",
+   "sha1": "17a39ad5c7dc4d446ae4bdc88fddb907da7d77c7",
+   "bytes": 319489
+  },
+  {
+   "model": "D-211",
+   "file": "assets/wheels/jtx/d211.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-211-MAIN-P-1.png",
+   "sha1": "3a73ba0dd08e07dee348a21a1d8712f73c323695",
+   "bytes": 284420
+  },
+  {
+   "model": "D-212",
+   "file": "assets/wheels/jtx/d212.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-212-MAIN-P.png",
+   "sha1": "ae7ccca9e4ea7f67f79213d222adaad3bfb02283",
+   "bytes": 296722
+  },
+  {
+   "model": "D-213",
+   "file": "assets/wheels/jtx/d213.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-213-MAIN-P.png",
+   "sha1": "d61b6e611413b7ba7a8c5e27e7735df6ff34dcbe",
+   "bytes": 285959
+  },
+  {
+   "model": "D-214",
+   "file": "assets/wheels/jtx/d214.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2025/08/26-AST-DUALLY-D-214-MAIN-P.png",
+   "sha1": "427b831d140a1f9c87150291f19dc6615c7bad24",
+   "bytes": 373259
+  },
+  {
+   "model": "D-215",
+   "file": "assets/wheels/jtx/d215.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2026/03/26-AST-DUALLY-D-215-MAIN-P-2048x1407.webp",
+   "sha1": "538bf9616c459c364b7a65cb124e365e14ffe0a3",
+   "bytes": 251128
+  },
+  {
+   "model": "D-216",
+   "file": "assets/wheels/jtx/d216.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2026/03/26-AST-DUALLY-D-216-MAIN-P-2048x1407.webp",
+   "sha1": "405825237ec85bd72ae331ec11827cbc6411a1a5",
+   "bytes": 293038
+  },
+  {
+   "model": "D-217",
+   "file": "assets/wheels/jtx/d217.png",
+   "src": "https://jtxforged.com/wp-content/uploads/2026/03/26-AST-DUALLY-D-217-MAIN-2048x1428.webp",
+   "sha1": "789f04ebba3c3a62046091f4addf486b41e80dd2",
+   "bytes": 271690
+  }
+ ],
+ "noRenderFound": [],
+ "failed": []
+}

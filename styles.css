@@ -5300,3 +5300,101 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .boltbar__x{margin-left:auto;order:2}
   .boltbar__t .boltbar__tail{display:none}
 }
+
+/* ============================================================
+   v335 — the shop grid gets the character the rest of the site has
+
+   THE COMPLAINT, and it was accurate: a lot of white, a lot of blue, every
+   button the same colour, nothing illuminating. The grid was the one place
+   on the site where a brand appeared as BLUE TEXT rather than its own mark,
+   where a row of solid blue pills sat under an invented blue star rating,
+   and where the only action was a grey slab identical on all 781 cards.
+
+   The fix is not a new look — the curated showcase on the homepage already
+   speaks DROOOLY: brand mark, italic display name, one spec line read off
+   the catalogue, a real price, and a text action. The grid now speaks it
+   too, so the two pages stop looking like different websites.
+
+   WHERE THE BLUE WENT. It is an accent again rather than the page's base
+   note: the brand logo replaced blue text, the config pills became ink
+   outlines, the invented stars are gone entirely. What stays blue is what
+   should be — the bolt-pattern badge, the hover state, and the one thing
+   on the page you are meant to click.
+   ============================================================ */
+
+/* ---- the stage: light, but with something behind the wheel ---- */
+.prod__media{background:radial-gradient(circle at 50% 42%,#ffffff,#f2f4f6 58%,#e3e7ea)}
+/* The wheel renders are drawn with mix-blend-mode:multiply so they sit on the
+   light stage without a halo — which also means anything coloured BEHIND them
+   tints the chrome. So the glow is a warm-neutral lift, not a blue wash: it
+   brightens the stage under the wheel without turning a polished rim blue. */
+.prod__media::before{content:"";position:absolute;z-index:1;width:84%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.95),rgba(236,241,246,.6) 44%,transparent 72%);
+  opacity:0;transition:opacity .45s var(--ease)}
+/* the blue reads on the RIM of the stage instead, where no wheel overlaps it */
+.prod__media::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 86% at 50% 118%,rgba(31,123,255,.22),transparent 62%);
+  opacity:0;transition:opacity .45s var(--ease)}
+.prod:hover .prod__media::after{opacity:1}
+.prod:hover .prod__media::before{opacity:1}
+/* a wheel is round: it should turn, not just grow */
+.prod__media img{transition:transform .55s var(--ease)}
+.prod:hover .prod__media img{transform:scale(1.07) rotate(-5deg)}
+.prod{transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.prod:hover{transform:translateY(-6px);border-color:rgba(31,123,255,.38);
+  box-shadow:0 26px 52px rgba(10,20,40,.16),0 0 0 1px rgba(31,123,255,.14)}
+
+/* ---- the body: the showcase's own typography ---- */
+.prod__logo{height:17px;width:auto;max-width:104px;object-fit:contain;object-position:left;
+  display:block;margin-bottom:7px}
+/* some marks are drawn white for dark bands; this page is light */
+.prod__logo[src*="american-force"],.prod__logo[src*="jtx"],.prod__logo[src*="hostile"],
+.prod__logo[src*="amani"],.prod__logo[src*="kg1"],.prod__logo[src*="liberty"],
+.prod__logo[src*="fenix"],.prod__logo[src*="kmc"],.prod__logo[src*="axe"]{filter:brightness(0)}
+.prod__name{font-family:var(--display);font-weight:800;font-style:italic;font-size:18px;
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin:0 0 7px;color:#111214}
+.prod__meta{font-family:var(--label);font-size:10.5px;color:var(--muted);letter-spacing:.02em;
+  margin-bottom:12px;line-height:1.5}
+
+/* ---- price: the number is the loud part, the unit is not ---- */
+.prod__price{display:flex;align-items:baseline;gap:6px;margin-top:auto;padding-top:13px;
+  border-top:1px solid var(--line)}
+.prod__price b{font-family:var(--display);font-weight:800;font-size:20px;color:#111214}
+.prod__set{font-family:var(--label);font-size:10px;color:var(--soft);margin-top:3px}
+
+/* ---- two actions, with different weights ---- */
+.prod__actions{display:flex;flex-direction:column;gap:9px;margin-top:13px}
+.btn-add{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;
+  justify-content:center;gap:9px;width:100%;min-height:46px;cursor:pointer;border-radius:999px;
+  border:1px solid rgba(0,0,0,.16);color:#0a0c0e;
+  background:linear-gradient(180deg,#ffffff,#e4e8ec 46%,#b9c0c7 62%,#f0f3f6);
+  font-family:var(--display);font-weight:400;font-size:11px;text-transform:uppercase;
+  letter-spacing:.12em;box-shadow:0 2px 10px rgba(10,20,40,.10);
+  transition:transform .3s var(--ease),box-shadow .3s,border-color .25s}
+/* the same machined sweep the hero buttons use, so the page shares one idiom */
+.btn-add::before{content:"";position:absolute;top:0;left:-90%;width:48%;height:100%;z-index:-1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);
+  transform:skewX(-20deg);transition:left .6s var(--ease);pointer-events:none}
+.btn-add:hover::before{left:140%}
+.btn-add:hover{transform:translateY(-2px);border-color:rgba(31,123,255,.5);
+  box-shadow:0 10px 26px rgba(10,20,40,.18),0 0 0 1px rgba(31,123,255,.18)}
+.btn-add .btn-txt{position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px}
+.btn-add svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none}
+
+.prod__see{display:inline-flex;align-items:center;gap:6px;align-self:center;
+  font-family:var(--label);font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;color:#111214;transition:color .2s,letter-spacing .2s}
+.prod__see:hover{color:var(--blue-2);letter-spacing:.1em}
+.prod__see i{font-style:normal;transition:transform .25s var(--ease)}
+.prod__see:hover i{transform:translateX(3px)}
+
+/* ---- the config chips stop being solid blue ---- */
+.prod__badges .cfg{background:transparent;border:1px solid var(--line-2);color:var(--muted);
+  box-shadow:none;font-weight:600}
+.prod:hover .prod__badges .cfg{border-color:rgba(31,123,255,.3);color:#111214}
+
+@media(max-width:640px){
+  .prod__name{font-size:17px}
+  .prod__logo{height:16px}
+  .btn-add{min-height:48px}
+}
