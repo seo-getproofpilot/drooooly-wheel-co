@@ -363,6 +363,74 @@
     return "truck";
   }
 
+  /* ---- does this wheel come in that pattern? -------------------------
+     The vehicle table says what the truck is drilled to. This says whether a
+     given wheel can be had that way, and — just as important — on what basis,
+     because the basis decides what the page is allowed to claim.
+
+       listed         the model carries a real bolts[] from the maker's feed.
+                      Cast wheels are tooled per pattern, so this is exact.
+       made-to-order  custom forged, cut per order. The pattern is a choice at
+                      build time, not a property of the SKU. Still "confirmed
+                      before we build", never "fits" — CLAUDE.md rule 1.
+       unknown        we do not know. Shown, never claimed. Hiding stock we
+                      might be able to sell is as wrong as promising stock we
+                      cannot.
+     ------------------------------------------------------------------- */
+
+  function drillTable(t) {
+    if (t) return t;
+    if (typeof window !== "undefined" && window.BRAND_DRILLING) return window.BRAND_DRILLING;
+    return { brands: {}, truckPatterns: [], sandPatterns: [] };
+  }
+
+  function wheelBolt(brandSlug, model, bolt, table) {
+    var d = drillTable(table);
+    var b = d.brands[brandSlug] || { drilling: "unknown" };
+    var want = String(bolt || "").trim();
+
+    // A model with its own list is the strongest evidence there is, whatever
+    // the brand's general policy says.
+    var listed = model && model.bolts;
+    if (listed && listed.length) {
+      return listed.indexOf(want) > -1
+        ? { match: true, basis: "listed", label: "Listed in " + want }
+        : { match: false, basis: "listed", label: "" };
+    }
+    if (b.drilling === "made-to-order") {
+      return (b.patterns || []).indexOf(want) > -1
+        ? { match: true, basis: "made-to-order", label: "Cut to " + want + " — confirmed before we build" }
+        : { match: false, basis: "made-to-order", label: "" };
+    }
+    return { match: true, basis: "unknown", label: "Pattern confirmed before we build" };
+  }
+
+  /* Split a catalogue against one bolt pattern. Two buckets, never one:
+     anything we can stand behind, and anything we would have to ask about.
+     Collapsing them is how a maybe becomes a promise. */
+  function splitByBolt(brands, bolt, lane, table) {
+    var d = drillTable(table);
+    var want = LANES[lane] ? LANES[lane].configs : null;
+    var sure = [], confirm = [];
+    (brands || []).forEach(function (br) {
+      (br.models || []).forEach(function (m) {
+        if (want) {
+          var cfgs = m.configs || [];
+          var hit = false;
+          for (var i = 0; i < want.length; i++) if (cfgs.indexOf(want[i]) > -1) hit = true;
+          if (!hit) return;
+        }
+        var r = wheelBolt(br.slug, m, bolt, d);
+        if (!r.match) return;
+        var row = { brand: br, model: m, basis: r.basis, label: r.label };
+        (r.basis === "unknown" ? confirm : sure).push(row);
+      });
+    });
+    return { sure: sure, confirm: confirm };
+  }
+
+  function sandPatterns(table) { return (drillTable(table).sandPatterns) || []; }
+
   var API = {
     MM_PER_IN: MM_PER_IN,
     parseSize: parseSize,
@@ -387,7 +455,10 @@
     boltModels: boltModels,
     boltYears: boltYears,
     LANES: LANES,
-    laneForConfig: laneForConfig
+    laneForConfig: laneForConfig,
+    wheelBolt: wheelBolt,
+    splitByBolt: splitByBolt,
+    sandPatterns: sandPatterns
   };
 
   if (typeof window !== "undefined") window.Fitment = API;

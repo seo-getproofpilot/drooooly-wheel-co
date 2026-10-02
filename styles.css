@@ -5214,3 +5214,41 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 24%,rgba(0,0,0,.55) 60%,transparent 100%);
     mask-image:linear-gradient(180deg,#000 0%,#000 24%,rgba(0,0,0,.55) 60%,transparent 100%)}
 }
+
+/* ===== verified fitment: the bolt-pattern bar and badges =====
+   Written for the LIGHT shop page, which is where it actually renders — the
+   first version used the footer's palette and put white type on pale blue.
+
+   Two states, deliberately not the same colour. Blue is a process we control:
+   the wheel gets cut to that pattern. Amber is one we do not: we have to ask
+   the manufacturer. Rendering them alike is how a maybe reads as a yes. */
+.boltbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  padding:14px 18px;border:1px solid rgba(31,123,255,.3);border-radius:12px;
+  background:linear-gradient(180deg,rgba(31,123,255,.07),rgba(31,123,255,.02))}
+.boltbar__p{font-family:var(--display);font-size:14px;letter-spacing:.02em;color:#fff;
+  padding:8px 13px;border-radius:8px;background:var(--blue);flex:none;
+  box-shadow:0 2px 8px rgba(31,123,255,.3)}
+.boltbar__t{color:#3c434c;font-size:13.5px;line-height:1.55;flex:1 1 320px}
+.boltbar__t b{color:#111214;font-weight:700}
+.boltbar__x{font-family:var(--label);font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#6b727b;flex:none;transition:color .2s;text-decoration:underline;
+  text-underline-offset:3px}
+.boltbar__x:hover{color:#111214}
+
+.prod__bolt{margin-top:8px;font-family:var(--label);font-size:10px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;line-height:1.4;
+  padding:6px 9px;border-radius:7px;border:1px solid transparent}
+.prod__bolt--made-to-order,.prod__bolt--listed{
+  color:#1551b0;background:rgba(31,123,255,.09);border-color:rgba(31,123,255,.26)}
+.prod__bolt--unknown{
+  color:#7a5508;background:rgba(217,166,60,.13);border-color:rgba(190,145,50,.34)}
+
+/* the dark sections of the site keep their own treatment */
+.site-footer .boltbar__t,.cta .boltbar__t{color:var(--muted)}
+.site-footer .boltbar__t b,.cta .boltbar__t b{color:#fff}
+
+@media(max-width:640px){
+  .boltbar{padding:12px 14px;gap:12px}
+  .boltbar__t{font-size:13px;flex-basis:100%}
+  .boltbar__x{margin-left:auto}
+}

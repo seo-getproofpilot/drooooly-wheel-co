@@ -78,7 +78,7 @@
   function esc(s) { return String(s).replace(/"/g, "&quot;"); }
 
   // ---- product card ----
-  function productCard(brand, m, tag, lane) {
+  function productCard(brand, m, tag, lane, bolt) {
     var p = priceEach(brand, m), r = rating(brand, m);
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + brand.name + ' ' + m.model + '" loading="lazy">'
@@ -104,6 +104,13 @@
         '<h3 class="prod__name">' + m.model + '</h3>' +
         '<div class="prod__rate"><span class="prod__stars">★★★★★</span> ' + r.v + ' <span>(' + r.n + ')</span></div>' +
         '<div class="prod__badges">' + badges(m) + '</div>' +
+        /* The basis is on the card, not just in the header, because the
+           customer scrolling past twelve wheels never reads the header
+           twice. "Cut to" is a process we control; "confirm" is one we do
+           not. Both are true, and they are not the same sentence. */
+        (bolt && bolt.label
+          ? '<div class="prod__bolt prod__bolt--' + esc(bolt.basis) + '">' + esc(bolt.label) + '</div>'
+          : '') +
         (sizes.length
           ? '<div class="prod__lane"><span>' + esc(lane.note) + '</span>' +
             sizes.slice(0, 4).map(function (x) { return "<b>" + fmtSize(x) + "</b>"; }).join("") +
@@ -332,6 +339,10 @@
       configs: params.get("config") ? [params.get("config")] : [],
       dias: [],
       q: (params.get("q") || "").trim().toLowerCase(),
+      /* The bolt pattern the finder worked out, and the truck it came from,
+         carried as plain query params so the result is a shareable link. */
+      bolt: (params.get("bolt") || "").trim(),
+      veh: (params.get("veh") || "").trim(),
       sort: "featured"
     };
     var cat = params.get("cat");
@@ -347,12 +358,32 @@
     else if (state.configs.indexOf("dually") > -1 || state.configs.indexOf("super single") > -1) { title = "Dually &amp; Super Single"; sub = "Big-and-bold forged dually and super-single setups that own the lane."; }
     else if (lane) { title = lane.title; sub = lane.sub; }
     else if (state.q) { title = "Results for “" + state.q + "”"; }
+    if (state.bolt) {
+      title = esc(state.bolt) + " wheels";
+      sub = (state.veh ? esc(state.veh) + " runs a " + esc(state.bolt) + " bolt pattern. " : "") +
+            "Everything below can be had in it — we confirm the pattern with the manufacturer before anything is built.";
+    }
     document.getElementById("shopTitle").innerHTML = title;
     document.getElementById("shopSub").innerHTML = sub;
     document.getElementById("shopCrumbNow").textContent = title.replace(/&amp;/g, "&");
 
     var laneEl = document.getElementById("shopLane");
-    if (laneEl && lane) {
+    /* The bolt bar replaces the lane bar when a pattern is in play, and says
+       in words what the two groups below mean. Never "fits" — CLAUDE.md rule
+       1. What we know is the drilling, not the clearance. */
+    if (laneEl && state.bolt) {
+      var pre = filtered();
+      var ask = pre.filter(function (p) { return p.basis === "unknown"; }).length;
+      laneEl.innerHTML = '<div class="boltbar">' +
+        '<span class="boltbar__p">' + esc(state.bolt) + '</span>' +
+        '<span class="boltbar__t">' +
+          (state.veh ? "<b>" + esc(state.veh) + "</b> — " : "") +
+          (pre.length - ask) + " we can cut to this pattern" +
+          (ask ? ", " + ask + " more we would confirm with the maker first" : "") + ". " +
+          "Width, offset and what clears your fender is the next conversation." +
+        "</span>" +
+        '<a class="boltbar__x" href="shop.html">Clear</a></div>';
+    } else if (laneEl && lane) {
       laneEl.innerHTML = '<div class="lanebar"><span class="lanebar__h">Common sizes</span>' +
         lane.common.map(function (x) { return "<b>" + fmtSize(x) + "</b>"; }).join("") + "</div>";
     }
@@ -403,6 +434,11 @@
         if (state.configs.length && !state.configs.some(function (c) { return p.m.configs.map(cfgKey).indexOf(c) > -1; })) return false;
         if (state.dias.length && state.dias.indexOf(diaBucket(p.m)) < 0) return false;
         if (state.q) { var hay = (p.b.name + " " + p.m.model).toLowerCase(); if (hay.indexOf(state.q) < 0) return false; }
+        if (state.bolt && window.Fitment) {
+          var r = window.Fitment.wheelBolt(p.b.slug, p.m, state.bolt);
+          if (!r.match) return false;
+          p.basis = r.basis; p.boltLabel = r.label;   // the card reads these
+        }
         return true;
       });
     }
@@ -416,9 +452,17 @@
     }
     function draw() {
       var list = sortList(filtered());
+      /* Whatever the sort, the wheels we can stand behind come first and the
+         ones we would have to ask the manufacturer about come after. A maybe
+         that outranks a yes is how a maybe turns into a promise. */
+      if (state.bolt) list = list.slice().sort(function (x, y2) {
+        return (x.basis === "unknown" ? 1 : 0) - (y2.basis === "unknown" ? 1 : 0);
+      });
       document.getElementById("shopCount").innerHTML = "<b>" + list.length + "</b> product" + (list.length === 1 ? "" : "s");
       var grid = document.getElementById("shopGrid");
-      grid.innerHTML = list.length ? list.map(function (p) { return productCard(p.b, p.m, null, lane); }).join("")
+      grid.innerHTML = list.length ? list.map(function (p) {
+          return productCard(p.b, p.m, null, lane, state.bolt ? { basis: p.basis, label: p.boltLabel } : null);
+        }).join("")
         : '<div class="shop-empty">No wheels match those filters. <button class="filters-clear" id="ce">Clear filters</button></div>';
       var ce = document.getElementById("ce"); if (ce) ce.addEventListener("click", function () { document.getElementById("clearF").click(); });
       if (window.__observeFades) window.__observeFades();

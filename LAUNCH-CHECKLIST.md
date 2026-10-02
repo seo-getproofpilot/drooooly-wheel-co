@@ -229,6 +229,18 @@ each one is a phone call away from being better.
   the finder can tell a customer what their truck is drilled to but cannot
   honestly narrow the catalogue to it.
 
+- 🟡 **4.37 — six brands are marked "made to order" on reasoning, not on a rep's
+  word.** `data/fitment/brand-drilling.json` treats JTX, American Force, Amani,
+  KG1, Fenix and Liberty as cut-per-order, which is what custom forged is and
+  what Chris said of JTX. Only JTX's pattern list came from data already in the
+  repo; the other five were reasoned from the product. **Confirm each brand's
+  actual pattern range with the rep before launch** — especially American
+  Force, which is the only brand currently claiming the 10x225 F-450 pattern,
+  so an F-450 owner sees 27 wheels and all 27 rest on that one assumption.
+  Three more brands carry forged lines that are probably also made to order —
+  Fuel Forged, Hostile's forged range, KMC Forged — and sit in `unknown` until
+  someone asks. Moving them is a sales call, not a research task.
+
 ## 5. Feature debt
 
 | # | What | Status |

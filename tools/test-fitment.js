@@ -420,6 +420,66 @@ ok("models narrow by year", F.boltModels("Toyota", 2015, BT).indexOf("Tundra") >
 ok("every entry declares its confidence",
    BT.patterns.filter(r => r.confidence !== "high" && r.confidence !== "check").length, 0);
 
+/* ---- wheel side: can this wheel be had in that pattern ---- */
+section("wheel bolt matching");
+const DT = require(path.resolve(__dirname, "..", "data/fitment/brand-drilling.json"));
+{
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "brands.js"));
+  const BR = global.window.BRANDS || [];
+  const bySlug = s2 => BR.find(b => b.slug === s2);
+
+  const jtxAny = bySlug("jtx").models[0];
+  ok("made-to-order brand takes a pattern it cuts",
+     F.wheelBolt("jtx", jtxAny, "8x170", DT).match, true);
+  ok("...and its basis is made-to-order, not listed",
+     F.wheelBolt("jtx", jtxAny, "8x170", DT).basis, "made-to-order");
+  ok("made-to-order brand REFUSES a pattern it does not cut",
+     F.wheelBolt("jtx", jtxAny, "10x225", DT).match, false);
+  ok("the F-450 ten-lug is not offered by everyone",
+     F.wheelBolt("kg1", bySlug("kg1").models[0], "10x225", DT).match, false);
+
+  const m401 = bySlug("method").models.find(m => /401 UTV Beadlock/.test(m.model));
+  ok("a listed model matches a pattern it lists", F.wheelBolt("method", m401, "4x156", DT).match, true);
+  ok("a listed model refuses one it does not", F.wheelBolt("method", m401, "4x137", DT).match, false);
+  ok("listed beats the brand policy", F.wheelBolt("method", m401, "4x156", DT).basis, "listed");
+
+  const fuelAny = bySlug("fuel").models[0];
+  ok("an unknown brand is shown, not hidden", F.wheelBolt("fuel", fuelAny, "8x170", DT).match, true);
+  ok("...but its basis says we do not know", F.wheelBolt("fuel", fuelAny, "8x170", DT).basis, "unknown");
+
+  /* The split must never fold "we would have to ask" into "we can stand
+     behind this" — that is the whole liability line. */
+  const sd = F.splitByBolt(BR, "8x170", "truck", DT);
+  ok("the two buckets stay separate", sd.sure.length > 0 && sd.confirm.length > 0, true);
+  ok("nothing we stand behind has an unknown basis",
+     sd.sure.filter(r => r.basis === "unknown").length, 0);
+  ok("everything we would ask about is marked unknown",
+     sd.confirm.filter(r => r.basis !== "unknown").length, 0);
+  ok("every row we stand behind carries a label a human can read",
+     sd.sure.filter(r => !r.label).length, 0);
+
+  /* Lanes have to actually narrow, or the category cards are fake doors. */
+  const truck = F.splitByBolt(BR, "8x170", "truck", DT);
+  const dually = F.splitByBolt(BR, "8x170", "dually", DT);
+  ok("the dually lane is smaller than the truck lane", dually.sure.length < truck.sure.length, true);
+  ok("the dually lane only contains dually-capable models",
+     dually.sure.filter(r => !(r.model.configs || []).some(c => c === "dually" || c === "super single")).length, 0);
+  ok("the utv lane only contains utv models",
+     F.splitByBolt(BR, "4x156", "utv", DT).sure.filter(r => (r.model.configs || []).indexOf("utv") < 0).length, 0);
+  ok("a RZR gets an exact, listed-only answer",
+     F.splitByBolt(BR, "4x156", "utv", DT).confirm.length, 0);
+
+  /* Patterns that nobody cuts must come back empty rather than showing
+     everything — an empty result is an honest answer. */
+  ok("a pattern no brand offers returns nothing to stand behind",
+     F.splitByBolt(BR, "5x205", "truck", DT).sure.length, 0);
+
+  ok("sand patterns are published for the picker", F.sandPatterns(DT).length >= 4, true);
+  ok("every sand pattern has a reason attached",
+     F.sandPatterns(DT).filter(p2 => !p2.note).length, 0);
+}
+
 /* vehicles.js and the bolt table describe the same trucks and must agree —
    they were out of step on two platforms, which is what prompted this. */
 section("vehicles.js agrees with the bolt table");

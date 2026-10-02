@@ -78,20 +78,56 @@ function fillSelect(sel, items, ph) {
 function initVehModule() {
   var y = document.getElementById('vehYear'), mk = document.getElementById('vehMake'), md = document.getElementById('vehModel');
   if (!y) return;
-  fillSelect(y, VEH.years, 'Year');
-  fillSelect(mk, Object.keys(VEH.makes), 'Make');
+  /* The bolt table is the better list when it is on the page: 97 platforms
+     across 15 makes back to 1997, against the nine the visualizer models.
+     Models narrow by the YEAR as well as the make, because a 2010 Silverado
+     HD and a 2011 are different wheels and offering both under one year
+     would be offering a wrong answer. */
+  var BOLTS = window.Fitment && window.VEHICLE_BOLTS ? window.Fitment : null;
+  function makesList() { return BOLTS ? BOLTS.boltMakes() : Object.keys(VEH.makes); }
+  function modelsList(make, year) { return BOLTS ? BOLTS.boltModels(make, year) : (VEH.makes[make] || []); }
+
+  fillSelect(y, BOLTS ? BOLTS.boltYears() : VEH.years, 'Year');
+  fillSelect(mk, makesList(), 'Make');
   fillSelect(md, [], 'Model');
-  mk.addEventListener('change', function () { fillSelect(md, VEH.makes[mk.value] || [], 'Model'); });
+  function refillModels() {
+    var keep = md.value;
+    fillSelect(md, modelsList(mk.value, y.value), 'Model');
+    if (keep) md.value = keep;
+  }
+  mk.addEventListener('change', refillModels);
+  y.addEventListener('change', refillModels);
   var v = getVeh();
-  if (v) { y.value = v.year; fillSelect(mk, Object.keys(VEH.makes), 'Make'); mk.value = v.make; fillSelect(md, VEH.makes[v.make] || [], 'Model'); md.value = v.model; }
+  if (v) { y.value = v.year; fillSelect(mk, makesList(), 'Make'); mk.value = v.make; fillSelect(md, modelsList(v.make, v.year), 'Model'); md.value = v.model; }
   var btn = document.getElementById('vehFind');
   if (btn) btn.addEventListener('click', function () {
     if (!y.value || !mk.value || !md.value) { [y, mk, md].forEach(function (s) { if (!s.value) s.style.borderColor = '#c0392b'; }); return; }
     setVeh({ year: y.value, make: mk.value, model: md.value }); updateVehUI();
-    /* It used to save the truck and scroll to the same grid it showed everyone,
-       which is not finding a fitment. Narrow on the one thing the truck
-       actually decides: how many wheels are on the back axle. That is a fact
-       about the vehicle, not a claim about what clears. */
+    /* It used to save the truck and scroll to the same grid it showed
+       everyone, which is not finding a fitment. Then it narrowed on the axle
+       alone. Now it resolves the actual bolt pattern and narrows on that —
+       which is the one thing about a wheel that is binary. Width, offset and
+       what clears the fender stay a conversation; the drilling does not. */
+    var bp = BOLTS ? BOLTS.boltPattern({ year: y.value, make: mk.value, model: md.value }) : null;
+    if (bp) {
+      /* Only the lanes that are a FACT about the truck get sent. A dually has
+         six wheels and a side-by-side is a side-by-side, so those narrow
+         honestly. "Lifted" is not a fact about a truck the customer just
+         picked from a dropdown — and the catalog's lifted lane also filters
+         to 12"+ widths, which would quietly hide every narrow wheel from a
+         single-rear owner who never said they were lifted. For those, the
+         bolt pattern alone does the narrowing. */
+      var lane = BOLTS.laneForConfig(bp.config);
+      var narrow = lane === 'dually' ? 'build=dually'
+                 : lane === 'utv'    ? 'build=utv'
+                 : 'config=single';   /* the axle, not the lift */
+      location.href = 'shop.html?bolt=' + encodeURIComponent(bp.bolt) +
+        '&' + narrow +
+        '&veh=' + encodeURIComponent(y.value + ' ' + mk.value + ' ' + md.value);
+      return;
+    }
+    /* No row for that truck is a real answer, not a dead end — fall back to
+       the axle lane so the customer still lands somewhere narrower. */
     var v = window.matchVehicle ? window.matchVehicle(y.value, mk.value, md.value) : null;
     if (v) { location.href = 'shop.html?' + (v.config === 'drw' ? 'build=dually' : 'config=single'); return; }
     var f = document.getElementById('featured') || document.getElementById('shopPage');
