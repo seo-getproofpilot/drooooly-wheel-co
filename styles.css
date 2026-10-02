@@ -4865,7 +4865,7 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 }
 /* The extra 80px of photograph only above 1300 — at 1024 a 1000px band is
    taller than the laptop screen it is being read on. */
-@media(min-width:1300px){.cta--photo{min-height:1000px}}
+@media(min-width:1300px){.cta--photo{min-height:1060px}}
 
 /* ------------------------------------------------------------
    v319 — the second cut at the footer
@@ -4883,13 +4883,19 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    RESULT at 1600: 245px, down from 374 before v318. The photograph takes
    the difference and then some.
    ------------------------------------------------------------ */
-.site-footer{padding-top:22px}
-.footer__inner{gap:30px;padding-bottom:18px}
+.site-footer{padding-top:18px}
+.footer__inner{gap:30px;padding-bottom:16px}
 .footer__cols{gap:14px}
 .footer__logo{height:56px;margin:-6px 0 6px -6px}
-.footer__col h4{margin-bottom:8px}
-.footer__bottom{padding:12px 0 14px}
+.footer__col h4{margin-bottom:7px}
+.footer__bottom{padding:9px 0 11px}
 .footer__brand p{margin-top:4px}
+/* The location line inherits a 34ch cap from .footer__brand p and breaks
+   across two lines for no reason — the cell holds all 62 characters at
+   11px. Needs the p in the selector to out-specify the rule it is
+   fighting. Tidy rather than structural: the link columns still set the
+   row height. */
+.footer__brand p.footer__loc{max-width:none}
 /* MEASURED: the nine badges wanted 592px in a 515px cell, so Klarna sat
    alone on a second line. The wider cell below plus tighter gaps and side
    padding brings the run to 540, and all nine land on one line down to
@@ -4903,4 +4909,4 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* The link rows only tighten where there is a cursor. On a phone the footer
    already stacks to one column and those rows are thumb targets, so they keep
    their original 14px/5px. */
-@media(min-width:700px){.footer__col a{padding:2px 0;font-size:13px;line-height:1.5}}
+@media(min-width:700px){.footer__col a{padding:2px 0;font-size:13px;line-height:1.4}}
