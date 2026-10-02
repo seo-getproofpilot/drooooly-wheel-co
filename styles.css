@@ -4855,17 +4855,52 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    so the truck's cab clears the heading.
    ============================================================ */
 @media(min-width:1000px){
-  .cta--photo{min-height:920px;padding:clamp(120px,9vw,150px) 0 clamp(64px,5vw,86px)}
+  .cta--photo{min-height:920px;padding:clamp(130px,10vw,170px) 0 clamp(64px,5vw,86px)}
   .cta__inner{max-width:920px}
-  .cta--photo .cta__inner{display:flex;flex-direction:column;justify-content:flex-end;min-height:100%}
+  /* The section is the flex container, not the inner. min-height:100% on a
+     child whose parent has only min-height resolves to auto, so the old rule
+     did nothing — the block stayed pinned to the top and every pixel of new
+     section height turned into empty asphalt underneath it. */
+  .cta--photo{display:flex;flex-direction:column;justify-content:center}
 }
+/* The extra 80px of photograph only above 1300 — at 1024 a 1000px band is
+   taller than the laptop screen it is being read on. */
+@media(min-width:1300px){.cta--photo{min-height:1000px}}
 
-.site-footer{padding-top:34px}
-.footer__inner{gap:30px;padding-bottom:24px}
+/* ------------------------------------------------------------
+   v319 — the second cut at the footer
+
+   MEASURED at 1600 after v318: 303px, and only 187 of it was content.
+   The other 115 was chrome — 34 above, 24 below the columns, 40 around
+   the legal line. That is the part with no job.
+
+   The content block had a second problem the first pass missed: both grid
+   cells measured exactly 187, so tightening the link rows alone bought
+   nothing — the row is as tall as its taller cell, and the brand cell was
+   holding it up on its own. Shrinking the link rows AND the brand block is
+   what moves it; either one by itself is wasted.
+
+   RESULT at 1600: 245px, down from 374 before v318. The photograph takes
+   the difference and then some.
+   ------------------------------------------------------------ */
+.site-footer{padding-top:22px}
+.footer__inner{gap:30px;padding-bottom:18px}
 .footer__cols{gap:14px}
 .footer__logo{height:56px;margin:-6px 0 6px -6px}
-.footer__col h4{margin-bottom:10px}
+.footer__col h4{margin-bottom:8px}
+.footer__bottom{padding:12px 0 14px}
+.footer__brand p{margin-top:4px}
+/* MEASURED: the nine badges wanted 592px in a 515px cell, so Klarna sat
+   alone on a second line. The wider cell below plus tighter gaps and side
+   padding brings the run to 540, and all nine land on one line down to
+   about 1180. Cosmetic rather than structural — the link columns set the
+   row height either way. */
+.pay{gap:4px;margin-top:11px}
+.pay span{padding:4px 5px}
+/* Only above 1000, where the footer is still two cells — below that it
+   stacks to one column and the widths stop meaning anything. */
+@media(min-width:1001px){.footer__inner{grid-template-columns:1.7fr 2fr}}
 /* The link rows only tighten where there is a cursor. On a phone the footer
    already stacks to one column and those rows are thumb targets, so they keep
    their original 14px/5px. */
-@media(min-width:700px){.footer__col a{padding:3px 0;font-size:13.5px}}
+@media(min-width:700px){.footer__col a{padding:2px 0;font-size:13px;line-height:1.5}}
