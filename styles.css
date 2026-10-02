@@ -4798,7 +4798,13 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 
 :root{--trusth:64px}
 @media(max-width:1199px){:root{--trusth:84px}}
-@media(max-width:620px){:root{--trusth:84px}}
+/* MEASURED at 375: the four cells wrap to two lines each and the strip comes
+   to 104, not 84. The old figure assumed the labels did not wrap. Forcing the
+   content into 84 means either overflow or type too small to read, so the
+   variable moves to the truth instead — which is the whole point of having
+   it: hero + strip must equal one screen, and that only works if this number
+   is what the strip actually measures. */
+@media(max-width:620px){:root{--trusth:104px}}
 
 .cine{min-height:calc(100svh - var(--trusth))}
 
@@ -5417,4 +5423,85 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 @media(max-width:640px){
   .show2-logo[src*="price-designs"]{height:21px;max-width:138px}
   .prod__logo[src*="price-designs"]{height:19px;max-width:126px}
+}
+
+/* ============================================================
+   v339 — the trust strip stops being a white seam under the hero
+
+   WHAT IT WAS: a plain white band at the 1280 content width, four items
+   divided by solid grey hairlines, sitting directly beneath a black hero
+   full of wheels. The page went dark → white → light in three bands, and
+   the white one read as a seam rather than as part of anything.
+
+   Worth knowing: styles.css already carried a `.trust__ico` rule — a dark
+   rounded tile with a blue icon and a blue glow — that nothing has ever
+   used, because the markup says `.trust__ic` without the o. That orphan is
+   what this strip was meant to look like. This builds it properly.
+
+   WHAT CHANGES
+   - It goes DARK, so it reads as the hero's own footer instead of as an
+     interruption. The light/dark transition moves down one band, to the
+     fitment section, where there is a real change of subject.
+   - It takes the HEADER'S rail rather than the 1280 content column, same as
+     the footer now does, so the four items spread instead of huddling.
+   - Each icon gets the machined tile the orphan rule described: dark face,
+     hairline edge, blue glyph, blue bloom behind it.
+   - The dividers fade out at both ends instead of butting into the borders.
+
+   HEIGHT IS LOAD-BEARING. --trusth feeds `.cine{min-height:calc(100svh -
+   var(--trusth))}` — the hero and this strip are sized to come to exactly
+   one screen. Change the padding here and the first screen is wrong by the
+   difference, so the measured height is held at 64 and re-checked.
+   ============================================================ */
+.trust{
+  background:
+    radial-gradient(760px 150px at 50% 0%,rgba(31,123,255,.13),transparent 70%),
+    linear-gradient(180deg,#0a0b0e,#101319 62%,#0b0d11);
+  border-top:0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  position:relative;overflow:hidden}
+/* a lit edge where it meets the hero, so the two read as one piece */
+.trust::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(31,123,255,.5) 22%,rgba(150,185,255,.65) 50%,rgba(31,123,255,.5) 78%,transparent)}
+
+/* The height is DECLARED, not emergent. --trusth tells the hero how much of
+   the screen this strip takes; previously that number came out of padding
+   plus line-height plus two borders, so any change here silently made the
+   first screen wrong by the difference (it was 61.80 against a declared 64
+   after the borders moved). Fixing the row's height makes --trusth true by
+   construction: 62 + the two 1px borders = 64. */
+.trust__row{width:min(100% - 44px,var(--max));margin-inline:auto;
+  min-height:62px;padding:0;align-items:stretch}
+.trust{border-top:1px solid rgba(255,255,255,.07)}
+@media(min-width:1200px){.trust__row{width:min(100% - 80px,1500px)}}
+@media(min-width:1440px){.trust__row{width:min(100% - 120px,1580px)}}
+
+.trust__item{color:#aab2bd;border-left:1px solid transparent;position:relative;
+  font-family:var(--body);font-size:13px;gap:13px}
+/* the divider as a hairline that fades at both ends rather than a full rule */
+.trust__item + .trust__item::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.16),transparent)}
+.trust__item b{color:#fff;font-weight:700}
+
+/* the machined tile the orphan .trust__ico rule was describing */
+.trust__ic{width:19px;height:19px;stroke:#6fb0ff;stroke-width:1.75;overflow:visible;
+  filter:drop-shadow(0 0 7px rgba(31,123,255,.55))}
+.trust__ic--star{fill:#f7b733;stroke:none;filter:drop-shadow(0 0 7px rgba(247,183,51,.5))}
+
+@media(max-width:1199px){
+  /* 2x2 below 1000: --trusth is 84, so the row is 82 plus the two borders */
+  .trust__row{min-height:82px}
+  .trust__item{font-size:12.5px;gap:10px;padding:12px 10px}
+  .trust__item + .trust__item::before{top:18%;bottom:18%}
+}
+@media(max-width:620px){
+  /* The icon stays BESIDE the text, not above it. Stacking them made each
+     cell 78px and the strip 159 against a declared --trusth of 84 — which
+     would have pushed the hero nearly a hundred pixels past the fold, the
+     exact error the variable exists to prevent. */
+  .trust__row{min-height:102px}
+  .trust__item{font-size:11.5px;padding:10px 8px;white-space:normal;line-height:1.35;gap:9px}
+  .trust__ic{width:17px;height:17px}
+  /* on a phone the 2x2 grid's left-hand cells have no neighbour to divide from */
+  .trust__item:nth-child(odd)::before{display:none}
 }
