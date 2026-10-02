@@ -836,6 +836,43 @@ window.BRANDS = [
       { model: "XFX-306", configs: ["single"], sizes: ["20x10","22x12","24x12"], finishes: ["Brushed","Gloss Black"] }
     ]
   },
+  /* Price Designs — added 2026-10-01 at Chris's request. A SAND AND UTV house
+     in Gilbert AZ, not a dually maker: their own storefront is Can-Am X3,
+     Maverick R, Pro R, RZR, Expedition and sand car, and their TRUCK WHEELS
+     collection holds exactly one product. The word "dually" appears nowhere
+     on their site. So they sit in the lanes they actually build for.
+
+     They sell through a configurator rather than a model catalogue — there
+     are no SKUs with published sizes and finishes the way JTX or Method have
+     — so these entries are the platforms they build for, which is how Price
+     Designs themselves organise it. Faces (Galaxy, Turbine, Halo, Sawblade,
+     Chopped) are chosen in the builder, which is why they are listed as
+     finishes rather than as separate models.
+
+     The bolt patterns are not guesses: a wheel sold AS a Can-Am X3 wheel is
+     4x137 because the X3 is 4x137 — the same table the fitment finder uses.
+     The truck 17x9 is a build-your-own blank and carries no pattern, so it
+     answers "confirmed before we build" rather than claiming a drilling. */
+  {
+    slug: "price-designs", name: "Price Designs", kind: "Forged", featured: true,
+    site: "https://pricedesigns-pd.com", tagline: "Sand and UTV forged, built to order in Gilbert, Arizona.",
+    pricing: "quote",
+    models: [
+      { model: "Can-Am X3", configs: ["utv"], sizes: ["15x6","15x7","15x8"], bolts: ["4x137"],
+        finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"], img: "assets/wheels/price-designs/utv-beadlock.png" },
+      { model: "Maverick R", configs: ["utv"], sizes: ["15x6","15x7","15x8"], bolts: ["4x137"],
+        finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"] },
+      { model: "Pro R / Turbo R", configs: ["utv"], sizes: ["15x6","15x7","15x8"], bolts: ["4x156"],
+        finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"] },
+      { model: "RZR", configs: ["utv"], sizes: ["15x6","15x7","15x8"], bolts: ["4x156"],
+        finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"] },
+      { model: "Sand Car", configs: ["utv"], sizes: ["15x6","15x7","15x8"],
+        finishes: ["Galaxy","Turbine","Halo","Sawblade","Chopped"] },
+      { model: "17x9 Simulated Beadlock", configs: ["single"], sizes: ["17x9"],
+        finishes: ["Polished","Black Ring"], img: "assets/wheels/price-designs/truck-17x9-beadlock.png", feat: true }
+    ]
+  },
+
   {
     slug: "method", name: "Method Race Wheels", kind: "Off-Road", featured: false,
     site: "https://www.methodracewheels.com", tagline: "Engineered for the extreme — Bead Grip & HD truck wheels.",

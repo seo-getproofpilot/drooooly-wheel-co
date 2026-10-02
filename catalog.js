@@ -82,7 +82,7 @@
   var BRAND_LOGO = {"amani":"png","american-force":"svg","arkon":"png","axe":"png","black-rhino":"svg",
     "cali":"png","fenix":"jpg","fittipaldi":"png","fuel":"svg","hardcore":"png","hardrock":"png",
     "hostile":"png","jtx":"png","kg1":"png","kmc":"svg","liberty":"png","method":"png",
-    "raceline":"png","tis":"webp","vision":"png","xf":"png"};
+    "raceline":"png","tis":"webp","vision":"png","xf":"png","price-designs":"svg"};
   function brandLogo(b) { return "assets/brands/" + b.slug + "." + (BRAND_LOGO[b.slug] || "png"); }
 
   /* "Dually · Polished · 22\u2033\u201330\u2033". Every part read from the catalogue —
@@ -127,7 +127,7 @@
         /* The brand's own mark, not its name set in blue. The curated
            showcase on the homepage has always done this; the shop grid was
            the one place a brand showed up as blue text, which is most of why
-           the page read as "everything is blue". All 21 brands have a logo. */
+           the page read as "everything is blue". All 22 brands have a logo. */
         '<img class="prod__logo" src="' + esc(brandLogo(brand)) + '" alt="' + esc(brand.name) + '" loading="lazy" />' +
         '<h3 class="prod__name">' + m.model + '</h3>' +
         /* One spec line in the showcase's own words — "Dually · Polished ·

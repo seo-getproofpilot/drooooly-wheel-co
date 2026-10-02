@@ -13,7 +13,7 @@
     "                  choice at build time rather than a property of the SKU.",
     "                  True of custom forged. We may show these for any",
     "                  pattern in `patterns`, and the page says the pattern is",
-    "                  CONFIRMED BEFORE WE BUILD — never that it fits.",
+    "                  CONFIRMED BEFORE WE BUILD \u2014 never that it fits.",
     "",
     "  listed          The model carries a real `bolts` array in brands.js,",
     "                  taken from the manufacturer's own feed. Cast wheels are",
@@ -21,7 +21,7 @@
     "                  listed. These filter exactly, and are the only ones we",
     "                  can filter with confidence.",
     "",
-    "  unknown         We do not know. These are NOT hidden and NOT claimed —",
+    "  unknown         We do not know. These are NOT hidden and NOT claimed \u2014",
     "                  they appear in a separate group the customer can see,",
     "                  labelled as a pattern we confirm with the manufacturer.",
     "                  Hiding stock we might be able to sell is as wrong as",
@@ -30,42 +30,175 @@
     "WHAT IS NOT IN HERE. No brand is marked made-to-order on a guess. The six",
     "below are the custom-forged makers whose whole product is a billet wheel",
     "cut to the customer's spec. Several others carry forged lines that are",
-    "probably also drilled to order — Fuel Forged, Hostile's forged range, KMC",
-    "Forged — and they sit in `unknown` until someone confirms it with the rep.",
+    "probably also drilled to order \u2014 Fuel Forged, Hostile's forged range, KMC",
+    "Forged \u2014 and they sit in `unknown` until someone confirms it with the rep.",
     "That is a sales call, not a research task, and it is logged on the",
     "checklist as 4.37."
   ],
-  "truckPatterns": ["8x170", "8x180", "8x165.1", "8x200", "6x135", "6x139.7", "6x114.3", "5x150", "5x139.7", "5x127"],
+  "truckPatterns": [
+    "8x170",
+    "8x180",
+    "8x165.1",
+    "8x200",
+    "6x135",
+    "6x139.7",
+    "6x114.3",
+    "5x150",
+    "5x139.7",
+    "5x127"
+  ],
   "sandPatterns": [
-    { "bolt": "5x205", "note": "VW pattern — the long-standing sand rail and buggy standard." },
-    { "bolt": "5x139.7", "note": "Common on heavier rails and Class 1 cars." },
-    { "bolt": "4x156", "note": "Polaris-derived, on sand cars built off UTV running gear." },
-    { "bolt": "4x137", "note": "Can-Am-derived, same reason." },
-    { "bolt": "5x114.3", "note": "Lighter cars and some long-travel front ends." }
+    {
+      "bolt": "5x205",
+      "note": "VW pattern \u2014 the long-standing sand rail and buggy standard."
+    },
+    {
+      "bolt": "5x139.7",
+      "note": "Common on heavier rails and Class 1 cars."
+    },
+    {
+      "bolt": "4x156",
+      "note": "Polaris-derived, on sand cars built off UTV running gear."
+    },
+    {
+      "bolt": "4x137",
+      "note": "Can-Am-derived, same reason."
+    },
+    {
+      "bolt": "5x114.3",
+      "note": "Lighter cars and some long-travel front ends."
+    }
   ],
   "brands": {
-    "jtx": { "drilling": "made-to-order", "patterns": ["8x170", "8x180", "8x165.1", "6x135", "6x139.7", "5x150"], "source": "brand-level list already in brands.js" },
-    "american-force": { "drilling": "made-to-order", "patterns": ["8x170", "8x180", "8x165.1", "8x200", "10x225", "6x135", "6x139.7", "6x114.3", "5x150", "5x139.7", "5x127"], "source": "billet forged, cut per order; carries the 10x225 F-450 pattern" },
-    "amani": { "drilling": "made-to-order", "patterns": ["8x170", "8x180", "8x165.1", "6x135", "6x139.7", "5x150", "5x139.7", "5x127"] },
-    "kg1": { "drilling": "made-to-order", "patterns": ["8x170", "8x180", "8x165.1", "6x135", "6x139.7", "5x150", "5x139.7"] },
-    "fenix": { "drilling": "made-to-order", "patterns": ["8x170", "8x180", "8x165.1", "6x135", "6x139.7", "5x150", "5x139.7"] },
-    "liberty": { "drilling": "made-to-order", "patterns": ["8x170", "8x180", "8x165.1", "6x135", "6x139.7", "5x150", "5x139.7"] },
-
-    "method": { "drilling": "listed" },
-    "raceline": { "drilling": "listed" },
-
-    "fuel": { "drilling": "unknown", "confirm": "Fuel Forged is cut to order; the cast Fuel Off-Road range is not. brands.js does not separate them." },
-    "hostile": { "drilling": "unknown", "confirm": "Same split as Fuel — a forged range and a cast range under one brand entry." },
-    "kmc": { "drilling": "unknown", "confirm": "KMC Forged is made to order; confirm the pattern range with the rep." },
-    "axe": { "drilling": "unknown" },
-    "fittipaldi": { "drilling": "unknown" },
-    "tis": { "drilling": "unknown" },
-    "vision": { "drilling": "unknown" },
-    "arkon": { "drilling": "unknown" },
-    "cali": { "drilling": "unknown" },
-    "hardrock": { "drilling": "unknown" },
-    "hardcore": { "drilling": "unknown" },
-    "xf": { "drilling": "unknown" },
-    "black-rhino": { "drilling": "unknown" }
+    "jtx": {
+      "drilling": "made-to-order",
+      "patterns": [
+        "8x170",
+        "8x180",
+        "8x165.1",
+        "6x135",
+        "6x139.7",
+        "5x150"
+      ],
+      "source": "brand-level list already in brands.js"
+    },
+    "american-force": {
+      "drilling": "made-to-order",
+      "patterns": [
+        "8x170",
+        "8x180",
+        "8x165.1",
+        "8x200",
+        "10x225",
+        "6x135",
+        "6x139.7",
+        "6x114.3",
+        "5x150",
+        "5x139.7",
+        "5x127"
+      ],
+      "source": "billet forged, cut per order; carries the 10x225 F-450 pattern"
+    },
+    "amani": {
+      "drilling": "made-to-order",
+      "patterns": [
+        "8x170",
+        "8x180",
+        "8x165.1",
+        "6x135",
+        "6x139.7",
+        "5x150",
+        "5x139.7",
+        "5x127"
+      ]
+    },
+    "kg1": {
+      "drilling": "made-to-order",
+      "patterns": [
+        "8x170",
+        "8x180",
+        "8x165.1",
+        "6x135",
+        "6x139.7",
+        "5x150",
+        "5x139.7"
+      ]
+    },
+    "fenix": {
+      "drilling": "made-to-order",
+      "patterns": [
+        "8x170",
+        "8x180",
+        "8x165.1",
+        "6x135",
+        "6x139.7",
+        "5x150",
+        "5x139.7"
+      ]
+    },
+    "liberty": {
+      "drilling": "made-to-order",
+      "patterns": [
+        "8x170",
+        "8x180",
+        "8x165.1",
+        "6x135",
+        "6x139.7",
+        "5x150",
+        "5x139.7"
+      ]
+    },
+    "method": {
+      "drilling": "listed"
+    },
+    "raceline": {
+      "drilling": "listed"
+    },
+    "fuel": {
+      "drilling": "unknown",
+      "confirm": "Fuel Forged is cut to order; the cast Fuel Off-Road range is not. brands.js does not separate them."
+    },
+    "hostile": {
+      "drilling": "unknown",
+      "confirm": "Same split as Fuel \u2014 a forged range and a cast range under one brand entry."
+    },
+    "kmc": {
+      "drilling": "unknown",
+      "confirm": "KMC Forged is made to order; confirm the pattern range with the rep."
+    },
+    "axe": {
+      "drilling": "unknown"
+    },
+    "fittipaldi": {
+      "drilling": "unknown"
+    },
+    "tis": {
+      "drilling": "unknown"
+    },
+    "vision": {
+      "drilling": "unknown"
+    },
+    "arkon": {
+      "drilling": "unknown"
+    },
+    "cali": {
+      "drilling": "unknown"
+    },
+    "hardrock": {
+      "drilling": "unknown"
+    },
+    "hardcore": {
+      "drilling": "unknown"
+    },
+    "xf": {
+      "drilling": "unknown"
+    },
+    "black-rhino": {
+      "drilling": "unknown"
+    },
+    "price-designs": {
+      "drilling": "unknown",
+      "confirm": "Sells through a configurator, not a SKU list. The UTV models carry the pattern of the machine they are built for (X3 4x137, RZR/Pro R 4x156) and match exactly; the 17x9 truck blank is build-your-own, so it answers 'confirmed before we build' rather than claiming a drilling. Ask the rep what they will cut."
+    }
   }
 }

@@ -17,7 +17,7 @@
   if (!root || !window.BRANDS || !window.Fitment) return;
 
   var F = window.Fitment;
-  /* Soft: WHEEL_SPECS covers 1 of 21 brands. Without it we fall back to
+  /* Soft: WHEEL_SPECS covers 1 of 22 brands. Without it we fall back to
      brands.js widths and drop the offset row rather than throwing. */
   var SPECS = window.WHEEL_SPECS || null;
 

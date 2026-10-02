@@ -483,8 +483,19 @@ const DT = require(path.resolve(__dirname, "..", "data/fitment/brand-drilling.js
      dually.sure.filter(r => !(r.model.configs || []).some(c => c === "dually" || c === "super single")).length, 0);
   ok("the utv lane only contains utv models",
      F.splitByBolt(BR, "4x156", "utv", DT).sure.filter(r => (r.model.configs || []).indexOf("utv") < 0).length, 0);
-  ok("a RZR gets an exact, listed-only answer",
-     F.splitByBolt(BR, "4x156", "utv", DT).confirm.length, 0);
+  /* The UTV lane used to be 100% exact because Method and Raceline were the
+     only brands in it and both publish per-model patterns. Price Designs
+     sells through a configurator, so its Sand Car entry has no published
+     pattern and correctly lands in "confirm". The assertion that still
+     matters is that every brand which DOES publish patterns stays exact. */
+  {
+    const rzr = F.splitByBolt(BR, "4x156", "utv", DT);
+    ok("every listed-pattern brand answers a RZR exactly",
+       rzr.confirm.filter(r => r.brand.slug === "method" || r.brand.slug === "raceline").length, 0);
+    ok("a RZR still gets a real list to stand behind", rzr.sure.length > 10, true);
+    ok("anything we would ask about is a brand that publishes no patterns",
+       rzr.confirm.filter(r => (r.model.bolts || []).length > 0).length, 0);
+  }
 
   /* Patterns that nobody cuts must come back empty rather than showing
      everything — an empty result is an honest answer. */
