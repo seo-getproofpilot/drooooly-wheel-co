@@ -4831,3 +4831,41 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .cine__cta{gap:10px}
   .cine__cta .btn{padding-inline:18px}
 }
+
+/* ============================================================
+   v318 — the consult section gets the room, the footer gives it back
+
+   MEASURED at 1600: the consult section was 809px and the footer 374 —
+   the footer taking 32% of the page's closing third for six links, a
+   logo and a payment strip. The photograph behind the form was the thing
+   being squeezed.
+
+   FOOTER. 56px of top padding to 34, 40 of bottom to 24, the row gap from
+   44 to 30 and the column gap from 20 to 14, logo 70 to 56. Nothing is
+   removed and no type gets smaller than 13px; it is all air. About 100px
+   back.
+
+   THE PHOTOGRAPH gets that room and more: the section's own floor goes to
+   920 at desktop, so the truck is taller in frame without being stretched
+   — it is object-fit:cover, so extra height crops less off the top and
+   bottom rather than distorting anything.
+
+   THE FORM moves down and widens. 720 was narrow against a 1600 page; 920
+   reads as deliberate. The extra top padding pushes the whole block down
+   so the truck's cab clears the heading.
+   ============================================================ */
+@media(min-width:1000px){
+  .cta--photo{min-height:920px;padding:clamp(120px,9vw,150px) 0 clamp(64px,5vw,86px)}
+  .cta__inner{max-width:920px}
+  .cta--photo .cta__inner{display:flex;flex-direction:column;justify-content:flex-end;min-height:100%}
+}
+
+.site-footer{padding-top:34px}
+.footer__inner{gap:30px;padding-bottom:24px}
+.footer__cols{gap:14px}
+.footer__logo{height:56px;margin:-6px 0 6px -6px}
+.footer__col h4{margin-bottom:10px}
+/* The link rows only tighten where there is a cursor. On a phone the footer
+   already stacks to one column and those rows are thumb targets, so they keep
+   their original 14px/5px. */
+@media(min-width:700px){.footer__col a{padding:3px 0;font-size:13.5px}}
