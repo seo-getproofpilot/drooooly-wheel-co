@@ -5464,22 +5464,25 @@ html.intro-run .hero-rot{opacity:0;transition:none}
    No blue anywhere in it. */
 .trust{
   background:
-    radial-gradient(1000px 130px at 50% 16%,rgba(255,255,255,.07),transparent 74%),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,rgba(0,0,0,.055) 1px 3px),
-    linear-gradient(180deg,
-      #23272c 0%,     /* top edge, in shadow under the lip */
-      #3c434b 18%,
-      #596069 38%,
-      #6c747e 45%,    /* the shoulder — where the light actually lands */
-      #7b838d 47%,    /* a specular line along the turn */
-      #0d1014 53%,    /* the cut: 100+ levels in six pixels is what reads as milled */
-      #333a42 68%,
-      #1c2026 86%,
-      #0e1115 100%);
+    /* GRAIN, not striations. The brushed lines were legible as lines, and the
+       milled cut ran horizontally straight through the middle of the bar —
+       which is exactly where the copy sits, so every label crossed a hard
+       light-to-dark boundary. Chris: "it makes it hard to read the actual
+       copy sitting on top of it."
+
+       So the surface keeps its material and loses its features: fine
+       sandblast noise instead of brush lines, and an even dark field instead
+       of a shoulder-and-groove profile. The machined read now comes from the
+       lit lip along the top edge, which is nowhere near the text. */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"),
+    linear-gradient(180deg,#1b1f24 0%,#171a1f 34%,#141719 72%,#0e1013 100%);
   border-top:0;
   border-bottom:1px solid rgba(0,0,0,.6);
+  background-blend-mode:overlay,normal;
   position:relative;overflow:hidden}
-/* the machined lip: a bright edge on top, a shadow under it */
+/* the machined lip: a bright edge on top, a shadow under it. This is the only
+   bright feature left, and it sits on the boundary where it cannot interfere
+   with a line of text. */
 .trust::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.04));
   box-shadow:0 1px 0 rgba(0,0,0,.45)}
