@@ -497,6 +497,68 @@ section("vehicles.js agrees with the bolt table");
   if (mismatches.length) mismatches.forEach(x => console.log("       " + x));
 }
 
+/* ---- catalogue integrity ----
+   Every one of these is a bug that actually shipped. */
+section("catalogue integrity");
+{
+  const fs = require("fs");
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "brands.js"));
+  const BR = global.window.BRANDS || [];
+  const models = BR.flatMap(b => (b.models || []).map(m => ({ b: b, m: m })));
+
+  /* Every image path that IS set must resolve. A 404 here is a blank tile. */
+  const missingFile = models.filter(x => x.m.img && !fs.existsSync(path.resolve(__dirname, "..", x.m.img.split("?")[0])));
+  ok("no model points at an image that is not on disk", missingFile.length, 0);
+  if (missingFile.length) missingFile.slice(0, 5).forEach(x => console.log("       " + x.b.slug + " / " + x.m.model + " -> " + x.m.img));
+
+  /* A photo filed under another brand's folder is almost always a name
+     collision, not a shared render — matching on filename alone offered an
+     American Force "Dynamo" a Fuel photo and an Amani "Empire" a JTX one.
+     Both would have put a competitor's wheel on the page. */
+  const BRAND_DIRS = fs.readdirSync(path.resolve(__dirname, "..", "assets/wheels"), { withFileTypes: true })
+    .filter(d => d.isDirectory()).map(d => d.name);
+  const crossBrand = models.filter(x => {
+    if (!x.m.img) return false;
+    const parts = x.m.img.split("/");
+    const dir = parts.length > 2 ? parts[2] : "";
+    return BRAND_DIRS.indexOf(dir) > -1 && dir !== x.b.slug &&
+           !(x.b.slug === "american-force" && dir === "american-force");
+  });
+  ok("no wheel is illustrated with another brand's photo", crossBrand.length, 0);
+  if (crossBrand.length) crossBrand.slice(0, 5).forEach(x => console.log("       " + x.b.slug + " / " + x.m.model + " -> " + x.m.img));
+
+  /* Diameter filing. A model built in 20 AND 26 has to answer to both
+     filters; it used to answer only to the larger. */
+  const bucketOf = d => d >= 26 ? "26" : d >= 24 ? "24" : d >= 22 ? "22" : d >= 16 ? "20" : "15";
+  const bucketsFor = m => [...new Set((m.sizes || []).map(sz => bucketOf(parseFloat(sz) || 0)))];
+  const multi = models.filter(x => bucketsFor(x.m).length > 1);
+  ok("most of the catalogue spans more than one diameter bucket", multi.length > 400, true);
+  const ace = models.find(x => x.b.slug === "jtx" && x.m.model === "Ace");
+  ok("a 20-through-30 wheel is filed under 20 as well as 26",
+     bucketsFor(ace.m).sort().join(","), "20,22,24,26");
+  const twentyTwo = models.filter(x => bucketsFor(x.m).indexOf("22") > -1).length;
+  ok("the 22-inch bucket holds hundreds, not dozens", twentyTwo > 600, true);
+
+  /* Every model must be reachable: the shop card links by exact model name. */
+  const unreachable = models.filter(x => {
+    const url = "wheel.html?brand=" + encodeURIComponent(x.b.slug) + "&model=" + encodeURIComponent(x.m.model);
+    const got = new URLSearchParams(url.split("?")[1]);
+    const b2 = BR.find(z => z.slug === got.get("brand"));
+    return !b2 || !(b2.models || []).some(z => z.model === got.get("model"));
+  });
+  ok("every wheel's own link resolves back to it", unreachable.length, 0);
+
+  /* Duplicate names inside one brand would make two wheels share a page. */
+  const dupes = [];
+  BR.forEach(b => {
+    const seen = {};
+    (b.models || []).forEach(m => { if (seen[m.model]) dupes.push(b.slug + " / " + m.model); seen[m.model] = 1; });
+  });
+  ok("no two wheels in a brand share a name", dupes.length, 0);
+  if (dupes.length) dupes.slice(0, 5).forEach(x => console.log("       " + x));
+}
+
 /* ---- face map sanity (if built) ---- */
 section("face map");
 try {

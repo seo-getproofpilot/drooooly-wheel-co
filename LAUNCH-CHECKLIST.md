@@ -241,6 +241,19 @@ each one is a phone call away from being better.
   Fuel Forged, Hostile's forged range, KMC Forged — and sit in `unknown` until
   someone asks. Moving them is a sales call, not a research task.
 
+- 🔴 **4.38 — 369 of 781 wheels have no photograph.** Every path that IS set
+  resolves (0 broken), so this is coverage, not rot. The gap is concentrated:
+  **American Force 254 of 287**, then JTX 19, Fuel 9, Hostile 9, Vision 8,
+  Amani 7, Fenix 7, Liberty 7 (all of them). Those cards render the CSS emblem
+  placeholder, which reads as a missing photo rather than a design choice.
+  There is nothing on disk to wire up — 108 unused files exist but they are
+  finish variants of models that already have art. These have to be sourced
+  from the manufacturers, which also makes 1.2 (wheel photo rights) bigger.
+
+  **Do not match photos by filename alone.** It offered an American Force
+  "Dynamo" a Fuel photo and an Amani "Empire" a JTX one — both would have put
+  a competitor's wheel on the page. A test now blocks cross-brand art.
+
 ## 5. Feature debt
 
 | # | What | Status |

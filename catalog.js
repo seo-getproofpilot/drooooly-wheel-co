@@ -328,7 +328,21 @@
   /* 15 exists because the UTV line is 14s and 15s. Without it every
      side-by-side wheel answered to the "20"" filter, which is just wrong. */
   var DIA_BUCKETS = [["15","14\u201315\""],["20","20\""],["22","22\""],["24","24\""],["26","26\"+"]];
-  function diaBucket(m) { var d = maxDia(m); if (d >= 26) return "26"; if (d >= 24) return "24"; if (d >= 22) return "22"; if (d >= 16) return "20"; return "15"; }
+  function bucketOf(d) { return d >= 26 ? "26" : d >= 24 ? "24" : d >= 22 ? "22" : d >= 16 ? "20" : "15"; }
+  /* EVERY bucket the model is actually built in, not just the biggest one.
+     It used to file each model under bucketOf(maxDia(m)) — a single bucket —
+     so a wheel offered in 20, 22, 24 and 26 answered only to the 26"+ filter.
+     MEASURED on the live catalogue: the 22" filter returned 34 wheels when
+     693 are built in a 22, and 24" returned 109 of 664. The filter was hiding
+     more than it showed. */
+  function diaBuckets(m) {
+    var out = [];
+    (m.sizes || []).forEach(function (s) {
+      var k = bucketOf(parseFloat(s) || 0);
+      if (out.indexOf(k) < 0) out.push(k);
+    });
+    return out.length ? out : [bucketOf(maxDia(m))];
+  }
 
   function renderShop(root) {
     var params = new URLSearchParams(location.search);
@@ -402,7 +416,7 @@
         return '<label class="fopt"><input type="checkbox" data-f="config" value="' + cfgKey(c) + '">' + cfgLabel(c) + '<span class="n">' + n + '</span></label>';
       }).join("");
       var diaOpts = DIA_BUCKETS.map(function (d) {
-        var n = count(function (p) { return diaBucket(p.m) === d[0]; });
+        var n = count(function (p) { return diaBuckets(p.m).indexOf(d[0]) > -1; });
         return '<label class="fopt"><input type="checkbox" data-f="dia" value="' + d[0] + '">' + d[1] + '<span class="n">' + n + '</span></label>';
       }).join("");
       side.innerHTML =
@@ -432,7 +446,7 @@
         if (lane && !lane.match(p.m)) return false;
         if (state.brands.length && state.brands.indexOf(p.b.slug) < 0) return false;
         if (state.configs.length && !state.configs.some(function (c) { return p.m.configs.map(cfgKey).indexOf(c) > -1; })) return false;
-        if (state.dias.length && state.dias.indexOf(diaBucket(p.m)) < 0) return false;
+        if (state.dias.length && !diaBuckets(p.m).some(function (k) { return state.dias.indexOf(k) > -1; })) return false;
         if (state.q) { var hay = (p.b.name + " " + p.m.model).toLowerCase(); if (hay.indexOf(state.q) < 0) return false; }
         if (state.bolt && window.Fitment) {
           var r = window.Fitment.wheelBolt(p.b.slug, p.m, state.bolt);
@@ -450,6 +464,7 @@
       else l.sort(function (a, b) { return a.order - b.order; });
       return l;
     }
+    var first = true;
     function draw() {
       var list = sortList(filtered());
       /* Whatever the sort, the wheels we can stand behind come first and the
@@ -466,6 +481,25 @@
         : '<div class="shop-empty">No wheels match those filters. <button class="filters-clear" id="ce">Clear filters</button></div>';
       var ce = document.getElementById("ce"); if (ce) ce.addEventListener("click", function () { document.getElementById("clearF").click(); });
       if (window.__observeFades) window.__observeFades();
+
+      /* Narrowing the grid shortens the page under you. The browser keeps the
+         scroll offset, so filtering 781 wheels down to 35 took the document
+         from 155,679px to 8,607 and left the top of the results 3,073px ABOVE
+         the viewport — you were looking at the footer and the results were
+         gone. MEASURED, and it is what "it sends you to the bottom of the
+         page" was.
+
+         Only corrects when the results have actually gone off the top, and
+         never on the first paint, so landing on a deep link still works. */
+      if (!first) {
+        var top = grid.getBoundingClientRect().top;
+        if (top < 0) {
+          var anchor = document.getElementById("shopCount") || grid;
+          var y = anchor.getBoundingClientRect().top + (window.pageYOffset || 0) - 90;
+          window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+        }
+      }
+      first = false;
     }
 
     /* Real trucks wearing these wheels. The generator decides per lane whether
