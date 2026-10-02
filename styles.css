@@ -284,18 +284,64 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 .fit-form input:focus,.fit-form select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.2)}
 .fit-form__ok{text-align:center;color:#38d07a;font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;font-size:12px;margin-top:16px}
 
-/* ===== footer ===== */
-.site-footer{background:var(--bg);border-top:1px solid var(--line);padding-top:56px}
-.footer__inner{width:min(100% - 44px,var(--max));margin-inline:auto;display:grid;grid-template-columns:1.4fr 2fr;gap:44px;padding-bottom:40px;border-bottom:1px solid var(--line)}
-.footer__logo{height:70px;width:auto;margin:-8px 0 8px -6px;mix-blend-mode:screen}
+/* ===== footer =====
+   The footer rides the HEADER's rail, not the 1280 content column, so the
+   page is bookended at one width instead of two. Below 1001 it stacks and
+   the rail collapses to the normal 44px gutter.
+
+   Everything the v318-v320 passes did to this block is folded in here
+   rather than stacked as a fifth layer of overrides. */
+.site-footer{background:var(--bg);border-top:1px solid var(--line);padding-top:30px}
+.footer__inner,.footer__bottom{width:min(100% - 44px,var(--max));margin-inline:auto}
+@media(min-width:1200px){.footer__inner,.footer__bottom{width:min(100% - 80px,1500px)}}
+@media(min-width:1440px){.footer__inner,.footer__bottom{width:min(100% - 120px,1580px)}}
+.footer__inner{display:grid;grid-template-columns:1fr;gap:36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+/* Two steps, not one. The nine payment chips need 520px to sit on a single
+   row, but MEASURED at 1001 a hard 520 floor starved the link columns down
+   to 105px and the Michroma labels wrapped — trading one scrunched thing for
+   another. So from 1001 the brand cell floors at 380 and the chips are
+   allowed to run two rows; from 1280 there is room for both and the cell
+   takes its 520. */
+@media(min-width:1001px){.footer__inner{grid-template-columns:minmax(380px,1fr) 1.7fr;gap:clamp(40px,4vw,64px)}}
+@media(min-width:1280px){.footer__inner{grid-template-columns:minmax(520px,1.1fr) 2fr;gap:clamp(56px,6vw,120px)}}
+.footer__logo{height:70px;width:auto;margin:-8px 0 10px -6px;mix-blend-mode:screen}
 .footer__brand-fallback{font-family:var(--display);font-weight:900;font-style:italic;font-size:22px;text-transform:uppercase;display:block;margin-bottom:8px}
-.footer__brand p{color:var(--muted);font-size:14px;margin-top:6px;max-width:34ch}
-.footer__loc{color:var(--soft)!important;font-family:var(--label);font-size:11px!important;letter-spacing:.04em}
-.footer__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.footer__col h4{font-family:var(--label);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#fff;margin-bottom:14px}
-.footer__col a{display:block;color:var(--muted);font-size:14px;padding:5px 0;transition:color .2s}
+.footer__brand p{color:var(--muted);font-size:14px;margin-top:6px;max-width:38ch}
+/* Needs the p to out-specify .footer__brand p above, or the 38ch cap breaks
+   a 62-character line in a cell that is 500px wide at its narrowest. */
+.footer__brand p.footer__loc{color:var(--soft)!important;font-family:var(--label);font-size:11px!important;letter-spacing:.04em;max-width:none}
+.footer__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,56px)}
+/* MEASURED at 375: three columns is 97px each, and Michroma is wide enough
+   that "ON REAL TRUCKS" broke onto two lines in it — exactly the scrunched
+   look this pass is meant to remove. Two columns gives 155, which holds the
+   longest label on one line. */
+@media(max-width:700px){.footer__cols{grid-template-columns:repeat(2,1fr);gap:22px 20px}}
+.footer__col h4{font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:10.5px;color:var(--soft);margin-bottom:12px}
+/* The links take the display face — the DROOOLY font — so the footer reads
+   like the rest of the site instead of like fine print. Michroma is a wide
+   face with no real lowercase, so it goes uppercase at 11px and the column
+   needs the horizontal room the new rail provides. */
+.footer__col a{display:block;font-family:var(--display);font-weight:400;font-size:10.5px;line-height:1.45;
+  text-transform:uppercase;letter-spacing:.01em;color:var(--muted);padding:4px 0;transition:color .2s}
 .footer__col a:hover{color:var(--blue-2)}
-.footer__bottom{width:min(100% - 44px,var(--max));margin-inline:auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 0;color:var(--soft);font-family:var(--label);font-size:10.5px;letter-spacing:.04em}
+.footer__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:13px 0 15px;color:var(--soft);font-family:var(--label);font-size:10.5px;letter-spacing:.04em}
+
+/* ----- Follow: two marks, no handle -----
+   NOT .social — that is already the homepage's full-width Instagram
+   section at line ~759, and the two sets of rules were overwriting each
+   other in both directions. */
+.fsoc{display:flex;gap:12px;margin:0;padding:0;list-style:none}
+.fsoc a{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;
+  border:1px solid var(--line-2);color:var(--muted);background:rgba(255,255,255,.02);
+  transition:color .2s,border-color .2s,background .2s,transform .2s}
+/* mask + currentColor so one monochrome file can take the hover colour; an
+   <img> could not be recoloured without shipping a second file. */
+.fsoc a::before{content:"";width:19px;height:19px;background:currentColor;
+  -webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat}
+.fsoc a:hover{color:#fff;border-color:var(--blue);background:rgba(31,123,255,.14);transform:translateY(-1px)}
+.fsoc a:focus-visible{outline:2px solid var(--blue-2);outline-offset:2px}
+.fsoc__ig{--ico:url(assets/social/instagram.svg)}
+.fsoc__fb{--ico:url(assets/social/facebook.svg)}
 
 /* ===== brand page ===== */
 .brandhero{position:relative;overflow:hidden;padding:130px 0 44px;border-bottom:1px solid var(--line);
@@ -528,9 +574,18 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1;letter-spac
 .news input{flex:1;height:52px;background:#0a0b0e;border:1px solid var(--line-2);border-radius:10px;color:#fff;padding:0 16px;font-size:15px}
 .news input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.16)}
 
-/* footer extras */
-.pay{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.pay span{font-family:var(--label);font-size:9px;font-weight:700;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line-2);border-radius:5px;padding:5px 8px;text-transform:uppercase}
+/* footer extras — the real card marks, on white chips.
+   Visa / Mastercard / Amex / Discover / PayPal ship as full 780x500 card
+   tiles with their own background, so they fill the chip edge to edge.
+   Apple Pay, Google Pay, Affirm and Klarna are transparent dark-ink marks,
+   which would vanish on a black footer — they get the white chip and sit
+   inside it with padding. One chip size for all nine either way. */
+.pay{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;padding:0;list-style:none}
+.pay li{display:grid;place-items:center;width:48px;height:31px;border-radius:5px;overflow:hidden;
+  background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.pay li img{width:100%;height:100%;object-fit:cover;display:block}
+.pay li.pay--mark img{width:auto;height:auto;max-width:76%;max-height:60%;object-fit:contain}
+.pay li.pay--wide img{max-width:84%;max-height:72%}
 
 /* ===== cart drawer ===== */
 .cart-overlay{position:fixed;inset:0;z-index:90;background:rgba(3,3,4,.6);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
@@ -832,7 +887,6 @@ h1,h2,h3,h4{font-weight:400;letter-spacing:-.02em}
 .footer__col h4{color:#fff}.footer__col a{color:#9aa0a8}.footer__col a:hover{color:#fff}
 .footer__brand p{color:#9aa0a8}.footer__loc{color:#71767d!important}
 .footer__bottom{color:#71767d;border:0}
-.pay span{color:#9aa0a8;border-color:rgba(255,255,255,.16)}
 /* brand wall = dark band */
 .brands{background:#0b0b0c;border-block:1px solid rgba(255,255,255,.08)}
 .brands .section-title{color:#fff}
@@ -3218,7 +3272,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .aud-card__go{font-size:11px}           /* SHOP LIFTED → */
   .show2-meta{font-size:11.5px}           /* Dually · Polished · 22″–30″ */
   .show2-build{font-size:11.5px}          /* RUN THESE → */
-  .pay span{font-size:10px}               /* VISA / MASTERCARD / ... footer badges */
 
   /* shop.html cards */
   .prod__brand{font-size:10.5px}          /* JTX FORGED */
@@ -4866,47 +4919,3 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 /* The extra 80px of photograph only above 1300 — at 1024 a 1000px band is
    taller than the laptop screen it is being read on. */
 @media(min-width:1300px){.cta--photo{min-height:1060px}}
-
-/* ------------------------------------------------------------
-   v319 — the second cut at the footer
-
-   MEASURED at 1600 after v318: 303px, and only 187 of it was content.
-   The other 115 was chrome — 34 above, 24 below the columns, 40 around
-   the legal line. That is the part with no job.
-
-   The content block had a second problem the first pass missed: both grid
-   cells measured exactly 187, so tightening the link rows alone bought
-   nothing — the row is as tall as its taller cell, and the brand cell was
-   holding it up on its own. Shrinking the link rows AND the brand block is
-   what moves it; either one by itself is wasted.
-
-   RESULT at 1600: 245px, down from 374 before v318. The photograph takes
-   the difference and then some.
-   ------------------------------------------------------------ */
-.site-footer{padding-top:18px}
-.footer__inner{gap:30px;padding-bottom:16px}
-.footer__cols{gap:14px}
-.footer__logo{height:56px;margin:-6px 0 6px -6px}
-.footer__col h4{margin-bottom:7px}
-.footer__bottom{padding:9px 0 11px}
-.footer__brand p{margin-top:4px}
-/* The location line inherits a 34ch cap from .footer__brand p and breaks
-   across two lines for no reason — the cell holds all 62 characters at
-   11px. Needs the p in the selector to out-specify the rule it is
-   fighting. Tidy rather than structural: the link columns still set the
-   row height. */
-.footer__brand p.footer__loc{max-width:none}
-/* MEASURED: the nine badges wanted 592px in a 515px cell, so Klarna sat
-   alone on a second line. The wider cell below plus tighter gaps and side
-   padding brings the run to 540, and all nine land on one line down to
-   about 1180. Cosmetic rather than structural — the link columns set the
-   row height either way. */
-.pay{gap:4px;margin-top:11px}
-.pay span{padding:4px 5px}
-/* Only above 1000, where the footer is still two cells — below that it
-   stacks to one column and the widths stop meaning anything. */
-@media(min-width:1001px){.footer__inner{grid-template-columns:1.7fr 2fr}}
-/* The link rows only tighten where there is a cursor. On a phone the footer
-   already stacks to one column and those rows are thumb targets, so they keep
-   their original 14px/5px. */
-@media(min-width:700px){.footer__col a{padding:2px 0;font-size:13px;line-height:1.4}}

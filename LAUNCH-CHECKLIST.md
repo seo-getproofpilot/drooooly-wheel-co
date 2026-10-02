@@ -37,6 +37,9 @@ Google to index a draft full of placeholder prices.
 | 1.2 | **All other brands' wheel photos** — scraped from manufacturer/dealer sites | `assets/wheels/**` | 🔴 Same ask, per brand. Roll into the distributor conversation. |
 | 1.7 | **JTX's header texture** used as the brand band on their pages | `assets/brand/jtx-texture.webp` | 🔴 Their asset, taken from their theme. Include it in the same media-kit permission ask. |
 | 1.3 | **JTX build photos hotlinked on the builds gallery** — displayed from their server, not copied here | `builds.html`, `data/builds/jtx.json` | 🟡 We host nothing and every tile links back, which is the lightest possible footing — but get written permission before this is public, or replace with our own installs. |
+| 1.9 | **Payment-network marks in the footer** — Visa, Mastercard, Amex, Discover and PayPal from `aaronfagan/svg-credit-card-payment-icons` (Apache-2.0); Apple Pay and Google Pay from `simple-icons` (CC0). The licence covers the *files*; it does not license the trademarks. | `assets/pay/` | 🟡 Normal acceptance-mark use, but each network publishes rules: Visa and Mastercard specify minimum size and clear space, Apple requires the Apple Pay mark only where Apple Pay is actually accepted and Google the same for Google Pay. Confirm against the real processor line-up before launch and drop any mark we do not in fact accept. |
+| 1.10 | **Affirm and Klarna marks** reused from `assets/lenders/`, now also in the footer as accepted payment | `assets/pay/affirm.svg`, `assets/pay/klarna.svg` | 🔴 Both require an active merchant agreement before their mark may be displayed. Tied to 2.7 and 4.33 — the footer now makes the claim twice as hard as the text badges did. |
+| 1.11 | **Instagram and Facebook glyphs** from `simple-icons` (CC0 files, Meta trademarks) | `assets/social/` | 🟡 Standard profile-link use. Fine as long as each links to a real DROOOLY account — see 4.34. |
 | 1.4 | **Truck photography** — 40 files, rights unconfirmed, predates this work | `assets/builds/` | 🔴 Still used on the homepage build gallery. Replace with owned photos or license. |
 | 1.5 | **Fabricated captions** on the homepage build gallery | `index.html` | 🔴 Captions describe builds that aren't ours. Rewrite or remove. |
 | 1.6 | **Visualizer placeholder plate** | `data/plates/f450-dually-16.json` (`cleared: false`) | 🟢 Page removed; data retained but no longer rendered anywhere. |
@@ -198,6 +201,13 @@ each one is a phone call away from being better.
   existence of the product itself. The heading was corrected from "Five ways" to "Six"
   to match the six cards on the page — if the in-house line is not real, the card goes
   and the heading goes back to five.
+
+- 🔴 **4.34 — the Facebook link is a guess.** The footer's Follow column now carries an
+  Instagram mark (real: `instagram.com/drooolywheelco`) and a Facebook mark pointing at
+  `facebook.com/drooolywheelco`, which was assumed from the Instagram handle and has not
+  been verified. Nobody supplied a Facebook URL. Either confirm the page exists at that
+  handle, replace the URL, or delete the Facebook mark — a social icon that 404s on a
+  shop's own footer is worse than no icon. The handle appears in all eight page footers.
 
 ## 5. Feature debt
 
