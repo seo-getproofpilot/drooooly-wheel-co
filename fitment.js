@@ -260,6 +260,109 @@
     };
   }
 
+  /* ---- bolt patterns ------------------------------------------------
+     Year/make/model -> bolt pattern, for the Verified Fitment finder. The
+     table is data/fitment/vehicle-bolt-patterns.json, compiled to
+     vehicle-bolts.js for the browser; under node the tests pass it in.
+
+     This answers "what is this truck drilled to". It does NOT answer "will
+     this wheel fit" — that needs width, offset and the fender, which is what
+     the rest of this module is for, and it is a conversation rather than a
+     computation. CLAUDE.md rule 1.
+     ------------------------------------------------------------------- */
+
+  function boltTable(t) {
+    if (t) return t;
+    if (typeof window !== "undefined" && window.VEHICLE_BOLTS) return window.VEHICLE_BOLTS;
+    return { patterns: [], makeAliases: {} };
+  }
+
+  function normMake(make, table) {
+    var s = String(make || "").trim().toLowerCase();
+    var al = (table && table.makeAliases) || {};
+    return al[s] ? al[s].toLowerCase() : s;
+  }
+
+  /* Longest model match wins, exactly as matchVehicle does, and for the same
+     reason: "3500" is a substring of "3500 DRW", and picking the short one
+     puts a single-rear pattern on a dually. */
+  function boltPattern(q, table) {
+    var t = boltTable(table);
+    var rows = t.patterns || [];
+    var year = parseInt(q && q.year, 10);
+    var mk = normMake(q && q.make, t);
+    var md = String((q && q.model) || "").trim().toLowerCase();
+    if (!mk || !md) return null;
+
+    var best = null, bestLen = -1;
+    rows.forEach(function (r) {
+      if (normMake(r.make, t) !== mk) return;
+      /* A year outside the range is a miss, not a near miss: a 2010 Silverado
+         HD and a 2011 are different wheels. An absent year matches on
+         make+model alone so the finder can still answer while the customer
+         is still filling the form. */
+      if (year && !(year >= r.from && year <= r.to)) return;
+      var a = String(r.model).toLowerCase();
+      var len = -1;
+      if (a === md) len = 999;
+      else if (md.indexOf(a) > -1 || a.indexOf(md) > -1) len = a.length;
+      if (len > bestLen) { bestLen = len; best = r; }
+    });
+    if (!best) return null;
+    return {
+      bolt: best.bolt,
+      lugs: parseInt(best.bolt.split("x")[0], 10),
+      pcdMm: parseFloat(best.bolt.split("x")[1]),
+      config: best.config || "srw",
+      hd: !!best.hd,
+      hubMm: best.hubMm || null,
+      confidence: best.confidence || "check",
+      note: best.note || "",
+      exact: bestLen === 999,
+      matched: { make: best.make, model: best.model, from: best.from, to: best.to }
+    };
+  }
+
+  /* Dropdown feeds. Years descend because a customer picks a recent truck far
+     more often than a 2001. */
+  function boltMakes(table) {
+    var t = boltTable(table), seen = {}, out = [];
+    (t.patterns || []).forEach(function (r) { if (!seen[r.make]) { seen[r.make] = 1; out.push(r.make); } });
+    return out.sort();
+  }
+  function boltModels(make, year, table) {
+    var t = boltTable(table), mk = normMake(make, t), y = parseInt(year, 10);
+    var seen = {}, out = [];
+    (t.patterns || []).forEach(function (r) {
+      if (normMake(r.make, t) !== mk) return;
+      if (y && !(y >= r.from && y <= r.to)) return;
+      if (!seen[r.model]) { seen[r.model] = 1; out.push(r.model); }
+    });
+    return out.sort();
+  }
+  function boltYears(table) {
+    var t = boltTable(table), lo = 9999, hi = 0;
+    (t.patterns || []).forEach(function (r) { if (r.from < lo) lo = r.from; if (r.to > hi) hi = r.to; });
+    if (!hi) return [];
+    var out = [];
+    for (var y = hi; y >= lo; y--) out.push(y);
+    return out;
+  }
+
+  /* The three shopping lanes. A lane is a category the customer picks
+     directly ("I have a dually"); a bolt pattern is what the finder works
+     out for them. Both end up narrowing the same catalogue. */
+  var LANES = {
+    truck:  { label: "Truck wheels",          configs: ["single"] },
+    dually: { label: "Dually & super single", configs: ["dually", "super single"] },
+    utv:    { label: "Side-by-side & sand car", configs: ["utv"] }
+  };
+  function laneForConfig(cfg) {
+    if (cfg === "drw") return "dually";
+    if (cfg === "utv") return "utv";
+    return "truck";
+  }
+
   var API = {
     MM_PER_IN: MM_PER_IN,
     parseSize: parseSize,
@@ -278,7 +381,13 @@
     geometry: geometry,
     stance: stance,
     pokeText: pokeText,
-    placement: placement
+    placement: placement,
+    boltPattern: boltPattern,
+    boltMakes: boltMakes,
+    boltModels: boltModels,
+    boltYears: boltYears,
+    LANES: LANES,
+    laneForConfig: laneForConfig
   };
 
   if (typeof window !== "undefined") window.Fitment = API;

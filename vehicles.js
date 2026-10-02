@@ -20,8 +20,12 @@
      as "well inside the fender" when it is nothing of the sort.
    ============================================================ */
 window.VEHICLES = [
+  /* 8x170, not 8x180. 8x180 is the GM HD pattern and was sitting on the
+     flagship platform of a Super Duty shop — a customer picking an F-250
+     here would have been routed to Silverado wheels. Ford Super Duty has
+     been 8x170 since the Super Duty launched in 1999. */
   { id:"f250", make:"Ford", models:["F-250 Super Duty","F-350 Super Duty"],
-    years:[2017,2026], config:"srw", hd:true, bolt:"8x180",
+    years:[2017,2026], config:"srw", hd:true, bolt:"8x170",
     stockOffsetMm:13, fenderRadiusIn:20.5, faceToFenderIn:4.0, measured:false,
     body:{ cab:"crew", bedTop:0.30, rocker:0.86, archLift:0 } },
 
@@ -73,8 +77,11 @@ window.VEHICLES = [
     stockOffsetMm:44, fenderRadiusIn:18.5, faceToFenderIn:3.0, measured:false,
     body:{ cab:"crew", bedTop:0.32, rocker:0.85, archLift:0 } },
 
+  /* 6x139.7, not 5x139.7. The 2019+ DT went to six lugs; 5x139.7 is the
+     4th-gen truck, still sold alongside it as the 1500 Classic through
+     2024. Same name, same model year, and the wheels do not swap. */
   { id:"ram1500", make:"RAM", models:["1500"],
-    years:[2019,2026], config:"srw", hd:false, bolt:"5x139.7",
+    years:[2019,2026], config:"srw", hd:false, bolt:"6x139.7",
     stockOffsetMm:25, fenderRadiusIn:18.5, faceToFenderIn:3.5, measured:false,
     body:{ cab:"crew", bedTop:0.32, rocker:0.85, archLift:0 } }
 ];

@@ -210,6 +210,25 @@ each one is a phone call away from being better.
   handle, replace the URL, or delete the Facebook mark — a social icon that 404s on a
   shop's own footer is worse than no icon. The handle appears in all eight page footers.
 
+- 🔴 **4.35 — the vehicle bolt-pattern table is researched, not verified.**
+  `data/fitment/vehicle-bolt-patterns.json` carries 97 entries across 15 makes,
+  1997-2026. 79 are marked `high` (widely published and consistent across
+  sources) and 18 are marked `check` — mostly vans, chassis cabs and older
+  compacts where a trim or chassis split could move the pattern. **Nothing in
+  it has been checked against a physical vehicle.** A wrong row here does not
+  produce a bad page, it produces a customer receiving wheels that will not
+  bolt on, so the UI must keep saying the pattern is confirmed before the
+  wheels are built rather than that they fit. Work the `check` rows first.
+
+- 🔴 **4.36 — the wheels have no bolt patterns, so nothing can actually be
+  filtered yet.** 25 of 781 models carry a `bolts` field, and all 25 are the
+  UTV models scraped from Method's and Raceline's own feeds. Every truck and
+  dually wheel — American Force 287, JTX 154, KG1 35, Fuel 34, Hostile 34,
+  Amani 14 — has none. JTX is the one brand with a list, and only at brand
+  level: 8x170, 8x180, 8x165.1, 6x135, 6x139.7, 5x150. Until this is sourced,
+  the finder can tell a customer what their truck is drilled to but cannot
+  honestly narrow the catalogue to it.
+
 ## 5. Feature debt
 
 | # | What | Status |

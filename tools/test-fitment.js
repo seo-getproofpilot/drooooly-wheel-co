@@ -374,6 +374,69 @@ try {
   console.log("  (offsets.json not loadable: " + e.message + ")");
 }
 
+/* ---- bolt patterns ----
+   These are the entries that send someone the wrong wheels if they drift,
+   so they are asserted by value rather than by "a pattern came back". */
+section("bolt patterns");
+const BT = require(path.resolve(__dirname, "..", "data/fitment/vehicle-bolt-patterns.json"));
+const bp = (y, mk, md) => { const r = F.boltPattern({ year: y, make: mk, model: md }, BT); return r ? r.bolt : null; };
+
+ok("Super Duty is 8x170, not the GM 8x180", bp(2020, "Ford", "F-250 Super Duty"), "8x170");
+ok("Super Duty back in 2001", bp(2001, "Ford", "F-350 Super Duty"), "8x170");
+ok("GM HD before the 2011 change", bp(2010, "Chevrolet", "Silverado 2500HD"), "8x165.1");
+ok("GM HD after the 2011 change", bp(2011, "Chevrolet", "Silverado 2500HD"), "8x180");
+ok("GMC follows Chevrolet", bp(2020, "GMC", "Sierra 3500HD"), "8x180");
+ok("Ram HD is its own eight-lug", bp(2020, "RAM", "2500"), "8x165.1");
+ok("three different eight-lugs stay different",
+   new Set([bp(2020, "Ford", "F-250 Super Duty"), bp(2020, "Chevrolet", "Silverado 2500HD"), bp(2020, "RAM", "2500")]).size, 3);
+
+ok("Ram 1500 DT is six lug", bp(2020, "RAM", "1500"), "6x139.7");
+ok("Ram 1500 Classic the same year is five", bp(2020, "RAM", "1500 Classic"), "5x139.7");
+ok("Ram 1500 before the DT", bp(2015, "RAM", "1500"), "5x139.7");
+ok("Dodge resolves to RAM", bp(2008, "Dodge", "2500"), "8x165.1");
+
+ok("F-450 pickup is a ten-lug", bp(2020, "Ford", "F-450 Super Duty"), "10x225");
+ok("F-350 DRW is still 8x170", bp(2020, "Ford", "F-350 Super Duty DRW"), "8x170");
+ok("3500 DRW does not collapse onto 3500",
+   F.boltPattern({ year: 2020, make: "RAM", model: "3500 DRW" }, BT).config, "drw");
+ok("3500 stays single-rear",
+   F.boltPattern({ year: 2020, make: "RAM", model: "3500" }, BT).config, "srw");
+
+ok("Tundra five-lug years", bp(2015, "Toyota", "Tundra"), "5x150");
+ok("Tundra six-lug before them", bp(2005, "Toyota", "Tundra"), "6x139.7");
+ok("Tundra six-lug after them", bp(2023, "Toyota", "Tundra"), "6x139.7");
+ok("Titan XD is eight, Titan is six",
+   bp(2020, "Nissan", "Titan XD") + "/" + bp(2020, "Nissan", "Titan"), "8x180/6x139.7");
+
+ok("RZR is 4x156", bp(2022, "Polaris", "RZR"), "4x156");
+ok("Maverick X3 is 4x137", bp(2022, "Can-Am", "Maverick X3"), "4x137");
+ok("a year outside every range is a miss, not a guess", bp(1998, "Ford", "F-250 Super Duty"), null);
+ok("an unknown make is a miss", bp(2020, "Scania", "R500"), null);
+
+ok("lanes map from config", F.laneForConfig("drw") + "/" + F.laneForConfig("utv") + "/" + F.laneForConfig("srw"),
+   "dually/utv/truck");
+ok("makes list is populated", F.boltMakes(BT).length > 10, true);
+ok("models narrow by year", F.boltModels("Toyota", 2015, BT).indexOf("Tundra") > -1, true);
+ok("every entry declares its confidence",
+   BT.patterns.filter(r => r.confidence !== "high" && r.confidence !== "check").length, 0);
+
+/* vehicles.js and the bolt table describe the same trucks and must agree —
+   they were out of step on two platforms, which is what prompted this. */
+section("vehicles.js agrees with the bolt table");
+{
+  global.window = global.window || {};
+  require(path.resolve(__dirname, "..", "vehicles.js"));
+  const mismatches = [];
+  (global.window.VEHICLES || []).forEach(v => {
+    v.models.forEach(m => {
+      const r = F.boltPattern({ year: v.years[1], make: v.make, model: m }, BT);
+      if (r && r.bolt !== v.bolt) mismatches.push(`${v.make} ${m} ${v.years[1]}: vehicles.js ${v.bolt} vs table ${r.bolt}`);
+    });
+  });
+  ok("no platform disagrees about its own bolt pattern", mismatches.length, 0);
+  if (mismatches.length) mismatches.forEach(x => console.log("       " + x));
+}
+
 /* ---- face map sanity (if built) ---- */
 section("face map");
 try {
