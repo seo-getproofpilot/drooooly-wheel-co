@@ -38,6 +38,7 @@ Google to index a draft full of placeholder prices.
 | 1.7 | **JTX's header texture** used as the brand band on their pages | `assets/brand/jtx-texture.webp` | 🔴 Their asset, taken from their theme. Include it in the same media-kit permission ask. |
 | 1.3 | **JTX build photos hotlinked on the builds gallery** — displayed from their server, not copied here | `builds.html`, `data/builds/jtx.json` | 🟡 We host nothing and every tile links back, which is the lightest possible footing — but get written permission before this is public, or replace with our own installs. |
 | 1.8b | **The share card is now the hero photo** — `assets/og-share.jpg` is generated from `assets/hero-c10.jpg` by `tools/make-og.js`, so the hero's rights question (1.8) is now also the link-preview's rights question, and the image travels further: every link anyone sends carries it into iMessage, Facebook and Slack. | `assets/og-share.jpg` | 🔴 Clearing 1.8 clears this. Until then the unlicensed photo is being redistributed by every share, not just viewed on the site. |
+| 1.12 | **163 American Force product renders**, taken from the JSON-LD each of their product pages publishes and resized to 680px | `assets/wheels/american-force/`, manifest in `data/specs/american-force-art.json` | 🔴 Their photography, same ask as 1.1 and 1.2 — and a bigger one now, since this is the single largest block of third-party art on the site. Their robots.txt permits the clean product pages and the media path, and the scrape ran one page at a time with a delay, but permitted-to-fetch is not licensed-to-publish. Every file traces to its source URL in the manifest, so it can be removed or re-sourced in one pass. |
 | 1.9 | **Payment-network marks in the footer** — Visa, Mastercard, Amex, Discover and PayPal from `aaronfagan/svg-credit-card-payment-icons` (Apache-2.0); Apple Pay and Google Pay from `simple-icons` (CC0). The licence covers the *files*; it does not license the trademarks. | `assets/pay/` | 🟡 Normal acceptance-mark use, but each network publishes rules: Visa and Mastercard specify minimum size and clear space, Apple requires the Apple Pay mark only where Apple Pay is actually accepted and Google the same for Google Pay. Confirm against the real processor line-up before launch and drop any mark we do not in fact accept. |
 | 1.10 | **Affirm and Klarna marks** reused from `assets/lenders/`, now also in the footer as accepted payment | `assets/pay/affirm.svg`, `assets/pay/klarna.svg` | 🔴 Both require an active merchant agreement before their mark may be displayed. Tied to 2.7 and 4.33 — the footer now makes the claim twice as hard as the text badges did. |
 | 1.11 | **Instagram and Facebook glyphs** from `simple-icons` (CC0 files, Meta trademarks) | `assets/social/` | 🟡 Standard profile-link use. Fine as long as each links to a real DROOOLY account — see 4.34. |
@@ -241,18 +242,17 @@ each one is a phone call away from being better.
   Fuel Forged, Hostile's forged range, KMC Forged — and sit in `unknown` until
   someone asks. Moving them is a sales call, not a research task.
 
-- 🔴 **4.38 — 369 of 781 wheels have no photograph.** Every path that IS set
-  resolves (0 broken), so this is coverage, not rot. The gap is concentrated:
-  **American Force 254 of 287**, then JTX 19, Fuel 9, Hostile 9, Vision 8,
-  Amani 7, Fenix 7, Liberty 7 (all of them). Those cards render the CSS emblem
-  placeholder, which reads as a missing photo rather than a design choice.
-  There is nothing on disk to wire up — 108 unused files exist but they are
-  finish variants of models that already have art. These have to be sourced
-  from the manufacturers, which also makes 1.2 (wheel photo rights) bigger.
+- 🟡 **4.38 — 206 of 781 wheels still have no photograph** (was 369). American
+  Force's own renders were scraped from their product pages — see 1.12 — which
+  took the catalogue from 53% to 74% illustrated. What is left:
+  American Force 92, JTX 19, Fuel 9, Hostile 9, Amani 8, Vision 8, Fenix 7,
+  **Liberty 7 of 7**, then singles and pairs across the rest. The 92 American
+  Force are models with no page in their own sitemap — discontinued, or sold
+  only through the dealer portal. Those need the rep, not a scraper.
 
   **Do not match photos by filename alone.** It offered an American Force
   "Dynamo" a Fuel photo and an Amani "Empire" a JTX one — both would have put
-  a competitor's wheel on the page. A test now blocks cross-brand art.
+  a competitor's wheel on the page. A test blocks cross-brand art.
 
 ## 5. Feature debt
 

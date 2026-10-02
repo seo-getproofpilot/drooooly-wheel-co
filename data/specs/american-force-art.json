@@ -1,0 +1,1244 @@
+{
+ "scraped": "2026-10-02",
+ "source": "https://www.americanforce.com",
+ "note": "American Force renders, taken from the product page JSON-LD each wheel declares. Rights: LAUNCH-CHECKLIST 1.2.",
+ "art": [
+  {
+   "model": "6N33 Barrage SSBR",
+   "file": "assets/wheels/american-force/6n33barragessbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/6/n/6n33_barrage-sd_24_10_polished-milled_a1.png",
+   "sha1": "297596b602905c91dfb93ccb29daf9cc45c8e676",
+   "bytes": 933484
+  },
+  {
+   "model": "Acid CC",
+   "file": "assets/wheels/american-force/acidcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck16_acid_24-8lug-polished_a1.png",
+   "sha1": "9c06a943ecb4fb37e5b728f6642947d1200433af",
+   "bytes": 992731
+  },
+  {
+   "model": "Addict SS",
+   "file": "assets/wheels/american-force/addictss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/b/ab27b0f2be8ddd75afe3f66e4e38c6c6a2ebffa7924859f29ced941f74a875b1.jpeg",
+   "sha1": "6afc52551822db35c8cc0a0b038971d5fe848474",
+   "bytes": 1059572
+  },
+  {
+   "model": "AKA SS",
+   "file": "assets/wheels/american-force/akass.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/e/ced994cda16e2b1b8053e1b1bd01e57ad8d79027f5a7b008c2cfeabfdac10b9c.jpeg",
+   "sha1": "1f6c88394d3d1a0aae2ce769124e601a39f1ef97",
+   "bytes": 987761
+  },
+  {
+   "model": "Alpha SS",
+   "file": "assets/wheels/american-force/alphass.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/1/a15840d7fccb93236650178dcc29afcc0e9449e3cd597585d2e3943eabd1015e.jpeg",
+   "sha1": "c7feb8a55adfaa5e82e97b50ef009d7f2bae6eac",
+   "bytes": 908690
+  },
+  {
+   "model": "Armada CCFP",
+   "file": "assets/wheels/american-force/armadaccfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/c/4cebf0078ebe85375f5a988446a32a19f1e2040ec7c62a58d825604fd3544d5b.jpeg",
+   "sha1": "2454e6f771e071a30de4e7600aa696abfe5bc916",
+   "bytes": 1067101
+  },
+  {
+   "model": "Assault CC",
+   "file": "assets/wheels/american-force/assaultcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck01_assault_24-8lug-polished_a1.png",
+   "sha1": "7f8415be3727e796d704def8b0afcfd5ecac517b",
+   "bytes": 1071833
+  },
+  {
+   "model": "AT001 Thermo ST 5",
+   "file": "assets/wheels/american-force/at001thermost5.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st501_thermo-5_24x12_4.25-bs_5lug_polished-face-chrome-lip_a1.3864.png",
+   "sha1": "b9a3bafd831c5940f974cc76c8f5f9a00c5f1f27",
+   "bytes": 792364
+  },
+  {
+   "model": "AT002 Thermo ST 6",
+   "file": "assets/wheels/american-force/at002thermost6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st601_thermo-6_24x12_4.25-bs_polished-face-chrome-lip_a1.3880.png",
+   "sha1": "907035edeb12dfd4558e4a810f8dc0dd9575d74e",
+   "bytes": 831517
+  },
+  {
+   "model": "AT003 Kane ST 5",
+   "file": "assets/wheels/american-force/at003kanest5.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st502_kane-5_24x12_4.25-bs_5lug_polished-face-chrome-lip_a1.3892.png",
+   "sha1": "86cd47024dedbe0a17a958d196483cca9eb9f3a1",
+   "bytes": 808751
+  },
+  {
+   "model": "AT004 Kane ST 6",
+   "file": "assets/wheels/american-force/at004kanest6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st602_kane-6_24x12_4.25-bs_polished-face-chrome-lip_a1.3904.png",
+   "sha1": "5f0e4f77618675519f178a23cdba1b3e956cec45",
+   "bytes": 855391
+  },
+  {
+   "model": "AT005 Jolt ST 5",
+   "file": "assets/wheels/american-force/at005joltst5.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st503_jolt-5_24x12_4.25-bs_5lug_polished-face-chrome-lip_a1.3916.png",
+   "sha1": "a415802d1e7c1f96af6602d1ec5f3c95984497c2",
+   "bytes": 834700
+  },
+  {
+   "model": "AT006 Jolt ST 6",
+   "file": "assets/wheels/american-force/at006joltst6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st603_jolt-6_24x12_4.25-bs_polished-face-chrome-lip_a1.3931.png",
+   "sha1": "6fefc331bc1db50d4827f3d4267b1d9e12f7f4aa",
+   "bytes": 863300
+  },
+  {
+   "model": "AT007 Notch ST 5",
+   "file": "assets/wheels/american-force/at007notchst5.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st504_notch-5_24x12_4.25-bs_5lug_polished-face-chrome-lip_a1.3944.png",
+   "sha1": "094dcd89687a83b49aef5e1ec55b2a360954e992",
+   "bytes": 839945
+  },
+  {
+   "model": "AT008 Notch ST 6",
+   "file": "assets/wheels/american-force/at008notchst6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st604_notch-6_24x12_4.25-bs_polished-face-chrome-lip_a1.3962.png",
+   "sha1": "235bd3f3a291306d7de004fc1d46f56450906f7d",
+   "bytes": 899614
+  },
+  {
+   "model": "AT009 Business ST 5",
+   "file": "assets/wheels/american-force/at009businessst5.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st505_business-5_24x12_4.25-bs_polished-face-chrome-lip_a1.3974.png",
+   "sha1": "a19c2e95aade7a5736e1ab8d02eee19f5cf7ba44",
+   "bytes": 873326
+  },
+  {
+   "model": "AT010 Business ST 6",
+   "file": "assets/wheels/american-force/at010businessst6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st605_business-6_24x12_4.25-bs_polished-face-chrome-lip_a1.3980.png",
+   "sha1": "497e4ef28b7966409ad3baf260a36132ce578841",
+   "bytes": 915549
+  },
+  {
+   "model": "AT011 Provoke ST 5",
+   "file": "assets/wheels/american-force/at011provokest5.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st506_provoke-5_24x12_4.25-bs_polished-face-chrome-lip_a1.4001.png",
+   "sha1": "c40d05347f7368a2b997f8c5b4df822d34d7b496",
+   "bytes": 813035
+  },
+  {
+   "model": "AT012 Provoke ST 6",
+   "file": "assets/wheels/american-force/at012provokest6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/s/t/st606_provoke-6_24x12_4.25-bs_polished-face-chrome-lip_a1.4016.png",
+   "sha1": "f0fd90a0a8b51ca7792c519411728eaa01031ab0",
+   "bytes": 862627
+  },
+  {
+   "model": "Atom SS",
+   "file": "assets/wheels/american-force/atomss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/1/7/17853f6bc08ee1caafb534be07b6752df52759b87e878795ec8a635a06f10543.jpeg",
+   "sha1": "54cb0b5fcb7617185dd4ae6212dab95d2e1be904",
+   "bytes": 1012284
+  },
+  {
+   "model": "Ballistic CC",
+   "file": "assets/wheels/american-force/ballisticcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh44_ballistic_24_8_polished_a1.1004_w-shadow.png",
+   "sha1": "5ee6019c3ed371ffbdc92d4e3fd313318fb9dab6",
+   "bytes": 929822
+  },
+  {
+   "model": "Bane DC",
+   "file": "assets/wheels/american-force/banedc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/e/f/efce760694f8d7993272d5197048bb6d2ee6af4e6e18683e4ce7500eb38d482a.jpeg",
+   "sha1": "33d13606060917611df419d4cc22d014165c04f9",
+   "bytes": 327430
+  },
+  {
+   "model": "Banshee SS",
+   "file": "assets/wheels/american-force/bansheess.png",
+   "src": "https://www.americanforce.com/media/catalog/product/5/0/50dbc85660bb1203cef3f6f25f4c3d49bf8fccd1f5dbcf70e0f8a43f5b501195.jpeg",
+   "sha1": "843b23ce390020adaa0836091d84df8a176467b8",
+   "bytes": 940016
+  },
+  {
+   "model": "Battery CC",
+   "file": "assets/wheels/american-force/batterycc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck17_battery_24-8lug-polished_a1.png",
+   "sha1": "bddb131c6d445c07bbf307cb32e9798b9371f5a1",
+   "bytes": 1146343
+  },
+  {
+   "model": "Battle CC",
+   "file": "assets/wheels/american-force/battlecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/afw-ckh38-battle-cc-polished_a1.png",
+   "sha1": "0149281a08b3ae38c185a09d1d583fe33c44b897",
+   "bytes": 944298
+  },
+  {
+   "model": "Beacon SS",
+   "file": "assets/wheels/american-force/beaconss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/b/f/bf2fd2c42baebe575838f36ff152fb885f62b01b6e7fa694c67023f778d0dddb.jpeg",
+   "sha1": "a760588fe35b9f3d5155d3f544582d928318afc6",
+   "bytes": 997060
+  },
+  {
+   "model": "Big Ten SS",
+   "file": "assets/wheels/american-force/bigtenss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/0/e/0e683ac649b1323b1a71d24a2080193ea1182153f60952ce6927c984a16cece5.jpeg",
+   "sha1": "89167203cd97d403398b533cab7e2c6a3cc31048",
+   "bytes": 969468
+  },
+  {
+   "model": "Bishop SS",
+   "file": "assets/wheels/american-force/bishopss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/b/c/bca75cdbdf7034b372b8939f54e079e90ebc163420011cfc9d745a2e45d6e804.jpeg",
+   "sha1": "dfc9c377e17dfdb133300d8f7b59a4aea06afe2a",
+   "bytes": 953775
+  },
+  {
+   "model": "Blade SS",
+   "file": "assets/wheels/american-force/bladess.png",
+   "src": "https://www.americanforce.com/media/catalog/product/6/4/6443c996444563227a1bfd76a55e458853baccb65d95d15b8144b97f8d01169e.jpeg",
+   "sha1": "ca6c5406030afa89d95e68b93d73a24ed1e3da03",
+   "bytes": 894220
+  },
+  {
+   "model": "Blaster CC",
+   "file": "assets/wheels/american-force/blastercc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh36_blaster_24x12-polished_a1.png",
+   "sha1": "6dca811bb11cb62285d7be4a659d8ac6a58664f3",
+   "bytes": 1019026
+  },
+  {
+   "model": "Blur CC",
+   "file": "assets/wheels/american-force/blurcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck19_blur_24-8lug-polished_a1.png",
+   "sha1": "4aa1b78667ccd4a8180967c26ad39d82b02ba70d",
+   "bytes": 1014012
+  },
+  {
+   "model": "Brave SS",
+   "file": "assets/wheels/american-force/bravess.png",
+   "src": "https://www.americanforce.com/media/catalog/product/5/1/517f38e8b5081207b8af33efdf11f5eaf45977fc9491f1300d5e917ba3094f56.jpeg",
+   "sha1": "496beedc3d12120ecc9b05a28367f05bca03321b",
+   "bytes": 966769
+  },
+  {
+   "model": "Brawn SSBR",
+   "file": "assets/wheels/american-force/brawnssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/3/3/33af4acd39d07164eba742736faa30ac9c3eb867bd9f6a115640b952396858ef.jpeg",
+   "sha1": "faaa945c4be9dcceadd449261f5022664ac170e4",
+   "bytes": 1029813
+  },
+  {
+   "model": "Burnout SS",
+   "file": "assets/wheels/american-force/burnoutss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/c/4c22b6b7476bf9214649e189c19d2b511f5088228ea928b95477cc45aececc87.jpeg",
+   "sha1": "bbff22390e9b474dfb85e5ffd60bf609d7e6778a",
+   "bytes": 868182
+  },
+  {
+   "model": "Business CCBR",
+   "file": "assets/wheels/american-force/businessccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/n/7n23_business_24_polished_a1-png.png",
+   "sha1": "4b81f3d1ecc14cfbbec79437ba06250c217776b9",
+   "bytes": 967222
+  },
+  {
+   "model": "Carnage CC",
+   "file": "assets/wheels/american-force/carnagecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh13_carnage_24-8lug-polished_a1.png",
+   "sha1": "c606c7b13e9cdee973b68a555b60e0d91a4e7427",
+   "bytes": 990402
+  },
+  {
+   "model": "Carver SS",
+   "file": "assets/wheels/american-force/carverss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/affeaebf53ce633015873b8ba5a2b22ca361fd698903a29e1061c925b9df3976.jpeg",
+   "sha1": "93573466c032846a8588cd926746fbc242993a97",
+   "bytes": 1092216
+  },
+  {
+   "model": "Cerberus CC",
+   "file": "assets/wheels/american-force/cerberuscc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh34_20cerberus_20polished_a1.png",
+   "sha1": "7894c7be088d7a1f57c676759895095820b78572",
+   "bytes": 961443
+  },
+  {
+   "model": "Chase ZL 6",
+   "file": "assets/wheels/american-force/chasezl6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z104_chase_24x14_6_polished_a1.3038.png",
+   "sha1": "a4c47f35a55c1c344172c87861ddcefa38a14e5d",
+   "bytes": 313562
+  },
+  {
+   "model": "Chase ZL 8",
+   "file": "assets/wheels/american-force/chasezl8.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z104_chase_24x14_8_polished_a1.3044.png",
+   "sha1": "b8d7b99481da90df82cfed872365ce4356086422",
+   "bytes": 333106
+  },
+  {
+   "model": "Chief SS",
+   "file": "assets/wheels/american-force/chiefss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/e/e/ee41e78443499e8eca0dbb4b701a408c9b14d14140338de6a595b599fc39d2f2.jpeg",
+   "sha1": "530d6763dfb96bf051e8aa147dae6dec1b015f98",
+   "bytes": 1077724
+  },
+  {
+   "model": "Chopper SS",
+   "file": "assets/wheels/american-force/chopperss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/d/c/dcdd3e8309bbaa5c8f7162a588d7d52d4a8583f67c7d71070f5516e0c2c6abdb.jpeg",
+   "sha1": "faef1343257f1cfdbb00ccebd7c09ac4c3930099",
+   "bytes": 960131
+  },
+  {
+   "model": "Classic SS",
+   "file": "assets/wheels/american-force/classicss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/a/fa133ad745ca960ece6eb9f62aaff0f3405c9bc0af4889c7e1ee6ed44e7e3bf8.jpeg",
+   "sha1": "af2b9e05dad6bf18afb45140f7c2aa9281d2771e",
+   "bytes": 885680
+  },
+  {
+   "model": "Classic SSBR",
+   "file": "assets/wheels/american-force/classicssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/e/4e325a018e0de25b782b06e26bfc6417608ded9853bce6fd4b896f328a64572d.jpeg",
+   "sha1": "3adad5e3870db52c90df2150b298cef352841836",
+   "bytes": 970618
+  },
+  {
+   "model": "Cloak DC",
+   "file": "assets/wheels/american-force/cloakdc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/2/427b24708db713494f5345a1b2be61c35431da1ef34daea09709bf92f9c208d3.jpeg",
+   "sha1": "76d1d65e841dedb2c10eb625f4cd557ac3cef7c9",
+   "bytes": 356623
+  },
+  {
+   "model": "Contra SSBR",
+   "file": "assets/wheels/american-force/contrassbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/8/f/8f36d8a50f569787b3262fcf8fe236a9a587bbd8ede7a74d8369c89fd5e31bbb.jpeg",
+   "sha1": "6763eb0b7d3b11fb1662ee5d9b27b5d7d9002201",
+   "bytes": 1010300
+  },
+  {
+   "model": "Cortex CC",
+   "file": "assets/wheels/american-force/cortexcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh11_cortex_24-polished_a1.png",
+   "sha1": "418b5868e13b7cba69d7317b8a4df48caf61c933",
+   "bytes": 938957
+  },
+  {
+   "model": "Crook CC",
+   "file": "assets/wheels/american-force/crookcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/m/american-force-ckh39-crook-polished_a1.png",
+   "sha1": "f01f4eec566c3bae3ea98c541cf858e16341cd7f",
+   "bytes": 1081942
+  },
+  {
+   "model": "Cyclone CC",
+   "file": "assets/wheels/american-force/cyclonecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh42_cyclone_24_polished_a1_w-shadow.png",
+   "sha1": "7c526f09d1ad1b2aefe682c96f057c33c091a2be",
+   "bytes": 967022
+  },
+  {
+   "model": "Demon SSBR",
+   "file": "assets/wheels/american-force/demonssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/2/f21368452d3af00e3246ab090d0a183ca11c1816f23e7520379c3f722b035ebf.jpeg",
+   "sha1": "b244977acd116728f4530d1bb10e3723ba316b97",
+   "bytes": 1036976
+  },
+  {
+   "model": "Deny SS",
+   "file": "assets/wheels/american-force/denyss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/c/fcc7c83773c8647231fd1260468b72fad6229dbdd862271426c0984e967a4f61.jpeg",
+   "sha1": "b5ccfed6329a9d3a4b487858dff7afc66ae283f7",
+   "bytes": 958504
+  },
+  {
+   "model": "Derange CCSD",
+   "file": "assets/wheels/american-force/derangeccsd.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/n/7n13_derange_24x12_20polished_a1.png",
+   "sha1": "6b598e41b6f0b5a8ed6851cb4a2095a3892b7fe5",
+   "bytes": 1045123
+  },
+  {
+   "model": "Doom CCBR",
+   "file": "assets/wheels/american-force/doomccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/5/a5ac817e9706c6283d2ae64731c764218beb075563c2070c62b2252c1fea61b4.jpeg",
+   "sha1": "5c53a9ca08e355865566d4c5b227bfd7c103b001",
+   "bytes": 1042898
+  },
+  {
+   "model": "Draco CC",
+   "file": "assets/wheels/american-force/dracocc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh32_draco_24-8lug-polished_a1.png",
+   "sha1": "4e437bf733a6286245b18d8933659ee3124fad0c",
+   "bytes": 1030793
+  },
+  {
+   "model": "Dynamo DC",
+   "file": "assets/wheels/american-force/dynamodc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/e/8/e8af58889dd04ec8daf21c8ec1651dba49ce4715e32e4a2c763def91c7f4bb31.jpeg",
+   "sha1": "ed709f3d83d23a1d38ac596a4ed21f84d35ae9a8",
+   "bytes": 329892
+  },
+  {
+   "model": "Engage SS",
+   "file": "assets/wheels/american-force/engagess.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/5/n53_engage_24_8_polished_a1_w-shadow-png.png",
+   "sha1": "aaa8f7e9884ecd2ee26c0c4cf766d971356ce014",
+   "bytes": 322269
+  },
+  {
+   "model": "Ether ZL 6",
+   "file": "assets/wheels/american-force/etherzl6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z101_ether_24x14_6_polished_a1.3001.png",
+   "sha1": "8395d7c33cc964d8a525ab548c90a05fccdb0b4d",
+   "bytes": 301249
+  },
+  {
+   "model": "Ether ZL 8",
+   "file": "assets/wheels/american-force/etherzl8.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z101_ether_24x14_8_polished_a1.3008.png",
+   "sha1": "cfc0f3d0c88d9d2748b001cf19914af40f8767fa",
+   "bytes": 319847
+  },
+  {
+   "model": "Evade FP",
+   "file": "assets/wheels/american-force/evadefp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/d/3/d3089515a4d95c8d6a03297c1348fe36714bf57ec37c90cd94f6331b9b90541e.jpeg",
+   "sha1": "bcc2d7ca3896613fd065e143c8fe1532647025a4",
+   "bytes": 970984
+  },
+  {
+   "model": "Evo SSBR",
+   "file": "assets/wheels/american-force/evossbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/8/d/8d0b39bca2a6f858944c6af3d8827b386056750e913360cafbf9ec2ff003d2a6.jpeg",
+   "sha1": "e0b74e981e4cbcd450924237384ff7fb1f598f80",
+   "bytes": 1030474
+  },
+  {
+   "model": "Extort SS",
+   "file": "assets/wheels/american-force/extortss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/9/f/9f602bc1520ecaef7a467b39041615ca8c3c918d8368e144e828be5a25b4c43e.jpeg",
+   "sha1": "db21eefb6def16980559e3115fb1952219ed5815",
+   "bytes": 931618
+  },
+  {
+   "model": "Fallout FP",
+   "file": "assets/wheels/american-force/falloutfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/3/6/3604b8b42368222ec074c542a7aec8c6e7762ce2533c8eb8e8973d6aac27a4ef.jpeg",
+   "sha1": "cdc318998703957234bf2be832b3db0ec2b5bd1b",
+   "bytes": 1023313
+  },
+  {
+   "model": "Flare CC",
+   "file": "assets/wheels/american-force/flarecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh46_flare_24_8_polished_a1_w-shadow-png.png",
+   "sha1": "fa4783bcb05e4cd7cfd15f2c17d5bb598c364c00",
+   "bytes": 345896
+  },
+  {
+   "model": "Flex SS",
+   "file": "assets/wheels/american-force/flexss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/f/7f21c340ff05cd5853898a23ad88a535e9029c43be5e58eeca91c7ae290151fe.jpeg",
+   "sha1": "91deb76cdb6c41b06ce4808ca9fa7870a5baa960",
+   "bytes": 1009871
+  },
+  {
+   "model": "Flux SS",
+   "file": "assets/wheels/american-force/fluxss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/6/a6136f1c3547138cf13a56be49182ebd331ef056f3f75ab342ee45ab6d115285.jpeg",
+   "sha1": "ffe7543210bf16a3a063599b89c819b6d386076a",
+   "bytes": 978951
+  },
+  {
+   "model": "Frenzy CC",
+   "file": "assets/wheels/american-force/frenzycc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh47_frenzy_24_8_polished_a1_w-shadow-png.png",
+   "sha1": "20e18adaf6c6a5647d397b38d0e950d5e69df864",
+   "bytes": 318861
+  },
+  {
+   "model": "Frost CC",
+   "file": "assets/wheels/american-force/frostcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh41_frost_24_polished_a1_w-shadow.png",
+   "sha1": "69268a430f8581caa54c000b99ac88976fca94e9",
+   "bytes": 977888
+  },
+  {
+   "model": "Fuse SS",
+   "file": "assets/wheels/american-force/fusess.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/6/c65394f8275237e18fbcbf6c486d6d8878e87f3a1a6e9dd88df07d591eead99b.jpeg",
+   "sha1": "1f9dc67027efc752eb2b7014ca2ce0791c285ae8",
+   "bytes": 884455
+  },
+  {
+   "model": "Genesis CC",
+   "file": "assets/wheels/american-force/genesiscc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh02_genesis_24-8lug-polished_a1.png",
+   "sha1": "429394362d07f74e7c59bac59fd661db2498c602",
+   "bytes": 945778
+  },
+  {
+   "model": "Grip SS",
+   "file": "assets/wheels/american-force/gripss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/5/9/591d9219185dad2e45d7dda6dc4b28dc93d99ecfaf2435c2fbfeba5eaf8ec8ba.jpeg",
+   "sha1": "d931b1261a4fd25e1d4acae93121ae3c1a255469",
+   "bytes": 1017195
+  },
+  {
+   "model": "Guardian SS",
+   "file": "assets/wheels/american-force/guardianss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/6/9/690bfaa6af983198d0f040bf8534f6dd61939b252cf5bc49fc3a100f5c57c3c3.jpeg",
+   "sha1": "e1d7fb93e6eec3df0d8d46793e0dcd20cc3ed469",
+   "bytes": 980031
+  },
+  {
+   "model": "HellFire CCBR",
+   "file": "assets/wheels/american-force/hellfireccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/d/6/d6ab3238a3dc01283b90f1dcb9820359fda982b3ec27d35d15f4b5cf85f387b4.jpeg",
+   "sha1": "4136fe98f07b95de049f0d5c01ca32b8b1519e88",
+   "bytes": 1042743
+  },
+  {
+   "model": "Hornet CC",
+   "file": "assets/wheels/american-force/hornetcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh14_hornet_24-8lug-polished_a1.png",
+   "sha1": "972bc9b1d4dbc9de7b929e699bc8e70de39dede9",
+   "bytes": 930142
+  },
+  {
+   "model": "Hydra SS",
+   "file": "assets/wheels/american-force/hydrass.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/1/7167d1421b461bd796933e3106e87b97dde50af619b32fda1ae0d57caa94ae87.jpeg",
+   "sha1": "62a180b97c3d192460d81f6af2f627c14b77dfcb",
+   "bytes": 1001398
+  },
+  {
+   "model": "Iceberg SS",
+   "file": "assets/wheels/american-force/icebergss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/5/n57-iceberg-ss-polished-a1.png",
+   "sha1": "6c7c091c7c35c76eb60782e334b536a06029eb06",
+   "bytes": 222887
+  },
+  {
+   "model": "Idol SS",
+   "file": "assets/wheels/american-force/idolss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/8/8/88f478e66ad579280bb34456d7f6fa3ec8a61909f5e0b7aa53d13ba086f9529c.jpeg",
+   "sha1": "51f916cb1d2e23188eddb0c01e23bc8c974c3562",
+   "bytes": 1074082
+  },
+  {
+   "model": "Ikon SS",
+   "file": "assets/wheels/american-force/ikonss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/8/a887647bdc1b71d801d38e16495ab79833a93c65592aab305a013279631b24f6.jpeg",
+   "sha1": "04bdeeb33073c792718a7e18b2f6d8362921cf6f",
+   "bytes": 1009880
+  },
+  {
+   "model": "Imperial SS",
+   "file": "assets/wheels/american-force/imperialss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/5/n54_imperial_24_8_polished_a1_shadow.png",
+   "sha1": "8a3f7e015594d1b6fa4c139c4c89f8c9f6f7d0de",
+   "bytes": 994589
+  },
+  {
+   "model": "Independence SSBR",
+   "file": "assets/wheels/american-force/independencessbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/2/6/26dbe86dbe8a76a983e84f46cf57eda006ab91569ef9a709675a271d1d6027ea.jpeg",
+   "sha1": "eecb5bb7062f4fbcf26f8b06b67e70212c7bd4db",
+   "bytes": 972123
+  },
+  {
+   "model": "Intrepid CC",
+   "file": "assets/wheels/american-force/intrepidcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/af-intrepid-ckh50-cc-a1_shadow.png",
+   "sha1": "647638f99f70af4f063479c5980ba68e3d5e51ed",
+   "bytes": 1004345
+  },
+  {
+   "model": "Jackal CC",
+   "file": "assets/wheels/american-force/jackalcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh51-jackal-polished-a1.png",
+   "sha1": "791f808cdf1c18678e9b2206b8bb200ac031513f",
+   "bytes": 212333
+  },
+  {
+   "model": "Jade SS",
+   "file": "assets/wheels/american-force/jadess.png",
+   "src": "https://www.americanforce.com/media/catalog/product/8/5/855ac5713d9fa75d97f3bb6c379122d9fd79a498eea1316a07936aff1a85959b.jpeg",
+   "sha1": "736367e3c37c9a937a40bd09224566a91d615373",
+   "bytes": 881002
+  },
+  {
+   "model": "Jester CCFP",
+   "file": "assets/wheels/american-force/jesterccfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/b/d/bd7241f1c758a3585438fe4aa3f392685d063f9f3055f92e868cb71064e2066c.jpeg",
+   "sha1": "3ff87a1cac2137bdf61752e44adbc7dcd230ae3d",
+   "bytes": 1128122
+  },
+  {
+   "model": "Jolt CC",
+   "file": "assets/wheels/american-force/joltcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/af-jolt-ckh49-cc-a1_shadow.png",
+   "sha1": "2d6d2c34b42dcbfd111919110e1b5d0cd1721d47",
+   "bytes": 966142
+  },
+  {
+   "model": "Kane CC",
+   "file": "assets/wheels/american-force/kanecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh53-kane-polished-a1.png",
+   "sha1": "69302cbd723709b21b816e64ec2a803b74ccb665",
+   "bytes": 1026990
+  },
+  {
+   "model": "Kash SS",
+   "file": "assets/wheels/american-force/kashss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/e/b/ebdf7b080f52d40a62004a3f21d93157c86a11b5eb1f1bf5be3b6781cf2d0235.jpeg",
+   "sha1": "e0747b04ed2d8f06ecb9cd940295296b860180de",
+   "bytes": 1026571
+  },
+  {
+   "model": "Knight CC",
+   "file": "assets/wheels/american-force/knightcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh31_knight_24-8lug-polished_a1.png",
+   "sha1": "ffdae8eec1beedc07794ab6db49d1b9a4ac3bc33",
+   "bytes": 986884
+  },
+  {
+   "model": "Legend SS",
+   "file": "assets/wheels/american-force/legendss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/9/1/91f4fcda5d974fb6d0182d175bd2776d0f33e96e4db1df0f68d6e2804d858d4d.jpeg",
+   "sha1": "cbb71633df0e5aed4d11aabed1b55012576eb97f",
+   "bytes": 951531
+  },
+  {
+   "model": "Lexar SS",
+   "file": "assets/wheels/american-force/lexarss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/9/79c79a7aad41b3a4c6691f8787460970529037dd7fbbc632aa1b71ba8de6c85b.jpeg",
+   "sha1": "32cd5156c0d5a9e4e2b91994785bf600f58c60a0",
+   "bytes": 341217
+  },
+  {
+   "model": "Liberty SS",
+   "file": "assets/wheels/american-force/libertyss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/5/c503e60af545b15bdef6187cace9cce4fd7ba4e0e9d83c3734ea67ebbbfab91d.jpeg",
+   "sha1": "3849470a9af9c437ddaff3f07bcf6243e3a8762a",
+   "bytes": 912783
+  },
+  {
+   "model": "Liberty SSBR",
+   "file": "assets/wheels/american-force/libertyssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/5/6/5664b432388247fe0a889b2f35b05c106dd1fc4d8436897b062071e2ff9a31a1.jpeg",
+   "sha1": "803fc0151305ba039275baa4f124280f766b7de3",
+   "bytes": 1013748
+  },
+  {
+   "model": "Locus SS",
+   "file": "assets/wheels/american-force/locusss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/1/7146087b0f415d1d5f0b99e53a8c8d31a6f622fcd324dab3bbf860b5dadb8502.jpeg",
+   "sha1": "827ecc468af975105f50ff23c724276cadf9e0ce",
+   "bytes": 1032323
+  },
+  {
+   "model": "Lucky SS",
+   "file": "assets/wheels/american-force/luckyss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/0/0/00904800f16bcbca3f5ff6f2ad65438b9e055a3007d7357087622eb82e0abf1a.jpeg",
+   "sha1": "16ad9f56f674bef39a66a2dc8c43aeff43008d24",
+   "bytes": 921972
+  },
+  {
+   "model": "Man O War SSBR",
+   "file": "assets/wheels/american-force/manowarssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/b/4b8e5ff04bba33073903917985f4a85569b0e7b901563aa2620a99c7305e7eda.jpeg",
+   "sha1": "1bb0228a7a9b88f39c91bc809d047d5686516a13",
+   "bytes": 1064978
+  },
+  {
+   "model": "Marauder CCBR",
+   "file": "assets/wheels/american-force/marauderccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/9/7/9748b197eed94a9ee35de370984fcb1ed18a742d7892c718626876aa998493ef.jpeg",
+   "sha1": "fa555fb989af918b98e0259444300d6640ed9e38",
+   "bytes": 1106149
+  },
+  {
+   "model": "Marvel CCFP",
+   "file": "assets/wheels/american-force/marvelccfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/e/8/e8303f5854f60290903b6e7a1526af0813eb9916aa7014ef037a128a6a19f586.jpeg",
+   "sha1": "9f89c5e730aa2b1e7f6e2b7d1ae6b906accfec8f",
+   "bytes": 1056484
+  },
+  {
+   "model": "Massive CCBR",
+   "file": "assets/wheels/american-force/massiveccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/e/ae2d7a994e0424562575bd5bda146e72b7e93a7797df669ab151b090ca480a13.jpeg",
+   "sha1": "2f0d82ab1ad1b9e9c8d919060eeaa5810d5f3362",
+   "bytes": 357026
+  },
+  {
+   "model": "Monarch SS",
+   "file": "assets/wheels/american-force/monarchss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/5/n52_master_24_8_polished_a1_w-shadow-png.png",
+   "sha1": "fad66245c2f3e18621f97546630310ee3ec4d283",
+   "bytes": 326555
+  },
+  {
+   "model": "Morph CC",
+   "file": "assets/wheels/american-force/morphcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/af-morph-ckh01-polished.png",
+   "sha1": "4fac4080fd671c00ca7b56bff8c9cb50b86e6737",
+   "bytes": 957312
+  },
+  {
+   "model": "Nebula CCFP",
+   "file": "assets/wheels/american-force/nebulaccfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/5/0/502942fe4a9ce82253eb8182fe6cf11776ef8aa85f792e372b59e61a557763ec.jpeg",
+   "sha1": "7886407dca4b5a11ef7c3081fc34d1542de6fcb3",
+   "bytes": 1059179
+  },
+  {
+   "model": "Nemesis CC",
+   "file": "assets/wheels/american-force/nemesiscc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/e/nemesis-ckh10-polished.png",
+   "sha1": "b15976f7c79fa179a322bf67baa48c86e6d10acc",
+   "bytes": 990022
+  },
+  {
+   "model": "Nexus CC",
+   "file": "assets/wheels/american-force/nexuscc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh37_nexus_24x12-polished_a1.png",
+   "sha1": "303443242fc1b5e340dab2e08c4bd09ed0e023a1",
+   "bytes": 964185
+  },
+  {
+   "model": "Nightmare FP",
+   "file": "assets/wheels/american-force/nightmarefp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/2/3/23c52d95e24e4756ddb689782e6e8415b23b9ac7dacabb36ddcc0571a04afd9b.jpeg",
+   "sha1": "08e3231f93b434e808fad02eaec7c680274d1cc7",
+   "bytes": 1036400
+  },
+  {
+   "model": "Notch CC",
+   "file": "assets/wheels/american-force/notchcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/af_ckh48_notch_24_8_polished_a1_shadow.png",
+   "sha1": "d1799e6ff144058660d61a38b2aac9de0ba4364e",
+   "bytes": 975854
+  },
+  {
+   "model": "Nova SS",
+   "file": "assets/wheels/american-force/novass.png",
+   "src": "https://www.americanforce.com/media/catalog/product/d/8/d880332dfd111215b880053c17f986fcc47f8c5baba2d7c961e686f46c857544.jpeg",
+   "sha1": "6e7d1197095a17d9145f6139925971efe1fc8196",
+   "bytes": 1009436
+  },
+  {
+   "model": "Octane SS",
+   "file": "assets/wheels/american-force/octaness.png",
+   "src": "https://www.americanforce.com/media/catalog/product/0/d/0d88e988d91010d14b92f3d53339f29106c18d2e3ba4691dfc7b71050c16d527.jpeg",
+   "sha1": "0c92a68a9813055b5d923645edc7782d8ae7605c",
+   "bytes": 969479
+  },
+  {
+   "model": "Omen SSBR",
+   "file": "assets/wheels/american-force/omenssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/9/f/9fd3089162bd4be14fbbc758ca76c03b0929b8aa45c3bf6ab578272e128d4142.jpeg",
+   "sha1": "d3938ffd0974bfafe57c642dc4e468c028644ce2",
+   "bytes": 999244
+  },
+  {
+   "model": "Origin SS",
+   "file": "assets/wheels/american-force/originss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/b/ab87aac3732b91e7ac1276e3c166b88f958c8e193e33b5ab5dba6231c57a29f2.jpeg",
+   "sha1": "9540b8212c92014886cfe5a20c793ce484af0dca",
+   "bytes": 1026620
+  },
+  {
+   "model": "Orion CC",
+   "file": "assets/wheels/american-force/orioncc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh03_orion_24-8lug-polished_a1.png",
+   "sha1": "2ac19d93d73870149d21113277a847882e6980cd",
+   "bytes": 961816
+  },
+  {
+   "model": "Orion CCBR",
+   "file": "assets/wheels/american-force/orionccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/2/2/22a05cb2d4802beb4bc0ae90d58022e1f64821745daedc62bd615180e10b1815.jpeg",
+   "sha1": "0967bc92ef41d885df4da3f62fbb833f2aa0e284",
+   "bytes": 1054145
+  },
+  {
+   "model": "Oxide ZL 6",
+   "file": "assets/wheels/american-force/oxidezl6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z102_oxide_24x14_6_polished_a1.3014.png",
+   "sha1": "49c4183622a6ed424246765a04a3895192f6313e",
+   "bytes": 315837
+  },
+  {
+   "model": "Oxide ZL 8",
+   "file": "assets/wheels/american-force/oxidezl8.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z102_oxide_24x14_8_polished_a1.3020.png",
+   "sha1": "66b5ab2d429c4ca9988ad26578be39c4b6ce7395",
+   "bytes": 331605
+  },
+  {
+   "model": "Panic CC",
+   "file": "assets/wheels/american-force/paniccc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck18_panic_24-8lug-polished_a1.png",
+   "sha1": "639453433bc6fd816178bde1ad865076054e8e0b",
+   "bytes": 994147
+  },
+  {
+   "model": "Peak CC",
+   "file": "assets/wheels/american-force/peakcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck06_peak_24-8lug-polished_a1.png",
+   "sha1": "70b5fac161cfca1974d15b8809e4bce391eefc05",
+   "bytes": 1014272
+  },
+  {
+   "model": "Phoenix CC",
+   "file": "assets/wheels/american-force/phoenixcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh35_phoenix_24x12-polished_a1.png",
+   "sha1": "6ab2a06c30a5212254fa3838897f93b1ae1788a8",
+   "bytes": 968622
+  },
+  {
+   "model": "Plague CCBR",
+   "file": "assets/wheels/american-force/plagueccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/c/ccd652da5f73bc118c67c565b33dc6ebf9cbf93c19ba9dbea95a9c2e69a4ae37.jpeg",
+   "sha1": "303df67dcaa3a862b8660a917c7eaf2e7798a824",
+   "bytes": 1179702
+  },
+  {
+   "model": "Plex SSBR",
+   "file": "assets/wheels/american-force/plexssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/6/n/6n25-plex-sd-polished-a1_shadow.png",
+   "sha1": "bd1bd27c4f5c255594c978d88b97423d578c6bbb",
+   "bytes": 1097316
+  },
+  {
+   "model": "Power SS",
+   "file": "assets/wheels/american-force/powerss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/e/4e98e81106a96452d4d6d96cf771d902875ee3e576ddc10d8b7958fc68a4d301.jpeg",
+   "sha1": "b6b0182937704f754cef1bef150bf1876b43803f",
+   "bytes": 924912
+  },
+  {
+   "model": "Provoke CC",
+   "file": "assets/wheels/american-force/provokecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh54_provoke_24_8_polished_a1.3077.png",
+   "sha1": "42212e8c6e7fdc8f3b8959199a6ddc3551bbda6f",
+   "bytes": 948671
+  },
+  {
+   "model": "Quake CCBR",
+   "file": "assets/wheels/american-force/quakeccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/f/ff467be073f488a6e186abbd1c79ed699de4dfc34f86ee80fb5db8330aa18f15.jpeg",
+   "sha1": "5bafb8a711785262d5ebe703bf362b06565ca275",
+   "bytes": 1028669
+  },
+  {
+   "model": "Quantum CC",
+   "file": "assets/wheels/american-force/quantumcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck10_quantum_24-8lug-polished_a1.png",
+   "sha1": "a5e7f71ecc723a28a48d811d5fe0ccb7f4b93315",
+   "bytes": 960570
+  },
+  {
+   "model": "Ransom SS",
+   "file": "assets/wheels/american-force/ransomss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/5/n50-ransom-24-8-polished-a1_-png.png",
+   "sha1": "da6f812e2fed11bafa4cd0976c0601b5100ca7b5",
+   "bytes": 874057
+  },
+  {
+   "model": "Rebel SS",
+   "file": "assets/wheels/american-force/rebelss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/3/8/381c589b9e12d3dcbab3c17c9dc06a29e108243b9d0c96408739da9221114607.jpeg",
+   "sha1": "96e6be6d075e851d72d28d95856b7ebdfbc0a7ea",
+   "bytes": 916608
+  },
+  {
+   "model": "Redd SS",
+   "file": "assets/wheels/american-force/reddss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/4/445a235e3bfa32ee2e54fb0046b508b30a1715af7549f0ac18b77232fa516bd0.jpeg",
+   "sha1": "24721c0b985883cfae3575a903777b822294e293",
+   "bytes": 975184
+  },
+  {
+   "model": "Regal DC",
+   "file": "assets/wheels/american-force/regaldc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/9/0/900c9c9f8909cda923a4af2ae4913fec8403f1d0b42f61dcd0c2a7c059ed1a5b.jpeg",
+   "sha1": "df418d67c7667c8ac335b94bea7aa411e73c21a3",
+   "bytes": 981772
+  },
+  {
+   "model": "Revolt SS",
+   "file": "assets/wheels/american-force/revoltss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/7/f78cab9be65edf890a800a279237126ed83b7e75d914b0789b8aa7d88ab585c3.jpeg",
+   "sha1": "f1ac1b09096236695996882599c6cd90e8183a35",
+   "bytes": 989412
+  },
+  {
+   "model": "Ridge CC",
+   "file": "assets/wheels/american-force/ridgecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck11-ridge-polished_a1.png",
+   "sha1": "eeddb0fdca4ceb168858e897ef32c0f3cafbb19e",
+   "bytes": 3637026
+  },
+  {
+   "model": "Rook SS",
+   "file": "assets/wheels/american-force/rookss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/e/6/e6d84778b39dad5c6099f4a09ff33b1686523a12be2b41f7946dccb04f5dbe80.jpeg",
+   "sha1": "4ee1f3a0e432692f1bf916887cd8dc7de16ce726",
+   "bytes": 1005389
+  },
+  {
+   "model": "Sabre SS",
+   "file": "assets/wheels/american-force/sabress.png",
+   "src": "https://www.americanforce.com/media/catalog/product/8/3/83619e038b84e915584fbd0f6949a570c80ebd665ae09c2c7e5cd1edb9a804e7.jpeg",
+   "sha1": "8dabdb4717970383193b77f068ee2e3e17ee82c0",
+   "bytes": 1037107
+  },
+  {
+   "model": "Sentry SS",
+   "file": "assets/wheels/american-force/sentryss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/n/5/n51-sentry-24-8-polished-a1_-png.png",
+   "sha1": "286dbb5d6b16ceebadc71086ee9a7795c776a11a",
+   "bytes": 925578
+  },
+  {
+   "model": "Shield SS",
+   "file": "assets/wheels/american-force/shieldss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/f/cfa7949d9da62bfb6a7d765be420fd908b1c3b0a7167442df84d9eb8416a344a.jpeg",
+   "sha1": "3b53c7e1218002345d14cb7ea8c190a85c91de2b",
+   "bytes": 882489
+  },
+  {
+   "model": "Shift SSBR",
+   "file": "assets/wheels/american-force/shiftssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/b/2/b2b8d6198f15801c89ea14360c8d7f4f1cd5774c79ab532318258e8e11312dbb.jpeg",
+   "sha1": "388b52f39b68aebafe55415347c4be365286d190",
+   "bytes": 1021350
+  },
+  {
+   "model": "Shove SSBR",
+   "file": "assets/wheels/american-force/shovessbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/b/4b0a33e51c765d81ee4e64e12110512f757c7da1dbf1fb728fcc093517a8b5ed.jpeg",
+   "sha1": "a0277fce0cfdf1f66438372103d208d0122fbdff",
+   "bytes": 1065301
+  },
+  {
+   "model": "Sideways SSBR",
+   "file": "assets/wheels/american-force/sidewaysssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/1/a121da94d9fd0207bebf552697f5e9f9ceb7272d21c4ed575c37efb5c20247bd.jpeg",
+   "sha1": "1e471abea2531d4f40f5bc7131b26c523a2f10ae",
+   "bytes": 1020611
+  },
+  {
+   "model": "Sidewinder CC",
+   "file": "assets/wheels/american-force/sidewindercc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh12_sidewinder_24-8lug-polished_a1.png",
+   "sha1": "eba7542380c56908064dceae514e2d6c46fee2f9",
+   "bytes": 1020000
+  },
+  {
+   "model": "Sidewinder CCBR",
+   "file": "assets/wheels/american-force/sidewinderccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/5/9/59f0a89a3ce5f975f7210567ef0cc2a956f554575973ae9772dbebe330a6673a.jpeg",
+   "sha1": "a2acd3234f9f2cf1e7c38105593e81b10689c406",
+   "bytes": 1090944
+  },
+  {
+   "model": "Siege SSBR",
+   "file": "assets/wheels/american-force/siegessbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/e/ce555032596f7bb7b30c1c29e87a5db93af815e623136f5eca1dc5e0507ac75a.jpeg",
+   "sha1": "296d30598cf2012c1050744c463630b8cd49a7c0",
+   "bytes": 1022019
+  },
+  {
+   "model": "Spectrum CC",
+   "file": "assets/wheels/american-force/spectrumcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ck04_spectrum_24-8lug-polished_a1.png",
+   "sha1": "7260338316c4b97eb5c7e40e7afcfddbf95e5147",
+   "bytes": 1053012
+  },
+  {
+   "model": "Spirit SS",
+   "file": "assets/wheels/american-force/spiritss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/8/489d49ddc3f3ff70d0a8c6a445afaf9085c79d4958a8b32f63e6b3e04156e40f.jpeg",
+   "sha1": "1a43510ace2a89d83d2ce500a654f00d9f18bb3a",
+   "bytes": 913673
+  },
+  {
+   "model": "Sprint CC",
+   "file": "assets/wheels/american-force/sprintcc.png",
+   "src": "https://www.americanforce.com/media/catalog/producthttps://dl.dropboxusercontent.com/scl/fi/7wknr1mpl8wkt2x51ufb0/CK08_Sprint_24-8Lug-Polished_A1.png?rlkey=u0hwcpwz7cn6d2xid0icf1j4o&dl=0",
+   "sha1": "8384ffa1c668492e1212bb3bf1c0ab3b5ec2f88d",
+   "bytes": 1360894
+  },
+  {
+   "model": "Stealth DC",
+   "file": "assets/wheels/american-force/stealthdc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/c/fcbb18eb3aa364f3e2c8508043bd47622e17ec825a51224d94ab4b7e95e98b80.jpeg",
+   "sha1": "1726ae414549086cf8cde7769d66b7ff0b7ae8cd",
+   "bytes": 382827
+  },
+  {
+   "model": "Stellar CCFP",
+   "file": "assets/wheels/american-force/stellarccfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/1/2/12b02565425be5ceebd401f46d3a57374e1f1643b2c7b55d9107a02f9b07c3a4.jpeg",
+   "sha1": "d9ee4260b348c5ef3ee82e966667737947e0d96b",
+   "bytes": 1089535
+  },
+  {
+   "model": "Stunner CC",
+   "file": "assets/wheels/american-force/stunnercc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh43_stunner_24_8_polished_a1_w-shadow.png",
+   "sha1": "db9d51ea9e7460143fd902a7aab3f2c12754f779",
+   "bytes": 944291
+  },
+  {
+   "model": "Supreme CC",
+   "file": "assets/wheels/american-force/supremecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh45_supreme_24_8_polished_a1.1008_w-shadow.png",
+   "sha1": "5b84ed5d5b0836bb1cbb311cc580525377d01587",
+   "bytes": 900301
+  },
+  {
+   "model": "Swang CC",
+   "file": "assets/wheels/american-force/swangcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/m/american-force-ckh40-swang-polished_a1.png",
+   "sha1": "c51d2bbcf6d5b58c5e73094813e002588945045a",
+   "bytes": 1125578
+  },
+  {
+   "model": "Talon SS",
+   "file": "assets/wheels/american-force/talonss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/f/af-n55-talon-ss-a1_shadow.png",
+   "sha1": "8e2e66512a1ff87b165b538604e89c060b76cb06",
+   "bytes": 1025973
+  },
+  {
+   "model": "Tempest CCBR",
+   "file": "assets/wheels/american-force/tempestccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/0/5/055715531f7ac6d5bc6da60ff2f034d989015c51505d4161ccdef28936c3c449.jpeg",
+   "sha1": "53ec82561b814b9a14a527ce68ef895b4dd71551",
+   "bytes": 997734
+  },
+  {
+   "model": "Terra SS",
+   "file": "assets/wheels/american-force/terrass.png",
+   "src": "https://www.americanforce.com/media/catalog/product/6/e/6ed1fd785430a8849c3850bf4d363451eb4632cae59c6cd489ae81d86d715e51.jpeg",
+   "sha1": "5a79db762e39321abb118e53e9f1efdf50f4bde2",
+   "bytes": 958200
+  },
+  {
+   "model": "Thermo ZL 6",
+   "file": "assets/wheels/american-force/thermozl6.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z103_thermo_24x14_6_polished_a1.3032.png",
+   "sha1": "2f482cc82a14fed9b9843350be456cf16873c6bc",
+   "bytes": 312630
+  },
+  {
+   "model": "Thermo ZL 8",
+   "file": "assets/wheels/american-force/thermozl8.png",
+   "src": "https://www.americanforce.com/media/catalog/product/z/1/z103_thermo_24x14_8_polished_a1.3026.png",
+   "sha1": "e80de54164cef7f87067db7d906d4eb5e18d2785",
+   "bytes": 334439
+  },
+  {
+   "model": "Thor FP",
+   "file": "assets/wheels/american-force/thorfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/5/c502ff5c4d091ffca6bc728c135b17f25171c3d3a08fa9f346410bb0ae2e2930.jpeg",
+   "sha1": "cd2e50854bde0618ae58f1b245e65d5e6dc44b2d",
+   "bytes": 1008856
+  },
+  {
+   "model": "Thriller CCBR",
+   "file": "assets/wheels/american-force/thrillerccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/7/n/7n22-thriller-24-polished-a1-png.png",
+   "sha1": "4d5a1d1feedb6f7417d32e0be2f092306dc31898",
+   "bytes": 971052
+  },
+  {
+   "model": "Thrust CCBR",
+   "file": "assets/wheels/american-force/thrustccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/9/3/9343b74482d8cb09be5e6e21fc26dcf5a114fed2e7930b2126be9b4f4e53d55d.jpeg",
+   "sha1": "437437eb53df321538daa9b56e049a272d908c4a",
+   "bytes": 1037967
+  },
+  {
+   "model": "Torq CC",
+   "file": "assets/wheels/american-force/torqcc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh33_torq_24-8lug-polished_a1.png",
+   "sha1": "14b1299ae176fd947d6598784d6f6378494927c6",
+   "bytes": 923104
+  },
+  {
+   "model": "Torsion CCBR",
+   "file": "assets/wheels/american-force/torsionccbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/d/a/da831673699561a1b49882699495400b4e403db1e45b12989509ab88880370ef.jpeg",
+   "sha1": "b5665603ce34f6692dac7f25b18533ed2f99cdd0",
+   "bytes": 352852
+  },
+  {
+   "model": "Trax SS",
+   "file": "assets/wheels/american-force/traxss.png",
+   "src": "https://www.americanforce.com/media/catalog/product/6/a/6a6736937a3ce6fdfe1c55d8bec6e3d57e13487f84d57321143a63c39a41fae2.jpeg",
+   "sha1": "eebdc956913573a3de04c0363fb0ce8572da3f62",
+   "bytes": 1027531
+  },
+  {
+   "model": "Trek SSBR",
+   "file": "assets/wheels/american-force/trekssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/c/acf2fd35848bb739bd8f6e5378906092f1343a6fa56df2fc86520c0975aeab12.jpeg",
+   "sha1": "00e98608e29bb0a381a42ba5afb769b661a83313",
+   "bytes": 1018859
+  },
+  {
+   "model": "Vader SSBR",
+   "file": "assets/wheels/american-force/vaderssbr.png",
+   "src": "https://www.americanforce.com/media/catalog/product/4/a/4a1d914bc1eff529ae0ba9f773ae8532b3f308e53e66c32c61c2fa3ee41ecb45.jpeg",
+   "sha1": "dfb2ce30df89529a91f4a2cc65f0b6a84cbaf539",
+   "bytes": 1053602
+  },
+  {
+   "model": "Vantage CC",
+   "file": "assets/wheels/american-force/vantagecc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/c/k/ckh30_vantage_24-8lug-polished_a1.png",
+   "sha1": "2336b55864cbedd1463e494d6e9b8b0425f6b2d4",
+   "bytes": 1075084
+  },
+  {
+   "model": "Vector FP",
+   "file": "assets/wheels/american-force/vectorfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/f/4/f4f8e9a0b0487581570934269282cf52148f4c0e70098f686d55993474063fe9.jpeg",
+   "sha1": "73bec08eba6d77c6c63ca7bcce78ccf9aa0925ee",
+   "bytes": 1048079
+  },
+  {
+   "model": "Venom FP",
+   "file": "assets/wheels/american-force/venomfp.png",
+   "src": "https://www.americanforce.com/media/catalog/product/d/b/db1bc45d6bcc9b39cbeb521b1b471a2df2092c701966df30a64b7604a11560ec.jpeg",
+   "sha1": "70cda2fe804a2c9fae90517c3ec3e6c9d689b97a",
+   "bytes": 1096815
+  },
+  {
+   "model": "Veritas DC",
+   "file": "assets/wheels/american-force/veritasdc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/1/3/139e622a2ef8f2b8b97011cd8b2fcbca057370eb1cab0d4e4b0573306677be70.jpeg",
+   "sha1": "66a8952508c5f4f04636537384baebbbe9d21c4d",
+   "bytes": 326228
+  },
+  {
+   "model": "Vibrant DC",
+   "file": "assets/wheels/american-force/vibrantdc.png",
+   "src": "https://www.americanforce.com/media/catalog/product/a/d/adba523ba6f7dc970ad81b8ae112cfb997975dc193a64735dc2b73f26c85530e.jpeg",
+   "sha1": "5f1342070fe4b08909e412dc34d6056ce40c2793",
+   "bytes": 339083
+  }
+ ],
+ "noPageFound": [
+  "AFW11",
+  "AFW76",
+  "AFWB02",
+  "AFWF20",
+  "Aero SF",
+  "Apex SF",
+  "Bama Beadlock",
+  "Bandit SS",
+  "Barstow Beadlock",
+  "Beast SS",
+  "Blaze SF",
+  "Blitz SF",
+  "Blox SS",
+  "Brag CC",
+  "Bravo SF",
+  "Buckshot SS",
+  "Cage SF",
+  "Canyon CC",
+  "Clipper SF",
+  "Code SF",
+  "Conquer SF",
+  "Corona SS",
+  "Crest SF",
+  "Data SS",
+  "Decoy SS",
+  "Diablo SS",
+  "Drive CC",
+  "Dune Beadlock",
+  "Dynamo",
+  "Elite SS",
+  "Envy CC",
+  "Evo Beadlock",
+  "Evo SS",
+  "Factor CC",
+  "Gamma SF",
+  "Gamma SS",
+  "Ghost SS",
+  "Habit SS",
+  "Halo SF",
+  "Heat SS",
+  "Hero SS",
+  "Kappa SS",
+  "Kilo SF",
+  "Knox SF",
+  "Krawl Beadlock",
+  "Law CC",
+  "Level FP",
+  "Lift SF",
+  "Lynx SF",
+  "Nixon SF",
+  "Oath CC",
+  "Patrol SS",
+  "Raid Beadlock",
+  "Range SS",
+  "Rapid SF",
+  "Raptor SS",
+  "Razor SF",
+  "Recon SS",
+  "Rift SF",
+  "Ruckus SF",
+  "Shift SS",
+  "Shiv CC",
+  "Shock FP",
+  "Shrapnel CCBR",
+  "Sideways SS",
+  "Sight SS",
+  "Spade SS",
+  "Static SF",
+  "Sway SF",
+  "Switch SF",
+  "Switch SS",
+  "Syzr FP",
+  "Tempo SS",
+  "Ten-Four SF",
+  "Theory SF",
+  "Torch SF",
+  "Toro SS",
+  "Torrent CC",
+  "Trauma SS",
+  "Tron SF",
+  "Twister SS",
+  "Verdict SS",
+  "Veritas CC",
+  "Vibe SF",
+  "Vision CC",
+  "Warrior SS",
+  "Watt SF",
+  "Whiskey SF",
+  "Wraith CC",
+  "Zero SS",
+  "Zeta SS",
+  "Zeus FP"
+ ],
+ "skipped": [],
+ "failed": []
+}
