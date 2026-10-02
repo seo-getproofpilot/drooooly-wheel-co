@@ -38,6 +38,34 @@ The site is built with what we have rather than blocking on approvals, so **add 
 that file whenever you ship something that isn't cleared.** It is also the record of
 the fact that the site is currently `noindex`/`Disallow` and must be reopened at launch.
 
+## Swapping the hero (monthly — featured customer trucks)
+
+The hero photo is expected to change about once a month. Two things have to
+move with it, and only one of them is obvious.
+
+1. Drop the new photo in `assets/` and point the four `.cine__bg` images at
+   it in `index.html` — three blurred plates plus the sharp `<picture>`.
+   Write a real `alt` on the `<picture>` one; it becomes the share card's
+   alt text.
+2. Run **`node tools/make-og.js`**.
+
+Step 2 is the one that gets forgotten. The link preview in iMessage, Facebook,
+WhatsApp, Slack and LinkedIn does not read the page — it reads `og:image`,
+which points at one flat file, `assets/og-share.jpg`. Change the hero without
+regenerating that file and every link anyone sends keeps showing the previous
+truck. That is exactly what happened when the hero became the C10.
+
+`make-og.js` reads the hero out of `index.html` (so it cannot drift from what
+the page shows), crops to the 1.91:1 the platforms want, writes a 1200x630
+`assets/og-share.jpg`, copies the alt onto the share tags on all eight pages,
+and bumps the site's `?v=` stamp.
+
+**The `?v=` bump is load-bearing.** Every platform caches the preview against
+the image URL, so replacing the bytes at the same URL changes nothing for
+anyone who has already seen it. A new URL is what forces a re-scrape. Facebook
+and LinkedIn also keep their own copies — the script prints the debugger links
+for forcing those.
+
 ## Spec files
 
 | File | Contents |
