@@ -82,7 +82,7 @@
   var BRAND_LOGO = {"amani":"png","american-force":"svg","arkon":"png","axe":"png","black-rhino":"svg",
     "cali":"png","fenix":"jpg","fittipaldi":"png","fuel":"svg","hardcore":"png","hardrock":"png",
     "hostile":"png","jtx":"png","kg1":"png","kmc":"svg","liberty":"png","method":"png",
-    "raceline":"png","tis":"webp","vision":"png","xf":"png","price-designs":"svg"};
+    "raceline":"png","tis":"webp","vision":"png","xf":"png","price-designs":"png"};
   function brandLogo(b) { return "assets/brands/" + b.slug + "." + (BRAND_LOGO[b.slug] || "png"); }
 
   /* "Dually · Polished · 22\u2033\u201330\u2033". Every part read from the catalogue —

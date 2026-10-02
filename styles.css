@@ -5398,3 +5398,23 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   .prod__logo{height:16px}
   .btn-add{min-height:48px}
 }
+
+/* ===== v338 — Price Designs' real mark, at a size you can read =====
+   Their site is JS-rendered, so curl saw no logo and the first pass typeset
+   the name instead — two stacked lines crushed into a 17px slot, which Chris
+   rightly could not read. Rendering their homepage with a headless browser
+   surfaced the actual file: a white PRICE-[PD]-DESIGNS lockup, the same
+   monogram that sits on their centre caps.
+
+   It is drawn white for dark headers, so it inverts here like the other
+   white marks. And it is a wide horizontal lockup — 6.25:1 against logos
+   like KG1 and Fuel that are nearly square — so at a shared 104px cap it
+   would render 16px tall with 10px letterforms. Wide lockups get width. */
+.show2-logo[src*="price-designs"],
+.prod__logo[src*="price-designs"]{filter:brightness(0)}
+.show2-logo[src*="price-designs"]{height:23px;max-width:152px}
+.prod__logo[src*="price-designs"]{height:21px;max-width:140px}
+@media(max-width:640px){
+  .show2-logo[src*="price-designs"]{height:21px;max-width:138px}
+  .prod__logo[src*="price-designs"]{height:19px;max-width:126px}
+}
