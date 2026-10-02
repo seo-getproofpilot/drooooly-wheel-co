@@ -5069,3 +5069,148 @@ html.intro-run .hero-rot{opacity:0;transition:none}
     -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 22%,rgba(0,0,0,.6) 56%,rgba(0,0,0,.2) 80%,transparent 100%);
     mask-image:linear-gradient(180deg,#000 0%,#000 22%,rgba(0,0,0,.6) 56%,rgba(0,0,0,.2) 80%,transparent 100%)}
 }
+
+
+/* ============================================================
+   v324 — the same join, on a phone
+
+   MEASURED why it was worse here than it ever was on the desktop: the
+   phone's photograph is a contained BAND whose overlay opened at .86,
+   not at 1. So the section above faded down to solid #0a0c10 (luminance
+   12.7) and the band's first pixel was .86 of rgb(8,10,14) over bright
+   sky — about 30. A seventeen-level step along the full width of the
+   screen, which is a hard line by any measure. The two blacks did not
+   match either, same as the desktop did not.
+
+   Same three moves as v323, sized for a phone:
+
+   1. The band's overlay opens at 1.0 and eases out of it on a smoothstep,
+      so the photograph emerges from the black rather than starting part
+      way out of it. It still passes through the control points the phone
+      layout already used — 18% at just past a third, 50% at 58%, 92% at
+      82% — so the truck reads exactly where it used to; only the way the
+      curve gets between them changed.
+
+   2. 36 stops on the white side instead of 3, and 170px to 220px. A CSS
+      gradient interpolates linearly between stops, so every stop is a
+      slope discontinuity and three stops is three creases. The section
+      takes 150px more bottom padding to give the longer fade white to
+      travel through; the card then sits at 4.5% into it, where the curve
+      is at .006.
+
+      220px here is not the desktop's 320 because a phone is ~3x density:
+      1.74 levels per CSS pixel is 0.58 per device pixel, which is
+      slightly gentler than what the desktop is already getting away with.
+
+   3. Grain across both sides at the same density where they meet, and a
+      short blur band at the top of the photograph. 14px of blur rather
+      than the desktop's 22 — the band is a third of the height, so the
+      same radius would have smeared a third of the picture.
+   ============================================================ */
+@media(max-width:640px){
+  .social{padding-bottom:calc(clamp(60px,7vw,100px) + 150px)}
+  .social::after{height:220px;
+    background:linear-gradient(180deg,rgba(10,12,16,0.0000) 0.00%,
+      rgba(10,12,16,0.0023) 2.78%,
+      rgba(10,12,16,0.0089) 5.56%,
+      rgba(10,12,16,0.0197) 8.33%,
+      rgba(10,12,16,0.0343) 11.11%,
+      rgba(10,12,16,0.0525) 13.89%,
+      rgba(10,12,16,0.0741) 16.67%,
+      rgba(10,12,16,0.0987) 19.44%,
+      rgba(10,12,16,0.1262) 22.22%,
+      rgba(10,12,16,0.1562) 25.00%,
+      rgba(10,12,16,0.1886) 27.78%,
+      rgba(10,12,16,0.2230) 30.56%,
+      rgba(10,12,16,0.2593) 33.33%,
+      rgba(10,12,16,0.2970) 36.11%,
+      rgba(10,12,16,0.3361) 38.89%,
+      rgba(10,12,16,0.3762) 41.67%,
+      rgba(10,12,16,0.4170) 44.44%,
+      rgba(10,12,16,0.4584) 47.22%,
+      rgba(10,12,16,0.5000) 50.00%,
+      rgba(10,12,16,0.5416) 52.78%,
+      rgba(10,12,16,0.5830) 55.56%,
+      rgba(10,12,16,0.6238) 58.33%,
+      rgba(10,12,16,0.6639) 61.11%,
+      rgba(10,12,16,0.7030) 63.89%,
+      rgba(10,12,16,0.7407) 66.67%,
+      rgba(10,12,16,0.7770) 69.44%,
+      rgba(10,12,16,0.8114) 72.22%,
+      rgba(10,12,16,0.8438) 75.00%,
+      rgba(10,12,16,0.8738) 77.78%,
+      rgba(10,12,16,0.9013) 80.56%,
+      rgba(10,12,16,0.9259) 83.33%,
+      rgba(10,12,16,0.9475) 86.11%,
+      rgba(10,12,16,0.9657) 88.89%,
+      rgba(10,12,16,0.9803) 91.67%,
+      rgba(10,12,16,0.9911) 94.44%,
+      rgba(10,12,16,0.9977) 97.22%,
+      rgba(10,12,16,1.0000) 100.00%)}
+  .social::before{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;
+    z-index:3;pointer-events:none;opacity:.035;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.3) 32%,rgba(0,0,0,.78) 66%,#000 90%,#000 100%);
+    mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.3) 32%,rgba(0,0,0,.78) 66%,#000 90%,#000 100%)}
+
+  .cta--photo .cta__bg::after{z-index:2;
+    background:linear-gradient(180deg,rgba(10,12,16,1.0000) 0.00%,
+      rgba(10,12,16,1.0000) 0.75%,
+      rgba(10,12,16,1.0000) 1.50%,
+      rgba(10,12,16,1.0000) 2.25%,
+      rgba(10,12,16,1.0000) 3.00%,
+      rgba(10,12,16,0.9896) 5.33%,
+      rgba(10,12,16,0.9602) 7.67%,
+      rgba(10,12,16,0.9147) 10.00%,
+      rgba(10,12,16,0.8562) 12.33%,
+      rgba(10,12,16,0.7874) 14.67%,
+      rgba(10,12,16,0.7114) 17.00%,
+      rgba(10,12,16,0.6309) 19.33%,
+      rgba(10,12,16,0.5491) 21.67%,
+      rgba(10,12,16,0.4686) 24.00%,
+      rgba(10,12,16,0.3926) 26.33%,
+      rgba(10,12,16,0.3238) 28.67%,
+      rgba(10,12,16,0.2653) 31.00%,
+      rgba(10,12,16,0.2198) 33.33%,
+      rgba(10,12,16,0.1904) 35.67%,
+      rgba(10,12,16,0.1800) 38.00%,
+      rgba(10,12,16,0.1910) 40.22%,
+      rgba(10,12,16,0.2204) 42.44%,
+      rgba(10,12,16,0.2630) 44.67%,
+      rgba(10,12,16,0.3134) 46.89%,
+      rgba(10,12,16,0.3666) 49.11%,
+      rgba(10,12,16,0.4170) 51.33%,
+      rgba(10,12,16,0.4596) 53.56%,
+      rgba(10,12,16,0.4890) 55.78%,
+      rgba(10,12,16,0.5000) 58.00%,
+      rgba(10,12,16,0.5118) 60.40%,
+      rgba(10,12,16,0.5437) 62.80%,
+      rgba(10,12,16,0.5907) 65.20%,
+      rgba(10,12,16,0.6478) 67.60%,
+      rgba(10,12,16,0.7100) 70.00%,
+      rgba(10,12,16,0.7722) 72.40%,
+      rgba(10,12,16,0.8293) 74.80%,
+      rgba(10,12,16,0.8763) 77.20%,
+      rgba(10,12,16,0.9082) 79.60%,
+      rgba(10,12,16,0.9200) 82.00%,
+      rgba(10,12,16,0.9234) 84.25%,
+      rgba(10,12,16,0.9325) 86.50%,
+      rgba(10,12,16,0.9453) 88.75%,
+      rgba(10,12,16,0.9600) 91.00%,
+      rgba(10,12,16,0.9747) 93.25%,
+      rgba(10,12,16,0.9875) 95.50%,
+      rgba(10,12,16,0.9966) 97.75%,
+      rgba(10,12,16,1.0000) 100.00%)}
+
+  /* both sized in vw so they track the band, which is aspect-ratio'd */
+  .cta--photo .cta__bg::before{content:"";position:absolute;left:0;right:0;top:0;height:34vw;
+    z-index:1;pointer-events:none;
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.9) 36%,rgba(0,0,0,.5) 66%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.9) 36%,rgba(0,0,0,.5) 66%,transparent 100%)}
+  .cta--photo::before{content:"";position:absolute;left:0;right:0;top:0;height:46vw;
+    z-index:1;pointer-events:none;opacity:.035;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 24%,rgba(0,0,0,.55) 60%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,#000 24%,rgba(0,0,0,.55) 60%,transparent 100%)}
+}
