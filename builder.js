@@ -55,6 +55,11 @@
   var root = document.getElementById("builderPage");
   if (!root || !window.BUILDERS || !window.BuilderLogic) return;
 
+  /* The page field is painted on <body>, not on this element: .vizpage is the
+     <main> and is capped at --max, so a texture set here would render as a
+     1280px column of pattern with bare white either side of it. */
+  document.body.classList.add("builder-page");
+
   var q = new URLSearchParams(location.search);
   var SPEC = window.BUILDERS[q.get("b")];
 

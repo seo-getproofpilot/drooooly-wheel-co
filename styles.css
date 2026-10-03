@@ -5844,3 +5844,255 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   /* 44px of thumb on every word chip, and never two cramped on one line. */
   .vizpanel .vchips:not(.vchips--sw) .vchip{min-height:46px;flex:1 1 auto}
 }
+
+/* ============================================================
+   v354 — the builder gets the DROOOLY surface
+
+   Chris: "really give it the Droooly Wheel and Tire flavor... the buttons have
+   that machined billet-style button that we've created for the site, which is
+   great. The rest of it, like the bordering, etc., really needs more color
+   here. Maybe a background photo or a background texture... Everything
+   underneath [the price] that talks about the style wheel, what truck it goes
+   on, what else is on the wheel as far as add-ons — this all looks good, but it
+   needs more of our special styling."
+
+   So: the chips stay exactly as they are, and everything they sit ON changes.
+
+   ONE MATERIAL, REUSED. The dark surfaces here are the same recipe as the
+   callout strip above (v349) — fractal-noise sandblast at .85 over a cool
+   near-black ramp, blended `overlay`, with a 2px lit lip along the top edge and
+   a shadow under it. That surface was worked out against Chris's own note that
+   brushed lines and a centre fade made copy hard to read, so it carries the
+   fix with it: no lines, no gradient through the middle, the machined read
+   comes from the lip at the boundary where no text sits. Changing it here means
+   changing it there too.
+
+   NOT A BACKGROUND PHOTOGRAPH, deliberately. A wheel shot behind a form this
+   long either tiles, stretches, or scrolls out from under the content — and
+   worse, it would sit behind forty-six paint swatches whose whole job is to
+   show a colour truthfully. The page gets a machined field and a cool bloom
+   instead, and the photography stays where it reads: in the stage.
+   ============================================================ */
+
+/* The sandblast tile, declared once. Same frequency and octaves as .trust. */
+:root{
+  --grit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  --machined:linear-gradient(180deg,#1b1f24 0%,#171a1f 34%,#141719 72%,#0e1013 100%);
+}
+
+/* ---- 1. the field the plates sit on --------------------------------- */
+body.builder-page{
+  background:
+    var(--grit),
+    radial-gradient(1100px 460px at 50% -40px, rgba(31,123,255,.13), transparent 72%),
+    linear-gradient(180deg,#f2f4f7 0%,#e9edf1 46%,#f2f4f7 100%);
+  background-blend-mode:soft-light,normal,normal;
+  background-attachment:scroll;
+}
+
+/* ---- 2. the header plate -------------------------------------------- */
+/* Billet, because this is the one block on the page that is pure identity.
+   It is a plate rather than a full-bleed band: .vizpage is the <main> and is
+   width-capped, so a 100vw bleed would need a transform that fights the
+   scrollbar. */
+.vizpage .vizhead{position:relative;overflow:hidden;margin-bottom:26px;
+  padding:26px 26px 24px;
+  background:var(--grit),var(--machined);
+  background-blend-mode:overlay,normal;
+  clip-path:var(--clip-billet)}
+.vizpage .vizhead::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.04));
+  box-shadow:0 1px 0 rgba(0,0,0,.45)}
+/* A cool rake across the top-left corner, so the plate reads as metal under a
+   light rather than as a black rectangle. */
+.vizpage .vizhead::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(520px 230px at 8% -30%,rgba(120,170,255,.16),transparent 68%)}
+.vizpage .vizhead > *{position:relative;z-index:1}
+.vizpage .vizhead h1{background:var(--fill-chrome);-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.vizpage .vizhead .kicker{color:#8e96a1}
+.vizpage .vizhead .kicker b{color:var(--blue)}
+.vizpage .vizhead__lead{color:#c3c9d1}
+.vizpage .vizhead__note{color:#9aa2ac;border-left:2px solid var(--blue);padding-left:11px}
+.vizpage .vizhead__back a{color:#9fc4ff}
+.vizpage .vizhead__back a:hover{color:#fff}
+
+/* ---- 3. the two plates ---------------------------------------------- */
+.vizgrid--build .vizpanel,.vizgrid--build .vizstage{
+  clip-path:var(--clip-billet);
+  border:0;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 10px 30px rgba(14,22,34,.10);
+  background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%)}
+.vizgrid--build .vizpanel{padding:20px}
+
+/* ---- 4. the field rail ---------------------------------------------- */
+/* The label row was grey caps on white and the answer beside it in bold. It is
+   the line you scan to find what you picked, so it becomes the machined rail:
+   the question in the DROOOLY face on the left, the answer in white on the
+   right. Twenty of these down the column read as a spec sheet, which is what
+   this is. */
+.vizpanel .vfld > label{
+  background:var(--grit),var(--machined);
+  background-blend-mode:overlay,normal;
+  padding:9px 13px;margin-bottom:11px;position:relative;
+  clip-path:var(--clip-billet-sm);
+  font-family:var(--display);font-size:9.5px;letter-spacing:.09em;color:#949ba5}
+.vizpanel .vfld > label::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.03))}
+.vizpanel .vfld > label b{color:#fff;font-size:12.5px}
+/* Unanswered says so in the site's own amber rather than a bare dash. */
+.vizpanel .vfld--hero > label b{color:#ffc46b}
+/* The price block is NOT a field — it has no <label> — so it keeps the light
+   receipt treatment Chris said already works. */
+
+/* ---- 5. the spec plate ---------------------------------------------- */
+/* Ten separate white cards, one per answer, was the part Chris called out.
+   One machined plate with hairline-separated rows instead: it reads as the
+   build sheet that travels with the order, and it is half the height. */
+.vizgrid--build .vreadout{display:block;margin-top:14px;overflow:hidden;
+  background:var(--grit),var(--machined);
+  background-blend-mode:overlay,normal;
+  clip-path:var(--clip-billet);position:relative}
+.vizgrid--build .vreadout::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.04));
+  box-shadow:0 1px 0 rgba(0,0,0,.45)}
+.vizgrid--build .vstat{background:none;border:0;padding:9px 14px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.vizgrid--build .vstat:last-child{border-bottom:0}
+.vizgrid--build .vstat span{margin:0;font-family:var(--display);font-size:8.5px;
+  letter-spacing:.08em;color:#848b95;flex:1 1 auto;min-width:0}
+.vizgrid--build .vstat b{font-family:var(--body);font-size:12.5px;color:#f2f5f8;
+  font-weight:600;text-align:right;flex:0 1 auto}
+/* An unanswered row recedes rather than shouting a dash at the same weight as
+   a real answer. */
+.vizgrid--build .vstat b:only-child,.vizgrid--build .vstat b{opacity:1}
+
+/* ---- 6. the stage --------------------------------------------------- */
+.vizgrid--build .wstage{border:0;clip-path:var(--clip-billet-sm);
+  background:
+    radial-gradient(120% 90% at 50% 8%,#ffffff 0%,#f4f6f9 55%,#e7ebf0 100%)}
+.vizgrid--build .bprice{border:1px solid var(--line);background:#fff;padding:13px 14px;
+  clip-path:var(--clip-billet-sm);margin-top:13px!important}
+
+/* ---- 7. the picker cards -------------------------------------------- */
+.bpick__c{clip-path:var(--clip-billet);border:0;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 22px rgba(14,22,34,.10)}
+.bpick__c:hover{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 16px 34px rgba(14,22,34,.18)}
+.bpick__b{background:var(--grit),var(--machined);background-blend-mode:overlay,normal;
+  position:relative;padding:15px 16px 16px}
+.bpick__b::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.03))}
+.bpick__p{color:#848b95}
+.bpick__b b{color:#fff}
+.bpick__m{color:#aab1bb}
+.bpick__go{color:#9fc4ff}
+.bpick__c:hover .bpick__go{color:#fff}
+
+/* ---- 8. phones ------------------------------------------------------- */
+@media(max-width:819px){
+  .vizpage .vizhead{padding:20px 18px 18px;margin-bottom:20px}
+  .vizgrid--build .vizpanel{padding:16px}
+  .vizpanel .vfld > label{padding:8px 11px}
+  .vizgrid--build .vstat{padding:9px 12px}
+}
+
+/* ============================================================
+   v355 — the fitment selects stop looking broken
+
+   Chris: "when you look at the far-right side, all the boxes look like they're
+   close to being cut off on the edges of them. Let's extend them out a little
+   bit so that it doesn't look like the arrow or the box is broken."
+
+   Two causes, and the second is the one that actually reads as broken.
+
+   1. NOT ENOUGH ROOM FOR THE LONGEST ANSWER. The row is three equal columns,
+      but the three answers are nothing like equal: "2020" against "Ford"
+      against "F-250 Super Duty". At the centre column's 560px ceiling each
+      select got ~164px, and the model needs ~170px before it starts
+      colliding with its own arrow. The columns are weighted now — the model
+      gets the room, the year gives it up — and the text ellipsises rather than
+      running under the arrow if a longer model ever turns up.
+
+   2. THE NATIVE ARROW. Every browser draws its own, at its own size, hard
+      against the right edge, and on Windows Chrome it sits inside a lighter
+      inset button that genuinely looks like a seam in the box. With 12px of
+      padding the text ran into it. So the native control is switched off and
+      the chevron is ours: same mark everywhere, 14px clear of the edge, with
+      the text stopped well short of it.
+
+   Applied to every select on the site rather than just the finder, because the
+   contact form and the builder's own fields have the identical control and
+   would otherwise be the only ones still drawing a stock arrow.
+   ============================================================ */
+/* EVERY compound that sets `background` as a SHORTHAND on these controls has
+   to be named here, not just the bare element. `.fitbar .vehmod select` and
+   `.cta .fit-form select` both do, at three classes, and a shorthand sets
+   background-image:none — so a `.vehmod select` rule lost, appearance:none
+   still took the native arrow away, and the finder rendered three plain boxes
+   with no dropdown affordance at all. Worse than the problem. */
+.vehmod select,.fitbar .vehmod select,
+.fit-form select,.cta .fit-form select,
+.vfld select{
+  -webkit-appearance:none;-moz-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.6 6 6.4 11 1.6' fill='none' stroke='%235b6069' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:12px 8px;
+  padding-right:38px;
+  text-overflow:ellipsis;
+  white-space:nowrap}
+/* Firefox keeps a focus ring inside the control that the custom arrow sits
+   under; this is the documented way to drop it. */
+.vehmod select:-moz-focusring,.fitbar .vehmod select:-moz-focusring,
+.fit-form select:-moz-focusring,.cta .fit-form select:-moz-focusring,
+.vfld select:-moz-focusring{
+  color:transparent;text-shadow:0 0 0 currentColor}
+.vehmod select:focus,.fitbar .vehmod select:focus,
+.fit-form select:focus,.cta .fit-form select:focus,
+.vfld select:focus{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.6 6 6.4 11 1.6' fill='none' stroke='%231f7bff' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+/* ---- 3. and the reason it was tight in the first place --------------
+   The band's three columns (v186) are `minmax(250px,330px) minmax(0,1fr)
+   minmax(250px,330px)` with a 4vw gap. That reads as "the finder takes
+   whatever is left", and on a wide monitor it does. Between 1140 and ~1400 it
+   does the opposite: the two product panels take their full 330 each, two 47px
+   gutters take another 94, and the finder is left with ~354px — NARROWER than
+   it gets at 1139px, where it spans the whole band. Three selects in 354px is
+   67px of text for "F-350 Super Duty DRW", which needs 155.
+
+   So the finder gets a floor and the panels yield to it. They are capped at
+   264px of crisp image anyway, so 290-odd costs them nothing; the gap comes
+   down a little too, since at this width it was pure gutter. */
+/* The three-up needs 600px in the middle before it is worth having: three
+   selects, 20px of gaps and 48px of card padding, with the model wide enough
+   for "F-350 Super Duty DRW" (155px of Inter at 14px) on one line. Below that
+   the stacked band gives the finder the full width and a 660px card, which is
+   roomier than any three-up can manage — the same argument the original
+   breakpoint made about the flanking panels, now applied to the finder, which
+   is the part that was being starved.
+
+   So the flanks yield first (they cap at 264px of crisp image anyway, so the
+   low floor costs them nothing), and the three-up waits until 1280. */
+@media(max-width:1279.98px){
+  .fitbar__inner{width:min(100% - 44px,var(--max));
+    grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px)}
+  .fitcore{grid-column:1/-1;order:-1}
+}
+@media(min-width:1280px){
+  .fitbar__inner{grid-template-columns:minmax(170px,330px) minmax(600px,1fr) minmax(170px,330px);
+    gap:clamp(24px,3vw,56px)}
+}
+
+/* Weighted, not equal. See cause 1 above. minmax(0,…) on every track so a long
+   option can never push the grid wider than its container — without it the
+   track floors at max-content and the card itself overflows. */
+.vehmod__row{grid-template-columns:minmax(0,.82fr) minmax(0,1fr) minmax(0,1.32fr)}
+.vehmod select{padding-left:14px}
+@media(max-width:620px){
+  /* Matches the existing stack breakpoint rather than introducing a second
+     one — between 620 and 1140 the finder spans the full width of the band,
+     so three across has plenty of room there. */
+  .vehmod__row{grid-template-columns:minmax(0,1fr)}
+}
