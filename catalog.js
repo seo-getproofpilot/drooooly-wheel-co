@@ -656,6 +656,21 @@
      doesn't. */
   function renderWheelsMenu(el) {
     el.innerHTML = BRANDS.map(function (b) {
+      /* NO FLYOUT FOR A BUILD-TO-ORDER BRAND. I briefly put the seven machines
+         in the dropdown here; Chris: "I don't want it built so that when you
+         hover over Price Designs, it gives you the option... The next page
+         should be the menu page. It shouldn't do it on the dropdown bar."
+
+         He is right, and not only as a preference: the machine tiles are
+         photographs, and a photograph is the entire reason that screen works.
+         A hover flyout can only carry a list of words, which is the version
+         that does NOT answer "what are you building for" at a glance. So the
+         brand name is a plain link and the page behind it does the job. */
+      if (allBuildable(b)) {
+        return '<div class="mega__b">' +
+          '<a href="brand.html?brand=' + b.slug + '">' + esc(b.name) + "</a></div>";
+      }
+
       var ser = seriesFor(b);
       var top = '<a href="brand.html?brand=' + b.slug + '">' + esc(b.name) +
         (ser.length ? ' <i class="mega__car" aria-hidden="true">›</i>' : "") + "</a>";
