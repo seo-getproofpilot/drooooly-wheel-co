@@ -64,7 +64,6 @@
       "label": "Front wheel size",
       "type": "chips",
       "required": true,
-      "z": 0,
       "options": [
         {
           "v": "17x7 (3+4) 3.5\" backspacing (fits most sand cars)"
@@ -91,7 +90,6 @@
       "label": "Rear wheel size",
       "type": "chips",
       "required": false,
-      "z": 1,
       "options": [
         {
           "v": "17x10 (2+8) 2.5\" backspacing (fits most sand cars)"
@@ -115,7 +113,7 @@
       "label": "Model",
       "type": "chips",
       "required": true,
-      "z": 2,
+      "z": 1,
       "options": [
         {
           "v": "Turbine",
@@ -139,7 +137,7 @@
       "label": "Face finish",
       "type": "chips",
       "required": true,
-      "z": 3,
+      "z": 2,
       "hideWhen": [
         {
           "step": "model",
@@ -434,7 +432,7 @@
       "label": "Post-cut face?",
       "type": "chips",
       "required": true,
-      "z": 4,
+      "z": 2.5,
       "hideWhen": [
         {
           "step": "model",
@@ -466,7 +464,7 @@
       "label": "Face finish",
       "type": "chips",
       "required": false,
-      "z": 5,
+      "z": 2,
       "hideWhen": [
         {
           "step": "model",
@@ -761,7 +759,7 @@
       "label": "Post-cut face?",
       "type": "chips",
       "required": false,
-      "z": 6,
+      "z": 2.5,
       "hideWhen": [
         {
           "step": "model",
@@ -793,7 +791,7 @@
       "label": "Face finish",
       "type": "chips",
       "required": false,
-      "z": 7,
+      "z": 2,
       "hideWhen": [
         {
           "step": "model",
@@ -1088,7 +1086,7 @@
       "label": "Barrel finish",
       "type": "chips",
       "required": false,
-      "z": 8,
+      "z": 0,
       "options": [
         {
           "v": "Polished",
@@ -1373,7 +1371,7 @@
       "label": "Beadlock ring style",
       "type": "chips",
       "required": true,
-      "z": 9,
+      "z": 11,
       "options": [
         {
           "v": "Standard",
@@ -1399,7 +1397,7 @@
       "label": "Beadlock ring finish",
       "type": "chips",
       "required": false,
-      "z": 10,
+      "z": 12,
       "hideWhen": [
         {
           "step": "beadlock-ring-style",
@@ -1695,7 +1693,7 @@
       "label": "Sawblade beadlock ring finish",
       "type": "chips",
       "required": false,
-      "z": 11,
+      "z": 12,
       "hideWhen": [
         {
           "step": "beadlock-ring-style",
@@ -2285,7 +2283,7 @@
       "label": "Post-cut standard ring?",
       "type": "chips",
       "required": true,
-      "z": 13,
+      "z": 15,
       "hideWhen": [
         {
           "step": "beadlock-ring-style",
@@ -2317,7 +2315,7 @@
       "label": "Post-cut sawblade ring?",
       "type": "chips",
       "required": true,
-      "z": 14,
+      "z": 15.5,
       "hideWhen": [
         {
           "step": "beadlock-ring-style",
@@ -2349,7 +2347,7 @@
       "label": "Post-cut halo ring?",
       "type": "chips",
       "required": false,
-      "z": 15,
+      "z": 15.5,
       "hideWhen": [
         {
           "step": "beadlock-ring-style",
@@ -2381,7 +2379,7 @@
       "label": "Face hardware finish",
       "type": "chips",
       "required": true,
-      "z": 16,
+      "z": 6,
       "hideWhen": [
         {
           "step": "model",
@@ -2463,7 +2461,7 @@
       "label": "Face hardware finish",
       "type": "chips",
       "required": true,
-      "z": 17,
+      "z": 6,
       "hideWhen": [
         {
           "step": "model",
@@ -2541,7 +2539,7 @@
       "label": "Beadlock ring hardware finish",
       "type": "chips",
       "required": true,
-      "z": 18,
+      "z": 16,
       "options": [
         {
           "v": "Black",
@@ -2612,7 +2610,6 @@
       "label": "Notes:",
       "type": "text",
       "required": false,
-      "z": 19,
       "placeholder": "Lift, tyre size, offset you’re after, a deadline — anything that changes the build."
     }
   ]

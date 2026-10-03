@@ -6257,3 +6257,20 @@ body.builder-page{
    the stage and the price, where it explains the picture above it. */
 .bnorender{margin:10px 0 0!important;padding:9px 11px;
   background:rgba(255,196,107,.12);border-left:2px solid #ffc46b}
+
+/* ============================================================
+   v364 — the two controls on a phone that were too small to hit
+
+   Found by measuring every control in the builder at 375px rather than by
+   looking: "Show all 46 finishes" was 24px tall and the back link 15px. The
+   first is the control that opens a forty-six tile grid — the single most
+   consequential tap on the page after the chips themselves — and the second is
+   the only way back to the chooser.
+   ============================================================ */
+@media(max-width:819px){
+  .vmore{min-height:44px;display:inline-flex;align-items:center;
+    padding:0 2px;margin-top:4px}
+  /* A text link needs the room around it, not a bigger font — the type scale
+     is right, the target was not. */
+  .vizhead__back a{display:inline-block;padding:11px 2px;margin:-11px 0}
+}

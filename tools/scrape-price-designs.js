@@ -280,7 +280,77 @@ function decode(meta, cfg) {
   const optLabel = {};
   cats.forEach(c => (c.options || []).forEach(o => { optLabel[o.id] = label(o); }));
 
-  const extras = { offBucket: [], dupTitles: {}, stringPrices: 0 };
+  const extras = { offBucket: [], dupTitles: {}, stringPrices: 0, guessedOrder: [], noOrder: [] };
+
+  /* ---- WHICH LAYER GOES ON TOP ------------------------------------------
+     NOT `category.zIndex`. That is the order the categories are LISTED in his
+     admin, and using it painted the barrel over the face: on the Pro R the
+     barrel is zIndex 13 but belongs at the very bottom of the stack. Every UTV
+     rendered with a black crescent eating the left of the wheel because of it.
+     The truck escaped only because its two orderings happen to agree.
+
+     The real order is `layerOrder.front`, which lives on the records in
+     data.layers — one per category that had a layer selected when he last
+     saved. That covers nine or ten of the categories; the rest are VARIANTS of
+     those (four FACE FINISH steps, one per model; SAWBLADE / HALO / CHOPPED
+     RING FINISH beside STANDARD RING FINISH) and a variant paints exactly where
+     the thing it is a variant of paints — it is the same part of the wheel.
+
+     So an unknown category inherits from the known one it shares the longest
+     run of trailing words with: "SAWBLADE BEADLOCK RING FINISH" takes the order
+     of "BEADLOCK RING FINISH", "TURBINE WHEEL FINISH" that of "WHEEL FINISH".
+     Anything that matches nothing is reported rather than guessed at. */
+  const KNOWN = {};
+  (d.layers || []).forEach(L => {
+    const f = (L.layerOrder || {}).front;
+    if (typeof f === 'number') KNOWN[L.category] = f;
+  });
+  /* Titles carry noise that defeats a plain comparison: a trailing "?", a
+     disambiguating "(15)" or "(2O)", stray double spaces. */
+  const words = t => String(t || '').toUpperCase()
+    .replace(/\([^)]*\)/g, ' ').replace(/[?]/g, ' ')
+    .trim().replace(/\s+/g, ' ').split(' ').filter(Boolean);
+  const knownCats = cats.filter(c => KNOWN[c.id] !== undefined);
+
+  function nearest(mine) {
+    let best = null, bestScore = 0;
+    knownCats.forEach(k => {
+      const his = words(k.title);
+      let run = 0;                                   // shared trailing words
+      while (run < mine.length && run < his.length &&
+             mine[mine.length - 1 - run] === his[his.length - 1 - run]) run++;
+      const shared = mine.filter(w => his.indexOf(w) > -1).length;
+      const score = run * 10 + shared;               // a suffix match beats a loose one
+      if (score > bestScore) { bestScore = score; best = k; }
+    });
+    return bestScore >= 1 ? best : null;
+  }
+
+  function paintOrder(c) {
+    if (KNOWN[c.id] !== undefined) return KNOWN[c.id];
+    const mine = words(c.title);
+
+    /* A POST-CUT step cuts back through the finish on a part that is already
+       in the stack, so its layer sits DIRECTLY above that part — "POST-CUT
+       SAWBLADE RING?" just over the sawblade ring. Half a step up keeps it
+       there without disturbing anything else; z is only ever sorted. */
+    if (mine[0] === 'POST-CUT') {
+      const base = nearest(mine.slice(1));
+      if (base) {
+        extras.guessedOrder.push(`${c.title} ← just above ${base.title} (${KNOWN[base.id]})`);
+        return KNOWN[base.id] + 0.5;
+      }
+    }
+
+    const best = nearest(mine);
+    if (best) {
+      extras.guessedOrder.push(`${c.title} ← ${best.title} (${KNOWN[best.id]})`);
+      return KNOWN[best.id];
+    }
+    const hasArt = (c.options || []).some(o => layer(o));
+    if (hasArt) extras.noOrder.push(c.title);
+    return undefined;
+  }
 
   const steps = cats.map(c => {
     const isText = c.type === 'input';
@@ -336,7 +406,8 @@ function decode(meta, cfg) {
       type: isText ? 'text' : 'chips',
       required: !!c.required
     };
-    if (typeof c.zIndex === 'number') st.z = c.zIndex;
+    const z = paintOrder(c);
+    if (typeof z === 'number') st.z = z;
     if (hideWhen.length) st.hideWhen = hideWhen;
     if (isText) {
       st.placeholder = 'Lift, tyre size, offset you’re after, a deadline — anything that changes the build.';
@@ -509,6 +580,8 @@ BUILDERS.filter(b => !ONLY || b.handle === ONLY).forEach(meta => {
     stringPricesCoerced: dec.extras.stringPrices,
     danglingRules: (dec.extras.dangling || []).length,
     noRender: dec.extras.noRender || [],
+    paintOrderInherited: (dec.extras.guessedOrder || []).length,
+    paintOrderUnknown: dec.extras.noOrder || [],
     offBucketImages: dec.extras.offBucket
   });
 

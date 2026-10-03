@@ -27,6 +27,8 @@
    "stringPricesCoerced": 61,
    "danglingRules": 1,
    "noRender": [],
+   "paintOrderInherited": 22,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   },
   {
@@ -49,6 +51,8 @@
    "noRender": [
     "face-finish-5 / Can-am yellow"
    ],
+   "paintOrderInherited": 15,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   },
   {
@@ -70,6 +74,8 @@
    "stringPricesCoerced": 16,
    "danglingRules": 0,
    "noRender": [],
+   "paintOrderInherited": 14,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   },
   {
@@ -93,6 +99,8 @@
    "stringPricesCoerced": 14,
    "danglingRules": 2,
    "noRender": [],
+   "paintOrderInherited": 10,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   },
   {
@@ -112,6 +120,8 @@
    "stringPricesCoerced": 12,
    "danglingRules": 3,
    "noRender": [],
+   "paintOrderInherited": 4,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   },
   {
@@ -134,6 +144,8 @@
    "noRender": [
     "face-finish-5 / Can-am yellow"
    ],
+   "paintOrderInherited": 15,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   },
   {
@@ -155,6 +167,8 @@
    "stringPricesCoerced": 13,
    "danglingRules": 2,
    "noRender": [],
+   "paintOrderInherited": 9,
+   "paintOrderUnknown": [],
    "offBucketImages": []
   }
  ],
