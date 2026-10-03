@@ -88,20 +88,27 @@ function finishesOf(spec) {
 const q = s => JSON.stringify(String(s));
 const arr = a => '[' + a.map(q).join(',') + ']';
 
-const shared = {};
-specs.forEach(s => { shared[s.image] = (shared[s.image] || 0) + 1; });
-
 const models = specs.map(s => {
   const sizes = sizesOf(s);
   const fin = finishesOf(s);
   /* The card shows the PRODUCT name — "Pro R & Turbo R beadlock" — while the
      platform is what the builder page kickers with. Using the platform here
      would put "Lifted truck" on a shop card. */
-  /* A real photograph beats a composite, but only where we have one of its
-     own — four of these platforms were sharing a single stock UTV shot, which
-     is the clone the card images exist to break. So: the spec's photo when no
-     other builder is using it, the composite otherwise. */
-  const img = (shared[s.image] === 1) ? s.image : s.card;
+  /* ALWAYS THE COMPOSITE, never the photograph. The earlier rule here was "a
+     real photo beats a composite where we have one of its own", which sounds
+     right and produced a grid of seven cards where five were clean renders on
+     a light ground, one was a dark Instagram close-up of a truck wheel, and
+     one was a desert shot of a blue X3 with no wheel visible at all. Chris:
+     "some of the wheels are incomplete, they're chopped up, the pictures are
+     messed up on them."
+
+     They were not broken — they were three different kinds of picture in one
+     grid, which is the same thing from the customer's side. A product grid is
+     a comparison: consistent framing, consistent ground, consistent scale, so
+     the only thing that varies is the wheel. The photographs still earn their
+     place where a single image carries a mood — the homepage showcase and the
+     builder's own stage — just not here. */
+  const img = s.card;
   let line = `      { model: ${q(s.title)}, configs: ${arr(CONFIG[s.lane] || ['utv'])}, ` +
              `sizes: ${arr(sizes)}, finishes: ${arr(fin)}` +
              `, img: ${q(img)}`;

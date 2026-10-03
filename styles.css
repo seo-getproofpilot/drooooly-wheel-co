@@ -6236,3 +6236,25 @@ body.builder-page{
   /* The lit lip runs along the top of the plate; on a side-by-side layout the
      plate's top edge is the card's top edge, so it reads the same. */
 }
+
+/* ============================================================
+   v362 — the focus ring on a product card
+
+   Chris: "they have an ugly light blue border around them."
+
+   There was no focus rule on .wheel at all, so what he saw was Chrome's own
+   default ring, drawn hard against the card edge where it reads as a border
+   rather than as focus — and it reappears on every back-navigation, because
+   the browser restores focus to the link you left from.
+
+   Removing it is not an option: a keyboard user has to be able to see where
+   they are in a grid of seven. So it gets the site's own treatment instead,
+   offset clear of the card so it reads as a ring around the card rather than
+   a line drawn on it. :focus-visible means a mouse click never shows it.
+   ============================================================ */
+.wheel:focus-visible,.pkg:focus-visible,.bpick__c:focus-visible{
+  outline:2px solid var(--blue);outline-offset:3px;border-radius:inherit}
+/* Belt and braces for the older engines that still fire :focus on a click. */
+.wheel:focus:not(:focus-visible),
+.pkg:focus:not(:focus-visible),
+.bpick__c:focus:not(:focus-visible){outline:none}

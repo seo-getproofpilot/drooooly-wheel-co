@@ -817,6 +817,15 @@
       '<p class="wheel__avail">' +
         (series === "dually" ? "Front &amp; rear · 6-wheel set"
          : series === "single" ? "Single rear wheel"
+         /* On a build-to-order card "Available in single" is both true and
+            useless — every one of them is available in everything, because
+            nothing is made until it is ordered. The pattern is the fact that
+            decides whether it fits your machine, so that is the line. The
+            truck carries none because it is cut to order in five of them. */
+         : m.builder
+           ? (m.bolts && m.bolts.length
+                ? "Drilled " + esc(m.bolts.join(" · "))
+                : "Cut to your bolt pattern")
          : availText(m)) + '</p>' +
       (m.builder
         ? '<span class="wheel__quote wheel__quote--build">Build yours \u2192</span>'
