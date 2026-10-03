@@ -3,6 +3,7 @@
   "brand": "price-designs",
   "brandName": "Price Designs",
   "platform": "Sand car & buggy",
+  "short": "Buggy · Sand car",
   "lane": "sand",
   "rank": 6,
   "title": "Sand car beadlock",
@@ -12,6 +13,7 @@
   "bolt": "5x205",
   "image": "assets/wheels/price-designs/utv-beadlock.png",
   "card": "assets/wheels/price-designs/pd-sand-car-card.jpg",
+  "photo": "assets/platforms/pd-sand-car.jpg",
   "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
   "stage": {
     "w": 1000,

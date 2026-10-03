@@ -5704,26 +5704,6 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 
 /* 4. THE PLATFORM PICKER at build.html with no ?b=. His site asks which
       machine before it asks anything else; so does ours. */
-.bpick{display:grid;gap:14px;margin-top:22px;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.bpick__c{display:flex;flex-direction:column;background:var(--panel);
-  border:1px solid var(--line);text-decoration:none;color:inherit;
-  transition:border-color .2s,transform .2s,box-shadow .2s}
-.bpick__c:hover{border-color:var(--blue-2);transform:translateY(-2px);
-  box-shadow:0 14px 30px rgba(12,18,28,.1)}
-.bpick__img{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--bg-2)}
-.bpick__img img{width:100%;height:100%;object-fit:cover;display:block}
-.bpick__b{display:flex;flex-direction:column;gap:3px;padding:14px 15px 15px}
-.bpick__p{font-family:var(--label);font-size:9.5px;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--soft)}
-.bpick__b b{font-family:var(--display);font-style:italic;font-size:17px;color:var(--text);
-  line-height:1.2}
-.bpick__m{font-size:12px;color:var(--muted);margin-top:2px}
-.bpick__go{font-family:var(--label);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--blue-2);margin-top:9px}
-.bpick__go i{font-style:normal;display:inline-block;transition:transform .2s}
-.bpick__c:hover .bpick__go i{transform:translateX(4px)}
-.bpick__note{margin-top:18px}
 
 /* ============================================================
    v353 — make every option look like an option
@@ -5978,18 +5958,7 @@ body.builder-page{
   clip-path:var(--clip-billet-sm);margin-top:13px!important}
 
 /* ---- 7. the picker cards -------------------------------------------- */
-.bpick__c{clip-path:var(--clip-billet);border:0;
-  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 22px rgba(14,22,34,.10)}
-.bpick__c:hover{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 16px 34px rgba(14,22,34,.18)}
-.bpick__b{background:var(--grit),var(--machined);background-blend-mode:overlay,normal;
-  position:relative;padding:15px 16px 16px}
-.bpick__b::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.03))}
-.bpick__p{color:#848b95}
-.bpick__b b{color:#fff}
-.bpick__m{color:#aab1bb}
-.bpick__go{color:#9fc4ff}
-.bpick__c:hover .bpick__go{color:#fff}
+/* (the v354 .bpick overrides went with the picker they styled — v363) */
 
 /* ---- 8. phones ------------------------------------------------------- */
 @media(max-width:819px){
@@ -6191,51 +6160,11 @@ body.builder-page{
   .vizgrid--build .vstat span{font-size:9.5px}
 }
 
-/* ============================================================
-   v361 — the picker asks what you are building for
-
-   Three lanes, because the lane settles the fitment: a Pro R is 4x156 and a
-   Maverick R is 4x137 from the factory, so choosing the platform IS choosing
-   the pattern. Only the truck asks, and only because a 17x9 blank is cut to
-   order in five of them.
-   ============================================================ */
-.blane{margin-top:30px}
-.blane:first-of-type{margin-top:4px}
-.blane__h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:0 0 11px;margin-bottom:15px;border-bottom:1px solid rgba(12,20,32,.14);
-  position:relative}
-/* A short blue rule under the heading itself, the way the section headers
-   elsewhere on the site mark a lane. */
-.blane__h::after{content:"";position:absolute;left:0;bottom:-1px;width:62px;height:3px;
-  background:var(--blue)}
-.blane__h h2{font-family:var(--display);font-size:clamp(17px,2.2vw,23px);
-  text-transform:uppercase;letter-spacing:.01em;color:var(--text);margin:0;line-height:1}
-.blane__h p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.5;
-  flex:1 1 320px;min-width:0}
-
-/* The pattern on the card, so the promise is visible before the click. */
-.bpick__m i{font-style:normal;font-family:var(--label);font-weight:700;
-  letter-spacing:.05em;color:#9fc4ff}
-
-@media(max-width:620px){
-  .blane{margin-top:24px}
-  .blane__h{display:block}
-  .blane__h p{margin-top:6px}
-}
-
-/* A lane with one platform in it — truck, and sand car — laid out across
-   instead of as a lone tile with a dead row beside it. The image takes the
-   left, the plate takes the right, and the row fills. */
-@media(min-width:640px){
-  .bpick--solo{grid-template-columns:minmax(0,1fr)}
-  .bpick--solo .bpick__c{flex-direction:row;align-items:stretch}
-  .bpick--solo .bpick__img{flex:0 0 42%;aspect-ratio:auto;min-height:230px}
-  .bpick--solo .bpick__b{flex:1 1 auto;justify-content:center;padding:22px 26px}
-  .bpick--solo .bpick__b b{font-size:21px}
-  .bpick--solo .bpick__m{font-size:13px}
-  /* The lit lip runs along the top of the plate; on a side-by-side layout the
-     plate's top edge is the card's top edge, so it reads the same. */
-}
+/* The v361 lane-grouped picker (.blane / .bpick--solo) was removed here when
+   the machine chooser replaced it — see v363 below. A superseded block that
+   still matches is how `.vchip--sw span` kept beating `.vchip__cap` through
+   two rounds of being fixed, so it goes rather than sits. The .bpick rules
+   further up are gone for the same reason. */
 
 /* ============================================================
    v362 — the focus ring on a product card
@@ -6252,9 +6181,67 @@ body.builder-page{
    offset clear of the card so it reads as a ring around the card rather than
    a line drawn on it. :focus-visible means a mouse click never shows it.
    ============================================================ */
-.wheel:focus-visible,.pkg:focus-visible,.bpick__c:focus-visible{
+.wheel:focus-visible,.pkg:focus-visible,.mpick__c:focus-visible{
   outline:2px solid var(--blue);outline-offset:3px;border-radius:inherit}
 /* Belt and braces for the older engines that still fire :focus on a click. */
 .wheel:focus:not(:focus-visible),
 .pkg:focus:not(:focus-visible),
-.bpick__c:focus:not(:focus-visible){outline:none}
+.mpick__c:focus:not(:focus-visible){outline:none}
+
+/* ============================================================
+   v363 — the machine chooser
+
+   A grid of photographs of machines, the way Price Designs' own
+   shop-by-collection page does it, because the first question is "what do you
+   drive" and a photograph answers that at a glance where seven near-identical
+   beadlock renders cannot.
+
+   It replaces the lane-grouped render grid from v361, whose CSS is deleted
+   above rather than left in the file — a superseded block that still matches
+   is how .vchip--sw span kept beating .vchip__cap through two rounds of being
+   fixed.
+   ============================================================ */
+.mpick{display:grid;gap:clamp(14px,1.8vw,24px);margin-top:4px;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+@media(min-width:1100px){.mpick{grid-template-columns:repeat(4,1fr)}}
+
+.mpick__c{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  background:var(--grit),var(--machined);background-blend-mode:overlay,normal;
+  clip-path:var(--clip-billet);position:relative;overflow:hidden;
+  box-shadow:0 10px 26px rgba(14,22,34,.14);
+  transition:transform .22s var(--ease),box-shadow .22s}
+.mpick__c::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;z-index:2;
+  background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.04))}
+.mpick__c:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(14,22,34,.26)}
+
+.mpick__img{display:block;aspect-ratio:4/3;overflow:hidden;background:#0c0e11}
+.mpick__img img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .5s var(--ease)}
+.mpick__c:hover .mpick__img img{transform:scale(1.04)}
+
+/* The name is the tile. It is what the customer came here knowing. */
+.mpick__t{display:block;padding:15px 16px 0;font-family:var(--display);
+  font-size:clamp(15px,1.5vw,18px);line-height:1.15;text-transform:uppercase;
+  letter-spacing:.01em;color:#fff}
+.mpick__f{display:block;padding:7px 16px 0;font-family:var(--label);font-size:11px;
+  letter-spacing:.05em;color:#9aa2ac}
+.mpick__go{display:block;margin:13px 16px 16px;padding:11px 10px;text-align:center;
+  font-family:var(--label);font-size:10.5px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:#fff;
+  border:1px solid rgba(255,255,255,.34);
+  transition:background .2s,border-color .2s,color .2s}
+.mpick__c:hover .mpick__go{background:var(--blue);border-color:var(--blue);color:#fff}
+.mpick__c:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+.mpick__note{margin-top:20px;max-width:76ch}
+
+@media(max-width:520px){
+  .mpick{grid-template-columns:1fr 1fr;gap:12px}
+  .mpick__t{padding:12px 12px 0;font-size:14px}
+  .mpick__f{padding:5px 12px 0;font-size:10px}
+  /* 44px of thumb. At 10px padding this came out 37, which is under the
+     target on the one control the whole page exists to get tapped. */
+  .mpick__go{margin:10px 12px 12px;padding:0 6px;min-height:44px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:9.5px;letter-spacing:.07em}
+}

@@ -3,6 +3,7 @@
   "brand": "price-designs",
   "brandName": "Price Designs",
   "platform": "Lifted truck",
+  "short": "Truck",
   "lane": "single",
   "rank": 0,
   "title": "17×9 simulated beadlock",
@@ -12,6 +13,7 @@
   "bolt": null,
   "image": "assets/wheels/price-designs/beadlock-titanium.jpg",
   "card": "assets/wheels/price-designs/pd-truck-17x9-card.jpg",
+  "photo": "assets/platforms/pd-truck-17x9.jpg",
   "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
   "stage": {
     "w": 1000,

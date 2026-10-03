@@ -3,6 +3,7 @@
   "brand": "price-designs",
   "brandName": "Price Designs",
   "platform": "Can-Am Maverick R",
+  "short": "Maverick R",
   "lane": "sxs",
   "rank": 2,
   "title": "Maverick R beadlock",
@@ -12,6 +13,7 @@
   "bolt": "4x137",
   "image": "assets/wheels/price-designs/utv-beadlock.png",
   "card": "assets/wheels/price-designs/pd-maverick-r-card.jpg",
+  "photo": "assets/platforms/pd-maverick-r.jpg",
   "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
   "stage": {
     "w": 1000,

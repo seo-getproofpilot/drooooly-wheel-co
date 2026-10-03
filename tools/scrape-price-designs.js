@@ -97,25 +97,32 @@ const sleep = ms => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0,
    ------------------------------------------------------------------ */
 const BUILDERS = [
   { handle: 'truck-17x9',             id: 'pd-truck-17x9',   lane: 'single',
-    platform: 'Lifted truck',          title: '17×9 simulated beadlock',
+    platform: 'Lifted truck',          short: 'Truck',
+    title: '17×9 simulated beadlock',
     bolt: null,  image: 'assets/wheels/price-designs/beadlock-titanium.jpg' },
   { handle: 'utv-pro-r-wheels',        id: 'pd-pro-r',        lane: 'sxs',
-    platform: 'Polaris Pro R / Turbo R', title: 'Pro R & Turbo R beadlock',
+    platform: 'Polaris Pro R / Turbo R', short: 'Pro R · Turbo R',
+    title: 'Pro R & Turbo R beadlock',
     bolt: '4x156', image: 'assets/wheels/price-designs/utv-beadlock.png' },
   { handle: 'utv-maverick-r-wheels',   id: 'pd-maverick-r',   lane: 'sxs',
-    platform: 'Can-Am Maverick R',     title: 'Maverick R beadlock',
+    platform: 'Can-Am Maverick R',     short: 'Maverick R',
+    title: 'Maverick R beadlock',
     bolt: '4x137', image: 'assets/wheels/price-designs/utv-beadlock.png' },
   { handle: 'utv-x3-wheels',           id: 'pd-x3',           lane: 'sxs',
-    platform: 'Can-Am Maverick X3',    title: 'X3 beadlock',
+    platform: 'Can-Am Maverick X3',    short: 'Can-Am X3',
+    title: 'X3 beadlock',
     bolt: '4x137', image: 'assets/wheels/price-designs/x3-desert.jpg' },
   { handle: 'utv-rzr-wheels',          id: 'pd-rzr',          lane: 'sxs',
-    platform: 'Polaris RZR',           title: 'RZR beadlock',
+    platform: 'Polaris RZR',           short: 'Polaris RZR',
+    title: 'RZR beadlock',
     bolt: '4x156', image: 'assets/wheels/price-designs/utv-beadlock.png' },
   { handle: 'utv-expedition-wheels',   id: 'pd-expedition',   lane: 'sxs',
-    platform: 'Can-Am Defender & Expedition', title: 'Expedition beadlock',
+    platform: 'Can-Am Defender & Expedition', short: 'Expedition',
+    title: 'Expedition beadlock',
     bolt: '4x137', image: 'assets/wheels/price-designs/utv-beadlock.png' },
   { handle: 'utv-sand-car-wheels',     id: 'pd-sand-car',     lane: 'sand',
-    platform: 'Sand car & buggy',      title: 'Sand car beadlock',
+    platform: 'Sand car & buggy',      short: 'Buggy · Sand car',
+    title: 'Sand car beadlock',
     bolt: '5x205', image: 'assets/wheels/price-designs/utv-beadlock.png' }
 ];
 
@@ -403,6 +410,10 @@ function spec(meta, cfg, dec) {
     brand: 'price-designs',
     brandName: 'Price Designs',
     platform: meta.platform,
+    /* The big tile on the chooser. "TRUCK" and "MAVERICK R" are what a
+       customer calls the machine; `platform` is the fuller name the builder
+       page kickers with. */
+    short: meta.short || meta.platform,
     lane: meta.lane,
     /* Where this sits in its lane on the picker. The BUILDERS table above is
        already in the order a customer should meet them — truck first, then the
@@ -424,6 +435,10 @@ function spec(meta, cfg, dec) {
        (the truck), since it is what the stage falls back to and what a sent
        build carries. */
     card: 'assets/wheels/price-designs/' + meta.id + '-card.jpg',
+    /* A photograph of the MACHINE, for the chooser — someone arriving here
+       knows what they drive long before they know which face they want. Built
+       by tools/fetch-platform-photos.js; see its header for whose each one is. */
+    photo: 'assets/platforms/' + meta.id + '.jpg',
     layerBase: LAYER_BASE,
     stage: { w: 1000, h: 1000 },
     baseLayer: fileOf(((cfg.data.base.image || {}).front) || null),

@@ -53,7 +53,33 @@
    ============================================================ */
 (function () {
   var root = document.getElementById("builderPage");
-  if (!root || !window.BUILDERS || !window.BuilderLogic) return;
+  if (!root) return;
+
+  /* A MISSING SCRIPT MUST NOT LEAVE A BLANK PAGE. This used to `return` when
+     either dependency was absent, which is right for a page where the module
+     is an enhancement — and wrong here, where it IS the page. One dropped
+     request for builders-data.js or builder-logic.js and the customer gets an
+     empty white screen with no way forward and nothing to report.
+
+     Seen for real: the dev server dropped builder-logic.js under parallel
+     requests and the chooser rendered nothing at all. Rare in production
+     behind a CDN, but "rare" and "silent" is the combination worth spending
+     eight lines on. */
+  if (!window.BUILDERS || !window.BuilderLogic) {
+    root.innerHTML =
+      '<section class="vizhead">' +
+        '<p class="kicker"><b>Price Designs</b></p>' +
+        "<h1>The builder didn’t load</h1>" +
+        '<p class="vizhead__lead">Something dropped on the way in — a reload usually ' +
+          "fixes it. If it doesn’t, we’ll build it with you over the phone.</p>" +
+        '<p class="vizhead__back">' +
+          '<a class="blink" href="' + location.pathname + location.search + '">Try again</a>' +
+          ' · <a class="blink" href="tel:+16023325400">(602) 332-5400</a>' +
+          ' · <a class="blink" href="shop.html?brand=price-designs">Browse the wheels</a>' +
+        "</p>" +
+      "</section>";
+    return;
+  }
 
   /* The page field is painted on <body>, not on this element: .vizpage is the
      <main> and is capped at --max, so a texture set here would render as a
@@ -81,70 +107,62 @@
      ================================================================ */
   if (!SPEC) {
     /* ================================================================
-       THE PICKER — what are you building for?
+       THE CHOOSER — which machine?
 
-       Chris: "when you click on Price Designs Wheels, it brings you to: are
-       you building for a truck? are you building for a side-by-side, sand
-       car? ... that way it automatically picks the wheel pattern or the lug
-       pattern for you."
+       Chris sent a screenshot of his own shop-by-collection page: a grid of
+       photographs of MACHINES — a Raptor, a Maverick R, a Pro R, a sand car —
+       each with the name under it and a button. "This is how I want it to look
+       when somebody goes to click on Price Designs Wheels, because he has so
+       many options... obviously when they click on truck, it goes to truck
+       wheel pattern, and then it asks what wheel they want to build, the lug
+       pattern it's in."
 
-       That last part is already true and is the reason to group this way
-       rather than list seven cards flat. A Pro R is drilled 4x156 at the
-       factory and a Maverick R 4x137 — the pattern is a fact about the
-       machine, not a question, so choosing the platform IS choosing the
-       fitment. The truck is the one exception, because a 17x9 blank is cut to
-       order in any of five patterns; there we ask, and pre-select from the
-       truck they already gave the finder.
+       An earlier version of this grouped wheel RENDERS under lane headings.
+       That was the wrong first question. Someone landing on a brand with seven
+       configurators knows what they drive long before they know which face
+       they want, so the first screen has to be answerable at a glance — and a
+       photograph of the machine is answerable at a glance in a way a beadlock
+       render is not, because all seven wheels look broadly alike.
 
-       So each lane says plainly what it settles for you. The grouping is the
-       honest shape of the product, not decoration.
+       Picking the machine also settles the fitment on six of the seven: a Pro
+       R is drilled 4x156 and a Maverick R 4x137, so the pattern is a fact
+       about the machine rather than a question. The truck is the exception —
+       a 17x9 blank is cut to order in five patterns — so that tile says so,
+       and the builder behind it pre-selects from the truck in the finder.
        ================================================================ */
-    var LANES = [
-      { id: "single", title: "Truck",
-        sub: "Five lug patterns, cut to order. Tell us the truck and we pre-select yours." },
-      { id: "sxs", title: "Side-by-side",
-        sub: "Drilled to the machine at the factory, so there is no pattern to pick." },
-      { id: "sand", title: "Sand car &amp; buggy",
-        sub: "The long-standing VW pattern, the same as the rails these are built for." }
-    ];
-
     var all = Object.keys(window.BUILDERS).map(function (k) { return window.BUILDERS[k]; })
       .sort(function (a, b) { return (a.rank || 0) - (b.rank || 0); });
     var bad = q.get("b");
-
-    function card(s) {
-      return '<a class="bpick__c" href="build.html?b=' + esc(s.id) + '">' +
-        '<span class="bpick__img"><img src="' + esc(s.card || s.image) + '" alt="" loading="lazy" /></span>' +
-        '<span class="bpick__b">' +
-          '<span class="bpick__p">' + esc(s.platform) + "</span>" +
-          "<b>" + esc(s.title) + "</b>" +
-          '<span class="bpick__m">Set of ' + s.setOf + " · from " + money(s.basePrice) +
-            (s.bolt ? ' · <i>' + esc(s.bolt) + "</i>" : "") + "</span>" +
-          '<span class="bpick__go">Build yours <i>→</i></span>' +
-        "</span></a>";
-    }
 
     root.innerHTML =
       '<section class="vizhead fade">' +
         '<p class="kicker"><b>Price Designs</b> · built to order</p>' +
         "<h1>What are you building for?</h1>" +
         '<p class="vizhead__lead">' +
-          (bad ? "We couldn’t find that builder, so here’s the full list. " : "") +
+          (bad ? "We couldn’t find that builder, so here’s every machine. " : "") +
           "Forged in Gilbert, Arizona and cut to your spec. Pick the machine and the " +
-          "wheel builds itself on screen as you choose — the bolt pattern comes with it." +
+          "bolt pattern comes with it — then the wheel builds itself on screen as you choose." +
         "</p>" +
       "</section>" +
-      LANES.map(function (L) {
-        var rows = all.filter(function (s) { return s.lane === L.id; });
-        if (!rows.length) return "";
-        return '<section class="blane fade">' +
-          '<div class="blane__h"><h2>' + L.title + "</h2><p>" + L.sub + "</p></div>" +
-          '<div class="bpick' + (rows.length === 1 ? " bpick--solo" : "") + '">' +
-            rows.map(card).join("") + "</div>" +
-        "</section>";
-      }).join("") +
-      '<p class="vnote bpick__note">Prices are Price Designs’ own, for the set of four. ' +
-        "Fitment verified before we build — we confirm the pattern and the offset with you first.</p>";
+      '<div class="mpick fade">' +
+        all.map(function (s) {
+          return '<a class="mpick__c" href="build.html?b=' + esc(s.id) + '">' +
+            '<span class="mpick__img">' +
+              '<img src="' + esc(s.photo || s.card) + '" alt="' + esc(s.platform) + '" loading="lazy" />' +
+            "</span>" +
+            '<span class="mpick__t">' + esc(s.short || s.platform) + "</span>" +
+            '<span class="mpick__f">' +
+              (s.bolt ? esc(s.bolt) : "5 lug patterns") +
+              " · from " + money(s.basePrice) +
+            "</span>" +
+            '<span class="mpick__go">Build yours</span>' +
+          "</a>";
+        }).join("") +
+      "</div>" +
+      '<p class="vnote mpick__note">Set of four, Price Designs’ own prices. ' +
+        "Six of these are drilled to the machine at the factory, so there is no pattern " +
+        "to choose; the truck is cut to order in five, and we pre-select yours from the " +
+        "truck you gave the finder. Fitment verified before we build.</p>";
     if (window.__observeFades) window.__observeFades();
     return;
   }

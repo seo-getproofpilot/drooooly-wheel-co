@@ -3,6 +3,7 @@
   "brand": "price-designs",
   "brandName": "Price Designs",
   "platform": "Polaris RZR",
+  "short": "Polaris RZR",
   "lane": "sxs",
   "rank": 4,
   "title": "RZR beadlock",
@@ -12,6 +13,7 @@
   "bolt": "4x156",
   "image": "assets/wheels/price-designs/utv-beadlock.png",
   "card": "assets/wheels/price-designs/pd-rzr-card.jpg",
+  "photo": "assets/platforms/pd-rzr.jpg",
   "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
   "stage": {
     "w": 1000,

@@ -315,6 +315,26 @@ each one is a phone call away from being better.
   local and rewrites `layerBase` in one command; it is written, tested dry, and
   deliberately not run.
 
+- 🔴 **4.44 — six of the seven machine photographs on the builder chooser are
+  his.** Chris asked for the chooser to look like Price Designs'
+  shop-by-collection page: a grid of photographs of MACHINES rather than of
+  wheels, because someone arriving at a brand with seven configurators knows
+  what they drive long before they know which face they want.
+
+  `assets/builds/` holds 40 photographs — 21 lifted trucks, 9 duallies, 5
+  lowered, 4 cars and **exactly one UTV** — so the truck tile is ours and the
+  other six could not be. A Maverick R, a Pro R, an X3, a RZR, a Defender and a
+  sand rail are six visually distinct machines; the ones in
+  `assets/platforms/` come from his own grid, read off the live DOM on
+  2026-10-03 (that page is JS-rendered, so curl sees nothing).
+
+  Same ask as 1.13. Worth noting two of them are named
+  `Screenshot_2025-02-07_at_4.03.12_PM.png`, so a real asset pack would improve
+  the page as well as settle the rights — and these are the six tiles a
+  customer sees first. `tools/fetch-platform-photos.js` re-cuts the set from
+  whatever sources it is pointed at, so swapping in our own photography later
+  is a one-line change per row plus a re-run.
+
 - 🟡 **4.43 — the RZR builder states no wheel sizes and neither does his page.**
   Six of the seven builders ask for a wheel size and we read the real ones
   straight off them. His RZR configurator has no size step at all, so the sizes on

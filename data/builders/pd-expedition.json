@@ -3,6 +3,7 @@
   "brand": "price-designs",
   "brandName": "Price Designs",
   "platform": "Can-Am Defender & Expedition",
+  "short": "Expedition",
   "lane": "sxs",
   "rank": 5,
   "title": "Expedition beadlock",
@@ -12,6 +13,7 @@
   "bolt": "4x137",
   "image": "assets/wheels/price-designs/utv-beadlock.png",
   "card": "assets/wheels/price-designs/pd-expedition-card.jpg",
+  "photo": "assets/platforms/pd-expedition.jpg",
   "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
   "stage": {
     "w": 1000,

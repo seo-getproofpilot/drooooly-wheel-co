@@ -3,6 +3,7 @@
   "brand": "price-designs",
   "brandName": "Price Designs",
   "platform": "Can-Am Maverick X3",
+  "short": "Can-Am X3",
   "lane": "sxs",
   "rank": 3,
   "title": "X3 beadlock",
@@ -12,6 +13,7 @@
   "bolt": "4x137",
   "image": "assets/wheels/price-designs/x3-desert.jpg",
   "card": "assets/wheels/price-designs/pd-x3-card.jpg",
+  "photo": "assets/platforms/pd-x3.jpg",
   "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
   "stage": {
     "w": 1000,
