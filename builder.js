@@ -152,7 +152,7 @@
             "</span>" +
             '<span class="mpick__t">' + esc(s.short || s.platform) + "</span>" +
             '<span class="mpick__f">' +
-              (s.bolt ? esc(s.bolt) : "5 lug patterns") +
+              (s.bolt ? esc(s.bolt) : "Cut to your pattern") +
               " · from " + money(s.basePrice) +
             "</span>" +
             '<span class="mpick__go">Build yours</span>' +

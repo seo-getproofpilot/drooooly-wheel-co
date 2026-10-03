@@ -113,6 +113,10 @@ const models = specs.map(s => {
              `sizes: ${arr(sizes)}, finishes: ${arr(fin)}` +
              `, img: ${q(img)}`;
   line += `, priceSet: ${s.basePrice}, priceSetQty: ${s.setOf}`;
+  /* The chooser needs the machine photograph and the short name, and
+     brand.html loads brands.js but NOT builders-data.js — so they travel here
+     rather than the page growing a second data script. */
+  line += `, short: ${q(s.short)}, photo: ${q(s.photo)}`;
   if (s.bolt) line += `, bolts: ${arr([s.bolt])}`;
   line += `, builder: ${q(s.id)}`;
   /* EVERY builder is featured. `feat` decides what the brand page shows, and

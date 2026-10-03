@@ -353,6 +353,47 @@ section("the catalogue and the specs agree");
   ok("...for the same number of wheels", qtyOff, []);
 }
 
+section("every chooser tile points at its own builder");
+{
+  /* Chris: "make sure each tile goes to the right builder." Both choosers —
+     build.html and the brand page — are rendered from a row that has to agree
+     with the spec it links to. A tile showing a Maverick R and opening the Pro
+     R builder would look completely fine and sell the wrong wheel. */
+  global.window = global.window || {};
+  require(path.join(ROOT, "brands.js"));
+  const pd = (global.window.BRANDS || []).filter(b => b.slug === "price-designs")[0];
+  const rows = (pd.models || []).filter(m => m.builder);
+
+  ok("a tile for every builder", rows.length, Object.keys(SPECS).length);
+
+  const wrongPhoto = [], wrongName = [], wrongBolt = [], noSpec = [], missingPhoto = [];
+  rows.forEach(m => {
+    const s = SPECS[m.builder];
+    if (!s) { noSpec.push(m.model + " -> " + m.builder); return; }
+    /* The photograph is named for the builder, so a mismatch here is a tile
+       showing one machine and opening another. */
+    if (m.photo !== s.photo) wrongPhoto.push(`${m.builder}: card ${m.photo} vs spec ${s.photo}`);
+    if (m.photo && m.photo.indexOf(m.builder) < 0) {
+      wrongPhoto.push(`${m.builder}: photo ${m.photo} is not named for it`);
+    }
+    if (m.short !== s.short) wrongName.push(`${m.builder}: card "${m.short}" vs spec "${s.short}"`);
+    const cardBolt = (m.bolts || []).join(",");
+    const specBolt = s.bolt || "";
+    if (cardBolt !== specBolt) wrongBolt.push(`${m.builder}: card "${cardBolt}" vs spec "${specBolt}"`);
+    if (m.photo && !fs.existsSync(path.join(ROOT, m.photo))) missingPhoto.push(m.photo);
+  });
+  ok("every tile resolves to a spec", noSpec, []);
+  ok("...showing that machine's own photograph", wrongPhoto, []);
+  ok("...under that machine's own name", wrongName, []);
+  ok("...quoting that machine's own bolt pattern", wrongBolt, []);
+  ok("...and the photograph is on disk", missingPhoto, []);
+
+  /* Seven distinct destinations and seven distinct pictures — a duplicate
+     either way means two tiles doing the same job. */
+  ok("seven distinct builders", new Set(rows.map(m => m.builder)).size, 7);
+  ok("seven distinct photographs", new Set(rows.map(m => m.photo)).size, 7);
+}
+
 section("tools/build-featured.js round-trips the builder link");
 {
   /* It rewrites brands.js wholesale from the parsed model objects. Any field
@@ -360,7 +401,7 @@ section("tools/build-featured.js round-trips the builder link");
      happened to `builder`, silently turning build-your-own products back into
      plain cards. Pin the serialiser against the fields the catalogue uses. */
   const src = fs.readFileSync(path.join(ROOT, "tools/build-featured.js"), "utf8");
-  const missing = ["builder", "priceSet", "priceSetQty", "bolts", "img", "feat"]
+  const missing = ["builder", "short", "photo", "priceSet", "priceSetQty", "bolts", "img", "feat"]
     .filter(f => !new RegExp("m\\." + f).test(src));
   ok("no catalogue field is dropped on rewrite", missing, []);
 }

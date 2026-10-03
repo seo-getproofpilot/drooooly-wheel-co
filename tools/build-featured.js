@@ -411,6 +411,8 @@ out += BRANDS.map((b) => {
        the link and turned seven build-your-own products back into plain
        cards. Anything the catalogue carries has to survive the round trip. */
     if (m.builder) s += `, builder: ${q(m.builder)}`;
+    if (m.short) s += `, short: ${q(m.short)}`;
+    if (m.photo) s += `, photo: ${q(m.photo)}`;
     if (m.feat) s += `, feat: ${m.feat}`;
     return s + " }";
   }).join(",\n");

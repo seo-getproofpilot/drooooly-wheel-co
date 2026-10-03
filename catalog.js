@@ -781,6 +781,44 @@
   /* The card carries the style, what it fits, and the price. Nothing else —
      on a grid you are scanning shapes, not reading specs. Bolt patterns and
      sizes live on the wheel's own page, where there is room. */
+  /* Every model is a configurator — nothing is made until it is ordered, so
+     there is no catalogue to browse, only a machine to pick. */
+  function allBuildable(b) {
+    var models = b.models || [];
+    return models.length > 0 && models.every(function (m) { return m.builder; });
+  }
+
+  /* The machine tiles. Same markup and the same .mpick CSS the chooser at
+     build.html uses, fed from brands.js — brand.html does not load
+     builders-data.js, so tools/wire-builders.js copies `short` and `photo`
+     onto the catalogue rows for exactly this. */
+  function machineChooser(b) {
+    if (!allBuildable(b)) return "";
+    var rows = (b.models || []).slice().sort(function (x, y) {
+      return (x.feat || 99) - (y.feat || 99);
+    });
+    return '<div class="mpick mpick--brand">' +
+      rows.map(function (m) {
+        /* No `bolts` means the blank is cut to order in several patterns —
+           the truck. Say that rather than falling back to the wheel size,
+           which answers a question nobody asked at this point. */
+        var pattern = (m.bolts && m.bolts.length)
+          ? m.bolts.join(" · ") : "Cut to your pattern";
+        return '<a class="mpick__c" href="build.html?b=' + encodeURIComponent(m.builder) + '">' +
+          '<span class="mpick__img"><img src="' + esc(m.photo || m.img) + '" alt="' +
+            esc(m.short || m.model) + '" loading="lazy"></span>' +
+          '<span class="mpick__t">' + esc(m.short || m.model) + "</span>" +
+          '<span class="mpick__f">' + esc(pattern) +
+            (m.priceSet ? " · from " + money(m.priceSet) : "") + "</span>" +
+          '<span class="mpick__go">Build yours</span>' +
+        "</a>";
+      }).join("") +
+    "</div>" +
+    '<p class="mpick__note">Set of four, ' + esc(b.name) + '&rsquo;s own prices. ' +
+      "Pick the machine and the bolt pattern comes with it — then the wheel builds " +
+      "itself on screen as you choose. Fitment verified before we build.</p>";
+  }
+
   function wheelCard(brand, m, series) {
     var vars = finishVariants(brand, m, series);
     var hero = heroImage(brand, m, series);
@@ -993,8 +1031,30 @@
           : '') +
       '</section>' +
       '<section class="wheelwrap">' +
-        seriesSections(b, show, wantSeries) +
-        (avail.length > 1
+        /* ================================================================
+           A BUILD-TO-ORDER BRAND'S PAGE IS THE CHOOSER.
+
+           Chris: "when I click on Price Design Wheels, it just shows me all
+           the wheels. It doesn't give me the option layout that I wanted."
+
+           He was right and the machine chooser was unreachable from the menu.
+           Every route into a brand — the mega menu, the brand tiles, the
+           wheelbrand links — lands on brand.html?brand=<slug>, and the chooser
+           only existed at build.html behind a button at the foot of this page.
+
+           The fix is here rather than on the six link sites, because changing
+           those would leave brand.html?brand=price-designs working but wrong,
+           and it is the URL already in the menu, in sitemaps and in anything
+           anyone has bookmarked. One page learns the difference; every route
+           is fixed at once and nothing 404s or redirects.
+
+           Gated on the DATA — every model buildable — not on a brand name, so
+           the next build-to-order brand gets it for free, and a brand that
+           mixes catalogue styles with a configurator keeps the normal grid.
+           ================================================================ */
+        machineChooser(b) +
+        (allBuildable(b) ? "" : seriesSections(b, show, wantSeries)) +
+        (avail.length > 1 && !allBuildable(b)
           ? '<nav class="seriesfoot" aria-label="Other series">' +
               "<span>More from " + esc(b.name) + "</span>" +
               avail.map(function (d) {
