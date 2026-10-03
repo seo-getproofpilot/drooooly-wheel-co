@@ -1246,7 +1246,7 @@
     },
     {
       "id": "post-cut-center-cap-6",
-      "label": "Post-cut center cap? 6",
+      "label": "Post-cut center cap?",
       "type": "chips",
       "required": false,
       "z": 21,
@@ -1303,7 +1303,7 @@
     },
     {
       "id": "post-cut-center-cap-8",
-      "label": "Post-cut center cap? 8",
+      "label": "Post-cut center cap?",
       "type": "chips",
       "required": false,
       "z": 22,

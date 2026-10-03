@@ -77,7 +77,7 @@ section("his live builder, 2026-10-02 — truck, GM 8X180 (16 steps)");
     "Post-cut wheel?",
     "Beadlock ring model",
     "Sawblade ring finish",
-    "Post-cut center cap? 8",
+    "Post-cut center cap?",
     "Floating center caps?",
     "Center cap hardware finish",
     "Ring hardware finish",

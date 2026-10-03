@@ -5722,3 +5722,125 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .bpick__go i{font-style:normal;display:inline-block;transition:transform .2s}
 .bpick__c:hover .bpick__go i{transform:translateX(4px)}
 .bpick__note{margin-top:18px}
+
+/* ============================================================
+   v353 — make every option look like an option
+
+   Chris, looking at the truck builder cold: "some of it's a little over the
+   top in terms of being difficult to find what's what and to find what I have
+   selected... there are some wheels that look like they're not clickable at
+   all. You can still click on them, but they don't look the same as the rest."
+
+   Three separate causes, all of them mine:
+
+   1. EMPTY SQUARES. The seven post-cut steps are yes/no and only the "yes"
+      carries art, so "no" rendered as a blank well — a broken image — and as a
+      solid black void once chosen. Fixed in builder.js: a picture grid now
+      needs every answer to have a picture. Those steps are words again.
+
+   2. WHITE SWATCHES VANISHED. Gloss white, pearl white, alien silver and
+      machined are near-white renders, and they sat on a white tile with a
+      10%-black hairline. There was nothing to see, so they read as disabled
+      while every dark finish beside them read as live. They now sit in a
+      recessed well with a real edge, so the tile is visible whatever colour
+      the paint is.
+
+   3. SELECTED READ AS DELETED. .vchip.on fills with ink, which is right for a
+      word and wrong for a picture: it turned the chosen finish into a black
+      square, the one thing that should be clearest on the page. A picture tile
+      now keeps its paint and takes a ring plus a tick instead.
+
+   The split is the rule: WORDS fill, PICTURES get a ring.
+   ============================================================ */
+
+/* ---- 1. the picture tile ------------------------------------------- */
+.vchips--sw{grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:8px}
+.vchip--sw{position:relative;padding:6px 6px 0;gap:0;align-items:stretch;text-align:center;
+  background:#fff;border-color:var(--line-2);
+  transition:border-color .18s,box-shadow .18s,transform .18s}
+
+/* The well. A near-white paint needs an edge of its own or the tile looks
+   empty; `inset` rather than a border so the swatch keeps its full size. */
+.vchip--sw img{aspect-ratio:1;object-fit:cover;width:100%;display:block;
+  background:var(--bg-2);border:0;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.14), 0 1px 2px rgba(10,14,20,.06)}
+
+/* The caption strip. Full width so it can fill when chosen; the button's own
+   bottom padding is 0 so it reaches the edge and picks up the billet chamfer. */
+.vchip__cap{display:block;padding:7px 3px 8px;margin-top:6px;
+  font-size:9.5px;letter-spacing:.03em;line-height:1.25;
+  color:var(--text);word-break:break-word;hyphens:auto;
+  transition:background .18s,color .18s}
+.vchip__cap i{display:block;font-style:normal;font-size:9px;letter-spacing:.03em;
+  color:var(--blue-2);margin-top:2px}
+
+.vchip--sw:hover{border-color:var(--blue-2);transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(12,18,28,.10)}
+.vchip--sw:hover img{box-shadow:inset 0 0 0 1px rgba(31,111,224,.5), 0 1px 2px rgba(10,14,20,.06)}
+
+/* SELECTED keeps the paint and takes a ring. Drawn with box-shadow, not a
+   thicker border, so nothing reflows and the grid stays aligned. */
+.vchip--sw.on{background:#fff;color:var(--text);border-color:var(--ink);
+  box-shadow:inset 0 0 0 2px var(--ink), 0 8px 20px rgba(12,18,28,.14)}
+.vchip--sw.on img{box-shadow:inset 0 0 0 1px rgba(0,0,0,.2), 0 1px 2px rgba(10,14,20,.06)}
+/* The signal: the name goes solid. Visible across a grid of forty-six at a
+   glance, and the paint above it is untouched. */
+.vchip--sw.on .vchip__cap{background:var(--ink);color:#fff;font-weight:700}
+.vchip--sw.on .vchip__cap i{color:#9fc4ff;font-weight:400}
+
+/* ---- 2. the word chip ----------------------------------------------- */
+/* These sit in the same column as the picture grids, so a ragged row of
+   different-height buttons is what made the page feel unfinished. One height,
+   one rhythm, and a border solid enough to read as a control. */
+.vizpanel .vchips:not(.vchips--sw){gap:8px}
+.vizpanel .vchips:not(.vchips--sw) .vchip{min-height:44px;display:inline-flex;
+  align-items:center;justify-content:center;padding:9px 16px;
+  border-color:var(--line-2);background:#fff;
+  transition:border-color .18s,color .18s,background .18s,box-shadow .18s,transform .18s}
+.vizpanel .vchips:not(.vchips--sw) .vchip--stack{flex-direction:column;gap:3px;padding:8px 16px}
+.vizpanel .vchips:not(.vchips--sw) .vchip:hover{border-color:var(--blue-2);
+  color:var(--blue-2);box-shadow:0 4px 12px rgba(12,18,28,.08)}
+/* A word fills, which needs no tick to be unmistakable.
+
+   SELECTOR WEIGHT IS LOAD-BEARING HERE. The resting rule above is
+   `.vizpanel .vchips:not(.vchips--sw) .vchip` — and :not() contributes its
+   argument's weight, so that is FOUR classes. Written as `.vizpanel .vchip.on`
+   this lost to it on `background`, and the chip kept the white resting fill
+   while `.vchip.on` still supplied white text: the chosen lug pattern
+   disappeared into the page. Match the resting selector, then add `.on`. */
+.vizpanel .vchips:not(.vchips--sw) .vchip.on{background:var(--ink);color:#fff;
+  border-color:var(--ink);box-shadow:0 6px 16px rgba(12,18,28,.18)}
+.vizpanel .vchips:not(.vchips--sw) .vchip.on:hover{color:#fff;border-color:var(--ink)}
+.vizpanel .vchips:not(.vchips--sw) .vchip.on i{color:#9fc4ff;opacity:1}
+
+/* ---- 3. the heading, which is where you look for your answer -------- */
+/* The current choice already sits on the right of every label. It was the same
+   weight as the label beside it, so it did not read as the answer. */
+.vizpanel .vfld > label{display:flex;align-items:baseline;justify-content:space-between;
+  gap:12px;flex-wrap:wrap}
+.vizpanel .vfld > label b{font-family:var(--body);font-weight:700;font-size:13px;
+  letter-spacing:0;text-transform:none;color:var(--text);text-align:right}
+/* An unanswered step says so quietly rather than showing a bare dash. */
+.vizpanel .vfld--hero > label b{color:#a35a00}
+
+/* ---- 4. keyboard ----------------------------------------------------- */
+/* These are real buttons and were showing the browser default outline, which
+   the clip-path cuts the corners off. */
+.vchip:focus-visible{outline:none;border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(31,123,255,.3)}
+.vchip--sw.on:focus-visible{box-shadow:inset 0 0 0 2px var(--ink),0 0 0 3px rgba(31,123,255,.35)}
+.vchip--sw:hover .vchip__cap{color:var(--blue-2)}
+.vchip--sw.on:hover .vchip__cap{color:#fff}
+
+@media(prefers-reduced-motion:reduce){
+  .vchip,.vchip--sw{transition:none}
+  .vchip--sw:hover{transform:none}
+}
+
+/* ---- 5. phones ------------------------------------------------------- */
+@media(max-width:620px){
+  .vchips--sw{grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:7px}
+  .vchip__cap{font-size:10px}
+  /* 44px of thumb on every word chip, and never two cramped on one line. */
+  .vizpanel .vchips:not(.vchips--sw) .vchip{min-height:46px;flex:1 1 auto}
+}

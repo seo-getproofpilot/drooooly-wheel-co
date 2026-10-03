@@ -276,7 +276,18 @@
   function chipsFor(step) {
     var opts = step.options || [];
     var anyPrice = opts.some(function (o) { return o.add; });
-    var anySw = opts.some(function (o) { return o.swatch; });
+
+    /* A swatch GRID needs at least two pictures to be a grid. The seven
+       post-cut steps are yes/no, and only the "yes" carries art — which rendered
+       the "no" as an empty square that read as a broken image, and as a solid
+       black void once selected. Chris, looking at it cold: "some wheels look
+       like they're not clickable at all."
+
+       So the grid needs EVERY answer to have a picture, and at least two of
+       them. Anything else is words. A grid where some cells are empty is worse
+       than no grid at all — the empty ones read as unavailable. */
+    var withSw = opts.filter(function (o) { return o.swatch; }).length;
+    var anySw = withSw === opts.length && withSw >= 2;
     /* Forty-six paint colours is a swatch grid; three ring models is a row of
        words. Same control either way — the difference is only whether a
        picture tells the customer more than the name does. */
@@ -284,10 +295,15 @@
       opts.map(function (o) {
         var on = V.pick[step.id] === o.v;
         var cls = "vchip" + (anySw ? " vchip--sw" : (anyPrice ? " vchip--stack" : "")) + (on ? " on" : "");
+        /* The caption is wrapped so it can fill edge-to-edge when chosen. A
+           corner tick was the first attempt and it was 8px of hairline in the
+           narrowest part of the tile — technically present, invisible in use.
+           A filled caption bar reads at any size and leaves the paint on show,
+           which is the whole point of a swatch. */
         var inner = anySw
-          ? (o.swatch ? '<img src="' + esc(SPEC.layerBase + o.swatch) + '" alt="" loading="lazy" />'
-                      : '<span class="vchip__nosw"></span>') +
-            "<span>" + esc(o.v) + "</span>" + (o.add ? "<i>+" + money(o.add) + "</i>" : "")
+          ? '<img src="' + esc(SPEC.layerBase + o.swatch) + '" alt="" loading="lazy" />' +
+            '<span class="vchip__cap">' + esc(o.v) +
+            (o.add ? "<i>+" + money(o.add) + "</i>" : "") + "</span>"
           : esc(o.v) + (o.add ? "<i>+" + money(o.add) + "</i>" : "");
         return '<button type="button" class="' + cls + '" data-v="' + esc(o.v) + '"' +
           (on ? ' aria-pressed="true"' : ' aria-pressed="false"') +

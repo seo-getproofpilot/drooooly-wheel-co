@@ -159,6 +159,14 @@ function fileOf(url) {
 const KEEP_CAPS = /^(RZR|UTV|TPMS|USA|ADA|GM|RAM|BRP|OEM|X3|XD|HD|SS|BB\d*|CC|R|[IVX]+)$/i;
 const ALL_CAPS = ['RZR', 'UTV', 'TPMS', 'USA', 'ADA', 'GM', 'RAM', 'BRP', 'OEM', 'X3', 'XD', 'HD', 'SS', 'CC'];
 function sentence(s) {
+  /* He disambiguates his own duplicate categories by hanging the lug count on
+     the end — "POST-CUT CENTER CAP? 6" and "POST-CUT CENTER CAP? 8" are the
+     six-lug and eight-lug versions of the same question. That is a note to
+     himself, and on a customer's screen it reads as a typo. Our tree already
+     branches correctly, and the step ids stay unique on their own, so the
+     marker goes. Only a bare 6 or 8 trailing a question mark — never a size,
+     a price or a real word. */
+  s = String(s || '').replace(/\?\s*[68]\s*$/, '?');
   return String(s || '').trim().replace(/\s+/g, ' ')
     .split(' ').map((w, i) => {
       const bare = w.replace(/[?,.:]+$/, ''), tail = w.slice(bare.length);
