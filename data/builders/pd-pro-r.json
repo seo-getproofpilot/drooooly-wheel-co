@@ -1546,7 +1546,8 @@
         {
           "v": "Can-am yellow",
           "add": 300,
-          "swatch": "pricedesigns-pd-8984839979238-zj0AeTg5dLlp8cDg62tGZ5kU.webp"
+          "swatch": "pricedesigns-pd-8984839979238-zj0AeTg5dLlp8cDg62tGZ5kU.webp",
+          "noRender": true
         },
         {
           "v": "Jamaican teal",

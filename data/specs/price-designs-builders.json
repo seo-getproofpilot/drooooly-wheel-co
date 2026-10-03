@@ -26,6 +26,7 @@
    ],
    "stringPricesCoerced": 61,
    "danglingRules": 1,
+   "noRender": [],
    "offBucketImages": []
   },
   {
@@ -45,6 +46,9 @@
    ],
    "stringPricesCoerced": 16,
    "danglingRules": 1,
+   "noRender": [
+    "face-finish-5 / Can-am yellow"
+   ],
    "offBucketImages": []
   },
   {
@@ -65,6 +69,7 @@
    ],
    "stringPricesCoerced": 16,
    "danglingRules": 0,
+   "noRender": [],
    "offBucketImages": []
   },
   {
@@ -87,6 +92,7 @@
    ],
    "stringPricesCoerced": 14,
    "danglingRules": 2,
+   "noRender": [],
    "offBucketImages": []
   },
   {
@@ -105,6 +111,7 @@
    ],
    "stringPricesCoerced": 12,
    "danglingRules": 3,
+   "noRender": [],
    "offBucketImages": []
   },
   {
@@ -124,6 +131,9 @@
    ],
    "stringPricesCoerced": 16,
    "danglingRules": 1,
+   "noRender": [
+    "face-finish-5 / Can-am yellow"
+   ],
    "offBucketImages": []
   },
   {
@@ -144,6 +154,7 @@
    ],
    "stringPricesCoerced": 13,
    "danglingRules": 2,
+   "noRender": [],
    "offBucketImages": []
   }
  ],

@@ -242,7 +242,31 @@
     return /^https?:|^assets\//.test(file) ? file : SPEC.layerBase + file;
   }
 
-  function layerPlan() { return L.layerPlan(SPEC, V); }
+  /* THE STAGE ALWAYS SHOWS A WHOLE WHEEL.
+
+     The layer stack is one transparent render per answered step — barrel, face,
+     ring, caps, hardware. Early on most of those steps are unanswered, and some
+     are not even on the page yet (the lug pattern gates the model, the model
+     gates the finish), so a stack built strictly from the live answers draws a
+     ring and some hardware floating around a hole. Switching model does it too:
+     the new model's finish step arrives blank, and the face disappears until
+     you pick a colour. Chris: "the wheel is halfway there and the other half of
+     the wheel is nonexistent."
+
+     So the render — and ONLY the render — is completed: the customer's answers
+     over the builder's own opening state, with anything still unanswered filled
+     from the first no-cost option. The wheel is whole from the first paint and
+     every choice made so far is on it; the parts not yet chosen show their
+     default, which is what they would be.
+
+     The PRICE, the readout, the "n of m chosen" count and the required-step
+     check all keep reading `V`, the live answers. Nothing is bought here that
+     was not picked — the stage is a preview, not the invoice. */
+  function layerPlan() {
+    var render = L.complete(SPEC, assign(assign({}, SPEC.defaults), V.pick), { gate: false });
+    return L.layerPlan(SPEC, render);
+  }
+  function assign(a, b) { for (var k in b) if (b[k] !== undefined) a[k] = b[k]; return a; }
 
   /* stepId -> the <img> on screen for it, and the file it is MEANT to be
      showing. Keeping `want` separate from the element is what makes a slow
@@ -469,6 +493,25 @@
       "<b>" + money(t) + "</b>";
     document.getElementById("bPer").textContent = money(Math.round(t / SPEC.setOf)) + " per wheel";
 
+    /* One option in his whole catalogue has no render (CAN-AM YELLOW on the
+       Psycho face). Rather than show a wheel with a hole in it and let the
+       customer conclude the page is broken, say which part cannot be previewed
+       — the wheel is still built to it. */
+    var unrendered = priced().filter(function (s) {
+      var o = chosen(s); return o && o.noRender;
+    });
+    var warn = document.getElementById("bNoRender");
+    if (warn) {
+      warn.hidden = !unrendered.length;
+      warn.innerHTML = unrendered.length
+        ? "The preview can’t show " + unrendered.map(function (s) {
+            return "<b>" + esc(chosen(s).v) + "</b> on the " +
+                   esc(labelFor(s).toLowerCase().replace(/\?$/, ""));
+          }).join(" or ") + " — Price Designs builds it, we just don’t hold a " +
+          "render of it yet. Everything else on the wheel is shown."
+        : "";
+    }
+
     document.getElementById("bReadout").innerHTML = priced().map(function (s) {
       var o = chosen(s);
       return '<div class="vstat"><span>' + esc(labelFor(s)) + "</span><b>" +
@@ -577,6 +620,7 @@
           '<img class="wstage__fb" src="' + esc(SPEC.card || SPEC.image) + '" alt="' +
             esc(SPEC.brandName + " " + SPEC.title) + '" />' +
         "</div>" +
+        '<p class="vnote vnote--flag bnorender" id="bNoRender" hidden></p>' +
         '<div class="vfld--hero bprice" id="bTotal"></div>' +
         '<p class="vnote" id="bPer"></p>' +
         '<div class="vreadout" id="bReadout"></div>' +

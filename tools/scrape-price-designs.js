@@ -312,6 +312,24 @@ function decode(meta, cfg) {
       return { step: sid, value: sentence(val) };
     }).filter(Boolean);
 
+    /* AN OPTION WITH NO RENDER, IN A STEP WHERE THE OTHERS HAVE ONE. His
+       config has exactly one: CAN-AM YELLOW on the Psycho face, on the Pro R
+       and the Expedition — it carries a swatch but no layer, so choosing it
+       composites a wheel with no face. We do not drop it (he will still build
+       it) and we do not substitute another colour (that would be a lie about
+       what they picked); it is flagged so the page can say the preview cannot
+       show this one. Reported under `noRender` for the rep to send art for. */
+    const drawn = opts.filter(o => o.layer).length;
+    if (drawn && drawn < opts.length) {
+      opts.forEach(o => {
+        if (o.layer) return;
+        /* "No" and "None" legitimately draw nothing — that is the answer. */
+        if (/^(no|none)\b/i.test(o.v)) return;
+        o.noRender = true;
+        (extras.noRender = extras.noRender || []).push(`${ids[c.id]} / ${o.v}`);
+      });
+    }
+
     const st = {
       id: ids[c.id],
       label: sentence(c.title) || 'Options',
@@ -490,6 +508,7 @@ BUILDERS.filter(b => !ONLY || b.handle === ONLY).forEach(meta => {
     duplicateTitles: dec.extras.dupTitles,
     stringPricesCoerced: dec.extras.stringPrices,
     danglingRules: (dec.extras.dangling || []).length,
+    noRender: dec.extras.noRender || [],
     offBucketImages: dec.extras.offBucket
   });
 

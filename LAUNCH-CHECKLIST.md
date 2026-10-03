@@ -315,6 +315,18 @@ each one is a phone call away from being better.
   local and rewrites `layerBase` in one command; it is written, tested dry, and
   deliberately not run.
 
+- 🟡 **4.45 — one finish has no render: CAN-AM YELLOW on the Psycho face.**
+  Found by driving all 2,951 options across the seven builders
+  (`node tools/qc-builders.js`). It is the only option in his entire config
+  that carries a swatch but no layer, and it affects the Pro R and the
+  Expedition. Choosing it composites a wheel with no face.
+
+  We neither drop it (he still builds it) nor substitute another colour (that
+  would be a lie about what they picked). The spec flags it `noRender`, and the
+  stage says plainly that the preview cannot show that one while the rest of
+  the wheel still renders. **Ask Kade for the layer** — it is one file, and the
+  tool re-detects any others automatically on the next scrape.
+
 - 🔴 **4.44 — six of the seven machine photographs on the builder chooser are
   his.** Chris asked for the chooser to look like Price Designs'
   shop-by-collection page: a grid of photographs of MACHINES rather than of

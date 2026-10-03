@@ -6252,3 +6252,8 @@ body.builder-page{
 .mpick--brand,.mpick--brand + .mpick__note{
   width:min(100% - 44px,var(--max));margin-inline:auto}
 @media(min-width:1100px){.mpick--brand{grid-template-columns:repeat(4,1fr)}}
+
+/* The one finish Price Designs builds but we hold no render of. Sits between
+   the stage and the price, where it explains the picture above it. */
+.bnorender{margin:10px 0 0!important;padding:9px 11px;
+  background:rgba(255,196,107,.12);border-left:2px solid #ffc46b}
