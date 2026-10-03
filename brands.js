@@ -872,13 +872,13 @@ window.BRANDS = [
          `img` is a composite of that builder's own default layer stack, not a
          photograph — four of these platforms had no photo of their own and
          were sharing one stock UTV shot. See tools/make-builder-cards.js. */
-      { model: "Expedition beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8","17x11","17x8"], finishes: ["Galaxy","Turbine","Crown","Psycho","5IVE"], img: "assets/wheels/price-designs/pd-expedition-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-expedition" },
-      { model: "Maverick R beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8","17x11","17x8"], finishes: ["Turbine","Galaxy","Nebula","Crown"], img: "assets/wheels/price-designs/pd-maverick-r-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-maverick-r" },
-      { model: "Pro R & Turbo R beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8","17x11","17x8"], finishes: ["Galaxy","Turbine","Crown","Psycho","5IVE"], img: "assets/wheels/price-designs/pd-pro-r-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x156"], builder: "pd-pro-r" },
-      { model: "RZR beadlock", configs: ["utv"], sizes: ["15x6","15x7","15x8"], finishes: ["Turbine"], img: "assets/wheels/price-designs/pd-rzr-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x156"], builder: "pd-rzr" },
-      { model: "Sand car beadlock", configs: ["utv"], sizes: ["15x7","17x10","17x10.5","17x11","17x12","17x6.5","17x7","17x8"], finishes: ["Turbine","Galaxy","5IVE"], img: "assets/wheels/price-designs/pd-sand-car-card.jpg", priceSet: 4400, priceSetQty: 4, bolts: ["5x205"], builder: "pd-sand-car" },
+      { model: "Expedition beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8","17x11","17x8"], finishes: ["Galaxy","Turbine","Crown","Psycho","5IVE"], img: "assets/wheels/price-designs/pd-expedition-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-expedition", feat: 6 },
+      { model: "Maverick R beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8","17x11","17x8"], finishes: ["Turbine","Galaxy","Nebula","Crown"], img: "assets/wheels/price-designs/pd-maverick-r-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-maverick-r", feat: 3 },
+      { model: "Pro R & Turbo R beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8","17x11","17x8"], finishes: ["Galaxy","Turbine","Crown","Psycho","5IVE"], img: "assets/wheels/price-designs/pd-pro-r-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x156"], builder: "pd-pro-r", feat: 2 },
+      { model: "RZR beadlock", configs: ["utv"], sizes: ["15x6","15x7","15x8"], finishes: ["Turbine"], img: "assets/wheels/price-designs/pd-rzr-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x156"], builder: "pd-rzr", feat: 5 },
+      { model: "Sand car beadlock", configs: ["utv"], sizes: ["15x7","17x10","17x10.5","17x11","17x12","17x6.5","17x7","17x8"], finishes: ["Turbine","Galaxy","5IVE"], img: "assets/wheels/price-designs/pd-sand-car-card.jpg", priceSet: 4400, priceSetQty: 4, bolts: ["5x205"], builder: "pd-sand-car", feat: 7 },
       { model: "17×9 simulated beadlock", configs: ["single"], sizes: ["17x9"], finishes: ["Turbine","Galaxy","Nebula","Nova","Crown"], img: "assets/wheels/price-designs/beadlock-titanium.jpg", priceSet: 5400, priceSetQty: 4, builder: "pd-truck-17x9", feat: 1 },
-      { model: "X3 beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8"], finishes: ["Turbine","Galaxy"], img: "assets/wheels/price-designs/x3-desert.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-x3" }
+      { model: "X3 beadlock", configs: ["utv"], sizes: ["15x10.5","15x12","15x8"], finishes: ["Turbine","Galaxy"], img: "assets/wheels/price-designs/x3-desert.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-x3", feat: 4 }
     ]
   },
 

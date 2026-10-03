@@ -404,6 +404,13 @@ function spec(meta, cfg, dec) {
     brandName: 'Price Designs',
     platform: meta.platform,
     lane: meta.lane,
+    /* Where this sits in its lane on the picker. The BUILDERS table above is
+       already in the order a customer should meet them — truck first, then the
+       side-by-sides by how many he sells, then the sand car — so that order is
+       published rather than re-stated as a sort rule inside builder.js. Keeping
+       it here means the engine carries no product knowledge, which is the whole
+       reason the specs exist. */
+    rank: BUILDERS.indexOf(meta),
     title: meta.title,
     subtitle: 'Build your own — set of four',
     setOf: 4,

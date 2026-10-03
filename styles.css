@@ -6190,3 +6190,49 @@ body.builder-page{
   .vchip__cap{font-size:11px}
   .vizgrid--build .vstat span{font-size:9.5px}
 }
+
+/* ============================================================
+   v361 — the picker asks what you are building for
+
+   Three lanes, because the lane settles the fitment: a Pro R is 4x156 and a
+   Maverick R is 4x137 from the factory, so choosing the platform IS choosing
+   the pattern. Only the truck asks, and only because a 17x9 blank is cut to
+   order in five of them.
+   ============================================================ */
+.blane{margin-top:30px}
+.blane:first-of-type{margin-top:4px}
+.blane__h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:0 0 11px;margin-bottom:15px;border-bottom:1px solid rgba(12,20,32,.14);
+  position:relative}
+/* A short blue rule under the heading itself, the way the section headers
+   elsewhere on the site mark a lane. */
+.blane__h::after{content:"";position:absolute;left:0;bottom:-1px;width:62px;height:3px;
+  background:var(--blue)}
+.blane__h h2{font-family:var(--display);font-size:clamp(17px,2.2vw,23px);
+  text-transform:uppercase;letter-spacing:.01em;color:var(--text);margin:0;line-height:1}
+.blane__h p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.5;
+  flex:1 1 320px;min-width:0}
+
+/* The pattern on the card, so the promise is visible before the click. */
+.bpick__m i{font-style:normal;font-family:var(--label);font-weight:700;
+  letter-spacing:.05em;color:#9fc4ff}
+
+@media(max-width:620px){
+  .blane{margin-top:24px}
+  .blane__h{display:block}
+  .blane__h p{margin-top:6px}
+}
+
+/* A lane with one platform in it — truck, and sand car — laid out across
+   instead of as a lone tile with a dead row beside it. The image takes the
+   left, the plate takes the right, and the row fills. */
+@media(min-width:640px){
+  .bpick--solo{grid-template-columns:minmax(0,1fr)}
+  .bpick--solo .bpick__c{flex-direction:row;align-items:stretch}
+  .bpick--solo .bpick__img{flex:0 0 42%;aspect-ratio:auto;min-height:230px}
+  .bpick--solo .bpick__b{flex:1 1 auto;justify-content:center;padding:22px 26px}
+  .bpick--solo .bpick__b b{font-size:21px}
+  .bpick--solo .bpick__m{font-size:13px}
+  /* The lit lip runs along the top of the plate; on a side-by-side layout the
+     plate's top edge is the card's top edge, so it reads the same. */
+}

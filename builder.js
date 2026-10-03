@@ -80,30 +80,69 @@
      eighth platform needs no edit here.
      ================================================================ */
   if (!SPEC) {
-    var all = Object.keys(window.BUILDERS).map(function (k) { return window.BUILDERS[k]; });
+    /* ================================================================
+       THE PICKER — what are you building for?
+
+       Chris: "when you click on Price Designs Wheels, it brings you to: are
+       you building for a truck? are you building for a side-by-side, sand
+       car? ... that way it automatically picks the wheel pattern or the lug
+       pattern for you."
+
+       That last part is already true and is the reason to group this way
+       rather than list seven cards flat. A Pro R is drilled 4x156 at the
+       factory and a Maverick R 4x137 — the pattern is a fact about the
+       machine, not a question, so choosing the platform IS choosing the
+       fitment. The truck is the one exception, because a 17x9 blank is cut to
+       order in any of five patterns; there we ask, and pre-select from the
+       truck they already gave the finder.
+
+       So each lane says plainly what it settles for you. The grouping is the
+       honest shape of the product, not decoration.
+       ================================================================ */
+    var LANES = [
+      { id: "single", title: "Truck",
+        sub: "Five lug patterns, cut to order. Tell us the truck and we pre-select yours." },
+      { id: "sxs", title: "Side-by-side",
+        sub: "Drilled to the machine at the factory, so there is no pattern to pick." },
+      { id: "sand", title: "Sand car &amp; buggy",
+        sub: "The long-standing VW pattern, the same as the rails these are built for." }
+    ];
+
+    var all = Object.keys(window.BUILDERS).map(function (k) { return window.BUILDERS[k]; })
+      .sort(function (a, b) { return (a.rank || 0) - (b.rank || 0); });
     var bad = q.get("b");
+
+    function card(s) {
+      return '<a class="bpick__c" href="build.html?b=' + esc(s.id) + '">' +
+        '<span class="bpick__img"><img src="' + esc(s.card || s.image) + '" alt="" loading="lazy" /></span>' +
+        '<span class="bpick__b">' +
+          '<span class="bpick__p">' + esc(s.platform) + "</span>" +
+          "<b>" + esc(s.title) + "</b>" +
+          '<span class="bpick__m">Set of ' + s.setOf + " · from " + money(s.basePrice) +
+            (s.bolt ? ' · <i>' + esc(s.bolt) + "</i>" : "") + "</span>" +
+          '<span class="bpick__go">Build yours <i>→</i></span>' +
+        "</span></a>";
+    }
+
     root.innerHTML =
       '<section class="vizhead fade">' +
         '<p class="kicker"><b>Price Designs</b> · built to order</p>' +
-        "<h1>Build your own</h1>" +
+        "<h1>What are you building for?</h1>" +
         '<p class="vizhead__lead">' +
           (bad ? "We couldn’t find that builder, so here’s the full list. " : "") +
-          "Forged in Gilbert, Arizona and cut to your spec. Pick the machine, and " +
-          "the wheel builds itself on screen as you choose." +
+          "Forged in Gilbert, Arizona and cut to your spec. Pick the machine and the " +
+          "wheel builds itself on screen as you choose — the bolt pattern comes with it." +
         "</p>" +
       "</section>" +
-      '<div class="bpick fade">' +
-        all.map(function (s) {
-          return '<a class="bpick__c" href="build.html?b=' + esc(s.id) + '">' +
-            '<span class="bpick__img"><img src="' + esc(s.card || s.image) + '" alt="" loading="lazy" /></span>' +
-            '<span class="bpick__b">' +
-              '<span class="bpick__p">' + esc(s.platform) + "</span>" +
-              "<b>" + esc(s.title) + "</b>" +
-              '<span class="bpick__m">Set of ' + s.setOf + " · from " + money(s.basePrice) + "</span>" +
-              '<span class="bpick__go">Build yours <i>→</i></span>' +
-            "</span></a>";
-        }).join("") +
-      "</div>" +
+      LANES.map(function (L) {
+        var rows = all.filter(function (s) { return s.lane === L.id; });
+        if (!rows.length) return "";
+        return '<section class="blane fade">' +
+          '<div class="blane__h"><h2>' + L.title + "</h2><p>" + L.sub + "</p></div>" +
+          '<div class="bpick' + (rows.length === 1 ? " bpick--solo" : "") + '">' +
+            rows.map(card).join("") + "</div>" +
+        "</section>";
+      }).join("") +
       '<p class="vnote bpick__note">Prices are Price Designs’ own, for the set of four. ' +
         "Fitment verified before we build — we confirm the pattern and the offset with you first.</p>";
     if (window.__observeFades) window.__observeFades();

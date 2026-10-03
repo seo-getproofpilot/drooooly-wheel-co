@@ -788,9 +788,16 @@
       ? '<img src="' + esc(hero) + '" alt="' + esc(brand.name + " " + m.model +
           (series === "dually" ? " front and rear wheel" : "")) + '" loading="lazy">'
       : emblem(brand, m);
-    var href = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
-               "&model=" + encodeURIComponent(m.model) +
-               (series ? "&series=" + series : "");
+    /* A build-to-order model has no spec page to show — there is no single
+       wheel until it is configured. The shop card has handled that since the
+       builder shipped (prodCard, above); the BRAND page never learned, so
+       every Price Designs style here pointed at wheel.html and said "Get
+       pricing", which is the one thing it cannot do. */
+    var href = m.builder
+      ? "build.html?b=" + encodeURIComponent(m.builder)
+      : "wheel.html?brand=" + encodeURIComponent(brand.slug) +
+        "&model=" + encodeURIComponent(m.model) +
+        (series ? "&series=" + series : "");
     return '<a class="wheel fade' + (vars ? ' wheel--vars' : '') +
       (series === "dually" ? ' wheel--pair' : '') + '" href="' + esc(href) + '">' +
       '<div class="wheel__media' + (hero ? '' : ' pkg__media--emblem') + '">' + mediaInner + '</div>' +
@@ -811,7 +818,9 @@
         (series === "dually" ? "Front &amp; rear · 6-wheel set"
          : series === "single" ? "Single rear wheel"
          : availText(m)) + '</p>' +
-      priceLine(brand, m, series) +
+      (m.builder
+        ? '<span class="wheel__quote wheel__quote--build">Build yours \u2192</span>'
+        : priceLine(brand, m, series)) +
       '</a>';
   }
 
@@ -986,8 +995,39 @@
               '<a' + (wantSeries ? "" : ' class="on"') + ' href="brand.html?brand=' + b.slug + '">Everything</a>' +
             "</nav>"
           : "") +
-        (b.site
-          ? '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
+        /* WHERE THIS BLOCK SENDS PEOPLE MATTERS.
+
+           For a catalogue brand it is right: we show the popular styles, the
+           rest live on the manufacturer's site, and the customer comes back to
+           us to buy. For a brand where EVERY product is a configurator we
+           host, it was sending them to the maker's own storefront to buy from
+           him instead — past our builder, our fitment and our checkout. That
+           is the opposite of the point.
+
+           So when every model is buildable here, the block points at our own
+           chooser. `allBuildable` is a test of the data, not a brand name, so
+           the next build-to-order brand gets the same treatment. */
+        (function () {
+          var models = b.models || [];
+          var allBuildable = models.length > 0 && models.every(function (m) { return m.builder; });
+          if (allBuildable) {
+            return '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
+              (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
+              (textureFor(b)
+                ? '<img class="wheelmore__logo" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">'
+                : "") +
+              '<h3>Build it to your machine</h3>' +
+              '<p>' + esc(b.name) + ' cuts every set to order — there is no off-the-shelf ' +
+                'version. Pick what you are building for and the pattern, the sizes and the ' +
+                'finishes follow; the wheel renders on screen as you choose.</p>' +
+              '<div class="wheelmore__btns">' +
+                '<a class="btn btn--primary" href="build.html">' +
+                  '<span class="btn-txt">Build your own \u2192</span></a>' +
+              '</div>' +
+            '</div>';
+          }
+          if (!b.site) return "";
+          return '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
               (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
               (textureFor(b)
                 ? '<img class="wheelmore__logo" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">'
@@ -1000,8 +1040,8 @@
                 '<a class="btn btn--primary" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                   '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
               '</div>' +
-            '</div>'
-          : '') +
+            '</div>';
+        })() +
       '</section>';
     bindFinishSwatches(root);
     if (window.__observeFades) window.__observeFades();

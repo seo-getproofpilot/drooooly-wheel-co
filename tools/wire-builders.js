@@ -108,9 +108,13 @@ const models = specs.map(s => {
   line += `, priceSet: ${s.basePrice}, priceSetQty: ${s.setOf}`;
   if (s.bolt) line += `, bolts: ${arr([s.bolt])}`;
   line += `, builder: ${q(s.id)}`;
-  /* The truck is the one with a photograph rather than a composite, and it is
-     the one that carries the brand on the homepage. */
-  if (s.id === 'pd-truck-17x9') line += `, feat: 1`;
+  /* EVERY builder is featured. `feat` decides what the brand page shows, and
+     it exists because most brands have 150 styles and we show the popular
+     ones. Price Designs has seven products in total and all seven are
+     configurators — so "most popular styles" is the whole catalogue, and
+     flagging only the truck left the brand page showing one of seven with no
+     way to see the rest. The rank doubles as the order. */
+  line += `, feat: ${s.rank + 1}`;
   return line + ' }';
 });
 
