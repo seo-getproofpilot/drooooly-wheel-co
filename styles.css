@@ -5637,3 +5637,88 @@ html.intro-run .hero-rot{opacity:0;transition:none}
   body.has-bbar{padding-bottom:78px}
 }
 @media(min-width:820px){.bbar{display:none}}
+
+/* ============================================================
+   v351 — seven builders, and a wheel that rebuilds itself
+
+   Price Designs' own configurator composites a stack of transparent renders,
+   one per choice, and swaps a layer when you change an option. We do the same
+   with plain stacked <img>; see builder.js paintLayers() for why they are
+   swapped rather than re-src'd.
+   ============================================================ */
+
+/* 1. THE STAGE. Every layer is a 1000x1000 render on transparency, so they
+      sit on top of each other at identical size and the aspect box is held by
+      the element rather than by whichever layer happens to load first — no
+      reflow as the wheel assembles. `object-fit:contain` matters: `cover`
+      would crop each layer independently and the rings would drift off the
+      face. */
+.wstage{position:relative;width:100%;display:block;overflow:hidden;
+  border:1px solid var(--line);background:var(--bg-2)}
+.wlayer,.wstage__fb{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:contain;display:block}
+.wstage__fb{z-index:0;object-fit:cover;transition:opacity .35s ease}
+/* Once a real layer is up, the stand-in photo gets out of the way. It stays
+   in the DOM, so a builder whose art fails to load still shows a wheel. */
+.wstage--on .wstage__fb{opacity:0}
+.wlayer{animation:wfade .22s ease both}
+@keyframes wfade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .wlayer{animation:none}
+  .wstage__fb{transition:none}
+}
+
+/* 2. SWATCH GRIDS. A ring model is three words and reads fine as words. A
+      face finish is forty-six paints — ILLUSION BLUEBERG against ILLUSION
+      BLUEBERRY is not a choice anyone can make from the name, so those get
+      his own swatch. The tile is the picture; the name is the caption. */
+.vchips--sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:7px}
+.vchip--sw{display:flex;flex-direction:column;align-items:center;gap:5px;
+  padding:7px 5px 8px;text-align:center;line-height:1.2;min-width:0}
+.vchip--sw img,.vchip__nosw{width:100%;aspect-ratio:1;object-fit:cover;display:block;
+  background:var(--bg-2);border:1px solid var(--line)}
+.vchip--sw span{font-size:8.5px;letter-spacing:.04em;word-break:break-word;hyphens:auto}
+.vchip--sw i{font-style:normal;font-size:8.5px;letter-spacing:.04em;color:var(--blue-2)}
+.vchip--sw.on i{color:#cfe0ff}
+.vchip--sw.on img{border-color:transparent;box-shadow:0 0 0 2px var(--ink)}
+
+/* Forty-six tiles is a wall. Show a sane first screenful and let them open the
+   rest — the chosen one is always promoted into view by builder.js, so a
+   collapsed group never hides the current answer. */
+.vchips--sw.is-clipped{max-height:214px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);
+          mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.vmore{margin-top:8px;font-family:var(--label);font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--blue-2);background:none;border:0;padding:4px 0;cursor:pointer}
+.vmore:hover{color:var(--ink);text-decoration:underline}
+
+/* 3. A FACT, not a question. He builds one model for the RZR, so a one-button
+      chip row would be asking the customer to agree with the only thing on
+      offer. It reads as a stated spec instead. */
+.vfld--fact label b{color:var(--text)}
+.vfld--fact{opacity:.86}
+
+.vizhead__back{margin:10px 0 0;font-size:12px}
+
+/* 4. THE PLATFORM PICKER at build.html with no ?b=. His site asks which
+      machine before it asks anything else; so does ours. */
+.bpick{display:grid;gap:14px;margin-top:22px;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.bpick__c{display:flex;flex-direction:column;background:var(--panel);
+  border:1px solid var(--line);text-decoration:none;color:inherit;
+  transition:border-color .2s,transform .2s,box-shadow .2s}
+.bpick__c:hover{border-color:var(--blue-2);transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(12,18,28,.1)}
+.bpick__img{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--bg-2)}
+.bpick__img img{width:100%;height:100%;object-fit:cover;display:block}
+.bpick__b{display:flex;flex-direction:column;gap:3px;padding:14px 15px 15px}
+.bpick__p{font-family:var(--label);font-size:9.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--soft)}
+.bpick__b b{font-family:var(--display);font-style:italic;font-size:17px;color:var(--text);
+  line-height:1.2}
+.bpick__m{font-size:12px;color:var(--muted);margin-top:2px}
+.bpick__go{font-family:var(--label);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--blue-2);margin-top:9px}
+.bpick__go i{font-style:normal;display:inline-block;transition:transform .2s}
+.bpick__c:hover .bpick__go i{transform:translateX(4px)}
+.bpick__note{margin-top:18px}

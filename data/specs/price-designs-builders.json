@@ -1,0 +1,153 @@
+{
+ "scraped": "2026-10-03",
+ "shop": "pricedesigns-pd.com",
+ "shopId": "61433217254",
+ "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
+ "builders": [
+  {
+   "id": "pd-truck-17x9",
+   "handle": "truck-17x9",
+   "productId": 9383916437734,
+   "platform": "Lifted truck",
+   "basePrice": 5400,
+   "categories": 30,
+   "steps": 30,
+   "deadCategories": [],
+   "layers": 107,
+   "swatches": 88,
+   "duplicateTitles": [
+    "Select model",
+    "Turbine wheel finish",
+    "Galaxy wheel finish",
+    "Post-cut wheel?",
+    "Center cap hardware finish",
+    "Lug nuts"
+   ],
+   "stringPricesCoerced": 61,
+   "danglingRules": 1,
+   "offBucketImages": []
+  },
+  {
+   "id": "pd-pro-r",
+   "handle": "utv-pro-r-wheels",
+   "productId": 8985200034022,
+   "platform": "Polaris Pro R / Turbo R",
+   "basePrice": 3000,
+   "categories": 27,
+   "steps": 27,
+   "deadCategories": [],
+   "layers": 559,
+   "swatches": 282,
+   "duplicateTitles": [
+    "Face finish",
+    "Post-cut face?"
+   ],
+   "stringPricesCoerced": 16,
+   "danglingRules": 1,
+   "offBucketImages": []
+  },
+  {
+   "id": "pd-maverick-r",
+   "handle": "utv-maverick-r-wheels",
+   "productId": 9001757573350,
+   "platform": "Can-Am Maverick R",
+   "basePrice": 3000,
+   "categories": 26,
+   "steps": 26,
+   "deadCategories": [],
+   "layers": 512,
+   "swatches": 369,
+   "duplicateTitles": [
+    "Face finish",
+    "Post-cut face?",
+    "Face hardware finish"
+   ],
+   "stringPricesCoerced": 16,
+   "danglingRules": 0,
+   "offBucketImages": []
+  },
+  {
+   "id": "pd-x3",
+   "handle": "utv-x3-wheels",
+   "productId": 9408278692070,
+   "platform": "Can-Am Maverick X3",
+   "basePrice": 3000,
+   "categories": 23,
+   "steps": 23,
+   "deadCategories": [],
+   "layers": 416,
+   "swatches": 319,
+   "duplicateTitles": [
+    "Face finish",
+    "Post-cut face?",
+    "Center cap finish",
+    "Post-cut center cap?",
+    "Face hardware finish"
+   ],
+   "stringPricesCoerced": 14,
+   "danglingRules": 2,
+   "offBucketImages": []
+  },
+  {
+   "id": "pd-rzr",
+   "handle": "utv-rzr-wheels",
+   "productId": 9408337772774,
+   "platform": "Polaris RZR",
+   "basePrice": 3000,
+   "categories": 16,
+   "steps": 16,
+   "deadCategories": [],
+   "layers": 309,
+   "swatches": 259,
+   "duplicateTitles": [
+    "Post-cut beadlock ring?"
+   ],
+   "stringPricesCoerced": 12,
+   "danglingRules": 3,
+   "offBucketImages": []
+  },
+  {
+   "id": "pd-expedition",
+   "handle": "utv-expedition-wheels",
+   "productId": 9822037901542,
+   "platform": "Can-Am Defender & Expedition",
+   "basePrice": 3000,
+   "categories": 26,
+   "steps": 26,
+   "deadCategories": [],
+   "layers": 558,
+   "swatches": 281,
+   "duplicateTitles": [
+    "Face finish",
+    "Post-cut face?"
+   ],
+   "stringPricesCoerced": 16,
+   "danglingRules": 1,
+   "offBucketImages": []
+  },
+  {
+   "id": "pd-sand-car",
+   "handle": "utv-sand-car-wheels",
+   "productId": 9408361529574,
+   "platform": "Sand car & buggy",
+   "basePrice": 4400,
+   "categories": 20,
+   "steps": 20,
+   "deadCategories": [],
+   "layers": 369,
+   "swatches": 319,
+   "duplicateTitles": [
+    "Face finish",
+    "Post-cut face?",
+    "Face hardware finish"
+   ],
+   "stringPricesCoerced": 13,
+   "danglingRules": 2,
+   "offBucketImages": []
+  }
+ ],
+ "totals": {
+  "layers": 1542,
+  "swatches": 531
+ }
+}

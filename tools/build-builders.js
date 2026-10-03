@@ -29,7 +29,7 @@ const SRCDIR = path.join(ROOT, 'data/builders');
 const OUT = path.join(ROOT, 'builders-data.js');
 
 const errs = [];
-const TYPES = ['chips', 'text'];
+const TYPES = ['chips', 'text', 'fact'];
 
 /* the patterns the finder can resolve, so a lug step cannot reference one
    that will never match a real truck */
@@ -46,6 +46,10 @@ files.forEach(f => {
   if (!(spec.basePrice >= 0)) errs.push(`${where}: basePrice must be a number`);
   if (!spec.image) errs.push(`${where}: no image`);
   if (spec.image && !fs.existsSync(path.join(ROOT, spec.image))) errs.push(`${where}: image not on disk — ${spec.image}`);
+  /* The picker shows `card`; a missing one is a broken tile in a seven-tile
+     grid, which is exactly the failure make-builder-cards.js exists to stop.
+     Run `node tools/make-builder-cards.js` after re-scraping. */
+  if (spec.card && !fs.existsSync(path.join(ROOT, spec.card))) errs.push(`${where}: card not on disk — ${spec.card} (run tools/make-builder-cards.js)`);
   if (!Array.isArray(spec.steps) || !spec.steps.length) { errs.push(`${where}: no steps`); return; }
 
   const seenIds = [];
@@ -64,9 +68,13 @@ files.forEach(f => {
       }
     });
 
-    if (st.type === 'chips') {
+    if (st.type === 'fact' && (st.options || []).length !== 1) {
+      errs.push(`${w}: a fact step states exactly one option, got ${(st.options || []).length}`);
+    }
+
+    if (st.type === 'chips' || st.type === 'fact') {
       const opts = st.options || [];
-      if (opts.length < 2) errs.push(`${w}: a chips step needs at least two options`);
+      if (st.type === 'chips' && opts.length < 2) errs.push(`${w}: a chips step needs at least two options`);
       const vals = [];
       opts.forEach(o => {
         if (!o.v) errs.push(`${w}: an option has no value`);
@@ -82,6 +90,61 @@ files.forEach(f => {
     }
     seenIds.push(st.id);
   });
+
+  /* ---- a second pass, now that every step id and value is known --------
+     These are the checks that catch the failures you cannot see by reading a
+     7,000-line generated spec: a rule naming a step that no longer exists, or
+     a value that no longer exists on it. Either one evaluates false forever,
+     which does not throw — it silently pins a step open, so the customer is
+     offered a HALO ring finish on a wheel with a SAWBLADE ring. */
+  const byId = {};
+  spec.steps.forEach(st => { byId[st.id] = st; });
+
+  spec.steps.forEach((st, i) => {
+    const w = `${where} step[${i}] ${st.id}`;
+    (st.hideWhen || []).forEach(r => {
+      const ref = byId[r.step];
+      if (!ref) { errs.push(`${w}: hideWhen names step "${r.step}", which does not exist`); return; }
+      if (ref === st) { errs.push(`${w}: hideWhen references itself`); return; }
+      const vals = (ref.options || []).map(o => o.v);
+      if (vals.indexOf(r.value) < 0) {
+        errs.push(`${w}: hideWhen wants ${r.step} = "${r.value}", which is not one of its options`);
+      }
+    });
+
+    /* A step hidden by every value of a step that is always answered can never
+       be seen. The scraper prunes these; this catches a hand edit that creates
+       one. */
+    const covered = {};
+    (st.hideWhen || []).forEach(r => { (covered[r.step] = covered[r.step] || []).push(r.value); });
+    Object.keys(covered).forEach(sid => {
+      const ref = byId[sid];
+      if (!ref || ref.type !== 'fact') return;
+      if (covered[sid].indexOf(ref.options[0].v) > -1) {
+        errs.push(`${w}: hidden by ${sid}, which is a fact always set to "${ref.options[0].v}" — this step can never be seen`);
+      }
+    });
+  });
+
+  /* Layer art is referenced by filename against one base, so a spec that has
+     layers and no base would render a page of broken images. */
+  const hasLayers = spec.steps.some(st => (st.options || []).some(o => o.layer));
+  if (hasLayers && !spec.layerBase) errs.push(`${where}: options carry layers but there is no layerBase`);
+  if (hasLayers && !(spec.stage && spec.stage.w > 0 && spec.stage.h > 0)) {
+    errs.push(`${where}: layered builders need stage {w,h} to reserve the aspect box`);
+  }
+
+  /* The defaults decide what the customer sees on arrival; one naming a step
+     or a value that does not exist means the page opens in a state the engine
+     never intended. */
+  Object.keys(spec.defaults || {}).forEach(sid => {
+    const ref = byId[sid];
+    if (!ref) { errs.push(`${where}: defaults name step "${sid}", which does not exist`); return; }
+    if ((ref.options || []).map(o => o.v).indexOf(spec.defaults[sid]) < 0) {
+      errs.push(`${where}: default ${sid} = "${spec.defaults[sid]}" is not one of its options`);
+    }
+  });
+
   specs[spec.id] = spec;
 });
 
@@ -96,10 +159,23 @@ fs.writeFileSync(OUT,
   '   Do not edit — edit the JSON and re-run the tool. */\n' +
   'window.BUILDERS = ' + JSON.stringify(specs) + ';\n');
 
+/* The top of the range, honestly. Summing the dearest option of every step
+   overstates it badly — the truck carries a six-lug arm and an eight-lug arm
+   and no customer can buy both, which is how that number came out at $28,800
+   against a real ceiling nearer $9,000. So price only configurations that can
+   actually exist: walk the tree the way the engine will, greedily taking the
+   dearest visible option, and report the best a real build can reach. */
+const LOGIC = require(path.join(ROOT, 'builder-logic.js'));
+
+function ceiling(spec) {
+  const v = LOGIC.complete(spec, {}, { gate: false, dearest: true });
+  return LOGIC.total(spec, v);
+}
+
 Object.values(specs).forEach(s => {
-  const chips = s.steps.filter(x => x.type === 'chips');
-  const max = chips.reduce((a, st) => a + Math.max.apply(null, (st.options || []).map(o => o.add || 0).concat([0])), 0);
-  console.log(`  ${s.id}: ${s.steps.length} steps · base $${s.basePrice.toLocaleString()} · ` +
-              `fully loaded $${(s.basePrice + max).toLocaleString()}`);
+  const layers = new Set();
+  s.steps.forEach(st => (st.options || []).forEach(o => { if (o.layer) layers.add(o.layer); }));
+  console.log(`  ${s.id}: ${s.steps.length} steps · ${layers.size} layers · ` +
+              `base $${s.basePrice.toLocaleString()} · dearest real build $${ceiling(s).toLocaleString()}`);
 });
 console.log(`  wrote ${path.relative(ROOT, OUT)}`);

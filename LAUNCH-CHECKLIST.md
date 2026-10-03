@@ -39,7 +39,7 @@ Google to index a draft full of placeholder prices.
 | 1.3 | **JTX build photos hotlinked on the builds gallery** — displayed from their server, not copied here | `builds.html`, `data/builds/jtx.json` | 🟡 We host nothing and every tile links back, which is the lightest possible footing — but get written permission before this is public, or replace with our own installs. |
 | 1.8b | **The share card is now the hero photo** — `assets/og-share.jpg` is generated from `assets/hero-c10.jpg` by `tools/make-og.js`, so the hero's rights question (1.8) is now also the link-preview's rights question, and the image travels further: every link anyone sends carries it into iMessage, Facebook and Slack. | `assets/og-share.jpg` | 🔴 Clearing 1.8 clears this. Until then the unlicensed photo is being redistributed by every share, not just viewed on the site. |
 | 1.12 | **163 American Force product renders**, taken from the JSON-LD each of their product pages publishes and resized to 680px | `assets/wheels/american-force/`, manifest in `data/specs/american-force-art.json` | 🔴 Their photography, same ask as 1.1 and 1.2 — and a bigger one now, since this is the single largest block of third-party art on the site. Their robots.txt permits the clean product pages and the media path, and the scrape ran one page at a time with a delay, but permitted-to-fetch is not licensed-to-publish. Every file traces to its source URL in the manifest, so it can be removed or re-sourced in one pass. |
-| 1.13 | **Price Designs photography** — their beadlock beauty shot and a desert X3, taken from their own storefront (JS-rendered, so these only appear once the page runs; the product feed has none of it). The two GIF-frame cutouts remain for the catalogue cards, where a transparent wheel is needed. | `assets/wheels/price-designs/` | 🔴 Their imagery, same ask as 1.1/1.2. Better footing than the GIF frames — these are real photographs rather than stills pulled from a marketing animation — but still theirs. |
+| 1.13 | **Price Designs photography** — their beadlock beauty shot and a desert X3, taken from their own storefront (JS-rendered, so these only appear once the page runs; the product feed has none of it). The two GIF-frame cutouts remain for the catalogue cards, where a transparent wheel is needed. | `assets/wheels/price-designs/` | 🔴 Their imagery, same ask as 1.1/1.2. Better footing than the GIF frames — these are real photographs rather than stills pulled from a marketing animation — but still theirs. **The builders add 1,542 layer renders and 531 swatches of his on top of this** — see 4.42, which is the bigger version of the same ask. |
 | 1.14 | **Price Designs' real logo**, their white PRICE-[PD]-DESIGNS lockup, pulled from their own storefront (it is JS-rendered, so it only appears once the page runs — curl saw nothing). | `assets/brands/price-designs.png` | 🟡 Resolved as of 2026-10-01: this is their actual mark, not our typesetting. Still their trademark, so it sits under the same brand-permission ask as every other logo on the site. |
 | 1.9 | **Payment-network marks in the footer** — Visa, Mastercard, Amex, Discover and PayPal from `aaronfagan/svg-credit-card-payment-icons` (Apache-2.0); Apple Pay and Google Pay from `simple-icons` (CC0). The licence covers the *files*; it does not license the trademarks. | `assets/pay/` | 🟡 Normal acceptance-mark use, but each network publishes rules: Visa and Mastercard specify minimum size and clear space, Apple requires the Apple Pay mark only where Apple Pay is actually accepted and Google the same for Google Pay. Confirm against the real processor line-up before launch and drop any mark we do not in fact accept. |
 | 1.10 | **Affirm and Klarna marks** reused from `assets/lenders/`, now also in the footer as accepted payment | `assets/pay/affirm.svg`, `assets/pay/klarna.svg` | 🔴 Both require an active merchant agreement before their mark may be displayed. Tied to 2.7 and 4.33 — the footer now makes the claim twice as hard as the text badges did. |
@@ -97,16 +97,20 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
   Forged Beadlock — is sold out at every variant, so it has no published price and still
   falls back to the formula.
 
-- 🔴 **2.8 — the wheel builder prints the first hard prices on the site.** Every
-  other product is quote-gated; `build.html` quotes a real $5,400 set and a real
-  running total up to $9,500. The figures are **Price Designs' own published
-  retail**, read off his storefront on 2026-10-02 and recorded with their source
-  in `data/builders/pd-truck-17x9.json`. Chris approved showing them.
+- 🔴 **2.8 — the wheel builders print the first hard prices on the site.** Every
+  other product is quote-gated; `build.html` now quotes seven real builders —
+  $5,400 for the truck set running to $9,500, $3,000 for the UTVs, $4,400 for the
+  sand car — with a live running total on every option. The figures are **Price
+  Designs' own published retail**, read on 2026-10-02 straight out of the config
+  his storefront downloads, and recorded with their source in each
+  `data/builders/pd-*.json`. Nothing is estimated, marked up or rounded. Chris
+  approved showing them.
 
   What still needs confirming with Kade: **that our dealer price leaves margin at
   his retail.** Publishing his retail as ours is only safe if we buy below it. If
-  the margin is not there, the fix is one number per row in that JSON — the
-  builder, the card and the tests all read from it.
+  the margin is not there, the fix is a markup in
+  `tools/scrape-price-designs.js` and a re-run — the builders, the shop cards and
+  the tests all read from the generated specs, so no figure is typed twice.
 
 ## 3. Brands — CLAUDE.md rule 3
 
@@ -276,17 +280,48 @@ each one is a phone call away from being better.
   Amani 8, Vision 8, Fenix 7, **Liberty 7 of 7**, and singles and pairs
   elsewhere.
 
-- 🟡 **4.40 — Price Designs is a build-to-order listing, not a catalogue.** Added
-  2026-10-01 at Chris's request. They sell through a configurator: six platform
-  entries (Can-Am X3, Maverick R, Pro R/Turbo R, RZR, Sand Car, 17×9 truck
-  blank) rather than SKUs with published sizes and finishes. Two of the six
-  carry art; the other four show the placeholder, because reusing one render
-  across several models is the placeholder pattern the integrity tests exist
-  to catch. **They do not make dually wheels** — their own site says "sand" 14
-  times and "dually" zero — so they sit in the UTV and single lanes only. The
-  bolt patterns on the UTV entries are the machine's own (X3 4x137, RZR/Pro R
-  4x156), not a claim about what Price Designs will drill; the truck blank
-  carries none and answers "confirmed before we build".
+- 🟡 **4.40 — Price Designs is seven build-to-order configurators, not a
+  catalogue.** Rewritten 2026-10-02. They sell nothing as a SKU: every product is
+  a builder, and all seven are now rebuilt on our site — the 17×9 truck blank,
+  Pro R / Turbo R, Maverick R, Can-Am X3, RZR, Defender & Expedition, and the
+  sand car. Each is generated by `tools/scrape-price-designs.js` from the config
+  his storefront downloads, so the steps, the rules, the prices and the layer art
+  are his, not our reading of his marketing. **They do not make dually wheels** —
+  their own site says "sand" 14 times and "dually" zero — so they sit in the UTV
+  and single lanes only. The bolt patterns on the UTV entries are the machine's
+  own (X3 and Maverick R 4x137, RZR and Pro R 4x156, sand car 5x205), not a claim
+  about what Price Designs will drill; the truck builder carries all five it cuts
+  and answers "confirmed before we build".
+
+  The four-models-sharing-one-render problem in the old version of this entry is
+  gone: `tools/make-builder-cards.js` composites a card for each builder out of
+  that builder's own default layer stack, and refuses to let two builders ship
+  the same picture (Pro R and Expedition genuinely open on the same wheel, so Pro
+  R's card shows another model from its own range).
+
+- 🔴 **4.42 — the live render is hotlinked to Price Designs' CDN.** The builders
+  reference **1,542 layer renders and 531 swatches**, about 100MB, and every file
+  is his. Rather than copy that into the repo the specs store a bare filename
+  against `layerBase`, which points at the Google bucket his builder app already
+  serves from — both hosts it uses are the same bucket, both send
+  `access-control-allow-origin: *`, and neither checks the referrer.
+
+  **Two things follow and both need a decision before launch.** First, rights: we
+  are displaying his photography, which is the same ask as 1.13 and wants Kade's
+  yes in writing. Second, and more urgent operationally — **his CDN decides
+  whether our builder renders.** If he moves off The Custom Product Builder, or
+  the app re-keys its files, every wheel on every builder page goes blank at once
+  and we hear about it from a customer. `tools/mirror-pd-art.js` pulls the lot
+  local and rewrites `layerBase` in one command; it is written, tested dry, and
+  deliberately not run.
+
+- 🟡 **4.43 — the RZR builder states no wheel sizes and neither does his page.**
+  Six of the seven builders ask for a wheel size and we read the real ones
+  straight off them. His RZR configurator has no size step at all, so the sizes on
+  that shop card (15x6, 15x7, 15x8) are **carried forward from the older
+  hand-written catalogue entry and are not verified**. They are isolated in
+  `CARRIED` in `tools/wire-builders.js` so there is one place to correct them.
+  Ask Kade what the RZR beadlock actually comes in.
 
 - 🟡 **4.41 — the builder has no cart and no checkout, deliberately.** Chris:
   "the payment side of it, or how you can add it to your cart, let's do that at
@@ -297,7 +332,7 @@ each one is a phone call away from being better.
   **Three things must change in `cart.js` before that seam closes**, and none are
   cosmetic. They are written out at the single call site in `builder.js`:
   (1) `cart.js:18` stores exactly `{key, brand, name, price, img, qty}` and drops
-  unknown fields, so `choices` and `notes` would vanish on the way in;
+  unknown fields, so `choices`, `layers` and `notes` would vanish on the way in;
   (2) `render()` concatenates brand and name into `innerHTML` **unescaped** —
   nothing user-controlled reaches it today, but a build carrying a free-text note
   would be the first, and that is an XSS hole; (3) `key` is the dedupe identity,

@@ -405,6 +405,12 @@ out += BRANDS.map((b) => {
     if (typeof m.priceSet === "number") s += `, priceSet: ${m.priceSet}`;
     if (typeof m.priceSetQty === "number") s += `, priceSetQty: ${m.priceSetQty}`;
     if (m.bolts && m.bolts.length) s += `, bolts: ${arr(m.bolts)}`;
+    /* `builder` makes a model configurable — the card links to build.html and
+       offers "Build yours" instead of add-to-cart. It was NOT serialised here
+       until 2026-10-02, which meant every run of this tool silently deleted
+       the link and turned seven build-your-own products back into plain
+       cards. Anything the catalogue carries has to survive the round trip. */
+    if (m.builder) s += `, builder: ${q(m.builder)}`;
     if (m.feat) s += `, feat: ${m.feat}`;
     return s + " }";
   }).join(",\n");

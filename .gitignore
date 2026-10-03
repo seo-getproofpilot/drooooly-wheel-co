@@ -8,3 +8,10 @@ assets/wheels/*/_originals/
 # scrape cache — a local convenience for re-running tools/scrape-jtx-sizes.js
 # without re-fetching 150 pages. The record that matters is data/specs/jtx-sizes.json.
 .jtx-scrape-cache.json
+
+# layer renders pulled from Price Designs' CDN while building the card images.
+# A local convenience for re-running tools/make-builder-cards.js without
+# re-fetching ~60 files. Nothing here is shipped — the builders reference his
+# CDN directly (LAUNCH-CHECKLIST 4.42), and tools/mirror-pd-art.js is the
+# command that would make them local and tracked.
+.cache/
