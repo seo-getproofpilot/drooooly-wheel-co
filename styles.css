@@ -5675,12 +5675,14 @@ html.intro-run .hero-rot{opacity:0;transition:none}
 .vchips--sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:7px}
 .vchip--sw{display:flex;flex-direction:column;align-items:center;gap:5px;
   padding:7px 5px 8px;text-align:center;line-height:1.2;min-width:0}
-.vchip--sw img,.vchip__nosw{width:100%;aspect-ratio:1;object-fit:cover;display:block;
-  background:var(--bg-2);border:1px solid var(--line)}
-.vchip--sw span{font-size:8.5px;letter-spacing:.04em;word-break:break-word;hyphens:auto}
-.vchip--sw i{font-style:normal;font-size:8.5px;letter-spacing:.04em;color:var(--blue-2)}
-.vchip--sw.on i{color:#cfe0ff}
-.vchip--sw.on img{border-color:transparent;box-shadow:0 0 0 2px var(--ink)}
+.vchip--sw img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+/* The caption, the price and the chosen state all moved to .vchip__cap and to
+   the v353/v354 rules below. What used to live here was four declarations that
+   the later blocks had already replaced — except `.vchip--sw span`, which is
+   TWO classes against .vchip__cap's one, so it kept winning on specificity no
+   matter how far down the file the replacement sat. That is how the tile
+   caption stayed at 8.5px through two rounds of being made bigger. Superseded
+   CSS does not go quiet on its own; it gets deleted. */
 
 /* Forty-six tiles is a wall. Show a sane first screenful and let them open the
    rest — the chosen one is always promoted into view by builder.js, so a
@@ -6095,4 +6097,96 @@ body.builder-page{
      one — between 620 and 1140 the finder spans the full width of the band,
      so three across has plenty of room there. */
   .vehmod__row{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ============================================================
+   v360 — wider, larger, and legible on the dark rails
+
+   Chris: "I still think we should do a texture on the background of the page
+   to give it more of a vibe. As I'm reading through all the areas where it
+   says 'beadlock ring' and 'post cut center caps,' I like that it's like that
+   black billet button we built, but everything's hard to read. The white is
+   very faint, or the font is faint. We also could make the model titles a
+   little bit bigger... Let's make this whole page a little bit wider and
+   larger so that the images are a little larger, the title of each wheel
+   beadlock, and the saw blade rings are all easier to read."
+
+   WHY THE RAILS WERE HARD TO READ, which is worth naming because it will come
+   up again: Michroma is a display face. Its letterforms are wide, even-weight
+   and open, which is why the wordmark and the headlines use it — and it is
+   exactly those qualities that fall apart at 9.5px with .09em of tracking on a
+   dark ground. There was nothing wrong with the colour alone; the type was
+   doing body-text work it was never cut for.
+
+   The fix keeps the face, because that billet rail is the look Chris asked
+   for, and gives it the size and contrast it needs to survive at that size:
+   9.5 -> 11.5px, #949ba5 -> #d2d8e0, tighter tracking. Same again on the spec
+   plate. Anything below ~11px on these dark surfaces should move to Inter
+   rather than get brighter.
+   ============================================================ */
+
+/* ---- 1. the texture, now actually visible ---------------------------- */
+/* The old field was noise at soft-light over a near-flat ramp — present in the
+   computed styles and invisible on a screen. A brushed diagonal carries it:
+   it is a real machining direction, it reads at arm's length, and the period
+   is wide enough (9px) not to moire against a laptop panel. */
+body.builder-page{
+  background:
+    var(--grit),
+    repeating-linear-gradient(118deg,
+      rgba(16,22,30,.055) 0 1px, rgba(255,255,255,.5) 1px 2px, transparent 2px 9px),
+    radial-gradient(1250px 540px at 50% -70px, rgba(31,123,255,.20), transparent 72%),
+    radial-gradient(900px 600px at 100% 100%, rgba(12,20,32,.09), transparent 70%),
+    linear-gradient(180deg,#eef1f5 0%,#e3e8ee 46%,#eaeef3 100%);
+  background-blend-mode:soft-light,normal,normal,normal,normal;
+  background-repeat:repeat,repeat,no-repeat,no-repeat,no-repeat}
+
+/* ---- 2. wider page, bigger stage ------------------------------------- */
+.vizpage{max-width:1460px}
+@media(min-width:820px){
+  /* The stage was 330. The wheel is the product and it had the narrow column. */
+  .vizgrid--build{grid-template-columns:minmax(0,1fr) 408px;gap:22px}
+}
+@media(min-width:1200px){
+  .vizgrid--build{grid-template-columns:minmax(0,1fr) 452px;gap:26px}
+}
+
+/* ---- 3. the rails, legible ------------------------------------------- */
+.vizpanel .vfld > label{padding:11px 15px;
+  font-size:11.5px;letter-spacing:.055em;color:#d2d8e0}
+.vizpanel .vfld > label b{font-size:15px;color:#fff;letter-spacing:.005em}
+.vizpanel .vfld--hero > label b{color:#ffcf86}
+
+/* ---- 4. the tiles, bigger ------------------------------------------- */
+/* 82px tiles with a 9.5px caption were sized for a 330px column. In a column
+   half the page wide they can be the size of the thing they are showing. */
+.vchips--sw{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.vchip--sw{padding:8px 8px 0}
+.vchip__cap{font-size:11.5px;letter-spacing:.01em;padding:8px 4px 9px;margin-top:8px}
+.vchip__cap i{font-size:10.5px;margin-top:3px}
+/* The clip grows with the tiles, so a collapsed group still shows two rows. */
+.vchips--sw.is-clipped{max-height:296px}
+
+/* Word chips carry model names too — "Yes / machined insert (+$800)" is a
+   title, not a footnote. */
+.vizpanel .vchips:not(.vchips--sw) .vchip{font-size:12.5px;min-height:48px;padding:10px 18px}
+.vizpanel .vchips:not(.vchips--sw) .vchip i{font-size:10.5px}
+
+/* ---- 5. the spec plate, same treatment ------------------------------- */
+.vizgrid--build .vstat{padding:11px 16px}
+.vizgrid--build .vstat span{font-size:10px;letter-spacing:.05em;color:#c0c7d0}
+.vizgrid--build .vstat b{font-size:14px;color:#fff}
+
+/* ---- 6. the price and the stage ------------------------------------- */
+.vizgrid--build .bprice b{font-size:30px}
+.vizgrid--build .bprice span{font-size:10.5px}
+
+/* ---- 7. phones ------------------------------------------------------- */
+@media(max-width:819px){
+  .vizpanel .vfld > label{padding:10px 13px;font-size:11px}
+  .vizpanel .vfld > label b{font-size:14px}
+  .vchips--sw{grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:8px}
+  .vchips--sw.is-clipped{max-height:268px}
+  .vchip__cap{font-size:11px}
+  .vizgrid--build .vstat span{font-size:9.5px}
 }
