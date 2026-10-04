@@ -15,6 +15,7 @@
    ============================================================ */
 const path = require("path");
 const fs = require("fs");
+const vm = require("vm");
 const ROOT = path.resolve(__dirname, "..");
 const L = require(path.join(ROOT, "builder-logic.js"));
 
@@ -394,16 +395,53 @@ section("every chooser tile points at its own builder");
   ok("seven distinct photographs", new Set(rows.map(m => m.photo)).size, 7);
 }
 
-section("tools/build-featured.js round-trips the builder link");
+section("the shared serialiser round-trips every catalogue field");
 {
-  /* It rewrites brands.js wholesale from the parsed model objects. Any field
-     its serialiser forgets is deleted on the next run — which is exactly what
-     happened to `builder`, silently turning build-your-own products back into
-     plain cards. Pin the serialiser against the fields the catalogue uses. */
-  const src = fs.readFileSync(path.join(ROOT, "tools/build-featured.js"), "utf8");
-  const missing = ["builder", "short", "photo", "priceSet", "priceSetQty", "bolts", "img", "feat"]
-    .filter(f => !new RegExp("m\\." + f).test(src));
-  ok("no catalogue field is dropped on rewrite", missing, []);
+  /* brands.js is rewritten wholesale from parsed model objects, by more than
+     one tool. Any field the serialiser forgets is DELETED on the next run —
+     which is exactly what happened to `builder`, silently turning seven
+     build-your-own products back into plain cards.
+
+     This used to grep tools/build-featured.js for "m.<field>". That stopped
+     meaning anything the moment the writer moved into
+     tools/lib/serialize-brands.js, and the grep passed or failed on where the
+     code lived rather than on what it does. So round-trip a real model
+     through the real writer and compare. */
+  const { serialize } = require(path.join(ROOT, "tools/lib/serialize-brands.js"));
+  const probe = {
+    model: "Probe", configs: ["single", "dually"], sizes: ["22x12", "24x8.25"],
+    finishes: ["Polished"], img: "assets/wheels/x/probe.png",
+    imgs: [{ finish: "Polished", img: "assets/wheels/x/probe-pol.png" }],
+    bolts: ["8x170"], priceFrom: 1, priceSet: 4, priceSetQty: 4,
+    sizeSource: "probe-brand", builder: "pd-truck-17x9", short: "Probe",
+    photo: "assets/platforms/pd-truck-17x9.jpg", feat: 9
+  };
+  const js = serialize([{
+    slug: "probe", name: "Probe", kind: "Forged", featured: false,
+    site: "https://example.invalid", tagline: "t", pricing: "quote", models: [probe]
+  }]);
+  const c = { window: {} };
+  vm.createContext(c);
+  vm.runInContext(js, c);
+  const back = c.window.BRANDS[0].models[0];
+  const lost = Object.keys(probe).filter(k => JSON.stringify(back[k]) !== JSON.stringify(probe[k]));
+  ok("no catalogue field is dropped on rewrite", lost, []);
+
+  /* And it has to be stable: writing what was just read must not change the
+     file, or the two tools will reflow brands.js against each other forever. */
+  const live = global.window.BRANDS || [];
+  const once = serialize(live);
+  const c2 = { window: {} };
+  vm.createContext(c2);
+  vm.runInContext(once, c2);
+  ok("serialising is idempotent", serialize(c2.window.BRANDS) === once, true);
+
+  /* Every field the live catalogue actually uses must be in FIELDS, or the
+     next run drops it. */
+  const { FIELDS } = require(path.join(ROOT, "tools/lib/serialize-brands.js"));
+  const used = new Set();
+  live.forEach(b => b.models.forEach(m => Object.keys(m).forEach(k => used.add(k))));
+  ok("FIELDS covers every field in brands.js", [...used].filter(k => FIELDS.indexOf(k) < 0), []);
 }
 
 /* ================================================================ */

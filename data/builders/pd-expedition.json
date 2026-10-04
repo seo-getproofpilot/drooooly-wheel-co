@@ -34,7 +34,7 @@
     "untouched — nothing estimated, marked up or rounded.",
     "",
     "THE WORD 'SIMULATED' IS LOAD-BEARING and he capitalises it himself. A",
-    "simulated beadlock ring is cosmetic: it does not clamp the tyre bead the",
+    "simulated beadlock ring is cosmetic: it does not clamp the tire bead the",
     "way a true beadlock does. Never shorten it to 'beadlock' in copy — that",
     "is a safety claim, not a style one.",
     "",
@@ -47,8 +47,8 @@
     "so the pattern is a fact about the machine rather than a choice. It is",
     "recorded as `bolt` and stated on the page instead of asked."
   ],
-  "includes": "Billet centre caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.",
-  "madeIn": "Forged in the USA from 6061-T6 aluminium and machined in their own facility in Gilbert, Arizona.",
+  "includes": "Billet center caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.",
+  "madeIn": "Forged in the USA from 6061-T6 aluminum and machined in their own facility in Gilbert, Arizona.",
   "defaults": {
     "model": "Galaxy",
     "center-cap-finish": "Machined",

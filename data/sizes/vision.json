@@ -1,0 +1,525 @@
+{
+ "brand": "vision",
+ "captured": "2026-10-04",
+ "source": "https://visionwheel.com — the per-finish SKU table (sku, finish, size, bolt pattern, offset, bore, load rating)",
+ "note": "A model is several products, one per finish. The matrix is their union over the first six finishes, since availability differs by finish.",
+ "models": [
+  {
+   "match": "56",
+   "titles": [
+    "56 Midway SB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "15x8",
+     "15x10",
+     "16x8",
+     "16x10",
+     "17x9",
+     "18x9",
+     "20x9",
+     "20x10",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x120.65",
+    "5x127",
+    "5x135",
+    "5x139.7",
+    "5x150",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/56-midway-sb/",
+    "https://visionwheel.com/product/56-midway-sb-2/",
+    "https://visionwheel.com/product/56-midway-sb-3/",
+    "https://visionwheel.com/product/56-midway-sb-4/",
+    "https://visionwheel.com/product/56-midway-sb-5/",
+    "https://visionwheel.com/product/56-midway-sb-6/"
+   ]
+  },
+  {
+   "match": "56D",
+   "titles": [
+    "56 Midway Dually SB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "dually": [
+     "16x6",
+     "17x6.5",
+     "20x8.25"
+    ]
+   },
+   "configs": [
+    "dually"
+   ],
+   "bolts": [
+    "8x165.1",
+    "8x170",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/56-midway-dually-sb/",
+    "https://visionwheel.com/product/56-midway-dually-sb-2/",
+    "https://visionwheel.com/product/56-midway-dually-sb-3/",
+    "https://visionwheel.com/product/56-midway-dually-sb-4/",
+    "https://visionwheel.com/product/56-midway-dually-sb-5/",
+    "https://visionwheel.com/product/56-midway-dually-sb-6/"
+   ]
+  },
+  {
+   "match": "54",
+   "titles": [
+    "54 Cheyenne SML &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "15x7",
+     "15x10",
+     "17x8",
+     "17x9",
+     "18x8",
+     "18x9",
+     "20x9",
+     "20x10",
+     "22x9",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x120.65",
+    "5x127",
+    "6x139.7",
+    "8x165.1",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/54-cheyenne-sml/",
+    "https://visionwheel.com/product/54-cheyenne-sml-2/",
+    "https://visionwheel.com/product/54-cheyenne-sml-3/",
+    "https://visionwheel.com/product/54-cheyenne-sml-4/",
+    "https://visionwheel.com/product/54-cheyenne-sml-5/",
+    "https://visionwheel.com/product/54-cheyenne-sml-6/"
+   ]
+  },
+  {
+   "match": "111",
+   "titles": [
+    "111 Nemesis A &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/111-nemesis-a/",
+    "https://visionwheel.com/product/111-nemesis-a-2/",
+    "https://visionwheel.com/product/111-nemesis-a-3/",
+    "https://visionwheel.com/product/111-nemesis-mb/",
+    "https://visionwheel.com/product/111-nemesis-mb-2/",
+    "https://visionwheel.com/product/111-nemesis-mb-3/"
+   ]
+  },
+  {
+   "match": "181",
+   "titles": [
+    "181 Hauler Dually MB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "dually": [
+     "16x6",
+     "17x6.5",
+     "19.5x6.75"
+    ]
+   },
+   "configs": [
+    "dually"
+   ],
+   "bolts": [
+    "8x165.1",
+    "8x170",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/181-hauler-dually-mb/",
+    "https://visionwheel.com/product/181-hauler-dually-mb-2/",
+    "https://visionwheel.com/product/181-hauler-dually-mb-3/",
+    "https://visionwheel.com/product/181-hauler-dually-mb-4/",
+    "https://visionwheel.com/product/181-hauler-dually-mb-5/",
+    "https://visionwheel.com/product/181-hauler-dually-mb-6/"
+   ]
+  },
+  {
+   "match": "181NR",
+   "titles": [
+    "181NR Hauler Dually MB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "dually": [
+     "19.5x6.75"
+    ]
+   },
+   "configs": [
+    "dually"
+   ],
+   "bolts": [
+    "8x165.1",
+    "8x170",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/181nr-hauler-dually-mb/",
+    "https://visionwheel.com/product/181nr-hauler-dually-mb-2/",
+    "https://visionwheel.com/product/181nr-hauler-dually-mb-3/",
+    "https://visionwheel.com/product/181nr-hauler-dually-mb-4/",
+    "https://visionwheel.com/product/181nr-hauler-dually-mb-5/",
+    "https://visionwheel.com/product/181nr-hauler-dually-mb-6/"
+   ]
+  },
+  {
+   "match": "401",
+   "titles": [
+    "401 Rival Dually SB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "dually": [
+     "20x8.25"
+    ]
+   },
+   "configs": [
+    "dually"
+   ],
+   "bolts": [
+    "8x165.1",
+    "8x170",
+    "8x200"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/401-rival-dually-sb/",
+    "https://visionwheel.com/product/401-rival-dually-sb-2/",
+    "https://visionwheel.com/product/401-rival-dually-sb-3/",
+    "https://visionwheel.com/product/401-rival-dually-sb-4/",
+    "https://visionwheel.com/product/401-rival-dually-sb-5/",
+    "https://visionwheel.com/product/401-rival-dually-sb-6/"
+   ]
+  },
+  {
+   "match": "408",
+   "titles": [
+    "408 Manx 2 Dually SB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "dually": [
+     "16x6",
+     "17x6.5"
+    ]
+   },
+   "configs": [
+    "dually"
+   ],
+   "bolts": [
+    "8x165.1",
+    "8x170",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/408-manx-2-dually-sb/",
+    "https://visionwheel.com/product/408-manx-2-dually-sb-2/",
+    "https://visionwheel.com/product/408-manx-2-dually-sb-3/",
+    "https://visionwheel.com/product/408-manx-2-dually-sb-4/",
+    "https://visionwheel.com/product/408-manx-2-dually-sb-5/",
+    "https://visionwheel.com/product/408-manx-2-dually-sb-6/"
+   ]
+  },
+  {
+   "match": "410",
+   "titles": [
+    "410 Korupt Dually GBMS &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "dually": [
+     "16x6",
+     "17x6.5"
+    ]
+   },
+   "configs": [
+    "dually"
+   ],
+   "bolts": [
+    "6x180",
+    "8x165.1",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/410-korupt-dually-gbms/",
+    "https://visionwheel.com/product/410-korupt-dually-gbms-2/",
+    "https://visionwheel.com/product/410-korupt-dually-gbms-3/",
+    "https://visionwheel.com/product/410-korupt-dually-gbms-6/",
+    "https://visionwheel.com/product/410-korupt-dually-gbms-7/",
+    "https://visionwheel.com/product/410-korupt-dually-gbms-8/"
+   ]
+  },
+  {
+   "match": "412",
+   "titles": [
+    "412 Rocker ABL &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "18x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10",
+     "22x12",
+     "24x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/412-rocker-abl/",
+    "https://visionwheel.com/product/412-rocker-abl-2/",
+    "https://visionwheel.com/product/412-rocker-abl-3/",
+    "https://visionwheel.com/product/412-rocker-abl-4/",
+    "https://visionwheel.com/product/412-rocker-abl-5/",
+    "https://visionwheel.com/product/412-rocker-abl-6/"
+   ]
+  },
+  {
+   "match": "398",
+   "titles": [
+    "398 Manx GBML &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "15x8",
+     "16x8",
+     "17x8.5",
+     "18x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x135",
+    "6x139.7",
+    "6x165.1",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/398-manx-gbml/",
+    "https://visionwheel.com/product/398-manx-gbml-2/",
+    "https://visionwheel.com/product/398-manx-gbml-3/",
+    "https://visionwheel.com/product/398-manx-gbml-4/",
+    "https://visionwheel.com/product/398-manx-gbml-5/",
+    "https://visionwheel.com/product/398-manx-gbml-6/"
+   ]
+  },
+  {
+   "match": "398BL",
+   "titles": [
+    "398 BL Manx M &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x139.7",
+    "6x165.1",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/398-bl-manx-m/",
+    "https://visionwheel.com/product/398-bl-manx-m-2/",
+    "https://visionwheel.com/product/398-bl-manx-m-3/",
+    "https://visionwheel.com/product/398-bl-manx-m-4/",
+    "https://visionwheel.com/product/398-bl-manx-m-5/",
+    "https://visionwheel.com/product/398-bl-manx-m-6/"
+   ]
+  },
+  {
+   "match": "403",
+   "titles": [
+    "403 Tactical SB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "17x10",
+     "18x9.5",
+     "20x9.5",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x120",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/403-tactical-sb/",
+    "https://visionwheel.com/product/403-tactical-sb-2/",
+    "https://visionwheel.com/product/403-tactical-sb-3/",
+    "https://visionwheel.com/product/403-tactical-sb-4/",
+    "https://visionwheel.com/product/403-tactical-sb-5/",
+    "https://visionwheel.com/product/403-tactical-sb-6/"
+   ]
+  },
+  {
+   "match": "353",
+   "titles": [
+    "353 Turbine MB &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "16x8",
+     "17x8.5",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "5x150",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/353-turbine-mb/",
+    "https://visionwheel.com/product/353-turbine-mb-2/",
+    "https://visionwheel.com/product/353-turbine-mb-3/",
+    "https://visionwheel.com/product/353-turbine-mb-4/",
+    "https://visionwheel.com/product/353-turbine-mb-5/",
+    "https://visionwheel.com/product/353-turbine-mb-6/"
+   ]
+  },
+  {
+   "match": "375",
+   "titles": [
+    "375 Warrior GBMF &#8211; Vision Wheel"
+   ],
+   "byConfig": {
+    "single": [
+     "13x4.5",
+     "14x5.5",
+     "15x6",
+     "15x7.5",
+     "16x6.5",
+     "16x8",
+     "17x8.5",
+     "18x7.5",
+     "18x8.5",
+     "18x9",
+     "20x9",
+     "22x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x120.65",
+    "5x127",
+    "5x130",
+    "5x135",
+    "5x139.7",
+    "5x150",
+    "5x160",
+    "6x114.3",
+    "6x127",
+    "6x130",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://visionwheel.com/product/375-warrior-gbmf/",
+    "https://visionwheel.com/product/375-warrior-gbmf-2/",
+    "https://visionwheel.com/product/375-warrior-gbmf-3/",
+    "https://visionwheel.com/product/375-warrior-gbmf-4/",
+    "https://visionwheel.com/product/375-warrior-gbmf-5/",
+    "https://visionwheel.com/product/375-warrior-gbmf-6/"
+   ]
+  }
+ ]
+}

@@ -21,13 +21,13 @@ const ROOT = path.resolve(__dirname, "..");
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36";
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-// Manufacturer part code, e.g. "KD006 Blitz" and "Blitz (KD006)" -> "KD006".
-// Lets us recognize a model we already carry under a differently-formatted
-// name instead of adding a near-duplicate card.
-const code = (s) => {
-  const m = String(s).toUpperCase().match(/\b([A-Z]{1,4}\d{2,4})\b/);
-  return m ? m[1] : null;
-};
+/* Is this the same wheel as one we already carry? One rule, in
+   tools/lib/part-key.js, shared with tools/wire-wheel-sizes.js and
+   tools/qc-catalog.js. The copy that used to live here required the letters
+   to touch the digits, so "TIS 547" keyed on nothing, never grouped with the
+   bare "547", and TIS shipped with six wheels listed twice. */
+const { partKey, collapseNumbered } = require("./lib/part-key");
+const code = (s, brandSlug, brandName) => partKey({ slug: brandSlug, name: brandName }, s);
 
 // Config inference from the suffix codes brands use in model names.
 function inferConfigs(model) {
@@ -125,7 +125,7 @@ for (const file of files) {
   const byName = {}, byCode = {};
   brand.models.forEach((m) => {
     byName[norm(m.model)] = m;
-    const c = code(m.model);
+    const c = code(m.model, slug, brand && brand.name);
     if (c) byCode[c] = m;
   });
 
@@ -147,7 +147,7 @@ for (const file of files) {
     if (!ok) { failed.push(e.model); return; }
     got++;
 
-    const c = code(e.model);
+    const c = code(e.model, slug, brand && brand.name);
     let m = byName[mslug] || (c && byCode[c]);
     if (m) {
       // We already carry it — adopt the manufacturer's spelling as canonical.
@@ -209,12 +209,14 @@ for (const file of files) {
 
   // Collapse models that are the same wheel under two spellings
   // ("Blitz (KD006)" + "KD006 Blitz"). Keep the featured/photographed one.
-  const groups = new Map();
+  const plain = {};
   brand.models.forEach((m) => {
-    const c = code(m.model);
+    const c = code(m.model, slug, brand && brand.name);
     if (!c) return;
-    (groups.get(c) || groups.set(c, []).get(c)).push(m);
+    (plain[c] = plain[c] || []).push(m);
   });
+  collapseNumbered(plain);                 // "56 Midway" folds into "Midway"
+  const groups = new Map(Object.keys(plain).map((k) => [k, plain[k]]));
   const drop = new Set();
   let merged = 0;
   groups.forEach((list) => {
@@ -373,52 +375,12 @@ if (fs.existsSync(utvFile)) {
 }
 
 // ---- serialize brands.js ----
-const q = (s) => JSON.stringify(s);
-const arr = (a) => "[" + a.map(q).join(",") + "]";
-let out = `/* ============================================================
-   DROOOLY Wheel & Tire — brand + wheel catalog data
-   configs: "single" | "dually" | "super single"
-   img  (optional): local product photo under assets/wheels/<brand>/
-   feat (optional): featured rank — these show on the brand page;
-                    everything else lives behind "view the full lineup"
-   GENERATED FILE — rebuilt by tools/build-featured.js
-   ============================================================ */
-window.BRANDS = [
-`;
-out += BRANDS.map((b) => {
-  let h = `  {\n    slug: ${q(b.slug)}, name: ${q(b.name)}, kind: ${q(b.kind)}, featured: ${!!b.featured},\n`;
-  h += `    site: ${q(b.site || "")}, tagline: ${q(b.tagline || "")},\n`;
-  // pricing: "quote" (default) or "from" once an agreement lets us publish
-  h += `    pricing: ${q(b.pricing || "quote")},\n`;
-  // brand-level floor for brands that price per model, not per series
-  if (typeof b.priceFrom === "number") h += `    priceFrom: ${b.priceFrom},\n`;
-  if (b.priceNote) h += `    priceNote: ${q(b.priceNote)},\n`;
-  if (b.bolts && b.bolts.length) h += `    bolts: ${arr(b.bolts)},\n`;
-  h += `    models: [\n`;
-  h += b.models.map((m) => {
-    let s = `      { model: ${q(m.model)}, configs: ${arr(m.configs)}, sizes: ${arr(m.sizes)}, finishes: ${arr(m.finishes)}`;
-    if (m.img) s += `, img: ${q(m.img)}`;
-    if (m.imgs) s += `, imgs: [` + m.imgs.map((v) => `{finish:${q(v.finish)},img:${q(v.img)}}`).join(",") + `]`;
-    // priceFrom: lowest publishable "starting at", in whole dollars. Left
-    // unset until dealer agreements say what we're allowed to show.
-    if (typeof m.priceFrom === "number") s += `, priceFrom: ${m.priceFrom}`;
-    if (typeof m.priceSet === "number") s += `, priceSet: ${m.priceSet}`;
-    if (typeof m.priceSetQty === "number") s += `, priceSetQty: ${m.priceSetQty}`;
-    if (m.bolts && m.bolts.length) s += `, bolts: ${arr(m.bolts)}`;
-    /* `builder` makes a model configurable — the card links to build.html and
-       offers "Build yours" instead of add-to-cart. It was NOT serialised here
-       until 2026-10-02, which meant every run of this tool silently deleted
-       the link and turned seven build-your-own products back into plain
-       cards. Anything the catalogue carries has to survive the round trip. */
-    if (m.builder) s += `, builder: ${q(m.builder)}`;
-    if (m.short) s += `, short: ${q(m.short)}`;
-    if (m.photo) s += `, photo: ${q(m.photo)}`;
-    if (m.feat) s += `, feat: ${m.feat}`;
-    return s + " }";
-  }).join(",\n");
-  return h + "\n    ]\n  }";
-}).join(",\n");
-fs.writeFileSync(path.join(ROOT, "brands.js"), out + "\n];\n");
+/* One writer, in tools/lib/serialize-brands.js. This tool used to carry its
+   own copy and the copy went stale: `builder` was missing from it, so every
+   run deleted the build-your-own link from seven products. A field absent
+   from the shared FIELDS list is a field the next run drops, which is why
+   there is exactly one list. */
+fs.writeFileSync(path.join(ROOT, "brands.js"), require("./lib/serialize-brands").serialize(BRANDS));
 
 console.log(`\ntotal: ${totalImg} photos, ${totalNew} models added, ` +
   `${BRANDS.reduce((a, b) => a + b.models.length, 0)} styles across ${BRANDS.length} brands`);

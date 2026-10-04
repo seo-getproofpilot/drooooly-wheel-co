@@ -371,6 +371,131 @@ each one is a phone call away from being better.
   so two different builds of the same wheel would merge into one line at qty 2.
   `configId` is already the right key and the total is already integer dollars.
 
+- 🟡 **4.46 — the size lists were a template, not a specification.** Chris:
+  "make sure every page has wheels and tires listed correctly, with all the
+  dimensions listed correctly." Measured before anything was changed:
+
+  | brand | models | distinct size lists | biggest identical group |
+  |---|---|---|---|
+  | american-force | 287 | 2 | **255** |
+  | amani | 14 | **1** | 14 |
+  | kmc | 7 | **1** | 7 |
+  | kg1 | 35 | 2 | 33 |
+  | fittipaldi | 17 | 4 | 14 |
+  | vision | 15 | 7 | 8 — and **100%** of entries were a bare diameter |
+  | tis | 15 | 3 | 9 — 80% bare |
+  | fenix | 10 | 4 | 7 — 80% bare |
+
+  Real published matrices differ per model because the moulds differ. 99 size
+  entries across 38 models were a bare diameter like `"22"`, which is not a
+  size — it says nothing about whether the wheel clears the calipers. And
+  where a width was present it was often a *dually rear* (8.25") on a model
+  flagged single, which is the other face of 4.12.
+
+  Spot-checked against the manufacturers, these were **wrong answers, not
+  gaps**: TIS publish the 547 in ten sizes from 18x9 to 26x14 and not one of
+  them is an 8.25; we listed `20x8.25 / 22 / 24`. Fenix build the BT001 Talon
+  in 24, 26, 28 and 30; we listed a 22 they do not make and omitted the 28 and
+  30 they do. American Force build the DC08 Kryptik 22x12 through 26x14; we
+  listed 22x8.25 and 24x8.25.
+
+  `tools/scrape-wheel-sizes.js` now reads each manufacturer's own published
+  table — Fenix's Shopify product JSON, TIS's SIZE/OFFSET/MSRP table, Vision's
+  per-finish SKU table, American Force's Part#/Size/Bolt-Pattern table — into
+  `data/sizes/<brand>.json` with the source URL and capture date, and
+  `tools/wire-wheel-sizes.js` merges it into `brands.js` and marks each model
+  `sizeSource`. Configurations are **derived from the widths** rather than
+  guessed from the model name, which is how `inferConfigs()` produced 4.12.
+
+  Sizes, offsets and bolt patterns are specifications — facts about a part —
+  so unlike the photography in 1.1/1.2/1.13 this carries no rights question.
+
+  🟢 for fenix, tis, vision and american-force. 🟡 **still templated:
+  kg1 (35), fittipaldi (17), amani (14), hardrock (25), xf (16), black-rhino
+  (16) — which claims `16x6` for 12 models — fuel (34), arkon (9) and kmc (7).**
+  Each is one parser in the same tool; `node tools/qc-catalog.js` names them
+  and counts them on every run.
+
+- 🟢 **4.47 — every tire brand page was completely blank, and nothing caught
+  it.** `renderTirePage` in `catalog.js` carried a "More from this brand"
+  series nav copy-pasted out of `renderBrandPage`, still referencing its
+  locals `avail` and `wantSeries`. Undefined there, so the function threw
+  `ReferenceError` before writing anything and **all seven** tire brand pages
+  rendered as a bare header and footer. `node --check` passes — the syntax is
+  fine — and the data tests pass, because the data is fine.
+
+  A second bug rode along in the same function: every tread's card linked to
+  `wheel.html?brand=<tire slug>`, which looks the slug up in `BRANDS`, misses,
+  and showed "we couldn't find that wheel" for all 23 treads. A tread has no
+  page of its own, so the card now carries it into the enquiry form via `?w=`.
+
+  `tools/test-pages.js` is new and exists because of this: it loads the real
+  `catalog.js` against a minimal DOM, mounts every render hook for every brand
+  using the ids each page actually declares, and requires that each one writes
+  something and throws nothing.
+
+- 🟢 **4.48 — the homepage lineup is hand-written, and six of its seven wheel
+  cards were wrong.** The cards under "Wheels that hit different" are literal
+  markup. `renderFeatured()` was mounted on an element id `featuredGrid` that
+  no page has ever declared, so it never ran once — and had rotted to match,
+  asking for "Master (KD001)" and "Reaper", names the catalogue does not
+  carry. Dead code that looks live is a trap, so it is gone.
+
+  Against the model each card links to: Ace was sold as 22–30" when it starts
+  at 20"; Master as 22–30" Machined when KG1 publish 22–26" and no Machined
+  finish; FF19 as 20–26" when Fuel build 22–28"; Crime as 20–30" when Fuel
+  build 22–30"; Allora as 22–30" Gloss Black when Amani publish 22–26"
+  Brushed Silver. Only HF08 Savage was right. `tools/test-pages.js` now pins
+  each card's diameter range, finish and configuration to the model it links
+  to.
+
+- 🟢 **4.49 — nine wheels were listed twice and one no longer exists.** TIS
+  appeared as both `547` and `TIS 547` (and 544, 556, 560, 566, 567) because
+  the duplicate-matcher in `tools/build-featured.js` keys on a part code whose
+  regex requires the letters to touch the digits — `TIS 547` has a space, so
+  it matched nothing and neither did `547`. Vision carried `Midway` and
+  `56 Midway`, and `Rocker` and `412 Rocker`; Cali carried `Summit` and
+  `Summit Dually`, and the single entry already listed a 20x8.25 dually rear.
+  All merged, survivor keeping the photograph and the prices.
+
+  `tis/538` was **removed**: it is in neither TIS's sitemap nor at `/538/`, we
+  hold no photograph and no price for it, and its sizes were invented — there
+  was nothing true left on the card. `fenix/FDS Super Single` was not a part
+  Fenix make at all; their super-single line is FDS001 Vortex through FDS022,
+  so it now points at FDS001 Vortex and carries its real matrix.
+
+  The rule is deliberately narrow, because the first version called JTX's
+  `D-200` and `SS-200` the same wheel — they are the dually and the super
+  single — and did the same to Method's `305 NV` / `305 NV HD` and Raceline's
+  `A14 Alpha` / `A14 Alpha Beadlock`. Two entries are one wheel only when the
+  names match after removing the brand's own name and a *trailing*
+  configuration word. "HD", "Beadlock", "Bead Grip" and an "-R" suffix all
+  name a different part.
+
+- 🟢 **4.50 — `brands.js` had two writers and they had already diverged.**
+  `tools/build-featured.js` carried its own serialiser, and `builder` was
+  missing from it until 2026-10-02 — so every run silently deleted the
+  build-your-own link from seven products. Both writers now go through
+  `tools/lib/serialize-brands.js`, which holds one `FIELDS` list; a field
+  absent from it is a field the next run drops, so `tools/test-builders.js`
+  round-trips a model through the real writer rather than grepping the source
+  for `m.<field>`, which is what it used to do and which stopped meaning
+  anything the moment the code moved.
+
+- 🟢 **4.51 — the copy was written in British English in places.** On a site
+  called DROOOLY Wheel & **Tire**, `tyre`, `colour`, `aluminium` and `centre`
+  read as typos. All user-visible instances fixed at source so a regenerate
+  cannot bring them back: `tools/scrape-price-designs.js` (the builders'
+  `includes`, `madeIn` and the notes placeholder, shown on all seven builder
+  pages), `tools/build-finishes.js` (the finish notes on every wheel page),
+  and the homepage Price Designs card ("Any colour you want"). `aluminum`
+  appeared **zero** times before this; every instance was the British spelling.
+
+  Five brand pages also titled themselves twice — "TIS Wheels Wheels",
+  "Vision Wheel Wheels", "Method Race Wheels Wheels", "Raceline Wheels
+  Wheels", "Toyo Tires Tires" — in the browser tab and in search results,
+  because the renderer appended the noun unconditionally.
+
 ## 5. Feature debt
 
 | # | What | Status |

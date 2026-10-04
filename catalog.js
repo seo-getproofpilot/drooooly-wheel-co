@@ -277,16 +277,19 @@
   }
 
   // ---- home: featured products ----
-  var FEATURED = [["jtx","Cannon","Best seller"],["jtx","Reaper","New"],["american-force","11 Independence DRW",""],
-    ["kg1","Master (KD001)",""],["fuel","FF19D",""],["hostile","H401 Sprocket",""],["amani","Allora",""],["fittipaldi","FDF600 Dually",""]];
-  function renderFeatured(el) {
-    el.innerHTML = FEATURED.map(function (f) {
-      var b = bySlug[f[0]]; if (!b) return "";
-      var m = b.models.filter(function (x) { return x.model === f[1]; })[0]; if (!m) return "";
-      return productCard(b, m, f[2]);
-    }).join("");
-    if (window.__observeFades) window.__observeFades();
-  }
+  /* THE HOMEPAGE LINEUP IS LITERAL MARKUP, not rendered from here.
+
+     There used to be a FEATURED list and a renderFeatured() mounted on an
+     element id "featuredGrid". No page has ever declared that id, so the
+     function never ran once — and it had rotted accordingly: it asked for
+     "Master (KD001)" and "Reaper", names the catalogue does not carry, and
+     its own `if (!m) return ""` would have silently dropped them.
+
+     Dead code that looks live is a trap: the next person to fix a wrong
+     price on the homepage would have edited brands.js and watched nothing
+     happen. The cards live in index.html, and tools/test-pages.js pins each
+     one's diameter range, finish and configuration against the model it
+     links to — which is how six wrong cards were found. */
 
   // ---- shop page ----
   function allProducts() {
@@ -989,6 +992,16 @@
     return (shot.length >= 6 ? shot : b.models).slice(0, FEAT_MAX);
   }
 
+  /* "TIS Wheels" + " Wheels" read as "TIS Wheels Wheels" in the browser tab
+     and in search results. Five brands name the category themselves — TIS
+     Wheels, Vision Wheel, Method Race Wheels, Raceline Wheels and Toyo
+     Tires — so the noun is only appended when it is not already there. */
+  function titleFor(name, noun) {
+    var n = String(name || "");
+    return (new RegExp("\\b" + noun + "s?$", "i").test(n) ? n : n + " " + noun + "s") +
+      " \u2014 DROOOLY Wheel & Tire";
+  }
+
   function renderBrandPage(root) {
     var q = new URLSearchParams(location.search);
     var slug = q.get("brand") || q.get("b");
@@ -1005,7 +1018,7 @@
       if (window.__observeFades) window.__observeFades();
       return;
     }
-    document.title = b.name + " Wheels — DROOOLY Wheel & Tire";
+    document.title = titleFor(b.name, "Wheel");
     var show = featuredModels(b);
     var total = b.models.length;
     var more = total - show.length;
@@ -1189,11 +1202,12 @@
   TIRES.forEach(function (b) { tireBySlug[b.slug] = b; });
 
   function tireCard(brand, m) {
-    /* Clicking a wheel now opens that wheel's own page. It used to jump to the
-       homepage enquiry form, which told you nothing about the wheel you had
-       just clicked on. */
-    var quote = "wheel.html?brand=" + encodeURIComponent(brand.slug) +
-                "&model=" + encodeURIComponent(m.model);
+    /* A WHEEL card opens that wheel's own page. A TREAD has no page of its
+       own — the sizes are on this card already — so it carries the tread into
+       the enquiry form instead. It used to point at
+       wheel.html?brand=<tire slug>, which looks the slug up in BRANDS, misses
+       every time, and showed "we couldn't find that wheel" for all 23 treads. */
+    var quote = "index.html?w=" + encodeURIComponent(brand.name + " " + m.model) + "#fitment";
     var rims = m.rims && m.rims.length
       ? m.rims.map(function (r) { return r + '"'; }).join(" · ")
       : "";
@@ -1224,7 +1238,7 @@
       if (window.__observeFades) window.__observeFades();
       return;
     }
-    document.title = b.name + " Tires — DROOOLY Wheel & Tire";
+    document.title = titleFor(b.name, "Tire");
     var host = (b.site || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
     var sizeCount = b.models.reduce(function (a, m) { return a + (m.sizes ? m.sizes.length : 0); }, 0);
 
@@ -1239,16 +1253,12 @@
       '</section>' +
       '<section class="wheelwrap">' +
         '<div class="wheelgrid tiregrid">' + b.models.map(function (m) { return tireCard(b, m); }).join("") + '</div>' +
-        (avail.length > 1
-          ? '<nav class="seriesfoot" aria-label="Other series">' +
-              "<span>More from " + esc(b.name) + "</span>" +
-              avail.map(function (d) {
-                return '<a' + (d.key === wantSeries ? ' class="on"' : "") +
-                  ' href="brand.html?brand=' + b.slug + "&series=" + d.key + '">' + esc(d.menu) + "</a>";
-              }).join("") +
-              '<a' + (wantSeries ? "" : ' class="on"') + ' href="brand.html?brand=' + b.slug + '">Everything</a>' +
-            "</nav>"
-          : "") +
+        /* No series nav here. This block was copied from renderBrandPage and
+           still referenced its `avail` and `wantSeries` locals, so
+           renderTirePage threw ReferenceError on load and EVERY tire brand
+           page rendered as a bare header and footer. A tread has no series
+           to switch between, and the links it built pointed at brand.html,
+           which is the wheel page. */
         (b.site
           ? '<div class="wheelmore"><h3>See the full ' + esc(b.name) + ' range</h3>' +
             '<p>Browse every tread on ' + esc(b.name) + '&rsquo;s site — then come back and we&rsquo;ll mount and balance them to your wheels.</p>' +
@@ -1279,7 +1289,6 @@
     var tp = document.getElementById("tirePage"); if (tp) renderTirePage(tp);
     var tg = document.getElementById("tireBrandGrid"); if (tg) renderTireBrandGrid(tg);
     var bg = document.getElementById("brandGrid"); if (bg) renderBrandGrid(bg);
-    var fg = document.getElementById("featuredGrid"); if (fg) renderFeatured(fg);
     var sp = document.getElementById("shopPage"); if (sp) renderShop(sp);
     var bp = document.getElementById("brandPage"); if (bp) renderBrandPage(bp);
     var wm = document.getElementById("wheelsBrands");

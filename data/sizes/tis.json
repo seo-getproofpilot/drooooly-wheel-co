@@ -1,0 +1,573 @@
+{
+ "brand": "tis",
+ "captured": "2026-10-04",
+ "source": "https://tiswheels.com — the SIZE / OFFSET / LIP DEPTH / MSRP table on each wheel page",
+ "note": "Keyed on the model number in the URL. A page with no table yields no sizes rather than a guess.",
+ "models": [
+  {
+   "match": "559",
+   "titles": [
+    "559"
+   ],
+   "byConfig": {
+    "single": [
+     "14x7",
+     "15x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/559/"
+   ]
+  },
+  {
+   "match": "558",
+   "titles": [
+    "558"
+   ],
+   "byConfig": {
+    "single": [
+     "14x7",
+     "15x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/558/"
+   ]
+  },
+  {
+   "match": "557",
+   "titles": [
+    "557"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/557/"
+   ]
+  },
+  {
+   "match": "552",
+   "titles": [
+    "552"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/552/"
+   ]
+  },
+  {
+   "match": "551",
+   "titles": [
+    "551"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/551/"
+   ]
+  },
+  {
+   "match": "549",
+   "titles": [
+    "549"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/549/"
+   ]
+  },
+  {
+   "match": "548",
+   "titles": [
+    "548"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/548/"
+   ]
+  },
+  {
+   "match": "555",
+   "titles": [
+    "555"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/555/"
+   ]
+  },
+  {
+   "match": "561",
+   "titles": [
+    "561"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/561/"
+   ]
+  },
+  {
+   "match": "544rb",
+   "titles": [
+    "544RB"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/544rb/"
+   ]
+  },
+  {
+   "match": "544bm2",
+   "titles": [
+    "544BM 2.0"
+   ],
+   "byConfig": {
+    "single": [
+     "18x9",
+     "20x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/544bm2/"
+   ]
+  },
+  {
+   "match": "547bm2",
+   "titles": [
+    "547BM 2.0"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/547bm2/"
+   ]
+  },
+  {
+   "match": "553",
+   "titles": [
+    "553"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/553/"
+   ]
+  },
+  {
+   "match": "565",
+   "titles": [
+    "565"
+   ],
+   "byConfig": {
+    "single": [
+     "24x10",
+     "24x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/565/"
+   ]
+  },
+  {
+   "match": "566",
+   "titles": [
+    "566"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10",
+     "22x12",
+     "24x12",
+     "26x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/566/"
+   ]
+  },
+  {
+   "match": "563",
+   "titles": [
+    "563"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x9",
+     "20x10",
+     "22x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/563/"
+   ]
+  },
+  {
+   "match": "560",
+   "titles": [
+    "560"
+   ],
+   "byConfig": {
+    "single": [
+     "18x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/560/"
+   ]
+  },
+  {
+   "match": "556",
+   "titles": [
+    "556"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "22x9",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/556/"
+   ]
+  },
+  {
+   "match": "554",
+   "titles": [
+    "554"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "22x10",
+     "22x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/554/"
+   ]
+  },
+  {
+   "match": "547",
+   "titles": [
+    "547"
+   ],
+   "byConfig": {
+    "single": [
+     "18x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10",
+     "22x12",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/547/"
+   ]
+  },
+  {
+   "match": "544",
+   "titles": [
+    "544"
+   ],
+   "byConfig": {
+    "single": [
+     "17x6.5",
+     "18x9",
+     "20x8.25",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "24x12",
+     "24x14",
+     "26x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/544/"
+   ]
+  },
+  {
+   "match": "508",
+   "titles": [
+    "508"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.5",
+     "20x9.5",
+     "20x10",
+     "22x10",
+     "24x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/508/"
+   ]
+  },
+  {
+   "match": "505",
+   "titles": [
+    "505"
+   ],
+   "byConfig": {
+    "single": [
+     "16x7.5",
+     "17x7.5",
+     "18x8",
+     "19x8.5",
+     "20x8.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/505/"
+   ]
+  },
+  {
+   "match": "504",
+   "titles": [
+    "504"
+   ],
+   "byConfig": {
+    "single": [
+     "17x7.5",
+     "18x8",
+     "20x8.5",
+     "22x10",
+     "22x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/504/"
+   ]
+  },
+  {
+   "match": "567",
+   "titles": [
+    "567"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x10",
+     "22x12",
+     "24x12",
+     "26x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/567/"
+   ]
+  },
+  {
+   "match": "538",
+   "titles": [
+    "Page not found"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/538/"
+   ]
+  },
+  {
+   "match": "562",
+   "titles": [
+    "Page not found"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/562/"
+   ]
+  },
+  {
+   "match": "564",
+   "titles": [
+    "Page not found"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://tiswheels.com/564/"
+   ]
+  }
+ ]
+}

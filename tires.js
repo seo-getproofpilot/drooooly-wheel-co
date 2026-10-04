@@ -68,7 +68,7 @@ window.TIRES = [
       { model: "Open Country M/T", tread: "Mud-Terrain", img: "assets/tires/toyo/opencountrymt.png", rims: [20], sizes: ["35x12.50R20LT"], priceFrom: 508, feat: 2 },
       { model: "Open Country R/T Trail", tread: "Rugged-Terrain", img: "assets/tires/toyo/opencountryrttrail.png", rims: [17], sizes: ["35x12.50R17LT","37x12.50R17LT"], priceFrom: 442, feat: 3 },
       { model: "Open Country R/T PRO", tread: "Rugged-Terrain", img: "assets/tires/toyo/opencountryrtpro.png", rims: [18,20], sizes: ["35x12.50R18LT","35x12.50R20LT"], priceFrom: 519, feat: 4 },
-      { model: "Proxes ST III", tread: "Street / Highway", img: "assets/tires/toyo/proxesstiii.png", rims: [20,22], sizes: ["305/50R20","305/40R22","305/45R22"], priceFrom: 266, feat: 5 }
+      { model: "Proxes ST III", tread: "Highway / Street", img: "assets/tires/toyo/proxesstiii.png", rims: [20,22], sizes: ["305/50R20","305/40R22","305/45R22"], priceFrom: 266, feat: 5 }
     ]
   }
 ];

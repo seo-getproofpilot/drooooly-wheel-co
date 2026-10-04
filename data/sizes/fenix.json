@@ -1,0 +1,7742 @@
+{
+ "brand": "fenix",
+ "captured": "2026-10-04",
+ "source": "https://fenixforged.com — Shopify product JSON, Size + Lug Pattern options",
+ "note": "One face is several products. They are kept apart by configuration because a 24x7 UTV wheel is not a truck size; merging them made every model look identical.",
+ "models": [
+  {
+   "match": "BT001",
+   "titles": [
+    "BT001 Talon - Super Single Dually",
+    "BT001 Talon - Super Single Dually Concave",
+    "BT001 Talon",
+    "BT001 Talon - Concave",
+    "BT001 Talon - UTV",
+    "BT001 Talon - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/bt001-super-single-dually",
+    "https://fenixforged.com/products/bt001-super-single-dually-concave",
+    "https://fenixforged.com/products/bt001-flat-face",
+    "https://fenixforged.com/products/bt001-concave",
+    "https://fenixforged.com/products/bt001-utv",
+    "https://fenixforged.com/products/bt001-dually"
+   ]
+  },
+  {
+   "match": "BT002",
+   "titles": [
+    "BT002 Omega - Super Single Dually",
+    "BT002 Omega - Super Single Dually Concave",
+    "BT002 Omega",
+    "BT002 Omega - Concave",
+    "BT002 Omega - UTV",
+    "BT002 Omega - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/bt002-super-single-dually",
+    "https://fenixforged.com/products/bt002-super-single-dually-concave",
+    "https://fenixforged.com/products/bt002-flat-face",
+    "https://fenixforged.com/products/bt002-concave",
+    "https://fenixforged.com/products/bt002-utv",
+    "https://fenixforged.com/products/bt002-dually"
+   ]
+  },
+  {
+   "match": "BT003",
+   "titles": [
+    "BT003 Vantage - Super Single Dually",
+    "BT003 Vantage - Super Single Dually Concave",
+    "BT003 Vantage",
+    "BT003 Vantage - Concave",
+    "BT003 Vantage - UTV",
+    "BT003 Vantage - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/bt003-super-single-dually",
+    "https://fenixforged.com/products/bt003-super-single-dually-concave",
+    "https://fenixforged.com/products/bt003-flat-face",
+    "https://fenixforged.com/products/bt003-concave",
+    "https://fenixforged.com/products/bt003-utv",
+    "https://fenixforged.com/products/bt003-dually"
+   ]
+  },
+  {
+   "match": "BT004",
+   "titles": [
+    "BT004 Maverick - Super Single Dually",
+    "BT004 Maverick - Super Single Dually Concave",
+    "BT004 Maverick",
+    "BT004 Maverick - Concave",
+    "BT004 Maverick - UTV",
+    "BT004 Maverick - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/bt004-super-single-dually",
+    "https://fenixforged.com/products/bt004-super-single-dually-concave",
+    "https://fenixforged.com/products/bt004-flat-face",
+    "https://fenixforged.com/products/bt004-concave",
+    "https://fenixforged.com/products/bt004-utv",
+    "https://fenixforged.com/products/bt004-dually"
+   ]
+  },
+  {
+   "match": "BT005",
+   "titles": [
+    "BT005 Blitz - Super Single Dually",
+    "BT005 Blitz - Super Single Dually Concave",
+    "BT005 Blitz",
+    "BT005 Blitz - Concave",
+    "BT005 Blitz - UTV",
+    "BT005 Blitz - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/bt005-super-single-dually",
+    "https://fenixforged.com/products/bt005-super-single-dually-concave",
+    "https://fenixforged.com/products/bt005-flat-face",
+    "https://fenixforged.com/products/bt005-concave",
+    "https://fenixforged.com/products/bt005-utv",
+    "https://fenixforged.com/products/bt005-dually"
+   ]
+  },
+  {
+   "match": "BT006",
+   "titles": [
+    "BT006 Anomoly - Super Single Dually",
+    "BT006 Anomoly - Super Single Dually Concave",
+    "BT006 Anomoly",
+    "BT006 Anomoly - Concave",
+    "BT006 Anomoly - UTV",
+    "BT006 Anomoly - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/bt006-super-single-dually",
+    "https://fenixforged.com/products/bt006-super-single-dually-concave",
+    "https://fenixforged.com/products/bt006-flat-face",
+    "https://fenixforged.com/products/bt006-concave",
+    "https://fenixforged.com/products/bt006-utv",
+    "https://fenixforged.com/products/bt006-dually"
+   ]
+  },
+  {
+   "match": "FD001",
+   "titles": [
+    "FD001 Vortex Pro - Super Single Dually",
+    "FD001 Vortex Pro - Super Single Dually Concave",
+    "FD001 Vortex Pro",
+    "FD001 Vortex Pro - Concave",
+    "FD001 Vortex Pro - UTV",
+    "FD001 Vortex Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd001-super-single-dually",
+    "https://fenixforged.com/products/fd001-super-single-dually-concave",
+    "https://fenixforged.com/products/fd001-flat-face",
+    "https://fenixforged.com/products/fd001-concave",
+    "https://fenixforged.com/products/fd001-utv",
+    "https://fenixforged.com/products/fd001-dually"
+   ]
+  },
+  {
+   "match": "FD002",
+   "titles": [
+    "FD002 Apex Pro - Super Single Dually",
+    "FD002 Apex Pro - Super Single Dually Concave",
+    "FD002 Apex Pro",
+    "FD002 Apex Pro - Concave",
+    "FD002 Apex Pro - UTV",
+    "FD002 Apex Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd002-super-single-dually",
+    "https://fenixforged.com/products/fd002-super-single-dually-concave",
+    "https://fenixforged.com/products/fd002-flat-face",
+    "https://fenixforged.com/products/fd002-concave",
+    "https://fenixforged.com/products/fd002-utv",
+    "https://fenixforged.com/products/fd002-dually"
+   ]
+  },
+  {
+   "match": "FD003",
+   "titles": [
+    "FD003 Pinnacle Pro - Super Single Dually",
+    "FD003 Pinnacle Pro - Super Single Dually Concave",
+    "FD003 Pinnacle Pro",
+    "FD003 Pinnacle Pro - Concave",
+    "FD003 Pinnacle Pro - UTV",
+    "FD003 Pinnacle Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd003-super-single-dually",
+    "https://fenixforged.com/products/fd003-super-single-dually-concave",
+    "https://fenixforged.com/products/fd003-flat-face",
+    "https://fenixforged.com/products/fd003-concave",
+    "https://fenixforged.com/products/fd003-utv",
+    "https://fenixforged.com/products/fd003-dually"
+   ]
+  },
+  {
+   "match": "FD004",
+   "titles": [
+    "FD004 Torque Pro - Super Single Dually",
+    "FD004 Torque Pro - Super Single Dually Concave",
+    "FD004 Torque Pro",
+    "FD004 Torque Pro - Concave",
+    "FD004 Torque Pro - UTV",
+    "FD004 Torque Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd004-super-single-dually",
+    "https://fenixforged.com/products/fd004-super-single-dually-concave",
+    "https://fenixforged.com/products/fd004-flat-face",
+    "https://fenixforged.com/products/fd004-concave",
+    "https://fenixforged.com/products/fd004-utv",
+    "https://fenixforged.com/products/fd004-dually"
+   ]
+  },
+  {
+   "match": "FD005",
+   "titles": [
+    "FD005 Nitro Pro - Super Single Dually",
+    "FD005 Nitro Pro - Super Single Dually Concave",
+    "FD005 Nitro Pro",
+    "FD005 Nitro Pro - Concave",
+    "FD005 Nitro Pro - UTV",
+    "FD005 Nitro Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd005-super-single-dually",
+    "https://fenixforged.com/products/fd005-super-single-dually-concave",
+    "https://fenixforged.com/products/fd005-flat-face",
+    "https://fenixforged.com/products/fd005-concave",
+    "https://fenixforged.com/products/fd005-utv",
+    "https://fenixforged.com/products/fd005-dually"
+   ]
+  },
+  {
+   "match": "FD006",
+   "titles": [
+    "FD006 Fusion Pro - Super Single Dually",
+    "FD006 Fusion Pro - Super Single Dually Concave",
+    "FD006 Fusion Pro",
+    "FD006 Fusion Pro - Concave",
+    "FD006 Fusion Pro - UTV",
+    "FD006 Fusion Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd006-super-single-dually",
+    "https://fenixforged.com/products/fd006-super-single-dually-concave",
+    "https://fenixforged.com/products/fd006-flat-face",
+    "https://fenixforged.com/products/fd006-concave",
+    "https://fenixforged.com/products/fd006-utv",
+    "https://fenixforged.com/products/fd006-dually"
+   ]
+  },
+  {
+   "match": "FD007",
+   "titles": [
+    "FD007 Velocity Pro - Super Single Dually",
+    "FD007 Velocity Pro - Super Single Dually Concave",
+    "FD007 Velocity Pro",
+    "FD007 Velocity Pro - Concave",
+    "FD007 Velocity Pro - UTV",
+    "FD007 Velocity Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd007-super-single-dually",
+    "https://fenixforged.com/products/fd007-super-single-dually-concave",
+    "https://fenixforged.com/products/fd007-flat-face",
+    "https://fenixforged.com/products/fd007-concave",
+    "https://fenixforged.com/products/fd007-utv",
+    "https://fenixforged.com/products/fd007-dually"
+   ]
+  },
+  {
+   "match": "FD008",
+   "titles": [
+    "FD008 Carnage Pro - Super Single Dually",
+    "FD008 Carnage Pro - Super Single Dually Concave",
+    "FD008 Carnage Pro - UTV",
+    "FD008 Carnage Pro - Dually",
+    "FD008 Carnage Pro",
+    "FD008 Carnage Pro - Concave"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd008-super-single-dually",
+    "https://fenixforged.com/products/fd008-super-single-dually-concave",
+    "https://fenixforged.com/products/fd008-utv",
+    "https://fenixforged.com/products/fd008-dually",
+    "https://fenixforged.com/products/fd008-flat-face",
+    "https://fenixforged.com/products/fd008-concave"
+   ]
+  },
+  {
+   "match": "FD009",
+   "titles": [
+    "FD009 Shredder Pro - Super Single Dually",
+    "FD009 Shredder Pro - Super Single Dually Concave",
+    "FD009 Shredder Pro",
+    "FD009 Shredder Pro - Concave",
+    "FD009 Shredder Pro - UTV",
+    "FD009 Shredder Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd009-super-single-dually",
+    "https://fenixforged.com/products/fd009-super-single-dually-concave",
+    "https://fenixforged.com/products/fd009-flat-face",
+    "https://fenixforged.com/products/fd009-concave",
+    "https://fenixforged.com/products/fd009-utv",
+    "https://fenixforged.com/products/fd009-dually"
+   ]
+  },
+  {
+   "match": "FD010",
+   "titles": [
+    "FD010 Northstar Pro - Super Single Dually",
+    "FD010 Northstar Pro - Super Single Dually Concave",
+    "FD010 Northstar Pro",
+    "FD010 Northstar Pro - Concave",
+    "FD010 Northstar Pro - UTV",
+    "FD010 Northstar Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd010-super-single-dually",
+    "https://fenixforged.com/products/fd010-super-single-dually-concave",
+    "https://fenixforged.com/products/fd010-flat-face",
+    "https://fenixforged.com/products/fd010-concave",
+    "https://fenixforged.com/products/fd010-utv",
+    "https://fenixforged.com/products/fd010-dually"
+   ]
+  },
+  {
+   "match": "FD011",
+   "titles": [
+    "FD011 Nova Pro - Super Single Dually",
+    "FD011 Nova Pro - Super Single Dually Concave",
+    "FD011 Nova Pro",
+    "FD011 Nova Pro - Concave",
+    "FD011 Nova Pro - UTV",
+    "FD011 Nova Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd011-super-single-dually",
+    "https://fenixforged.com/products/fd011-super-single-dually-concave",
+    "https://fenixforged.com/products/fd011-flat-face",
+    "https://fenixforged.com/products/fd011-concave",
+    "https://fenixforged.com/products/fd011-utv",
+    "https://fenixforged.com/products/fd011-dually"
+   ]
+  },
+  {
+   "match": "FD012",
+   "titles": [
+    "FD012 Razer Pro - Super Single Dually",
+    "FD012 Razer Pro - Super Single Dually Concave",
+    "FD012 Razer Pro",
+    "FD012 Razer Pro - Concave",
+    "FD012 Razer Pro - UTV",
+    "FD012 Razer Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd012-super-single-dually",
+    "https://fenixforged.com/products/fd012-super-single-dually-concave",
+    "https://fenixforged.com/products/fd012-flat-face",
+    "https://fenixforged.com/products/fd012-concave",
+    "https://fenixforged.com/products/fd012-utv",
+    "https://fenixforged.com/products/fd012-dually"
+   ]
+  },
+  {
+   "match": "FD013",
+   "titles": [
+    "FD013 Glacier Pro - Super Single Dually",
+    "FD013 Glacier Pro - Super Single Dually Concave",
+    "FD013 Glacier Pro - UTV",
+    "FD013 Glacier Pro - Dually",
+    "FD013 Glacier Pro",
+    "FD013 Glacier Pro - Concave"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd013-super-single-dually",
+    "https://fenixforged.com/products/fd013-super-single-dually-concave",
+    "https://fenixforged.com/products/fd013-utv",
+    "https://fenixforged.com/products/fd013-dually",
+    "https://fenixforged.com/products/fd013-flat-face",
+    "https://fenixforged.com/products/fd013-concave"
+   ]
+  },
+  {
+   "match": "FD014",
+   "titles": [
+    "FD014 Throwback Pro - Super Single Dually",
+    "FD014 Throwback Pro - Super Single Dually Concave",
+    "FD014 Throwback Pro",
+    "FD014 Throwback Pro - Concave",
+    "FD014 Throwback Pro - UTV",
+    "FD014 Throwback Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd014-super-single-dually",
+    "https://fenixforged.com/products/fd014-super-single-dually-concave",
+    "https://fenixforged.com/products/fd014-flat-face",
+    "https://fenixforged.com/products/fd014-concave",
+    "https://fenixforged.com/products/fd014-utv",
+    "https://fenixforged.com/products/fd014-dually"
+   ]
+  },
+  {
+   "match": "FD015",
+   "titles": [
+    "FD015 Widow Pro - Super Single Dually",
+    "FD015 Widow Pro - Super Single Dually Concave",
+    "FD015 Widow Pro",
+    "FD015 Widow Pro - Concave",
+    "FD015 Widow Pro - UTV",
+    "FD015 Widow Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd015-super-single-dually",
+    "https://fenixforged.com/products/fd015-super-single-dually-concave",
+    "https://fenixforged.com/products/fd015-flat-face",
+    "https://fenixforged.com/products/fd015-concave",
+    "https://fenixforged.com/products/fd015-utv",
+    "https://fenixforged.com/products/fd015-dually"
+   ]
+  },
+  {
+   "match": "FD016",
+   "titles": [
+    "FD016 Lotus Pro - Super Single Dually",
+    "FD016 Lotus Pro - Super Single Dually Concave",
+    "FD016 Lotus Pro",
+    "FD016 Lotus Pro - Concave",
+    "FD016 Lotus Pro - UTV",
+    "FD016 Lotus Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd016-super-single-dually",
+    "https://fenixforged.com/products/fd016-super-single-dually-concave",
+    "https://fenixforged.com/products/fd016-flat-face",
+    "https://fenixforged.com/products/fd016-concave",
+    "https://fenixforged.com/products/fd016-utv",
+    "https://fenixforged.com/products/fd016-dually"
+   ]
+  },
+  {
+   "match": "FD017",
+   "titles": [
+    "FD017 Sling Blade Pro - Super Single Dually",
+    "FD017 Sling Blade Pro - Super Single Dually Concave",
+    "FD017 Sling Blade Pro",
+    "FD017 Sling Blade Pro - Concave",
+    "FD017 Sling Blade Pro - UTV",
+    "FD017 Sling Blade Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd017-super-single-dually",
+    "https://fenixforged.com/products/fd017-super-single-dually-concave",
+    "https://fenixforged.com/products/fd017-flat-face",
+    "https://fenixforged.com/products/fd017-concave",
+    "https://fenixforged.com/products/fd017-utv",
+    "https://fenixforged.com/products/fd017-dually"
+   ]
+  },
+  {
+   "match": "FD018",
+   "titles": [
+    "FD018 Apollo Pro - Super Single Dually",
+    "FD018 Apollo Pro - Super Single Dually Concave",
+    "FD018 Apollo Pro - UTV",
+    "FD018 Apollo Pro - Dually",
+    "FD018 Apollo Pro",
+    "FD018 Apollo Pro - Concave"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd018-super-single-dually",
+    "https://fenixforged.com/products/fd018-super-single-dually-concave",
+    "https://fenixforged.com/products/fd018-utv",
+    "https://fenixforged.com/products/fd018-dually",
+    "https://fenixforged.com/products/fd018-flat-face",
+    "https://fenixforged.com/products/fd018-concave"
+   ]
+  },
+  {
+   "match": "FD019",
+   "titles": [
+    "FD019 Aurora Pro - Super Single Dually",
+    "FD019 Aurora Pro - Super Single Dually Concave",
+    "FD019 Aurora Pro",
+    "FD019 Aurora Pro - Concave",
+    "FD019 Aurora Pro - UTV",
+    "FD019 Aurora Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd019-super-single-dually",
+    "https://fenixforged.com/products/fd019-super-single-dually-concave",
+    "https://fenixforged.com/products/fd019-flat-face",
+    "https://fenixforged.com/products/fd019-concave",
+    "https://fenixforged.com/products/fd019-utv",
+    "https://fenixforged.com/products/fd019-dually"
+   ]
+  },
+  {
+   "match": "FD020",
+   "titles": [
+    "FD020 Kinetic Pro - Super Single Dually",
+    "FD020 Kinetic Pro - Super Single Dually Concave",
+    "FD020 Kinetic Pro",
+    "FD020 Kinetic Pro - Concave",
+    "FD020 Kinetic Pro - UTV",
+    "FD020 Kinetic Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd020-super-single-dually",
+    "https://fenixforged.com/products/fd020-super-single-dually-concave",
+    "https://fenixforged.com/products/fd020-flat-face",
+    "https://fenixforged.com/products/fd020-concave",
+    "https://fenixforged.com/products/fd020-utv",
+    "https://fenixforged.com/products/fd020-dually"
+   ]
+  },
+  {
+   "match": "FD021",
+   "titles": [
+    "FD021 Draco Pro - Super Single Dually",
+    "FD021 Draco Pro - Super Single Dually Concave",
+    "FD021 Draco Pro",
+    "FD021 Draco Pro - Concave",
+    "FD021 Draco Pro - UTV",
+    "FD021 Draco Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd021-super-single-dually",
+    "https://fenixforged.com/products/fd021-super-single-dually-concave",
+    "https://fenixforged.com/products/fd021-flat-face",
+    "https://fenixforged.com/products/fd021-concave",
+    "https://fenixforged.com/products/fd021-utv",
+    "https://fenixforged.com/products/fd021-dually"
+   ]
+  },
+  {
+   "match": "FD022",
+   "titles": [
+    "FD022 Outlaw Pro - Super Single Dually",
+    "FD022 Outlaw Pro - Super Single Dually Concave",
+    "FD022 Outlaw Pro",
+    "FD022 Outlaw Pro - Concave",
+    "FD022 Outlaw Pro - UTV",
+    "FD022 Outlaw Pro - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fd022-super-single-dually",
+    "https://fenixforged.com/products/fd022-super-single-dually-concave",
+    "https://fenixforged.com/products/fd022-flat-face",
+    "https://fenixforged.com/products/fd022-concave",
+    "https://fenixforged.com/products/fd022-utv",
+    "https://fenixforged.com/products/fd022-dually"
+   ]
+  },
+  {
+   "match": "FDS001",
+   "titles": [
+    "FDS001 Vortex",
+    "FDS001 Vortex - Concave",
+    "FDS001 Vortex - UTV",
+    "FDS001 Vortex - Dually",
+    "FDS001 Vortex - Super Single Dually",
+    "FDS001 Vortex - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds001-flat-face",
+    "https://fenixforged.com/products/fds001-concave",
+    "https://fenixforged.com/products/fds001-utv",
+    "https://fenixforged.com/products/fds001-dually",
+    "https://fenixforged.com/products/fds001-super-single-dually",
+    "https://fenixforged.com/products/fds001-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS002",
+   "titles": [
+    "FDS002 Apex",
+    "FDS002 Apex - Concave",
+    "FDS002 Apex - UTV",
+    "FDS002 Apex - Dually",
+    "FDS002 Apex - Super Single Dually",
+    "FDS002 Apex - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds002-flat-face",
+    "https://fenixforged.com/products/fds002-concave",
+    "https://fenixforged.com/products/fds002-utv",
+    "https://fenixforged.com/products/fds002-dually",
+    "https://fenixforged.com/products/fds002-super-single-dually",
+    "https://fenixforged.com/products/fds002-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS003",
+   "titles": [
+    "FDS003 Pinnacle - UTV",
+    "FDS003 Pinnacle - Dually",
+    "FDS003 Pinnacle",
+    "FDS003 Pinnacle - Concave",
+    "FDS003 Pinnacle - Super Single Dually",
+    "FDS003 Pinnacle - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds003-utv",
+    "https://fenixforged.com/products/fds003-dually",
+    "https://fenixforged.com/products/fds003-flat-face",
+    "https://fenixforged.com/products/fds003-concave",
+    "https://fenixforged.com/products/fds003-super-single-dually",
+    "https://fenixforged.com/products/fds003-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS004",
+   "titles": [
+    "FDS004 Torque",
+    "FDS004 Torque - Concave",
+    "FDS004 Torque - UTV",
+    "FDS004 Torque - Dually",
+    "FDS004 Torque - Super Single Dually",
+    "FDS004 Torque - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds004-flat-face",
+    "https://fenixforged.com/products/fds004-concave",
+    "https://fenixforged.com/products/fds004-utv",
+    "https://fenixforged.com/products/fds004-dually",
+    "https://fenixforged.com/products/fds004-super-single-dually",
+    "https://fenixforged.com/products/fds004-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS005",
+   "titles": [
+    "FDS005 Nitro",
+    "FDS005 Nitro - Concave",
+    "FDS005 Nitro - UTV",
+    "FDS005 Nitro - Dually",
+    "FDS005 Nitro - Super Single Dually",
+    "FDS005 Nitro - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds005-flat-face",
+    "https://fenixforged.com/products/fds005-concave",
+    "https://fenixforged.com/products/fds005-utv",
+    "https://fenixforged.com/products/fds005-dually",
+    "https://fenixforged.com/products/fds005-super-single-dually",
+    "https://fenixforged.com/products/fds005-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS006",
+   "titles": [
+    "FDS006 Fusion",
+    "FDS006 Fusion - Concave",
+    "FDS006 Fusion - UTV",
+    "FDS006 Fusion - Dually",
+    "FDS006 Fusion - Super Single Dually",
+    "FDS006 Fusion - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds006-flat-face",
+    "https://fenixforged.com/products/fds006-concave",
+    "https://fenixforged.com/products/fds006-utv",
+    "https://fenixforged.com/products/fds006-dually",
+    "https://fenixforged.com/products/fds006-super-single-dually",
+    "https://fenixforged.com/products/fds006-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS007",
+   "titles": [
+    "FDS007 Velocity",
+    "FDS007 Velocity - Concave",
+    "FDS007 Velocity - UTV",
+    "FDS007 Velocity - Dually",
+    "FDS007 Velocity - Super Single Dually",
+    "FDS007 Velocity - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds007-flat-face",
+    "https://fenixforged.com/products/fds007-concave",
+    "https://fenixforged.com/products/fds007-utv",
+    "https://fenixforged.com/products/fds007-dually",
+    "https://fenixforged.com/products/fds007-super-single-dually",
+    "https://fenixforged.com/products/fds007-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS008",
+   "titles": [
+    "FDS008 Carnage - UTV",
+    "FDS008 Carnage - Dually",
+    "FDS008 Carnage",
+    "FDS008 Carnage - Concave",
+    "FDS008 Carnage - Super Single Dually",
+    "FDS008 Carnage - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds008-utv",
+    "https://fenixforged.com/products/fds008-dually",
+    "https://fenixforged.com/products/fds008-flat-face",
+    "https://fenixforged.com/products/fds008-concave",
+    "https://fenixforged.com/products/fds008-super-single-dually",
+    "https://fenixforged.com/products/fds008-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS009",
+   "titles": [
+    "FDS009 Shredder",
+    "FDS009 Shredder - Concave",
+    "FDS009 Shredder - UTV",
+    "FDS009 Shredder - Dually",
+    "FDS009 Shredder - Super Single Dually",
+    "FDS009 Shredder - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds009-flat-face",
+    "https://fenixforged.com/products/fds009-concave",
+    "https://fenixforged.com/products/fds009-utv",
+    "https://fenixforged.com/products/fds009-dually",
+    "https://fenixforged.com/products/fds009-super-single-dually",
+    "https://fenixforged.com/products/fds009-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS010",
+   "titles": [
+    "FDS010 Northstar",
+    "FDS010 Northstar - Concave",
+    "FDS010 Northstar - UTV",
+    "FDS010 Northstar - Dually",
+    "FDS010 Northstar - Super Single Dually",
+    "FDS010 Northstar - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds010-flat-face",
+    "https://fenixforged.com/products/fds010-concave",
+    "https://fenixforged.com/products/fds010-utv",
+    "https://fenixforged.com/products/fds010-dually",
+    "https://fenixforged.com/products/fds010-super-single-dually",
+    "https://fenixforged.com/products/fds010-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS011",
+   "titles": [
+    "FDS011 Nova - Super Single Dually",
+    "FDS011 Nova - Super Single Dually Concave",
+    "FDS011 Nova",
+    "FDS011 Nova - Concave",
+    "FDS011 Nova - UTV",
+    "FDS011 Nova - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds011-super-single-dually",
+    "https://fenixforged.com/products/fds011-super-single-dually-concave",
+    "https://fenixforged.com/products/fds011-flat-face",
+    "https://fenixforged.com/products/fds011-concave",
+    "https://fenixforged.com/products/fds011-utv",
+    "https://fenixforged.com/products/fds011-dually"
+   ]
+  },
+  {
+   "match": "FDS012",
+   "titles": [
+    "FDS012 Razer - Super Single Dually",
+    "FDS012 Razer - Super Single Dually Concave",
+    "FDS012 Razer",
+    "FDS012 Razer - Concave",
+    "FDS012 Razer - UTV",
+    "FDS012 Razer - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds012-super-single-dually",
+    "https://fenixforged.com/products/fds012-super-single-dually-concave",
+    "https://fenixforged.com/products/fds012-flat-face",
+    "https://fenixforged.com/products/fds012-concave",
+    "https://fenixforged.com/products/fds012-utv",
+    "https://fenixforged.com/products/fds012-dually"
+   ]
+  },
+  {
+   "match": "FDS013",
+   "titles": [
+    "FDS013 Glacier - Super Single Dually",
+    "FDS013 Glacier - Super Single Dually Concave",
+    "FDS013 Glacier - UTV",
+    "FDS013 Glacier - Dually",
+    "FDS013 Glacier",
+    "FDS013 Glacier - Concave"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds013-super-single-dually",
+    "https://fenixforged.com/products/fds013-super-single-dually-concave",
+    "https://fenixforged.com/products/fds013-utv",
+    "https://fenixforged.com/products/fds013-dually",
+    "https://fenixforged.com/products/fds013-flat-face",
+    "https://fenixforged.com/products/fds013-concave"
+   ]
+  },
+  {
+   "match": "FDS014",
+   "titles": [
+    "FDS014 Throwback - Super Single Dually",
+    "FDS014 Throwback - Super Single Dually Concave",
+    "FDS014 Throwback",
+    "FDS014 Throwback - Concave",
+    "FDS014 Throwback - UTV",
+    "FDS014 Throwback - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds014-super-single-dually",
+    "https://fenixforged.com/products/fds014-super-single-dually-concave",
+    "https://fenixforged.com/products/fds014-flat-face",
+    "https://fenixforged.com/products/fds014-concave",
+    "https://fenixforged.com/products/fds014-utv",
+    "https://fenixforged.com/products/fds014-dually"
+   ]
+  },
+  {
+   "match": "FDS015",
+   "titles": [
+    "FDS015 Widow - Super Single Dually",
+    "FDS015 Widow - Super Single Dually Concave",
+    "FDS015 Widow",
+    "FDS015 Widow - Concave",
+    "FDS015 Widow - UTV",
+    "FDS015 Widow - Dually"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds015-super-single-dually",
+    "https://fenixforged.com/products/fds015-super-single-dually-concave",
+    "https://fenixforged.com/products/fds015-flat-face",
+    "https://fenixforged.com/products/fds015-concave",
+    "https://fenixforged.com/products/fds015-utv",
+    "https://fenixforged.com/products/fds015-dually"
+   ]
+  },
+  {
+   "match": "FDS016",
+   "titles": [
+    "FDS016 Lotus",
+    "FDS016 Lotus - Concave",
+    "FDS016 Lotus - UTV",
+    "FDS016 Lotus - Dually",
+    "FDS016 Lotus - Super Single Dually",
+    "FDS016 Lotus - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds016-flat-face",
+    "https://fenixforged.com/products/fds016-concave",
+    "https://fenixforged.com/products/fds016-utv",
+    "https://fenixforged.com/products/fds016-dually",
+    "https://fenixforged.com/products/fds016-super-single-dually",
+    "https://fenixforged.com/products/fds016-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS017",
+   "titles": [
+    "FDS017 Sling Blade",
+    "FDS017 Sling Blade - Concave",
+    "FDS017 Sling Blade - UTV",
+    "FDS017 Sling Blade - Dually",
+    "FDS017 Sling Blade - Super Single Dually",
+    "FDS017 Sling Blade - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds017-flat-face",
+    "https://fenixforged.com/products/fds017-concave",
+    "https://fenixforged.com/products/fds017-utv",
+    "https://fenixforged.com/products/fds017-dually",
+    "https://fenixforged.com/products/fds017-super-single-dually",
+    "https://fenixforged.com/products/fds017-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS018",
+   "titles": [
+    "FDS018 Apollo - UTV",
+    "FDS018 Apollo - Dually",
+    "FDS018 Apollo",
+    "FDS018 Apollo - Concave",
+    "FDS018 Apollo - Super Single Dually",
+    "FDS018 Apollo - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds018-utv",
+    "https://fenixforged.com/products/fds018-dually",
+    "https://fenixforged.com/products/fds018-flat-face",
+    "https://fenixforged.com/products/fds018-concave",
+    "https://fenixforged.com/products/fds018-super-single-dually",
+    "https://fenixforged.com/products/fds018-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS019",
+   "titles": [
+    "FDS019 Aurora",
+    "FDS019 Aurora - Concave",
+    "FDS019 Aurora - UTV",
+    "FDS019 Aurora - Dually",
+    "FDS019 Aurora - Super Single Dually",
+    "FDS019 Aurora - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds019-flat-face",
+    "https://fenixforged.com/products/fds019-concave",
+    "https://fenixforged.com/products/fds019-utv",
+    "https://fenixforged.com/products/fds019-dually",
+    "https://fenixforged.com/products/fds019-super-single-dually",
+    "https://fenixforged.com/products/fds019-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS020",
+   "titles": [
+    "FDS020 Kinetic",
+    "FDS020 Kinetic - Concave",
+    "FDS020 Kinetic - UTV",
+    "FDS020 Kinetic - Dually",
+    "FDS020 Kinetic - Super Single Dually",
+    "FDS020 Kinetic - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds020-flat-face",
+    "https://fenixforged.com/products/fds020-concave",
+    "https://fenixforged.com/products/fds020-utv",
+    "https://fenixforged.com/products/fds020-dually",
+    "https://fenixforged.com/products/fds020-super-single-dually",
+    "https://fenixforged.com/products/fds020-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS021",
+   "titles": [
+    "FDS021 Draco",
+    "FDS021 Draco - Concave",
+    "FDS021 Draco - UTV",
+    "FDS021 Draco - Dually",
+    "FDS021 Draco - Super Single Dually",
+    "FDS021 Draco - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds021-flat-face",
+    "https://fenixforged.com/products/fds021-concave",
+    "https://fenixforged.com/products/fds021-utv",
+    "https://fenixforged.com/products/fds021-dually",
+    "https://fenixforged.com/products/fds021-super-single-dually",
+    "https://fenixforged.com/products/fds021-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "FDS022",
+   "titles": [
+    "FDS022 Outlaw",
+    "FDS022 Outlaw - Concave",
+    "FDS022 Outlaw - UTV",
+    "FDS022 Outlaw - Dually",
+    "FDS022 Outlaw - Super Single Dually",
+    "FDS022 Outlaw - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/fds022-flat-face",
+    "https://fenixforged.com/products/fds022-concave",
+    "https://fenixforged.com/products/fds022-utv",
+    "https://fenixforged.com/products/fds022-dually",
+    "https://fenixforged.com/products/fds022-super-single-dually",
+    "https://fenixforged.com/products/fds022-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD001",
+   "titles": [
+    "HD001 Phantom",
+    "HD001 Phantom - Concave",
+    "HD001 Phantom - UTV",
+    "HD001 Phantom - Dually",
+    "HD001 Phantom - Super Single Dually",
+    "HD001 Phantom - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd001-flat-face",
+    "https://fenixforged.com/products/hd001-concave",
+    "https://fenixforged.com/products/hd001-utv",
+    "https://fenixforged.com/products/hd001-dually",
+    "https://fenixforged.com/products/hd001-super-single-dually",
+    "https://fenixforged.com/products/hd001-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD002",
+   "titles": [
+    "HD002 Sinister",
+    "HD002 Sinister - Concave",
+    "HD002 Sinister - UTV",
+    "HD002 Sinister - Dually",
+    "HD002 Sinister - Super Single Dually",
+    "HD002 Sinister - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd002-flat-face",
+    "https://fenixforged.com/products/hd002-concave",
+    "https://fenixforged.com/products/hd002-utv",
+    "https://fenixforged.com/products/hd002-dually",
+    "https://fenixforged.com/products/hd002-super-single-dually",
+    "https://fenixforged.com/products/hd002-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD003",
+   "titles": [
+    "HD003 Rampage - UTV",
+    "HD003 Rampage - Dually",
+    "HD003 Rampage",
+    "HD003 Rampage - Concave",
+    "HD003 Rampage - Super Single Dually",
+    "HD003 Rampage - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd003-utv",
+    "https://fenixforged.com/products/hd003-dually",
+    "https://fenixforged.com/products/hd003-flat-face",
+    "https://fenixforged.com/products/hd003-concave",
+    "https://fenixforged.com/products/hd003-super-single-dually",
+    "https://fenixforged.com/products/hd003-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD004",
+   "titles": [
+    "HD004 Helix",
+    "HD004 Helix - Concave",
+    "HD004 Helix - UTV",
+    "HD004 Helix - Dually",
+    "HD004 Helix - Super Single Dually",
+    "HD004 Helix - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd004-flat-face",
+    "https://fenixforged.com/products/hd004-concave",
+    "https://fenixforged.com/products/hd004-utv",
+    "https://fenixforged.com/products/hd004-dually",
+    "https://fenixforged.com/products/hd004-super-single-dually",
+    "https://fenixforged.com/products/hd004-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD005",
+   "titles": [
+    "HD005 Nebula",
+    "HD005 Nebula - Concave",
+    "HD005 Nebula - UTV",
+    "HD005 Nebula - Dually",
+    "HD005 Nebula - Super Single Dually",
+    "HD005 Nebula - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd005-flat-face",
+    "https://fenixforged.com/products/hd005-concave",
+    "https://fenixforged.com/products/hd005-utv",
+    "https://fenixforged.com/products/hd005-dually",
+    "https://fenixforged.com/products/hd005-super-single-dually",
+    "https://fenixforged.com/products/hd005-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD006",
+   "titles": [
+    "HD006 Surge",
+    "HD006 Surge - Concave",
+    "HD006 Surge - UTV",
+    "HD006 Surge - Dually",
+    "HD006 Surge - Super Single Dually",
+    "HD006 Surge - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd006-flat-face",
+    "https://fenixforged.com/products/hd006-concave",
+    "https://fenixforged.com/products/hd006-utv",
+    "https://fenixforged.com/products/hd006-dually",
+    "https://fenixforged.com/products/hd006-super-single-dually",
+    "https://fenixforged.com/products/hd006-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD007",
+   "titles": [
+    "HD007 Nexus",
+    "HD007 Nexus - Concave",
+    "HD007 Nexus - UTV",
+    "HD007 Nexus - Dually",
+    "HD007 Nexus - Super Single Dually",
+    "HD007 Nexus - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd007-flat-face",
+    "https://fenixforged.com/products/hd007-concave",
+    "https://fenixforged.com/products/hd007-utv",
+    "https://fenixforged.com/products/hd007-dually",
+    "https://fenixforged.com/products/hd007-super-single-dually",
+    "https://fenixforged.com/products/hd007-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD008",
+   "titles": [
+    "HD008 Rogue - UTV",
+    "HD008 Rogue - Dually",
+    "HD008 Rogue",
+    "HD008 Rogue - Concave",
+    "HD008 Rogue - Super Single Dually",
+    "HD008 Rogue - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd008-utv",
+    "https://fenixforged.com/products/hd008-dually",
+    "https://fenixforged.com/products/hd008-flat-face",
+    "https://fenixforged.com/products/hd008-concave",
+    "https://fenixforged.com/products/hd008-super-single-dually",
+    "https://fenixforged.com/products/hd008-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD009",
+   "titles": [
+    "HD009 Obsidian",
+    "HD009 Obsidian - Concave",
+    "HD009 Obsidian - UTV",
+    "HD009 Obsidian - Dually",
+    "HD009 Obsidian - Super Single Dually",
+    "HD009 Obsidian - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd009-flat-face",
+    "https://fenixforged.com/products/hd009-concave",
+    "https://fenixforged.com/products/hd009-utv",
+    "https://fenixforged.com/products/hd009-dually",
+    "https://fenixforged.com/products/hd009-super-single-dually",
+    "https://fenixforged.com/products/hd009-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD010",
+   "titles": [
+    "HD010 Exodus",
+    "HD010 Exodus - Concave",
+    "HD010 Exodus - UTV",
+    "HD010 Exodus - Dually",
+    "HD010 Exodus - Super Single Dually",
+    "HD010 Exodus - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd010-flat-face",
+    "https://fenixforged.com/products/hd010-concave",
+    "https://fenixforged.com/products/hd010-utv",
+    "https://fenixforged.com/products/hd010-dually",
+    "https://fenixforged.com/products/hd010-super-single-dually",
+    "https://fenixforged.com/products/hd010-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD011",
+   "titles": [
+    "HD011 Scepter",
+    "HD011 Scepter - Concave",
+    "HD011 Scepter - UTV",
+    "HD011 Scepter - Dually",
+    "HD011 Scepter - Super Single Dually",
+    "HD011 Scepter - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd011-flat-face",
+    "https://fenixforged.com/products/hd011-concave",
+    "https://fenixforged.com/products/hd011-utv",
+    "https://fenixforged.com/products/hd011-dually",
+    "https://fenixforged.com/products/hd011-super-single-dually",
+    "https://fenixforged.com/products/hd011-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD012",
+   "titles": [
+    "HD012 Trident",
+    "HD012 Trident - Concave",
+    "HD012 Trident - UTV",
+    "HD012 Trident - Dually",
+    "HD012 Trident - Super Single Dually",
+    "HD012 Trident - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd012-flat-face",
+    "https://fenixforged.com/products/hd012-concave",
+    "https://fenixforged.com/products/hd012-utv",
+    "https://fenixforged.com/products/hd012-dually",
+    "https://fenixforged.com/products/hd012-super-single-dually",
+    "https://fenixforged.com/products/hd012-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD013",
+   "titles": [
+    "HD013 Crusader - UTV",
+    "HD013 Crusader - Dually",
+    "HD013 Crusader",
+    "HD013 Crusader - Concave",
+    "HD013 Crusader - Super Single Dually",
+    "HD013 Crusader - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd013-utv",
+    "https://fenixforged.com/products/hd013-dually",
+    "https://fenixforged.com/products/hd013-flat-face",
+    "https://fenixforged.com/products/hd013-concave",
+    "https://fenixforged.com/products/hd013-super-single-dually",
+    "https://fenixforged.com/products/hd013-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "HD014",
+   "titles": [
+    "HD014 Viper",
+    "HD014 Viper - Concave",
+    "HD014 Viper - UTV",
+    "HD014 Viper - Dually",
+    "HD014 Viper - Super Single Dually",
+    "HD014 Viper - Super Single Dually Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ],
+    "dually": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ],
+    "super single": [
+     "20x8.25",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ]
+   },
+   "boltsByConfig": {
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ],
+    "dually": [
+     "10x225",
+     "10x285.75",
+     "8x200",
+     "8x210"
+    ],
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ]
+   },
+   "configs": [
+    "dually",
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/hd014-flat-face",
+    "https://fenixforged.com/products/hd014-concave",
+    "https://fenixforged.com/products/hd014-utv",
+    "https://fenixforged.com/products/hd014-dually",
+    "https://fenixforged.com/products/hd014-super-single-dually",
+    "https://fenixforged.com/products/hd014-super-single-dually-concave"
+   ]
+  },
+  {
+   "match": "L2001",
+   "titles": [
+    "L2001 Scorpion - Super Single Dually",
+    "L2001 Scorpion - Super Single Dually Concave",
+    "L2001 Scorpion",
+    "L2001 Scorpion - Concave",
+    "L2001 Scorpion - UTV"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ]
+   },
+   "configs": [
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/l2001-super-single-dually",
+    "https://fenixforged.com/products/l2001-super-single-dually-concave",
+    "https://fenixforged.com/products/l2001-flat-face",
+    "https://fenixforged.com/products/l2001-concave",
+    "https://fenixforged.com/products/l2001-utv"
+   ]
+  },
+  {
+   "match": "L2002",
+   "titles": [
+    "L2002 Liberty - Super Single Dually",
+    "L2002 Liberty - Super Single Dually Concave",
+    "L2002 Liberty",
+    "L2002 Liberty - Concave",
+    "L2002 Liberty - UTV"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ]
+   },
+   "configs": [
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/l2002-super-single-dually",
+    "https://fenixforged.com/products/l2002-super-single-dually-concave",
+    "https://fenixforged.com/products/l2002-flat-face",
+    "https://fenixforged.com/products/l2002-concave",
+    "https://fenixforged.com/products/l2002-utv"
+   ]
+  },
+  {
+   "match": "L2003",
+   "titles": [
+    "L2003 Hurricane - Super Single Dually",
+    "L2003 Hurricane - Super Single Dually Concave",
+    "L2003 Hurricane",
+    "L2003 Hurricane - Concave",
+    "L2003 Hurricane - UTV"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ]
+   },
+   "configs": [
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/l2003-super-single-dually",
+    "https://fenixforged.com/products/l2003-super-single-dually-concave",
+    "https://fenixforged.com/products/l2003-flat-face",
+    "https://fenixforged.com/products/l2003-concave",
+    "https://fenixforged.com/products/l2003-utv"
+   ]
+  },
+  {
+   "match": "L2004",
+   "titles": [
+    "L2004 Strata - Super Single Dually",
+    "L2004 Strata - Super Single Dually Concave",
+    "L2004 Strata - Concave",
+    "L2004 Strata - UTV",
+    "L2004 Strata"
+   ],
+   "byConfig": {
+    "super single": [
+     "22x8.25",
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x8.25",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x8.25",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x14",
+     "30x16"
+    ],
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "22x16",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x16",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x14",
+     "30x16"
+    ],
+    "utv": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "boltsByConfig": {
+    "super single": [
+     "10x170",
+     "10x225",
+     "10x285.75",
+     "8x165.1",
+     "8x170",
+     "8x180",
+     "8x200",
+     "8x210"
+    ],
+    "single": [
+     "4x137",
+     "4x156",
+     "5x127",
+     "5x150",
+     "6x120",
+     "6x135",
+     "6x139.7",
+     "8x165.1",
+     "8x170",
+     "8x180"
+    ],
+    "utv": [
+     "4x137",
+     "4x156"
+    ]
+   },
+   "configs": [
+    "single",
+    "super single",
+    "utv"
+   ],
+   "urls": [
+    "https://fenixforged.com/products/l2004-super-single-dually",
+    "https://fenixforged.com/products/l2004-super-single-dually-concave",
+    "https://fenixforged.com/products/l2004-concave",
+    "https://fenixforged.com/products/l2004-utv",
+    "https://fenixforged.com/products/l2004-flat-face"
+   ]
+  }
+ ]
+}

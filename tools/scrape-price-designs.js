@@ -410,7 +410,7 @@ function decode(meta, cfg) {
     if (typeof z === 'number') st.z = z;
     if (hideWhen.length) st.hideWhen = hideWhen;
     if (isText) {
-      st.placeholder = 'Lift, tyre size, offset you’re after, a deadline — anything that changes the build.';
+      st.placeholder = 'Lift, tire size, offset you’re after, a deadline — anything that changes the build.';
     } else {
       st.options = opts;
       /* A category with exactly one option is not a question. He builds only
@@ -478,7 +478,7 @@ function spec(meta, cfg, dec) {
     'untouched — nothing estimated, marked up or rounded.',
     '',
     'THE WORD \'SIMULATED\' IS LOAD-BEARING and he capitalises it himself. A',
-    'simulated beadlock ring is cosmetic: it does not clamp the tyre bead the',
+    'simulated beadlock ring is cosmetic: it does not clamp the tire bead the',
     'way a true beadlock does. Never shorten it to \'beadlock\' in copy — that',
     'is a safety claim, not a style one.',
     '',
@@ -533,8 +533,8 @@ function spec(meta, cfg, dec) {
     baseLayer: fileOf(((cfg.data.base.image || {}).front) || null),
     source: 'https://' + SHOP + '/products/' + meta.handle,
     about: about,
-    includes: 'Billet centre caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.',
-    madeIn: 'Forged in the USA from 6061-T6 aluminium and machined in their own facility in Gilbert, Arizona.',
+    includes: 'Billet center caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.',
+    madeIn: 'Forged in the USA from 6061-T6 aluminum and machined in their own facility in Gilbert, Arizona.',
     defaults: dec.defaults,
     steps: dec.steps
   };

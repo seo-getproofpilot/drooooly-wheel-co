@@ -322,13 +322,27 @@ try {
   ok("no model empties its size table under any series", emptied.length, 0);
   if (emptied.length) console.log("       offenders:", emptied.slice(0, 5).join(", "));
 
-  // bare-diameter brands must never be filtered or given invented widths
-  const bare = BR.find((b) => b.slug === "vision").models.find((m) => (m.sizes || []).every((x) => !/x/.test(x)));
-  if (bare) {
-    const br = F.sizeRowsFor(bare, "single");
-    ok("bare-diameter model keeps every diameter", br.length, F.sizeRowsFor(bare, null).length);
-    ok("bare-diameter model reports no known width", br.every((r) => !r.widthKnown), true);
-  }
+  /* NO MODEL MAY LIST A BARE DIAMETER. "22" is not a size — it says nothing
+     about whether the wheel clears the calipers or fills the fender. Fenix,
+     TIS and Vision between them had 99 of them across 38 models until
+     tools/scrape-wheel-sizes.js replaced the lot with the manufacturers' own
+     published matrices. This pins that; tools/qc-catalog.js fails on it too. */
+  const bareModels = [];
+  BR.forEach((b) => b.models.forEach((m) => {
+    const bare = (m.sizes || []).filter((x) => !/x/.test(String(x)));
+    if (bare.length) bareModels.push(b.slug + "/" + m.model + " [" + bare.join(",") + "]");
+  }));
+  ok("no model lists a bare diameter", bareModels.length, 0);
+  if (bareModels.length) console.log("       offenders:", bareModels.slice(0, 5).join(", "));
+
+  /* The engine's tolerance for one is still tested, against a SYNTHETIC model
+     rather than a real listing. fitment.js keeps the widthKnown:false path
+     because a brand may yet publish diameters only, and a path with no data
+     exercising it is a path that rots. */
+  const synthetic = { model: "(synthetic)", configs: ["single"], sizes: ["20", "22"], finishes: [] };
+  const br = F.sizeRowsFor(synthetic, "single");
+  ok("bare-diameter model keeps every diameter", br.length, F.sizeRowsFor(synthetic, null).length);
+  ok("bare-diameter model reports no known width", br.every((r) => !r.widthKnown), true);
 } catch (e) {
   console.log("  (brands.js not loadable: " + e.message + ")");
 }

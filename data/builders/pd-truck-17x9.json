@@ -34,7 +34,7 @@
     "untouched — nothing estimated, marked up or rounded.",
     "",
     "THE WORD 'SIMULATED' IS LOAD-BEARING and he capitalises it himself. A",
-    "simulated beadlock ring is cosmetic: it does not clamp the tyre bead the",
+    "simulated beadlock ring is cosmetic: it does not clamp the tire bead the",
     "way a true beadlock does. Never shorten it to 'beadlock' in copy — that",
     "is a safety claim, not a style one.",
     "",
@@ -43,8 +43,8 @@
     "tools/mirror-pd-art.js to pull them local and rewrite layerBase.",
     "LAUNCH-CHECKLIST 1.13 (rights) and 4.42 (the hotlink dependency)."
   ],
-  "includes": "Billet centre caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.",
-  "madeIn": "Forged in the USA from 6061-T6 aluminium and machined in their own facility in Gilbert, Arizona.",
+  "includes": "Billet center caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.",
+  "madeIn": "Forged in the USA from 6061-T6 aluminum and machined in their own facility in Gilbert, Arizona.",
   "defaults": {
     "turbine-wheel-finish": "Machined",
     "sawblade-ring-finish": "Machined",
@@ -1537,7 +1537,7 @@
       "label": "Notes",
       "type": "text",
       "required": false,
-      "placeholder": "Lift, tyre size, offset you’re after, a deadline — anything that changes the build."
+      "placeholder": "Lift, tire size, offset you’re after, a deadline — anything that changes the build."
     }
   ]
 }

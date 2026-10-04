@@ -1,0 +1,7455 @@
+{
+ "brand": "american-force",
+ "captured": "2026-10-04",
+ "source": "https://www.americanforce.com — the Part#/Model/Finish/Size/Bolt Pattern/Offset table on each product page",
+ "note": "The size column uses an uppercase X; the lowercase x tokens on the page are navigation. Configs are derived from the widths by tools/wire-wheel-sizes.js, not taken from here.",
+ "models": [
+  {
+   "match": "M54 EVOLVE HO",
+   "titles": [
+    "M54 Evolve Ho"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-m54-evolve-ho"
+   ]
+  },
+  {
+   "match": "M15 KABLE HO",
+   "titles": [
+    "M15 Kable Ho"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-m15-kable-ho"
+   ]
+  },
+  {
+   "match": "M17 SENTINEL HO",
+   "titles": [
+    "M17 Sentinel Ho"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-m17-sentinel-ho"
+   ]
+  },
+  {
+   "match": "M16 VELOCITY HO",
+   "titles": [
+    "M16 Velocity Ho"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-m16-velocity-ho"
+   ]
+  },
+  {
+   "match": "K03 ALPINE UTV",
+   "titles": [
+    "K03 Alpine Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k03-alpine-utv"
+   ]
+  },
+  {
+   "match": "K04 CAMINO UTV",
+   "titles": [
+    "K04 Camino Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k04-camino-utv"
+   ]
+  },
+  {
+   "match": "K08 CARVER UTV",
+   "titles": [
+    "K08 Carver Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k08-carver-utv"
+   ]
+  },
+  {
+   "match": "K05 COYOTE UTV",
+   "titles": [
+    "K05 Coyote Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k05-coyote-utv"
+   ]
+  },
+  {
+   "match": "K07 ENERGY UTV",
+   "titles": [
+    "K07 Energy Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k07-energy-utv"
+   ]
+  },
+  {
+   "match": "K06 NOMAD UTV",
+   "titles": [
+    "K06 Nomad Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k06-nomad-utv"
+   ]
+  },
+  {
+   "match": "K02 SONIC UTV",
+   "titles": [
+    "K02 Sonic Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k02-sonic-utv"
+   ]
+  },
+  {
+   "match": "K01 SUMMIT UTV",
+   "titles": [
+    "K01 Summit Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k01-summit-utv"
+   ]
+  },
+  {
+   "match": "K10 TRACE UTV",
+   "titles": [
+    "K10 Trace Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k10-trace-utv"
+   ]
+  },
+  {
+   "match": "K09 UFO UTV",
+   "titles": [
+    "K09 Ufo Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k09-ufo-utv"
+   ]
+  },
+  {
+   "match": "601 CLASSIC SSBR",
+   "titles": [
+    "601 Classic Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-601-classic-ssbr"
+   ]
+  },
+  {
+   "match": "6H01 CONTRA SSBR",
+   "titles": [
+    "6h01 Contra Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6h01-contra-ssbr"
+   ]
+  },
+  {
+   "match": "6G17 EVO SSBR",
+   "titles": [
+    "6g17 Evo Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6g17-evo-ssbr"
+   ]
+  },
+  {
+   "match": "611 INDEPENDENCE SSBR",
+   "titles": [
+    "611 Independence Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-611-independence-ssbr"
+   ]
+  },
+  {
+   "match": "609 LIBERTY SSBR",
+   "titles": [
+    "609 Liberty Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-609-liberty-ssbr"
+   ]
+  },
+  {
+   "match": "6D04 MAN O WAR SSBR",
+   "titles": [
+    "6d04 Man O War Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6d04-man-o-war-ssbr"
+   ]
+  },
+  {
+   "match": "6F93 OMEN SSBR",
+   "titles": [
+    "6f93 Omen Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6f93-omen-ssbr"
+   ]
+  },
+  {
+   "match": "670 SHIFT SSBR",
+   "titles": [
+    "670 Shift Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-670-shift-ssbr"
+   ]
+  },
+  {
+   "match": "6G14 SIDEWAYS SSBR",
+   "titles": [
+    "6g14 Sideways Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6g14-sideways-ssbr"
+   ]
+  },
+  {
+   "match": "6H02 SIEGE SSBR",
+   "titles": [
+    "6h02 Siege Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6h02-siege-ssbr"
+   ]
+  },
+  {
+   "match": "6F07 TREK SSBR",
+   "titles": [
+    "6f07 Trek Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6f07-trek-ssbr"
+   ]
+  },
+  {
+   "match": "G28 A K A SS",
+   "titles": [
+    "G28 A K A Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g28-a-k-a-ss"
+   ]
+  },
+  {
+   "match": "G52 ADDICT SS",
+   "titles": [
+    "G52 Addict Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g52-addict-ss"
+   ]
+  },
+  {
+   "match": "161 ALPHA SS",
+   "titles": [
+    "161 Alpha Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-161-alpha-ss"
+   ]
+  },
+  {
+   "match": "F20 ATOM SS",
+   "titles": [
+    "F20 Atom Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f20-atom-ss"
+   ]
+  },
+  {
+   "match": "H30 BANSHEE SS",
+   "titles": [
+    "H30 Banshee Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h30-banshee-ss"
+   ]
+  },
+  {
+   "match": "H36 BEACON SS",
+   "titles": [
+    "H36 Beacon Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h36-beacon-ss"
+   ]
+  },
+  {
+   "match": "F09 BIG TEN SS",
+   "titles": [
+    "F09 Big Ten Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f09-big-ten-ss"
+   ]
+  },
+  {
+   "match": "H32 BISHOP SS",
+   "titles": [
+    "H32 Bishop Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h32-bishop-ss"
+   ]
+  },
+  {
+   "match": "76 BLADE SS",
+   "titles": [
+    "76 Blade Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-76-blade-ss"
+   ]
+  },
+  {
+   "match": "75 BURNOUT SS",
+   "titles": [
+    "75 Burnout Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-75-burnout-ss"
+   ]
+  },
+  {
+   "match": "R01 CARVER SS",
+   "titles": [
+    "R01 Carver Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-r01-carver-ss"
+   ]
+  },
+  {
+   "match": "F28 CHOPPER SS",
+   "titles": [
+    "F28 Chopper Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f28-chopper-ss"
+   ]
+  },
+  {
+   "match": "1 CLASSIC SS",
+   "titles": [
+    "1 Classic Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-1-classic-ss"
+   ]
+  },
+  {
+   "match": "G42 FLEX SS",
+   "titles": [
+    "G42 Flex Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g42-flex-ss"
+   ]
+  },
+  {
+   "match": "F30 FLUX SS",
+   "titles": [
+    "F30 Flux Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f30-flux-ss"
+   ]
+  },
+  {
+   "match": "46 FUSE SS",
+   "titles": [
+    "46 Fuse Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-46-fuse-ss"
+   ]
+  },
+  {
+   "match": "G37 GRIP SS",
+   "titles": [
+    "G37 Grip Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g37-grip-ss"
+   ]
+  },
+  {
+   "match": "H34 GUARDIAN SS",
+   "titles": [
+    "H34 Guardian Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h34-guardian-ss"
+   ]
+  },
+  {
+   "match": "F107 IDOL SS",
+   "titles": [
+    "F107 Idol Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f107-idol-ss"
+   ]
+  },
+  {
+   "match": "G38 IKON SS",
+   "titles": [
+    "G38 Ikon Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g38-ikon-ss"
+   ]
+  },
+  {
+   "match": "11 INDEPENDENCE SS",
+   "titles": [
+    "11 Independence Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-11-independence-ss"
+   ]
+  },
+  {
+   "match": "37 JADE SS",
+   "titles": [
+    "37 Jade Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-37-jade-ss"
+   ]
+  },
+  {
+   "match": "F31 KASH SS",
+   "titles": [
+    "F31 Kash Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f31-kash-ss"
+   ]
+  },
+  {
+   "match": "G43 LEGEND SS",
+   "titles": [
+    "G43 Legend Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g43-legend-ss"
+   ]
+  },
+  {
+   "match": "9 LIBERTY SS",
+   "titles": [
+    "9 Liberty Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-9-liberty-ss"
+   ]
+  },
+  {
+   "match": "H37 LOCUS SS",
+   "titles": [
+    "H37 Locus Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h37-locus-ss"
+   ]
+  },
+  {
+   "match": "G77 LUCKY SS",
+   "titles": [
+    "G77 Lucky Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g77-lucky-ss"
+   ]
+  },
+  {
+   "match": "H38 NOVA SS",
+   "titles": [
+    "H38 Nova Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h38-nova-ss"
+   ]
+  },
+  {
+   "match": "74 OCTANE SS",
+   "titles": [
+    "74 Octane Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-74-octane-ss"
+   ]
+  },
+  {
+   "match": "G59 ORIGIN SS",
+   "titles": [
+    "G59 Origin Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g59-origin-ss"
+   ]
+  },
+  {
+   "match": "F29 POWER SS",
+   "titles": [
+    "F29 Power Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f29-power-ss"
+   ]
+  },
+  {
+   "match": "61 REBEL SS",
+   "titles": [
+    "61 Rebel Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-61-rebel-ss"
+   ]
+  },
+  {
+   "match": "H35 REDD SS",
+   "titles": [
+    "H35 Redd Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h35-redd-ss"
+   ]
+  },
+  {
+   "match": "G41 ROOK SS",
+   "titles": [
+    "G41 Rook Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g41-rook-ss"
+   ]
+  },
+  {
+   "match": "98 SHIELD SS",
+   "titles": [
+    "98 Shield Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-98-shield-ss"
+   ]
+  },
+  {
+   "match": "H31 SPIRIT SS",
+   "titles": [
+    "H31 Spirit Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h31-spirit-ss"
+   ]
+  },
+  {
+   "match": "N01 TERRA SS",
+   "titles": [
+    "N01 Terra Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n01-terra-ss"
+   ]
+  },
+  {
+   "match": "B02 TRAX SS",
+   "titles": [
+    "B02 Trax Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-b02-trax-ss"
+   ]
+  },
+  {
+   "match": "211 EVADE FP",
+   "titles": [
+    "211 Evade Fp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-211-evade-fp"
+   ]
+  },
+  {
+   "match": "254 FALLOUT FP",
+   "titles": [
+    "254 Fallout Fp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-254-fallout-fp"
+   ]
+  },
+  {
+   "match": "276 NIGHTMARE FP",
+   "titles": [
+    "276 Nightmare Fp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-276-nightmare-fp"
+   ]
+  },
+  {
+   "match": "246 THOR FP",
+   "titles": [
+    "246 Thor Fp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-246-thor-fp"
+   ]
+  },
+  {
+   "match": "261 VECTOR FP",
+   "titles": [
+    "261 Vector Fp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-261-vector-fp"
+   ]
+  },
+  {
+   "match": "F201 VENOM FP",
+   "titles": [
+    "F201 Venom Fp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f201-venom-fp"
+   ]
+  },
+  {
+   "match": "CK210 ARMADA CCFP",
+   "titles": [
+    "Ck210 Armada Ccfp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck210-armada-ccfp"
+   ]
+  },
+  {
+   "match": "CK201 JESTER CCFP",
+   "titles": [
+    "Ck201 Jester Ccfp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck201-jester-ccfp"
+   ]
+  },
+  {
+   "match": "CK202 MARVEL CCFP",
+   "titles": [
+    "Ck202 Marvel Ccfp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck202-marvel-ccfp"
+   ]
+  },
+  {
+   "match": "CK204 NEBULA CCFP",
+   "titles": [
+    "Ck204 Nebula Ccfp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck204-nebula-ccfp"
+   ]
+  },
+  {
+   "match": "CK203 STELLAR CCFP",
+   "titles": [
+    "Ck203 Stellar Ccfp"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck203-stellar-ccfp"
+   ]
+  },
+  {
+   "match": "7N10 COMMANDER CCBR",
+   "titles": [
+    "7n10 Commander Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n10-commander-ccbr"
+   ]
+  },
+  {
+   "match": "7H91 DOOM CCBR",
+   "titles": [
+    "7h91 Doom Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h91-doom-ccbr"
+   ]
+  },
+  {
+   "match": "7H03 ORION CCBR",
+   "titles": [
+    "7h03 Orion Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h03-orion-ccbr"
+   ]
+  },
+  {
+   "match": "7J03 PLAGUE CCBR",
+   "titles": [
+    "7j03 Plague Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7j03-plague-ccbr"
+   ]
+  },
+  {
+   "match": "7F91 QUAKE CCBR",
+   "titles": [
+    "7f91 Quake Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7f91-quake-ccbr"
+   ]
+  },
+  {
+   "match": "7H12 SIDEWINDER CCBR",
+   "titles": [
+    "7h12 Sidewinder Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h12-sidewinder-ccbr"
+   ]
+  },
+  {
+   "match": "7H90 TEMPEST CCBR",
+   "titles": [
+    "7h90 Tempest Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h90-tempest-ccbr"
+   ]
+  },
+  {
+   "match": "7H92 THRUST CCBR",
+   "titles": [
+    "7h92 Thrust Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h92-thrust-ccbr"
+   ]
+  },
+  {
+   "match": "6H01 CONTRA SD",
+   "titles": [
+    "6h01 Contra Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6h01-contra-sd"
+   ]
+  },
+  {
+   "match": "6H02 SIEGE SD",
+   "titles": [
+    "6h02 Siege Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6h02-siege-sd"
+   ]
+  },
+  {
+   "match": "6F07 TREK SD",
+   "titles": [
+    "6f07 Trek Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6f07-trek-sd"
+   ]
+  },
+  {
+   "match": "6F93 OMEN SD",
+   "titles": [
+    "6f93 Omen Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6f93-omen-sd"
+   ]
+  },
+  {
+   "match": "6G14 SIDEWAYS SD",
+   "titles": [
+    "6g14 Sideways Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6g14-sideways-sd"
+   ]
+  },
+  {
+   "match": "6D04 MAN O WAR SD",
+   "titles": [
+    "6d04 Man O War Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6d04-man-o-war-sd"
+   ]
+  },
+  {
+   "match": "6G17 EVO SD",
+   "titles": [
+    "6g17 Evo Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6g17-evo-sd"
+   ]
+  },
+  {
+   "match": "601 CLASSIC SD",
+   "titles": [
+    "601 Classic Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-601-classic-sd"
+   ]
+  },
+  {
+   "match": "609 LIBERTY SD",
+   "titles": [
+    "609 Liberty Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-609-liberty-sd"
+   ]
+  },
+  {
+   "match": "611 INDEPENDENCE SD",
+   "titles": [
+    "611 Independence Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-611-independence-sd"
+   ]
+  },
+  {
+   "match": "670 SHIFT SD",
+   "titles": [
+    "670 Shift Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-670-shift-sd"
+   ]
+  },
+  {
+   "match": "F11 AXIS DBO",
+   "titles": [
+    "F11 Axis Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f11-axis-dbo"
+   ]
+  },
+  {
+   "match": "23 BOLT DBO",
+   "titles": [
+    "23 Bolt Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-23-bolt-dbo"
+   ]
+  },
+  {
+   "match": "F13 CANE DBO",
+   "titles": [
+    "F13 Cane Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f13-cane-dbo"
+   ]
+  },
+  {
+   "match": "1 CLASSIC DBO",
+   "titles": [
+    "1 Classic Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-1-classic-dbo"
+   ]
+  },
+  {
+   "match": "F10 DURA DBO",
+   "titles": [
+    "F10 Dura Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f10-dura-dbo"
+   ]
+  },
+  {
+   "match": "G17 EVO DBO",
+   "titles": [
+    "G17 Evo Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g17-evo-dbo"
+   ]
+  },
+  {
+   "match": "95 HD DBO",
+   "titles": [
+    "95 Hd Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-95-hd-dbo"
+   ]
+  },
+  {
+   "match": "5 HOLES DBO",
+   "titles": [
+    "5 Holes Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-5-holes-dbo"
+   ]
+  },
+  {
+   "match": "11 INDEPENDENCE DBO",
+   "titles": [
+    "11 Independence Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-11-independence-dbo"
+   ]
+  },
+  {
+   "match": "9 LIBERTY DBO",
+   "titles": [
+    "9 Liberty Dbo"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-9-liberty-dbo"
+   ]
+  },
+  {
+   "match": "7H03 ORION CCSD",
+   "titles": [
+    "7h03 Orion Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h03-orion-ccsd"
+   ]
+  },
+  {
+   "match": "7H12 SIDEWINDER CCSD",
+   "titles": [
+    "7h12 Sidewinder Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h12-sidewinder-ccsd"
+   ]
+  },
+  {
+   "match": "7H13 CARNAGE CCSD",
+   "titles": [
+    "7h13 Carnage Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h13-carnage-ccsd"
+   ]
+  },
+  {
+   "match": "7H90 TEMPEST CCSD",
+   "titles": [
+    "7h90 Tempest Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h90-tempest-ccsd"
+   ]
+  },
+  {
+   "match": "7H91 DOOM CCSD",
+   "titles": [
+    "7h91 Doom Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h91-doom-ccsd"
+   ]
+  },
+  {
+   "match": "7H92 THRUST CCSD",
+   "titles": [
+    "7h92 Thrust Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7h92-thrust-ccsd"
+   ]
+  },
+  {
+   "match": "7J03 PLAGUE CCSD",
+   "titles": [
+    "7j03 Plague Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7j03-plague-ccsd"
+   ]
+  },
+  {
+   "match": "7N10 COMMANDER CCSD",
+   "titles": [
+    "7n10 Commander Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n10-commander-ccsd"
+   ]
+  },
+  {
+   "match": "CK16 ACID CC",
+   "titles": [
+    "Ck16 Acid Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck16-acid-cc"
+   ]
+  },
+  {
+   "match": "CK01 ASSAULT CC",
+   "titles": [
+    "Ck01 Assault Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck01-assault-cc"
+   ]
+  },
+  {
+   "match": "CK17 BATTERY CC",
+   "titles": [
+    "Ck17 Battery Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck17-battery-cc"
+   ]
+  },
+  {
+   "match": "CK19 BLUR CC",
+   "titles": [
+    "Ck19 Blur Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck19-blur-cc"
+   ]
+  },
+  {
+   "match": "CKH13 CARNAGE CC",
+   "titles": [
+    "Ckh13 Carnage Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh13-carnage-cc"
+   ]
+  },
+  {
+   "match": "CKH11 CORTEX CC",
+   "titles": [
+    "Ckh11 Cortex Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh11-cortex-cc"
+   ]
+  },
+  {
+   "match": "CKH32 DRACO CC",
+   "titles": [
+    "Ckh32 Draco Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh32-draco-cc"
+   ]
+  },
+  {
+   "match": "CKH02 GENESIS CC",
+   "titles": [
+    "Ckh02 Genesis Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh02-genesis-cc"
+   ]
+  },
+  {
+   "match": "CKH14 HORNET CC",
+   "titles": [
+    "Ckh14 Hornet Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh14-hornet-cc"
+   ]
+  },
+  {
+   "match": "CKH31 KNIGHT CC",
+   "titles": [
+    "Ckh31 Knight Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh31-knight-cc"
+   ]
+  },
+  {
+   "match": "CKH01 MORPH CC",
+   "titles": [
+    "Ckh01 Morph Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh01-morph-cc"
+   ]
+  },
+  {
+   "match": "CKH10 NEMESIS CC",
+   "titles": [
+    "Ckh10 Nemesis Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh10-nemesis-cc"
+   ]
+  },
+  {
+   "match": "CKH03 ORION CC",
+   "titles": [
+    "Ckh03 Orion Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh03-orion-cc"
+   ]
+  },
+  {
+   "match": "CK18 PANIC CC",
+   "titles": [
+    "Ck18 Panic Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck18-panic-cc"
+   ]
+  },
+  {
+   "match": "CK06 PEAK CC",
+   "titles": [
+    "Ck06 Peak Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck06-peak-cc"
+   ]
+  },
+  {
+   "match": "CK10 QUANTUM CC",
+   "titles": [
+    "Ck10 Quantum Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck10-quantum-cc"
+   ]
+  },
+  {
+   "match": "CKH12 SIDEWINDER CC",
+   "titles": [
+    "Ckh12 Sidewinder Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh12-sidewinder-cc"
+   ]
+  },
+  {
+   "match": "CK04 SPECTRUM CC",
+   "titles": [
+    "Ck04 Spectrum Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck04-spectrum-cc"
+   ]
+  },
+  {
+   "match": "CK08 SPRINT CC",
+   "titles": [
+    "Ck08 Sprint Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck08-sprint-cc"
+   ]
+  },
+  {
+   "match": "CKH33 TORQ CC",
+   "titles": [
+    "Ckh33 Torq Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh33-torq-cc"
+   ]
+  },
+  {
+   "match": "CKH30 VANTAGE CC",
+   "titles": [
+    "Ckh30 Vantage Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh30-vantage-cc"
+   ]
+  },
+  {
+   "match": "23 BOLT DRW",
+   "titles": [
+    "23 Bolt Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-23-bolt-drw"
+   ]
+  },
+  {
+   "match": "1 CLASSIC DRW",
+   "titles": [
+    "1 Classic Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-1-classic-drw"
+   ]
+  },
+  {
+   "match": "N10 COMMANDER DRW",
+   "titles": [
+    "N10 Commander Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n10-commander-drw"
+   ]
+  },
+  {
+   "match": "H01 CONTRA DRW",
+   "titles": [
+    "H01 Contra Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h01-contra-drw"
+   ]
+  },
+  {
+   "match": "H91 DOOM DRW",
+   "titles": [
+    "H91 Doom Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h91-doom-drw"
+   ]
+  },
+  {
+   "match": "G17 EVO DRW",
+   "titles": [
+    "G17 Evo Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g17-evo-drw"
+   ]
+  },
+  {
+   "match": "F08 FLOW DRW",
+   "titles": [
+    "F08 Flow Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f08-flow-drw"
+   ]
+  },
+  {
+   "match": "5 HOLES DRW",
+   "titles": [
+    "5 Holes Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-5-holes-drw"
+   ]
+  },
+  {
+   "match": "11 INDEPENDENCE DRW",
+   "titles": [
+    "11 Independence Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-11-independence-drw"
+   ]
+  },
+  {
+   "match": "9 LIBERTY DRW",
+   "titles": [
+    "9 Liberty Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-9-liberty-drw"
+   ]
+  },
+  {
+   "match": "D04 MAN O WAR DRW",
+   "titles": [
+    "D04 Man O War Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-d04-man-o-war-drw"
+   ]
+  },
+  {
+   "match": "F93 OMEN DRW",
+   "titles": [
+    "F93 Omen Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f93-omen-drw"
+   ]
+  },
+  {
+   "match": "H03 ORION DRW",
+   "titles": [
+    "H03 Orion Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h03-orion-drw"
+   ]
+  },
+  {
+   "match": "J03 PLAGUE DRW",
+   "titles": [
+    "J03 Plague Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-j03-plague-drw"
+   ]
+  },
+  {
+   "match": "J01 PULSE DRW",
+   "titles": [
+    "J01 Pulse Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-j01-pulse-drw"
+   ]
+  },
+  {
+   "match": "F91 QUAKE DRW",
+   "titles": [
+    "F91 Quake Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f91-quake-drw"
+   ]
+  },
+  {
+   "match": "G11 REWIND DRW",
+   "titles": [
+    "G11 Rewind Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g11-rewind-drw"
+   ]
+  },
+  {
+   "match": "70 SHIFT DRW",
+   "titles": [
+    "70 Shift Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-70-shift-drw"
+   ]
+  },
+  {
+   "match": "G14 SIDEWAYS DRW",
+   "titles": [
+    "G14 Sideways Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-g14-sideways-drw"
+   ]
+  },
+  {
+   "match": "H12 SIDEWINDER DRW",
+   "titles": [
+    "H12 Sidewinder Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h12-sidewinder-drw"
+   ]
+  },
+  {
+   "match": "H02 SIEGE DRW",
+   "titles": [
+    "H02 Siege Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h02-siege-drw"
+   ]
+  },
+  {
+   "match": "H90 TEMPEST DRW",
+   "titles": [
+    "H90 Tempest Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h90-tempest-drw"
+   ]
+  },
+  {
+   "match": "H92 THRUST DRW",
+   "titles": [
+    "H92 Thrust Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-h92-thrust-drw"
+   ]
+  },
+  {
+   "match": "J02 THUNDER DRW",
+   "titles": [
+    "J02 Thunder Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-j02-thunder-drw"
+   ]
+  },
+  {
+   "match": "F07 TREK DRW",
+   "titles": [
+    "F07 Trek Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-f07-trek-drw"
+   ]
+  },
+  {
+   "match": "D03 ZINK DRW",
+   "titles": [
+    "D03 Zink Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-d03-zink-drw"
+   ]
+  },
+  {
+   "match": "7F91 QUAKE CCSD",
+   "titles": [
+    "7f91 Quake Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7f91-quake-ccsd"
+   ]
+  },
+  {
+   "match": "N401 DEMON SSBR",
+   "titles": [
+    "N401 Demon Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n401-demon-ssbr"
+   ]
+  },
+  {
+   "match": "N11 LEGION DRW",
+   "titles": [
+    "N11 Legion Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n11-legion-drw"
+   ]
+  },
+  {
+   "match": "N03 HYDRA SS",
+   "titles": [
+    "N03 Hydra Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n03-hydra-ss"
+   ]
+  },
+  {
+   "match": "N02 SABRE SS",
+   "titles": [
+    "N02 Sabre Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n02-sabre-ss"
+   ]
+  },
+  {
+   "match": "7401 HELLFIRE CCBR",
+   "titles": [
+    "7401 Hellfire Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7401-hellfire-ccbr"
+   ]
+  },
+  {
+   "match": "CKH34 CERBERUS CC",
+   "titles": [
+    "Ckh34 Cerberus Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh34-cerberus-cc"
+   ]
+  },
+  {
+   "match": "CK11 RIDGE CC",
+   "titles": [
+    "Ck11 Ridge Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ck11-ridge-cc"
+   ]
+  },
+  {
+   "match": "N04 REVOLT SS",
+   "titles": [
+    "N04 Revolt Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n04-revolt-ss"
+   ]
+  },
+  {
+   "match": "N12 BRAWN DRW",
+   "titles": [
+    "N12 Brawn Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n12-brawn-drw"
+   ]
+  },
+  {
+   "match": "N13 DERANGE DRW",
+   "titles": [
+    "N13 Derange Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n13-derange-drw"
+   ]
+  },
+  {
+   "match": "7N13 DERANGE CCSD",
+   "titles": [
+    "7n13 Derange Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n13-derange-ccsd"
+   ]
+  },
+  {
+   "match": "CKH36 BLASTER CC",
+   "titles": [
+    "Ckh36 Blaster Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh36-blaster-cc"
+   ]
+  },
+  {
+   "match": "CKH35 PHOENIX CC",
+   "titles": [
+    "Ckh35 Phoenix Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh35-phoenix-cc"
+   ]
+  },
+  {
+   "match": "CKH37 NEXUS CC",
+   "titles": [
+    "Ckh37 Nexus Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh37-nexus-cc"
+   ]
+  },
+  {
+   "match": "6N12 BRAWN SD",
+   "titles": [
+    "6n12 Brawn Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n12-brawn-sd"
+   ]
+  },
+  {
+   "match": "N05 DENY SS",
+   "titles": [
+    "N05 Deny Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n05-deny-ss"
+   ]
+  },
+  {
+   "match": "N06 BRAVE SS",
+   "titles": [
+    "N06 Brave Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n06-brave-ss"
+   ]
+  },
+  {
+   "match": "6N16 SHOVE SD",
+   "titles": [
+    "6n16 Shove Sd"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n16-shove-sd"
+   ]
+  },
+  {
+   "match": "N17 VADER DRW",
+   "titles": [
+    "N17 Vader Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n17-vader-drw"
+   ]
+  },
+  {
+   "match": "6N17 VADER SD",
+   "titles": [
+    "6n17 Vader Sd"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n17-vader-sd"
+   ]
+  },
+  {
+   "match": "CKH38 BATTLE CC",
+   "titles": [
+    "Ckh38 Battle Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh38-battle-cc"
+   ]
+  },
+  {
+   "match": "6N17 VADER SSBR",
+   "titles": [
+    "6n17 Vader Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n17-vader-ssbr"
+   ]
+  },
+  {
+   "match": "6N16 SHOVE SSBR",
+   "titles": [
+    "6n16 Shove Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n16-shove-ssbr"
+   ]
+  },
+  {
+   "match": "6N12 BRAWN SSBR",
+   "titles": [
+    "6n12 Brawn Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n12-brawn-ssbr"
+   ]
+  },
+  {
+   "match": "N16 SHOVE DRW",
+   "titles": [
+    "N16 Shove Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n16-shove-drw"
+   ]
+  },
+  {
+   "match": "DB01 RADIAL DBO",
+   "titles": [
+    "Db01 Radial Dbo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-db01-radial-dbo"
+   ]
+  },
+  {
+   "match": "DB03 PAYLOAD DBO",
+   "titles": [
+    "Db03 Payload Dbo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-db03-payload-dbo"
+   ]
+  },
+  {
+   "match": "DB04 CLUTCH DBO",
+   "titles": [
+    "Db04 Clutch Dbo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-db04-clutch-dbo"
+   ]
+  },
+  {
+   "match": "DB05 SLAB DBO",
+   "titles": [
+    "Db05 Slab Dbo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-db05-slab-dbo"
+   ]
+  },
+  {
+   "match": "DB06 WAVE DBO",
+   "titles": [
+    "Db06 Wave Dbo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-db06-wave-dbo"
+   ]
+  },
+  {
+   "match": "CKH39 CROOK CC",
+   "titles": [
+    "Ckh39 Crook Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh39-crook-cc"
+   ]
+  },
+  {
+   "match": "CKH40 SWANG CC",
+   "titles": [
+    "Ckh40 Swang Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh40-swang-cc"
+   ]
+  },
+  {
+   "match": "N18 CUTLASS DRW",
+   "titles": [
+    "N18 Cutlass Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n18-cutlass-drw"
+   ]
+  },
+  {
+   "match": "N07 CHIEF SS",
+   "titles": [
+    "N07 Chief Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n07-chief-ss"
+   ]
+  },
+  {
+   "match": "DB02 MONUMENT DBO",
+   "titles": [
+    "Db02 Monument Dbo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-db02-monument-dbo"
+   ]
+  },
+  {
+   "match": "DC01 VIBRANT DC",
+   "titles": [
+    "Dc01 Vibrant Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc01-vibrant-dc"
+   ]
+  },
+  {
+   "match": "DC02 CLOAK DC",
+   "titles": [
+    "Dc02 Cloak Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc02-cloak-dc"
+   ]
+  },
+  {
+   "match": "DC03 BANE DC",
+   "titles": [
+    "Dc03 Bane Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc03-bane-dc"
+   ]
+  },
+  {
+   "match": "DC04 DYNAMO DC",
+   "titles": [
+    "Dc04 Dynamo Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc04-dynamo-dc"
+   ]
+  },
+  {
+   "match": "DC05 VERITAS DC",
+   "titles": [
+    "Dc05 Veritas Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc05-veritas-dc"
+   ]
+  },
+  {
+   "match": "DC06 STEALTH DC",
+   "titles": [
+    "Dc06 Stealth Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc06-stealth-dc"
+   ]
+  },
+  {
+   "match": "CKH41 FROST CC",
+   "titles": [
+    "Ckh41 Frost Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh41-frost-cc"
+   ]
+  },
+  {
+   "match": "N08 LEXAR SS",
+   "titles": [
+    "N08 Lexar Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n08-lexar-ss"
+   ]
+  },
+  {
+   "match": "7N20 MASSIVE CCSD",
+   "titles": [
+    "7n20 Massive Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n20-massive-ccsd"
+   ]
+  },
+  {
+   "match": "7N19 TORSION CCSD",
+   "titles": [
+    "7n19 Torsion Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n19-torsion-ccsd"
+   ]
+  },
+  {
+   "match": "N19 TORSION DRW",
+   "titles": [
+    "N19 Torsion Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n19-torsion-drw"
+   ]
+  },
+  {
+   "match": "N20 MASSIVE DRW",
+   "titles": [
+    "N20 Massive Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n20-massive-drw"
+   ]
+  },
+  {
+   "match": "7N20 MASSIVE CCBR",
+   "titles": [
+    "7n20 Massive Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n20-massive-ccbr"
+   ]
+  },
+  {
+   "match": "7N19 TORSION CCBR",
+   "titles": [
+    "7n19 Torsion Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n19-torsion-ccbr"
+   ]
+  },
+  {
+   "match": "K11 SEVEN UTV",
+   "titles": [
+    "K11 Seven Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k11-seven-utv"
+   ]
+  },
+  {
+   "match": "K12 SHREDDER UTV",
+   "titles": [
+    "K12 Shredder Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k12-shredder-utv"
+   ]
+  },
+  {
+   "match": "CKH42 CYCLONE CC",
+   "titles": [
+    "Ckh42 Cyclone Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh42-cyclone-cc"
+   ]
+  },
+  {
+   "match": "CKH43 STUNNER CC",
+   "titles": [
+    "Ckh43 Stunner Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh43-stunner-cc"
+   ]
+  },
+  {
+   "match": "CKH44 BALLISTIC CC",
+   "titles": [
+    "Ckh44 Ballistic Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh44-ballistic-cc"
+   ]
+  },
+  {
+   "match": "CKH45 SUPREME CC",
+   "titles": [
+    "Ckh45 Supreme Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh45-supreme-cc"
+   ]
+  },
+  {
+   "match": "7N21 MARAUDER CCBR",
+   "titles": [
+    "7n21 Marauder Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n21-marauder-ccbr"
+   ]
+  },
+  {
+   "match": "N09 EXTORT SS",
+   "titles": [
+    "N09 Extort Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n09-extort-ss"
+   ]
+  },
+  {
+   "match": "N21 MARUADER DRW",
+   "titles": [
+    "N21 Maruader Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n21-maruader-drw"
+   ]
+  },
+  {
+   "match": "DC07 REGAL DC",
+   "titles": [
+    "Dc07 Regal Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc07-regal-dc"
+   ]
+  },
+  {
+   "match": "K13 INVADER UTV",
+   "titles": [
+    "K13 Invader Utv"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "22x7",
+     "24x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-k13-invader-utv"
+   ]
+  },
+  {
+   "match": "N50 RANSOM SS",
+   "titles": [
+    "N50 Ransom Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n50-ransom-ss"
+   ]
+  },
+  {
+   "match": "N51 SENTRY SS",
+   "titles": [
+    "N51 Sentry Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n51-sentry-ss"
+   ]
+  },
+  {
+   "match": "N22 THRILLER DRW",
+   "titles": [
+    "N22 Thriller Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n22-thriller-drw"
+   ]
+  },
+  {
+   "match": "N23 BUSINESS DRW",
+   "titles": [
+    "N23 Business Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n23-business-drw"
+   ]
+  },
+  {
+   "match": "7N22 THRILLER CCBR",
+   "titles": [
+    "7n22 Thriller Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n22-thriller-ccbr"
+   ]
+  },
+  {
+   "match": "7N23 BUSINESS CCBR",
+   "titles": [
+    "7n23 Business Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n23-business-ccbr"
+   ]
+  },
+  {
+   "match": "CKH46 FLARE CC",
+   "titles": [
+    "Ckh46 Flare Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh46-flare-cc"
+   ]
+  },
+  {
+   "match": "CKH47 FRENZY CC",
+   "titles": [
+    "Ckh47 Frenzy Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh47-frenzy-cc"
+   ]
+  },
+  {
+   "match": "N52 MONARCH SS",
+   "titles": [
+    "N52 Monarch Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n52-monarch-ss"
+   ]
+  },
+  {
+   "match": "N53 ENGAGE SS",
+   "titles": [
+    "N53 Engage Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n53-engage-ss"
+   ]
+  },
+  {
+   "match": "7N21 MARAUDER CCSD",
+   "titles": [
+    "7n21 Marauder Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n21-marauder-ccsd"
+   ]
+  },
+  {
+   "match": "7N22 THRILLER CCSD",
+   "titles": [
+    "7n22 Thriller Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n22-thriller-ccsd"
+   ]
+  },
+  {
+   "match": "7N23 BUSINESS CCSD",
+   "titles": [
+    "7n23 Business Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n23-business-ccsd"
+   ]
+  },
+  {
+   "match": "CKH48 NOTCH CC",
+   "titles": [
+    "Ckh48 Notch Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh48-notch-cc"
+   ]
+  },
+  {
+   "match": "CKH49 JOLT CC",
+   "titles": [
+    "Ckh49 Jolt Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh49-jolt-cc"
+   ]
+  },
+  {
+   "match": "CKH50 INTREPID CC",
+   "titles": [
+    "Ckh50 Intrepid Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh50-intrepid-cc"
+   ]
+  },
+  {
+   "match": "N54 IMPERIAL SS",
+   "titles": [
+    "N54 Imperial Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n54-imperial-ss"
+   ]
+  },
+  {
+   "match": "N55 TALON SS",
+   "titles": [
+    "N55 Talon Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n55-talon-ss"
+   ]
+  },
+  {
+   "match": "7N24 SHRAPNEL CCSD",
+   "titles": [
+    "7n24 Shrapnel Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n24-shrapnel-ccsd"
+   ]
+  },
+  {
+   "match": "6N25 PLEX SSBR",
+   "titles": [
+    "6n25 Plex Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n25-plex-ssbr"
+   ]
+  },
+  {
+   "match": "N24 SHRAPNEL DRW",
+   "titles": [
+    "N24 Shrapnel Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n24-shrapnel-drw"
+   ]
+  },
+  {
+   "match": "N25 PLEX DRW",
+   "titles": [
+    "N25 Plex Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n25-plex-drw"
+   ]
+  },
+  {
+   "match": "Z101 ETHER ZL 6",
+   "titles": [
+    "Z101 Ether Zl 6"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z101-ether-zl-6"
+   ]
+  },
+  {
+   "match": "Z102 OXIDE ZL 6",
+   "titles": [
+    "Z102 Oxide Zl 6"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z102-oxide-zl-6"
+   ]
+  },
+  {
+   "match": "Z103 THERMO ZL 6",
+   "titles": [
+    "Z103 Thermo Zl 6"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z103-thermo-zl-6"
+   ]
+  },
+  {
+   "match": "Z104 CHASE ZL 6",
+   "titles": [
+    "Z104 Chase Zl 6"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z104-chase-zl-6"
+   ]
+  },
+  {
+   "match": "Z101 ETHER ZL 8",
+   "titles": [
+    "Z101 Ether Zl 8"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z101-ether-zl-8"
+   ]
+  },
+  {
+   "match": "Z102 OXIDE ZL 8",
+   "titles": [
+    "Z102 Oxide Zl 8"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z102-oxide-zl-8"
+   ]
+  },
+  {
+   "match": "Z103 THERMO ZL 8",
+   "titles": [
+    "Z103 Thermo Zl 8"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z103-thermo-zl-8"
+   ]
+  },
+  {
+   "match": "Z104 CHASE ZL 8",
+   "titles": [
+    "Z104 Chase Zl 8"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-z104-chase-zl-8"
+   ]
+  },
+  {
+   "match": "CKH53 KANE CC",
+   "titles": [
+    "Ckh53 Kane Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh53-kane-cc"
+   ]
+  },
+  {
+   "match": "CKH54 PROVOKE CC",
+   "titles": [
+    "Ckh54 Provoke Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh54-provoke-cc"
+   ]
+  },
+  {
+   "match": "N26 NOTCH DRW",
+   "titles": [
+    "N26 Notch Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n26-notch-drw"
+   ]
+  },
+  {
+   "match": "N57 ICEBERG SS",
+   "titles": [
+    "N57 Iceberg Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n57-iceberg-ss"
+   ]
+  },
+  {
+   "match": "N27 RIPTIDE DRW",
+   "titles": [
+    "N27 Riptide Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n27-riptide-drw"
+   ]
+  },
+  {
+   "match": "CKH51 JACKAL CC",
+   "titles": [
+    "Ckh51 Jackal Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh51-jackal-cc"
+   ]
+  },
+  {
+   "match": "7N27 RIPTIDE CCSD",
+   "titles": [
+    "7n27 Riptide Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n27-riptide-ccsd"
+   ]
+  },
+  {
+   "match": "AMERICAN FORCE STENCIL TEE",
+   "titles": [
+    "American Force Stencil Tee"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-american-force-stencil-tee"
+   ]
+  },
+  {
+   "match": "AMERICAN FORCE LOGO SNPBK HAT 1",
+   "titles": [
+    "American Force Logo Snpbk Hat 1"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-american-force-logo-snpbk-hat-1"
+   ]
+  },
+  {
+   "match": "AF UNIVERSAL SS TEE",
+   "titles": [
+    "Af Universal Ss Tee"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-af-universal-ss-tee"
+   ]
+  },
+  {
+   "match": "AMERICAN FORCE PLATE FRAME",
+   "titles": [
+    "American Force Plate Frame"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-american-force-plate-frame"
+   ]
+  },
+  {
+   "match": "AF X LEEN TRUCK PIN",
+   "titles": [
+    "Af X Leen Truck Pin"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-af-x-leen-truck-pin"
+   ]
+  },
+  {
+   "match": "AMERICAN FORCE LICENSE PLATE 1",
+   "titles": [
+    "American Force License Plate 1"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-american-force-license-plate-1"
+   ]
+  },
+  {
+   "match": "CKH55 BRITZ CC",
+   "titles": [
+    "Ckh55 Britz Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh55-britz-cc"
+   ]
+  },
+  {
+   "match": "CKH56 SMOOTH CC",
+   "titles": [
+    "Ckh56 Smooth Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh56-smooth-cc"
+   ]
+  },
+  {
+   "match": "CKH57 JESS CC",
+   "titles": [
+    "Ckh57 Jess Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh57-jess-cc"
+   ]
+  },
+  {
+   "match": "CKH58 NOBLE CC",
+   "titles": [
+    "Ckh58 Noble Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh58-noble-cc"
+   ]
+  },
+  {
+   "match": "DC08 KRYPTIK DC",
+   "titles": [
+    "Dc08 Kryptik Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc08-kryptik-dc"
+   ]
+  },
+  {
+   "match": "DC09 DEVIZE DC",
+   "titles": [
+    "Dc09 Devize Dc"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-dc09-devize-dc"
+   ]
+  },
+  {
+   "match": "7N30 COVERT CCSD",
+   "titles": [
+    "7n30 Covert Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n30-covert-ccsd"
+   ]
+  },
+  {
+   "match": "N28 REACTOR DRW",
+   "titles": [
+    "N28 Reactor Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n28-reactor-drw"
+   ]
+  },
+  {
+   "match": "N29 OVERHAUL DRW",
+   "titles": [
+    "N29 Overhaul Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n29-overhaul-drw"
+   ]
+  },
+  {
+   "match": "N30 COVERT DRW",
+   "titles": [
+    "N30 Covert Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n30-covert-drw"
+   ]
+  },
+  {
+   "match": "N58 DENALI SS",
+   "titles": [
+    "N58 Denali Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n58-denali-ss"
+   ]
+  },
+  {
+   "match": "N59 PHASE SS",
+   "titles": [
+    "N59 Phase Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n59-phase-ss"
+   ]
+  },
+  {
+   "match": "N60 CLOUT SS",
+   "titles": [
+    "N60 Clout Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n60-clout-ss"
+   ]
+  },
+  {
+   "match": "N61 ALLIANCE SS",
+   "titles": [
+    "N61 Alliance Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n61-alliance-ss"
+   ]
+  },
+  {
+   "match": "6N28 REACTOR SD",
+   "titles": [
+    "6n28 Reactor Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n28-reactor-sd"
+   ]
+  },
+  {
+   "match": "6N29 OVERHAUL SD",
+   "titles": [
+    "6n29 Overhaul Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n29-overhaul-sd"
+   ]
+  },
+  {
+   "match": "6N28 REACTOR SSBR",
+   "titles": [
+    "6n28 Reactor Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n28-reactor-ssbr"
+   ]
+  },
+  {
+   "match": "6N29 OVERHAUL SSBR",
+   "titles": [
+    "6n29 Overhaul Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n29-overhaul-ssbr"
+   ]
+  },
+  {
+   "match": "AT001 THERMO ST 5",
+   "titles": [
+    "At001 Thermo St 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at001-thermo-st-5"
+   ]
+  },
+  {
+   "match": "AT002 THERMO ST 6",
+   "titles": [
+    "At002 Thermo St 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at002-thermo-st-6"
+   ]
+  },
+  {
+   "match": "AT003 KANE ST 5",
+   "titles": [
+    "At003 Kane St 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at003-kane-st-5"
+   ]
+  },
+  {
+   "match": "AT004 KANE ST 6",
+   "titles": [
+    "At004 Kane St 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at004-kane-st-6"
+   ]
+  },
+  {
+   "match": "AT005 JOLT ST 5",
+   "titles": [
+    "At005 Jolt St 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at005-jolt-st-5"
+   ]
+  },
+  {
+   "match": "AT006 JOLT ST 6",
+   "titles": [
+    "At006 Jolt St 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at006-jolt-st-6"
+   ]
+  },
+  {
+   "match": "AT007 NOTCH ST 5",
+   "titles": [
+    "At007 Notch St 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at007-notch-st-5"
+   ]
+  },
+  {
+   "match": "AT008 NOTCH ST 6",
+   "titles": [
+    "At008 Notch St 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at008-notch-st-6"
+   ]
+  },
+  {
+   "match": "AT009 BUSINESS ST 5",
+   "titles": [
+    "At009 Business St 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at009-business-st-5"
+   ]
+  },
+  {
+   "match": "AT010 BUSINESS ST 6",
+   "titles": [
+    "At010 Business St 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at010-business-st-6"
+   ]
+  },
+  {
+   "match": "AT011 PROVOKE ST 5",
+   "titles": [
+    "At011 Provoke St 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at011-provoke-st-5"
+   ]
+  },
+  {
+   "match": "AT012 PROVOKE ST 6",
+   "titles": [
+    "At012 Provoke St 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x7",
+     "20x8.5",
+     "20x9",
+     "20x10",
+     "20x10.5",
+     "20x11",
+     "20x12",
+     "20x14",
+     "20x15",
+     "22x8.5",
+     "22x9",
+     "22x10",
+     "22x10.5",
+     "22x12",
+     "22x14",
+     "24x9",
+     "24x10",
+     "24x12",
+     "24x14",
+     "24x15",
+     "24x16",
+     "26x9",
+     "26x10",
+     "26x12",
+     "26x14",
+     "28x9",
+     "28x10",
+     "28x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-at012-provoke-st-6"
+   ]
+  },
+  {
+   "match": "CKH59 THREAT CC",
+   "titles": [
+    "Ckh59 Threat Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh59-threat-cc"
+   ]
+  },
+  {
+   "match": "CKH60 MOTION CC",
+   "titles": [
+    "Ckh60 Motion Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh60-motion-cc"
+   ]
+  },
+  {
+   "match": "N31 CYNICAL DRW",
+   "titles": [
+    "N31 Cynical Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n31-cynical-drw"
+   ]
+  },
+  {
+   "match": "N32 TROOPER DRW",
+   "titles": [
+    "N32 Trooper Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n32-trooper-drw"
+   ]
+  },
+  {
+   "match": "N62 SALUTE SS 5",
+   "titles": [
+    "N62 Salute Ss 5"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n62-salute-ss-5"
+   ]
+  },
+  {
+   "match": "N62 SALUTE SS 6",
+   "titles": [
+    "N62 Salute Ss 6"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n62-salute-ss-6"
+   ]
+  },
+  {
+   "match": "N62 SALUTE SS 8",
+   "titles": [
+    "N62 Salute Ss 8"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n62-salute-ss-8"
+   ]
+  },
+  {
+   "match": "N63 HURRICANE SS",
+   "titles": [
+    "N63 Hurricane Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n63-hurricane-ss"
+   ]
+  },
+  {
+   "match": "6N31 CYNICAL SD",
+   "titles": [
+    "6n31 Cynical Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n31-cynical-sd"
+   ]
+  },
+  {
+   "match": "6N32 TROOPER SD",
+   "titles": [
+    "6n32 Trooper Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n32-trooper-sd"
+   ]
+  },
+  {
+   "match": "6N31 CYNICAL SSBR",
+   "titles": [
+    "6n31 Cynical Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n31-cynical-ssbr"
+   ]
+  },
+  {
+   "match": "6N32 TROOPER SSBR",
+   "titles": [
+    "6n32 Trooper Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n32-trooper-ssbr"
+   ]
+  },
+  {
+   "match": "7N26 NOTCH CCSD",
+   "titles": [
+    "7n26 Notch Ccsd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n26-notch-ccsd"
+   ]
+  },
+  {
+   "match": "CKH61 SLINGSHOT CC",
+   "titles": [
+    "Ckh61 Slingshot Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh61-slingshot-cc"
+   ]
+  },
+  {
+   "match": "CKH62 PRIME CC",
+   "titles": [
+    "Ckh62 Prime Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh62-prime-cc"
+   ]
+  },
+  {
+   "match": "CKH69 PERFECTION CC",
+   "titles": [
+    "Ckh69 Perfection Cc"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-ckh69-perfection-cc"
+   ]
+  },
+  {
+   "match": "N33 BARRAGE DRW",
+   "titles": [
+    "N33 Barrage Drw"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22.5x8.25",
+     "24x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n33-barrage-drw"
+   ]
+  },
+  {
+   "match": "N64 DREAD SS",
+   "titles": [
+    "N64 Dread Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n64-dread-ss"
+   ]
+  },
+  {
+   "match": "N65 SCOUT SS",
+   "titles": [
+    "N65 Scout Ss"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-n65-scout-ss"
+   ]
+  },
+  {
+   "match": "6N33 BARRAGE SD",
+   "titles": [
+    "6n33 Barrage Sd"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n33-barrage-sd"
+   ]
+  },
+  {
+   "match": "6N33 BARRAGE SSBR",
+   "titles": [
+    "6n33 Barrage Ssbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-6n33-barrage-ssbr"
+   ]
+  },
+  {
+   "match": "7N30 COVERT CCBR",
+   "titles": [
+    "7n30 Covert Ccbr"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.americanforce.com/american-force-aw-7n30-covert-ccbr"
+   ]
+  }
+ ]
+}

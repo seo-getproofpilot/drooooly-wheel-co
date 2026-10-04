@@ -46,15 +46,15 @@ const SERIES = {
    used to recolour a render. */
 const FINISHES = [
   { code: "polished",     name: "Polished",     hex: "#dee3e8",
-    note: "Bare forged aluminium, polished to a mirror." },
+    note: "Bare forged aluminum, polished to a mirror." },
   { code: "black-milled", name: "Black Milled", hex: "#24262a",
     /* An earlier version of this line said the spoke FACES are machined back
        to bare metal. Zooming JTX's render shows the opposite: the faces are
-       solid black and the bare aluminium is on the spoke sides, the undercuts
+       solid black and the bare aluminum is on the spoke sides, the undercuts
        and the surfaces behind them. Same story on every model checked, so it
        is JTX's house style rather than a bad file — but the description has to
        match the picture, not the other way round. */
-    note: "Gloss black faces with the machining on the spoke sides and undercuts, so the bare aluminium reads from the edges and from behind the spokes rather than across them." }
+    note: "Gloss black faces with the machining on the spoke sides and undercuts, so the bare aluminum reads from the edges and from behind the spokes rather than across them." }
 ];
 /* Everything JTX will build. The four without renders are named on the page as
    options to order, never faked with a tinted photo. */
