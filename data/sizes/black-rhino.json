@@ -1,0 +1,431 @@
+{
+ "brand": "black-rhino",
+ "captured": "2026-10-04",
+ "source": "https://www.blackrhinowheels.com — the Size/Bolt Pattern/Offset table on each product page",
+ "note": "Driven by our own model names, since their product slug is our model name; `match` is therefore our name and the wiring needs no fuzzy key.",
+ "models": [
+  {
+   "match": "Abrams",
+   "titles": [
+    "Abrams"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9.5",
+     "18x9.5",
+     "20x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x139.7",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-abrams"
+   ]
+  },
+  {
+   "match": "Aliso Dually",
+   "titles": [
+    "Aliso Dually"
+   ],
+   "byConfig": {
+    "single": [
+     "16x6"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x205"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-aliso-dually"
+   ]
+  },
+  {
+   "match": "Alpha",
+   "titles": [
+    "Alpha"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-alpha"
+   ]
+  },
+  {
+   "match": "Armory",
+   "titles": [
+    "Armory"
+   ],
+   "byConfig": {
+    "single": [
+     "16x8",
+     "17x8",
+     "17x9.5",
+     "18x9.5",
+     "20x9.5",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x130",
+    "5x160",
+    "6x130",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-armory"
+   ]
+  },
+  {
+   "match": "Arsenal",
+   "titles": [
+    "Arsenal"
+   ],
+   "byConfig": {
+    "single": [
+     "16x8",
+     "17x8",
+     "17x9.5",
+     "18x8",
+     "18x9.5",
+     "20x8.5",
+     "20x9.5",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x160",
+    "6x130",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-arsenal"
+   ]
+  },
+  {
+   "match": "Chamber",
+   "titles": [
+    "Chamber"
+   ],
+   "byConfig": {
+    "single": [
+     "16x8",
+     "17x8.5",
+     "18x9.5",
+     "20x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "5x150",
+    "6x114.3",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-chamber"
+   ]
+  },
+  {
+   "match": "Diamondback",
+   "titles": [
+    "Diamondback"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "6x114.3",
+    "6x120",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-diamondback"
+   ]
+  },
+  {
+   "match": "Echo",
+   "titles": [
+    "Echo"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "18x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-echo"
+   ]
+  },
+  {
+   "match": "Fuji",
+   "titles": [
+    "Fuji"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8",
+     "17x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-fuji"
+   ]
+  },
+  {
+   "match": "Kelso",
+   "titles": [
+    "Kelso"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x127",
+    "5x139.7",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-kelso"
+   ]
+  },
+  {
+   "match": "Legion",
+   "titles": [
+    "Legion"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139.7",
+    "6x135",
+    "6x139.7",
+    "8x165.1"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-legion"
+   ]
+  },
+  {
+   "match": "Overland",
+   "titles": [
+    "Overland"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8",
+     "17x9.5",
+     "18x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x120",
+    "5x127",
+    "6x130",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-overland"
+   ]
+  },
+  {
+   "match": "Sahara",
+   "titles": [
+    "Sahara"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-sahara"
+   ]
+  },
+  {
+   "match": "Sentinel",
+   "titles": [
+    "Sentinel"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "20x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x114.3",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-sentinel"
+   ]
+  },
+  {
+   "match": "Taleo",
+   "titles": [
+    "Taleo"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-taleo"
+   ]
+  },
+  {
+   "match": "Warlord",
+   "titles": [
+    "Warlord"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8",
+     "17x9",
+     "18x8",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x114.3",
+    "5x120",
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x130",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.blackrhinowheels.com/black-rhino-hard-alloys-warlord"
+   ]
+  }
+ ]
+}

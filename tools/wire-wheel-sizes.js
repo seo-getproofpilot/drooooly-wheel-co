@@ -98,14 +98,48 @@ function nameKey(brand, s) {
     .replace(/[^A-Z0-9]+/g, '');
 }
 
-/* configs, derived from the widths the manufacturer actually publishes */
-function configsFrom(byConfig) {
+/* CONFIGS, DERIVED FROM THE WIDTHS the manufacturer actually publishes —
+   which is the point, because inferConfigs() in tools/build-featured.js
+   guesses them from suffix codes in the model NAME and is wrong whenever the
+   name does not say. That is LAUNCH-CHECKLIST 4.12.
+
+     single  a width WIDER than 8.25. 8.25 is the pickup dually rear and
+             nothing else is built at it; 9" and 9.5" are ordinary single-rear
+             widths, so the threshold is not "10 or wider".
+
+     dually  an 8.25 rear, or a COMMERCIAL narrow rear corroborated by
+             something other than the width alone. Black Rhino's Aliso Dually
+             is 16x6 on 6x205 — a Sprinter dually — and width alone would
+             have filed it as a single. But narrow is not sufficient on its
+             own either: their Armory is 16x8 and is an ordinary cast truck
+             wheel. So a sub-8.25 rear counts as a dually only when the model
+             name says so, the bolt pattern is a dually pattern, or our
+             catalogue already said dually and the widths do not contradict it. */
+/* Patterns that exist ONLY on a dually or a van. 8x165.1 is deliberately NOT
+   here: it is 8x6.5, the common single-rear eight-lug, and including it filed
+   Black Rhino's Armory — an ordinary cast truck wheel in 16x8 to 20x12 — as a
+   dually. */
+const DUALLY_BOLTS = /^(6x205|8x200|8x210|10x225|10x285\.75)$/;
+function configsFrom(byConfig, model, bolts) {
   const out = {};
-  Object.keys(byConfig).forEach(c => { if (byConfig[c] && byConfig[c].length) out[c] = 1; });
+  Object.keys(byConfig).forEach(c => { if ((byConfig[c] || []).length) out[c] = 1; });
   const all = [].concat.apply([], Object.keys(byConfig).map(c => byConfig[c] || []));
   const w = all.map(s => +String(s).split('x')[1]).filter(n => !isNaN(n));
+  if (!w.length) return Object.keys(out);
+
+  if (w.some(x => x > 8.25)) out.single = 1;
   if (w.some(x => x === 8.25)) out.dually = 1;
-  if (w.some(x => x >= 10)) out.single = 1;
+
+  const narrow = w.some(x => x < 8.25);
+  const saysDually = /\b(DUALLY|DRW|SD|DBO)\b/i.test(String((model && model.model) || ''));
+  const boltSaysDually = (bolts || []).some(b => DUALLY_BOLTS.test(b));
+  const weSaidDually = ((model && model.configs) || []).indexOf('dually') > -1;
+  if (narrow && (saysDually || boltSaysDually || weSaidDually)) {
+    out.dually = 1;
+    /* a commercial dually in 16x6 is not also a single-rear wheel */
+    if (!w.some(x => x > 8.25)) delete out.single;
+  }
+
   const order = ['single', 'dually', 'super single', 'utv'];
   return order.filter(c => out[c]);
 }
@@ -113,26 +147,26 @@ function configsFrom(byConfig) {
 /* WIRING IS OPT-IN PER BRAND, and the reason is American Force.
 
    tools/scrape-wheel-sizes.js can read their table fine — 258 of 314 product
-   pages give a real size matrix. What cannot be done safely yet is MATCH
-   those parts to our 287 listings, because our names omit the part code
-   their slugs carry and their sub-lines differ only by a suffix: for one
-   face they publish "1 Classic SS", "601 Classic SSBR", "601 Classic SD",
-   "1 Classic DBO" and "1 Classic DRW", which are a super single, a big-rig
-   super single, a single, a bolt-on dually and a dually. We carry three of
-   the five under names that do not say which.
+   pages give a real size matrix. What cannot be done safely is MATCH those
+   parts to our 287 listings, because our names omit the part code their slugs
+   carry and their sub-lines differ only by a suffix: for one face they
+   publish "1 Classic SS", "601 Classic SSBR", "601 Classic SD",
+   "1 Classic DBO" and "1 Classic DRW" — a super single, a big-rig super
+   single, a single, a bolt-on dually and a dually. We carry three of the five
+   under names that do not say which.
 
-   The dry run resolved 48 of 287 and got some of them wrong in a way that is
-   obvious once seen: it offered "Classic SS" — a SUPER SINGLE — four sizes
-   that are all 8.25" dually rears. Wrong dimensions are worse than templated
-   ones: a templated list at least reads as generic, while a wrong one reads
-   as a specification and will be quoted.
+   The dry run resolved 48 of 287 and got some wrong in a way that is obvious
+   once seen: it offered "Classic SS", a SUPER SINGLE, four sizes that are all
+   8.25" dually rears. Wrong dimensions are worse than templated ones — a
+   templated list reads as generic, a wrong one reads as a specification and
+   will be quoted down a phone.
 
-   So a brand is wired only once someone has read its dry run and agreed with
-   it. Scraping stays unrestricted — data/sizes/american-force.json is real,
-   traceable and ready for whoever does the mapping pass.
+   Black Rhino is wired because its matching needs no guessing at all: their
+   product slug IS our model name, all sixteen resolve, and `match` is our own
+   name. That is the bar.
 
-   To wire a brand: run with --brand <slug> --dry, READ IT, then add it here. */
-const WIRED = { fenix: 1, tis: 1, vision: 1 };
+   To wire a brand: run --brand <slug> --dry, READ IT, then add it here. */
+const WIRED = { fenix: 1, tis: 1, vision: 1, 'black-rhino': 1 };
 const FORCE = process.argv.includes('--force');
 
 let changed = 0, merged = 0, unmatched = [], renamed = [], report = [];
@@ -245,12 +279,15 @@ fs.readdirSync(SRCDIR).filter(f => f.endsWith('.json')).forEach(file => {
     sizes = [...new Set(sizes)].sort(cmpSize);
     if (!sizes.length) { report.push(brand.slug + '/' + k + ': manufacturer published no sizes, left as-is'); return; }
 
-    const cfg = configsFrom(buckets.reduce((o, c) => (o[c] = bc[c], o), {}));
-
     /* the survivor keeps the richer record */
     const score = m => (m.feat ? 8 : 0) + (m.img ? 4 : 0) + (m.priceFrom ? 2 : 0) + (m.model.length > 6 ? 1 : 0);
     g.ours.sort((a, b) => score(b) - score(a));
     const keep = g.ours[0];
+
+    /* configs come AFTER the survivor is chosen, because the derivation reads
+       its name and its existing configs as corroboration for a commercial
+       narrow rear — see configsFrom. */
+    const cfg = configsFrom(buckets.reduce((o, c) => (o[c] = bc[c], o), {}), keep, g.part.bolts || []);
     g.ours.slice(1).forEach(m => {
       /* fold anything the survivor lacks up into it before dropping it */
       ['img', 'feat', 'priceFrom', 'priceSet', 'priceSetQty', 'finishes'].forEach(f => {

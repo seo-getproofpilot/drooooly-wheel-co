@@ -415,12 +415,83 @@ function americanForce() {
   };
 }
 
+/* ------------------------------------------------- wheel pros table ---
+   American Force and Black Rhino are both Wheel Pros brands on Magento and
+   both publish the same table in the served markup:
+
+     Part# | Model | Finish | Size | Bolt Pattern | Backspace | Offset |
+     Bore | Weight | Load | Lip Size | Cap | MSRP USD
+
+   The size column writes an uppercase X — "17X8.5" — while the navigation
+   and cross-sell blocks use a lowercase x. That is the discriminator, and it
+   was checked before it was trusted on a page of each brand. */
+function wheelProsTable(html) {
+  const text = html.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+                   .replace(/<[^>]+>/g, '\n').replace(/&[a-z#0-9]+;/gi, ' ');
+  const cells = text.split('\n').map(x => x.replace(/\s+/g, ' ').trim());
+  const sizes = {}, bolts = {};
+  cells.forEach(function (c) {
+    const t = /^(\d{2}(?:\.\d)?)X(\d{1,2}(?:\.\d{1,2})?)$/.exec(c);
+    if (t) { const v = size(t[1], t[2]); if (PLAUSIBLE(v)) sizes[v] = 1; return; }
+    const b = /^(\d{1,2})X(\d{2,3}(?:\.\d{1,2})?)$/.exec(c);
+    if (b && +b[1] >= 4 && +b[1] <= 10 && +b[2] >= 95 && +b[2] <= 300) bolts[+b[1] + 'x' + +b[2]] = 1;
+  });
+  return { sizes: Object.keys(sizes).sort(cmpSize), bolts: Object.keys(bolts).sort() };
+}
+
+/* Our own model list, so a scraper can be driven BY the catalogue. */
+function ourModels(slug) {
+  const ctx = { window: {} };
+  require('vm').createContext(ctx);
+  require('vm').runInContext(fs.readFileSync(path.join(ROOT, 'brands.js'), 'utf8'), ctx);
+  const b = (ctx.window.BRANDS || []).filter(x => x.slug === slug)[0];
+  return b ? b.models.map(m => m.model) : [];
+}
+
+/* ----------------------------------------------------- black-rhino ---
+   DRIVEN BY OUR MODEL NAMES, not by their sitemap, because their product
+   slug IS our model name: "Aliso Dually" -> /black-rhino-hard-alloys-
+   aliso-dually. All sixteen we carry resolve, so `match` is our own name and
+   the wiring matches EXACTLY — no fuzzy key, which is the thing that made
+   American Force unsafe to wire.
+
+   Twelve of our sixteen claimed a single size of "16x6". Black Rhino's
+   smallest cast truck wheel is a 17, and the Taleo they publish is 17x8.5,
+   18x9 and 20x9. */
+function blackRhino() {
+  const names = ourModels('black-rhino');
+  console.log('  ' + names.length + ' models in our catalogue');
+  const out = [];
+  names.forEach(function (name) {
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const u = 'https://www.blackrhinowheels.com/black-rhino-hard-alloys-' + slug;
+    const h = get(u);
+    const got = h ? wheelProsTable(h) : { sizes: [], bolts: [] };
+    out.push({
+      match: name, titles: [name],
+      byConfig: { single: got.sizes }, configs: ['single'],
+      bolts: got.bolts, urls: [u]
+    });
+    console.log('    ' + name.padEnd(16) + (got.sizes.join(' ') || '(no table)'));
+    sleep(400);
+  });
+  return {
+    brand: 'black-rhino',
+    captured: TODAY,
+    source: 'https://www.blackrhinowheels.com — the Size/Bolt Pattern/Offset table on each product page',
+    note: 'Driven by our own model names, since their product slug is our model ' +
+          'name; `match` is therefore our name and the wiring needs no fuzzy key.',
+    models: out
+  };
+}
+
 function cmpSize(a, b) {
   var A = a.split('x').map(Number), B = b.split('x').map(Number);
   return A[0] - B[0] || A[1] - B[1];
 }
 
-const RUNNERS = { fenix: fenix, tis: tis, vision: vision, 'american-force': americanForce };
+const RUNNERS = { fenix: fenix, tis: tis, vision: vision,
+  'american-force': americanForce, 'black-rhino': blackRhino };
 const RUN = (WANT.length ? WANT : Object.keys(RUNNERS)).filter(b => RUNNERS[b]);
 if (!RUN.length) { console.error('nothing to do; known brands: ' + Object.keys(RUNNERS).join(', ')); process.exit(1); }
 

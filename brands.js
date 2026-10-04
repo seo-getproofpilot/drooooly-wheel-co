@@ -934,22 +934,22 @@ window.BRANDS = [
     site: "https://www.blackrhinowheels.com", tagline: "Built for the modern adventurer — HD truck & dually.",
     pricing: "from",
     models: [
-      { model: "Abrams", configs: ["single"], sizes: ["17x8.5","18x9.5","20x9.5"], finishes: ["Gunblack Machined","Olive Drab","Matte Gunmetal"] },
-      { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"] },
-      { model: "Alpha", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/alpha.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, feat: 11 },
-      { model: "Armory", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/armory.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 3 },
-      { model: "Arsenal", configs: ["single"], sizes: ["17x9","18x9","20x9.5"], finishes: ["Sand on Black","Textured Matte Black"], img: "assets/wheels/black-rhino/arsenal.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 5 },
-      { model: "Chamber", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/chamber.png", priceFrom: 454, priceSet: 1816, priceSetQty: 4, feat: 12 },
-      { model: "Diamondback", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/diamondback.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, feat: 10 },
-      { model: "Echo", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/echo.png", priceFrom: 478, priceSet: 1912, priceSetQty: 4, feat: 13 },
-      { model: "Fuji", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/fuji.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 8 },
-      { model: "Kelso", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/kelso.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 6 },
-      { model: "Legion", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/legion.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 7 },
-      { model: "Overland", configs: ["single"], sizes: ["17x8","18x8","20x9"], finishes: ["Matte Black"] },
-      { model: "Sahara", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/sahara.png", priceFrom: 363, priceSet: 1452, priceSetQty: 4, feat: 2 },
-      { model: "Sentinel", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/sentinel.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, feat: 4 },
-      { model: "Taleo", configs: ["single"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/taleo.png", priceFrom: 363, priceSet: 1452, priceSetQty: 4, feat: 1 },
-      { model: "Warlord", configs: ["single"], sizes: ["17x9","18x9.5","20x9.5"], finishes: ["Matte Black","Matte Gunmetal"], img: "assets/wheels/black-rhino/warlord.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, feat: 9 }
+      { model: "Abrams", configs: ["single"], sizes: ["17x8.5","17x9.5","18x9.5","20x9.5"], finishes: ["Gunblack Machined","Olive Drab","Matte Gunmetal"], bolts: ["5x127","6x139.7","8x165.1","8x170"], sizeSource: "black-rhino" },
+      { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"], bolts: ["6x205"], sizeSource: "black-rhino" },
+      { model: "Alpha", configs: ["single"], sizes: ["17x9","18x9","20x10"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/alpha.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, bolts: ["5x127","6x135","6x139.7","8x165.1","8x170","8x180"], sizeSource: "black-rhino", feat: 11 },
+      { model: "Armory", configs: ["single"], sizes: ["16x8","17x8","17x9.5","18x9.5","20x9.5","20x12"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/armory.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, bolts: ["5x130","5x160","6x130","6x139.7","8x165.1","8x170","8x180"], sizeSource: "black-rhino", feat: 3 },
+      { model: "Arsenal", configs: ["single"], sizes: ["16x8","17x8","17x9.5","18x8","18x9.5","20x8.5","20x9.5","20x12"], finishes: ["Sand on Black","Textured Matte Black"], img: "assets/wheels/black-rhino/arsenal.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, bolts: ["5x160","6x130","6x139.7","8x165.1","8x170","8x180"], sizeSource: "black-rhino", feat: 5 },
+      { model: "Chamber", configs: ["single"], sizes: ["16x8","17x8.5","18x9.5","20x9.5"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/chamber.png", priceFrom: 454, priceSet: 1816, priceSetQty: 4, bolts: ["5x114.3","5x127","5x150","6x114.3","6x135","6x139.7"], sizeSource: "black-rhino", feat: 12 },
+      { model: "Diamondback", configs: ["single"], sizes: ["17x8.5","17x9","18x9","20x9"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/diamondback.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, bolts: ["5x114.3","5x127","6x114.3","6x120","6x135","6x139.7"], sizeSource: "black-rhino", feat: 10 },
+      { model: "Echo", configs: ["single"], sizes: ["17x8.5","18x9"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/echo.png", priceFrom: 478, priceSet: 1912, priceSetQty: 4, bolts: ["6x135","6x139.7","8x165.1","8x170","8x180"], sizeSource: "black-rhino", feat: 13 },
+      { model: "Fuji", configs: ["single"], sizes: ["17x8","17x9"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/fuji.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, bolts: ["5x114.3","5x127","6x139.7"], sizeSource: "black-rhino", feat: 8 },
+      { model: "Kelso", configs: ["single"], sizes: ["17x9","18x9","20x9"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/kelso.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, bolts: ["5x114.3","5x127","5x139.7","6x135","6x139.7"], sizeSource: "black-rhino", feat: 6 },
+      { model: "Legion", configs: ["single"], sizes: ["17x9","20x10"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/legion.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, bolts: ["5x127","5x139.7","6x135","6x139.7","8x165.1"], sizeSource: "black-rhino", feat: 7 },
+      { model: "Overland", configs: ["single"], sizes: ["17x8","17x9.5","18x9.5"], finishes: ["Matte Black"], bolts: ["5x114.3","5x120","5x127","6x130","6x139.7"], sizeSource: "black-rhino" },
+      { model: "Sahara", configs: ["single"], sizes: ["17x9"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/sahara.png", priceFrom: 363, priceSet: 1452, priceSetQty: 4, bolts: ["5x127","6x135","6x139.7"], sizeSource: "black-rhino", feat: 2 },
+      { model: "Sentinel", configs: ["single"], sizes: ["17x8.5","20x9.5"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/sentinel.png", priceFrom: 388, priceSet: 1552, priceSetQty: 4, bolts: ["5x127","6x114.3","6x135","6x139.7","8x165.1","8x170","8x180"], sizeSource: "black-rhino", feat: 4 },
+      { model: "Taleo", configs: ["single"], sizes: ["17x8.5","18x9","20x9"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/taleo.png", priceFrom: 363, priceSet: 1452, priceSetQty: 4, bolts: ["6x135","6x139.7"], sizeSource: "black-rhino", feat: 1 },
+      { model: "Warlord", configs: ["single"], sizes: ["17x8","17x9","18x8","18x9","20x9"], finishes: ["Matte Black","Matte Gunmetal"], img: "assets/wheels/black-rhino/warlord.png", priceFrom: 413, priceSet: 1652, priceSetQty: 4, bolts: ["5x114.3","5x120","5x127","5x150","6x120","6x130","6x135","6x139.7","8x165.1","8x170","8x180"], sizeSource: "black-rhino", feat: 9 }
     ]
   }
 ];

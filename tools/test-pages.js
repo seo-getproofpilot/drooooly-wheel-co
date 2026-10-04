@@ -55,8 +55,19 @@ function makeEl(tag) {
     insertBefore(c) { this.children.push(c); return c; },
     removeChild(c) { this.children = this.children.filter(x => x !== c); },
     addEventListener() {}, removeEventListener() {},
-    querySelector() { return null; }, querySelectorAll() { return []; },
+    querySelector(sel) {
+      const m = /^#([\w-]+)$/.exec(String(sel || ''));
+      if (!m) return null;
+      if (String(this.innerHTML).indexOf('id="' + m[1] + '"') < 0) return null;
+      return (this._stubs[m[1]] = this._stubs[m[1]] || makeEl('div'));
+    },
+    querySelectorAll() { return []; },
     closest() { return null; }, focus() {}, click() {},
+    /* Resolve "#id" against the markup this element was just given, the way a
+       browser would. wheel.js paints its HTML and then reaches for
+       root.querySelector("#wFin") to attach the finish buttons; without this
+       the shim hands it null and reports a crash that cannot happen. */
+    _stubs: {},
     getBoundingClientRect() { return { top: 0, left: 0, width: 0, height: 0, bottom: 0, right: 0 }; },
     scrollIntoView() {}
   };
@@ -76,7 +87,7 @@ function idsOf(page) {
   return out;
 }
 
-function run(pageHooks, search) {
+function run(pageHooks, search, scripts) {
   const hooks = {};
   pageHooks.forEach(id => { hooks[id] = makeEl('main'); hooks[id].id = id; });
   const listeners = [];
@@ -125,8 +136,8 @@ function run(pageHooks, search) {
   ctx.globalThis = ctx;
   vm.createContext(ctx);
   /* The data files and the renderer, in the order the pages load them. */
-  ['brands.js', 'tires.js', 'builds-data.js', 'fitment-data.js', 'finishes.js',
-   'wheel-faces.js', 'wheel-specs.js', 'fitment.js', 'catalog.js']
+  (scripts || ['brands.js', 'tires.js', 'builds-data.js', 'fitment-data.js', 'finishes.js',
+   'wheel-faces.js', 'wheel-specs.js', 'fitment.js', 'catalog.js'])
     .forEach(f => vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx, { filename: f }));
   let err = null;
   try { listeners.forEach(fn => fn()); } catch (e) { err = e; }
@@ -225,6 +236,61 @@ section('the page title never says the noun twice');
     if (!r.err && /\b(Tires?)\s+Tires\b/i.test(r.title)) doubled.push(b.slug + ': ' + r.title);
   });
   ok('"TIS Wheels Wheels" and "Toyo Tires Tires" stay fixed', doubled, []);
+}
+
+section('the wheel page does not claim how a wheel was made');
+{
+  /* Two over-claims that were on every wheel page in the catalogue.
+
+     1. "Forged to order ... before anything is cut" was hardcoded, and ten of
+        our twenty-two brands are not forged — TIS, Vision, Arkon, Cali,
+        Hardrock, Hardcore, XF, Method, Raceline and Black Rhino are cast or
+        flow-formed. Black Rhino's Taleo is one of their "hard alloys", a cast
+        wheel, and the page said it was forged and machined to order.
+
+     2. finishes.js is generated from JTX's own renders and says so with
+        `brandSlug: "jtx"`, but wheel.js read its `orderable` list for EVERY
+        brand — so a Black Rhino Taleo was advertised as "also built in
+        Polished, Brushed, Black, Black Milled, Chrome and Custom", which is
+        JTX's list, not Black Rhino's. */
+  const WHEEL_SCRIPTS = ['brands.js', 'fitment-data.js', 'fitment.js',
+    'wheel-specs.js', 'finishes.js', 'builds-data.js', 'wheel-faces.js', 'wheel.js'];
+  const ids = idsOf('wheel.html');
+  const forgedClaim = [], finishLeak = [];
+
+  const fctx = { window: {} };
+  vm.createContext(fctx);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'finishes.js'), 'utf8'), fctx);
+  const JTX_ORDERABLE = ((fctx.window.WHEEL_FINISHES || {}).orderable || []).map(x => x.toLowerCase());
+
+  BRANDS.forEach(b => {
+    const m = (b.models || [])[0];
+    if (!m) return;
+    const r = run(ids, '?brand=' + b.slug + '&model=' + encodeURIComponent(m.model), WHEEL_SCRIPTS);
+    if (r.err) { forgedClaim.push(b.slug + ' threw: ' + r.err.message); return; }
+    const html = r.hooks.wheelPage.innerHTML;
+    if (!html) return;
+    if (b.kind !== 'Forged' && /Forged to order/.test(html)) {
+      forgedClaim.push(b.slug + ' (' + b.kind + ') says "Forged to order"');
+    }
+    /* Read the finishes the PAGE offers out of its own sentence and compare
+       whole names. Matching substrings instead flagged "black" inside
+       "Gloss Black" on fifteen brands, which is the page being right. */
+    if (b.slug !== 'jtx') {
+      const own = (m.finishes || []).map(x => x.toLowerCase().trim());
+      const sentence = (/also built in ([^.]*)\./i.exec(html) || [])[1] || '';
+      sentence.split(/,| and /).map(x => x.replace(/<[^>]*>/g, '').toLowerCase().trim())
+        .filter(Boolean)
+        .forEach(f => {
+          if (own.indexOf(f) < 0) {
+            finishLeak.push(b.slug + '/' + m.model + ' offers "' + f +
+              '", which it does not list [' + (m.finishes || []).join(', ') + ']');
+          }
+        });
+    }
+  });
+  ok('no cast or flow-formed brand is described as forged', forgedClaim, []);
+  ok("no brand inherits JTX's finish list", finishLeak, []);
 }
 
 section('the hand-written homepage lineup agrees with the catalogue');
