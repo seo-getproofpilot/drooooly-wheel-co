@@ -6274,3 +6274,29 @@ body.builder-page{
      is right, the target was not. */
   .vizhead__back a{display:inline-block;padding:11px 2px;margin:-11px 0}
 }
+
+/* ===== v389 — the control that reveals the tire sizes was 17px tall =====
+   Measured on tire.html?brand=nitto at 375px: no horizontal scroll, but
+   seventeen controls under the 40px tap target, and the worst of them were
+   the ones that matter most on that page.
+
+   The "<n> sizes" <summary> is the whole point of a tread card — it is what
+   a customer taps to see whether their size exists — and it was a 17px line
+   of 10.5px label text. The back link out of the page was 18px, same class
+   of problem as .vizhead__back in v364.
+
+   Negative margins absorb the added padding so nothing moves: the text sits
+   where it already sat, the TARGET grows around it. Inline links inside a
+   sentence ("get fitted") are deliberately left alone — padding those breaks
+   the line box they sit in. */
+@media (max-width: 760px) {
+  .tire__sizes summary{padding:12px 2px;margin:-12px 0 0}
+  .tire__sizes[open] summary{margin-bottom:0}
+  .wheelhero__back{display:inline-block;padding:11px 2px;margin:-11px 0 0}
+  /* The footer column links were 23px each — eight of them stacked, on every
+     page, including the phone number, which is the single most likely thing
+     anyone taps on a phone. The column is a flex stack, so row-gap holds the
+     spacing while the links themselves grow to 40px. */
+  .footer__col a{min-height:40px;display:flex;align-items:center}
+  .footer__col{display:flex;flex-direction:column}
+}
