@@ -175,7 +175,7 @@ function configsFrom(byConfig, model, bolts) {
 
    To wire a brand: run --brand <slug> --dry, READ IT, then add it here. */
 const WIRED = { fenix: 1, tis: 1, vision: 1, 'black-rhino': 1, fuel: 1, kmc: 1,
-  hardrock: 1, kg1: 1 };
+  hardrock: 1, kg1: 1, 'american-force': 1 };
 const FORCE = process.argv.includes('--force');
 
 let changed = 0, merged = 0, unmatched = [], renamed = [], report = [];
@@ -275,6 +275,22 @@ fs.readdirSync(SRCDIR).filter(f => f.endsWith('.json')).forEach(file => {
   });
 
   const drop = new Set();
+  /* Two of OUR entries that resolve to one part are one wheel, and a model
+     carried both with and without its leading part code is the commonest
+     way that happens — "Armada CCFP" beside "CK210 Armada CCFP". Group
+     first, then collapse, or the pair stays two entries with identical
+     sizes. The groups hold {part, ours}, so the merge has to join `ours`
+     rather than concatenating arrays. */
+  (function () {
+    const flat = {};
+    Object.keys(groups).forEach(k => { flat[k] = groups[k].ours; });
+    collapseNumbered(flat);
+    Object.keys(groups).forEach(k => { if (!flat[k]) delete groups[k]; });
+    Object.keys(flat).forEach(k => {
+      if (groups[k]) groups[k].ours = flat[k];
+    });
+  })();
+
   Object.keys(groups).sort().forEach(k => {
     const g = groups[k];
     const bc = g.part.byConfig || {};

@@ -333,102 +333,22 @@ function vision() {
   };
 }
 
-/* -------------------------------------------------- american-force ---
-   Magento. Every product page carries the real spec table:
+/* ------------------------------------------- shared by the scrapers ---
+   The Wheel Pros spec table, and our own model list.
 
-     Part# | Model | Finish | Size | Bolt Pattern | Backspace | Offset |
-     Bore | Weight | Load | Lip Size | Cap | MSRP USD
-
-   The size column writes an uppercase X — "22X12" — while the navigation
-   and the cross-sell blocks elsewhere on the page use a lowercase x. That
-   is the whole discriminator, and it was checked before it was trusted:
-   on the DC08 Kryptik page the uppercase cells are exactly the five sizes
-   in the table, and the lowercase tokens are all nav.
-
-   THIS BRAND IS 287 OF OUR 779 MODELS and 255 of them shared one invented
-   size list. The DC08 Kryptik is the one tools/test-fitment.js already
-   names as a misclassified "single": we listed it as 22x8.25 / 24x8.25,
-   dually rears, when American Force build it 22x12 through 26x14. The
-   configs were not wrong. The sizes were never real.
-
-   ROBOTS. americanforce.com disallows admin paths, the non-clean
-   /catalog/product/view/ form, and faceted URLs. Clean product pages are
-   not disallowed. One at a time, with a delay — the same terms
-   tools/scrape-american-force.js already works under. */
-function americanForce() {
-  var urls = locs(get('https://www.americanforce.com/sitemap.xml'))
-    .filter(u => /\/american-force-/.test(u));
-  console.log('  ' + urls.length + ' product pages');
-
-  var out = [];
-  urls.forEach(function (u, i) {
-    var h = get(u);
-    if (!h) { sleep(300); return; }
-    var text = h.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-                .replace(/<[^>]+>/g, '\n').replace(/&[a-z#0-9]+;/gi, ' ');
-    var cells = text.split('\n').map(x => x.replace(/\s+/g, ' ').trim());
-
-    /* the uppercase-X cells ARE the size column */
-    var sizes = {};
-    cells.forEach(function (c) {
-      var t = /^(\d{2}(?:\.\d)?)X(\d{1,2}(?:\.\d{1,2})?)$/.exec(c);
-      if (!t) return;
-      var v = size(t[1], t[2]);
-      if (PLAUSIBLE(v)) sizes[v] = 1;
-    });
-    /* THE MODEL NAME COMES FROM THE SLUG, not from the table.
-
-       The first version took the most frequent short uppercase cell, on the
-       theory that the Model column repeats on every row. It returned "NEW" —
-       the badge on a new release — for the whole M-series, and a rename step
-       downstream would happily have retitled four wheels to "NEW". The slug
-       is the manufacturer's own and is already unambiguous. */
-    var bolts = {};
-    cells.forEach(function (c) {
-      var t = /^(\d{1,2})\s*[xX]\s*(\d{2,3}(?:\.\d{1,2})?)$/.exec(c);
-      if (t && +t[1] >= 4 && +t[1] <= 10 && +t[2] >= 95 && +t[2] <= 300) bolts[+t[1] + 'x' + +t[2]] = 1;
-    });
-
-    /* the part code our catalogue keys on, out of the slug:
-       ".../american-force-aw-dc08-kryptik-dc" -> DC08 KRYPTIK DC */
-    var slug = (u.match(/american-force-(?:aw-)?(.+)$/) || [])[1] || '';
-    var name = slug.replace(/-/g, ' ').replace(/\b[a-z]/g, function (ch) { return ch.toUpperCase(); });
-    var list = Object.keys(sizes).sort(cmpSize);
-    out.push({
-      match: slug.replace(/-/g, ' ').toUpperCase(),
-      titles: [name],
-      byConfig: { single: list }, configs: ['single'],
-      bolts: Object.keys(bolts).sort(), urls: [u]
-    });
-    if (i % 20 === 0) process.stdout.write('    ' + i + '/' + urls.length + '\r');
-    sleep(250);
-  });
-  process.stdout.write('                    \r');
-  return {
-    brand: 'american-force',
-    captured: TODAY,
-    source: 'https://www.americanforce.com — the Part#/Model/Finish/Size/Bolt Pattern/Offset table on each product page',
-    note: 'The size column uses an uppercase X; the lowercase x tokens on the ' +
-          'page are navigation. Configs are derived from the widths by ' +
-          'tools/wire-wheel-sizes.js, not taken from here.',
-    models: out
-  };
-}
-
-/* ------------------------------------------------- wheel pros table ---
-   American Force and Black Rhino are both Wheel Pros brands on Magento and
-   both publish the same table in the served markup:
+   American Force, Black Rhino, Fuel and KMC are all Wheel Pros brands on the
+   same Magento template and publish the same table:
 
      Part# | Model | Finish | Size | Bolt Pattern | Backspace | Offset |
      Bore | Weight | Load | Lip Size | Cap | MSRP USD
 
    The size column writes an uppercase X — "17X8.5" — while the navigation
    and cross-sell blocks use a lowercase x. That is the discriminator, and it
-   was checked before it was trusted on a page of each brand. */
+   was checked on a page of each brand before it was trusted. */
 function wheelProsTable(html) {
-  const text = html.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-                   .replace(/<[^>]+>/g, '\n').replace(/&[a-z#0-9]+;/gi, ' ');
-  const cells = text.split('\n').map(x => x.replace(/\s+/g, ' ').trim());
+  const cells = textOf(html).split(/\s{2,}|\n/).concat(
+    textOf(html).replace(/<[^>]*>/g, ' ').split(' ')
+  ).map(x => String(x).trim());
   const sizes = {}, bolts = {};
   cells.forEach(function (c) {
     const t = /^(\d{2}(?:\.\d)?)X(\d{1,2}(?:\.\d{1,2})?)$/.exec(c);
@@ -439,13 +359,86 @@ function wheelProsTable(html) {
   return { sizes: Object.keys(sizes).sort(cmpSize), bolts: Object.keys(bolts).sort() };
 }
 
-/* Our own model list, so a scraper can be driven BY the catalogue. */
+/* Our own model list, so a scraper can be driven BY the catalogue — which is
+   what makes a match exact instead of fuzzy. */
 function ourModels(slug) {
   const ctx = { window: {} };
   require('vm').createContext(ctx);
   require('vm').runInContext(fs.readFileSync(path.join(ROOT, 'brands.js'), 'utf8'), ctx);
   const b = (ctx.window.BRANDS || []).filter(x => x.slug === slug)[0];
   return b ? b.models.map(m => m.model) : [];
+}
+
+/* -------------------------------------------------- american-force ---
+   Magento, same Size/Bolt Pattern/Offset table as the other Wheel Pros
+   brands. The hard part was never the table — it was knowing WHICH of their
+   parts is which of ours.
+
+   THE FIRST ATTEMPT MATCHED ON A FUZZY NAME KEY AND WAS NOT SAFE TO WIRE.
+   American Force build one face as several parts that differ only by a
+   suffix: 1 Classic SS, 601 Classic SSBR, 601 Classic SD, 1 Classic DBO and
+   1 Classic DRW are a super single, a big-rig super single, a single, a
+   bolt-on dually and a dually. A key that strips the suffix collapses all
+   five, and the dry run duly offered "Classic SS" — a SUPER SINGLE — four
+   sizes that were all 8.25" dually rears.
+
+   THE RULE THAT WORKS is exact and needs no guessing: our model name,
+   slugified, is either their whole slug or its tail at a hyphen boundary.
+
+     "DC08 Kryptik DC" -> dc08-kryptik-dc        (whole slug)
+     "Classic SS"      -> 1-classic-ss           (tail)
+     "Shift SSBR"      -> 670-shift-ssbr         (tail)
+
+   The suffix survives, so Classic SS can never reach Classic SSBR. Measured
+   over all 287 of our models against their sitemap: 190 match exactly one
+   part, 97 match none, and ZERO are ambiguous. A model that matches none is
+   left alone; a model that matched more than one would be skipped. */
+function americanForce() {
+  const names = ourModels('american-force');
+  console.log('  ' + names.length + ' models in our catalogue');
+
+  const slugs = {};
+  locs(get('https://www.americanforce.com/sitemap.xml'))
+    .filter(u => /\/american-force-/.test(u))
+    .forEach(function (u) {
+      const g = (u.match(/american-force-(?:aw-)?(.+)$/) || [])[1];
+      if (g) slugs[g] = u;
+    });
+  const keys = Object.keys(slugs);
+  console.log('  ' + keys.length + ' product pages');
+
+  const out = [];
+  let hit = 0, ambiguous = 0;
+  names.forEach(function (name) {
+    const want = slugOf(name);
+    const cand = keys.filter(g => g === want || g.slice(-(want.length + 1)) === '-' + want);
+    if (cand.length !== 1) {
+      if (cand.length > 1) { ambiguous++; console.log('    ' + name.padEnd(26) + 'AMBIGUOUS: ' + cand.join(', ')); }
+      out.push(blank(name));
+      return;
+    }
+    const u = slugs[cand[0]];
+    const h = get(u);
+    const got = h ? wheelProsTable(h) : { sizes: [], bolts: [] };
+    if (got.sizes.length) hit++;
+    out.push({
+      match: name, titles: [name],
+      byConfig: { single: got.sizes }, configs: ['single'],
+      bolts: got.bolts, urls: [u]
+    });
+    sleep(250);
+  });
+  console.log('  ' + hit + ' of ' + names.length + ' matched a published table' +
+    (ambiguous ? ', ' + ambiguous + ' ambiguous and skipped' : ', 0 ambiguous'));
+  return {
+    brand: 'american-force',
+    captured: TODAY,
+    source: 'https://www.americanforce.com — the Part#/Model/Finish/Size/Bolt Pattern table on each product page',
+    note: 'Matched by exact slug-or-tail on our own model name, which keeps the ' +
+          'suffix intact so Classic SS cannot reach Classic SSBR. `match` is ' +
+          'our name, so the wiring needs no fuzzy key.',
+    models: out
+  };
 }
 
 /* ------------------------------------------ the Wheel Pros brands ---

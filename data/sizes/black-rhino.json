@@ -1,8 +1,8 @@
 {
  "brand": "black-rhino",
- "captured": "2026-10-04",
+ "captured": "2026-10-05",
  "source": "https://www.blackrhinowheels.com — the Size/Bolt Pattern/Offset table on each product page",
- "note": "Driven by our own model names, since their product slug is our model name; `match` is therefore our name and the wiring needs no fuzzy key.",
+ "note": "Driven by our own model names: their product slug is derivable from ours, so `match` is our name and the wiring needs no fuzzy key. A model that matches no URL yields no sizes rather than a guess.",
  "models": [
   {
    "match": "Abrams",

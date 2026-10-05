@@ -59,12 +59,23 @@ function partKey(brand, name) {
    number into that other key. "56MIDWAY" -> "MIDWAY". Only when what remains
    starts with a letter, so "404" does not fold into "". */
 function collapseNumbered(groups) {
-  Object.keys(groups).forEach(function (k) {
-    const stripped = k.replace(/^\d+/, '');
-    if (stripped && stripped !== k && /^[A-Z]/.test(stripped) && groups[stripped]) {
-      groups[stripped] = groups[stripped].concat(groups[k]);
-      delete groups[k];
-    }
+  /* Both shapes of leading part code: a bare number, as Vision's
+     "56 Midway" carries, and letters-plus-digits, as American Force's
+     "CK210 Armada CCFP" and Raceline's "A91 Ryno Beadlock" do. Measured
+     over the whole catalogue, the letter form merges exactly three pairs
+     and every one of them is the same wheel listed twice.
+
+     The remainder must start with a LETTER, so JTX's "D-200" and "SS-200"
+     strip to nothing and are left alone — which is the case this whole
+     module exists to protect. */
+  [/^\d+/, /^[A-Z]{1,4}\d{1,4}/].forEach(function (re) {
+    Object.keys(groups).forEach(function (k) {
+      const stripped = k.replace(re, '');
+      if (stripped && stripped !== k && /^[A-Z]/.test(stripped) && groups[stripped]) {
+        groups[stripped] = groups[stripped].concat(groups[k]);
+        delete groups[k];
+      }
+    });
   });
   return groups;
 }
