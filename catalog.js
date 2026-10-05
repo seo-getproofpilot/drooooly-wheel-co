@@ -695,6 +695,49 @@
     }).join("");
   }
 
+  /* THE PHONE MENU HAD SIX LINKS AND NO BRANDS.
+
+     Chris: "on mobile version, there's less options than there is for the web
+     version. The web version shows all of his wheels, styles, and designs...
+     This should work the same on both ends."
+
+     He is describing a real gap, not a rendering difference. On a wide screen
+     the Wheels nav opens a mega-menu built by renderWheelsMenu() over all 22
+     brands. The phone menu is hand-written markup in all nine HTML files and
+     carries one link — "Wheels · all brands" to shop.html — so a phone could
+     reach the 775-wheel grid but could not reach a BRAND, and therefore could
+     not reach the Price Designs chooser with his seven machines on it at all.
+
+     It is rendered here rather than written into the nine files so it cannot
+     drift from the catalogue the way the hand-written copy did. Wheels opens
+     by default because showing the brands is the whole point; tires are a
+     shorter list behind one tap. */
+  function renderMobileNav(el) {
+    function group(label, items, open) {
+      return '<details class="mnav__grp"' + (open ? " open" : "") + ">" +
+        "<summary>" + esc(label) +
+          '<span class="mnav__n">' + items.length + "</span></summary>" +
+        '<div class="mnav__brands">' + items.join("") + "</div></details>";
+    }
+
+    var wheels = BRANDS.map(function (b) {
+      /* A build-to-order brand says so: its page is a machine chooser, not a
+         grid, and that is worth knowing before the tap. */
+      return '<a href="brand.html?brand=' + b.slug + '">' + esc(b.name) +
+        (allBuildable(b) ? '<i class="mnav__tag">build to order</i>'
+                         : '<i class="mnav__ct">' + b.models.length + "</i>") + "</a>";
+    });
+    var tires = TIRES.map(function (b) {
+      return '<a href="tire.html?brand=' + b.slug + '">' + esc(b.name) +
+        '<i class="mnav__ct">' + b.models.length + "</i></a>";
+    });
+
+    var wheelLink = el.querySelector('a[href="shop.html"]');
+    var tireLink = el.querySelector('a[href="tires.html"]');
+    if (wheelLink) wheelLink.insertAdjacentHTML("afterend", group("Shop a wheel brand", wheels, true));
+    if (tireLink) tireLink.insertAdjacentHTML("afterend", group("Shop a tire brand", tires, false));
+  }
+
   // ---- dedicated brand page: brand logo + every wheel style w/ per-wheel & set-of-4 pricing ----
   // Showroom card: wheel + name only. No prices until real dealer pricing
   // lands — invented numbers on forged wheels are a promise we can't keep.
@@ -1299,5 +1342,7 @@
     var bp = document.getElementById("brandPage"); if (bp) renderBrandPage(bp);
     var wm = document.getElementById("wheelsBrands");
     if (wm) { renderWheelsMenu(wm); bindMegaFlyouts(wm); }
+    var mn = document.getElementById("mobileNav");
+    if (mn) renderMobileNav(mn);
   });
 })();

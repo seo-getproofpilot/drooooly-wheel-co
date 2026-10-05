@@ -6445,3 +6445,53 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
     display:flex;align-items:center;justify-content:center;overflow:hidden}
   .wstage--lead img{max-height:38vh;width:auto;object-fit:contain}
 }
+
+/* ===== v407 — the phone menu was see-through, and had no brands in it =====
+   Two faults in one panel.
+
+   1. IT GHOSTED. The fill was rgba(5,5,6,.98) — two per cent of a bright page
+      bleeding through a near-black sheet, which on shop.html put "JTX FORGED"
+      and "154 PRODUCTS" faintly across the links. Chris read the result as the
+      menu not opening. It is opaque now, and it carries a shadow so the edge
+      against a light page is a real edge.
+
+   2. IT HELD SIX LINKS. renderMobileNav() in catalog.js now fills it from the
+      catalogue — 22 wheel brands and 7 tire brands — so a phone can reach a
+      brand page, and therefore the Price Designs chooser, which it could not
+      do at all before. That list is longer than a phone screen, so the panel
+      scrolls inside itself rather than running off the bottom. */
+.mobile-nav{
+  background:#07080a;
+  box-shadow:0 22px 46px rgba(0,0,0,.5);
+  max-height:calc(100dvh - 72px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+.mnav__grp{border-bottom:1px solid var(--line)}
+.mnav__grp summary{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px 2px;min-height:48px;cursor:pointer;list-style:none;
+  font-family:var(--label);font-weight:700;font-size:12px;text-transform:uppercase;
+  letter-spacing:.1em;color:#9fb6d8;
+}
+.mnav__grp summary::-webkit-details-marker{display:none}
+.mnav__grp summary::after{content:"+";font-size:17px;line-height:1;color:#7d8794;font-weight:400}
+.mnav__grp[open] summary::after{content:"\2212"}
+.mnav__n{font-family:var(--label);font-size:11px;color:#6f7985;margin-left:auto;margin-right:4px}
+.mnav__brands{display:flex;flex-direction:column;padding:0 0 10px}
+/* These sit inside .mobile-nav, whose own `a` rule is 14px uppercase with a
+   rule under it. A brand list wants to read as a list, not as six more
+   top-level destinations, so it is quieter and tighter. */
+.mobile-nav .mnav__brands a{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:0 2px 0 14px;min-height:44px;border-bottom:0;
+  font-size:13px;letter-spacing:.06em;color:#cfd5dd;text-transform:none;
+  font-family:var(--body);font-weight:500;
+}
+.mobile-nav .mnav__brands a:active{color:#fff}
+.mnav__ct{font-family:var(--label);font-size:10.5px;color:#69727e;font-style:normal;
+  font-variant-numeric:tabular-nums}
+.mnav__tag{font-family:var(--label);font-size:9.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:#0a0c0e;background:var(--blue-2,#4d9bff);
+  padding:3px 6px;border-radius:3px;font-style:normal;white-space:nowrap}
