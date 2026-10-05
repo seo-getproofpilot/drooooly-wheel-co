@@ -92,7 +92,9 @@ BRANDS.forEach(b => {
 
     if (!sizes.length) { E(where, 'no sizes at all'); return; }
 
-    /* A FINISH IS NOT OPTIONAL. Eight Raceline UTV models carried
+    /* A WHEEL'S FINISH IS NOT OPTIONAL — a TIRE's does not exist, which is
+       why this lives in the wheel loop and not beside the shared size check;
+       put in both, it called every tread a fault. Eight Raceline UTV models carried
        `finishes: null` from tools/scrape-utv.js, so their cards offered no
        colour at all and their wheel pages had nothing to put in the finish
        row. Raceline publish the finish as the third segment of every product
@@ -218,13 +220,6 @@ TIRES.forEach(b => {
     const sizes = m.sizes || [];
     if (!sizes.length) { E(where, 'no sizes at all'); return; }
 
-    /* A FINISH IS NOT OPTIONAL. Eight Raceline UTV models carried
-       `finishes: null` from tools/scrape-utv.js, so their cards offered no
-       colour at all and their wheel pages had nothing to put in the finish
-       row. Raceline publish the finish as the third segment of every product
-       title, so it was recoverable — but nothing was watching for its
-       absence. */
-    if (!(m.finishes || []).length) E(where, 'no finishes listed');
     (treadNames[m.tread] = treadNames[m.tread] || []).push(where);
 
     const rims = [];
