@@ -1376,5 +1376,18 @@
     if (wm) { renderWheelsMenu(wm); bindMegaFlyouts(wm); }
     var mn = document.getElementById("mobileNav");
     if (mn) renderMobileNav(mn);
+
+    /* THE HEADLINE COUNT, FROM THE CATALOGUE RATHER THAN FROM MEMORY.
+       It read "22 Forged Brands · 780+ Models" — two claims, both drifting.
+       Only 12 of the 22 brands are forged; the rest are cast and flow-formed
+       off-road and HD lines, and saying otherwise to a rep from one of them
+       is an odd way to open. And 780+ became wrong the moment 93
+       discontinued wheels came off. Rendered, so it cannot go stale again. */
+    var util = document.querySelector(".cine__util");
+    if (util) {
+      var nModels = BRANDS.reduce(function (a, b) { return a + b.models.length; }, 0);
+      util.textContent = BRANDS.length + " wheel brands \u00b7 " + nModels +
+        " models \u00b7 Single, dually, super single & side-by-side";
+    }
   });
 })();

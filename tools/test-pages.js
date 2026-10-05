@@ -362,6 +362,37 @@ section('the wheel page does not claim how a wheel was made');
   ok("no brand inherits JTX's finish list", finishLeak, []);
 }
 
+section('the hero headline counts what the catalogue actually holds');
+{
+  /* It read "22 Forged Brands · 780+ Models". Both halves were wrong: 10 of
+     the 22 brands are cast or flow-formed, which is an odd thing to get wrong
+     in front of a rep from one of them, and 780+ became false the moment 93
+     discontinued wheels came off. catalog.js now renders this line from
+     brands.js; the markup carries the same figures for the moment before JS
+     runs, and this test is what keeps the two honest. */
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const line = (/class="cine__util[^"]*"[^>]*>([^<]*)</.exec(html) || [])[1] || '';
+  const models = BRANDS.reduce((a, b) => a + b.models.length, 0);
+  const forged = BRANDS.filter(b => b.kind === 'Forged').length;
+
+  ok('the brand count is the real one', /\b22 wheel brands\b/.test(line), true);
+  ok('the model count is the real one',
+    new RegExp('\\b' + models + ' models\\b').test(line), true);
+  ok('it does not call every brand forged',
+    forged === BRANDS.length || !/forged/i.test(line), true);
+
+  /* and each configuration it names is one some wheel is actually built in */
+  const have = {};
+  BRANDS.forEach(b => (b.models || []).forEach(m =>
+    (m.configs || []).forEach(c => { have[c] = true; })));
+  const claimed = [];
+  if (/\bsingle\b/i.test(line) && !have.single) claimed.push('single');
+  if (/\bdually\b/i.test(line) && !have.dually) claimed.push('dually');
+  if (/super single/i.test(line) && !have['super single']) claimed.push('super single');
+  if (/side-by-side|utv/i.test(line) && !have.utv) claimed.push('side-by-side');
+  ok('every configuration the hero names exists in the catalogue', claimed, []);
+}
+
 section('the hand-written homepage lineup agrees with the catalogue');
 {
   /* The eight cards under "Wheels that hit different" are literal markup, not
