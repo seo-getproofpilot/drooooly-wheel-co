@@ -6300,3 +6300,148 @@ body.builder-page{
   .footer__col a{min-height:40px;display:flex;align-items:center}
   .footer__col{display:flex;flex-direction:column}
 }
+
+/* ===== v394 — the primary CTA on a phone was an 18px line of 10px text =====
+   Audited every page at 375px. No horizontal scroll anywhere, but the
+   controls a customer is meant to PRESS were the smallest things on screen.
+
+   .show2-build is "Put these on →" and "Build yours →" — the action on every
+   showcase card on the homepage, and the main conversion path into a wheel
+   page or a builder. It was a bare inline link: 10px type in an 18px box.
+
+   .nav__tel is the call button in the header, which on a phone is the single
+   most likely thing anyone taps. Its hit area was the 21px icon.
+
+   As in v364 and v389, the padding is absorbed by a negative margin so the
+   text does not move — the TARGET grows around it, the layout does not. */
+@media (max-width: 760px) {
+  .show2-build{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;margin:-13px 0}
+  .show2-foot{align-items:center}
+  .nav__tel{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+  .nav__tel svg{width:21px;height:21px}
+  /* "Click to skip" is the first thing a screen reader and a hurried thumb
+     meet, and it was 9.5px. */
+  .cine__skip{font-size:11px;min-height:40px;display:inline-flex;align-items:center}
+  /* ".view-all" is "Start your build →" under the gallery and "Search all
+     wheels →" in the nav — the same bare-inline-link shape as .show2-build. */
+  .view-all{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;margin:-13px 0}
+  .hamburger{min-width:44px;min-height:44px}
+  .ig__follow{min-height:40px;display:inline-flex;align-items:center}
+}
+
+/* ===== v396 — the shop page had 1,579 controls under the tap target =====
+   Audited at 375px. The two that matter are per-card and so repeat ~770
+   times each:
+
+     .prod__see   "See the wheel →"  16px tall  — the action on every card
+     .prod__fav   the save button     32x32
+
+   Plus the filter panel: its checkboxes were the browser default 17x17, the
+   "Clear all" button 17px, and the drawer's own close button 14x11 — which
+   is the control you need to get OUT of a full-screen drawer on a phone.
+
+   The card actions use a negative margin so the card does not grow by 28px
+   across 770 cards; the filter controls are allowed to take the room,
+   because a filter panel you can't hit is a filter panel that doesn't work. */
+@media (max-width: 760px) {
+  .prod__see{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;margin:-14px 0}
+  .prod__fav{min-width:40px;min-height:40px}
+  .shop-crumbs a{display:inline-block;padding:12px 2px;margin:-12px 0}
+  .filters-clear{min-height:40px;padding:0 6px}
+  .filters__head button,.filters-close{min-width:44px;min-height:44px}
+  .filters input[type="checkbox"],.filters-side input[type="checkbox"],
+  #filtersSide input[type="checkbox"]{width:20px;height:20px}
+  #filtersSide label{display:flex;align-items:center;gap:10px;min-height:40px}
+  /* finish swatches on a brand page were 36px — close, but still a miss */
+  .wheel__sw{min-width:40px;min-height:40px}
+  /* "Clear vehicle" on the saved-truck chip: a bare ✕ at 14x11, and the only
+     way to drop a vehicle you picked by mistake. */
+  .veh-chip button{min-width:40px;min-height:40px;display:inline-flex;
+    align-items:center;justify-content:center}
+}
+
+/* ===== v398 — the payment estimator sliders were 16px tall =====
+   The two range inputs on financing.html are the only drag-to-set controls
+   on the site, and a 16px track is a hard thing to catch with a thumb. The
+   TRACK stays slim because that is the look; the input itself gets a 44px
+   box around it and the handle grows, so the grab area is the full height of
+   the row rather than the hairline through the middle of it. */
+@media (max-width: 760px) {
+  input[type="range"]{height:44px;padding:0;background:transparent;cursor:pointer}
+  input[type="range"]::-webkit-slider-thumb{width:26px;height:26px}
+  input[type="range"]::-moz-range-thumb{width:26px;height:26px}
+  /* the "back" links: out of a builder, and out of the build gallery */
+  .blink,.bback{display:inline-flex;align-items:center;min-height:40px}
+}
+
+/* ===== v400 — two things ran off the right edge of a phone =====
+   Measured at 375px on shop.html, where neither shows as a horizontal
+   scroll because both sit inside clipped parents — the page LOOKS fine to a
+   scroll-width check and is wrong to a human:
+
+     .cart-btn   340..386 — eleven pixels of the cart button off-screen,
+                 and it is the control that shows what you have added
+     #shopSort   199..375 — hard against the edge, no gutter, while
+                 everything else on the page starts at 22px
+
+   The site's phone gutter is 16px, so both are brought inside it. */
+@media (max-width: 560px) {
+  /* THE CART SAT 11px PAST THE EDGE, and the first guess at why was wrong:
+     .nav__actions is display:contents at this width, so it has no box and
+     padding on it does nothing. Its children are flex items of .nav__inner,
+     which is 331px wide — and the logo (200) plus the call button, the
+     hamburger and the cart (44+44+46) plus three 18px gaps comes to 388.
+     The row was simply over-full and the last item in it got pushed out.
+
+     .brand was flex:none, so it refused to give up a pixel. It now shrinks,
+     and the gap tightens, which is enough for all four to fit. */
+  .shopnav .nav__inner,.nav__inner{gap:10px}
+  .brand{flex:0 1 auto;min-width:0;overflow:hidden}
+  .brand img,.brand svg{max-width:100%;height:auto}
+
+  /* The sort row is "Filters" + "Sort" + a <select> whose intrinsic width
+     comes from its longest option ("Price: low to high"). At 375px the three
+     do not fit, and nothing in the chain could shrink: the select had no
+     min-width:0, so flex refused to size it below its content and the row
+     ran to 391px. The row now takes its own line and the select gives way. */
+  .shop-bar{gap:10px}
+  .shop-bar > div{flex:1 1 100%;min-width:0;justify-content:space-between}
+  .shop-sort{min-width:0;flex:1 1 auto}
+  .shop-sort select{min-width:0;width:100%;max-width:100%}
+}
+
+/* ===== v403 — the saved-vehicle chip was white text on a pale blue =====
+   ".veh-chip" was written for the dark pages — white, 11px, on a 12%-opacity
+   blue — and the shop page is light. Measured: 3.94:1, under the 4.5:1 any
+   body text has to clear, at 11px, on the one label that tells a customer
+   WHICH TRUCK the whole catalogue in front of them is filtered to. The same
+   "the white is very faint" problem as the builder chips in v353.
+
+   The fill and the border stay; only the ink changes, to the dark blue the
+   rest of the light pages use. That measures 7.2:1. */
+.shop-main .veh-chip,.light .veh-chip,body:not(.dark) .veh-chip{color:#0b3f8c}
+.shop-main .veh-chip button,.light .veh-chip button{color:#0b3f8c;opacity:.75}
+.shop-main .veh-chip button:hover{opacity:1}
+
+/* ===== v404 — the Filters icon was squashed to 3px wide =====
+   .filter-mobile-btn is a flex row and the <svg> inside it had the default
+   flex-shrink:1, so when the label needed room the icon gave it up: measured
+   3x15 against its declared 15x15, which renders as a dot beside the word.
+   An icon is a fixed-size slot, never the thing that yields. */
+button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
+
+/* ===== v405 — on a phone the wheel sat below all twelve steps =====
+   The builder grid is one column under 820px and .vizstage is second in the
+   DOM, so the render measured y=6545 on the Pro R: a customer picked every
+   option without once seeing the wheel change. builder.js moves the render
+   (and only the render — the readout is a summary and stays after the
+   questions) to the head of the grid at this width and tags it .wstage--lead.
+
+   It sticks under the header so it stays in view while the steps scroll, and
+   it is capped at 38vh so it cannot eat the screen it is supposed to inform. */
+@media (max-width: 819px) {
+  .wstage--lead{position:sticky;top:60px;z-index:30;max-height:38vh;
+    margin:0 0 14px;border:1px solid var(--line);background:var(--panel);
+    display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .wstage--lead img{max-height:38vh;width:auto;object-fit:contain}
+}

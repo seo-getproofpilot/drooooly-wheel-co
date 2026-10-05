@@ -690,7 +690,38 @@
     layers: layerPlan
   };
 
+  /* ON A PHONE THE WHEEL HAS TO BE ABOVE THE QUESTIONS.
+
+     The grid is one column at this width and .vizstage comes second in the
+     DOM, so the render ended up 6,545px down the page — below all twelve
+     steps. A customer configured the entire wheel without ever seeing it
+     change, which is the one thing this page exists to do.
+
+     Only the RENDER moves. The rest of .vizstage — the running total, the
+     build readout, the CTA — is a summary and belongs after the questions,
+     so moving the whole aside would put the summary before the thing it
+     summarises. The element is moved rather than duplicated: two copies
+     would mean paintLayers() keeping two stacks of nine images in step.
+
+     Reversible, because the layout flips back above 820px. */
+  function placeStage() {
+    var grid = document.querySelector(".vizgrid--build");
+    var stage = document.getElementById("bStage");
+    var aside = document.querySelector(".vizstage");
+    if (!grid || !stage || !aside) return;
+    var phone = window.matchMedia("(max-width: 819px)").matches;
+    if (phone && stage.parentNode !== grid) {
+      grid.insertBefore(stage, grid.firstChild);
+      stage.classList.add("wstage--lead");
+    } else if (!phone && stage.parentNode === grid) {
+      aside.insertBefore(stage, aside.firstChild);
+      stage.classList.remove("wstage--lead");
+    }
+  }
+
   prefillLug();
   render();
+  placeStage();
+  window.addEventListener("resize", placeStage);
   if (window.__observeFades) window.__observeFades();
 })();
