@@ -615,8 +615,15 @@ section("catalogue integrity");
   const ace = models.find(x => x.b.slug === "jtx" && x.m.model === "Ace");
   ok("a 20-through-30 wheel is filed under 20 as well as 26",
      bucketsFor(ace.m).sort().join(","), "20,22,24,26");
+  /* PROPORTIONAL, NOT A HEADCOUNT. This was `> 600`, calibrated against a
+     775-model catalogue, so it failed the moment 93 discontinued models were
+     pruned — on a catalogue where the filter was working perfectly. What it
+     is actually guarding is the bug it was written for: the 22" filter
+     returning 34 wheels when 693 are built in a 22, because each model was
+     filed under its largest diameter only. That is a SHARE, not a count. */
   const twentyTwo = models.filter(x => bucketsFor(x.m).indexOf("22") > -1).length;
-  ok("the 22-inch bucket holds hundreds, not dozens", twentyTwo > 600, true);
+  ok("the 22-inch bucket holds most of the catalogue, not a corner of it",
+     twentyTwo > models.length * 0.6, true);
 
   /* Every model must be reachable: the shop card links by exact model name. */
   const unreachable = models.filter(x => {
