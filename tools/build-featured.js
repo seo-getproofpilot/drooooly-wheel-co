@@ -288,6 +288,13 @@ for (const file of files) {
       });
       if (next.join() !== (m.sizes || []).join()) stamped++;
       m.sizes = next;
+      /* Record WHERE they came from, not just what they are. Without this the
+         dealer sheet counts the model as unsourced and tells the brand their
+         own published sizes are our guesswork — which is what it did to JTX
+         for all 154 models until 2026-10-05. A model that fell through to the
+         `!out.size` branch above is left without it, correctly: nothing was
+         published for that style and the gap should stay visible. */
+      m.sizeSource = slug;
     });
     console.log(`  sizes: ${stamped} model(s) restamped from ${slug}-sizes.json` +
       (unchanged ? `, ${unchanged} left as-is (no published list)` : ""));

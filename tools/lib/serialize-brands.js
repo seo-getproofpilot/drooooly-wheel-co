@@ -34,7 +34,9 @@ const FIELDS = [
   'priceSet',
   'priceSetQty',
   'bolts',
-  'sizeSource',   // the brand slug under data/sizes/ these sizes came from
+  'sizeSource',   // brand slug whose own published spec data these sizes came
+                  // from — data/sizes/<slug>.json, or data/specs/<slug>-sizes.json
+                  // for the brands scraped before that directory existed
   'builder',      // makes the model configurable — links to build.html
   'short',
   'photo',
