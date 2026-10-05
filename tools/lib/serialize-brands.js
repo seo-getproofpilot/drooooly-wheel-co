@@ -25,6 +25,7 @@ const FIELDS = [
   'configs',      // "single" | "dually" | "super single" | "utv"
   'sizes',        // "DIAxWIDTH", ascending; never a bare diameter
   'finishes',
+  'finishSource', // where a finish list was read from, when it was sourced
   'img',
   'imgSource',    // the manufacturer page this photo was taken from, where a
                   // generic stand-in was replaced (tools/fix-wheel-art.js)

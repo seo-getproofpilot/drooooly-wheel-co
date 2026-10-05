@@ -91,6 +91,14 @@ BRANDS.forEach(b => {
     const cfg = m.configs || [];
 
     if (!sizes.length) { E(where, 'no sizes at all'); return; }
+
+    /* A FINISH IS NOT OPTIONAL. Eight Raceline UTV models carried
+       `finishes: null` from tools/scrape-utv.js, so their cards offered no
+       colour at all and their wheel pages had nothing to put in the finish
+       row. Raceline publish the finish as the third segment of every product
+       title, so it was recoverable — but nothing was watching for its
+       absence. */
+    if (!(m.finishes || []).length) E(where, 'no finishes listed');
     lists[JSON.stringify(sizes)] = (lists[JSON.stringify(sizes)] || 0) + 1;
 
     /* 1 — a size is a diameter AND a width */
@@ -209,6 +217,14 @@ TIRES.forEach(b => {
     const where = b.slug + '/' + m.model;
     const sizes = m.sizes || [];
     if (!sizes.length) { E(where, 'no sizes at all'); return; }
+
+    /* A FINISH IS NOT OPTIONAL. Eight Raceline UTV models carried
+       `finishes: null` from tools/scrape-utv.js, so their cards offered no
+       colour at all and their wheel pages had nothing to put in the finish
+       row. Raceline publish the finish as the third segment of every product
+       title, so it was recoverable — but nothing was watching for its
+       absence. */
+    if (!(m.finishes || []).length) E(where, 'no finishes listed');
     (treadNames[m.tread] = treadNames[m.tread] || []).push(where);
 
     const rims = [];
