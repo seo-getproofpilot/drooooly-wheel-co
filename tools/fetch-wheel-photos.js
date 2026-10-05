@@ -28,6 +28,20 @@
    Every fetch records `imgSource`, so a photo with no recorded source is
    visibly a photo nobody checked.
 
+   NOT RESOLVED, AND WHY. Method and Raceline both run Shopify, so their whole
+   catalogue is one feed and the photographs are one fetch away — but their
+   naming has drifted from ours and the gap cannot be closed by rule. We list
+   Method's "305 NV" and "MR309 Grid"; their feed has "305 - Markdown",
+   "305-HD Trailer Wheel" and no 309 at all. We list Raceline's "RT951F Forged
+   Beadlock" and "Defender"; their feed has "RT951M | RYNO BEADLOCK" and no
+   Defender. An exact match finds nothing and a loose one would hand a model
+   its neighbour's picture, so a Shopify resolver for these two was written,
+   measured at zero matches, and removed rather than left in to guess.
+
+   Those, and the brands whose sites publish nothing a fetch can reach, want
+   the manufacturer's media kit — which is a question for the dealer
+   application, not for a scraper.
+
    Usage:  node tools/fetch-wheel-photos.js [--brand <slug>] [--dry] [--limit N]
            --dry  resolve and report, download nothing
    Writes: assets/wheels/<brand>/<model>.png, then brands.js
@@ -130,6 +144,40 @@ const RESOLVE = {
       const m = html.match(/https:\/\/hardrockoffroad\.com\/wp-content\/uploads\/[^"']*?\.(?:png|jpg)/gi) || [];
       const prod = m.filter(u => !/open-graph|logo|icon|banner|favicon/i.test(u));
       return prod[0] || ogImage(html);
+    }
+  },
+
+  /* Hostile render their collections client-side, so the product URLs were
+     captured once into data/pages/hostile.json. Each URL carries the part
+     code, which is the only thing separating their three Sprockets (H108,
+     H401, HF108) and their two Titans (H127, HF127). The render itself comes
+     from iconfigurators, and its filename repeats the code — so page and
+     filename have to agree before the photo is used. */
+  'hostile': {
+    direct: function (model) {
+      let index;
+      try { index = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/pages/hostile.json'), 'utf8')); }
+      catch (e) { return null; }
+      const code = (String(model).toUpperCase().match(/\bH[F]?\d{2,3}\b/) || [])[0];
+      if (!code) return null;
+      const hit = index.urls.filter(function (u) {
+        const m = /hostile-([a-z]{0,2}\d{2,3})-/.exec(u);
+        return m && m[1].toUpperCase() === code;
+      })[0];
+      if (!hit) return null;
+      const page = 'https://hostilewheels.com' + hit;
+      const html = get(page);
+      if (!html) return null;
+      /* The markup writes these without a scheme, and serves both a large
+         .png and an xlarge .jpg; take the png where there is one. */
+      const imgs = (html.match(/(?:https?:)?\/\/images\.iconfigurators\.app\/images\/wheels\/(?:x?large)\/[^"'\s)]+\.(?:png|jpg)/gi) || [])
+        .map(u => u.replace(/^(?:https?:)?\/\//, 'https://'));
+      imgs.sort(function (a, b) { return (/\.png$/i.test(b) ? 1 : 0) - (/\.png$/i.test(a) ? 1 : 0); });
+      /* the filename must name the same part the page does */
+      const named = imgs.filter(u => norm(u).indexOf(norm(code)) > -1);
+      if (!named.length) return null;
+      return { url: named[0], page: page,
+               why: 'Hostile\'s own render, filename and page URL both naming ' + code };
     }
   },
 

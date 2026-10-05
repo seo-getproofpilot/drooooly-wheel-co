@@ -1,0 +1,29 @@
+{
+ "brand": "hostile",
+ "captured": "2026-10-05",
+ "source": "https://hostilewheels.com — the hostile, forged, dually, utv, desert, van and baja collection pages",
+ "note": "Their product URLs carry the part code, which is what separates the three Sprockets (H108, H401, HF108) and the two Titans (H127, HF127) from each other. Captured because the collection pages are rendered client-side and a fetch sees nothing.",
+ "urls": [
+"/wheel/10664/hostile-hf02-superbeast/","/wheel/10938/hostile-hf04-punisher/","/wheel/11717/hostile-hf05-atomic/",
+"/wheel/11798/hostile-hf06-chaos/","/wheel/12547/hostile-h116-jigsaw/","/wheel/13714/hostile-h120-vulcan/",
+"/wheel/13856/hostile-hf07-tomahawk/","/wheel/13857/hostile-hf08-savage/","/wheel/14408/hostile-h316-jigsaw-beadlock/",
+"/wheel/14409/hostile-h309-alpha-beadlock/","/wheel/14612/hostile-hf11-boost-forged/","/wheel/14741/hostile-h123-typhoon/",
+"/wheel/14742/hostile-h124-lunatic/","/wheel/15014/hostile-hf12-blaster/","/wheel/15081/hostile-h125-pismo-utv/",
+"/wheel/15148/hostile-h325-pismo/","/wheel/15216/hostile-h126-maniac/","/wheel/15217/hostile-h127-titan/",
+"/wheel/15218/hostile-h128-diablo/","/wheel/15219/hostile-h129-mojave/","/wheel/15220/hostile-h130-crandon/",
+"/wheel/15221/hostile-h401-sprocket/","/wheel/15222/hostile-h402-diablo/","/wheel/15442/hostile-hf15-phantom/",
+"/wheel/15444/hostile-hf17-trident/","/wheel/15445/hostile-hf18-throne/","/wheel/15446/hostile-hf19-freedom/",
+"/wheel/15449/hostile-hf108-sprocket/","/wheel/15450/hostile-hf116-jigsaw/","/wheel/15451/hostile-hf127-titan/",
+"/wheel/15862/hostile-hf13-outlaw/","/wheel/15863/hostile-hf14-holeshot/","/wheel/16169/hostile-h131-syclone/",
+"/wheel/16170/hostile-h132-anvil/","/wheel/16171/hostile-h133-glamis/","/wheel/16172/hostile-h134-condor/",
+"/wheel/16173/hostile-h135-ridgecrest/","/wheel/16174/hostile-h333-glamis-beadlock/","/wheel/16513/hostile-h136-roam-van/",
+"/wheel/16680/hostile-h134-condor-van/","/wheel/16826/hostile-hf22-rival/","/wheel/16827/hostile-hf32-rival-beadlock/",
+"/wheel/16851/hostile-h403-kodiak/","/wheel/16852/hostile-h142-warrior/","/wheel/16853/hostile-h141-vortex/",
+"/wheel/16854/hostile-h140-twister/","/wheel/16855/hostile-h138-crawler/","/wheel/16856/hostile-h137-battle/",
+"/wheel/16895/hostile-hf23-baja-beadlock/","/wheel/17407/hostile-hf26-gecko/","/wheel/17408/hostile-h150-apex/",
+"/wheel/17472/hostile-h404-ghost/","/wheel/17474/hostile-h139-dominator/","/wheel/17475/hostile-h143-rampage/",
+"/wheel/18430/hostile-h144-justice/","/wheel/18431/hostile-h201-jackal/","/wheel/18433/hostile-h301-jackal-beadlock/",
+"/wheel/18434/hostile-h601-rapture/","/wheel/18438/hostile-h350-apex-beadlock/","/wheel/18655/hostile-hf28-hurricane/",
+"/wheel/7288/hostile-h108-sprocket/","/wheel/8858/hostile-h109-alpha/"
+ ]
+}
