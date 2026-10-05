@@ -1,0 +1,607 @@
+{
+ "brand": "hardrock",
+ "captured": "2026-10-05",
+ "source": "https://hardrockoffroad.com — the SPECIFICATIONS TABLE on each /wheels/<code>/ page",
+ "note": "Keyed on the part code in our own model name. Their slug sometimes carries a trailing letter ours does not, so each code is tried bare and with the suffixes they use.",
+ "models": [
+  {
+   "match": "H504 Slammer Xposed",
+   "titles": [
+    "H504 Slammer Xposed"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x12",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x120",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h504/"
+   ]
+  },
+  {
+   "match": "H700",
+   "titles": [
+    "H700"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10",
+     "24x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139.7",
+    "5x150",
+    "6x120",
+    "6x135",
+    "6x139.7",
+    "8x165",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h700/"
+   ]
+  },
+  {
+   "match": "H704",
+   "titles": [
+    "H704"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h704/"
+   ]
+  },
+  {
+   "match": "H705",
+   "titles": [
+    "H705"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h705/"
+   ]
+  },
+  {
+   "match": "H707",
+   "titles": [
+    "H707"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h707/"
+   ]
+  },
+  {
+   "match": "H708",
+   "titles": [
+    "H708"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h708/"
+   ]
+  },
+  {
+   "match": "H709",
+   "titles": [
+    "H709"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x139",
+    "5x139.7",
+    "5x150",
+    "6x120",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h709/"
+   ]
+  },
+  {
+   "match": "H710",
+   "titles": [
+    "H710"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10",
+     "20x12"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h710/"
+   ]
+  },
+  {
+   "match": "H711",
+   "titles": [
+    "H711"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h711/"
+   ]
+  },
+  {
+   "match": "H712",
+   "titles": [
+    "H712"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h712/"
+   ]
+  },
+  {
+   "match": "H713",
+   "titles": [
+    "H713"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h713/"
+   ]
+  },
+  {
+   "match": "H714",
+   "titles": [
+    "H714"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x120",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h714/"
+   ]
+  },
+  {
+   "match": "H715",
+   "titles": [
+    "H715"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h715/"
+   ]
+  },
+  {
+   "match": "H716",
+   "titles": [
+    "H716"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h716/"
+   ]
+  },
+  {
+   "match": "H717",
+   "titles": [
+    "H717"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h717/"
+   ]
+  },
+  {
+   "match": "H718",
+   "titles": [
+    "H718"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "5x150",
+    "6x135",
+    "8x165.1",
+    "8x170"
+   ],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h718/"
+   ]
+  },
+  {
+   "match": "H905",
+   "titles": [
+    "H905"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h905/"
+   ]
+  },
+  {
+   "match": "H906",
+   "titles": [
+    "H906"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h906/"
+   ]
+  },
+  {
+   "match": "H907",
+   "titles": [
+    "H907"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h907/"
+   ]
+  },
+  {
+   "match": "H908",
+   "titles": [
+    "H908"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h908/"
+   ]
+  },
+  {
+   "match": "H909",
+   "titles": [
+    "H909"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h909/"
+   ]
+  },
+  {
+   "match": "H910",
+   "titles": [
+    "H910"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h910/"
+   ]
+  },
+  {
+   "match": "H911",
+   "titles": [
+    "H911"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h911/"
+   ]
+  },
+  {
+   "match": "H912",
+   "titles": [
+    "H912"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h912/"
+   ]
+  },
+  {
+   "match": "H913",
+   "titles": [
+    "H913"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://hardrockoffroad.com/wheels/h913/"
+   ]
+  }
+ ]
+}

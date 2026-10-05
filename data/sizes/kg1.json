@@ -1,0 +1,936 @@
+{
+ "brand": "kg1",
+ "captured": "2026-10-05",
+ "source": "https://kg1forged.com — the \"Available Size\" list on each /project/ page",
+ "note": "Their project URLs come in several shapes, so the sitemap is indexed by part code and by slug word and ours is looked up by code first, name second. Lug COUNTS are published but not bolt patterns, so no bolts are recorded.",
+ "models": [
+  {
+   "match": "KC070 Tusk",
+   "titles": [
+    "KC070 Tusk"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/tusk/"
+   ]
+  },
+  {
+   "match": "KC073 Grinder",
+   "titles": [
+    "KC073 Grinder"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/grinder/"
+   ]
+  },
+  {
+   "match": "KC076 Gotcha",
+   "titles": [
+    "KC076 Gotcha"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/gotcha/"
+   ]
+  },
+  {
+   "match": "KC078 Lush",
+   "titles": [
+    "KC078 Lush"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/lush-2/"
+   ]
+  },
+  {
+   "match": "KC079 Navi",
+   "titles": [
+    "KC079 Navi"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/navi/"
+   ]
+  },
+  {
+   "match": "KC080 Trance",
+   "titles": [
+    "KC080 Trance"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/trance/"
+   ]
+  },
+  {
+   "match": "KC088 Joust",
+   "titles": [
+    "KC088 Joust"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/joust/"
+   ]
+  },
+  {
+   "match": "KC092 Splice",
+   "titles": [
+    "KC092 Splice"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/splice-2/"
+   ]
+  },
+  {
+   "match": "KC093 Deadset",
+   "titles": [
+    "KC093 Deadset"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/deadset/"
+   ]
+  },
+  {
+   "match": "KC114 Joker",
+   "titles": [
+    "KC114 Joker"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/joker/"
+   ]
+  },
+  {
+   "match": "KC1001 Hardtail",
+   "titles": [
+    "KC1001 Hardtail"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/hardtail/"
+   ]
+  },
+  {
+   "match": "KC1021 Spaded",
+   "titles": [
+    "KC1021 Spaded"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/spaded/"
+   ]
+  },
+  {
+   "match": "KD001 Master",
+   "titles": [
+    "KD001 Master"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd001/"
+   ]
+  },
+  {
+   "match": "KD002 Honor",
+   "titles": [
+    "KD002 Honor"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22x12",
+     "24x8.25",
+     "24x12",
+     "24x14",
+     "26x8.25",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd002/"
+   ]
+  },
+  {
+   "match": "KD004 Duel",
+   "titles": [
+    "KD004 Duel"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22x12",
+     "24x8.25",
+     "24x12",
+     "24x14",
+     "26x8.25",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd004/"
+   ]
+  },
+  {
+   "match": "KD005 Razor",
+   "titles": [
+    "KD005 Razor"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22x12",
+     "24x8.25",
+     "24x12",
+     "24x14",
+     "26x8.25",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x8.25",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd005/"
+   ]
+  },
+  {
+   "match": "KD006 Blitz",
+   "titles": [
+    "KD006 Blitz"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd006/"
+   ]
+  },
+  {
+   "match": "KD014 Trident",
+   "titles": [
+    "KD014 Trident"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "22x12",
+     "24x8.25",
+     "24x12",
+     "24x14",
+     "26x8.25",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x8.25",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/trident-d-kd014/"
+   ]
+  },
+  {
+   "match": "KD019 Torture",
+   "titles": [
+    "KD019 Torture"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/torture/"
+   ]
+  },
+  {
+   "match": "KD023 Bender",
+   "titles": [
+    "KD023 Bender"
+   ],
+   "byConfig": {
+    "single": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/bender-ku023/"
+   ]
+  },
+  {
+   "match": "KD038 Javelin",
+   "titles": [
+    "KD038 Javelin"
+   ],
+   "byConfig": {
+    "single": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/ku038-javelin/"
+   ]
+  },
+  {
+   "match": "KD049 Jacked",
+   "titles": [
+    "KD049 Jacked"
+   ],
+   "byConfig": {
+    "single": [
+     "22x10",
+     "22x12",
+     "22x14",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/jacked/"
+   ]
+  },
+  {
+   "match": "KD051 Vegas",
+   "titles": [
+    "KD051 Vegas"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd051/"
+   ]
+  },
+  {
+   "match": "KD054 Glaze",
+   "titles": [
+    "KD054 Glaze"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/glaze-2/"
+   ]
+  },
+  {
+   "match": "KD056 Elevate",
+   "titles": [
+    "KD056 Elevate"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/elevate/"
+   ]
+  },
+  {
+   "match": "KD059 Seismic",
+   "titles": [
+    "KD059 Seismic"
+   ],
+   "byConfig": {
+    "single": [
+     "22x7",
+     "24x7",
+     "26x7"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/seismic-2/"
+   ]
+  },
+  {
+   "match": "KD060 Czar",
+   "titles": [
+    "KD060 Czar"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/czar/"
+   ]
+  },
+  {
+   "match": "KD064 Taze",
+   "titles": [
+    "KD064 Taze"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/taze/"
+   ]
+  },
+  {
+   "match": "KD066 Glitz",
+   "titles": [
+    "KD066 Glitz"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/glitz-2/"
+   ]
+  },
+  {
+   "match": "KD081 Buckler",
+   "titles": [
+    "KD081 Buckler"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/buckler-2/"
+   ]
+  },
+  {
+   "match": "KD090 Allure",
+   "titles": [
+    "KD090 Allure"
+   ],
+   "byConfig": {
+    "single": [
+     "22x12",
+     "22x14",
+     "24x10",
+     "24x12",
+     "24x14",
+     "26x10",
+     "26x12",
+     "26x14",
+     "26x16",
+     "28x14",
+     "28x16",
+     "30x16"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/allure-2/"
+   ]
+  },
+  {
+   "match": "KD115 Guilttrip",
+   "titles": [
+    "KD115 Guilttrip"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/guilttrip-2/"
+   ]
+  },
+  {
+   "match": "Luxor (KD016)",
+   "titles": [
+    "Luxor (KD016)"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd016/"
+   ]
+  },
+  {
+   "match": "Orbital (KD008)",
+   "titles": [
+    "Orbital (KD008)"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd008/"
+   ]
+  },
+  {
+   "match": "Sarge (KD003)",
+   "titles": [
+    "Sarge (KD003)"
+   ],
+   "byConfig": {
+    "single": [
+     "22x8.25",
+     "24x8.25",
+     "26x8.25",
+     "28x8.25",
+     "30x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://kg1forged.com/project/kd003/"
+   ]
+  }
+ ]
+}

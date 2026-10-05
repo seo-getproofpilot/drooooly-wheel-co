@@ -533,6 +533,176 @@ function wheelProsBrand(slug) {
   };
 }
 
+/* ------------------------------------------------------------ kg1 ---
+   WordPress. Each wheel is a "project" keyed on its part code, and the sizes
+   sit under a plain "Available Size" heading using a MULTIPLICATION SIGN
+   rather than an x:
+
+     Available Size 20×9 I 20×10 I 20×12 I 20×14 22×10 I 22×12 ...
+     [ 5H ] [ 6H ] [ 8H ]
+
+   Our names carry the code in two shapes — "KD001 Master" and
+   "Luxor (KD016)" — and both reduce to the same /project/<code>/.
+
+   Twelve of our thirty-five claimed nothing but 8.25" rears on a model
+   flagged single, which is LAUNCH-CHECKLIST 4.12's single biggest brand. */
+function kg1() {
+  const names = ourModels('kg1');
+  console.log('  ' + names.length + ' models in our catalogue');
+
+  /* THEIR URLS ARE NOT ONE SHAPE. The sitemap carries /project/kf005/,
+     /project/kc003/, /project/ku038-javelin/ and
+     /project/kg1-forged-elevate-dually-series/ side by side, so guessing
+     "/project/<code>/" found 7 of 35. Index every project URL under both the
+     part code it contains and the words in its slug, then look ours up by
+     code first and by name second. */
+  const byCode = {}, byName = {};
+  locs(get('https://kg1forged.com/dt_portfolio-sitemap.xml'))
+    .filter(u => /\/project\/.+/.test(u))
+    .forEach(function (u) {
+      const slug = (u.match(/\/project\/([^/]+)/) || [])[1];
+      if (!slug) return;
+      const code = (slug.toUpperCase().match(/\bK[A-Z]\d{3,4}\b/) || [])[0];
+      if (code && !byCode[code]) byCode[code] = u;
+      slug.split('-').forEach(function (w) {
+        if (w.length > 3 && !/^(kg1|forged|series|dually)$/.test(w) && !byName[w]) byName[w] = u;
+      });
+    });
+
+  const out = [];
+  let hit = 0;
+  names.forEach(function (name) {
+    const code = (String(name).toUpperCase().match(/\bK[A-Z]\d{3,4}\b/) || [])[0];
+    const word = String(name).toLowerCase().replace(/\(.*?\)/g, '')
+      .split(/\s+/).filter(w => w.length > 3 && !/^k[a-z]\d/.test(w))[0];
+    const tries = [];
+    if (code) {
+      if (byCode[code]) tries.push(byCode[code]);
+      tries.push('https://kg1forged.com/project/' + code.toLowerCase() + '/');
+    }
+    if (word && byName[word]) tries.push(byName[word]);
+
+    const sizes = {};
+    let used = tries[0] || '';
+    for (let i = 0; i < tries.length; i++) {
+      const h = get(tries[i]);
+      if (!h) { sleep(250); continue; }
+      const text = textOf(h);
+      /* ONLY the run that follows "Available Size" — the page also carries a
+         vehicle gallery full of unrelated numbers, which is where the bogus
+         "20x10" came from once the separator had been destroyed. */
+      const at = text.search(/Available\s+Size/i);
+      if (at < 0) { sleep(250); continue; }
+      const seg = text.slice(at, at + 600);
+      (seg.match(/\b\d{2}(?:\.\d)?\s*[\u00d7xX]\s*\d{1,2}(?:\.\d{1,2})?\b/g) || []).forEach(function (z) {
+        const t = /(\d+(?:\.\d)?)\s*[\u00d7xX]\s*(\d+(?:\.\d{1,2})?)/.exec(z);
+        const v = size(t[1], t[2]);
+        if (PLAUSIBLE(v)) sizes[v] = 1;
+      });
+      if (Object.keys(sizes).length) { used = tries[i]; break; }
+      sleep(250);
+    }
+    const list = Object.keys(sizes).sort(cmpSize);
+    if (list.length) hit++;
+    out.push({ match: name, titles: [name], byConfig: { single: list },
+      configs: ['single'], bolts: [], urls: used ? [used] : [] });
+    console.log('    ' + name.padEnd(22) + (list.join(' ') || '(no table)'));
+    sleep(300);
+  });
+  console.log('  ' + hit + ' of ' + names.length + ' matched a published size list');
+  return { brand: 'kg1', captured: TODAY,
+    source: 'https://kg1forged.com — the "Available Size" list on each /project/ page',
+    note: 'Their project URLs come in several shapes, so the sitemap is indexed ' +
+          'by part code and by slug word and ours is looked up by code first, ' +
+          'name second. Lug COUNTS are published but not bolt patterns, so no ' +
+          'bolts are recorded.',
+    models: out };
+}
+
+/* ------------------------------------------------------- hardrock ---
+   WordPress with a real SPECIFICATIONS TABLE per diameter:
+
+     Part Number | Finish | Size | Bolt Pattern | Offset | Bore |
+     Backspace | Load (LB) | Lip Size
+
+   Their slug sometimes carries a trailing letter our name does not
+   ("H105N"), so each code is tried bare and with the common suffixes. */
+function hardrock() {
+  const names = ourModels('hardrock');
+  console.log('  ' + names.length + ' models in our catalogue');
+  const out = [];
+  let hit = 0;
+  names.forEach(function (name) {
+    const code = (String(name).toUpperCase().match(/\bH\d{3,4}[A-Z]?\b/) || [])[0];
+    if (!code) { out.push(blank(name)); console.log('    ' + name.padEnd(22) + '(no part code)'); return; }
+    const tries = [code, code + 'N', code + 'X'].map(c => 'https://hardrockoffroad.com/wheels/' + c.toLowerCase() + '/');
+    const sizes = {}, bolts = {};
+    let used = tries[0];
+    for (let i = 0; i < tries.length; i++) {
+      const h = get(tries[i]);
+      if (!h) { sleep(250); continue; }
+      const text = h.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+                    .replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g, ' ');
+      const at = text.search(/SPECIFICATIONS\s+TABLE/i);
+      if (at < 0) { sleep(250); continue; }
+      const seg = text.slice(at, at + 6000);
+      (seg.match(/\b\d{2}(?:\.\d)?x\d{1,2}(?:\.\d{1,2})?\b/g) || []).forEach(function (z) {
+        const t = /(\d+(?:\.\d)?)x(\d+(?:\.\d{1,2})?)/.exec(z);
+        const v = size(t[1], t[2]);
+        if (PLAUSIBLE(v)) sizes[v] = 1;
+      });
+      (seg.match(/\b(\d{1,2})x(\d{2,3}(?:\.\d{1,2})?)\b/g) || []).forEach(function (z) {
+        const t = /(\d{1,2})x(\d{2,3}(?:\.\d{1,2})?)/.exec(z);
+        if (+t[1] >= 4 && +t[1] <= 10 && +t[2] >= 95 && +t[2] <= 300) bolts[+t[1] + 'x' + +t[2]] = 1;
+      });
+      used = tries[i];
+      break;
+    }
+    const list = Object.keys(sizes).sort(cmpSize);
+    if (list.length) hit++;
+    out.push({ match: name, titles: [name], byConfig: { single: list },
+      configs: ['single'], bolts: Object.keys(bolts).sort(), urls: [used] });
+    console.log('    ' + name.padEnd(22) + (list.join(' ') || '(no table)'));
+    sleep(350);
+  });
+  console.log('  ' + hit + ' of ' + names.length + ' matched a published table');
+  return { brand: 'hardrock', captured: TODAY,
+    source: 'https://hardrockoffroad.com — the SPECIFICATIONS TABLE on each /wheels/<code>/ page',
+    note: 'Keyed on the part code in our own model name. Their slug sometimes ' +
+          'carries a trailing letter ours does not, so each code is tried bare ' +
+          'and with the suffixes they use.',
+    models: out };
+}
+
+function blank(name) {
+  return { match: name, titles: [name], byConfig: { single: [] }, configs: ['single'], bolts: [], urls: [] };
+}
+
+/* HTML -> text, decoding the entities instead of blanking them.
+
+   Every parser here used `.replace(/&[a-z#0-9]+;/gi, ' ')`, which turns
+   KG1's "22&#215;8.25" into "22 8.25" — so the size regex found nothing, the
+   window fell through to a gallery caption, and every KG1 model came back as
+   "20x10". The separator IS an entity on that site, so blanking entities
+   destroys exactly the character the parse depends on. */
+const ENTITIES = {
+  '&#215;': 'x', '&times;': 'x', '&#x27;': "'", '&#39;': "'",
+  '&amp;': '&', '&quot;': '"', '&#34;': '"', '&#8243;': '"', '&Prime;': '"',
+  '&nbsp;': ' ', '&#160;': ' ', '&ndash;': '-', '&#8211;': '-',
+  '&mdash;': '-', '&#8212;': '-', '&lt;': '<', '&gt;': '>'
+};
+function textOf(html) {
+  let t = String(html || '')
+    .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ');
+  Object.keys(ENTITIES).forEach(k => { t = t.split(k).join(ENTITIES[k]); });
+  t = t.replace(/&#(\d+);/g, (m, n) => {
+    const c = +n;
+    return (c === 215) ? 'x' : (c >= 32 && c < 127) ? String.fromCharCode(c) : ' ';
+  });
+  return t.replace(/&[a-z]+;/gi, ' ').replace(/\s+/g, ' ');
+}
+
 function cmpSize(a, b) {
   var A = a.split('x').map(Number), B = b.split('x').map(Number);
   return A[0] - B[0] || A[1] - B[1];
@@ -542,7 +712,8 @@ const RUNNERS = {
   fenix: fenix, tis: tis, vision: vision, 'american-force': americanForce,
   'black-rhino': function () { return wheelProsBrand('black-rhino'); },
   fuel: function () { return wheelProsBrand('fuel'); },
-  kmc: function () { return wheelProsBrand('kmc'); }
+  kmc: function () { return wheelProsBrand('kmc'); },
+  kg1: kg1, hardrock: hardrock
 };
 const RUN = (WANT.length ? WANT : Object.keys(RUNNERS)).filter(b => RUNNERS[b]);
 if (!RUN.length) { console.error('nothing to do; known brands: ' + Object.keys(RUNNERS).join(', ')); process.exit(1); }

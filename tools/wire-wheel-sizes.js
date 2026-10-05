@@ -122,7 +122,15 @@ function nameKey(brand, s) {
 const DUALLY_BOLTS = /^(6x205|8x200|8x210|10x225|10x285\.75)$/;
 function configsFrom(byConfig, model, bolts) {
   const out = {};
-  Object.keys(byConfig).forEach(c => { if ((byConfig[c] || []).length) out[c] = 1; });
+  /* A BUCKET NAME IS ONLY A CLAIM WHEN THE SCRAPER ACTUALLY SPLIT. Fenix and
+     Vision publish separate products per configuration, so their bucket names
+     mean something. The rest put everything under one bucket called "single"
+     purely as a container — and seeding from that name made KG1's KD001
+     Master come out "single, dually" when every size it is built in is an
+     8.25 rear on a ten-lug. One bucket means we were told nothing about
+     configuration and it all has to come from the widths. */
+  const split = Object.keys(byConfig).filter(c => (byConfig[c] || []).length);
+  if (split.length > 1) split.forEach(c => { out[c] = 1; });
   const all = [].concat.apply([], Object.keys(byConfig).map(c => byConfig[c] || []));
   const w = all.map(s => +String(s).split('x')[1]).filter(n => !isNaN(n));
   if (!w.length) return Object.keys(out);
@@ -166,7 +174,8 @@ function configsFrom(byConfig, model, bolts) {
    name. That is the bar.
 
    To wire a brand: run --brand <slug> --dry, READ IT, then add it here. */
-const WIRED = { fenix: 1, tis: 1, vision: 1, 'black-rhino': 1, fuel: 1, kmc: 1 };
+const WIRED = { fenix: 1, tis: 1, vision: 1, 'black-rhino': 1, fuel: 1, kmc: 1,
+  hardrock: 1, kg1: 1 };
 const FORCE = process.argv.includes('--force');
 
 let changed = 0, merged = 0, unmatched = [], renamed = [], report = [];
