@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Photo coming">
+  <!-- Brand-neutral stand-in for a model we hold no photograph of. Deliberately
+       a drawn mark and not a photograph of someone else's wheel: a real wheel
+       here would be a different manufacturer's product sitting beside this
+       product's name. -->
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#c9ced6" stroke-width="5"/>
+  <circle cx="60" cy="60" r="17" fill="none" stroke="#c9ced6" stroke-width="5"/>
+  <g stroke="#dde1e7" stroke-width="4" stroke-linecap="round">
+    <path d="M60 24V43M60 77v19M24 60h19M77 60h19"/>
+    <path d="M34.5 34.5l13.5 13.5M72 72l13.5 13.5M85.5 34.5L72 48M48 72L34.5 85.5"/>
+  </g>
+</svg>

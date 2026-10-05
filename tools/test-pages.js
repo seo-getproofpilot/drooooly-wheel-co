@@ -238,6 +238,31 @@ section('the page title never says the noun twice');
   ok('"TIS Wheels Wheels" and "Toyo Tires Tires" stay fixed', doubled, []);
 }
 
+section('every wheel photograph belongs to the wheel it is on');
+{
+  /* A model's art must live under ITS OWN brand folder. Three models were
+     pointed at generic stand-ins with nothing tying the art to the model —
+     jtx/Major at assets/wheel-face-1.png, american-force/Independence SS at
+     a screenshot still carrying a grey backdrop and a "NEW" badge, and
+     hostile/H401 Sprocket at a stock Hostile wheel. Each was a real wheel by
+     that brand and none was necessarily THE wheel named on the card.
+     tools/fix-wheel-art.js replaced all three from the model's own product
+     page and records the page in `imgSource`. */
+  const stray = [], gone = [], shared = {};
+  BRANDS.forEach(b => (b.models || []).forEach(m => {
+    if (!m.img) return;
+    if (m.img.indexOf('assets/wheels/' + b.slug + '/') !== 0) {
+      stray.push(b.slug + '/' + m.model + ' -> ' + m.img);
+    }
+    if (!fs.existsSync(path.join(ROOT, m.img))) gone.push(b.slug + '/' + m.model + ' -> ' + m.img);
+    (shared[m.img] = shared[m.img] || []).push(b.slug + '/' + m.model);
+  }));
+  ok('every photograph sits in its own brand folder', stray, []);
+  ok('every photograph is on disk', gone, []);
+  ok('no photograph is reused by two models',
+     Object.keys(shared).filter(k => shared[k].length > 1).map(k => k + ': ' + shared[k].join(', ')), []);
+}
+
 section('the wheel page does not claim how a wheel was made');
 {
   /* Two over-claims that were on every wheel page in the catalogue.
@@ -320,7 +345,8 @@ section('the hand-written homepage lineup agrees with the catalogue');
       slug: decodeURIComponent(link[1]),
       model: decodeURIComponent(link[2].replace(/&amp;/g, '&')),
       meta: meta[1].replace(/&amp;/g, '&'),
-      name: name ? name[1] : ''
+      name: name ? name[1] : '',
+      img: (/<img class="show2-img" src="([^"]+)"/.exec(block) || [])[1] || ''
     });
   });
   ok('every wheel card was found', cards.length > 0, true);
@@ -365,6 +391,26 @@ section('the hand-written homepage lineup agrees with the catalogue');
     });
   });
   ok('every card links to a model that exists', wrongModel, []);
+
+  /* THE CARD AND THE WHEEL PAGE MUST SHOW THE SAME WHEEL. Chris: "you click
+     on them, and the first image looks different than the wheels after you
+     click on it. It pulls up a totally different wheel."
+
+     The cards carried hand-placed photographs at
+     assets/wheels/<brand>-<model>.png while the wheel page used the
+     catalogue's at assets/wheels/<brand>/<model>.png, and five of the seven
+     were two different files — the Allora card was a black dually pair and
+     its page a polished single. */
+  const wrongImg = [];
+  cards.forEach(c => {
+    const b = bySlug[c.slug];
+    const m = b && (b.models || []).filter(x => x.model === c.model)[0];
+    if (!m) return;
+    if (c.img && m.img && c.img !== m.img) {
+      wrongImg.push(c.name + ': card shows ' + c.img + ', wheel page shows ' + m.img);
+    }
+  });
+  ok('every card shows the same photograph as its wheel page', wrongImg, []);
   ok('every card states the catalogue diameter range', wrongRange, []);
   ok('every card names a finish the brand offers', wrongFinish, []);
   ok('every card names a configuration the model is built in', wrongConfig, []);

@@ -1,0 +1,820 @@
+{
+ "brand": "fuel",
+ "captured": "2026-10-05",
+ "source": "https://www.fueloffroad.com — the Size/Bolt Pattern/Offset table on each product page",
+ "note": "Driven by our own model names: their product slug is derivable from ours, so `match` is our name and the wiring needs no fuzzy key. A model that matches no URL yields no sizes rather than a guess.",
+ "models": [
+  {
+   "match": "Ascend",
+   "titles": [
+    "Ascend"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-ascend"
+   ]
+  },
+  {
+   "match": "Catalyst Dually",
+   "titles": [
+    "Catalyst Dually"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-catalyst-dually"
+   ]
+  },
+  {
+   "match": "Circuit Dually",
+   "titles": [
+    "Circuit Dually"
+   ],
+   "byConfig": {
+    "single": [
+     "20x8.25",
+     "22x8.25",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "10x225",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-circuit-dually"
+   ]
+  },
+  {
+   "match": "Cleaver",
+   "titles": [
+    "Cleaver"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x8.25",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "8x165.1",
+    "8x170",
+    "8x180",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-cleaver"
+   ]
+  },
+  {
+   "match": "Core",
+   "titles": [
+    "Core"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "18x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x114.3",
+    "6x120",
+    "6x130",
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-core"
+   ]
+  },
+  {
+   "match": "Dynamo",
+   "titles": [
+    "Dynamo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x9.5",
+     "22x10",
+     "24x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-dynamo"
+   ]
+  },
+  {
+   "match": "FF09",
+   "titles": [
+    "FF09"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ff09"
+   ]
+  },
+  {
+   "match": "FF09D",
+   "titles": [
+    "FF09D"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-d"
+   ]
+  },
+  {
+   "match": "FF19",
+   "titles": [
+    "FF19"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ff19"
+   ]
+  },
+  {
+   "match": "FF19D",
+   "titles": [
+    "FF19D"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-d"
+   ]
+  },
+  {
+   "match": "FF29",
+   "titles": [
+    "FF29"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ff29"
+   ]
+  },
+  {
+   "match": "FF39",
+   "titles": [
+    "FF39"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ff39"
+   ]
+  },
+  {
+   "match": "FF39D",
+   "titles": [
+    "FF39D"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-d"
+   ]
+  },
+  {
+   "match": "FF127 Illusion",
+   "titles": [
+    "FF127 Illusion"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "20x12",
+     "20x14",
+     "22x10",
+     "22x11",
+     "22x12",
+     "22x14",
+     "24x11",
+     "24x12",
+     "24x14",
+     "26x12",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ff127-illusion"
+   ]
+  },
+  {
+   "match": "FFB01 Geo Beadlock",
+   "titles": [
+    "FFB01 Geo Beadlock"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ffb01-geo-beadlock"
+   ]
+  },
+  {
+   "match": "FFB02 Trial Beadlock",
+   "titles": [
+    "FFB02 Trial Beadlock"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ffb02-trial-beadlock"
+   ]
+  },
+  {
+   "match": "FFC129 Crime Concave",
+   "titles": [
+    "FFC129 Crime Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ffc129-crime-concave"
+   ]
+  },
+  {
+   "match": "FFC130 Impulse Concave",
+   "titles": [
+    "FFC130 Impulse Concave"
+   ],
+   "byConfig": {
+    "single": [
+     "20x12",
+     "22x12",
+     "22x14",
+     "24x12",
+     "24x14",
+     "26x14"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-forged-ffc130-impulse-concave"
+   ]
+  },
+  {
+   "match": "Flight",
+   "titles": [
+    "Flight"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x9.5",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-flight"
+   ]
+  },
+  {
+   "match": "Foxhound",
+   "titles": [
+    "Foxhound"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-foxhound"
+   ]
+  },
+  {
+   "match": "Grip",
+   "titles": [
+    "Grip"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-grip"
+   ]
+  },
+  {
+   "match": "Halo",
+   "titles": [
+    "Halo"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-halo"
+   ]
+  },
+  {
+   "match": "Havoc",
+   "titles": [
+    "Havoc"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-havoc"
+   ]
+  },
+  {
+   "match": "Heathen",
+   "titles": [
+    "Heathen"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-heathen"
+   ]
+  },
+  {
+   "match": "Heist",
+   "titles": [
+    "Heist"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-heist"
+   ]
+  },
+  {
+   "match": "Hive",
+   "titles": [
+    "Hive"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x9.5",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-hive"
+   ]
+  },
+  {
+   "match": "Lynx",
+   "titles": [
+    "Lynx"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x9",
+     "22x10"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-lynx"
+   ]
+  },
+  {
+   "match": "Maverick",
+   "titles": [
+    "Maverick"
+   ],
+   "byConfig": {
+    "single": [
+     "17x6.5",
+     "17x8.5",
+     "17x9",
+     "18x9",
+     "20x8.25",
+     "20x9",
+     "20x10",
+     "20x12",
+     "22x8.25",
+     "22x9.5",
+     "22x10",
+     "22x12",
+     "24x8.25"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "10x225",
+    "6x120",
+    "8x165.1",
+    "8x170",
+    "8x180",
+    "8x200",
+    "8x210"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-maverick"
+   ]
+  },
+  {
+   "match": "Puma",
+   "titles": [
+    "Puma"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-puma"
+   ]
+  },
+  {
+   "match": "Splicer",
+   "titles": [
+    "Splicer"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x114.3",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-splicer"
+   ]
+  },
+  {
+   "match": "Spur",
+   "titles": [
+    "Spur"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x114.3",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-spur"
+   ]
+  },
+  {
+   "match": "Talon",
+   "titles": [
+    "Talon"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "17x9",
+     "20x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-talon"
+   ]
+  },
+  {
+   "match": "Triton D581",
+   "titles": [
+    "Triton D581"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-triton-d581"
+   ]
+  },
+  {
+   "match": "Weapon",
+   "titles": [
+    "Weapon"
+   ],
+   "byConfig": {
+    "single": [
+     "20x9",
+     "20x10",
+     "22x9.5"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x127",
+    "6x135",
+    "6x139.7"
+   ],
+   "urls": [
+    "https://www.fueloffroad.com/fuel-1pc-weapon"
+   ]
+  }
+ ]
+}

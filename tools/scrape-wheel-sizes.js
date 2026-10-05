@@ -448,39 +448,87 @@ function ourModels(slug) {
   return b ? b.models.map(m => m.model) : [];
 }
 
-/* ----------------------------------------------------- black-rhino ---
-   DRIVEN BY OUR MODEL NAMES, not by their sitemap, because their product
-   slug IS our model name: "Aliso Dually" -> /black-rhino-hard-alloys-
-   aliso-dually. All sixteen we carry resolve, so `match` is our own name and
-   the wiring matches EXACTLY — no fuzzy key, which is the thing that made
-   American Force unsafe to wire.
+/* ------------------------------------------ the Wheel Pros brands ---
+   Black Rhino, Fuel and KMC are all Wheel Pros, all on the same Magento
+   template, and all publish the same table. Crucially their product slug is
+   DERIVABLE FROM OUR MODEL NAME, which means no fuzzy matching: we ask for
+   the wheel by name and either get its table or get a 404. That is what
+   makes these safe to wire where American Force is not — see the note in
+   tools/wire-wheel-sizes.js.
 
-   Twelve of our sixteen claimed a single size of "16x6". Black Rhino's
-   smallest cast truck wheel is a 17, and the Taleo they publish is 17x8.5,
-   18x9 and 20x9. */
-function blackRhino() {
-  const names = ourModels('black-rhino');
+   Each brand gets candidate URL shapes because their lines differ:
+   Fuel split one-piece from two-piece and forged, and KMC put the part code
+   in our name but not in their slug ("KM444 Mesa Forged Beadlock" ->
+   /kmc-mesa-forged-beadlock). The first candidate that returns a table wins;
+   a model that matches none reports "(no table)" and is left alone rather
+   than guessed at. */
+const WHEEL_PROS = {
+  'black-rhino': {
+    host: 'https://www.blackrhinowheels.com',
+    paths: n => [
+      'black-rhino-hard-alloys-' + slugOf(n),
+      'black-rhino-' + slugOf(n)
+    ]
+  },
+  fuel: {
+    host: 'https://www.fueloffroad.com',
+    paths: n => {
+      /* "FFC129 Crime Concave" -> crime-concave; "Ascend" -> ascend */
+      const bare = slugOf(String(n).replace(/^(FF[A-Z]?\d+|D\d+)\s*/i, ''));
+      const full = slugOf(n);
+      return [
+        'fuel-1pc-' + bare, 'fuel-2pc-' + bare, 'fuel-forged-' + bare,
+        'fuel-1pc-' + full, 'fuel-forged-' + full, 'fuel-' + bare
+      ];
+    }
+  },
+  kmc: {
+    host: 'https://www.kmcwheels.com',
+    paths: n => {
+      const bare = slugOf(String(n).replace(/^KM\d+\s*/i, ''));
+      return ['kmc-' + bare, 'kmc-' + slugOf(n), 'kmc-wheels-' + bare];
+    }
+  }
+};
+
+function slugOf(n) {
+  return String(n).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function wheelProsBrand(slug) {
+  const cfg = WHEEL_PROS[slug];
+  const names = ourModels(slug);
   console.log('  ' + names.length + ' models in our catalogue');
   const out = [];
+  let misses = 0;
   names.forEach(function (name) {
-    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    const u = 'https://www.blackrhinowheels.com/black-rhino-hard-alloys-' + slug;
-    const h = get(u);
-    const got = h ? wheelProsTable(h) : { sizes: [], bolts: [] };
+    const tries = cfg.paths(name).filter(function (v, i, a) { return a.indexOf(v) === i; });
+    let got = { sizes: [], bolts: [] }, used = cfg.host + '/' + tries[0];
+    for (let i = 0; i < tries.length; i++) {
+      const u = cfg.host + '/' + tries[i];
+      const h = get(u);
+      if (!h) { sleep(250); continue; }
+      const parsed = wheelProsTable(h);
+      if (parsed.sizes.length) { got = parsed; used = u; break; }
+      sleep(250);
+    }
+    if (!got.sizes.length) misses++;
     out.push({
       match: name, titles: [name],
       byConfig: { single: got.sizes }, configs: ['single'],
-      bolts: got.bolts, urls: [u]
+      bolts: got.bolts, urls: [used]
     });
-    console.log('    ' + name.padEnd(16) + (got.sizes.join(' ') || '(no table)'));
-    sleep(400);
+    console.log('    ' + name.padEnd(34) + (got.sizes.join(' ') || '(no table)'));
+    sleep(300);
   });
+  console.log('  ' + (names.length - misses) + ' of ' + names.length + ' matched a published table');
   return {
-    brand: 'black-rhino',
+    brand: slug,
     captured: TODAY,
-    source: 'https://www.blackrhinowheels.com — the Size/Bolt Pattern/Offset table on each product page',
-    note: 'Driven by our own model names, since their product slug is our model ' +
-          'name; `match` is therefore our name and the wiring needs no fuzzy key.',
+    source: cfg.host + ' — the Size/Bolt Pattern/Offset table on each product page',
+    note: 'Driven by our own model names: their product slug is derivable from ' +
+          'ours, so `match` is our name and the wiring needs no fuzzy key. A ' +
+          'model that matches no URL yields no sizes rather than a guess.',
     models: out
   };
 }
@@ -490,8 +538,12 @@ function cmpSize(a, b) {
   return A[0] - B[0] || A[1] - B[1];
 }
 
-const RUNNERS = { fenix: fenix, tis: tis, vision: vision,
-  'american-force': americanForce, 'black-rhino': blackRhino };
+const RUNNERS = {
+  fenix: fenix, tis: tis, vision: vision, 'american-force': americanForce,
+  'black-rhino': function () { return wheelProsBrand('black-rhino'); },
+  fuel: function () { return wheelProsBrand('fuel'); },
+  kmc: function () { return wheelProsBrand('kmc'); }
+};
 const RUN = (WANT.length ? WANT : Object.keys(RUNNERS)).filter(b => RUNNERS[b]);
 if (!RUN.length) { console.error('nothing to do; known brands: ' + Object.keys(RUNNERS).join(', ')); process.exit(1); }
 

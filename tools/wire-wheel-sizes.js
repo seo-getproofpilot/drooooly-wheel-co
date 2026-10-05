@@ -166,7 +166,7 @@ function configsFrom(byConfig, model, bolts) {
    name. That is the bar.
 
    To wire a brand: run --brand <slug> --dry, READ IT, then add it here. */
-const WIRED = { fenix: 1, tis: 1, vision: 1, 'black-rhino': 1 };
+const WIRED = { fenix: 1, tis: 1, vision: 1, 'black-rhino': 1, fuel: 1, kmc: 1 };
 const FORCE = process.argv.includes('--force');
 
 let changed = 0, merged = 0, unmatched = [], renamed = [], report = [];

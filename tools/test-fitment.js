@@ -474,9 +474,37 @@ const DT = require(path.resolve(__dirname, "..", "data/fitment/brand-drilling.js
   ok("a listed model refuses one it does not", F.wheelBolt("method", m401, "4x137", DT).match, false);
   ok("listed beats the brand policy", F.wheelBolt("method", m401, "4x156", DT).basis, "listed");
 
-  const fuelAny = bySlug("fuel").models[0];
-  ok("an unknown brand is shown, not hidden", F.wheelBolt("fuel", fuelAny, "8x170", DT).match, true);
-  ok("...but its basis says we do not know", F.wheelBolt("fuel", fuelAny, "8x170", DT).basis, "unknown");
+  /* "We don't know this wheel's bolt pattern" is the case that must never
+     quietly become "yes it fits". It used to be tested through
+     bySlug("fuel").models[0], which was an unlisted model at the time —
+     until tools/scrape-wheel-sizes.js read Fuel's own table and gave Ascend
+     a real 5x127 / 6x135 / 6x139.7, at which point the assertion was
+     testing the LISTED path under the name of the unknown one.
+
+     685 of 778 models still carry no bolt list, so the case is real; it is
+     exercised here through a model with none rather than through whichever
+     model happens to sort first. */
+  /* Sweep the whole catalogue for the "unknown" verdict rather than naming a
+     model that happens to produce it today. Both the brand policy and the
+     per-model bolt list move under us — this assertion broke the moment
+     tools/scrape-wheel-sizes.js gave Fuel's Ascend a real 5x127 / 6x135 /
+     6x139.7 and it started answering "listed" under the name of the unknown
+     case. The INVARIANT is what matters: wherever we do not know, the wheel
+     is still shown and the basis still says we do not know. */
+  const unknowns = [];
+  BR.forEach(b => (b.models || []).forEach(m => {
+    const r = F.wheelBolt(b.slug, m, "8x170", DT);
+    if (r.basis === "unknown") unknowns.push([b.slug, m, r]);
+  }));
+  ok("the catalogue still has wheels whose pattern we cannot vouch for", unknowns.length > 0, true);
+  ok("every one of them is SHOWN, never hidden", unknowns.filter(u => u[2].match !== true).length, 0);
+
+  /* And the brands we DID read a table for now answer from it. */
+  const ascend = bySlug("fuel").models.find(m => m.model === "Ascend");
+  ok("a scraped model answers from its own listed patterns",
+     F.wheelBolt("fuel", ascend, "6x135", DT).basis, "listed");
+  ok("...and refuses one Fuel do not cut it in",
+     F.wheelBolt("fuel", ascend, "8x170", DT).match, false);
 
   /* The split must never fold "we would have to ask" into "we can stand
      behind this" — that is the whole liability line. */

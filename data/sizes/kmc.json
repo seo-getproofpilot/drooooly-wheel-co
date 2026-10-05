@@ -1,0 +1,155 @@
+{
+ "brand": "kmc",
+ "captured": "2026-10-05",
+ "source": "https://www.kmcwheels.com — the Size/Bolt Pattern/Offset table on each product page",
+ "note": "Driven by our own model names: their product slug is derivable from ours, so `match` is our name and the wiring needs no fuzzy key. A model that matches no URL yields no sizes rather than a guess.",
+ "models": [
+  {
+   "match": "KM400",
+   "titles": [
+    "KM400"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-"
+   ]
+  },
+  {
+   "match": "KM402",
+   "titles": [
+    "KM402"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-"
+   ]
+  },
+  {
+   "match": "KM444 Mesa Forged Beadlock",
+   "titles": [
+    "KM444 Mesa Forged Beadlock"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x139.7",
+    "6x135",
+    "6x139.7",
+    "6x165.1",
+    "8x165.1"
+   ],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-mesa-forged-beadlock"
+   ]
+  },
+  {
+   "match": "KM445 Impact Forged Beadlock",
+   "titles": [
+    "KM445 Impact Forged Beadlock"
+   ],
+   "byConfig": {
+    "single": [
+     "17x9",
+     "18x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "5x139.7",
+    "6x135",
+    "6x139.7",
+    "6x165.1",
+    "8x165.1"
+   ],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-impact-forged-beadlock"
+   ]
+  },
+  {
+   "match": "KM447 Impact Forged Monoblock",
+   "titles": [
+    "KM447 Impact Forged Monoblock"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "18x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-impact-forged-monoblock"
+   ]
+  },
+  {
+   "match": "KM450 Mesa Forged Slotted Beadlock",
+   "titles": [
+    "KM450 Mesa Forged Slotted Beadlock"
+   ],
+   "byConfig": {
+    "single": []
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-mesa-forged-slotted-beadlock"
+   ]
+  },
+  {
+   "match": "KM451 Mesa Forged Monoblock",
+   "titles": [
+    "KM451 Mesa Forged Monoblock"
+   ],
+   "byConfig": {
+    "single": [
+     "17x8.5",
+     "18x9"
+    ]
+   },
+   "configs": [
+    "single"
+   ],
+   "bolts": [
+    "6x135",
+    "6x139.7",
+    "8x165.1",
+    "8x170",
+    "8x180"
+   ],
+   "urls": [
+    "https://www.kmcwheels.com/kmc-mesa-forged-monoblock"
+   ]
+  }
+ ]
+}

@@ -26,6 +26,8 @@ const FIELDS = [
   'sizes',        // "DIAxWIDTH", ascending; never a bare diameter
   'finishes',
   'img',
+  'imgSource',    // the manufacturer page this photo was taken from, where a
+                  // generic stand-in was replaced (tools/fix-wheel-art.js)
   'imgs',         // [{finish, img}] — per-finish art where we hold it
   'priceFrom',    // lowest publishable "starting at", whole dollars
   'priceSet',

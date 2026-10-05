@@ -61,7 +61,13 @@
   // duallies sell as 6 (4 rear + 2 front); everything else as a set of 4
   function setQty(m) { return isDually(m) ? 6 : 4; }
   function rating(brand, m) { var h = hash(m.model + brand.slug); var v = (43 + (h % 8)) / 10; return { v: v.toFixed(1), n: 6 + (h % 150) }; }
-  function thumb(m) { return m.img || "assets/wheel-face-1.png"; }
+  /* The cart thumbnail. 182 of 778 models have no photograph yet, and the
+     fallback used to be assets/wheel-face-1.png — a JTX wheel. That put a
+     JTX wheel in the cart beside an American Force or Hostile product name,
+     which is the same "wrong wheel on the card" problem Chris found on the
+     homepage, just one screen later. A brand-neutral mark says "no photo"
+     instead of naming the wrong manufacturer. */
+  function thumb(m) { return m.img || "assets/wheel-placeholder.svg"; }
 
   // ---- media ----
   function finishVariant(m) {
