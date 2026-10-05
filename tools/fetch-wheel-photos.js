@@ -147,6 +147,27 @@ const RESOLVE = {
     }
   },
 
+  /* Liberty are WooCommerce and their part code IS the URL: LBTYD07 lives at
+     /product/lbtyd07/. The render is the og:image and its filename usually
+     repeats the code (LBTYD07PF.png) — usually, not always, so the name rule
+     applies: LBTYD23 serves a generic admin-ajax.png and is refused rather
+     than guessed at. */
+  'liberty': {
+    direct: function (model) {
+      const code = (String(model).toUpperCase().match(/\bLBTY[A-Z]?\d{2}\b/) || [])[0];
+      if (!code) return null;
+      const page = 'https://www.libertyforged.com/product/' + code.toLowerCase() + '/';
+      const html = get(page);
+      if (!html) return null;
+      const u = ogImage(html);
+      if (!u) return null;
+      if (norm(u).indexOf(norm(code)) < 0) return null;   // filename must name the part
+      return { url: u, page: page,
+               why: 'Liberty\'s own render at /product/' + code.toLowerCase() +
+                    '/, filename naming ' + code };
+    }
+  },
+
   /* Hostile render their collections client-side, so the product URLs were
      captured once into data/pages/hostile.json. Each URL carries the part
      code, which is the only thing separating their three Sprockets (H108,

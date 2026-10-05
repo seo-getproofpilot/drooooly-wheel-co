@@ -548,9 +548,9 @@ window.BRANDS = [
     models: [
       { model: "Super Single Series", configs: ["single","super single"], sizes: ["22x12","24x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
       { model: "Concave Series", configs: ["single"], sizes: ["24x14","26x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
-      { model: "LBTYD07 Dually", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black","Brushed"] },
-      { model: "LBTYD12 Dually", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black","Brushed"] },
-      { model: "LBTYD16 Dually", configs: ["dually"], sizes: ["22x8.25","24x8.25","28x8.25"], finishes: ["Polished","Gloss Black","Brushed"] },
+      { model: "LBTYD07 Dually", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black","Brushed"], img: "assets/wheels/liberty/lbtyd07dually.png", imgSource: "https://www.libertyforged.com/product/lbtyd07/" },
+      { model: "LBTYD12 Dually", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black","Brushed"], img: "assets/wheels/liberty/lbtyd12dually.png", imgSource: "https://www.libertyforged.com/product/lbtyd12/" },
+      { model: "LBTYD16 Dually", configs: ["dually"], sizes: ["22x8.25","24x8.25","28x8.25"], finishes: ["Polished","Gloss Black","Brushed"], img: "assets/wheels/liberty/lbtyd16dually.png", imgSource: "https://www.libertyforged.com/product/lbtyd16/" },
       { model: "LBTYD19 Dually", configs: ["dually"], sizes: ["24x8.25","26x8.25","28x8.25"], finishes: ["Polished","Gloss Black","Brushed"] },
       { model: "LBTYD23 Dually", configs: ["dually"], sizes: ["24x8.25","26x8.25","30x8.25"], finishes: ["Polished","Gloss Black","Brushed"] }
     ]
