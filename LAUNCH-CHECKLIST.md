@@ -75,7 +75,7 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 
 | # | What | Status |
 |---|---|---|
-| 2.1 | `shop.html` shows **formula-generated prices**. They are invented. | 🔴 Replace with real dealer cost + MAP, or gate to "get pricing". |
+| 2.1 | ~~`shop.html` shows **formula-generated prices**~~ — **resolved 2026-10-05.** `priceEach()` is gone, along with the `rating()` that shared its hash. The grid now publishes a price only where the BRAND is cleared (`pricing: "from"`) and the MODEL carries a real `priceFrom`: 144 cards show a figure, 538 say "priced on request". | 🟢 Was: a formula over brand kind and smallest diameter with `(hash % 10) * 15` of jitter, pricing all 682 cards. |
 | 2.2 | MAP terms not verified per brand; some brands forbid advertising price at all. | 🔴 Confirm per brand before any number is public. |
 | 2.3 | Brand-level "starting at" figures came from authorised-dealer listings, not our own cost. | 🟡 Re-derive once distributor accounts clear. |
 | 2.4 | **The stored set price is for four wheels.** A dually set is six, so dually cards and dually wheel pages no longer restate a four-wheel total — they say the set is six and leave the figure to the quote rather than inventing one by multiplying. | 🟢 |
@@ -85,7 +85,19 @@ asset a competitor can't copy. Start before launch and 1.3/1.4/1.5 mostly evapor
 
 ---
 
-- 🔴 **2.8 · The shop grid ignores every real price we hold.** `allProducts()` prices each
+- 🟢 **2.8 · RESOLVED 2026-10-05.** The shop grid now reads `priceFrom` and the
+  figure on a card matches the figure on that wheel's own page. Measured before
+  the fix: every one of the 144 models with a stored price was contradicted by
+  its own page — Fittipaldi FT100 showed **$1,400/wheel on the grid against $225
+  on its page**, FA16 $1,415 against $161 — and the drawer carried it to a
+  subtotal, adding a JTX 404 at $1,445 against no stored price at all. The cart
+  key was rotated to `drooolyBuild1` because those invented numbers were written
+  into browsers and a restored cart would have gone on quoting them.
+  `tools/test-pages.js` now fails if the formula returns or if the two surfaces
+  disagree. What remains is 2.2 — MAP terms per brand — which decides whether
+  each of the 144 may be shown at all.
+
+- ~~🔴 **2.8 · The shop grid ignores every real price we hold.**~~ `allProducts()` prices each
   card with `priceEach()` (`catalog.js:37`) — a formula over brand kind and diameter with a
   hash for jitter. It never reads `model.priceFrom`, so JTX Ace shows **$1,320** against a
   stored `priceFrom: 897`, and the 25 UTV styles show formula numbers against Method's and

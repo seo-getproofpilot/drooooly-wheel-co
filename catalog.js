@@ -41,26 +41,40 @@
   function cfgLabel(c) { return { "single":"Single","dually":"Dually","super single":"Super Single","utv":"Side-by-side" }[c] || c; }
   function cfgKey(c) { return c.replace(/\s+/g, "-"); }
   function money(n) { return "$" + n.toLocaleString("en-US"); }
-  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h; }
   function maxDia(m) { var d = 0; m.sizes.forEach(function (s) { var n = parseInt(s, 10); if (n > d) d = n; }); return d || 22; }
-  function minDia(m) { var d = 99; m.sizes.forEach(function (s) { var n = parseInt(s, 10); if (n < d) d = n; }); return d === 99 ? 22 : d; }
   function isDually(m) { return m.configs.indexOf("dually") > -1 || m.configs.indexOf("super single") > -1; }
 
-  // Per-wheel pricing calibrated to real authorized-dealer forged pricing
-  // (e.g. JTX dually sets run $8,062–$17,866 for 6 wheels, 20"–30").
-  function priceEach(brand, m) {
-    var d = minDia(m); // starting ("from") price — smallest diameter offered
-    var forged = brand.kind === "Forged";
-    var base = forged ? 1290 : (/HD|Dually/.test(brand.kind) ? 430 : 340);
-    var step = forged
-      ? (d <= 22 ? (d - 20) * 55 : d <= 26 ? 110 + (d - 22) * 105 : 530 + (d - 26) * 230)
-      : Math.max(0, (d - 20)) * 45;
-    var jit = (hash(brand.slug + m.model) % 10) * 15;
-    return Math.round((base + step + jit) / 5) * 5;
+  /* THE ONLY PRICE THIS FILE WILL PUBLISH.
+
+     CLAUDE.md rule 4: "Most wheel brands enforce Minimum Advertised Price;
+     some prohibit advertising price at all. Build price fields into the
+     schema now, leave them null, and gate display per-brand."
+
+     What stood here was priceEach() — a formula over brand kind and smallest
+     diameter, plus `(hash(slug + model) % 10) * 15` of jitter so the numbers
+     would not look generated. It priced every card in the grid, including the
+     538 models we hold no price for at all, and never read the real figure on
+     the 144 we do. Measured before it came out:
+
+       all 144 were contradicted by their own wheel page
+       Fittipaldi FT100   grid $1,400/wheel   its own page $225
+       Fittipaldi FA16    grid $1,415         its own page $161
+
+     and the drawer carried it to a subtotal — a JTX 404, which has no stored
+     price, added at $1,445.
+
+     A price is publishable only when the BRAND is cleared to show one and the
+     MODEL carries a real figure. Everything else is null, and the UI says
+     "priced on request", which is true and is what the fitment consult is
+     for. The builders already worked this way, and the comment on their card
+     called the alternative "the site contradicting itself". It was right
+     about the rest of the grid too. */
+  function realPrice(brand, m) {
+    if (!brand || brand.pricing !== "from") return null;
+    return (typeof m.priceFrom === "number" && m.priceFrom > 0) ? m.priceFrom : null;
   }
   // duallies sell as 6 (4 rear + 2 front); everything else as a set of 4
   function setQty(m) { return isDually(m) ? 6 : 4; }
-  function rating(brand, m) { var h = hash(m.model + brand.slug); var v = (43 + (h % 8)) / 10; return { v: v.toFixed(1), n: 6 + (h % 150) }; }
   /* The cart thumbnail. 182 of 778 models have no photograph yet, and the
      fallback used to be assets/wheel-face-1.png — a JTX wheel. That put a
      JTX wheel in the cart beside an American Force or Hostile product name,
@@ -109,7 +123,7 @@
 
   // ---- product card ----
   function productCard(brand, m, tag, lane, bolt) {
-    var p = priceEach(brand, m), r = rating(brand, m);
+    var p = realPrice(brand, m);
     var mediaInner = m.img
       ? '<img src="' + m.img + '" alt="' + brand.name + ' ' + m.model + '" loading="lazy">'
       : emblem(brand, m);
@@ -171,16 +185,19 @@
         (m.builder
           ? '<div class="prod__price"><b>' + money(m.priceSet) + '</b><small>/ set of ' + (m.priceSetQty || 4) + '</small></div>' +
             '<div class="prod__set">Built to order \u2014 options priced as you build</div>'
-          : '<div class="prod__price"><b>' + money(p) + '</b><small>/ wheel</small></div>' +
-            '<div class="prod__set">Full set &amp; tire pricing at fitment</div>') +
+          : p !== null
+            ? '<div class="prod__price"><b>From ' + money(p) + '</b><small>/ wheel</small></div>' +
+              '<div class="prod__set">Full set &amp; tire pricing at fitment</div>'
+            : '<div class="prod__price prod__price--ask">Priced on request</div>' +
+              '<div class="prod__set">We quote it with the brand on your fitment consult</div>') +
         '<div class="prod__actions">' +
           /* A configurable product has nothing to add until it is configured,
              so the primary action is the builder rather than the cart. The
              same chrome button either way — it is the same weight of decision. */
           (m.builder
             ? '<a class="btn-add" href="' + esc(href) + '"><span class="btn-txt">Build yours \u2192</span></a>'
-            : '<button class="btn-add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + p + '" data-img="' + thumb(m) + '">' +
-              '<span class="btn-txt"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to cart</span>' +
+            : '<button class="btn-add" data-key="' + esc(key) + '" data-brand="' + esc(brand.name) + '" data-name="' + esc(m.model) + '" data-price="' + (p === null ? "" : p) + '" data-img="' + thumb(m) + '">' +
+              '<span class="btn-txt"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to build</span>' +
               '</button>') +
           /* Two actions, not one. Every card carried the same grey slab and
              nothing else, so the grid had one weight all the way down and no
@@ -189,13 +206,18 @@
         '</div>' +
       '</div></article>';
   }
-  var ADD_LABEL = '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to cart';
+  var ADD_LABEL = '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg> Add to build';
 
   // add-to-cart + fav (event delegation, once)
   document.addEventListener("click", function (e) {
     var add = e.target.closest(".btn-add");
     if (add) {
-      window.Cart && window.Cart.add({ key: add.dataset.key, brand: add.dataset.brand, name: add.dataset.name, price: +add.dataset.price, img: add.dataset.img });
+      /* An empty data-price means we hold no publishable price — NOT zero.
+         `+""` is 0, which would have put a free wheel in the drawer. */
+      var praw = add.dataset.price;
+      window.Cart && window.Cart.add({ key: add.dataset.key, brand: add.dataset.brand,
+        name: add.dataset.name, price: (praw === "" || praw == null) ? null : +praw,
+        img: add.dataset.img });
       add.classList.add("added"); add.innerHTML = "Added ✓";
       setTimeout(function () { add.classList.remove("added"); add.innerHTML = ADD_LABEL; }, 1300);
       return;
@@ -300,7 +322,7 @@
   // ---- shop page ----
   function allProducts() {
     var out = [];
-    BRANDS.forEach(function (b, bi) { b.models.forEach(function (m, mi) { out.push({ b: b, m: m, order: bi * 100 + mi, price: priceEach(b, m) }); }); });
+    BRANDS.forEach(function (b, bi) { b.models.forEach(function (m, mi) { out.push({ b: b, m: m, order: bi * 100 + mi, price: realPrice(b, m) }); }); });
     return out;
   }
   /* ---- build lanes ----------------------------------------------------
@@ -516,8 +538,18 @@
     }
     function sortList(list) {
       var l = list.slice();
-      if (state.sort === "price-asc") l.sort(function (a, b) { return a.price - b.price; });
-      else if (state.sort === "price-desc") l.sort(function (a, b) { return b.price - a.price; });
+      /* A wheel with no published price is not the cheapest one, it is
+         unknown. Either direction sends the unpriced to the end rather than
+         letting null sort as zero. */
+      if (state.sort === "price-asc" || state.sort === "price-desc") {
+        var dir = state.sort === "price-asc" ? 1 : -1;
+        l.sort(function (a, b) {
+          if (a.price === null && b.price === null) return a.order - b.order;
+          if (a.price === null) return 1;
+          if (b.price === null) return -1;
+          return (a.price - b.price) * dir;
+        });
+      }
       else if (state.sort === "name") l.sort(function (a, b) { return (a.b.name + a.m.model).localeCompare(b.b.name + b.m.model); });
       else l.sort(function (a, b) { return a.order - b.order; });
       return l;

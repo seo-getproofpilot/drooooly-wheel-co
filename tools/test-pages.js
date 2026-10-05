@@ -263,6 +263,50 @@ section('every wheel photograph belongs to the wheel it is on');
      Object.keys(shared).filter(k => shared[k].length > 1).map(k => k + ': ' + shared[k].join(', ')), []);
 }
 
+section('no page invents a price');
+{
+  /* Until v413 the shop grid priced every card with a formula over brand kind
+     and smallest diameter, plus a hash for jitter. It never read the real
+     figure, so all 144 models that had one were contradicted by their own
+     wheel page — Fittipaldi FT100 at $1,400 on the grid against $225 on its
+     page — and the 538 with no price at all still got a confident number.
+
+     Two things have to stay true: the catalogue may only publish a price the
+     BRAND is cleared for and the MODEL actually carries, and wherever the
+     grid and the wheel page both show one, they must agree. */
+  const src = fs.readFileSync(path.join(ROOT, 'catalog.js'), 'utf8');
+  ok('the price formula is gone', /function\s+priceEach/.test(src), false);
+  ok('...and so is the invented star rating', /function\s+rating/.test(src), false);
+  ok('...and the hash that made both look unplanned', /function\s+hash/.test(src), false);
+
+  /* Drive the real renderer over every model and compare what the two
+     surfaces would print. */
+  const mismatches = [], invented = [];
+  BRANDS.forEach(b => (b.models || []).forEach(m => {
+    const publishable = b.pricing === 'from' && typeof m.priceFrom === 'number' && m.priceFrom > 0;
+    if (!publishable && typeof m.priceFrom === 'number' && b.pricing === 'from') {
+      invented.push(b.slug + '/' + m.model);
+    }
+    /* a model the brand is not cleared to price must carry no figure a page
+       could print as its own */
+    if (b.pricing !== 'from' && typeof m.priceFrom === 'number') {
+      mismatches.push(b.slug + '/' + m.model + ': brand is quote-only but carries priceFrom ' + m.priceFrom);
+    }
+  }));
+  ok('no quote-only brand carries a publishable price', mismatches, []);
+
+  const r = run(idsOf('shop.html'), '?brand=fittipaldi', null);
+  const html = r.err ? '' : r.hooks.shopGrid.innerHTML;
+  ok('the shop grid renders', html.length > 100, true);
+  /* every figure the grid prints must be one the catalogue holds */
+  const shown = [...new Set((html.match(/From \$([0-9,]+)/g) || [])
+    .map(x => +x.replace(/[^0-9]/g, '')))];
+  const real = new Set((BRANDS.filter(b => b.slug === 'fittipaldi')[0].models || [])
+    .map(m => m.priceFrom).filter(n => typeof n === 'number'));
+  ok('every price on the grid is a price the catalogue holds',
+     shown.filter(n => !real.has(n)), []);
+}
+
 section('the wheel page does not claim how a wheel was made');
 {
   /* Two over-claims that were on every wheel page in the catalogue.
