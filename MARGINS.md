@@ -156,10 +156,19 @@ know it. And beadlock assembly is 16–32 ring bolts per wheel torqued in
 sequence; most shops will not touch it, and it should not be billed at the same
 labour rate as pressing on a set of truck wheels.
 
-**One honest limit on volume.** Six of his seven builders are UTV and sand. The
-only truck product is a 17×9 single-rear — not a dually. Our business is lifted
-trucks and duallys, so this is an adjacent line unless he is building more.
-Don't promise truck volume on a wheel he does not make.
+**He is not an adjacent line — he is the thesis.** DROOOLY does not sell a wheel
+anybody can pick up at Discount Tire or Big O. The whole catalogue is forged,
+custom, built to order: single, dually, super single and side-by-side alike.
+Someone configuring a $7,000 set of beadlocks has made the same decision as
+someone ordering a six-wheel dually set — they are not shopping off a rack.
+Price Designs is the purest example of that in the catalogue, so we can carry
+all seven builders rather than one, and the volume conversation should be about
+the whole line.
+
+**And holding his floor costs us nothing.** Our customer is not price-shopping,
+and being the cheap option would undo the only positioning we have. That is the
+reassurance every custom brand listens for and most dealers cannot honestly
+give — say it early.
 
 *The percentages in this section are a judgement about where small
 build-to-order forged shops sit, not data and not his terms. Use them to tell a
