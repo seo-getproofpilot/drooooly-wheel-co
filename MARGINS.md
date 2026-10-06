@@ -111,6 +111,63 @@ The package is the sale to chase, and the arithmetic says so plainly:
 
 ---
 
+## 4b. Build-to-order is a different business — read this before Price Designs
+
+**The 35–45% above does not apply to a shop that machines each set to order,
+and asking for it will cost you credibility.** A caster running thousands of
+identical wheels has the scale to hand a dealer 40% and still make money.
+Price Designs forges and machines every set individually in Gilbert, Arizona.
+His cost per set is a large fraction of what he charges, so the same ask puts
+him underwater.
+
+| | Cast / flow-formed volume brand | Build-to-order forged (Price Designs) |
+|---|---|---|
+| Realistic opening | 30–35% | **15–20%** |
+| Good outcome | 40% | **25%** |
+| Earn it with volume | 45% | **30%** |
+| Don't ask | — | 35%+ |
+
+On the set he most commonly sells — the 17×9 simulated beadlock at **$7,260**
+configured in gloss black with floating caps and titanium lugs — that is $1,089
+at 15%, **$1,452 at 20%**, $1,815 at 25% and $2,178 at 30%.
+
+**The percentage is not the main event.** Three things matter more:
+
+1. **He sells direct to the public at a published price.** Anyone can configure
+   a set on his site and see the number, which caps you completely: you cannot
+   sell above his retail and you should not sell below it. Ask what stops a
+   customer you bring him from ordering direct next time. If there is no
+   answer, this is a referral business whatever it is called.
+2. **Lead time, and who wears it.** Build-to-order means weeks, and the
+   complaint call comes to us. Get the real number in writing, then quote the
+   customer longer.
+3. **Deposit float.** If he needs 50% up front, work out whose money that is
+   before agreeing. On $5,400–$9,500 sets it will outrun any discount.
+
+**What to trade for instead of points:** drop-ship to the customer at dealer
+cost, lead times in writing, who owns a defect, a media kit with permission to
+use it (we are currently showing his photography unlicensed), and a demo set at
+cost rather than retail.
+
+**What we bring, and should say.** His whole configurator already runs on our
+site — all seven builders, his real option trees and his real prices. Ours also
+resolves the bolt pattern from the truck, where his makes the customer already
+know it. And beadlock assembly is 16–32 ring bolts per wheel torqued in
+sequence; most shops will not touch it, and it should not be billed at the same
+labour rate as pressing on a set of truck wheels.
+
+**One honest limit on volume.** Six of his seven builders are UTV and sand. The
+only truck product is a 17×9 single-rear — not a dually. Our business is lifted
+trucks and duallys, so this is an adjacent line unless he is building more.
+Don't promise truck volume on a wheel he does not make.
+
+*The percentages in this section are a judgement about where small
+build-to-order forged shops sit, not data and not his terms. Use them to tell a
+fair offer from a poor one, not as a number to quote at him. Full brief with
+the live calculator: `Price Designs Margin Brief` artifact.*
+
+---
+
 ## 5. Things I could not tell you, and you should find out
 
 - **Nobody's actual dealer cost.** This is all discount-off-retail arithmetic.
