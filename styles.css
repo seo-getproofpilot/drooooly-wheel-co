@@ -6660,3 +6660,120 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 }
 .dlr__rowlink{color:var(--text);text-decoration:none}
 .dlr__rowlink:hover{color:var(--blue)}
+
+/* ============================================================== v420
+   MARKETING MATH  (marketing-math.html)
+   Internal working document, same document language as the dealer sheet
+   (.dlr-body sets the ground). It is a calculator rather than a read, so
+   the controls get real weight and the month panel sits at the top where
+   the answer belongs. Banded colour carries meaning here — under target,
+   under ceiling, past it — so it is also stated in words for anyone who
+   cannot separate the greens from the reds.
+   ============================================================== */
+#mmPage{max-width:940px;margin:0 auto;padding:0 24px 80px}
+.mm__top{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:22px 0 24px;border-bottom:1px solid var(--line);margin-bottom:32px;flex-wrap:wrap}
+.mm__home{font-family:var(--display);font-size:16px;letter-spacing:.04em;color:var(--text);
+  text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.mm__home i{font-family:var(--label);font-style:normal;font-size:9px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--soft);white-space:nowrap}
+.mm__kicker{font-family:var(--label);font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--soft);border:1px solid var(--line-2);
+  padding:5px 10px;white-space:nowrap}
+
+.mm__mast{margin-bottom:34px}
+.mm__h1{font-family:var(--display);font-size:clamp(27px,5vw,42px);line-height:1.08;
+  margin:0 0 14px;letter-spacing:-.01em}
+.mm__sub{font-size:17px;line-height:1.55;color:var(--muted);margin:0;max-width:64ch}
+
+.mm__sec{margin:0 0 44px}
+.mm__sechead{border-bottom:1px solid var(--line-2);padding-bottom:8px;margin-bottom:16px}
+.mm__sechead h2{font-family:var(--display);font-size:clamp(17px,2.6vw,22px);margin:0;
+  line-height:1.25}
+.mm__h3{font-family:var(--display);font-size:17px;margin:30px 0 8px}
+.mm__sec p{font-size:15px;line-height:1.65;margin:0 0 14px;max-width:68ch}
+.mm__say{font-size:17px!important;line-height:1.55!important;color:var(--text)}
+.mm__note{font-size:14px!important;color:var(--muted)}
+
+/* the month panel */
+.mm__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin:0 0 16px}
+.mm__stat{background:var(--panel);padding:16px 16px 15px}
+.mm__k{display:block;font-family:var(--label);font-size:10.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.mm__stat b{display:block;font-family:var(--display);font-size:24px;line-height:1;
+  font-variant-numeric:tabular-nums}
+.mm__s{display:block;font-size:12.5px;line-height:1.35;color:var(--muted);margin-top:6px}
+.mm--good b{color:#0f7a3d} .mm--mid b{color:#9a6a00} .mm--bad b{color:#b3261e}
+
+/* controls */
+.mm__calc{background:var(--panel-2);border:1px solid var(--line-2);padding:20px}
+.mm__ctls{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 26px;margin-bottom:20px}
+.mm__ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-family:var(--label);font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.mm__ctl label b{font-family:var(--display);font-size:16px;color:var(--text);
+  letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
+.mm__ctl input[type=range]{width:100%;accent-color:var(--blue)}
+.mm__toggles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+  border-top:1px solid var(--line);padding-top:16px}
+.mm__toggle{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.mm__toggle input{margin-top:3px;width:17px;height:17px;accent-color:var(--blue);flex-shrink:0}
+.mm__toggle b{display:block;font-size:14px}
+.mm__toggle i{display:block;font-style:normal;font-size:12.5px;color:var(--muted);
+  line-height:1.4;margin-top:2px}
+
+/* tables */
+.mm__scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:6px}
+.mm__tbl{width:100%;min-width:620px;border-collapse:collapse;font-size:14.5px;
+  font-variant-numeric:tabular-nums}
+.mm__tbl th,.mm__tbl td{padding:10px 11px;text-align:right;border-bottom:1px solid var(--line)}
+.mm__tbl th:first-child,.mm__tbl td:first-child{text-align:left}
+.mm__tbl thead th{font-family:var(--label);font-size:10.5px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--soft);border-bottom:1px solid var(--line-2)}
+.mm__tbl td i{display:block;font-style:normal;font-size:11.5px;color:var(--soft);
+  margin-top:2px;letter-spacing:0}
+.mm__tbl--lead{min-width:540px}
+
+/* buyers */
+.mm__buyers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mm__buyer{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--line-2);
+  padding:16px 17px}
+.mm__buyer.mm--good{border-top-color:#0f7a3d}
+.mm__buyer.mm--mid{border-top-color:#9a6a00}
+.mm__buyer.mm--bad{border-top-color:#b3261e}
+.mm__buyerhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  flex-wrap:wrap;margin-bottom:6px}
+.mm__buyerhead h3{font-family:var(--display);font-size:15px;margin:0;line-height:1.2}
+.mm__band{font-family:var(--label);font-size:10px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;white-space:nowrap}
+.mm--good .mm__band{color:#0f7a3d} .mm--mid .mm__band{color:#9a6a00}
+.mm--bad .mm__band{color:#b3261e}
+.mm__who{font-size:12.5px!important;color:var(--muted);margin:0 0 12px!important;line-height:1.45}
+.mm__dl{display:grid;grid-template-columns:1fr auto;gap:5px 10px;margin:0;font-size:13px}
+.mm__dl dt{color:var(--soft)}
+.mm__dl dd{margin:0;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* facts + qc */
+.mm__facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.mm__fact{background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+.mm__fact h3{font-family:var(--label);font-size:14px;font-weight:700;margin:0 0 6px;
+  line-height:1.3}
+.mm__fact p{font-size:13.5px!important;margin:0!important;line-height:1.55}
+.mm__sec--qc{background:var(--panel-2);border:1px solid var(--line);padding:24px 26px}
+.mm__qc{margin:0 0 14px;padding-left:20px}
+.mm__qc li{font-size:15px;line-height:1.65;margin-bottom:10px;max-width:68ch}
+.mm__sec--plain{border-top:2px solid var(--ink);padding-top:24px}
+.mm__plain{margin:0;padding-left:20px}
+.mm__plain li{font-size:14.5px;line-height:1.6;margin-bottom:10px;max-width:68ch}
+
+@media(max-width:860px){
+  .mm__stats{grid-template-columns:repeat(2,1fr)}
+  .mm__buyers,.mm__facts{grid-template-columns:1fr}
+  .mm__ctls,.mm__toggles{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  #mmPage{padding:0 16px 56px}
+  .mm__stats{grid-template-columns:1fr}
+  .mm__top{padding-top:18px}
+}

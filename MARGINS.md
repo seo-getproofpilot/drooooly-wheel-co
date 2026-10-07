@@ -219,6 +219,41 @@ Customer Is Worth` artifact.*
 
 ---
 
+## 4d. The marketing model — `marketing-math.html`
+
+Matthew built the first version of this. **Its arithmetic is sound** — every
+published figure in it recomputes exactly from its own stated rules — and its
+two sharpest observations are kept: that a full-margin dealer outbids us in the
+same ad auction, and that lease-to-own approvals cap right below where our sets
+start. Run it with `python3 -m http.server 5299` and open `marketing-math.html`;
+`node tools/test-marketing-math.js` pins the arithmetic.
+
+**Three things were missing, and they pull in opposite directions:**
+
+| | Net on a $5,400 wheel order |
+|---|---|
+| First model (1% card, no freight, wheels only) | $1,026 |
+| Drop-shipping bare wheels, real fees | **$722** |
+| Selling it as a package, real fees | **$1,395** |
+
+1. **It priced wheels only.** Four tires at the trade margin and the fitting ride
+   on the same customer, worth +44–73% on net per sale.
+2. **The card fee was 1% of ticket.** Real cost is 2.9% + 30¢ when we are the
+   merchant of record — about **$950 a month** at the modelled volume, ~10% of net.
+3. **Freight was not in it.** Ours unless the brand drop-ships.
+
+**The finding that should change behaviour:** at a 20% cut, drop-shipping bare
+wheels nets $722 on a $5,400 set — a $361 ceiling on acquisition, against roughly
+$1,080 for a shop keeping 40%. They outbid us three to one. **Sold as a package
+the same order nets $1,395.** The package is not an upsell, it is what makes the
+unit economics work at dealer terms we can actually get.
+
+*The $10,418 dually median still rests on four JTX data points (see §5) and it
+drives the most valuable buyer in the model. It is the number most worth
+replacing with real orders.*
+
+---
+
 ## 5. Things I could not tell you, and you should find out
 
 - **Nobody's actual dealer cost.** This is all discount-off-retail arithmetic.
