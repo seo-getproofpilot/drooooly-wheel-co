@@ -177,6 +177,48 @@ the live calculator: `Price Designs Margin Brief` artifact.*
 
 ---
 
+## 4c. What a customer costs — the number the margin tables hide
+
+A discount percentage says nothing about whether the business works. This does.
+
+**The whole ticket, not the wheels.** On the Price Designs build most likely to
+sell — a $7,260 truck set, four tires and beadlock assembly:
+
+| Line | Customer pays | Our gross | Margin | Share of gross |
+|---|---|---|---|---|
+| Wheels @ 20% | $7,260 | $1,452 | 20% | 66% |
+| Tires (four) @ 25% | $1,548 | $387 | 25% | 18% |
+| Beadlock assembly @ 75% | $480 | $360 | 75% | 16% |
+| **Ticket** | **$9,288** | **$2,199** | **24%** | — |
+
+**At 20% on wheels the blended margin is 24%.** The wheels are 78% of what the
+customer pays and 66% of what we keep. That is $9,000 of business to earn
+$2,200, and it is the real reason to care about the discount.
+
+**What we can pay to acquire that customer: $440–$730** (20–33% of gross; plan on
+the low end, because gross also has to cover rent, insurance, the tire machine
+and our own time). At a 15% close rate that is **$66–$109 a qualified lead**. It
+takes **5 of these tickets to clear $10,000 gross**, before any overhead.
+
+**Labor is the lever we actually control.** It is 5% of the ticket and 16% of the
+gross, nobody can price-shop it, and most shops will not do beadlock work at all.
+Every $20 added to the per-wheel rate is $80 a sale — against roughly $73 a sale
+for a whole extra point of wheel discount. The labor rate is easier to move than
+the brand's terms, and it is entirely ours.
+
+**Their CAC is their answer, not ours.** We have no visibility into any brand's
+ad spend or conversion rate, and a number for it would be invented. The useful
+frame: **our discount is their customer acquisition cost.** Every point they give
+us is a point they do not spend on ads, so the question is whether we are cheaper
+or better than their own advertising — through reach they do not have, service
+they do not want to do, and fewer wrong orders. Ask every brand what they
+currently pay to land a customer; most owners know it to the dollar.
+
+*Full calculator, with the discount and close rate as sliders: the `What A
+Customer Is Worth` artifact.*
+
+---
+
 ## 5. Things I could not tell you, and you should find out
 
 - **Nobody's actual dealer cost.** This is all discount-off-retail arithmetic.
