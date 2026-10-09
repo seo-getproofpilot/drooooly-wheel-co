@@ -193,8 +193,16 @@ each one is a phone call away from being better.
   the right one — check before launch, and note the follower counts on that section are
   still fabricated (see 1.x).
 
-- 🔴 **4.29 · The header phone number is a personal cell, and its area code is wrong for
-  the business.** `602-332-5400` is Chris's own number, supplied as a placeholder — "we will
+- 🟢 **4.29 · The phone number is settled — the 602 cell stays. Decided 2026-10-08.**
+  Chris: *"my number isn't going to change. It's my phone number, my personal number…
+  that's going to have to work for now."* This is no longer a launch blocker and nothing
+  on the site moves for it. Recorded here only so it does not get re-raised: a free
+  Google Voice 931 number forwarding to the same handset would give the business a local
+  line without anybody changing phones, if it ever actually grates. The original finding,
+  for the record:
+
+- ~~🔴 **The header phone number is a personal cell, and its area code is wrong for
+  the business.**~~ `602-332-5400` is Chris's own number, supplied as a placeholder — "we will
   change this later." It now sits in the header of all eight pages, in the footer, and in
   the `telephone` field of the homepage Store JSON-LD, which is the copy search engines and
   map listings read. Two separate problems: (a) every enquiry from the site rings a personal
