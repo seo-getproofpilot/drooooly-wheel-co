@@ -459,7 +459,7 @@
        for a truck. */
     var title = "All wheels", sub = "Every wheel we carry — trucks, duallies and side-by-sides, hand-spec'd to your setup.";
     if (state.brands.length === 1 && bySlug[state.brands[0]]) { var bb = bySlug[state.brands[0]]; title = bb.name; sub = bb.tagline || sub; }
-    else if (cat === "packages") { title = "Wheel &amp; Tire Packages"; sub = "Complete, mounted &amp; balanced — wheels, tires, TPMS and lugs, out the door."; }
+    else if (cat === "packages") { title = "Wheel &amp; Tire Packages"; sub = "Wheels, tires, TPMS and lugs — shipped to you or your installer."; }
     else if (state.configs.indexOf("dually") > -1 || state.configs.indexOf("super single") > -1) { title = "Dually &amp; Super Single"; sub = "Big-and-bold forged dually and super-single setups that own the lane."; }
     else if (lane) { title = lane.title; sub = lane.sub; }
     else if (state.q) { title = "Results for “" + state.q + "”"; }
@@ -1227,7 +1227,7 @@
               '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
                                  : 'See the full ' + esc(b.name) + ' lineup') + '</h3>' +
               '<p>We show the most popular styles. See the whole lineup on ' + esc(b.name) +
-                '&rsquo;s site, then come back with the one you want — we build the set, mount the tires and quote it out the door.</p>' +
+                '&rsquo;s site, then come back with the one you want — we spec the set and quote it with the tires.</p>' +
               '<div class="wheelmore__btns">' +
                 '<a class="btn btn--primary" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                   '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
@@ -1345,7 +1345,7 @@
         '<h1' + (b.logo ? ' class="sr-only"' : '') + '>' + b.name + '</h1>' +
         (b.tagline ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
         '<p class="wheelhero__meta">' + b.models.length + ' tread' + (b.models.length === 1 ? '' : 's') +
-          ' · ' + sizeCount + ' sizes · mounted &amp; balanced with your set</p>' +
+          ' · ' + sizeCount + ' sizes · quoted with your set</p>' +
       '</section>' +
       '<section class="wheelwrap">' +
         '<div class="wheelgrid tiregrid">' + b.models.map(function (m) { return tireCard(b, m); }).join("") + '</div>' +
@@ -1357,7 +1357,7 @@
            which is the wheel page. */
         (b.site
           ? '<div class="wheelmore"><h3>See the full ' + esc(b.name) + ' range</h3>' +
-            '<p>Browse every tread on ' + esc(b.name) + '&rsquo;s site — then come back and we&rsquo;ll mount and balance them to your wheels.</p>' +
+            '<p>Browse every tread on ' + esc(b.name) + '&rsquo;s site — then come back and we&rsquo;ll quote them with your wheels.</p>' +
             '<div class="wheelmore__btns">' +
               '<a class="btn btn--primary" href="' + esc(b.site) + '" target="_blank" rel="noopener noreferrer">' +
                 '<span class="btn-txt">View more at ' + esc(host) + '</span></a>' +
