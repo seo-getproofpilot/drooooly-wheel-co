@@ -66,7 +66,10 @@
       '<div class="cart-foot">' +
         '<div class="cart-sub"><span class="cart-sub-k">Subtotal</span><b class="cart-sub-v">$0</b></div>' +
         '<p class="cart-foot__note">Per-wheel pricing. A DROOOLY specialist confirms your dually/super-single set count, tires &amp; final out-the-door total on your fitment consult.</p>' +
-        '<a href="index.html#fitment" class="btn btn--primary">Checkout &amp; get fitted</a>' +
+        /* Nothing is charged here, so it is not a checkout. "Request my
+           quote" is what the button actually does: it carries the build to
+           the form and we come back with a price. */
+        '<a href="index.html#fitment" class="btn btn--primary">Request my quote</a>' +
       '</div>';
     document.body.appendChild(overlay); document.body.appendChild(drawer);
     drawer.querySelector(".cart-drawer__close").addEventListener("click", close);
