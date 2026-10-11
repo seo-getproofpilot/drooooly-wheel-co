@@ -27,7 +27,10 @@ export const modelUrl = (v: Vehicle) => import.meta.env.BASE_URL + (v.model?.fil
 export interface TruckProps { vehicle: Vehicle; paintHex: string; bodyLiftM: number; rakeDeg?: number; onBounds?: (box: Box3) => void; }
 
 export function Truck({ vehicle, paintHex, bodyLiftM, rakeDeg = FACTORY_RAKE_DEG, onBounds }: TruckProps) {
-  const gltf = useGLTF(modelUrl(vehicle));
+  // Draco on, meshopt off: the meshopt decoder instantiates WebAssembly the
+  // moment it is wired up, and the static host's CSP refuses that
+  // (LAUNCH-CHECKLIST 7.5). The stand-ins use neither.
+  const gltf = useGLTF(modelUrl(vehicle), true, false);
   const { root, paint, owned } = useMemo(() => {
     const root = gltf.scene.clone(true);
     const paint = paintMaterial(paintHex);
