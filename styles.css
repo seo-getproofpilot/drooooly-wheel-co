@@ -6842,3 +6842,11 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 .brandname--hero{font-size:clamp(22px,3.6vw,34px);min-height:48px;color:#fff}
 .brandname--mq{font-size:13px;min-height:34px;padding:0 8px;color:#fff;opacity:.92}
 .brandname--show2{font-size:13.5px;min-height:26px;justify-content:flex-start}
+
+/* consent + real form errors (v422) */
+.fit-consent{display:flex;gap:10px;align-items:flex-start;margin:4px 0 16px;
+  font-size:12.5px;line-height:1.5;color:var(--muted);cursor:pointer}
+.fit-consent input{margin-top:2px;width:16px;height:16px;flex:none;accent-color:var(--blue)}
+.form-err{margin:12px 0 0;padding:10px 13px;border-left:3px solid #b3261e;
+  background:rgba(179,38,30,.08);font-size:13.5px;line-height:1.5;color:#b3261e}
+.form-err a{color:inherit;font-weight:700}

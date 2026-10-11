@@ -183,19 +183,113 @@ document.querySelectorAll('.search').forEach(function (f) {
   });
 });
 
-// ---- fitment form (demo) ----
-var form = document.getElementById('fitForm'), ok = document.getElementById('fitOk');
-if (form) form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  if (!form.checkValidity()) { form.reportValidity(); return; }
-  if (ok) ok.hidden = false;
-  form.querySelector('button[type=submit]').textContent = 'Sent ✓';
-  setTimeout(function () { form.reset(); }, 200);
-});
+/* ---- quote delivery -----------------------------------------------------
+   These forms used to show "Sent ✓" and deliver nothing: a customer could
+   spec a $9,000 set, see a tick, and we would never hear about it. Success
+   is now shown ONLY after a real 2xx from the form service. On anything
+   else the customer gets the shop number, because a lead we can still phone
+   is worth more than a tick that lies.
+   ------------------------------------------------------------------------ */
+function CFG() { return window.DROOOLY_FORMS || {}; }
 
-// ---- newsletter (demo) ----
+/* Everything the customer picked, as readable text, so the email is useful
+   without opening the site: the cart lines and the builder configuration. */
+function buildSummary() {
+  var out = [];
+  try {
+    var c = window.Cart && window.Cart.items && window.Cart.items();
+    if (c && c.length) {
+      out.push('BUILD (' + c.length + ' item' + (c.length === 1 ? '' : 's') + '):');
+      c.forEach(function (i) {
+        out.push('  - ' + (i.brand || '') + ' ' + (i.name || '') +
+                 (i.qty > 1 ? ' x' + i.qty : ''));
+      });
+    }
+  } catch (e) { /* no cart on this page */ }
+  try {
+    var b = window.Builder && window.Builder.get && window.Builder.get();
+    if (b) {
+      out.push('CONFIGURED: ' + b.brand + ' ' + b.title);
+      (b.picks || []).forEach(function (p) { out.push('  - ' + p.step + ': ' + p.value); });
+      if (b.notes) out.push('  notes: ' + b.notes);
+    }
+  } catch (e) { /* no builder on this page */ }
+  return out.join('\n');
+}
+
+/* Returns a promise that resolves true only on a real 2xx. */
+function sendForm(form, subject) {
+  var cfg = CFG();
+  if (!cfg.ACCESS_KEY) return Promise.resolve(false);
+  var data = { access_key: cfg.ACCESS_KEY,
+               subject: (cfg.SUBJECT_PREFIX || 'Quote request') + (subject ? ' — ' + subject : ''),
+               from_name: 'drooolywheel.co' };
+  new FormData(form).forEach(function (v, k) { data[k] = v; });
+  var build = buildSummary();
+  if (build) data.build = build;
+  data.page = location.pathname + location.search;
+  return fetch(cfg.ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function (r) { return r.ok; }).catch(function () { return false; });
+}
+
+function formFailure(form) {
+  var cfg = CFG();
+  var el = form.querySelector('.form-err');
+  if (!el) {
+    el = document.createElement('p');
+    el.className = 'form-err';
+    form.appendChild(el);
+  }
+  el.innerHTML = "We couldn't send that from here. Call or text " +
+    '<a href="tel:' + (cfg.PHONE_HREF || '+16023325400') + '">' +
+    (cfg.PHONE_DISPLAY || '602-332-5400') + '</a> and we\'ll take it down with you.';
+  el.hidden = false;
+}
+
+function wireQuoteForm(form, okEl, subject) {
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var btn = form.querySelector('button[type=submit]');
+    var label = btn && btn.querySelector('.btn-txt');
+    var was = label ? label.textContent : (btn ? btn.textContent : '');
+    if (btn) btn.disabled = true;
+    if (label) label.textContent = 'Sending…'; else if (btn) btn.textContent = 'Sending…';
+    sendForm(form, subject).then(function (sent) {
+      if (btn) btn.disabled = false;
+      if (sent) {
+        if (okEl) okEl.hidden = false;
+        var e2 = form.querySelector('.form-err'); if (e2) e2.hidden = true;
+        if (label) label.textContent = 'Sent \u2713'; else if (btn) btn.textContent = 'Sent \u2713';
+        setTimeout(function () { form.reset(); }, 200);
+      } else {
+        formFailure(form);
+        if (label) label.textContent = was; else if (btn) btn.textContent = was;
+      }
+    });
+  });
+}
+
+window.wireQuoteForm = wireQuoteForm;
+
+wireQuoteForm(document.getElementById('fitForm'),
+              document.getElementById('fitOk'), 'Fitment request');
+
+/* Newsletter: there is no list to send to yet, so it is hidden rather than
+   faking a signup. Flip showNewsletter in site-flags.js when there is one. */
 document.querySelectorAll('.news form').forEach(function (f) {
-  f.addEventListener('submit', function (e) { e.preventDefault(); f.innerHTML = '<p style="color:#38d07a;font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;font-size:13px">✓ You\'re in — watch your inbox for drops &amp; deals.</p>'; });
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!CFG().ACCESS_KEY) { formFailure(f); return; }
+    sendForm(f, 'Newsletter signup').then(function (sent) {
+      if (sent) f.innerHTML = '<p style="color:#38d07a;font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;font-size:13px">\u2713 You\'re in \u2014 watch your inbox.</p>';
+      else formFailure(f);
+    });
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function () { initVehModule(); updateVehUI(); });

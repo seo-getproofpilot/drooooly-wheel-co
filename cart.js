@@ -43,6 +43,10 @@
 
   // public API
   window.Cart = {
+    /* Read-only snapshot, for the quote email. script.js's buildSummary()
+       needs the lines to put them in the message; without this the email
+       arrived with the customer's details and no idea what they picked. */
+    items: function () { return cart.map(function (i) { return Object.assign({}, i); }); },
     add: function (item) {
       var ex = cart.filter(function (i) { return i.key === item.key; })[0];
       if (ex) ex.qty += (item.qty || 1); else cart.push({ key: item.key, brand: item.brand, name: item.name, price: item.price, img: item.img, qty: item.qty || 1 });

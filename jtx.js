@@ -392,6 +392,11 @@
     /* The hash is "#quote?build=...", so the browser finds no element to jump
        to. Put the form in view ourselves. */
     if (handed && $("quote")) setTimeout(function () { $("quote").scrollIntoView({ block: "start" }); }, 0);
+    /* Was a fake "Sent". Hands off to the shared sender in script.js, which
+       only shows success on a real 2xx and otherwise gives out the phone.
+       After the prefill above, so a handed-over build is already in the field
+       when the sender reads the form. */
+    if (window.wireQuoteForm) { window.wireQuoteForm(form, ok, "JTX Forged"); return; }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
