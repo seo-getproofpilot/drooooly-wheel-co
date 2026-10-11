@@ -28,8 +28,8 @@ Commit `visualize/` with the source; Railway and Pages serve it as static files.
 | `src/geometry/` | Parametric wheel and tire meshes from catalog sizes |
 | `src/materials/` | Finish materials (polished, brushed, black, black milled) |
 | `src/scene/` | Stage (canvas, HDRI, shadows, cameras), Truck (glTF, paint, rake, lift), WheelSet, Poster fallback |
-| `src/flow/` | Step state, URL encoding, option lists. No DOM |
-| `src/ui/` | The five steps, the summary, and `copy.ts`, which holds every customer-facing string |
+| `src/flow/` | Build state, URL encoding (`o` is the offset in mm), option lists, seeding a whole build, prefill from the URL or the homepage finder. No DOM |
+| `src/ui/` | The truck sheet (first step on a cold open), the live panel and its sections, the callout words, and `copy.ts`, which holds every customer-facing string |
 | `public/models/` | Truck GLBs and their licenses. `public/hdri/` the studio HDRI. `public/poster/` the no-WebGL images |
 
 ## Adding a truck

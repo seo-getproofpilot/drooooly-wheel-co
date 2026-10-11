@@ -1,22 +1,45 @@
 /* Camera presets, metres, relative to the truck origin (ground under the
-   front axle centre, +Z forward, +X the driver's side). Hero and side look
-   at the driver's side. */
+   front axle centre, +Z forward, +X the driver's side). Front, three-quarter
+   and side look at the driver's side.
+
+   The chips under the stage are front, threeQuarter, side, rear and wheel.
+   "hero" is kept as an alias of front so older callers and share links work. */
 import { Box3, MathUtils, PerspectiveCamera, Vector3 } from "three";
 
-export type CameraPreset = "hero" | "side" | "rear" | "wheel";
+export type CameraPreset = "front" | "threeQuarter" | "side" | "rear" | "wheel" | "hero";
 type V3 = [number, number, number];
 
 export const FOV = 32;
 
+/* Every whole-truck preset looks down a degree or two: CameraControls clamps
+   the polar angle to MAX_POLAR (88 degrees), so a level or upward view would
+   be bent on arrival and land off its framing. */
+/* front is the hero: low, close to the ground, from ahead of the driver's
+   front wheel, so the wheel and tire carry the frame. threeQuarter is the
+   same side from higher and further round, so more of the body shows. */
+const FRONT = { position: [3.7, 1.2, 2.5] as V3, target: [0, 0.95, -1.9] as V3 };
+
 export const PRESETS: Record<CameraPreset, { position: V3; target: V3 }> = {
-  hero: { position: [3.2, 1.1, 2.6], target: [0, 0.9, -1.9] },
-  side: { position: [6.5, 0.9, -1.9], target: [0, 0.9, -1.9] },
+  front: FRONT,
+  threeQuarter: { position: [4.6, 2.3, 1.6], target: [0, 0.8, -1.9] },
+  side: { position: [6.5, 1.15, -1.9], target: [0, 0.9, -1.9] },
   rear: { position: [-3.2, 1.1, -6.2], target: [0, 0.9, -1.9] },
-  wheel: { position: [1.6, 0.5, 0.9], target: [0.95, 0.45, 0] },
+  wheel: { position: [2.7, 0.62, 1.15], target: [0.95, 0.45, 0] },
+  hero: FRONT,
 };
 
+/* The chips under the stage, in order. Labels are UI copy owned here by
+   contract; the UI may still map them through copy.ts. */
+export const CAMERA_CHIPS: { key: CameraPreset; label: string }[] = [
+  { key: "front", label: "Front" },
+  { key: "threeQuarter", label: "Three-quarter" },
+  { key: "side", label: "Side" },
+  { key: "rear", label: "Rear" },
+  { key: "wheel", label: "Wheel" },
+];
+
 /* Presets that frame the whole truck. The wheel close-up is left as is. */
-const WHOLE: Record<CameraPreset, boolean> = { hero: true, side: true, rear: true, wheel: false };
+const WHOLE: Record<CameraPreset, boolean> = { front: true, threeQuarter: true, side: true, rear: true, wheel: false, hero: true };
 
 /* Where the camera goes for a preset at this viewport aspect. For the
    whole-truck presets the view direction is the preset's, but the distance and

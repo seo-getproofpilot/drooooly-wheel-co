@@ -621,12 +621,17 @@ each one is a phone call away from being better.
 
 ## 7. 3D configurator assets
 
-- 🔴 **7.1 Stand-in truck meshes (2026-10-10).** `configurator/public/models/f250-crew.glb` and
-  `f150-crew.glb` are the same CC0 low-poly pickup (Kenney Car Kit, license and source in
-  `configurator/public/models/LICENSES.md`), stretched to each truck's wheelbase, track and stock
-  tire size. They are development placeholders and never ship as "the" F-250 or F-150.
-  Commissioned unbadged body meshes for each body family replace them before launch, and a
-  trade dress lawyer reads the commissioned bodies before they go live.
+- 🔴 **7.1 Truck bodies are CC-BY Sketchfab models, de-badged (2026-10-11).** Six bodies ship in
+  `configurator/public/models/` (`f250`, `f150`, `f450`, `gm2500`, `gmc2500`, `ram1500`), each with
+  its author, license and rebuild steps in `configurator/public/models/LICENSES.md`. Four are
+  real OEM shapes with every badge, emblem and plate mesh deleted (F-450, Silverado HD, Sierra HD,
+  RAM 1500 TRX); `f250` and `f150` are a fictional unbadged pickup stretched to the platform's
+  wheelbase and track until a 2017+ crew-cab Super Duty and a 14th-gen F-150 body land. The
+  stage carries each body's CC BY credit line, which the license requires wherever the model
+  is shown; keep it when restyling. Trade dress: a de-badged body is still the OEM's shape, the
+  same exposure the 2D visualizers in this market carry by showing photos of real trucks. A
+  trademark lawyer reads the bodies before public launch, and commissioned bodies replace any
+  the lawyer flags. The Silverado body is the 2015-2019 shape standing in for the 2020+ platform.
 - 🔴 **7.2 Placeholder load rating in the configurator tow check (2026-10-10).**
   `configurator/src/data/ratings.ts` sets one rating, 3,195 lb per wheel, for every JTX size.
   The summary's trailer-weight check (rule 5) compares four times that number against the

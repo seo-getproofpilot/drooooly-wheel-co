@@ -8,7 +8,9 @@
    out. A full lift kit raises both ends, so it keeps the factory rake. */
 import { useEffect, useLayoutEffect, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
-import { Box3, Color, Material, Mesh, MeshPhysicalMaterial, MeshStandardMaterial, MathUtils, Object3D } from "three";
+import { useThree } from "@react-three/fiber";
+import { softwareRenderer } from "./gpu";
+import { Box3, Color, Material, Mesh, MeshPhysicalMaterial, MathUtils, Object3D } from "three";
 import type { Vehicle } from "../data/types";
 import { IN } from "../fitment/fitment3d";
 import { paintMaterial } from "./paint";
@@ -31,24 +33,37 @@ export function Truck({ vehicle, paintHex, bodyLiftM, rakeDeg = FACTORY_RAKE_DEG
   // moment it is wired up, and the static host's CSP refuses that
   // (LAUNCH-CHECKLIST 7.5). The stand-ins use neither.
   const gltf = useGLTF(modelUrl(vehicle), true, false);
+  const gl = useThree((s) => s.gl);
+  const soft = useMemo(() => softwareRenderer(gl.getContext()), [gl]);
   const { root, paint, owned } = useMemo(() => {
     const root = gltf.scene.clone(true);
     const paint = paintMaterial(paintHex);
-    const glass = new MeshPhysicalMaterial({ transmission: 0.9, roughness: 0.05, thickness: 0.01, color: 0x9fb3c8, metalness: 0, ior: 1.5 });
+    // Transmission renders the opaque scene a second time each frame; a
+    // software renderer gets plain see-through glass instead (see gpu.ts).
+    const glass = soft
+      ? new MeshPhysicalMaterial({ transparent: true, opacity: 0.45, roughness: 0.05, color: 0x9fb3c8, metalness: 0 })
+      : new MeshPhysicalMaterial({ transmission: 0.9, roughness: 0.05, thickness: 0.01, color: 0x9fb3c8, metalness: 0, ior: 1.5 });
     glass.name = "glass";
-    const trim = new MeshStandardMaterial({ color: 0x202226, roughness: 0.8 });
-    trim.name = "trim";
     // The hub empties stay where the glTF put them: they are reference
     // points, never moved with the body, and WheelSet does not read them.
     const hubs: Object3D[] = [];
     root.traverse((o: Object3D) => { if (o.name.startsWith("hub_")) hubs.push(o); });
     hubs.forEach((h) => h.removeFromParent());
+    // Paint replaces the material on `body` only and the glass material on
+    // `glass` only. Everything else (chassis, interior, lights, trim) keeps
+    // the material authored in the glTF. A node may hold its meshes as
+    // children, so the name is read from the mesh or its nearest named parent.
+    const role = (o: Object3D): string => { for (let p: Object3D | null = o; p && p !== root; p = p.parent) if (p.name === "body" || p.name === "glass") return p.name; return ""; };
     root.traverse((o: Object3D) => {
       const m = o as Mesh;
       if (!m.isMesh) return;
-      m.material = m.name === "body" ? paint : m.name === "glass" ? glass : trim;
+      const r = role(m);
+      if (r === "body") m.material = paint;
+      else if (r === "glass") m.material = glass;
+      m.castShadow = r !== "glass";
+      m.receiveShadow = true;
     });
-    return { root, paint, owned: [paint, glass, trim] as Material[] };
+    return { root, paint, owned: [paint, glass] as Material[] };
   }, [gltf]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => () => owned.forEach((m) => m.dispose()), [owned]);
   useEffect(() => { paint.color = new Color(paintHex); }, [paint, paintHex]);

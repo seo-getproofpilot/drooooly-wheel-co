@@ -1,5 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { fit, IN } from "../src/fitment/fitment3d";
+import { fit, IN, pokeSentence } from "../src/fitment/fitment3d";
+import Fitment from "@site/fitment.js";
+import { callout } from "../src/ui/callout";
 import { loadCatalog } from "../src/data/catalog";
 const c = loadCatalog();
 const f250 = c.vehicles.find(v => v.id === "f250")!;
@@ -59,5 +61,35 @@ describe("fit", () => {
     expect(fit({ ...base, towWeightLb: 10000, loadRatingLb: 3195 }).loadOk).toBe(true);
     expect(fit(base).loadOk).toBeNull();
     expect(fit({ ...base, towWeightLb: 10000, loadRatingLb: null }).loadOk).toBeNull();
+  });
+});
+
+describe("pokeSentence", () => {
+  const g = (poke: number) => ({ poke } as any);
+  const banned = /guarantee|will fit|rub free|rub-free/i;
+  it("unmeasured: whole inches with about, never a decimal", () => {
+    expect(pokeSentence(g(2.6), false)).toBe("Sits about 3 inches past the fender");
+    expect(pokeSentence(g(1.2), false)).toBe("Sits about 1 inch past the fender");
+    expect(pokeSentence(g(0.4), false)).toBe("Sits about even with the fender");
+    expect(pokeSentence(g(-0.49), false)).toBe("Sits about even with the fender");
+    expect(pokeSentence(g(-1.6), false)).toBe("Sits about 2 inches inside the fender");
+    for (const p of [-5, -1.5, -0.2, 0, 0.6, 1.5, 3.3, 7.9]) {
+      const s = pokeSentence(g(p), false);
+      expect(s).not.toMatch(/\d\.\d/);
+      expect(s).not.toMatch(banned);
+    }
+  });
+  it("measured: fitment.js pokeText exactly", () => {
+    for (const p of [-2.3, 0, 0.1, 1.84, 4]) expect(pokeSentence(g(p), true)).toBe(Fitment.pokeText(g(p), true));
+  });
+  it("feeds the callout lines", () => {
+    const r = fit({ vehicle: f250, liftIn: 4, wheel: { diaIn: 26, widthIn: 14, offsetMm: -76 }, tire: { od: 37, section: 13.5, rim: 26 }, config: "single" });
+    const c = callout({ size: "26x14", offsetMm: -76, brand: "JTX", model: "Ace", finish: "Polished", fit: r, measured: false, liftIn: 4 });
+    expect(c.headline).toBe("26x14 -76");
+    expect(c.line2).toBe("JTX Ace, Polished");
+    expect(c.line3).toBe(pokeSentence(r.g, false) + ", at 4 inches of lift");
+    expect(callout({ size: "20x10", offsetMm: null, brand: "JTX", model: "Ace", finish: "Black", fit: r, measured: false, liftIn: 0 }).headline).toBe("20x10");
+    expect(callout({ size: "20x10", offsetMm: null, brand: "JTX", model: "Ace", finish: "Black", fit: r, measured: false, liftIn: 0 }).line3).not.toMatch(/lift/);
+    expect(c.line3).not.toMatch(banned);
   });
 });

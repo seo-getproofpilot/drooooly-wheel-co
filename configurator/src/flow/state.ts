@@ -16,6 +16,7 @@ export interface Build {
   b: string | null;      // wheel brand slug
   m: string | null;      // wheel model name
   s: string | null;      // wheel size, "24x14"
+  o: number | null;      // offset in mm, one of the recorded min/typical/max for the size; null = typical or unknown
   f: string | null;      // finish code
   t: string | null;      // tire size
   tow: number | null;    // disclosed trailer weight, lb
@@ -23,12 +24,12 @@ export interface Build {
 
 export type Action = { type: "set"; patch: Partial<Build> } | { type: "reset" } | { type: "hydrate"; build: Build };
 
-export const EMPTY: Build = { v: null, mn: null, y: null, p: null, l: null, lv: false, b: null, m: null, s: null, f: null, t: null, tow: null };
+export const EMPTY: Build = { v: null, mn: null, y: null, p: null, l: null, lv: false, b: null, m: null, s: null, o: null, f: null, t: null, tow: null };
 
 const DEPENDENTS: [keyof Build, (keyof Build)[]][] = [
-  ["v", ["s", "t"]], ["y", ["s", "t"]],
-  ["b", ["s", "f", "t"]], ["m", ["s", "f", "t"]],
-  ["s", ["t"]],
+  ["v", ["s", "o", "t"]], ["y", ["s", "o", "t"]],
+  ["b", ["s", "o", "f", "t"]], ["m", ["s", "o", "f", "t"]],
+  ["s", ["o", "t"]],
 ];
 
 export function reduce(b: Build, a: Action): Build {

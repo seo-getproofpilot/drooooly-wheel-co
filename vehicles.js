@@ -29,7 +29,7 @@ window.VEHICLES = [
     stockOffsetMm:13, fenderRadiusIn:20.5, faceToFenderIn:4.0, measured:false,
     /* Published OEM spec sheet figures for crew cab, 6.75 ft bed (F-250);
        estimates until a tape confirms them. Read by the 3D configurator. */
-    model:{ file:"models/f250-crew.glb", wheelbaseIn:159.8, trackIn:68.3, stockTireOdIn:33.2, stockWheelDiaIn:18, cab:"crew" },
+    model:{ file:"models/f250-crew.gltf", wheelbaseIn:159.8, trackIn:68.3, stockTireOdIn:33.2, stockWheelDiaIn:18, cab:"crew" },
     body:{ cab:"crew", bedTop:0.30, rocker:0.86, archLift:0 } },
 
   /* The one platform dialled in against real published data (2026-08-27).
@@ -46,16 +46,26 @@ window.VEHICLES = [
     years:[2017,2022], config:"drw", hd:true, bolt:"10x225", hubBoreMm:170.1,
     stockOffsetMm:136, stockWidthIn:6, fenderRadiusIn:21.5, faceToFenderIn:-2.0,
     measured:false, dialled:true,
+    /* Crew cab, 8 ft bed, DRW. Wheelbase and track from the published spec sheet; the
+       factory LT225/70R19.5 is 31.9 in OD. Read by the 3D configurator. */
+    model:{ file:"models/f450-crew.gltf", wheelbaseIn:176.2, trackIn:74.6, stockTireOdIn:31.9, stockWheelDiaIn:19.5, cab:"crew" },
     body:{ cab:"crew", bedTop:0.30, rocker:0.88, archLift:0 } },
 
   { id:"gm2500", make:"Chevrolet", models:["Silverado 2500HD","Silverado 3500HD"],
     years:[2020,2026], config:"srw", hd:true, bolt:"8x180",
     stockOffsetMm:20, fenderRadiusIn:20.0, faceToFenderIn:3.7, measured:false,
+    /* Published 2020+ spec sheet figures for crew cab, standard bed: wheelbase 158.9 in, track
+       68.6 in, stock LT275/70R18 about 33.2 in OD; estimates until a tape confirms them. The
+       mesh is the 2015-2019 body, a stand-in (LICENSES.md). Read by the 3D configurator. */
+    model:{ file:"models/gm2500-crew.gltf", wheelbaseIn:158.9, trackIn:68.6, stockTireOdIn:33.2, stockWheelDiaIn:18, cab:"crew" },
     body:{ cab:"crew", bedTop:0.31, rocker:0.86, archLift:0 } },
 
   { id:"gmc2500", make:"GMC", models:["Sierra 2500HD","Sierra 3500HD"],
     years:[2020,2026], config:"srw", hd:true, bolt:"8x180",
     stockOffsetMm:20, fenderRadiusIn:20.0, faceToFenderIn:3.7, measured:false,
+    /* Same published figures as the Silverado HD: crew cab, standard bed, 158.9 in wheelbase,
+       68.6 in track, stock LT275/70R18 about 33.2 in OD. Read by the 3D configurator. */
+    model:{ file:"models/gmc2500-crew.gltf", wheelbaseIn:158.9, trackIn:68.6, stockTireOdIn:33.2, stockWheelDiaIn:18, cab:"crew" },
     body:{ cab:"crew", bedTop:0.31, rocker:0.86, archLift:0 } },
 
   { id:"gm3500drw", make:"Chevrolet", models:["Silverado 3500HD DRW"],
@@ -80,7 +90,7 @@ window.VEHICLES = [
     stockOffsetMm:44, fenderRadiusIn:18.5, faceToFenderIn:3.0, measured:false,
     /* Published OEM spec sheet figures for crew cab, 5.5 ft bed (F-150);
        estimates until a tape confirms them. Read by the 3D configurator. */
-    model:{ file:"models/f150-crew.glb", wheelbaseIn:145.4, trackIn:67.6, stockTireOdIn:31.8, stockWheelDiaIn:18, cab:"crew" },
+    model:{ file:"models/f150-crew.gltf", wheelbaseIn:145.4, trackIn:67.6, stockTireOdIn:31.8, stockWheelDiaIn:18, cab:"crew" },
     body:{ cab:"crew", bedTop:0.32, rocker:0.85, archLift:0 } },
 
   /* 6x139.7, not 5x139.7. The 2019+ DT went to six lugs; 5x139.7 is the
@@ -89,6 +99,10 @@ window.VEHICLES = [
   { id:"ram1500", make:"RAM", models:["1500"],
     years:[2019,2026], config:"srw", hd:false, bolt:"6x139.7",
     stockOffsetMm:25, fenderRadiusIn:18.5, faceToFenderIn:3.5, measured:false,
+    /* Published figures for crew cab, 5.7 ft bed: wheelbase 144.6 in, track 68.4 in, stock
+       275/65R20 about 34.1 in OD. The mesh is the TRX body (wider flares) set on these numbers,
+       not the TRX's 35s. Read by the 3D configurator. */
+    model:{ file:"models/ram1500-crew.gltf", wheelbaseIn:144.6, trackIn:68.4, stockTireOdIn:34.1, stockWheelDiaIn:20, cab:"crew" },
     body:{ cab:"crew", bedTop:0.32, rocker:0.85, archLift:0 } }
 ];
 

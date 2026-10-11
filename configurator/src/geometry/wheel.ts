@@ -303,7 +303,8 @@ export function makeWheel(diaIn: number, widthIn: number, style: WheelStyle, opt
   }
   add3("lugs", zToX(mergeGeometries(nuts)!));
 
-  group.userData = { diaIn, widthIn, style, faceFrontIn: xf, concaveIn: concave };
+  // hubBackIn: the back of the face plate at the hub, where a brake hat seats
+  group.userData = { diaIn, widthIn, style, faceFrontIn: xf, concaveIn: concave, hubBackIn: hubFront - faceBack };
   return group;
 }
 

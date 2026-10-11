@@ -1,5 +1,51 @@
 {
-  "_note": "Wheelbase, track and stock tire OD match the model blocks in vehicles.js (published OEM spec sheet figures; estimates until a tape confirms them). bodyWidthIn is the published overall width without mirrors and only sizes the stand-in body. source is relative to configurator/public/models/.",
-  "f250-crew": { "source": ".source/kenney-car-kit/Models/GLB format/truck.glb", "wheelbaseIn": 159.8, "trackIn": 68.3, "stockTireOdIn": 33.2, "bodyWidthIn": 80.0 },
-  "f150-crew": { "source": ".source/kenney-car-kit/Models/GLB format/truck.glb", "wheelbaseIn": 145.4, "trackIn": 67.6, "stockTireOdIn": 31.8, "bodyWidthIn": 79.9 }
+ "_note": "Wheelbase, track and stock tire OD match the model blocks in vehicles.js (published OEM spec sheet figures; estimates until a tape confirms them). bodyWidthIn is the published overall width without mirrors and only sizes the stand-in body. source is relative to configurator/public/models/.",
+ "f250-crew": {
+  "source": ".source/lightbody-lifted-85/scene.gltf",
+  "wheelbaseIn": 159.8,
+  "trackIn": 68.3,
+  "stockTireOdIn": 33.2,
+  "bodyWidthIn": 80.0,
+  "_note": "Shipped body is the fictional Lightbody pickup stretched by prepare-lightbody.py to the 2017+ crew cab 6.75 ft bed wheelbase. A de-badged 2017-2022 Super Duty SRW crew cab derived from the f450 source (bed shortened 16.4 in, DRW flares off) is the planned replacement. See configurator/public/models/LICENSES.md"
+ },
+ "f150-crew": {
+  "source": ".source/lightbody-lifted-85/scene.gltf",
+  "wheelbaseIn": 145.4,
+  "trackIn": 67.6,
+  "stockTireOdIn": 31.8,
+  "bodyWidthIn": 79.9,
+  "_note": "Shipped body is the fictional Lightbody pickup stretched by prepare-lightbody.py to the SuperCrew 5.5 ft bed wheelbase. A de-badged 14th-gen F-150 body is the planned replacement. See configurator/public/models/LICENSES.md"
+ },
+ "f450-crew": {
+  "source": ".source/ford-f450-2021/scene.gltf",
+  "wheelbaseIn": 176.2,
+  "trackIn": 74.6,
+  "stockTireOdIn": 31.9,
+  "bodyWidthIn": 96.0,
+  "_note": "2017-2022 F-450 crew cab 8 ft bed, DRW. Factory LT225/70R19.5 is 31.9 in OD. Source model is real scale; see configurator/public/models/LICENSES.md"
+ },
+ "gm2500-crew": {
+  "source": ".source/chevy-silverado-2500hd/scene.gltf",
+  "wheelbaseIn": 158.9,
+  "trackIn": 68.6,
+  "stockTireOdIn": 33.2,
+  "bodyWidthIn": 81.9,
+  "_note": "2020+ Silverado 2500HD crew cab, standard bed, SRW. Stock LT275/70R18 is about 33.2 in OD. Source is the 2015-2019 body, scaled uniformly to this wheelbase; see configurator/public/models/LICENSES.md"
+ },
+ "gmc2500-crew": {
+  "source": ".source/gmc-sierra-hd2500/scene.gltf",
+  "wheelbaseIn": 158.9,
+  "trackIn": 68.6,
+  "stockTireOdIn": 33.2,
+  "bodyWidthIn": 81.9,
+  "_note": "2020+ Sierra 2500HD crew cab, standard bed, SRW. Same dims as the Silverado HD. Source scaled uniformly to this wheelbase; see configurator/public/models/LICENSES.md"
+ },
+ "ram1500-crew": {
+  "source": ".source/ram-1500-trx-2021/scene.gltf",
+  "wheelbaseIn": 144.6,
+  "trackIn": 68.4,
+  "stockTireOdIn": 34.1,
+  "bodyWidthIn": 82.1,
+  "_note": "2019+ RAM 1500 (DT) crew cab, 5.7 ft bed. Stock 275/65R20 is about 34.1 in OD. Source is the TRX wide body on 35s, lowered to the platform stock tire; see configurator/public/models/LICENSES.md"
+ }
 }

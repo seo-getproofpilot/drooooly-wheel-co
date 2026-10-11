@@ -58,3 +58,15 @@ export function fit(i: FitInput): FitResult {
     corners, loadOk,
   };
 }
+
+/* The stance sentence for the panel and the callout. A measured platform gets
+   fitment.js's own words exactly. An unmeasured one gets whole inches with
+   "about" in front (Matthew approved this one relaxation, 2026-10-10): never a
+   decimal, never a promise. */
+export function pokeSentence(g: { poke: number }, measured: boolean): string {
+  if (measured) return Fitment.pokeText(g as ReturnType<typeof Fitment.geometry>, true);
+  const n = Math.round(Math.abs(g.poke));
+  if (n === 0) return "Sits about even with the fender";
+  const inches = n === 1 ? "1 inch" : `${n} inches`;
+  return g.poke > 0 ? `Sits about ${inches} past the fender` : `Sits about ${inches} inside the fender`;
+}

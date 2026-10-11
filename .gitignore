@@ -23,3 +23,4 @@ configurator/playwright-report/
 
 # CC0 3D model originals, downloaded for tools/3d/prepare-truck.py. Never shipped.
 tools/3d/.source/
+__pycache__/

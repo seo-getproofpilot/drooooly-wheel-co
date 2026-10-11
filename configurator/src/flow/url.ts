@@ -3,10 +3,10 @@
 import Fitment from "@site/fitment.js";
 import type { Catalog } from "../data/types";
 import { LIFTS, type Build, type LiftIn, EMPTY } from "./state";
-import { brands, configOf, platforms, slugify, tireChoices, wheelModels, wheelSizes } from "./options";
+import { brands, configOf, offsetChoices, platforms, slugify, tireChoices, wheelModels, wheelSizes } from "./options";
 import { finishCode } from "../materials/finishes";
 
-const KEYS: (keyof Build)[] = ["v", "mn", "y", "p", "l", "lv", "b", "m", "s", "f", "t", "tow"];
+const KEYS: (keyof Build)[] = ["v", "mn", "y", "p", "l", "lv", "b", "m", "s", "o", "f", "t", "tow"];
 
 export function encode(b: Build): string {
   const q = new URLSearchParams();
@@ -59,8 +59,13 @@ export function decode(qs: string, cat: Catalog): Build {
   out.s = s && wheelSizes(cat, brand.slug, model.model, config).includes(s) ? s : null;
   if (!out.s) return out;
 
+  const ps = Fitment.parseSize(out.s)!;
+  const o = get("o");
+  const on = o !== null && /^-?\d+$/.test(o) ? Number(o) : NaN;
+  out.o = offsetChoices(cat, ps.w!, config, ps.d).includes(on) ? on : null;
+
   const t = get("t");
-  const dia = Fitment.parseSize(out.s)!.d;
+  const dia = ps.d;
   out.t = t && Fitment.parseTireSize(t) && tireChoices(cat, dia, config === "dually" ? "dual" : "any").some((x) => x.size === t) ? t : null;
   return out;
 }

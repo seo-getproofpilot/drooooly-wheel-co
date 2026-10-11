@@ -9,8 +9,19 @@
    grooves and staggered shoulder blocks; all-terrain gets more, shallower
    grooves and small shoulder notches.
 
+   The outboard sidewall carries the size string (e.g. 37x13.50R24) as a
+   thin decal mesh that follows the sidewall bulge a hair proud of it. The
+   lettering is drawn twice around a ring on a 1024px canvas, tops outward
+   the way a tire is moulded, and mapped by planar UVs across the wheel
+   face. It is light grey at low opacity: legible at the Wheel preset, lost
+   in the mip chain at whole-truck distances. Mirrored corners swap in
+   sidewallMirrored(decal material) so the text never reads backwards. (Not
+   kept in userData: Object3D.clone deep-copies userData through JSON, which
+   would turn a material into a plain object.) Without a 2D
+   canvas (tests under jsdom) the decal is left out.
+
    Built in inches and scaled last, for the same reason as wheel.ts. */
-import { BufferGeometry, LatheGeometry, Mesh, MeshStandardMaterial, Vector2 } from "three";
+import { BufferGeometry, CanvasTexture, LatheGeometry, LinearMipmapLinearFilter, Material, Mesh, MeshStandardMaterial, SRGBColorSpace, Vector2 } from "three";
 import { toCreasedNormals } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 export const IN = 0.0254;
@@ -29,7 +40,69 @@ const SPEC = {
 
 type P = [number, number]; // [axial, radius] inches
 
-export function makeTire(od: number, section: number, rim: number, tread: Tread, rimWidthIn?: number): Mesh {
+/* "37x13.50R24": the size the way it is moulded on the sidewall. */
+export function sidewallLabel(od: number, section: number, rim: number): string {
+  const n = (v: number) => (Number.isInteger(v) ? String(v) : String(Math.round(v * 10) / 10));
+  return `${n(od)}x${section.toFixed(2)}R${n(rim)}`;
+}
+
+type Ctx = CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D;
+
+function canvas2d(size: number): { canvas: HTMLCanvasElement | OffscreenCanvas; ctx: Ctx } | null {
+  try {
+    if (typeof OffscreenCanvas !== "undefined") {
+      const c = new OffscreenCanvas(size, size);
+      const ctx = c.getContext("2d");
+      if (ctx) return { canvas: c, ctx };
+    }
+    if (typeof document === "undefined" || /jsdom/i.test(navigator.userAgent)) return null;
+    const c = document.createElement("canvas");
+    c.width = c.height = size;
+    const ctx = c.getContext("2d");
+    return ctx ? { canvas: c, ctx } : null;
+  } catch { return null; }
+}
+
+/* The size string twice around a ring, top and bottom, letter tops pointing
+   out from the axle. rPx is the baseline-centre radius, hPx the cap height. */
+function letteringTexture(label: string, rPx: number, hPx: number): CanvasTexture | null {
+  const N = 1024, c = canvas2d(N);
+  if (!c) return null;
+  const { ctx } = c;
+  ctx.clearRect(0, 0, N, N);
+  ctx.font = `700 ${Math.round(hPx)}px Michroma, "Arial Black", Arial, sans-serif`;
+  ctx.fillStyle = "rgba(196,198,202,0.34)";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  const track = hPx * 0.18;
+  const widths = [...label].map((ch) => ctx.measureText(ch).width + track);
+  const total = widths.reduce((a, b) => a + b, 0);
+  for (const centre of [-Math.PI / 2, Math.PI / 2]) {
+    let acc = -total / 2;
+    for (let i = 0; i < label.length; i++) {
+      const a = centre + (acc + widths[i] / 2) / rPx;
+      acc += widths[i];
+      ctx.save();
+      ctx.translate(N / 2 + rPx * Math.cos(a), N / 2 + rPx * Math.sin(a));
+      ctx.rotate(a + Math.PI / 2);
+      ctx.fillText(label[i], 0, 0);
+      ctx.restore();
+    }
+  }
+  const tex = new CanvasTexture(c.canvas as HTMLCanvasElement);
+  tex.colorSpace = SRGBColorSpace;
+  tex.minFilter = LinearMipmapLinearFilter;
+  tex.anisotropy = 4;
+  tex.name = "sidewall-" + label;
+  return tex;
+}
+
+const MIRRORED = new WeakMap<Material, Material>();
+
+/** The read-the-right-way-round material for a decal on a mirrored corner. */
+export function sidewallMirrored(m: Material): Material | undefined { return MIRRORED.get(m); }
+
+export function makeTire(od: number, section: number, rim: number, tread: Tread, rimWidthIn?: number, label?: string): Mesh {
   const s = SPEC[tread];
   const Rt = od / 2, rb = rim / 2, S2 = section / 2;
   const bx = rimWidthIn ? Math.min(rimWidthIn / 2 - 0.5, S2 - 0.6) : section * 0.42;
@@ -93,5 +166,63 @@ export function makeTire(od: number, section: number, rim: number, tread: Tread,
   mesh.castShadow = true;
   mesh.receiveShadow = true;
   mesh.userData = { tread, grooves: s.grooves, grooveDepthIn: s.depth, beadRadiusM: rb * IN, odIn: od, sectionIn: section, rimIn: rim };
+
+  /* Sidewall lettering decal: the outboard sidewall between 18 and 82
+     percent of its height, 0.04 in proud, with planar UVs over the face. */
+  const text = label ?? sidewallLabel(od, section, rim);
+  const band: Vector2[] = [];
+  // outer to inner, the same direction as the tire's outboard wall, so the
+  // lathe winds its faces outward (inner to outer is culled from outside)
+  for (let k = 16; k >= 0; k--) {
+    const t = 0.18 + (0.64 * k) / 16;
+    const bulge = t <= 0.5 ? Math.sin((Math.PI / 2) * (t / 0.5)) : 1 - (1 - e) * ((t - 0.5) / 0.5) ** 2;
+    band.push(new Vector2(r0 + t * (r1 - r0), x0 + (S2 - x0) * bulge + 0.04));
+  }
+  const rText = r0 + 0.5 * (r1 - r0), pxPerIn = 512 / Rt;
+  const tex = letteringTexture(text, rText * pxPerIn, Math.min(0.24 * (r1 - r0), 1.3) * pxPerIn);
+  if (tex) {
+    const dg = new LatheGeometry(band, 128);
+    dg.rotateZ(-Math.PI / 2); // lathe height onto +X (outboard): X = h, Y = -r sin, Z = r cos
+    const p = dg.attributes.position, uv = dg.attributes.uv;
+    // Seen from +X with +Y up, screen right is -Z, so u runs along -Z.
+    for (let i = 0; i < p.count; i++) uv.setXY(i, 0.5 - p.getZ(i) / (2 * Rt), 0.5 + p.getY(i) / (2 * Rt));
+    dg.scale(IN, IN, IN);
+    dg.computeBoundingBox();
+    dg.computeBoundingSphere();
+    const mk = (map: CanvasTexture) => {
+      const m = new MeshStandardMaterial({ map, transparent: true, depthWrite: false, roughness: 0.8, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+      m.name = "sidewall";
+      return m;
+    };
+    const mirrored = tex.clone();
+    mirrored.repeat.x = -1;
+    mirrored.offset.x = 1;
+    mirrored.needsUpdate = true;
+    const front = mk(tex);
+    MIRRORED.set(front, mk(mirrored));
+    const decal = new Mesh(dg, front);
+    decal.name = "sidewall";
+    decal.renderOrder = 1;
+    decal.userData = { label: text };
+    mesh.add(decal);
+  }
+  mesh.userData.label = text;
   return mesh;
+}
+
+/* Frees a tire from makeTire: its geometry and material, and the sidewall
+   decal with both of its materials and textures. Call on the source mesh;
+   clones share all of these. */
+export function disposeTire(mesh: Mesh) {
+  mesh.geometry.dispose();
+  (mesh.material as Material).dispose();
+  const d = mesh.getObjectByName("sidewall") as Mesh | undefined;
+  if (!d) return;
+  d.geometry.dispose();
+  const m0 = d.material as MeshStandardMaterial;
+  for (const m of [m0, MIRRORED.get(m0) as MeshStandardMaterial | undefined]) {
+    if (!m) continue;
+    m.map?.dispose();
+    m.dispose();
+  }
 }

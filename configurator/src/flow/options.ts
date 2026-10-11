@@ -48,6 +48,35 @@ export function offsetFor(cat: Catalog, widthIn: number, config: string, diaIn: 
   return typeof e?.typical === "number" ? e.typical : null;
 }
 
+/** The recorded offsets for this size: min, typical and max as published, in
+    mm, low to high, duplicates removed. Empty when nothing is recorded, which
+    the panel shows as "cut to your truck". Never interpolated. */
+export function offsetChoices(cat: Catalog, widthIn: number, config: string, diaIn: number): number[] {
+  const role = Fitment.offsetRole(widthIn, config === "dually" ? "dually" : "single");
+  const e = Fitment.offsetFor(cat.offsets, role, diaIn, widthIn);
+  if (!e) return [];
+  const vals = [e.min, e.typical, e.max].filter((x): x is number => typeof x === "number" && Number.isFinite(x));
+  return [...new Set(vals)].sort((a, b) => a - b);
+}
+
+/** The site's window.matchVehicle (vehicles.js), ported to the catalog the
+    configurator carries: same make, exact model name wins, otherwise the
+    longest name that contains or is contained in the other, so "3500 DRW"
+    never lands on the single-rear 3500. Keep the two in step. */
+export function matchVehicle(cat: Catalog, make: string, model: string): Vehicle | null {
+  const m = String(model || "").toLowerCase().trim(), mk = String(make || "").toLowerCase().trim();
+  let best: Vehicle | null = null, bestLen = -1;
+  for (const v of cat.vehicles) {
+    if (v.make.toLowerCase() !== mk) continue;
+    for (const mm of v.models) {
+      const a = mm.toLowerCase();
+      if (a === m) return v;
+      if ((m.includes(a) || a.includes(m)) && a.length > bestLen) { best = v; bestLen = a.length; }
+    }
+  }
+  return best;
+}
+
 /** Tread family for the render: mud-terrain if any listing of the size is one. */
 export function treadOf(cat: Catalog, size: string): "AT" | "MT" {
   for (const b of cat.tires) for (const m of b.models) if (m.sizes.includes(size) && /mud/i.test(m.tread)) return "MT";

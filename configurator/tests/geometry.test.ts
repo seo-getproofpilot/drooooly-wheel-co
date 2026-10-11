@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { Box3, Mesh, Object3D, BufferGeometry } from "three";
 import { makeWheel, wheelTriangles } from "../src/geometry/wheel";
-import { makeTire } from "../src/geometry/tire";
+import { disposeTire, makeTire, sidewallLabel } from "../src/geometry/tire";
+import { makeBrake, rotorDiaFor, CALIPER_REACH } from "../src/geometry/brake";
 import { finishMaterial, finishCode } from "../src/materials/finishes";
 import { JTX_PROGRAMS } from "../src/data/jtx-programs";
 import catalog from "../src/data/catalog.json";
@@ -87,5 +88,41 @@ describe("geometry", () => {
     expect(finishCode("Brushed")).toBe("brushed");
     expect(finishCode("Black")).toBe("black");
     expect(finishCode("Black Milled")).toBe("black-milled");
+  });
+
+  it("brake rotor is about 70 percent of the wheel and the caliper clears the drop centre", () => {
+    for (const d of [20, 22, 24, 26]) {
+      const rotor = rotorDiaFor(d);
+      expect(rotor).toBeLessThanOrEqual(d * 0.7 + 1e-9);
+      expect(rotor).toBeGreaterThan(d * 0.65);
+      const b = makeBrake(rotor, -1);
+      const box = new Box3().setFromObject(b);
+      const outer = Math.max(box.max.y, -box.min.y, box.max.z, -box.min.z);
+      expect(outer).toBeLessThan((d / 2 - 2.15) * IN); // inner wall at the drop centre
+      expect(outer).toBeCloseTo((rotor / 2 + CALIPER_REACH) * IN, 2);
+      expect(box.max.x).toBeLessThanOrEqual(1e-6); // everything inboard of the hat face
+    }
+  });
+  it("brake has rotor, hat and caliper, the caliper on the side asked for", () => {
+    const trail = makeBrake(16.8, -1), lead = makeBrake(16.8, 1);
+    for (const n of ["rotor", "hat", "caliper"]) expect(trail.getObjectByName(n)).toBeTruthy();
+    const cz = (g: Object3D) => { const b = new Box3().setFromObject(g.getObjectByName("caliper")!); return (b.min.z + b.max.z) / 2; };
+    expect(cz(trail)).toBeLessThan(0);
+    expect(cz(lead)).toBeGreaterThan(0);
+    const rotorBox = new Box3().setFromObject(trail.getObjectByName("rotor")!);
+    expect(rotorBox.max.y - rotorBox.min.y).toBeCloseTo(16.8 * IN, 2);
+  });
+  it("the wheel reports where its hub back sits, behind the face front", () => {
+    const g = makeWheel(24, 14, { spokes: 8, spokeWidth: 0.4, dish: 0.5, split: false });
+    expect(g.userData.hubBackIn).toBeLessThan(g.userData.faceFrontIn);
+    expect(g.userData.hubBackIn).toBeGreaterThan(-7);
+  });
+  it("sidewall label is the moulded size string", () => {
+    expect(sidewallLabel(37, 13.5, 24)).toBe("37x13.50R24");
+    expect(sidewallLabel(35, 12.5, 22)).toBe("35x12.50R22");
+    expect(sidewallLabel(33.5, 12.5, 20)).toBe("33.5x12.50R20");
+    const t = makeTire(37, 13.5, 24, "MT");
+    expect(t.userData.label).toBe("37x13.50R24");
+    expect(() => disposeTire(t)).not.toThrow();
   });
 });

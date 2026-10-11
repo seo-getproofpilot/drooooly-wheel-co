@@ -13,8 +13,8 @@ export function describe(cat: Catalog, b: Build) {
   return {
     truck: veh && b.y ? `${b.y} ${veh.make} ${b.mn ?? veh.models.join(" / ")}` : null,
     paint: paint?.name ?? null,
-    stance: b.l === null ? null : b.lv ? copy.leveled : copy.lift(b.l),
-    wheel: brand && model && b.s ? `${brand.name} ${model.model} ${b.s}` : null,
+    stance: b.l === null ? null : b.lv ? copy.leveled : copy.liftWords(b.l),
+    wheel: brand && model && b.s ? `${brand.name} ${model.model} ${b.s}${b.o !== null ? " " + copy.offsetChip(b.o) : ""}` : null,
     finish,
     tire: b.t,
   };

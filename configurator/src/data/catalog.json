@@ -20,7 +20,7 @@
    "faceToFenderIn": 4,
    "measured": false,
    "model": {
-    "file": "models/f250-crew.glb",
+    "file": "models/f250-crew.gltf",
     "wheelbaseIn": 159.8,
     "trackIn": 68.3,
     "stockTireOdIn": 33.2,
@@ -54,6 +54,14 @@
    "faceToFenderIn": -2,
    "measured": false,
    "dialled": true,
+   "model": {
+    "file": "models/f450-crew.gltf",
+    "wheelbaseIn": 176.2,
+    "trackIn": 74.6,
+    "stockTireOdIn": 31.9,
+    "stockWheelDiaIn": 19.5,
+    "cab": "crew"
+   },
    "body": {
     "cab": "crew",
     "bedTop": 0.3,
@@ -79,6 +87,14 @@
    "fenderRadiusIn": 20,
    "faceToFenderIn": 3.7,
    "measured": false,
+   "model": {
+    "file": "models/gm2500-crew.gltf",
+    "wheelbaseIn": 158.9,
+    "trackIn": 68.6,
+    "stockTireOdIn": 33.2,
+    "stockWheelDiaIn": 18,
+    "cab": "crew"
+   },
    "body": {
     "cab": "crew",
     "bedTop": 0.31,
@@ -104,6 +120,14 @@
    "fenderRadiusIn": 20,
    "faceToFenderIn": 3.7,
    "measured": false,
+   "model": {
+    "file": "models/gmc2500-crew.gltf",
+    "wheelbaseIn": 158.9,
+    "trackIn": 68.6,
+    "stockTireOdIn": 33.2,
+    "stockWheelDiaIn": 18,
+    "cab": "crew"
+   },
    "body": {
     "cab": "crew",
     "bedTop": 0.31,
@@ -204,7 +228,7 @@
    "faceToFenderIn": 3,
    "measured": false,
    "model": {
-    "file": "models/f150-crew.glb",
+    "file": "models/f150-crew.gltf",
     "wheelbaseIn": 145.4,
     "trackIn": 67.6,
     "stockTireOdIn": 31.8,
@@ -235,6 +259,14 @@
    "fenderRadiusIn": 18.5,
    "faceToFenderIn": 3.5,
    "measured": false,
+   "model": {
+    "file": "models/ram1500-crew.gltf",
+    "wheelbaseIn": 144.6,
+    "trackIn": 68.4,
+    "stockTireOdIn": 34.1,
+    "stockWheelDiaIn": 20,
+    "cab": "crew"
+   },
    "body": {
     "cab": "crew",
     "bedTop": 0.32,

@@ -5,10 +5,11 @@ const dir = path.resolve(__dirname, "..", "configurator", "public", "models");
 const want = ["body", "glass", "chassis", "bed", "hub_FL", "hub_FR", "hub_RL", "hub_RR"];
 let fail = 0;
 function nodesOf(file) {
+  if (file.endsWith(".gltf")) return JSON.parse(fs.readFileSync(file, "utf8")).nodes;
   const b = fs.readFileSync(file); const len = b.readUInt32LE(12);
   return JSON.parse(b.slice(20, 20 + len).toString("utf8")).nodes;
 }
-for (const f of ["f250-crew.glb", "f150-crew.glb"]) {
+for (const f of ["f250-crew.gltf", "f150-crew.gltf", "f450-crew.gltf", "gm2500-crew.gltf", "gmc2500-crew.gltf", "ram1500-crew.gltf"]) {
   const p = path.join(dir, f);
   if (!fs.existsSync(p)) { console.log("  FAIL missing " + f); fail++; continue; }
   const nodes = nodesOf(p), names = nodes.map(n => n.name || "");
