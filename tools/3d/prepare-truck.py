@@ -90,5 +90,9 @@ empty("bed", (0, wb * 0.85, r))
 for name, x, y in (("hub_FL", half, 0), ("hub_FR", -half, 0), ("hub_RL", half, wb), ("hub_RR", -half, wb)):
     empty(name, (x, y, r))
 
-bpy.ops.export_scene.gltf(filepath=out, export_format="GLB", export_yup=True, export_apply=True)
+# No materials or images in the file: the configurator replaces every material at load
+# (paint, glass, trim), so the palette texture would only add a blob: fetch the static
+# host's CSP refuses. The palette was already used above to split glass from body.
+bpy.ops.export_scene.gltf(filepath=out, export_format="GLB", export_yup=True, export_apply=True,
+                          export_materials="NONE", export_image_format="NONE")
 print("WROTE", out)

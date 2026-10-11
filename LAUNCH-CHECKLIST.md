@@ -642,3 +642,11 @@ each one is a phone call away from being better.
   ambient occlusion behind a frame-time check, the KTX2 texture pipeline and the flake normal
   on the paint are in the spec but not in the slice. They matter once the commissioned bodies
   (7.1) land, not before.
+- 🟡 **7.5 Railway static hosting CSP blocks WASM and blob URLs (2026-10-11).** The staging
+  host (`server: railway-hikari`) sends `Content-Security-Policy` with no `'wasm-unsafe-eval'`
+  and no `blob:` in `connect-src`. The meshopt glTF decoder (WASM) and GLTFLoader's blob URLs
+  for embedded textures are both refused, so the first deploy drew no truck. Fixed by exporting
+  the stand-ins with no compression and no materials (`tools/3d/optimize-glb.sh`,
+  `tools/3d/prepare-truck.py`). The commissioned bodies (7.1) will want meshopt and KTX2, so
+  before they ship either the host has to allow those directives or the configurator moves to a
+  host that does (the spec's Cloudflare R2 plan).
