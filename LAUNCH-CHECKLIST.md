@@ -616,3 +616,29 @@ each one is a phone call away from being better.
 4. Re-run `node tools/scrape-jtx-sizes.js` — it must report every page agreeing before it writes.
 5. Re-run `node tools/build-specs.js` and confirm it prints **no** uncleared-plate warning.
 6. Confirm the Pages build commit matches local `HEAD`.
+
+---
+
+## 7. 3D configurator assets
+
+- 🔴 **7.1 Stand-in truck meshes (2026-10-10).** `configurator/public/models/f250-crew.glb` and
+  `f150-crew.glb` are the same CC0 low-poly pickup (Kenney Car Kit, license and source in
+  `configurator/public/models/LICENSES.md`), stretched to each truck's wheelbase, track and stock
+  tire size. They are development placeholders and never ship as "the" F-250 or F-150.
+  Commissioned unbadged body meshes for each body family replace them before launch, and a
+  trade dress lawyer reads the commissioned bodies before they go live.
+- 🔴 **7.2 Placeholder load rating in the configurator tow check (2026-10-10).**
+  `configurator/src/data/ratings.ts` sets one rating, 3,195 lb per wheel, for every JTX size.
+  The summary's trailer-weight check (rule 5) compares four times that number against the
+  disclosed trailer weight, which ignores axle split, tongue weight and per-size ratings. JTX
+  has to confirm a rating per size, and the check needs the real per-axle rule, before the
+  hard stop can be trusted.
+- 🟡 **7.3 Visualizer lives at the domain root only (2026-10-10).** `configurator/` builds to
+  `visualize/` with `base: "/visualize/"`, and every site page links to `/visualize/`. That is
+  right on Railway staging and on drooolywt.com, and wrong on the GitHub Pages copy, which sits
+  under `/drooooly-wheel-co/`. The Pages copy is not where the visualizer is reviewed. The page
+  is `noindex,nofollow` like the rest of the site until launch (section 0).
+- 🟡 **7.4 Scene quality deferred from the slice (2026-10-10).** Temporal anti-aliasing and
+  ambient occlusion behind a frame-time check, the KTX2 texture pipeline and the flake normal
+  on the paint are in the spec but not in the slice. They matter once the commissioned bodies
+  (7.1) land, not before.

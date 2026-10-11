@@ -1,0 +1,80 @@
+/* Camera presets, metres, relative to the truck origin (ground under the
+   front axle centre, +Z forward, +X the driver's side). Hero and side look
+   at the driver's side. */
+import { Box3, MathUtils, PerspectiveCamera, Vector3 } from "three";
+
+export type CameraPreset = "hero" | "side" | "rear" | "wheel";
+type V3 = [number, number, number];
+
+export const FOV = 32;
+
+export const PRESETS: Record<CameraPreset, { position: V3; target: V3 }> = {
+  hero: { position: [3.2, 1.1, 2.6], target: [0, 0.9, -1.9] },
+  side: { position: [6.5, 0.9, -1.9], target: [0, 0.9, -1.9] },
+  rear: { position: [-3.2, 1.1, -6.2], target: [0, 0.9, -1.9] },
+  wheel: { position: [1.6, 0.5, 0.9], target: [0.95, 0.45, 0] },
+};
+
+/* Presets that frame the whole truck. The wheel close-up is left as is. */
+const WHOLE: Record<CameraPreset, boolean> = { hero: true, side: true, rear: true, wheel: false };
+
+/* Where the camera goes for a preset at this viewport aspect. For the
+   whole-truck presets the view direction is the preset's, but the distance and
+   aim are solved so `box` fills the frame to `pad` and sits centred: a tall
+   phone sees far less width than a desktop, and a 3/4 view of a long truck
+   projects off-centre if the camera simply aims at the middle of the
+   wheelbase. The wheel close-up is returned as authored. */
+export function framedView(preset: CameraPreset, aspect: number, box: Box3 | null, pad = 0.9): { position: V3; target: V3 } {
+  const p = PRESETS[preset];
+  if (!box || box.isEmpty() || !WHOLE[preset]) return { position: p.position, target: p.target };
+  const target = new Vector3(...p.target);
+  const dir = new Vector3(...p.position).sub(target).normalize();
+  const cam = new PerspectiveCamera(FOV, aspect, 0.1, 200);
+  const corners: Vector3[] = [];
+  for (const x of [box.min.x, box.max.x]) for (const y of [box.min.y, box.max.y]) for (const z of [box.min.z, box.max.z]) corners.push(new Vector3(x, y, z));
+  const place = (d: number) => { cam.position.copy(target).addScaledVector(dir, d); cam.lookAt(target); cam.updateMatrixWorld(); };
+  const extent = () => {
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity, behind = false;
+    for (const c of corners) { const n = c.clone().project(cam); if (n.z >= 1) behind = true; x0 = Math.min(x0, n.x); x1 = Math.max(x1, n.x); y0 = Math.min(y0, n.y); y1 = Math.max(y1, n.y); }
+    return { x0, x1, y0, y1, behind };
+  };
+  const fits = (d: number) => { place(d); const e = extent(); return !e.behind && e.x0 >= -pad && e.x1 <= pad && e.y0 >= -pad && e.y1 <= pad; };
+  const solve = () => {
+    let lo = 0.5, hi = 4;
+    while (!fits(hi) && hi < 200) hi *= 1.5;
+    for (let i = 0; i < 28; i++) { const mid = (lo + hi) / 2; if (fits(mid)) hi = mid; else lo = mid; }
+    return hi;
+  };
+  let d = solve();
+  // Re-aim at the centre of what the camera sees, then refit; three passes settle it.
+  for (let k = 0; k < 3; k++) {
+    place(d);
+    const e = extent();
+    const cx = (e.x0 + e.x1) / 2, cy = (e.y0 + e.y1) / 2;
+    const halfH = Math.tan(MathUtils.degToRad(FOV / 2)) * d, halfW = halfH * aspect;
+    const right = new Vector3().setFromMatrixColumn(cam.matrixWorld, 0);
+    const up = new Vector3().setFromMatrixColumn(cam.matrixWorld, 1);
+    target.addScaledVector(right, cx * halfW).addScaledVector(up, cy * halfH);
+    d = solve();
+  }
+  place(d);
+  return { position: [cam.position.x, cam.position.y, cam.position.z], target: [target.x, target.y, target.z] };
+}
+
+/* Polar limits for the orbit: never under the floor, never straight down. */
+export const MIN_POLAR = MathUtils.degToRad(20);
+export const MAX_POLAR = MathUtils.degToRad(88);
+
+/* The wheel close-up, aimed at one corner and pulled back far enough that a
+   sphere of `radius` around it fits the narrower side of the frame. The
+   preset gives only the direction, so a tall phone and a wide desktop both
+   see the whole wheel and some fender, whatever the tire size or lift. */
+export function wheelView(aspect: number, center: V3, radius: number): { position: V3; target: V3 } {
+  const p = PRESETS.wheel;
+  const dir = new Vector3(...p.position).sub(new Vector3(...p.target)).normalize();
+  const halfV = MathUtils.degToRad(FOV / 2);
+  const halfH = Math.atan(Math.tan(halfV) * aspect);
+  const d = radius / Math.sin(Math.min(halfV, halfH));
+  const pos = new Vector3(...center).addScaledVector(dir, d);
+  return { position: [pos.x, pos.y, pos.z], target: center };
+}

@@ -27,6 +27,9 @@ window.VEHICLES = [
   { id:"f250", make:"Ford", models:["F-250 Super Duty","F-350 Super Duty"],
     years:[2017,2026], config:"srw", hd:true, bolt:"8x170",
     stockOffsetMm:13, fenderRadiusIn:20.5, faceToFenderIn:4.0, measured:false,
+    /* Published OEM spec sheet figures for crew cab, 6.75 ft bed (F-250);
+       estimates until a tape confirms them. Read by the 3D configurator. */
+    model:{ file:"models/f250-crew.glb", wheelbaseIn:159.8, trackIn:68.3, stockTireOdIn:33.2, stockWheelDiaIn:18, cab:"crew" },
     body:{ cab:"crew", bedTop:0.30, rocker:0.86, archLift:0 } },
 
   /* The one platform dialled in against real published data (2026-08-27).
@@ -75,6 +78,9 @@ window.VEHICLES = [
   { id:"f150", make:"Ford", models:["F-150"],
     years:[2021,2026], config:"srw", hd:false, bolt:"6x135",
     stockOffsetMm:44, fenderRadiusIn:18.5, faceToFenderIn:3.0, measured:false,
+    /* Published OEM spec sheet figures for crew cab, 5.5 ft bed (F-150);
+       estimates until a tape confirms them. Read by the 3D configurator. */
+    model:{ file:"models/f150-crew.glb", wheelbaseIn:145.4, trackIn:67.6, stockTireOdIn:31.8, stockWheelDiaIn:18, cab:"crew" },
     body:{ cab:"crew", bedTop:0.32, rocker:0.85, archLift:0 } },
 
   /* 6x139.7, not 5x139.7. The 2019+ DT went to six lugs; 5x139.7 is the

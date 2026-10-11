@@ -1,0 +1,5 @@
+{
+  "_note": "Wheelbase, track and stock tire OD match the model blocks in vehicles.js (published OEM spec sheet figures; estimates until a tape confirms them). bodyWidthIn is the published overall width without mirrors and only sizes the stand-in body. source is relative to configurator/public/models/.",
+  "f250-crew": { "source": ".source/kenney-car-kit/Models/GLB format/truck.glb", "wheelbaseIn": 159.8, "trackIn": 68.3, "stockTireOdIn": 33.2, "bodyWidthIn": 80.0 },
+  "f150-crew": { "source": ".source/kenney-car-kit/Models/GLB format/truck.glb", "wheelbaseIn": 145.4, "trackIn": 67.6, "stockTireOdIn": 31.8, "bodyWidthIn": 79.9 }
+}

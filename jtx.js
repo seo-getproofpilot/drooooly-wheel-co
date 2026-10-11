@@ -374,6 +374,14 @@
   function bindQuote() {
     var form = $("quoteForm"), ok = $("quoteOk");
     if (!form) return;
+    /* The visualizer hands its build over as /jtx.html#quote?build=... so the
+       customer lands on the form with the set they just looked at filled in. */
+    var hq = (location.hash.split("?")[1] || "");
+    var handed = hq ? new URLSearchParams(hq).get("build") : null;
+    if (handed && $("quoteBuild") && !$("quoteBuild").value) $("quoteBuild").value = handed;
+    /* The hash is "#quote?build=...", so the browser finds no element to jump
+       to. Put the form in view ourselves. */
+    if (handed && $("quote")) setTimeout(function () { $("quote").scrollIntoView({ block: "start" }); }, 0);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }

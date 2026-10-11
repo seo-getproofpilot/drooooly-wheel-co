@@ -1,0 +1,6159 @@
+{
+ "generated": "2026-10-11",
+ "vehicles": [
+  {
+   "id": "f250",
+   "make": "Ford",
+   "models": [
+    "F-250 Super Duty",
+    "F-350 Super Duty"
+   ],
+   "years": [
+    2017,
+    2026
+   ],
+   "config": "srw",
+   "hd": true,
+   "bolt": "8x170",
+   "stockOffsetMm": 13,
+   "fenderRadiusIn": 20.5,
+   "faceToFenderIn": 4,
+   "measured": false,
+   "model": {
+    "file": "models/f250-crew.glb",
+    "wheelbaseIn": 159.8,
+    "trackIn": 68.3,
+    "stockTireOdIn": 33.2,
+    "stockWheelDiaIn": 18,
+    "cab": "crew"
+   },
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.3,
+    "rocker": 0.86,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "f450",
+   "make": "Ford",
+   "models": [
+    "F-450 Super Duty"
+   ],
+   "years": [
+    2017,
+    2022
+   ],
+   "config": "drw",
+   "hd": true,
+   "bolt": "10x225",
+   "hubBoreMm": 170.1,
+   "stockOffsetMm": 136,
+   "stockWidthIn": 6,
+   "fenderRadiusIn": 21.5,
+   "faceToFenderIn": -2,
+   "measured": false,
+   "dialled": true,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.3,
+    "rocker": 0.88,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "gm2500",
+   "make": "Chevrolet",
+   "models": [
+    "Silverado 2500HD",
+    "Silverado 3500HD"
+   ],
+   "years": [
+    2020,
+    2026
+   ],
+   "config": "srw",
+   "hd": true,
+   "bolt": "8x180",
+   "stockOffsetMm": 20,
+   "fenderRadiusIn": 20,
+   "faceToFenderIn": 3.7,
+   "measured": false,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.31,
+    "rocker": 0.86,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "gmc2500",
+   "make": "GMC",
+   "models": [
+    "Sierra 2500HD",
+    "Sierra 3500HD"
+   ],
+   "years": [
+    2020,
+    2026
+   ],
+   "config": "srw",
+   "hd": true,
+   "bolt": "8x180",
+   "stockOffsetMm": 20,
+   "fenderRadiusIn": 20,
+   "faceToFenderIn": 3.7,
+   "measured": false,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.31,
+    "rocker": 0.86,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "gm3500drw",
+   "make": "Chevrolet",
+   "models": [
+    "Silverado 3500HD DRW"
+   ],
+   "years": [
+    2020,
+    2026
+   ],
+   "config": "drw",
+   "hd": true,
+   "bolt": "8x180",
+   "stockOffsetMm": 79,
+   "fenderRadiusIn": 21,
+   "faceToFenderIn": 1.8,
+   "measured": false,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.31,
+    "rocker": 0.88,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "ram2500",
+   "make": "RAM",
+   "models": [
+    "2500",
+    "3500"
+   ],
+   "years": [
+    2019,
+    2026
+   ],
+   "config": "srw",
+   "hd": true,
+   "bolt": "8x165.1",
+   "stockOffsetMm": 19,
+   "fenderRadiusIn": 20.5,
+   "faceToFenderIn": 3.75,
+   "measured": false,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.3,
+    "rocker": 0.86,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "ram3500drw",
+   "make": "RAM",
+   "models": [
+    "3500 DRW",
+    "4500",
+    "5500"
+   ],
+   "years": [
+    2019,
+    2026
+   ],
+   "config": "drw",
+   "hd": true,
+   "bolt": "8x165.1",
+   "stockOffsetMm": 102,
+   "fenderRadiusIn": 21.5,
+   "faceToFenderIn": 1,
+   "measured": false,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.3,
+    "rocker": 0.88,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "f150",
+   "make": "Ford",
+   "models": [
+    "F-150"
+   ],
+   "years": [
+    2021,
+    2026
+   ],
+   "config": "srw",
+   "hd": false,
+   "bolt": "6x135",
+   "stockOffsetMm": 44,
+   "fenderRadiusIn": 18.5,
+   "faceToFenderIn": 3,
+   "measured": false,
+   "model": {
+    "file": "models/f150-crew.glb",
+    "wheelbaseIn": 145.4,
+    "trackIn": 67.6,
+    "stockTireOdIn": 31.8,
+    "stockWheelDiaIn": 18,
+    "cab": "crew"
+   },
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.32,
+    "rocker": 0.85,
+    "archLift": 0
+   }
+  },
+  {
+   "id": "ram1500",
+   "make": "RAM",
+   "models": [
+    "1500"
+   ],
+   "years": [
+    2019,
+    2026
+   ],
+   "config": "srw",
+   "hd": false,
+   "bolt": "6x139.7",
+   "stockOffsetMm": 25,
+   "fenderRadiusIn": 18.5,
+   "faceToFenderIn": 3.5,
+   "measured": false,
+   "body": {
+    "cab": "crew",
+    "bedTop": 0.32,
+    "rocker": 0.85,
+    "archLift": 0
+   }
+  }
+ ],
+ "paints": [
+  {
+   "name": "Black",
+   "hex": "#0d0f13"
+  },
+  {
+   "name": "White",
+   "hex": "#eef1f4"
+  },
+  {
+   "name": "Iconic Silver",
+   "hex": "#9aa1a9"
+  },
+  {
+   "name": "Carbonized Grey",
+   "hex": "#4d5359"
+  },
+  {
+   "name": "Race Red",
+   "hex": "#8e1b22"
+  },
+  {
+   "name": "Blue Jeans",
+   "hex": "#274a72"
+  },
+  {
+   "name": "Army Green",
+   "hex": "#404a38"
+  },
+  {
+   "name": "Agate Black",
+   "hex": "#16181c"
+  },
+  {
+   "name": "Bronze Fire",
+   "hex": "#8a4a1e"
+  },
+  {
+   "name": "Atlas Blue",
+   "hex": "#16324f"
+  }
+ ],
+ "brands": [
+  {
+   "slug": "jtx",
+   "name": "JTX Forged",
+   "kind": "Forged",
+   "bolts": [
+    "8x170",
+    "8x180",
+    "8x165.1",
+    "6x135",
+    "6x139.7",
+    "5x150"
+   ],
+   "pricing": "from",
+   "models": [
+    {
+     "model": "404",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/404.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Ace",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/ace.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Alpha",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/alpha.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Arcane",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/arcane.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Archetype",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/archetype.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Avalon",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/avalon.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Ballistic",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/ballistic.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Bandit",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/bandit.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Bio",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/bio.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Bludgeon",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/bludgeon.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Botanic",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/botanic.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Bristle",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/bristle.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Cadaver",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/cadaver.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Cannon",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/cannon.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Capital",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/capital.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Capo",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/capo.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Capo Max",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/capomax.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Carbine",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/carbine.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Centerfire",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/centerfire.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Chamber",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/chamber.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Chief",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/chief.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Chisel",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/chisel.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Chrono",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/chrono.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Citation",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/citation.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Combat",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/combat.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Commander",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/commander.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Conflict",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/conflict.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Contra",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/contra.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Crater",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/crater.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Credo",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/credo.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Culprit",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/culprit.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Czar",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/czar.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-200",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d200.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-201",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d201.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-202",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d202.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-203",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d203.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-204",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d204.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-205",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d205.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "D-206",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d206.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-207",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d207.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-208",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d208.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-209",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d209.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-210",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d210.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-211",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d211.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-212",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d212.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-213",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d213.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-214",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d214.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-215",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d215.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-216",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d216.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "D-217",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/d217.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "24x8.25",
+      "26x8.25",
+      "28x8.25",
+      "30x8.25"
+     ]
+    },
+    {
+     "model": "Defector",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/defector.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Dime",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/dime.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Dominion",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/dominion.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Empire",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/empire.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Era",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/era.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Felon",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/felon.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Flight",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/flight.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Fracture",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/fracture.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Game",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/game.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Giza",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/giza.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Grip",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/grip.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Icon",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/icon.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Imperial",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/imperial.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Infidel",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/infidel.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Infinity",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/infinity.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Inhibitor",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/inhibitor.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Intrepid",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/intrepid.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Jefe",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/jefe.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Joro",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/joro.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Judge",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/judge.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Keen",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/keen.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Krueger",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/krueger.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Lok",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/lok.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Lotus",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/lotus.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Major",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/major.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Manifest",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/manifest.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Maze",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/maze.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Melee",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/melee.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Militia",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/militia.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Monarch",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/monarch.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Mortal",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/mortal.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Myriad",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/myriad.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Myth",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/myth.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Omen",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/omen.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Orbit",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/orbit.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Paradigm",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/paradigm.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Phoenix",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/phoenix.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Pike",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/pike.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Pinnacle",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/pinnacle.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Prime",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/prime.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Prodigy",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/prodigy.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Pronto",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/pronto.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Prophet",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/prophet.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Psycho",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/psycho.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Raider",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/raider.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Reaper",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/reaper.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Recluse",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/recluse.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Recon",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/recon.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Revolt",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/revolt.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Rozay",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/rozay.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Rumble",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/rumble.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Rupture",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/rupture.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Savage",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/savage--polished.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Savant",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/savant.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Scathe",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/scathe.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Schizo",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/schizo.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Schizo Max",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/schizomax.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Scissor",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/scissor.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Semi",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/semi.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Sensu",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/sensu.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Silencer",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/silencer.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Slayer",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/slayer.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-200",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss200.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-201",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss201.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-202",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss202.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-203",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss203.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-204",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss204.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-205",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss205.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-206",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss206.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-207",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss207.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-208",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss208.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-209",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss209.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-210",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss210.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-211",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss211.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-212",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss212.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-213",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss213.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-214",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss214.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-215",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss215.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-216",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss216.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-217",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss217.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-218",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss218.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-219",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss219.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-220",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss220.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-221",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss221.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-222",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss222.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-223",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss223.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-224",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss224.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-225",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss225.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "SS-226",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/ss226.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Stiletto",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/stiletto.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Sublime",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/sublime.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Summit",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/summit.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Suppressor",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/suppressor.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Surge",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/surge.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Tenet",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/tenet.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Tomahawk",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/tomahawk.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Triad",
+     "configs": [
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/triad.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "22x8.25",
+      "22x10",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Trinity",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/trinity.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Vanquish",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/vanquish.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x8.25",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x8.25",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Veil",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/veil.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Vertex",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/vertex.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Vex",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/vex.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Widow",
+     "configs": [
+      "single",
+      "dually",
+      "super single"
+     ],
+     "img": "assets/wheels/jtx/widow.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x8.25",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x8.25",
+      "28x14",
+      "28x16",
+      "30x8.25",
+      "30x16"
+     ]
+    },
+    {
+     "model": "Zone",
+     "configs": [
+      "single"
+     ],
+     "img": "assets/wheels/jtx/zone.png",
+     "finishes": [
+      "Polished",
+      "Brushed",
+      "Black",
+      "Black Milled"
+     ],
+     "sizes": [
+      "20x10",
+      "20x12",
+      "20x14",
+      "22x10",
+      "22x11",
+      "22x12",
+      "22x14",
+      "24x10",
+      "24x12",
+      "24x14",
+      "24x16",
+      "26x10",
+      "26x12",
+      "26x14",
+      "26x16",
+      "28x14",
+      "28x16",
+      "30x16"
+     ]
+    }
+   ]
+  }
+ ],
+ "tires": [
+  {
+   "slug": "amp",
+   "name": "AMP",
+   "models": [
+    {
+     "model": "Pro A/T",
+     "tread": "All-Terrain",
+     "img": "assets/tires/amp/proat.png",
+     "priceFrom": 241,
+     "sizes": [
+      "285/70R17",
+      "285/65R18",
+      "275/60R20",
+      "285/60R20",
+      "305/55R20",
+      "33x12.50R20",
+      "35x12.50R20",
+      "35x12.50R24LT"
+     ]
+    },
+    {
+     "model": "Mud Terrain Attack M/T A",
+     "tread": "Mud-Terrain",
+     "img": "assets/tires/amp/mudterrainattackmta.png",
+     "priceFrom": 326,
+     "sizes": [
+      "33x12.50R20",
+      "35x12.50R20LT",
+      "33x12.50R22LT",
+      "33x13.50R24",
+      "35x13.50R24",
+      "37x13.50R24"
+     ]
+    },
+    {
+     "model": "Terrain Attack A/T A",
+     "tread": "All-Terrain",
+     "img": "assets/tires/amp/terrainattackata.png",
+     "priceFrom": 318,
+     "sizes": [
+      "33x12.50R22",
+      "35x12.50R22"
+     ]
+    },
+    {
+     "model": "Terrain Attack R/T",
+     "tread": "Rugged-Terrain",
+     "img": "assets/tires/amp/terrainattackrt.png",
+     "priceFrom": 204,
+     "sizes": [
+      "P265/70R17",
+      "LT285/70R17"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "bfgoodrich",
+   "name": "BFGoodrich",
+   "models": [
+    {
+     "model": "All-Terrain T/A KO3",
+     "tread": "All-Terrain",
+     "img": "assets/tires/bfgoodrich/allterraintako3.png",
+     "priceFrom": 279,
+     "sizes": [
+      "32x11.50R15",
+      "33x12.50R15",
+      "LT265/75R16",
+      "LT285/75R16",
+      "LT265/70R17",
+      "LT275/70R17",
+      "LT285/70R17",
+      "LT285/75R17",
+      "35x12.50R17",
+      "37x12.50R17",
+      "LT275/65R18",
+      "LT275/70R18",
+      "LT295/70R18",
+      "35x12.50R18",
+      "LT275/55R20",
+      "LT275/60R20",
+      "LT295/65R20",
+      "35x12.50R20"
+     ]
+    },
+    {
+     "model": "All-Terrain T/A KO2",
+     "tread": "All-Terrain",
+     "img": "assets/tires/bfgoodrich/allterraintako2.png",
+     "priceFrom": 319,
+     "sizes": [
+      "LT285/70R17",
+      "33x12.50R18"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "falken",
+   "name": "Falken",
+   "models": [
+    {
+     "model": "Wildpeak A/T4W",
+     "tread": "All-Terrain",
+     "img": "assets/tires/falken/wildpeakat4w.png",
+     "priceFrom": 249,
+     "sizes": [
+      "265/75R16",
+      "265/70R17",
+      "LT285/70R17",
+      "35x11.50R17LT",
+      "275/65R18",
+      "LT285/65R18",
+      "LT285/70R18",
+      "LT285/75R18",
+      "LT295/70R18",
+      "35x12.50R18LT",
+      "35x12.50R20LT",
+      "35x12.50R22LT"
+     ]
+    },
+    {
+     "model": "Rubitrek A/T",
+     "tread": "All-Terrain",
+     "img": "assets/tires/falken/rubitrekat.png",
+     "priceFrom": 163,
+     "sizes": [
+      "235/75R15",
+      "30x9.50R15LT",
+      "31x10.50R15LT",
+      "P245/75R16",
+      "265/75R16"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "fury",
+   "name": "Fury Offroad",
+   "models": [
+    {
+     "model": "Country Hunter M/T",
+     "tread": "Mud-Terrain",
+     "img": "assets/tires/fury/countryhuntermt.png",
+     "priceFrom": 401,
+     "sizes": [
+      "33x14.50R20LT",
+      "35x13.50R22",
+      "33x14.50R24LT",
+      "40x13.50R24LT",
+      "37x13.50R26",
+      "38x15.50R26LT",
+      "37x14.50R26LT",
+      "42x15.50R26LT",
+      "37x14.50R28",
+      "38x16.50R28LT",
+      "42x15.50R28LT"
+     ]
+    },
+    {
+     "model": "Country Hunter M/T II",
+     "tread": "Mud-Terrain",
+     "img": "assets/tires/fury/countryhuntermtii.png",
+     "priceFrom": 387,
+     "sizes": [
+      "40x13.50R17LT",
+      "35x12.50R20LT",
+      "35x13.50R20LT",
+      "35x12.50R24LT",
+      "35x14.50R24LT",
+      "37x13.50R24LT",
+      "LT405/30R26"
+     ]
+    },
+    {
+     "model": "Country Hunter R/T",
+     "tread": "Rugged-Terrain",
+     "img": "assets/tires/fury/countryhunterrt.png",
+     "priceFrom": 389,
+     "sizes": [
+      "33x12.50R20LT"
+     ]
+    },
+    {
+     "model": "Country Hunter R/T Plus",
+     "tread": "Rugged-Terrain",
+     "img": "assets/tires/fury/countryhunterrtplus.png",
+     "priceFrom": 570,
+     "sizes": [
+      "37x12.50R24LT"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "mickey-thompson",
+   "name": "Mickey Thompson",
+   "models": [
+    {
+     "model": "Baja Boss A/T",
+     "tread": "All-Terrain",
+     "img": "assets/tires/mickey-thompson/bajabossat.png",
+     "priceFrom": 244,
+     "sizes": [
+      "265/75R16",
+      "265/70R17XL",
+      "285/70R17",
+      "LT315/70R17",
+      "33x12.50R17LT",
+      "35x12.50R17LT",
+      "37x12.50R17LT",
+      "LT275/70R18",
+      "35x12.50R18LT",
+      "LT275/60R20",
+      "33x12.50R20LT",
+      "35x12.50R20LT"
+     ]
+    },
+    {
+     "model": "Baja Legend EXP",
+     "tread": "All-Terrain",
+     "img": "assets/tires/mickey-thompson/bajalegendexp.png",
+     "priceFrom": 278,
+     "sizes": [
+      "33x12.50R15LT",
+      "LT285/75R16",
+      "LT315/75R16",
+      "35x12.50R17LT"
+     ]
+    },
+    {
+     "model": "Baja Legend MTZ",
+     "tread": "Mud-Terrain",
+     "img": "assets/tires/mickey-thompson/bajalegendmtz.png",
+     "priceFrom": 301,
+     "sizes": [
+      "33x12.50R15LT",
+      "35x12.50R15LT",
+      "LT285/75R16",
+      "LT315/75R16"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "nitto",
+   "name": "Nitto",
+   "models": [
+    {
+     "model": "Ridge Grappler",
+     "tread": "Hybrid All-Terrain / Mud",
+     "img": "assets/tires/nitto/ridgegrappler.png",
+     "priceFrom": 300,
+     "sizes": [
+      "285/70R17",
+      "35x12.50R17LT",
+      "35x12.50R18LT",
+      "33x12.50R20LT",
+      "35x11.5R20LT",
+      "35x12.50R20LT",
+      "37x12.50R20LT",
+      "35x12.50R22LT"
+     ]
+    },
+    {
+     "model": "Mud Grappler",
+     "tread": "Mud-Terrain",
+     "img": "assets/tires/nitto/mudgrappler.png",
+     "priceFrom": 449,
+     "sizes": [
+      "35x12.50R17LT",
+      "35x12.50R20LT",
+      "37x13.50R20LT"
+     ]
+    },
+    {
+     "model": "NT420V",
+     "tread": "Highway / Street",
+     "img": "assets/tires/nitto/nt420v.png",
+     "priceFrom": 192,
+     "sizes": [
+      "275/55R20XL",
+      "305/50R20XL",
+      "305/40R22XL",
+      "285/45R22XL",
+      "305/45R22XL"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "toyo",
+   "name": "Toyo Tires",
+   "models": [
+    {
+     "model": "Open Country A/T III",
+     "tread": "All-Terrain",
+     "img": "assets/tires/toyo/opencountryatiii.png",
+     "priceFrom": 367,
+     "sizes": [
+      "35x12.50R17LT",
+      "37x12.50R17LT",
+      "35x12.50R18LT",
+      "P295/55R20",
+      "LT275/60R20",
+      "33x12.50R20LT",
+      "35x12.50R20LT",
+      "37x12.50R20LT",
+      "35x12.50R22LT"
+     ]
+    },
+    {
+     "model": "Open Country M/T",
+     "tread": "Mud-Terrain",
+     "img": "assets/tires/toyo/opencountrymt.png",
+     "priceFrom": 508,
+     "sizes": [
+      "35x12.50R20LT"
+     ]
+    },
+    {
+     "model": "Open Country R/T Trail",
+     "tread": "Rugged-Terrain",
+     "img": "assets/tires/toyo/opencountryrttrail.png",
+     "priceFrom": 442,
+     "sizes": [
+      "35x12.50R17LT",
+      "37x12.50R17LT"
+     ]
+    },
+    {
+     "model": "Open Country R/T PRO",
+     "tread": "Rugged-Terrain",
+     "img": "assets/tires/toyo/opencountryrtpro.png",
+     "priceFrom": 519,
+     "sizes": [
+      "35x12.50R18LT",
+      "35x12.50R20LT"
+     ]
+    },
+    {
+     "model": "Proxes ST III",
+     "tread": "Highway / Street",
+     "img": "assets/tires/toyo/proxesstiii.png",
+     "priceFrom": 266,
+     "sizes": [
+      "305/50R20",
+      "305/40R22",
+      "305/45R22"
+     ]
+    }
+   ]
+  }
+ ],
+ "offsets": {
+  "id": "typical-offsets",
+  "captured": "2026-08-28",
+  "_note": "What people commonly RUN at each width — NOT a menu of what is orderable. Forged wheels are cut to the truck and the brands publish no ET, so this exists so the page can answer 'what offset?' with something real instead of silence. Every number carries its source. A width with no reliable public figure gets an explicit null, never a guess.",
+  "_note_shape": "Keyed on ROLE + WIDTH, not per model. Offset is set by rim width and axle position, not by spoke design — keying per model would be 756 copies of the same handful of numbers. The {min,max,typical} shape matches f450-fitment.json's rear.offsetMm so Fitment.geometry() could consume it unchanged.",
+  "_note_bySize": "An override layer for observed data points, not the primary key. 22x12 at -44 and 24x12 at -51 are two separate listings, not a rule about 12-inch wheels.",
+  "roles": {
+   "duallyRear": {
+    "label": "Rear pair",
+    "widths": {
+     "8.25": {
+      "min": 110,
+      "max": 130,
+      "typical": 120,
+      "confidence": "documented",
+      "source": "data/specs/f450-fitment.json — documented aftermarket dually range, bracketed by the OEM 19.5x6 ET+136"
+     }
+    }
+   },
+   "single": {
+    "label": "Single rear wheel",
+    "widths": {
+     "10": {
+      "typical": null,
+      "confidence": "none",
+      "_note": "GAP — searched; no reliable public figure for 10\" forged truck wheels."
+     },
+     "11": {
+      "typical": null,
+      "confidence": "none",
+      "_note": "GAP — JTX build 22x11 but nobody publishes an ET for an 11\" forged truck wheel. Declared rather than omitted so the page prints \"Not published\" instead of skipping the width."
+     },
+     "12": {
+      "typical": -44,
+      "confidence": "listing",
+      "source": "customwheeloffset.com forged listings"
+     },
+     "14": {
+      "typical": -76,
+      "confidence": "listing",
+      "source": "customwheeloffset.com forged listings — the classic 24x14 spec"
+     },
+     "16": {
+      "typical": -101,
+      "confidence": "listing",
+      "source": "bbwheelsonline.com Luxxx HD LHD Pro 6 Warhog 26x16 -101mm; customwheeloffset.com Specialty Forged SF023 26x16 -103; fittipaldioffroad.com FTF506 26x16 -101"
+     }
+    },
+    "bySize": {
+     "24x12": {
+      "typical": -51,
+      "confidence": "listing",
+      "source": "customwheeloffset.com forged listings"
+     }
+    }
+   },
+   "superSingle": {
+    "label": "Wide front",
+    "_note": "GAP — nobody publishes wide-front offsets for dual-rear platforms. Mirrors f450-fitment.json's frontSuperSingle.offsetMm: null. Do NOT backfill these from the rear figures; the front axle is a different mounting position entirely.",
+    "widths": {}
+   }
+  }
+ },
+ "f450": {
+  "id": "f450",
+  "name": "Ford F-450 Super Duty",
+  "detail": "2017–2022 pickup, dual rear wheel",
+  "config": "drw",
+  "captured": "2026-08-27",
+  "sources": [
+   "https://www.wheel-size.com/size/ford/f-450-super-duty/2020/",
+   "https://www.wheel-size.com/pcd/10x225/ford/f-450-super-duty/2017-2022/"
+  ],
+  "bolt": "10x225",
+  "hubBoreMm": 170.1,
+  "oem": {
+   "wheel": "19.5x6",
+   "offsetMm": 136,
+   "tire": "LT225/70R19.5"
+  },
+  "_note_offsets": "JTX builds the Dually Series to the truck and publishes no ET, so these are the offsets this platform actually runs — the documented aftermarket dually range, bracketed by the factory figure. They are the render's offsets, not a menu of anything orderable: a real order is spec'd with JTX.",
+  "rear": {
+   "offsetMm": {
+    "min": 110,
+    "max": 130,
+    "typical": 120
+   },
+   "backspacingIn": {
+    "min": 6.5,
+    "max": 7
+   }
+  },
+  "_note_front": "GAP: no public offset figures for wide front wheels on this platform. JTX's own pages say to call a salesperson, and no retailer publishes them. Left null on purpose — the UI says the front is spec'd to the truck rather than inventing a number. One call to JTX fills this in.",
+  "frontSuperSingle": {
+   "offsetMm": null,
+   "source": null
+  },
+  "_note_body": "Estimates until someone puts a tape on a truck — see vehicles.js. measured:false keeps the UI on words, not decimals.",
+  "measured": false
+ },
+ "finishes": {
+  "brandSlug": "jtx",
+  "brand": "JTX Forged",
+  "captured": "2026-08-28",
+  "source": "https://jtxforged.com/single-series/ and /dually-series/",
+  "finishes": [
+   {
+    "code": "polished",
+    "name": "Polished",
+    "hex": "#dee3e8",
+    "note": "Bare forged aluminum, polished to a mirror.",
+    "rendered": true
+   },
+   {
+    "code": "black-milled",
+    "name": "Black Milled",
+    "hex": "#24262a",
+    "note": "Gloss black faces with the machining on the spoke sides and undercuts, so the bare aluminum reads from the edges and from behind the spokes rather than across them.",
+    "rendered": true
+   }
+  ],
+  "renderedNote": "JTX photograph these two. The rest are built to order.",
+  "orderable": [
+   "Polished",
+   "Brushed",
+   "Black",
+   "Black Milled",
+   "Chrome",
+   "Custom"
+  ],
+  "series": {
+   "single": {
+    "Ballistic": {
+     "black-milled": "assets/wheels/jtx/single/ballistic-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/ballistic-polished.webp"
+    },
+    "Cannon": {
+     "black-milled": "assets/wheels/jtx/single/cannon-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/cannon-polished.webp"
+    },
+    "Capo Max": {
+     "black-milled": "assets/wheels/jtx/single/capo-max-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/capo-max-polished.webp"
+    },
+    "Capo": {
+     "polished": "assets/wheels/jtx/single/capo-polished.webp"
+    },
+    "Centerfire": {
+     "black-milled": "assets/wheels/jtx/single/centerfire-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/centerfire-polished.webp"
+    },
+    "Chamber": {
+     "black-milled": "assets/wheels/jtx/single/chamber-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/chamber-polished.webp"
+    },
+    "Crater": {
+     "black-milled": "assets/wheels/jtx/single/crater-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/crater-polished.webp"
+    },
+    "Credo": {
+     "black-milled": "assets/wheels/jtx/single/credo-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/credo-polished.webp"
+    },
+    "Dime": {
+     "black-milled": "assets/wheels/jtx/single/dime-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/dime-polished.webp"
+    },
+    "Dominion": {
+     "black-milled": "assets/wheels/jtx/single/dominion-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/dominion-polished.webp"
+    },
+    "Empire": {
+     "black-milled": "assets/wheels/jtx/single/empire-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/empire-polished.webp"
+    },
+    "Fracture": {
+     "black-milled": "assets/wheels/jtx/single/fracture-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/fracture-polished.webp"
+    },
+    "Grip": {
+     "black-milled": "assets/wheels/jtx/single/grip-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/grip-polished.webp"
+    },
+    "Lotus": {
+     "black-milled": "assets/wheels/jtx/single/lotus-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/lotus-polished.webp"
+    },
+    "Psycho": {
+     "black-milled": "assets/wheels/jtx/single/psycho-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/psycho-polished.webp"
+    },
+    "Recon": {
+     "black-milled": "assets/wheels/jtx/single/recon-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/recon-polished.webp"
+    },
+    "Savage": {
+     "black-milled": "assets/wheels/jtx/single/savage-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/savage-polished.webp"
+    },
+    "Schizo": {
+     "black-milled": "assets/wheels/jtx/single/schizo-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/schizo-polished.webp"
+    },
+    "Silencer": {
+     "black-milled": "assets/wheels/jtx/single/silencer-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/silencer-polished.webp"
+    },
+    "Zone": {
+     "black-milled": "assets/wheels/jtx/single/zone-black-milled.webp",
+     "polished": "assets/wheels/jtx/single/zone-polished.webp"
+    }
+   },
+   "dually": {
+    "Ballistic": {
+     "black-milled": "assets/wheels/jtx/dually/ballistic-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/ballistic-polished.webp"
+    },
+    "Cannon": {
+     "black-milled": "assets/wheels/jtx/dually/cannon-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/cannon-polished.webp"
+    },
+    "Capo": {
+     "black-milled": "assets/wheels/jtx/dually/capo-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/capo-polished.webp"
+    },
+    "Capo Max": {
+     "black-milled": "assets/wheels/jtx/dually/capo-max-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/capo-max-polished.webp"
+    },
+    "Centerfire": {
+     "black-milled": "assets/wheels/jtx/dually/centerfire-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/centerfire-polished.webp"
+    },
+    "Combat": {
+     "black-milled": "assets/wheels/jtx/dually/combat-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/combat-polished.webp"
+    },
+    "Crater": {
+     "black-milled": "assets/wheels/jtx/dually/crater-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/crater-polished.webp"
+    },
+    "Dime": {
+     "black-milled": "assets/wheels/jtx/dually/dime-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/dime-polished.webp"
+    },
+    "Empire": {
+     "black-milled": "assets/wheels/jtx/dually/empire-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/empire-polished.webp"
+    },
+    "Flight": {
+     "black-milled": "assets/wheels/jtx/dually/flight-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/flight-polished.webp"
+    },
+    "Lotus": {
+     "black-milled": "assets/wheels/jtx/dually/lotus-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/lotus-polished.webp"
+    },
+    "Monarch": {
+     "black-milled": "assets/wheels/jtx/dually/monarch-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/monarch-polished.webp"
+    },
+    "Psycho": {
+     "black-milled": "assets/wheels/jtx/dually/psycho-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/psycho-polished.webp"
+    },
+    "Silencer": {
+     "black-milled": "assets/wheels/jtx/dually/silencer-black-milled.webp",
+     "polished": "assets/wheels/jtx/dually/silencer-polished.webp"
+    }
+   }
+  }
+ }
+}
