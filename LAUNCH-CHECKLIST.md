@@ -11,6 +11,38 @@ forgotten. Add to it whenever you ship something on an assumption.
 
 ---
 
+## The quote-first pass — 11 October 2026
+
+The site went **quote-first**: no prices, no checkout, a clear
+"we're not affiliated with these brands" disclaimer, and nothing shown that we
+can't back up. **Almost nothing was deleted.**
+
+- **[`site-flags.js`](site-flags.js)** is the switchboard. Seven flags, all
+  false. Turning something back on is one value.
+- **[`PARKED.md`](PARKED.md)** records every hidden item: the original wording,
+  the file, the flag, and what has to be true before it returns.
+
+What this resolved, with the flag that holds it:
+
+| Was | Now |
+|---|---|
+| 2.1 / 2.8 invented prices | all customer-facing prices off · `showPrices` |
+| 2.2 MAP unverified | nothing to verify while no price is shown — still 🔴 before prices return |
+| 2.7 "4.9 · 1,200+ trucks fitted", IG counts | off · `showTrustStats` |
+| 2.7 financing figures, 1.10 Affirm/Klarna marks | off · `showFinancingClaims` |
+| 3.1 brands we aren't authorised to sell | logos off for all but Price Designs · `showUnsignedBrandLogos`, plus the footer disclaimer and `terms.html` |
+| 1.5 fabricated gallery captions | off · `showGalleryCaptions` |
+| forms delivered nothing | real delivery, honest failure · `form-config.js` |
+
+Still open after this pass: **the Web3Forms access key and the business email**
+(forms tell customers to phone until the key is set), the **tagline** choice,
+the **11 policy drafts** which are not in this repo, and whether to **delete the
+test pages**. Photography rights (section 1) were deliberately not touched.
+
+`noindex` and `robots.txt Disallow` are **unchanged** — still the last switch.
+
+---
+
 ## 0. The site is publicly reachable right now
 
 🔴 **This one surprised us, so it goes first.** The repo is public and GitHub Pages

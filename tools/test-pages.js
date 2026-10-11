@@ -263,6 +263,61 @@ section('every wheel photograph belongs to the wheel it is on');
      Object.keys(shared).filter(k => shared[k].length > 1).map(k => k + ': ' + shared[k].join(', ')), []);
 }
 
+section('the pre-launch flags are wired, and prices really are off');
+{
+  /* The quote-first pass of 2026-10-11. Three ways this silently breaks:
+     a new page forgets to load site-flags.js and ships prices; someone
+     flips a flag back without meaning to; or a render path gets added that
+     does not check DF(). The first is the likely one, so it is checked per
+     page rather than in aggregate. PARKED.md says what each flag holds. */
+  const flagsSrc = fs.readFileSync(path.join(ROOT, 'site-flags.js'), 'utf8');
+
+  /* every flag ships false — this is what "quote-first" means in one place */
+  const declared = {};
+  (flagsSrc.match(/^\s{2}(show\w+):\s*(true|false)/gm) || []).forEach(l => {
+    const m = /(show\w+):\s*(true|false)/.exec(l);
+    declared[m[1]] = m[2] === 'true';
+  });
+  ok('site-flags.js declares some flags', Object.keys(declared).length >= 6, true);
+  ok('every flag is off for launch',
+    Object.keys(declared).filter(k => declared[k]), []);
+
+  /* site-flags.js must load FIRST, before any renderer reads it */
+  const CUSTOMER = ['index.html', 'shop.html', 'brand.html', 'wheel.html', 'build.html',
+                    'builds.html', 'tires.html', 'tire.html', 'jtx.html',
+                    'financing.html', 'terms.html'];
+  const missing = [], notFirst = [];
+  CUSTOMER.forEach(f => {
+    const h = fs.readFileSync(path.join(ROOT, f), 'utf8');
+    if (h.indexOf('site-flags.js') < 0) { missing.push(f); return; }
+    const first = (/<script src="([^"]+)"/.exec(h) || [])[1] || '';
+    if (first.indexOf('site-flags.js') !== 0) notFirst.push(f + ' loads ' + first + ' first');
+  });
+  ok('every customer page loads site-flags.js', missing, []);
+  ok('and loads it before anything else', notFirst, []);
+
+  /* the renderers that print money must each consult the flag */
+  [['catalog.js', 4], ['wheel.js', 1], ['jtx.js', 3], ['builder.js', 6], ['cart.js', 4]]
+    .forEach(([f, least]) => {
+      const src = fs.readFileSync(path.join(ROOT, f), 'utf8');
+      const n = (src.match(/DF\("show/g) || []).length;
+      ok(f + ' gates its price output (' + n + ' checks)', n >= least, true);
+    });
+
+  /* and nothing fakes a form success any more */
+  const sj = fs.readFileSync(path.join(ROOT, 'script.js'), 'utf8');
+  ok('script.js shows success only after a real response',
+    /r\.ok/.test(sj) && !/ok\.hidden = false;\s*\n\s*form\.querySelector\('button\[type=submit\]'\)\.textContent = 'Sent/.test(sj), true);
+  ok('there is a single form endpoint config',
+    fs.existsSync(path.join(ROOT, 'form-config.js')), true);
+
+  /* Price Designs is the only authorized line */
+  const auth = BRANDS.filter(b => b.authorized === true).map(b => b.slug);
+  ok('exactly one authorized brand', auth, ['price-designs']);
+  ok('every brand states it either way',
+    BRANDS.filter(b => typeof b.authorized !== 'boolean').map(b => b.slug), []);
+}
+
 section('no page invents a price');
 {
   /* Until v413 the shop grid priced every card with a formula over brand kind
