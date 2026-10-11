@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- Internal working document. It names unsigned dealer terms and planning
+     margins. Never indexable, never linked from the customer site.
+     Self-contained styling on the site's own tokens (Michroma / Inter,
+     electric blue) so it survives being sent as a single file. -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tire sourcing — DROOOLY Wheel &amp; Tire</title>
+<meta name="description" content="Which tire brands DROOOLY can sell online without buying stock, what each set earns, and what to ask the reps." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=421" />
+</head>
+<body>
+<style>
+/* Layout: the DROOOLY internal-sheet language (dealer sheet / marketing math) —
+   one 960px column, hairline tables, ink-ruled section heads, blue as signal only. */
+:root{
+  --bg:#ffffff; --panel:#ffffff; --panel-2:#f5f6f8;
+  --line:rgba(0,0,0,.10); --line-2:rgba(0,0,0,.18);
+  --text:#111214; --muted:#5b6069; --soft:#8b9099;
+  --ink:#0b0b0c; --on-ink:#ffffff;
+  --blue:#1f7bff; --blue-2:#1f6fe0; --blue-tint:rgba(31,123,255,.10);
+  --good:#0f7a3d; --good-bg:rgba(15,122,61,.10);
+  --mid:#9a6a00; --mid-bg:rgba(154,106,0,.11);
+  --bad:#b3261e; --bad-bg:rgba(179,38,30,.09);
+  --display:"Michroma",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b0b0c; --panel:#121214; --panel-2:#17181b;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --text:#f2f3f5; --muted:#a3a8b0; --soft:#7d828b;
+  --ink:#f2f3f5; --on-ink:#0b0b0c;
+  --blue:#4c95ff; --blue-2:#6aa8ff; --blue-tint:rgba(76,149,255,.14);
+  --good:#4cc47f; --good-bg:rgba(76,196,127,.13);
+  --mid:#e0b04a; --mid-bg:rgba(224,176,74,.13);
+  --bad:#ff7a70; --bad-bg:rgba(255,122,112,.12);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b0b0c; --panel:#121214; --panel-2:#17181b;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --text:#f2f3f5; --muted:#a3a8b0; --soft:#7d828b;
+  --ink:#f2f3f5; --on-ink:#0b0b0c;
+  --blue:#4c95ff; --blue-2:#6aa8ff; --blue-tint:rgba(76,149,255,.14);
+  --good:#4cc47f; --good-bg:rgba(76,196,127,.13);
+  --mid:#e0b04a; --mid-bg:rgba(224,176,74,.13);
+  --bad:#ff7a70; --bad-bg:rgba(255,122,112,.12);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;margin:0}
+.page{max-width:960px;margin:0 auto;padding-inline:24px;padding-block:0 72px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.005em;
+  text-wrap:balance;margin:0}
+p{margin:0}
+b{font-weight:600}
+a{color:var(--blue-2)}
+.home{color:var(--text);text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding-block:22px 22px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.home{font-family:var(--display);font-size:16px;letter-spacing:.04em;display:flex;align-items:baseline;gap:8px}
+.home i{font-family:var(--body);font-style:normal;font-size:9px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--soft)}
+.tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);
+  border:1px solid var(--line-2);padding:5px 10px;white-space:nowrap}
+
+/* masthead */
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.24em;color:var(--muted);margin-bottom:14px}
+.kicker::before{content:"";width:30px;height:1px;background:var(--blue)}
+.h1{font-size:clamp(25px,4.6vw,40px);line-height:1.12;margin-bottom:16px}
+.sub{font-size:17px;line-height:1.55;color:var(--muted);max-width:64ch}
+.meta{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:14px}
+
+/* verdict band */
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin:34px 0 44px}
+.v{background:var(--panel);padding:18px 18px 17px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.v .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.v .big{font-family:var(--display);font-size:20px;line-height:1.2;text-transform:uppercase}
+.v p{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.v.lead{background:var(--ink);color:var(--on-ink)}
+.v.lead .k{color:var(--blue-2)}
+.v.lead p{color:var(--on-ink);opacity:.78}
+
+/* sections */
+.sec{margin-bottom:52px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:2px solid var(--ink);padding-top:14px;margin-bottom:16px}
+.sechead h2{font-size:clamp(16px,2.4vw,20px);line-height:1.3}
+.sechead span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.sec > p{max-width:68ch;margin-bottom:14px}
+.note{font-size:13.5px;color:var(--muted);max-width:68ch;margin-top:12px}
+
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:12px 13px;border-bottom:1px solid var(--line)}
+thead th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);
+  background:var(--panel-2);border-bottom:1px solid var(--line-2);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td small,th small{display:block;font-size:12px;color:var(--soft);font-weight:400;margin-top:2px;line-height:1.4}
+.brand{font-family:var(--display);font-size:13px;text-transform:uppercase;white-space:nowrap}
+.r{text-align:right}
+.score{min-width:860px}
+.score tr.top-pick td{background:var(--blue-tint)}
+
+/* pills */
+.pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:3px 8px;white-space:nowrap;border:1px solid currentColor}
+.p-good{color:var(--good);background:var(--good-bg)}
+.p-mid{color:var(--mid);background:var(--mid-bg)}
+.p-bad{color:var(--bad);background:var(--bad-bg)}
+.p-blue{color:var(--blue-2);background:var(--blue-tint)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.d-good{background:var(--good)} .d-mid{background:var(--mid)} .d-bad{background:var(--bad)}
+
+/* myth card */
+.myth{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.myth > div{background:var(--panel);padding:18px 20px;min-width:0}
+.myth .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.myth .heard .big{text-decoration:line-through;text-decoration-color:var(--bad);text-decoration-thickness:2px}
+.myth .big{font-family:var(--display);font-size:22px;text-transform:uppercase;line-height:1.2;margin-bottom:6px}
+.myth p{font-size:14px;color:var(--muted)}
+
+/* demand chart */
+.chart{border:1px solid var(--line);padding:18px 18px 12px;background:var(--panel)}
+.bar{display:grid;grid-template-columns:minmax(0,210px) 1fr 64px;align-items:center;gap:12px;padding-block:5px}
+.bar .lab{font-size:13px;line-height:1.3;min-width:0}
+.bar .lab small{display:block;font-size:11px;color:var(--soft)}
+.track{height:14px;background:var(--panel-2);position:relative}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--soft)}
+.fill.us{background:var(--blue)}
+.bar .val{font-size:13px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.axis{display:grid;grid-template-columns:minmax(0,210px) 1fr 64px;gap:12px;margin-top:6px}
+.ticks{position:relative;height:16px;border-top:1px solid var(--line-2)}
+.ticks span{position:absolute;top:2px;font-size:10px;color:var(--soft);transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.ticks span:first-child{transform:none}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:12px;height:10px;margin-right:6px;vertical-align:-1px}
+
+/* calculator */
+.calc{background:var(--panel-2);border:1px solid var(--line-2);padding:18px 20px;margin-bottom:14px;
+  display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:11px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.ctl label b{font-family:var(--display);font-size:15px;color:var(--text);letter-spacing:0}
+.ctl input[type=range]{width:100%;accent-color:var(--blue)}
+.seg{display:flex;border:1px solid var(--line-2);background:var(--panel)}
+.seg button{flex:1;font:inherit;font-size:12px;font-weight:600;padding:8px 10px;border:0;background:transparent;
+  color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.seg button:focus-visible,.ctl input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.calc .hint{grid-column:1/-1;font-size:12.5px;color:var(--muted)}
+.calc-tbl{min-width:720px}
+.neg{color:var(--bad);font-weight:600}
+.pos{color:var(--good);font-weight:600}
+
+/* lists */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.steps li{counter-increment:s;background:var(--panel);padding:14px 18px 14px 62px;position:relative;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:12px;font-family:var(--display);font-size:18px;color:var(--blue)}
+.steps li small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.qs{columns:2;column-gap:32px;margin:0;padding-left:20px}
+.qs li{font-size:14px;margin-bottom:9px;break-inside:avoid}
+.unk{margin:0;padding-left:20px}
+.unk li{font-size:14px;margin-bottom:8px;color:var(--muted)}
+.unk b{color:var(--text)}
+
+.foot{border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--soft);max-width:80ch}
+
+@media (max-width:760px){
+  .verdict{grid-template-columns:1fr}
+  .myth{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+  .qs{columns:1}
+  .bar,.axis{grid-template-columns:minmax(0,120px) 1fr 52px;gap:8px}
+}
+@media (max-width:480px){
+  .page{padding-inline:16px}
+  .steps li{padding-left:48px}
+  .steps li::before{left:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="page">
+
+<header class="top">
+  <a class="home" href="index.html">DROOOLY <i>Wheel &amp; Tire</i></a>
+  <span class="tag">Tire sourcing · internal</span>
+</header>
+
+<section>
+  <div class="kicker">For Matthew · from Chris</div>
+  <h1 class="h1">Which tire brands let us sell without buying stock</h1>
+  <p class="sub">We sell online first, with no shop and no warehouse. This sheet ranks the tire brands by how easy they are to start with and what each set earns us. It also says what we still need to ask on the phone.</p>
+  <p class="meta">Researched 11 Oct 2026 · Search demand: Google US monthly average · Margins are planning numbers until a rep sends a price sheet</p>
+</section>
+
+<div class="verdict">
+  <div class="v lead">
+    <span class="k">Lead brands</span>
+    <span class="big">Venom Power + Fury</span>
+    <p>They likely need no stocking order and publish no price floor, and they cover the 22–30" wheels we're built around.</p>
+  </div>
+  <div class="v">
+    <span class="k">Add-on</span>
+    <span class="big">Falken</span>
+    <p>Its rebate program has a category for online sellers, and Keystone sells it with no minimum. Its tires mostly stop at 22".</p>
+  </div>
+  <div class="v">
+    <span class="k">Later</span>
+    <span class="big">Nitto · Toyo</span>
+    <p>Nitto: strict price floor, thin margin. Toyo: no website sales without its written OK.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="sechead"><h2>The "24 sets" number</h2><span>What Nitto actually asks</span></div>
+  <div class="myth">
+    <div class="heard"><div class="k">What we heard</div><div class="big">24 sets to be a dealer</div><p>That would be 96 tires bought up front and stored, before we've sold one.</p></div>
+    <div><div class="k">What it really is</div><div class="big">24 tires, rebates only</div><p>It's the opening order for Nitto's <b>rebate program</b>, and online-first sellers can't join that program anyway. Selling Nitto only needs a distributor account. No minimum.</p></div>
+  </div>
+  <p class="note">The same holds across brands. The minimums people quote are for rebate programs. Buying one set at a time through a distributor is how every brand below can be sold. Skipping rebates costs us $6–$40 a set.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Brand scorecard</h2><span>Sorted by fit for an online-only start</span></div>
+  <div class="scroll">
+  <table class="score">
+    <thead><tr><th>Brand</th><th>Fit</th><th>Money up front</th><th>Online-seller rules</th><th>Price floor (MAP)</th><th>Wheel sizes</th><th>Way in</th><th class="r">Searches / mo</th></tr></thead>
+    <tbody>
+      <tr class="top-pick"><td><span class="brand">Venom Power</span><small>Transamerica Tire · Memphis, TN</small></td><td><span class="pill p-good">Lead</span></td><td><span class="dot d-good"></span>Likely none<small>Their form has an "under 1,000 tires/yr" option</small></td><td><span class="dot d-good"></span>None found</td><td><span class="dot d-good"></span>None published</td><td>20–26"</td><td>Direct: dealer form + rep call<small>832-891-2821</small></td><td class="r num">4,400</td></tr>
+      <tr class="top-pick"><td><span class="brand">Fury</span><small>Irving, TX warehouse</small></td><td><span class="pill p-good">Lead</span></td><td><span class="dot d-good"></span>None via Keystone<small>Direct terms unpublished</small></td><td><span class="dot d-good"></span>None found</td><td><span class="dot d-good"></span>None published</td><td><b>20–30"</b><small>Widest range of any brand</small></td><td>Keystone or Meyer, or direct inquiry<small>(855) 575-3879</small></td><td class="r num">3,600</td></tr>
+      <tr><td><span class="brand">Falken</span><small>Wildpeak</small></td><td><span class="pill p-blue">Add-on</span></td><td><span class="dot d-good"></span>None via distributor</td><td><span class="dot d-good"></span>Has an online-seller category<small>"Shipper" rebate: $1.50/tire</small></td><td><span class="dot d-mid"></span>Enforced</td><td>Mostly ≤ 22"</td><td>Keystone, Meyer, US AutoForce</td><td class="r num">1,600</td></tr>
+      <tr><td><span class="brand">Nitto</span><small>Ridge / Mud / Recon Grappler</small></td><td><span class="pill p-mid">Later</span></td><td><span class="dot d-good"></span>None via distributor</td><td><span class="dot d-mid"></span>No rebates if "primarily online"</td><td><span class="dot d-bad"></span>Strict<small>No package discount below it</small></td><td>20–24"</td><td>US AutoForce</td><td class="r num">60,500</td></tr>
+      <tr><td><span class="brand">Toyo</span><small>Open Country</small></td><td><span class="pill p-mid">Later</span></td><td><span class="dot d-good"></span>None via distributor</td><td><span class="dot d-bad"></span>Written OK needed per website</td><td><span class="dot d-mid"></span>Enforced</td><td>20–24"</td><td>Turn 14, TireHub + online-seller application</td><td class="r num">9,900</td></tr>
+      <tr><td><span class="brand">Mickey Thompson</span><small>Baja Boss</small></td><td><span class="pill p-mid">Later</span></td><td><span class="dot d-good"></span>None via distributor</td><td><span class="dot d-mid"></span>Program assumes a storefront</td><td><span class="dot d-bad"></span>Strict, counts packages</td><td>20–24"</td><td>Turn 14, TireHub</td><td class="r num">18,100</td></tr>
+      <tr><td><span class="brand">BFGoodrich</span><small>KO3</small></td><td><span class="pill p-bad">Skip</span></td><td><span class="dot d-good"></span>None via distributor</td><td><span class="dot d-bad"></span>Program needs a physical store</td><td><span class="dot d-mid"></span>Unclear</td><td>Mostly ≤ 20"</td><td>NTW, Meyer, Turn 14</td><td class="r num">22,200</td></tr>
+      <tr><td><span class="brand">AMP</span><small>Terrain Attack</small></td><td><span class="pill p-bad">Hold</span></td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>20–24"</td><td>The Wheel Group<small>A/T and R/T sales halted in 2024</small></td><td class="r num">480</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Searches per month are for the brand's main tire (Venom and Fury are searched by brand name). "Price floor" is the brand's Minimum Advertised Price policy. Breaking it can get a distributor barred from selling to us.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>What people actually search for</h2><span>Google US, monthly</span></div>
+  <p>The Nitto Ridge Grappler gets more searches than Venom, Fury, Toyo, Mickey Thompson and BFGoodrich combined. It's the tire people ask for by name. Venom and Fury win on our wheel sizes, because above 24" the premium brands mostly don't make tires.</p>
+  <div class="chart" id="chart"></div>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>What each set makes us</h2><span>Planning numbers</span></div>
+  <p>Budget brands (Venom, Fury) are planned at <b>20–25%</b> gross. Premium brands (Nitto, Toyo) are planned at <b>15–20%</b>, because their price floors cap us and online sellers get no rebates. Change the inputs to see what's left.</p>
+  <div class="calc">
+    <div class="ctl">
+      <label for="freight">Freight per set <b id="freightOut">$200</b></label>
+      <input id="freight" type="range" min="0" max="300" step="10" value="200">
+    </div>
+    <div class="ctl">
+      <label id="marginLab">Margin</label>
+      <div class="seg" role="group" aria-labelledby="marginLab">
+        <button type="button" id="mLow" aria-pressed="true">Low end</button>
+        <button type="button" id="mHigh" aria-pressed="false">High end</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <label id="howLab">How it ships</label>
+      <div class="seg" role="group" aria-labelledby="howLab">
+        <button type="button" id="sAlone" aria-pressed="true">Tires on their own</button>
+        <button type="button" id="sPkg" aria-pressed="false">In a wheel package</button>
+      </div>
+    </div>
+    <p class="hint" id="hint">Freight to a home runs $150–$300 for a set of big tires. Card fee is 2.9% + 30¢ on the set.</p>
+  </div>
+  <div class="scroll">
+  <table class="calc-tbl">
+    <thead><tr><th>Tire</th><th class="r">Per tire</th><th class="r">Set</th><th class="r">Set retail</th><th class="r">Gross</th><th class="r">Freight</th><th class="r">Card fee</th><th class="r">Left to us</th></tr></thead>
+    <tbody id="calcBody"></tbody>
+  </table>
+  </div>
+  <p class="note"><b>The takeaway:</b> a set of tires on its own barely pays once freight comes out. Inside a wheel package the freight is already paid, and the tires add about $175–$1,250 to the sale. Sell tires as part of the package, not as a separate tire store.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Which tire goes on which wheel</h2><span>What package sellers pair</span></div>
+  <div class="scroll">
+  <table style="min-width:720px">
+    <thead><tr><th>Wheel</th><th>Tire size</th><th>Top picks</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td><b>20x10</b></td><td>33x12.50R20<br>35x12.50R20</td><td>Nitto Ridge Grappler · Venom X/T · Toyo M/T</td><td>Leveled to about 4" of lift. 35x12.50R20 is the most-searched big size (6,600/mo)</td></tr>
+      <tr><td><b>20x12</b></td><td>35x12.50R20<br>37x13.50R20</td><td>Ridge Grappler · Fury MT2 · Kenda Klever R/T</td><td>The "poke" look needs sidewall; load range F is easy to get at 20"</td></tr>
+      <tr><td><b>22x10</b></td><td>33x12.50R22<br>35x12.50R22</td><td>Venom X/T · Toyo M/T · Atturo Trail Blade</td><td>33s on 2–4" of lift, 35s on about 6"</td></tr>
+      <tr><td><b>22x12</b></td><td>35x12.50R22</td><td>Ridge Grappler · Venom X/T · Toyo M/T</td><td>The volume size for 1500 and 2500 builds (2,400/mo)</td></tr>
+      <tr><td><b>22x14</b></td><td>37x13.50R22</td><td>Toyo M/T · Ridge Grappler · Gladiator X Comp</td><td>The 13.50 is the least-stretched fit on a 14" rim</td></tr>
+      <tr><td><b>24x12 · 24x14</b></td><td>37x13.50R24</td><td>Venom X/T · Amp M/T · Fury MT2</td><td>The most common real-world pick (720/mo)</td></tr>
+      <tr><td><b>26x12 · 26x14</b></td><td>37x13.50R26<br>35x13.50R26</td><td>Gladiator X Comp · Fury M/T · Atturo · Venom R/T+</td><td>Budget brands own this size; premium brands barely make it</td></tr>
+      <tr><td><b>28x16 · 30"</b></td><td>40x15.50R28<br>38–40" x R30</td><td>Fury Country Hunter M/T &amp; MT II</td><td>Close to Fury-only sizes</td></tr>
+      <tr><td><b>Dually 22x8.25</b></td><td>35x12.50R22 F</td><td>Nitto Ridge/Recon · Venom R/T+ · Baja Boss</td><td>Sold as six-tire F-rated sets</td></tr>
+      <tr><td><b>22.5 semi-style</b></td><td>255/70R22.5 H</td><td>Toyo M325 · Thunderer</td><td>The only option here built for heavy towing: 5,071 lb per tire as duals</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note"><b>Towing:</b> bigger wheels carry less. A 37x13.50R26 F is rated 2,835 lb per tire, less than a stock HD tire at about 3,640 lb. That's what our fitment hard stop catches.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Next steps</h2><span>In this order</span></div>
+  <ol class="steps">
+    <li><b>Call Transamerica about Venom Power.</b><small>Memphis, about 3 hours away. 832-891-2821, M–F 9–6 Central.</small></li>
+    <li><b>Open a Keystone drop-ship account.</b><small>One account covers Fury and Falken with no minimum order.</small></li>
+    <li><b>Send Fury's dealer inquiry.</b><small>furytires.com/becomeadistributor. It's a backup if Keystone pricing is thin.</small></li>
+    <li><b>Apply to Turn 14.</b><small>Accepts web-only dealers and ships wheels with tires mounted and balanced. Ask the buy-in amount first.</small></li>
+    <li><b>Add Nitto and Toyo later.</b><small>Nitto through a distributor at its price floor. Toyo only after it approves our website.</small></li>
+  </ol>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Ask every rep</h2><span>None of this is published</span></div>
+  <ol class="qs">
+    <li>Can we buy with no opening order?</li>
+    <li>Storefront required, or just a resale certificate and business license?</li>
+    <li>Do you ship single sets to a customer's home? Fee per order, freight per set? Sets of six for duallys?</li>
+    <li>Do you mount and balance onto wheels?</li>
+    <li>Dealer cost against suggested retail on our top four sizes?</li>
+    <li>Written price-floor policy? Can we discount inside a wheel package?</li>
+    <li>How do warranty claims work for an online seller with no shop?</li>
+    <li>Does a fit inside your published rim-width range keep the warranty?</li>
+    <li>Lead time and stock on 24", 26" and 28" sizes?</li>
+    <li>Load data per part number as a spec sheet or feed?</li>
+    <li>Can we use your photos and logo, in writing?</li>
+    <li>Which distributors carry your full big-wheel range?</li>
+  </ol>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Still unknown</h2><span>Answered by the calls above</span></div>
+  <ul class="unk">
+    <li><b>Real dealer cost.</b> Every margin here is a planning range until a price sheet arrives.</li>
+    <li><b>Whether Venom or Fury want an opening order.</b> Neither publishes one.</li>
+    <li><b>Turn 14's buy-in amount</b>, and whether it takes a brand-new business.</li>
+    <li><b>Venom's warranty at 24" and 26".</b> Its mileage warranty only covers 22" and smaller, and claims come back to us as the seller.</li>
+  </ul>
+</section>
+
+<p class="foot">Sources: brand dealer and warranty pages; distributor-hosted program documents (Nitto Enthusiast Circuit Q1 2026, Toyo Driven 2025, Falken Fanatic 2026, Michelin AAD 2026); Nitto MAP policy (July 2024); Modern Tire Dealer, Tire Review, Tire Business, The Shop; Custom Offsets' top-tire guide; retailer listings. Search volume via DataForSEO. Full write-up: TIRE-SOURCING.md in the site repo.</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  /* demand chart — one linear scale, 0 to 70,000 */
+  var D = [
+    ["Nitto Ridge Grappler","model",60500],
+    ["BFGoodrich KO3","model",22200],
+    ["Nitto Mud Grappler","model",18100],
+    ["Mickey Thompson Baja Boss","model",18100],
+    ["Nitto Recon Grappler","model",14800],
+    ["Toyo Open Country R/T","model",9900],
+    ["Toyo Open Country M/T","model",8100],
+    ["Venom Power","brand",4400,true],
+    ["Fury","brand",3600,true],
+    ["Atturo Trail Blade X/T","model",2400],
+    ["Falken Wildpeak M/T","model",1600]
+  ];
+  var MAX = 70000, ticks = [0,10000,20000,30000,40000,50000,60000,70000];
+  var h = "";
+  D.forEach(function(r){
+    h += '<div class="bar"><div class="lab">' + r[0] + '<small>' + (r[1]==="brand"?"brand search":"tire model") + '</small></div>' +
+      '<div class="track"><div class="fill' + (r[3]?' us':'') + '" style="width:' + (r[2]/MAX*100).toFixed(2) + '%"></div></div>' +
+      '<div class="val">' + r[2].toLocaleString("en-US") + '</div></div>';
+  });
+  h += '<div class="axis"><div></div><div class="ticks">' + ticks.map(function(t){
+    return '<span style="left:' + (t/MAX*100) + '%">' + (t===0?"0":(t/1000)+"k") + '</span>';
+  }).join("") + '</div><div></div></div>';
+  h += '<div class="legend"><span><i style="background:var(--blue)"></i>Our lead brands</span><span><i style="background:var(--soft)"></i>Everyone else</span></div>';
+  document.getElementById("chart").innerHTML = h;
+
+  /* set calculator */
+  var T = [
+    ["Venom X/T","35x12.50R20 E",257,4,"b"],
+    ["Venom X/T","35x12.50R22 F",311,4,"b"],
+    ["Venom X/T · dually","35x12.50R22 F",311,6,"b"],
+    ["Venom X/T","37x13.50R26 F",560,4,"b"],
+    ["Fury MT2","35x12.50R20 E",315,4,"b"],
+    ["Fury MT2","40x15.50R22 E",529,4,"b"],
+    ["Fury M/T","40x15.50R28 E",1416,4,"b"],
+    ["Nitto Ridge Grappler","37x13.50R22 F",630,4,"p"],
+    ["Toyo Open Country M/T","37x13.50R22 F",700,4,"p"]
+  ];
+  var BAND = { b:[0.20,0.25], p:[0.15,0.20] };
+  var S = { freight:200, high:false, pkg:false };
+  function $(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+  function render(){
+    document.getElementById("freightOut").textContent = S.pkg ? "In package" : $(S.freight);
+    document.getElementById("freight").disabled = S.pkg;
+    document.getElementById("hint").textContent = S.pkg
+      ? "In a package the freight is already paid on the wheels, so the tires add no freight of their own. Card fee is 2.9% + 30¢ on the set."
+      : "Freight to a home runs $150–$300 for a set of big tires. Card fee is 2.9% + 30¢ on the set.";
+    var rows = "";
+    T.forEach(function(t){
+      var retail = t[2]*t[3], m = BAND[t[4]][S.high?1:0];
+      var gross = retail*m, fr = S.pkg?0:S.freight, card = retail*0.029 + 0.30;
+      var left = gross - fr - card;
+      rows += '<tr><td><b>' + t[0] + '</b><small>' + t[1] + ' · ' + Math.round(m*100) + '% margin</small></td>' +
+        '<td class="r">' + $(t[2]) + '</td><td class="r">' + t[3] + '</td><td class="r">' + $(retail) + '</td>' +
+        '<td class="r">' + $(gross) + '</td><td class="r">' + (fr?"−"+$(fr):"—") + '</td><td class="r">−' + $(card) + '</td>' +
+        '<td class="r ' + (left<0?"neg":"pos") + '">' + (left<0?"−"+$(-left):$(left)) + '</td></tr>';
+    });
+    document.getElementById("calcBody").innerHTML = rows;
+  }
+  function pair(a,b,key,val){
+    var A=document.getElementById(a), B=document.getElementById(b);
+    A.addEventListener("click",function(){ S[key]=!val; A.setAttribute("aria-pressed","true"); B.setAttribute("aria-pressed","false"); render(); });
+    B.addEventListener("click",function(){ S[key]=val; B.setAttribute("aria-pressed","true"); A.setAttribute("aria-pressed","false"); render(); });
+  }
+  pair("mLow","mHigh","high",true);
+  pair("sAlone","sPkg","pkg",true);
+  document.getElementById("freight").addEventListener("input",function(e){ S.freight=+e.target.value; render(); });
+  render();
+})();
+</script>
+
+</body>
+</html>

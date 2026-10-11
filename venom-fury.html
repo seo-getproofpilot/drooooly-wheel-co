@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- Internal working document. It names unsigned dealer terms and planning
+     margins. Never indexable, never linked from the customer site.
+     Self-contained styling on the site's own tokens (Michroma / Inter,
+     electric blue) so it survives being sent as a single file. -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Venom &amp; Fury playbook — DROOOLY Wheel &amp; Tire</title>
+<meta name="description" content="How DROOOLY gets Venom Power and Fury tire accounts with no inventory, which tire fits which wheel, and what each set earns." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=421" />
+</head>
+<body>
+<style>
+/* Layout: the DROOOLY internal-sheet language (dealer sheet / marketing math) —
+   one 960px column, hairline tables, ink-ruled section heads, blue as signal only. */
+:root{
+  --bg:#ffffff; --panel:#ffffff; --panel-2:#f5f6f8;
+  --line:rgba(0,0,0,.10); --line-2:rgba(0,0,0,.18);
+  --text:#111214; --muted:#5b6069; --soft:#8b9099;
+  --ink:#0b0b0c; --on-ink:#ffffff;
+  --blue:#1f7bff; --blue-2:#1f6fe0; --blue-tint:rgba(31,123,255,.10);
+  --good:#0f7a3d; --good-bg:rgba(15,122,61,.10);
+  --mid:#9a6a00; --mid-bg:rgba(154,106,0,.11);
+  --bad:#b3261e; --bad-bg:rgba(179,38,30,.09);
+  --display:"Michroma",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b0b0c; --panel:#121214; --panel-2:#17181b;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --text:#f2f3f5; --muted:#a3a8b0; --soft:#7d828b;
+  --ink:#f2f3f5; --on-ink:#0b0b0c;
+  --blue:#4c95ff; --blue-2:#6aa8ff; --blue-tint:rgba(76,149,255,.14);
+  --good:#4cc47f; --good-bg:rgba(76,196,127,.13);
+  --mid:#e0b04a; --mid-bg:rgba(224,176,74,.13);
+  --bad:#ff7a70; --bad-bg:rgba(255,122,112,.12);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b0b0c; --panel:#121214; --panel-2:#17181b;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --text:#f2f3f5; --muted:#a3a8b0; --soft:#7d828b;
+  --ink:#f2f3f5; --on-ink:#0b0b0c;
+  --blue:#4c95ff; --blue-2:#6aa8ff; --blue-tint:rgba(76,149,255,.14);
+  --good:#4cc47f; --good-bg:rgba(76,196,127,.13);
+  --mid:#e0b04a; --mid-bg:rgba(224,176,74,.13);
+  --bad:#ff7a70; --bad-bg:rgba(255,122,112,.12);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;margin:0}
+.page{max-width:960px;margin:0 auto;padding-inline:24px;padding-block:0 72px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.005em;
+  text-wrap:balance;margin:0}
+p{margin:0}
+b{font-weight:600}
+a{color:var(--blue-2)}
+.home{color:var(--text);text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding-block:22px 22px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.home{font-family:var(--display);font-size:16px;letter-spacing:.04em;display:flex;align-items:baseline;gap:8px}
+.home i{font-family:var(--body);font-style:normal;font-size:9px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--soft)}
+.tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);
+  border:1px solid var(--line-2);padding:5px 10px;white-space:nowrap}
+
+/* masthead */
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.24em;color:var(--muted);margin-bottom:14px}
+.kicker::before{content:"";width:30px;height:1px;background:var(--blue)}
+.h1{font-size:clamp(25px,4.6vw,40px);line-height:1.12;margin-bottom:16px}
+.sub{font-size:17px;line-height:1.55;color:var(--muted);max-width:64ch}
+.meta{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:14px}
+
+/* verdict band */
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin:34px 0 44px}
+.v{background:var(--panel);padding:18px 18px 17px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.v .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.v .big{font-family:var(--display);font-size:20px;line-height:1.2;text-transform:uppercase}
+.v p{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.v.lead{background:var(--ink);color:var(--on-ink)}
+.v.lead .k{color:var(--blue-2)}
+.v.lead p{color:var(--on-ink);opacity:.78}
+
+/* sections */
+.sec{margin-bottom:52px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:2px solid var(--ink);padding-top:14px;margin-bottom:16px}
+.sechead h2{font-size:clamp(16px,2.4vw,20px);line-height:1.3}
+.sechead span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.sec > p{max-width:68ch;margin-bottom:14px}
+.note{font-size:13.5px;color:var(--muted);max-width:68ch;margin-top:12px}
+
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:12px 13px;border-bottom:1px solid var(--line)}
+thead th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);
+  background:var(--panel-2);border-bottom:1px solid var(--line-2);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td small,th small{display:block;font-size:12px;color:var(--soft);font-weight:400;margin-top:2px;line-height:1.4}
+.brand{font-family:var(--display);font-size:13px;text-transform:uppercase;white-space:nowrap}
+.r{text-align:right}
+.score{min-width:860px}
+.score tr.top-pick td{background:var(--blue-tint)}
+
+/* pills */
+.pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:3px 8px;white-space:nowrap;border:1px solid currentColor}
+.p-good{color:var(--good);background:var(--good-bg)}
+.p-mid{color:var(--mid);background:var(--mid-bg)}
+.p-bad{color:var(--bad);background:var(--bad-bg)}
+.p-blue{color:var(--blue-2);background:var(--blue-tint)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.d-good{background:var(--good)} .d-mid{background:var(--mid)} .d-bad{background:var(--bad)}
+
+/* myth card */
+.myth{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.myth > div{background:var(--panel);padding:18px 20px;min-width:0}
+.myth .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.myth .heard .big{text-decoration:line-through;text-decoration-color:var(--bad);text-decoration-thickness:2px}
+.myth .big{font-family:var(--display);font-size:22px;text-transform:uppercase;line-height:1.2;margin-bottom:6px}
+.myth p{font-size:14px;color:var(--muted)}
+
+/* demand chart */
+.chart{border:1px solid var(--line);padding:18px 18px 12px;background:var(--panel)}
+.bar{display:grid;grid-template-columns:minmax(0,210px) 1fr 64px;align-items:center;gap:12px;padding-block:5px}
+.bar .lab{font-size:13px;line-height:1.3;min-width:0}
+.bar .lab small{display:block;font-size:11px;color:var(--soft)}
+.track{height:14px;background:var(--panel-2);position:relative}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--soft)}
+.fill.us{background:var(--blue)}
+.bar .val{font-size:13px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.axis{display:grid;grid-template-columns:minmax(0,210px) 1fr 64px;gap:12px;margin-top:6px}
+.ticks{position:relative;height:16px;border-top:1px solid var(--line-2)}
+.ticks span{position:absolute;top:2px;font-size:10px;color:var(--soft);transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.ticks span:first-child{transform:none}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:12px;height:10px;margin-right:6px;vertical-align:-1px}
+
+/* calculator */
+.calc{background:var(--panel-2);border:1px solid var(--line-2);padding:18px 20px;margin-bottom:14px;
+  display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:11px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.ctl label b{font-family:var(--display);font-size:15px;color:var(--text);letter-spacing:0}
+.ctl input[type=range]{width:100%;accent-color:var(--blue)}
+.seg{display:flex;border:1px solid var(--line-2);background:var(--panel)}
+.seg button{flex:1;font:inherit;font-size:12px;font-weight:600;padding:8px 10px;border:0;background:transparent;
+  color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.seg button:focus-visible,.ctl input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.calc .hint{grid-column:1/-1;font-size:12.5px;color:var(--muted)}
+.calc-tbl{min-width:720px}
+.neg{color:var(--bad);font-weight:600}
+.pos{color:var(--good);font-weight:600}
+
+/* lists */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.steps li{counter-increment:s;background:var(--panel);padding:14px 18px 14px 62px;position:relative;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:12px;font-family:var(--display);font-size:18px;color:var(--blue)}
+.steps li small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.qs{columns:2;column-gap:32px;margin:0;padding-left:20px}
+.qs li{font-size:14px;margin-bottom:9px;break-inside:avoid}
+.unk{margin:0;padding-left:20px}
+.unk li{font-size:14px;margin-bottom:8px;color:var(--muted)}
+.unk b{color:var(--text)}
+
+.foot{border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--soft);max-width:80ch}
+
+@media (max-width:760px){
+  .verdict{grid-template-columns:1fr}
+  .myth{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+  .qs{columns:1}
+  .bar,.axis{grid-template-columns:minmax(0,120px) 1fr 52px;gap:8px}
+}
+@media (max-width:480px){
+  .page{padding-inline:16px}
+  .steps li{padding-left:48px}
+  .steps li::before{left:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<style>
+/* additions for the two-brand playbook */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.duo > div{background:var(--panel);padding:20px 22px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.duo h3{font-size:18px;line-height:1.2}
+.duo .who{font-size:12.5px;color:var(--soft);margin-top:-6px}
+.duo .lane{font-size:14.5px}
+.kv{display:grid;grid-template-columns:minmax(0,130px) 1fr;gap:7px 14px;margin:4px 0 0;font-size:13.5px}
+.kv dt{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);padding-top:2px}
+.kv dd{margin:0;min-width:0}
+.alert{border:1px solid var(--bad);background:var(--bad-bg);padding:16px 18px;margin-bottom:14px}
+.alert .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bad);margin-bottom:4px}
+.alert p{font-size:14.5px;max-width:72ch}
+.callout{border-left:3px solid var(--blue);background:var(--panel-2);padding:14px 18px;font-size:14.5px;max-width:none}
+.routes td:first-child{white-space:nowrap}
+.fit{min-width:820px}
+.fit td{font-size:13.5px}
+.fit .win{font-weight:600;color:var(--blue-2)}
+.cols2{columns:2;column-gap:32px;margin:0;padding-left:20px}
+.cols2 li{font-size:14px;margin-bottom:9px;break-inside:avoid}
+.brandtag{font-family:var(--display);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border:1px solid var(--line-2);white-space:nowrap}
+.bt-v{color:var(--blue-2);border-color:var(--blue-2)}
+.bt-f{color:var(--text)}
+@media (max-width:760px){
+  .duo{grid-template-columns:1fr}
+  .cols2{columns:1}
+  .kv{grid-template-columns:1fr;gap:2px 0}
+  .kv dd{margin-bottom:8px}
+}
+</style>
+
+<div class="page">
+
+<header class="top">
+  <a class="home" href="index.html">DROOOLY <i>Wheel &amp; Tire</i></a>
+  <span class="tag">Tire sourcing · Venom &amp; Fury</span>
+</header>
+
+<section>
+  <div class="kicker">For Matthew · from Chris</div>
+  <h1 class="h1">Venom Power and Fury: what it takes to sell them</h1>
+  <p class="sub">These are our two lead tire brands. Neither publishes a stocking requirement or a price floor, so we can sell set by set with no inventory. This sheet covers how to get each account, what we'd earn, which tire fits which wheel, and the gaps to close on the phone.</p>
+  <p class="meta">Researched 11 Oct 2026 · Load figures from each brand's spec pages · Margins are planning numbers until a rep sends a price sheet</p>
+</section>
+
+<div class="verdict">
+  <div class="v lead">
+    <span class="k">How they split</span>
+    <span class="big">Venom to 24" · Fury 26"+</span>
+    <p>Venom leads on 20–24x12: cheaper, more searched, similar load. Fury leads on 24x14 and every 26–30" wheel, where it carries more load.</p>
+  </div>
+  <div class="v">
+    <span class="k">Money up front</span>
+    <span class="big">None published</span>
+    <p>Neither brand lists an opening order. Venom's own form lets you pick "under 1,000 tires a year."</p>
+  </div>
+  <div class="v">
+    <span class="k">Biggest gap</span>
+    <span class="big">HD duallys</span>
+    <p>Neither publishes a dual-rated tire for 22–26x8.25 dually wheels. Ask both reps.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="sechead"><h2>The two brands side by side</h2><span>Who they are and how to get in</span></div>
+  <div class="duo">
+    <div>
+      <h3>Venom Power</h3>
+      <p class="who">Transamerica Tire Co. · Memphis, TN</p>
+      <p class="lane">The budget default on 20–24" lifted builds. More people search for it, and the Terra Hunter X/T is its best seller.</p>
+      <dl class="kv">
+        <dt>How to buy</dt><dd><b>Direct from Transamerica.</b> No wholesaler carries it. Every online seller on Venom's list buys direct.</dd>
+        <dt>Apply</dt><dd>transamericatire.com/become_a_dealer, then a rep calls</dd>
+        <dt>Call</dt><dd>832-891-2821 · M–F 9–6 Central</dd>
+        <dt>Ask for</dt><dd>Joe Davis, Sales Director · Steve Oropesa, National Sales Manager</dd>
+        <dt>Ships from</dt><dd>Likely Hazelwood, MO (St. Louis), 1–2 days to Tennessee. Also Orange, CA</dd>
+        <dt>Marketplaces</dt><dd>Amazon, eBay and Walmart are on its official dealer list</dd>
+        <dt>Territory</dt><dd><b>No Tennessee dealers listed</b></dd>
+        <dt>Searches / mo</dt><dd class="num">"venom tires" 6,600 · "venom power tires" 4,400 · reviews 650</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Fury Off-Road</h3>
+      <p class="who">Fury Off-Road Tires LLC · Irving / Coppell, TX</p>
+      <p class="lane">The tall, wide tires for 24–30" wheels that most brands don't make. Won a SEMA 2025 Media's Choice award.</p>
+      <dl class="kv">
+        <dt>How to buy</dt><dd><b>Direct, Meyer or Keystone.</b> A Miami importer, OVJ Trading, also claims to be the sole distributor (probably out of date)</dd>
+        <dt>Apply</dt><dd>furytires.com/becomeadistributor</dd>
+        <dt>Call</dt><dd>(855) 575-3879 · sales@furyoffroadtires.com</dd>
+        <dt>Ask for</dt><dd>Ernie Boehm, Sales Director (Dec 2025) · Owner Jaimie Jang</dd>
+        <dt>Ships from</dt><dd>Texas by FedEx Ground, 2–3 days to Tennessee</dd>
+        <dt>Marketplaces</dt><dd>Sold on eBay and SimpleTire. No policy published</dd>
+        <dt>Made</dt><dd>Private-label tires from China, Taiwan and Thailand</dd>
+        <dt>Searches / mo</dt><dd class="num">"fury tires" 3,600 · Country Hunter M/T 590</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Ways in</h2><span>Ranked for where we are today</span></div>
+  <div class="scroll">
+  <table class="routes" style="min-width:760px">
+    <thead><tr><th>Route</th><th>Brand</th><th>What it needs</th><th>Catch</th><th>Fit now</th></tr></thead>
+    <tbody>
+      <tr><td><b>Transamerica direct</b></td><td><span class="brandtag bt-v">Venom</span></td><td>Dealer form, business info, likely a resale certificate</td><td>Minimum order and dealer cost unknown until the call</td><td><span class="pill p-good">Start here</span></td></tr>
+      <tr><td><b>Fury direct</b></td><td><span class="brandtag bt-f">Fury</span></td><td>Dealer inquiry form</td><td>Whether they sell direct to an online-only dealer is unconfirmed</td><td><span class="pill p-good">Start here</span></td></tr>
+      <tr><td><b>Meyer Distributing</b></td><td><span class="brandtag bt-f">Fury</span></td><td>Account through a rep. Free online tools; automated drop-ship needs a test order</td><td>Fury listing for 2026 not confirmed. No fee schedule published</td><td><span class="pill p-blue">Backup</span></td></tr>
+      <tr><td><b>Keystone (LKQ)</b></td><td><span class="brandtag bt-f">Fury</span></td><td>Sales-tax number, resale certificate, <b>website pre-approved with a working checkout</b></td><td>We're quote-first until January. LKQ is selling Keystone, so terms may change</td><td><span class="pill p-mid">After checkout</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Have this ready before calling</h2><span>What every application asks for</span></div>
+  <ul class="cols2">
+    <li><b>Business name, EIN and business license</b></li>
+    <li><b>Tennessee sales-tax number</b></li>
+    <li><b>Resale certificate</b> (TN Streamlined Sales Tax exemption form)</li>
+    <li><b>Website URL</b>, plus a note that we sell wheel-and-tire packages</li>
+    <li><b>Honest volume estimate:</b> under $100K, under 1,000 tires a year</li>
+    <li><b>Shipping plan:</b> drop-ship to the customer or to a partner installer</li>
+    <li><b>Who handles warranty claims</b> (us, by photo, at first)</li>
+    <li><b>Trade references</b> if asked (Price Designs)</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Which tire on which wheel</h2><span>Inside each brand's approved rim width</span></div>
+  <p>Each pick sits inside the brand's own approved rim-width range, so the warranty holds. Load is per tire. <span class="win">Blue</span> marks where we'd lead: more load, or about the same load for less money.</p>
+  <div class="scroll">
+  <table class="fit">
+    <thead><tr><th>Wheel</th><th>Venom Power pick</th><th class="r">Load</th><th>Fury pick</th><th class="r">Load</th></tr></thead>
+    <tbody>
+      <tr><td><b>20x10 · 20x12</b></td><td class="win">Terra Hunter X/T 37x13.50R20<small>Rim 9.5–12"</small></td><td class="r">3,968 lb</td><td>MT2 37x13.50R20 F<small>Also 35x12.50R20 F at 3,640 lb</small></td><td class="r">4,190 lb</td></tr>
+      <tr><td><b>20x14</b></td><td class="win">Swampthing 35x15.50R20<small>Rim 11–14"</small></td><td class="r">3,858 lb</td><td>M/T 33x14.50R20<small>Fury's load figures conflict on this size</small></td><td class="r">?</td></tr>
+      <tr><td><b>22x10 · 22x12</b></td><td class="win">X/T 37x13.50R22<small>Rim 9.5–12". Also 33x12.50R22 at 2,601 lb</small></td><td class="r">3,968 lb</td><td>MT2 37x13.50R22 F</td><td class="r">3,970 lb</td></tr>
+      <tr><td><b>22x14</b></td><td class="win">Swampthing 35x15.50R22<small>Rim 12.5–14.5"</small></td><td class="r">3,417 lb</td><td>None in range<small>40x15.50R22 is approved to 13" only</small></td><td class="r">—</td></tr>
+      <tr><td><b>24x12</b></td><td class="win">X/T 37x13.50R24<small>Rim 9.5–12"</small></td><td class="r">3,527 lb</td><td>MT2 35x14.50R24 F<small>Rim 10.5–12.5"</small></td><td class="r">3,415 lb</td></tr>
+      <tr><td><b>24x14</b></td><td>Swampthing 35x15.50R24<small>Rim 13–15.5"</small></td><td class="r">2,833 lb</td><td class="win">MT2 35x16.50R24 F<small>Rim 12–15"</small></td><td class="r">3,860 lb</td></tr>
+      <tr><td><b>26x12</b></td><td>X/T 37x13.50R26<small>Rim 10.5–13"</small></td><td class="r">2,833 lb</td><td class="win">M/T 40x15.50R26<small>Rim 11–13". 42x15.50R26 at 4,190 lb</small></td><td class="r">3,860 lb</td></tr>
+      <tr><td><b>26x14</b></td><td>Swampthing 38x15.50R26<small>Rim 13.5–14.5"</small></td><td class="r">3,748 lb</td><td class="win">MT2 LT405/30R26 F<small>Rim 12.5–15.5"</small></td><td class="r">3,970 lb</td></tr>
+      <tr><td><b>28x14</b></td><td>X/T 40x15.50R28<small>Rim 13–14"</small></td><td class="r">3,748 lb</td><td class="win">MT2 LT395/30R28 F<small>Rim 12–15"</small></td><td class="r">3,970 lb</td></tr>
+      <tr><td><b>30x14 · 30x16</b></td><td class="win">Swampthing 44x16.50R30<small>Rim 14–16". The only 16"-wide approval we found</small></td><td class="r">3,968 lb</td><td>MT2 44x16.50R30 F<small>Rim 12–15"</small></td><td class="r">3,970 lb</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">For comparison, a stock HD tire (LT275/65R20 E) carries about 3,640 lb. Several 24–26" sizes fall below that, which is where our towing hard stop comes in. Fury's spec pages have rows where the load index and the pounds disagree; until Fury confirms, use the lower of the two.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>The dually gap</h2><span>Ask both brands</span></div>
+  <div class="alert">
+    <div class="k">Neither brand covers HD duallys on 22–26x8.25 wheels</div>
+    <p>A dually's inner and outer rear tires need a <b>dual load rating</b>. Neither brand publishes one for any flotation size (33x, 35x, 37x) or for anything on a 24"+ rim. Venom's only tires that fit 22–26x8.25 are low-profile street tires rated about 1,500–1,700 lb, far too light for a 3500.</p>
+  </div>
+  <p><b>What does exist:</b> dual-rated LT sizes on 20" and some 22" wheels. These are Venom R/T+ LT275/65R20 (fits 20x8.25), and Fury R/T and Sierra Hunter ATM in LT285/55R20, LT305/55R20, LT285/50R22 and LT285/55R22.</p>
+  <p class="callout">Until a rep sends dual ratings in writing, DROOOLY's dually packages on 22"+ need a third tire source. That's the one place we'll have to look beyond these two brands.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>What a set makes us</h2><span>Planning: 20–25% gross</span></div>
+  <p>Neither brand publishes a dealer cost or a price floor, and retail prices vary widely between sellers. We plan on <b>20–25% gross</b> until the price sheets arrive. Retail prices below are what sellers charge today.</p>
+  <div class="calc">
+    <div class="ctl">
+      <label for="freight">Freight per set <b id="freightOut">$200</b></label>
+      <input id="freight" type="range" min="0" max="400" step="10" value="200">
+    </div>
+    <div class="ctl">
+      <label id="marginLab">Margin</label>
+      <div class="seg" role="group" aria-labelledby="marginLab">
+        <button type="button" id="mLow" aria-pressed="true">20%</button>
+        <button type="button" id="mHigh" aria-pressed="false">25%</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <label id="howLab">How it ships</label>
+      <div class="seg" role="group" aria-labelledby="howLab">
+        <button type="button" id="sAlone" aria-pressed="true">Tires on their own</button>
+        <button type="button" id="sPkg" aria-pressed="false">In a wheel package</button>
+      </div>
+    </div>
+    <p class="hint" id="hint"></p>
+  </div>
+  <div class="scroll">
+  <table class="calc-tbl">
+    <thead><tr><th>Tire</th><th class="r">Per tire</th><th class="r">Set retail</th><th class="r">Gross</th><th class="r">Freight</th><th class="r">Card fee</th><th class="r">Left to us</th></tr></thead>
+    <tbody id="calcBody"></tbody>
+  </table>
+  </div>
+  <p class="note"><b>Where the money is:</b> Fury's 26–30" sizes earn about $540–$1,350 a set inside a package, about three times a 20" Venom set, on the wheels we specialize in. Federal excise tax on the heaviest tires is $4–$8 each, and the brand builds it into its price.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Warranty: what lands on us</h2><span>Both brands send claims to the seller</span></div>
+  <div class="duo">
+    <div>
+      <h3>Venom Power</h3>
+      <ul class="unk">
+        <li><b>Mileage warranty:</b> 50,000 miles, but only on 22" and smaller, up to 13.5" wide. It's also void when the size doesn't match the owner's manual, which on a lifted truck likely means none.</li>
+        <li><b>Defects:</b> 4 years, not prorated.</li>
+        <li><b>Road hazard:</b> free for 12 months, but not off-road, over 1-ton or commercial.</li>
+        <li><b>Claims:</b> online buyers return them to the seller, which is us.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Fury</h3>
+      <ul class="unk">
+        <li><b>Term:</b> none published. 4 years is reported. No mileage figures anywhere.</li>
+        <li><b>Payout:</b> full value in the first 1/32" of wear, then prorated.</li>
+        <li><b>Excluded:</b> off-road, staggered, stretched and "oversized" fitments. Widest approved rim is 15.5".</li>
+        <li><b>Claims:</b> only through the selling dealer, which is us. The customer pays mounting and freight.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note"><b>For us:</b> sell only inside each brand's published rim range, road-force balance every set, and register every tire for the customer. Federal rules require independent dealers to give each buyer a way to register. Both brands have online forms: transamericatire.com/tire_registration and furytires.com/registration.</p>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Call scripts</h2><span>Ten questions each</span></div>
+  <div class="duo">
+    <div>
+      <h3>Venom · 832-891-2821</h3>
+      <ol class="unk">
+        <li>Do you sell direct to an online-only dealer? Is there an opening order or a yearly minimum?</li>
+        <li>Will you ship sets to the customer's home under our name? Fee per order?</li>
+        <li>Which warehouse ships to Tennessee, and how fast? Is freight free above a quantity?</li>
+        <li>Dealer price list and volume tiers. Is federal excise tax included?</li>
+        <li>Is there a price floor (MAP) policy? Can we discount inside a wheel package?</li>
+        <li>Can we sell on Amazon, eBay and Walmart too?</li>
+        <li>Any dual-rated LT sizes for 22–26x8.25 dually wheels, now or coming?</li>
+        <li>Full spec sheets (load, psi, weight) for 20–30" sizes, ideally as a data feed?</li>
+        <li>Does the "size not per owner's manual" rule void the warranty on lifted trucks?</li>
+        <li>Can we use your photos and logo? Who is our rep, and is Tennessee open?</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Fury · (855) 575-3879</h3>
+      <ol class="unk">
+        <li>Do you sell direct to an online-only Tennessee dealer, or only through Keystone, Meyer or OVJ?</li>
+        <li>Dealer cost on 24–30" sizes, volume tiers, and any opening order?</li>
+        <li>Is there a price floor (MAP)? Can we show prices on our site?</li>
+        <li>Do you ship sets of 4 and 6 to homes? Cost, warehouse and days? How do 30" tires ship?</li>
+        <li>Dual load ratings for 35x12.50R20/22, 37x13.50R22 and LT405/30R26?</li>
+        <li>Can you correct the load figures that disagree on your spec pages, in writing?</li>
+        <li>What counts as "stretched" or "oversized"? Is any fit inside your rim range always covered?</li>
+        <li>Mileage warranty per model, and is 4 years current?</li>
+        <li>How do claims work for a seller with no shop: photos, returns, freight?</li>
+        <li>Can we use your photos? Is there a co-op or marketing program?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>Next steps</h2><span>In this order</span></div>
+  <ol class="steps">
+    <li><b>Get the paperwork together.</b><small>EIN, Tennessee sales-tax number, resale certificate, website URL.</small></li>
+    <li><b>Submit Venom's dealer form, then call.</b><small>Pick "under $100K" and "under 1,000 tires." Ask for Joe Davis or Steve Oropesa.</small></li>
+    <li><b>Submit Fury's inquiry, then call.</b><small>Ask for Ernie Boehm. Find out first whether they sell direct or only through Meyer and Keystone.</small></li>
+    <li><b>Open Meyer as the backup route to Fury.</b><small>No checkout requirement found. Keystone waits until our checkout is live in January.</small></li>
+    <li><b>Get load data in writing from both.</b><small>Dual ratings and corrected figures go into our fitment data before any dually package is listed.</small></li>
+  </ol>
+</section>
+
+<p class="foot">Sources: venompowertires.com (Terra Hunter X/T, X/T2, R/T+, Swampthing spec pages; Warranty; Road Hazard; Dealer Locator), transamericatire.com (contact, dealer application, registration), furytires.com (M/T, MT2, R/T, ATM spec pages; warranty; registration; distributor inquiry), Modern Tire Dealer, SEMA News, The Shop, RV PRO, FenderBender, Rithum, SureDone, SimpleTire, Priority Tire, eBay listings, LinkedIn, 49 CFR 574.8, 26 U.S.C. 4071. Search volume via DataForSEO, Google US. Full write-up: VENOM-FURY.md in the site repo.</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var T = [
+    ["Venom X/T","33x12.50R20",265,"Venom"],
+    ["Venom X/T","35x12.50R22 F",311,"Venom"],
+    ["Venom X/T","37x13.50R22",345,"Venom"],
+    ["Venom X/T","37x13.50R24",386,"Venom"],
+    ["Venom X/T","37x13.50R26 F",560,"Venom"],
+    ["Fury MT2","35x12.50R20 E",315,"Fury"],
+    ["Fury MT2","35x12.50R24 F",363,"Fury"],
+    ["Fury MT2","40x15.50R24 F",744,"Fury"],
+    ["Fury MT2","LT405/30R26 F",793,"Fury"],
+    ["Fury M/T","40x15.50R28 E",1416,"Fury"],
+    ["Fury MT2","44x16.50R30 F",1522,"Fury"]
+  ];
+  var S = { freight:200, high:false, pkg:false };
+  function $(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+  function render(){
+    document.getElementById("freightOut").textContent = S.pkg ? "In package" : $(S.freight);
+    document.getElementById("freight").disabled = S.pkg;
+    document.getElementById("hint").textContent = S.pkg
+      ? "In a package the freight is already paid on the wheels, so the tires add none of their own. Card fee is 2.9% + 30¢ on the set."
+      : "Big tires to a home run $150–$300 a set by parcel. 30\" sizes may need truck freight. Card fee is 2.9% + 30¢ on the set.";
+    var m = S.high ? 0.25 : 0.20, rows = "";
+    T.forEach(function(t){
+      var retail = t[2]*4, gross = retail*m, fr = S.pkg?0:S.freight, card = retail*0.029+0.30, left = gross-fr-card;
+      rows += '<tr><td><span class="brandtag ' + (t[3]==="Venom"?"bt-v":"bt-f") + '">' + t[3] + '</span> <b>' + t[0].replace(/^(Venom|Fury) /,"") + '</b><small>' + t[1] + ' · set of 4</small></td>' +
+        '<td class="r">' + $(t[2]) + '</td><td class="r">' + $(retail) + '</td><td class="r">' + $(gross) + '</td>' +
+        '<td class="r">' + (fr?"−"+$(fr):"—") + '</td><td class="r">−' + $(card) + '</td>' +
+        '<td class="r ' + (left<0?"neg":"pos") + '">' + (left<0?"−"+$(-left):$(left)) + '</td></tr>';
+    });
+    document.getElementById("calcBody").innerHTML = rows;
+  }
+  function pair(a,b,key){
+    var A=document.getElementById(a), B=document.getElementById(b);
+    A.addEventListener("click",function(){ S[key]=false; A.setAttribute("aria-pressed","true"); B.setAttribute("aria-pressed","false"); render(); });
+    B.addEventListener("click",function(){ S[key]=true; B.setAttribute("aria-pressed","true"); A.setAttribute("aria-pressed","false"); render(); });
+  }
+  pair("mLow","mHigh","high");
+  pair("sAlone","sPkg","pkg");
+  document.getElementById("freight").addEventListener("input",function(e){ S.freight=+e.target.value; render(); });
+  render();
+})();
+</script>
+
+</body>
+</html>
