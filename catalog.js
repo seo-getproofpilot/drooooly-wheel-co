@@ -41,6 +41,9 @@
   function cfgLabel(c) { return { "single":"Single","dually":"Dually","super single":"Super Single","utv":"Side-by-side" }[c] || c; }
   function cfgKey(c) { return c.replace(/\s+/g, "-"); }
   function money(n) { return "$" + n.toLocaleString("en-US"); }
+  /* The pre-launch switchboard. DF() is safe if site-flags.js is missing. */
+  function DF(k) { return !!(window.DROOOLY_FLAGS && window.DROOOLY_FLAGS[k]); }
+  var QUOTE = (window.DROOOLY && window.DROOOLY.QUOTE) || "Get a quote";
   function maxDia(m) { var d = 0; m.sizes.forEach(function (s) { var n = parseInt(s, 10); if (n > d) d = n; }); return d || 22; }
   function isDually(m) { return m.configs.indexOf("dually") > -1 || m.configs.indexOf("super single") > -1; }
 
@@ -182,7 +185,15 @@
            figure, not from priceEach()'s synthetic per-wheel estimate. An
            invented $1,805/wheel on a card that leads to a builder quoting a
            real $5,400 set is the site contradicting itself. */
-        (m.builder
+        /* PARKED behind showPrices — see PARKED.md. The three branches below
+           are the original card pricing and come back untouched when MAP
+           terms are confirmed per brand. */
+        (!DF("showPrices")
+          ? '<div class="prod__price prod__price--ask">' + QUOTE + '</div>' +
+            '<div class="prod__set">' + (m.builder
+              ? 'Built to order \u2014 send us the build and we price it'
+              : 'Send us the set and we price it with the brand') + '</div>'
+          : m.builder
           ? '<div class="prod__price"><b>' + money(m.priceSet) + '</b><small>/ set of ' + (m.priceSetQty || 4) + '</small></div>' +
             '<div class="prod__set">Built to order \u2014 options priced as you build</div>'
           : p !== null
@@ -829,6 +840,8 @@
         : (m.priceSet && m.priceSetQty
             ? "set of " + m.priceSetQty + " from " + money(m.priceSet)
             : "per wheel");
+      /* PARKED behind showPrices — PARKED.md. */
+      if (!DF("showPrices")) return '<span class="wheel__quote">' + QUOTE + ' \u2192</span>';
       return '<span class="wheel__price">' +
         '<span class="wheel__price-main">From <b>' + money(m.priceFrom) + '</b> / wheel</span>' +
         '<small>' + sub + '</small></span>';
@@ -1134,7 +1147,8 @@
           '<p class="wheelhero__meta">' +
           ((more > 0 ? "Most popular styles" : total + ' wheel style' + (total === 1 ? '' : 's')) +
            ' · built to order in your size &amp; finish') + '</p>') +
-        (b.priceFrom
+        /* PARKED behind showPrices — PARKED.md. */
+        (b.priceFrom && DF("showPrices")
           ? '<p class="wheelhero__from">Styles from <b>' + money(b.priceFrom) + '</b> per wheel' +
             (b.priceNote ? ' · ' + esc(b.priceNote) : '') + '</p>'
           : '') +
@@ -1302,10 +1316,11 @@
           (m.sizes.length === 1 ? '' : 's') + '</summary><span>' +
           m.sizes.map(esc).join(" · ") + '</span></details>'
         : '') +
-      (brand.pricing === "from" && m.priceFrom
+      /* PARKED behind showPrices — PARKED.md. */
+      (brand.pricing === "from" && m.priceFrom && DF("showPrices")
         ? '<span class="wheel__price"><span class="wheel__price-main">From <b>' + money(m.priceFrom) +
           '</b> / tire</span><small>set of 4 from ' + money(m.priceFrom * 4) + '</small></span>'
-        : '<span class="wheel__quote">Get pricing →</span>') +
+        : '<span class="wheel__quote">' + QUOTE + ' \u2192</span>') +
       '</a>';
   }
 

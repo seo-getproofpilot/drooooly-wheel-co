@@ -96,6 +96,12 @@
     });
   }
   function money(n) { return "$" + Number(n).toLocaleString("en-US"); }
+  function DF(k) { return !!(window.DROOOLY_FLAGS && window.DROOOLY_FLAGS[k]); }
+  var QUOTE = (window.DROOOLY && window.DROOOLY.QUOTE) || "Get a quote";
+  /* PARKED behind showPrices — PARKED.md. The builder keeps computing the
+     total internally (it is what we quote from); it just stops printing it.
+     adds() returns the "+$600" fragment, or nothing while prices are off. */
+  function adds(v) { return (v && DF("showPrices")) ? "+" + money(v) : ""; }
   function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 
   /* ================================================================
@@ -153,7 +159,7 @@
             '<span class="mpick__t">' + esc(s.short || s.platform) + "</span>" +
             '<span class="mpick__f">' +
               (s.bolt ? esc(s.bolt) : "Cut to your pattern") +
-              " · from " + money(s.basePrice) +
+              (DF("showPrices") ? " · from " + money(s.basePrice) : " · built to order") +
             "</span>" +
             '<span class="mpick__go">Build yours</span>' +
           "</a>";
@@ -389,11 +395,11 @@
         var inner = anySw
           ? '<img src="' + esc(SPEC.layerBase + o.swatch) + '" alt="" loading="lazy" />' +
             '<span class="vchip__cap">' + esc(o.v) +
-            (o.add ? "<i>+" + money(o.add) + "</i>" : "") + "</span>"
-          : esc(o.v) + (o.add ? "<i>+" + money(o.add) + "</i>" : "");
+            (adds(o.add) ? "<i>" + adds(o.add) + "</i>" : "") + "</span>"
+          : esc(o.v) + (adds(o.add) ? "<i>" + adds(o.add) + "</i>" : "");
         return '<button type="button" class="' + cls + '" data-v="' + esc(o.v) + '"' +
           (on ? ' aria-pressed="true"' : ' aria-pressed="false"') +
-          ' title="' + esc(o.v) + (o.add ? " +" + money(o.add) : "") + '">' +
+          ' title="' + esc(o.v) + (adds(o.add) ? " " + adds(o.add) : "") + '">' +
           inner + "</button>";
       }).join("") + "</div>";
   }
@@ -490,8 +496,10 @@
     var done = ask.filter(function (s) { return V.pick[s.id]; }).length;
     document.getElementById("bTotal").innerHTML =
       "<span>Set of " + SPEC.setOf + " · " + done + " of " + ask.length + " chosen</span>" +
-      "<b>" + money(t) + "</b>";
-    document.getElementById("bPer").textContent = money(Math.round(t / SPEC.setOf)) + " per wheel";
+      "<b>" + (DF("showPrices") ? money(t) : QUOTE) + "</b>";
+    document.getElementById("bPer").textContent = DF("showPrices")
+      ? money(Math.round(t / SPEC.setOf)) + " per wheel"
+      : "Send the build and we price it";
 
     /* One option in his whole catalogue has no render (CAN-AM YELLOW on the
        Psycho face). Rather than show a wheel with a hole in it and let the
@@ -515,7 +523,7 @@
     document.getElementById("bReadout").innerHTML = priced().map(function (s) {
       var o = chosen(s);
       return '<div class="vstat"><span>' + esc(labelFor(s)) + "</span><b>" +
-        (o ? esc(o.v) + (o.add ? " · +" + money(o.add) : "") : "—") + "</b></div>";
+        (o ? esc(o.v) + (adds(o.add) ? " · " + adds(o.add) : "") : "\u2014") + "</b></div>";
     }).join("");
     paintLayers();
   }
@@ -539,7 +547,7 @@
     var ask = asked();
     var done = ask.filter(function (s) { return V.pick[s.id]; }).length;
     bbar.querySelector("span").textContent = "Set of " + SPEC.setOf + " · " + done + "/" + ask.length;
-    bbar.querySelector("b").textContent = money(total());
+    bbar.querySelector("b").textContent = DF("showPrices") ? money(total()) : QUOTE;
   }
 
   function render() { refresh(); renderSteps(); renderStage(); renderBar(); }
@@ -679,8 +687,11 @@
                          img: build.img, qty: 1, build: build });
     -------------------------------------------------------------------- */
 
+    /* The full build still goes to the quote form; only the figure comes off,
+       because this string lands in a field the customer reads. */
     location.href = "index.html?w=" + encodeURIComponent(build.brand + " " + build.title +
-      " — " + build.summary + " (" + money(build.total) + ")") + "#fitment";
+      " \u2014 " + build.summary +
+      (DF("showPrices") ? " (" + money(build.total) + ")" : "")) + "#fitment";
   });
 
   /* public surface, so whoever closes the cart seam has one thing to call */

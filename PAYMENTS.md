@@ -1,5 +1,11 @@
 # Taking money, and the two different ways to sell a brand
 
+> **Superseded in part by `PAYMENTS-PLAN.md` (2026-10-10).** That file reads the
+> real competitor checkouts and corrects several claims below — Synchrony has a
+> merchant program worth joining, Afterpay/Klarna ranges are higher than stated,
+> 13% is Affirm *vs card* not vs ACH, quote-first still needs a processor, and the
+> Arkon referral example points at Custom Offsets' own house brand. See its §9.
+
 Chris: *"how do we also do the payment plus an affiliate for the brands we're
 actually selling for? How does that work if we're just a dealer for them?"*
 

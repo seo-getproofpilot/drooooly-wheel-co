@@ -39,6 +39,7 @@
     return cart.reduce(function (n, i) { return priced(i) ? n : n + i.qty; }, 0);
   }
   function money(n) { return "$" + n.toLocaleString("en-US"); }
+  function DF(k) { return !!(window.DROOOLY_FLAGS && window.DROOOLY_FLAGS[k]); }
 
   // public API
   window.Cart = {
@@ -95,7 +96,13 @@
     var sub = subtotal(), un = unpricedCount();
     var k = drawer.querySelector(".cart-sub-k");
     var v = drawer.querySelector(".cart-sub-v");
-    if (un && sub) {
+    /* PARKED behind showPrices — PARKED.md. The drawer is "your build", not a
+       basket: nothing is charged here, so it carries no money at all. The
+       three-way labelling below returns with the flag. */
+    if (!DF("showPrices")) {
+      k.textContent = n === 1 ? "1 item" : n + " items";
+      v.textContent = "Priced on your quote";
+    } else if (un && sub) {
       k.textContent = "Priced so far";
       v.textContent = money(sub);
     } else if (un) {
@@ -106,7 +113,9 @@
       v.textContent = money(sub);
     }
     var note = drawer.querySelector(".cart-foot__note");
-    note.innerHTML = un
+    note.innerHTML = !DF("showPrices")
+      ? "Nothing is charged here. Send the build and we come back with a price on your quote, once we have confirmed fitment and availability."
+      : un
       ? (un === n ? "These are priced with the brand on your fitment consult \u2014 we do not publish a number we have not been given."
                   : un + " of these " + (un === 1 ? "is" : "are") + " priced with the brand on your fitment consult, so the figure above covers the rest. A DROOOLY specialist confirms your set count, tires &amp; final out-the-door total.")
       : "Per-wheel pricing. A DROOOLY specialist confirms your dually/super-single set count, tires &amp; final out-the-door total on your fitment consult.";
@@ -119,8 +128,9 @@
       return '<div class="citem"><div class="citem__img"><img src="' + i.img + '" alt=""></div>' +
         '<div class="citem__b"><div class="citem__brand">' + i.brand + '</div><div class="citem__name">' + i.name + '</div>' +
         '<div class="citem__qty"><button data-act="dec" data-key="' + i.key + '">−</button><span>' + i.qty + '</span><button data-act="inc" data-key="' + i.key + '">+</button></div></div>' +
-        '<div class="citem__r"><div class="citem__price' + (priced(i) ? '' : ' citem__price--ask') + '">' +
-          (priced(i) ? money(i.price * i.qty) : 'Priced on request') + '</div>' +
+        '<div class="citem__r"><div class="citem__price' + (priced(i) && DF("showPrices") ? '' : ' citem__price--ask') + '">' +
+          (!DF("showPrices") ? 'On your quote'
+            : priced(i) ? money(i.price * i.qty) : 'Priced on request') + '</div>' +
         '<button class="citem__rm" data-act="rm" data-key="' + i.key + '">Remove</button></div></div>';
     }).join("");
   }

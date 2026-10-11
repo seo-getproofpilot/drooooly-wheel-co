@@ -29,6 +29,8 @@
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   var money = function (n) { return "$" + Number(n).toLocaleString("en-US"); };
+  function DF(k) { return !!(window.DROOOLY_FLAGS && window.DROOOLY_FLAGS[k]); }
+  var QUOTE = (window.DROOOLY && window.DROOOLY.QUOTE) || "Get a quote";
 
   var brand = (window.BRANDS || []).filter(function (b) { return b.slug === slug; })[0];
   var model = brand && (brand.models || []).filter(function (m) { return m.model === name; })[0];
@@ -356,6 +358,9 @@
   }
 
   function priceBlock() {
+    /* PARKED behind showPrices — PARKED.md. The whole original block is
+       below, untouched; it returns the moment the flag flips. */
+    if (!DF("showPrices")) return '<p class="wprice wprice--quote">' + QUOTE + '</p>';
     if (brand.pricing === "from" && typeof model.priceFrom === "number" && model.priceFrom > 0) {
       /* Six wheels on a dually, and the stored set price is for four. Don't
          restate a total that doesn't apply to what is being looked at. */

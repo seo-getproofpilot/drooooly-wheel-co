@@ -18,6 +18,8 @@
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+  function DF(k) { return !!(window.DROOOLY_FLAGS && window.DROOOLY_FLAGS[k]); }
+  var QUOTE = (window.DROOOLY && window.DROOOLY.QUOTE) || "Get a quote";
   function qs(k) { try { return new URLSearchParams(location.search).get(k); } catch (e) { return null; } }
   function $(id) { return document.getElementById(id); }
 
@@ -71,6 +73,8 @@
       .sort(function (a, b) { return hasArt(b, cfg) - hasArt(a, cfg) || (a.feat || 999) - (b.feat || 999) || a.model.localeCompare(b.model); });
   }
   function priceLine(m, cfg) {
+    /* PARKED behind showPrices — PARKED.md. */
+    if (!DF("showPrices")) return "Priced on your quote";
     if (!m.priceFrom) return "Priced on request";
     var line = "From " + money(m.priceFrom) + " / wheel";
     if (cfg === "single" && m.priceSet) line += " · set of 4 from " + money(m.priceSet);
@@ -237,7 +241,9 @@
       var on = state.model === m.model;
       return '<button type="button" class="jb-style' + (on ? " is-on" : "") + '" data-model="' + esc(m.model) + '" aria-pressed="' + on + '">' +
         '<img src="' + esc(renderFor(m, state.config, fcode)) + '" alt="" loading="lazy" />' +
-        "<b>" + esc(m.model) + "</b><small>" + esc(m.priceFrom ? "from " + money(m.priceFrom) : "on request") + "</small></button>";
+        "<b>" + esc(m.model) + "</b><small>" +
+        esc(!DF("showPrices") ? "on your quote" : m.priceFrom ? "from " + money(m.priceFrom) : "on request") +
+        "</small></button>";
     }).join("");
     if (!state.showAll && list.length > 12) {
       html += '<button type="button" class="jb-more" id="jbMore">Show all ' + list.length + " " + esc(CONFIGS[state.config].short.toLowerCase()) + " styles</button>";
@@ -289,7 +295,11 @@
     var art = m ? renderFor(m, state.config, fcode) : "assets/wheel-placeholder.svg";
     var size = state.d && state.w ? state.d + "x" + state.w : "Pick a size";
     var price = "";
-    if (m && m.priceFrom) {
+    /* PARKED behind showPrices — PARKED.md. */
+    if (m && !DF("showPrices")) {
+      price = '<p class="jb-sum__set">Priced on your quote. We confirm your exact size, ' +
+              'finish and set count with JTX before any number goes out.</p>';
+    } else if (m && m.priceFrom) {
       price = '<p class="jb-sum__price"><b>' + money(m.priceFrom) + "</b> / wheel and up</p>" +
         (state.config === "single" && m.priceSet
           ? '<p class="jb-sum__set">Set of 4 from ' + money(m.priceSet) + ". Your quote prices your exact size and finish.</p>"
