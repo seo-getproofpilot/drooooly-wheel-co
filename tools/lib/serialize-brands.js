@@ -84,6 +84,11 @@ function brand(b) {
           ', featured: ' + !!b.featured + ',\n';
   h += '    site: ' + q(b.site || '') + ', tagline: ' + q(b.tagline || '') + ',\n';
   h += '    pricing: ' + q(b.pricing || 'quote') + ',\n';
+  /* Do we hold a dealer account with them? Drives the authorized-dealer badge
+     and, inverted, the showUnsignedBrandLogos gate. Serialised explicitly for
+     every brand, true or false, so an omission reads as "nobody has said"
+     rather than silently as "yes". */
+  h += '    authorized: ' + (b.authorized === true) + ',\n';
   if (typeof b.priceFrom === 'number') h += '    priceFrom: ' + b.priceFrom + ',\n';
   if (b.priceNote) h += '    priceNote: ' + q(b.priceNote) + ',\n';
   if (b.bolts && b.bolts.length) h += '    bolts: ' + arr(b.bolts) + ',\n';

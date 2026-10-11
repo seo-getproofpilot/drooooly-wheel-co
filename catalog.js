@@ -43,6 +43,16 @@
   function money(n) { return "$" + n.toLocaleString("en-US"); }
   /* The pre-launch switchboard. DF() is safe if site-flags.js is missing. */
   function DF(k) { return !!(window.DROOOLY_FLAGS && window.DROOOLY_FLAGS[k]); }
+  /* Only brands we actually hold an account with get the badge. Everything
+     else is covered by the footer disclaimer. brands.js carries `authorized`
+     explicitly on all 22, true or false, so a missing flag cannot read as
+     yes by accident. */
+  function authBadge(b) {
+    if (!b || b.authorized !== true) return "";
+    return '<span class="auth-badge"><svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M12 2.6l7.5 3v5.6c0 4.5-3.1 8.6-7.5 9.9-4.4-1.3-7.5-5.4-7.5-9.9V5.6z"/>' +
+      '<path d="M8.8 12.2l2.3 2.3 4.1-4.6"/></svg>Authorized dealer</span>';
+  }
   var QUOTE = (window.DROOOLY && window.DROOOLY.QUOTE) || "Get a quote";
   function maxDia(m) { var d = 0; m.sizes.forEach(function (s) { var n = parseInt(s, 10); if (n > d) d = n; }); return d || 22; }
   function isDually(m) { return m.configs.indexOf("dually") > -1 || m.configs.indexOf("super single") > -1; }
@@ -1142,6 +1152,7 @@
            it labels the wheels, so it belongs next to them rather than shouting
            from the banner. */
         (seriesDef ? "" : '<h1 class="sr-only">' + b.name + "</h1>") +
+        (authBadge(b) ? '<p class="wheelhero__auth">' + authBadge(b) + '</p>' : '') +
         (b.tagline && !seriesDef ? '<p class="wheelhero__tag">' + b.tagline + '</p>' : '') +
         (seriesDef ? "" :
           '<p class="wheelhero__meta">' +

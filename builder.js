@@ -168,6 +168,12 @@
               (s.bolt ? esc(s.bolt) : "Cut to your pattern") +
               (DF("showPrices") ? " · from " + money(s.basePrice) : " · built to order") +
             "</span>" +
+            /* Price Designs is our one signed line — say so where the
+               customer is choosing, not only in the footer small print. */
+            '<span class="mpick__auth"><span class="auth-badge">' +
+              '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+              '<path d="M12 2.6l7.5 3v5.6c0 4.5-3.1 8.6-7.5 9.9-4.4-1.3-7.5-5.4-7.5-9.9V5.6z"/>' +
+              '<path d="M8.8 12.2l2.3 2.3 4.1-4.6"/></svg>Authorized dealer</span></span>' +
             '<span class="mpick__go">Build yours</span>' +
           "</a>";
         }).join("") +

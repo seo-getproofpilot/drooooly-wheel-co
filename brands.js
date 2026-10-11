@@ -17,6 +17,7 @@ window.BRANDS = [
     slug: "jtx", name: "JTX Forged", kind: "Forged", featured: true,
     site: "https://jtxforged.com", tagline: "Premium forged wheels for trucks & duallies — made in the USA.",
     pricing: "from",
+    authorized: false,
     bolts: ["8x170","8x180","8x165.1","6x135","6x139.7","5x150"],
     models: [
       { model: "404", configs: ["dually","super single"], sizes: ["22x8.25","22x10","22x12","22x14","24x8.25","24x10","24x12","24x14","26x8.25","26x10","26x12","26x14","26x16","28x8.25","28x14","28x16","30x8.25","30x16"], finishes: ["Polished","Brushed","Black","Black Milled"], img: "assets/wheels/jtx/404.png", sizeSource: "jtx" },
@@ -179,6 +180,7 @@ window.BRANDS = [
     slug: "american-force", name: "American Force", kind: "Forged", featured: true,
     site: "https://www.americanforcewheels.com", tagline: "Truly All-American forged single-piece & dually wheels.",
     pricing: "quote",
+    authorized: false,
     priceFrom: 866,
     priceNote: "custom forged — every build quoted",
     models: [
@@ -382,6 +384,7 @@ window.BRANDS = [
     slug: "kg1", name: "KG1 Forged", kind: "Forged", featured: true,
     site: "https://kg1forged.com", tagline: "True forged wheels — single, dually &amp; super single.",
     pricing: "quote",
+    authorized: false,
     models: [
       { model: "KC070 Tusk", configs: ["single"], sizes: ["22x12","24x10","24x12","24x14","26x10","26x12","26x14","26x16","28x14","28x16","30x16"], finishes: ["Polished","Gloss Black","Brushed","Custom"], img: "assets/wheels/kg1/kc070tusk.png", sizeSource: "kg1", feat: 19 },
       { model: "KC073 Grinder", configs: ["single"], sizes: ["22x12","24x10","24x12","24x14","26x10","26x12","26x14","26x16","28x14","28x16","30x16"], finishes: ["Polished","Gloss Black","Brushed","Custom"], img: "assets/wheels/kg1/kc073grinder.png", sizeSource: "kg1", feat: 17 },
@@ -424,6 +427,7 @@ window.BRANDS = [
     slug: "fuel", name: "Fuel", kind: "Forged", featured: true,
     site: "https://www.fueloffroad.com", tagline: "Fuel Forged — the largest forged wheels in the business.",
     pricing: "quote",
+    authorized: false,
     priceFrom: 299,
     priceNote: "cast & forged lines",
     models: [
@@ -466,6 +470,7 @@ window.BRANDS = [
     slug: "hostile", name: "Hostile", kind: "Forged", featured: true,
     site: "https://www.hostilewheels.com", tagline: "Take no prisoners — Hostile Forged, dually & super single.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "Battle", configs: ["single"], sizes: ["20x10","20x12","22x12"], finishes: ["Blade Cut","Asphalt","Black Milled"], img: "assets/wheels/hostile/battle.png", priceFrom: 378, priceSet: 1512, priceSetQty: 4, feat: 10 },
       { model: "Crawler", configs: ["single"], sizes: ["20x10","20x12","22x12"], finishes: ["Blade Cut","Asphalt","Black Milled"], img: "assets/wheels/hostile/crawler.png", priceFrom: 332, priceSet: 1328, priceSetQty: 4, feat: 13 },
@@ -507,6 +512,7 @@ window.BRANDS = [
     slug: "amani", name: "Amani Forged", kind: "Forged", featured: true,
     site: "https://amaniforged.com", tagline: "Multi-piece forged dually wheels with billet floaters.",
     pricing: "quote",
+    authorized: false,
     models: [
       { model: "Allora", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/allora.png", feat: 1 },
       { model: "Apollo", configs: ["dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Brushed Silver","Brushed Silver Red"], img: "assets/wheels/amani/apollo.png", feat: 2 },
@@ -528,6 +534,7 @@ window.BRANDS = [
     slug: "fenix", name: "Fenix Forged", kind: "Forged", featured: false,
     site: "https://fenixforged.com", tagline: "Built to outlast the road — forged single, dually & super single.",
     pricing: "quote",
+    authorized: false,
     models: [
       { model: "BT001 Talon", configs: ["single","dually","super single"], sizes: ["24x8.25","24x10","24x12","24x14","24x16","26x8.25","26x10","26x12","26x14","26x16","28x8.25","28x14","28x16","30x8.25","30x14","30x16"], finishes: ["Polished","Black"], img: "assets/wheels/fenix/bt001talon.png", bolts: ["4x137","4x156","5x127","5x150","6x120","6x135","6x139.7","8x165.1","8x170","8x180","8x200","8x210","10x170","10x225","10x285.75"], sizeSource: "fenix", feat: 1 },
       { model: "BT002 Omega", configs: ["single","dually","super single"], sizes: ["24x8.25","24x10","24x12","24x14","24x16","26x8.25","26x10","26x12","26x14","26x16","28x8.25","28x14","28x16","30x8.25","30x14","30x16"], finishes: ["Polished","Black"], img: "assets/wheels/fenix/bt002omega.png", bolts: ["4x137","4x156","5x127","5x150","6x120","6x135","6x139.7","8x165.1","8x170","8x180","8x200","8x210","10x170","10x225","10x285.75"], sizeSource: "fenix", feat: 2 },
@@ -545,6 +552,7 @@ window.BRANDS = [
     slug: "liberty", name: "Liberty Forged", kind: "Forged", featured: false,
     site: "https://www.libertyforged.com", tagline: "Billet floaters with every set — forged super singles & duallies.",
     pricing: "quote",
+    authorized: false,
     models: [
       { model: "Super Single Series", configs: ["single","super single"], sizes: ["22x12","24x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
       { model: "Concave Series", configs: ["single"], sizes: ["24x14","26x14","26x16"], finishes: ["Polished","Gloss Black","Brushed"] },
@@ -559,6 +567,7 @@ window.BRANDS = [
     slug: "axe", name: "AXE Offroad", kind: "Forged", featured: false,
     site: "https://axewheels.com", tagline: "Defined by design — forged directional duallies & off-road.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "AF6 Forged", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Gloss Black Milled"] },
       { model: "AF10 Directional", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","26x8.25"], finishes: ["Polished","Gloss Black Milled"] },
@@ -579,6 +588,7 @@ window.BRANDS = [
     slug: "tis", name: "TIS Wheels", kind: "Off-Road", featured: false,
     site: "https://tiswheels.com", tagline: "Patented deep-lip monoblock truck & dually wheels.",
     pricing: "quote",
+    authorized: false,
     models: [
       { model: "TIS 544", configs: ["single","dually"], sizes: ["17x6.5","18x9","20x8.25","20x9","20x10","20x12","22x8.25","22x10","22x12","24x12","24x14","26x12"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis544.png", sizeSource: "tis", feat: 8 },
       { model: "TIS 547", configs: ["single"], sizes: ["18x9","20x9","20x10","20x12","22x10","22x12","24x12","24x14","26x12","26x14"], finishes: ["Gloss Black","Black Milled","Chrome","Brushed"], img: "assets/wheels/tis/tis547.png", sizeSource: "tis", feat: 7 },
@@ -594,6 +604,7 @@ window.BRANDS = [
     slug: "vision", name: "Vision Wheel", kind: "HD / Dually", featured: false,
     site: "https://www.visionwheel.com", tagline: "HD workhorse duallies and off-road truck wheels.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "111 Nemesis Forged Beadlock", configs: ["single"], sizes: ["17x9","18x9","20x9"], finishes: ["Polished Forged","Matte Black","Gunmetal"], bolts: ["5x127","5x139.7","5x150","6x135","6x139.7","8x165.1","8x170","8x180"], sizeSource: "vision" },
       { model: "181 Hauler Dually", configs: ["dually"], sizes: ["16x6","17x6.5","19.5x6.75"], finishes: ["Chrome","Machined","Matte Black"], bolts: ["8x165.1","8x170","8x200","8x210"], sizeSource: "vision" },
@@ -614,6 +625,7 @@ window.BRANDS = [
     slug: "fittipaldi", name: "Fittipaldi Off Road", kind: "Forged", featured: false,
     site: "https://www.fittipaldioffroad.com", tagline: "Forged truck & dually wheels — directional, true left/right.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "FA08", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa08.png", priceFrom: 320, priceSet: 1280, priceSetQty: 4, feat: 6 },
       { model: "FA13", configs: ["single"], sizes: ["22x8.25","24x8.25"], finishes: ["Polished","Gloss Black","Black Milled"], img: "assets/wheels/fittipaldi/fa13.png", priceFrom: 651, priceSet: 2604, priceSetQty: 4, feat: 10 },
@@ -638,6 +650,7 @@ window.BRANDS = [
     slug: "arkon", name: "Arkon Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.arkonoffroad.com", tagline: "Proper directional deep-concave show-truck wheels.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "Alexander", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"] },
       { model: "Apollo", configs: ["single"], sizes: ["20x10","20x12","22x12","24x14"], finishes: ["Black Milled","Chrome","Gloss Black"], img: "assets/wheels/arkon/apollo.png", priceFrom: 389, priceSet: 1556, priceSetQty: 4, feat: 1 },
@@ -654,6 +667,7 @@ window.BRANDS = [
     slug: "cali", name: "Cali Off-Road", kind: "Off-Road", featured: false,
     site: "https://www.calioffroadwheels.com", tagline: "Raising traditions — deep-lip truck & dually wheels.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "Brutal", configs: ["dually"], sizes: ["20x8.25","22x8.25"], finishes: ["Chrome","Gloss Black"] },
       { model: "Crusher", configs: ["single"], sizes: ["20x8.25","20x10","22x12","24x14"], finishes: ["Gloss Black","Polished","Polished Milled"], img: "assets/wheels/cali/crusher.png", priceFrom: 728, priceSet: 2912, priceSetQty: 4, feat: 6 },
@@ -668,6 +682,7 @@ window.BRANDS = [
     slug: "hardrock", name: "Hardrock Offroad", kind: "Off-Road", featured: false,
     site: "https://hardrockoffroad.com", tagline: "Aggressive off-road & dually wheels — unbeatable value.",
     pricing: "quote",
+    authorized: false,
     models: [
       { model: "H504 Slammer Xposed", configs: ["single"], sizes: ["20x9","20x10","20x12","22x12","24x12","24x14","26x14"], finishes: ["Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h504slammerxposed.png", imgSource: "https://hardrockoffroad.com/wheels/h504/", bolts: ["5x127","5x139.7","5x150","6x120","6x135","6x139.7","8x165.1","8x170","8x180"], sizeSource: "hardrock" },
       { model: "H700", configs: ["single"], sizes: ["20x9","20x10","20x12","22x10","24x14"], finishes: ["Gloss Black","Gloss Black Milled","Chrome"], img: "assets/wheels/hardrock/h700.png", bolts: ["5x127","5x139.7","5x150","6x120","6x135","6x139.7","8x165","8x165.1","8x170","8x180"], sizeSource: "hardrock", feat: 10 },
@@ -700,6 +715,7 @@ window.BRANDS = [
     slug: "hardcore", name: "Hardcore Off-Road", kind: "Off-Road", featured: false,
     site: "https://hcoffroad.com", tagline: "Concave truck wheels built for spiked lug nuts.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "Forged DOGE", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Brushed"] },
       { model: "Forged Elon", configs: ["single","dually"], sizes: ["22x8.25","24x8.25","24x14"], finishes: ["Polished","Brushed"] },
@@ -719,6 +735,7 @@ window.BRANDS = [
     slug: "xf", name: "XF Offroad", kind: "Off-Road", featured: false,
     site: "https://www.xfoffroad.com", tagline: "Flow-forged XFX series & aggressive cast off-road.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "XF-206", configs: ["single"], sizes: ["20x9","20x10","22x12"], finishes: ["Chrome","Satin Black","Black Milled"] },
       { model: "XF-210", configs: ["single"], sizes: ["20x10","22x12","24x14"], finishes: ["Chrome","Satin Black","Black Milled"] },
@@ -742,6 +759,7 @@ window.BRANDS = [
     slug: "price-designs", name: "Price Designs", kind: "Forged", featured: true,
     site: "https://pricedesigns-pd.com", tagline: "Sand and UTV forged, built to order in Gilbert, Arizona.",
     pricing: "quote",
+    authorized: true,
     models: [
       { model: "Expedition beadlock", configs: ["utv"], sizes: ["15x8","15x10.5","15x12","17x8","17x11"], finishes: ["Galaxy","Turbine","Crown","Psycho","5IVE"], img: "assets/wheels/price-designs/pd-expedition-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-expedition", short: "Expedition", photo: "assets/platforms/pd-expedition.jpg", feat: 6 },
       { model: "Maverick R beadlock", configs: ["utv"], sizes: ["15x8","15x10.5","15x12","17x8","17x11"], finishes: ["Turbine","Galaxy","Nebula","Crown"], img: "assets/wheels/price-designs/pd-maverick-r-card.jpg", priceSet: 3000, priceSetQty: 4, bolts: ["4x137"], builder: "pd-maverick-r", short: "Maverick R", photo: "assets/platforms/pd-maverick-r.jpg", feat: 3 },
@@ -756,6 +774,7 @@ window.BRANDS = [
     slug: "method", name: "Method Race Wheels", kind: "Off-Road", featured: false,
     site: "https://www.methodracewheels.com", tagline: "Engineered for the extreme — Bead Grip & HD truck wheels.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "305 NV", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Bronze","Machined"] },
       { model: "305 NV HD", configs: ["single"], sizes: ["17x8.5","18x9","20x10"], finishes: ["Matte Black","Machined"] },
@@ -785,6 +804,7 @@ window.BRANDS = [
     slug: "kmc", name: "KMC Forged", kind: "Forged", featured: false,
     site: "https://www.kmcwheels.com", tagline: "Forged monoblock &amp; beadlock wheels — built in the USA.",
     pricing: "quote",
+    authorized: false,
     priceFrom: 830,
     priceNote: "forged monoblock &amp; beadlock",
     models: [
@@ -801,6 +821,7 @@ window.BRANDS = [
     slug: "raceline", name: "Raceline Wheels", kind: "Off-Road", featured: false,
     site: "https://racelinewheels.com", tagline: "Family owned since '96 — Bead Grip & forged beadlock.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "951 Ryno", configs: ["single","dually"], sizes: ["16x8","17x9","18x9"], finishes: ["Satin Black","Textured Bronze","Machined"] },
       { model: "A11 Krank XL", configs: ["utv"], sizes: ["20x7"], finishes: ["Black"], img: "assets/wheels/raceline/a11krankxl.png", priceFrom: 329, priceSet: 1316, priceSetQty: 4, bolts: ["4x156"] },
@@ -837,6 +858,7 @@ window.BRANDS = [
     slug: "black-rhino", name: "Black Rhino", kind: "Off-Road", featured: false,
     site: "https://www.blackrhinowheels.com", tagline: "Built for the modern adventurer — HD truck & dually.",
     pricing: "from",
+    authorized: false,
     models: [
       { model: "Abrams", configs: ["single"], sizes: ["17x8.5","17x9.5","18x9.5","20x9.5"], finishes: ["Gunblack Machined","Olive Drab","Matte Gunmetal"], img: "assets/wheels/black-rhino/abrams.png", imgSource: "https://www.blackrhinowheels.com/black-rhino-hard-alloys-abrams", bolts: ["5x127","6x139.7","8x165.1","8x170"], sizeSource: "black-rhino" },
       { model: "Aliso Dually", configs: ["dually"], sizes: ["16x6"], finishes: ["Matte Black"], img: "assets/wheels/black-rhino/alisodually.png", imgSource: "https://www.blackrhinowheels.com/black-rhino-hard-alloys-aliso-dually", bolts: ["6x205"], sizeSource: "black-rhino" },
