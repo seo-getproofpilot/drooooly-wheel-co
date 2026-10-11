@@ -58,6 +58,12 @@ prices in `tires.js` are exactly as they were.
 | Cart footer | `cart.js` | "Subtotal $X" / "Priced so far $X" / "On request" | "3 items — Priced on your quote" |
 | Cart note | `cart.js` | "Per-wheel pricing. A DROOOLY specialist confirms your dually/super-single set count, tires & final out-the-door total on your fitment consult." | "Nothing is charged here. Send the build and we come back with a price on your quote, once we have confirmed fitment and availability." |
 | Homepage showcase ×8 | `index.html` | `As low as $312/mo`, `From $5,400` | hidden (`data-flag`) |
+| Builder chooser on the brand page | `catalog.js` | `4x137 · from $3,000` | `4x137 · built to order` |
+
+**There are two copies of the builder chooser** — `builder.js` renders the
+standalone one and `catalog.js` renders the one embedded in the Price Designs
+brand page. The second was found by the QC sweep after the first was fixed. If
+you add a third, gate it.
 
 **Note the builder still computes its total internally** — that is what we
 quote from. It just stops printing it.
@@ -151,6 +157,14 @@ an omission can never read as "yes". Today only `price-designs` is true.
 | Brand page hero | `catalog.js` `brandMark()` | name, large, white |
 | Hero marquee ×8 | `index.html` | `<img>` tagged `data-flag`, name beside it with `data-flag-not` |
 | Showcase cards ×7 | `index.html` | same (the Price Designs card keeps its logo unconditionally) |
+| Product card, every tile in the shop grid | `catalog.js` `brandMark()` | name, small, left-aligned |
+| "View more at <brand>.com" handoff ×2 | `catalog.js` `brandMark()` | name |
+| JTX sales page ×3 | `jtx.html` | `<img>` tagged `data-flag`, name beside it |
+
+The product-card logo was the bulk of them — one per tile across 682 cards —
+and it was missed on the first pass because it uses `brandLogo()` rather than
+`logoSrc()`. The QC sweep caught it by counting visible `assets/brands/` images
+per page rather than trusting the code path.
 
 Nothing was removed from `assets/brands/`.
 

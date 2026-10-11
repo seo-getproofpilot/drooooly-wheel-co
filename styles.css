@@ -6850,3 +6850,5 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 .form-err{margin:12px 0 0;padding:10px 13px;border-left:3px solid #b3261e;
   background:rgba(179,38,30,.08);font-size:13.5px;line-height:1.5;color:#b3261e}
 .form-err a{color:inherit;font-weight:700}
+.brandname--card{font-size:11.5px;min-height:18px;justify-content:flex-start;letter-spacing:.02em}
+.brandname--more{font-size:15px;min-height:30px}

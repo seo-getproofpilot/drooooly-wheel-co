@@ -177,7 +177,9 @@
            showcase on the homepage has always done this; the shop grid was
            the one place a brand showed up as blue text, which is most of why
            the page read as "everything is blue". All 22 brands have a logo. */
-        '<img class="prod__logo" src="' + esc(brandLogo(brand)) + '" alt="' + esc(brand.name) + '" loading="lazy" />' +
+        /* Same gate as everywhere else — brandMark() decides. This one is on
+           every card in the grid, so it was the bulk of the unsigned marks. */
+        brandMark(brand, 'prod__logo', 'brandname--card') +
         '<h3 class="prod__name">' + m.model + '</h3>' +
         /* One spec line in the showcase's own words — "Dually · Polished ·
            22\u2033\u201330\u2033" — in place of a star rating and a row of blue
@@ -945,8 +947,13 @@
           '<span class="mpick__img"><img src="' + esc(m.photo || m.img) + '" alt="' +
             esc(m.short || m.model) + '" loading="lazy"></span>' +
           '<span class="mpick__t">' + esc(m.short || m.model) + "</span>" +
+          /* PARKED behind showPrices — PARKED.md. This is a SECOND copy of the
+             builder chooser, rendered on the brand page; builder.js renders
+             the standalone one. Both needed the gate. */
           '<span class="mpick__f">' + esc(pattern) +
-            (m.priceSet ? " · from " + money(m.priceSet) : "") + "</span>" +
+            (m.priceSet && DF("showPrices") ? " · from " + money(m.priceSet)
+                                            : " · built to order") + "</span>" +
+          (authBadge(b) ? '<span class="mpick__auth">' + authBadge(b) + '</span>' : '') +
           '<span class="mpick__go">Build yours</span>' +
         "</a>";
       }).join("") +
@@ -1232,7 +1239,7 @@
             return '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
               (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
               (textureFor(b)
-                ? '<img class="wheelmore__logo" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">'
+                ? brandMark(b, 'wheelmore__logo', 'brandname--more')
                 : "") +
               '<h3>Build it to your machine</h3>' +
               '<p>' + esc(b.name) + ' cuts every set to order — there is no off-the-shelf ' +
@@ -1248,7 +1255,7 @@
           return '<div class="wheelmore' + (textureFor(b) ? " wheelmore--brand" : "") + '"' +
               (textureFor(b) ? ' style="--brand-tex:url(' + textureFor(b) + ')"' : "") + ">" +
               (textureFor(b)
-                ? '<img class="wheelmore__logo" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">'
+                ? brandMark(b, 'wheelmore__logo', 'brandname--more')
                 : "") +
               '<h3>' + (more > 0 ? 'See all ' + total + ' ' + esc(b.name) + ' styles'
                                  : 'See the full ' + esc(b.name) + ' lineup') + '</h3>' +
