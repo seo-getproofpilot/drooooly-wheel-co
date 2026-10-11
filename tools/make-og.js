@@ -104,7 +104,7 @@ let altPages = 0;
 for (const f of pages) {
   const p = path.join(ROOT, f);
   let t = fs.readFileSync(p, 'utf8');
-  if (!/og:image"\s+content="[^"]*og-share\.jpg/.test(t)) continue;   // buddy.html etc.
+  if (!/og:image"\s+content="[^"]*og-share\.jpg/.test(t)) continue;   // internal pages that carry their own share image
   const before = t;
   if (/property="og:image:alt"/.test(t)) {
     t = t.replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${esc(alt)}$2`);
