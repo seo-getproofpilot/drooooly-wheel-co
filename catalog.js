@@ -35,6 +35,21 @@
   function textureFor(b) { return TEXTURE[b.slug] || null; }
 
   function logoSrc(b) { return "assets/brands/" + (LOGO[b.slug] || (b.slug + ".png")); }
+  /* CLAUDE.md rule 3. A manufacturer's mark on our page reads as a
+     relationship, so until we hold the account the brand appears as its name
+     set in our own type. brandMark() is the single place that decides; every
+     logo on the site goes through it. The catalogue stays fully browsable
+     either way — this is about the mark, not the product. */
+  function showLogo(b) {
+    return (b && b.authorized === true) || DF("showUnsignedBrandLogos");
+  }
+  function brandMark(b, imgCls, extraCls) {
+    if (showLogo(b)) {
+      return '<img class="' + (imgCls || "") + '" src="' + logoSrc(b) +
+             '" alt="' + esc(b.name) + '" loading="lazy">';
+    }
+    return '<span class="brandname ' + (extraCls || "") + '">' + esc(b.name) + '</span>';
+  }
   function logoFx(b) { return FX[b.slug] || ""; }
 
   var CONFIG_ORDER = ["single", "dually", "super single", "utv"];
@@ -294,7 +309,7 @@
     el.innerHTML = BRANDS.map(function (b, i) {
       var extra = i >= VISIBLE ? " blogo-tile--extra" : "";
       return '<a class="blogo-tile fade' + extra + '" data-d="' + ((i % 6) + 1) + '" href="brand.html?brand=' + b.slug + '" aria-label="Shop ' + b.name + '">' +
-        '<img class="blogo ' + logoFx(b) + '" src="' + logoSrc(b) + '" alt="' + b.name + '" loading="lazy">' +
+        brandMark(b, 'blogo ' + logoFx(b), 'brandname--wall') +
         '<span class="blogo-tag">Shop ' + b.name + ' <i>→</i></span></a>';
     }).join("");
 
@@ -1116,7 +1131,7 @@
         '<section class="wheelwrap"><div class="wheelgrid wheelgrid--brands">' +
         BRANDS.map(function (x) {
           return '<a class="wheelbrand" href="brand.html?brand=' + x.slug + '">' +
-            '<img class="' + logoFx(x) + '" src="' + logoSrc(x) + '" alt="' + esc(x.name) + '">' +
+            brandMark(x, logoFx(x), 'brandname--sm') +
             '<span>' + x.name + '</span></a>';
         }).join("") + '</div></section>';
       if (window.__observeFades) window.__observeFades();
@@ -1142,7 +1157,7 @@
         '<a class="wheelhero__back" href="index.html#brands">← All brands</a>' +
         /* On the brand's own texture the logo is already white — inverting it
            for a light page would erase it. */
-        '<img class="wheelhero__logo ' + (textureFor(b) ? "" : logoFx(b)) + '" src="' + logoSrc(b) + '" alt="' + esc(b.name) + '">' +
+        brandMark(b, 'wheelhero__logo ' + (textureFor(b) ? "" : logoFx(b)), 'brandname--hero') +
         // The logo already says the brand name — keep the h1 for search
         // engines and screen readers, but don't print it twice.
         /* On a series page the H1 names the category you are in — that is the

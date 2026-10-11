@@ -6826,3 +6826,19 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 .legal p:last-child{margin-bottom:0}
 .legal a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
 .legal b{font-weight:600}
+
+/* ============================================================== v422
+   BRAND NAME IN PLACE OF A LOGO  (showUnsignedBrandLogos: false)
+   We show 22 brands and hold an account with one. Until the rest are
+   signed their mark comes off and the name is set in our own type —
+   CLAUDE.md rule 3. These have to carry the same visual weight as the
+   logo they replace or the wall reads as broken rather than deliberate.
+   ============================================================== */
+.brandname{display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--display);letter-spacing:.01em;line-height:1.15;
+  text-align:center;color:var(--text);text-wrap:balance}
+.brandname--wall{font-size:clamp(13px,1.5vw,17px);min-height:40px;padding:0 6px}
+.brandname--sm{font-size:12.5px;min-height:28px}
+.brandname--hero{font-size:clamp(22px,3.6vw,34px);min-height:48px;color:#fff}
+.brandname--mq{font-size:13px;min-height:34px;padding:0 8px;color:#fff;opacity:.92}
+.brandname--show2{font-size:13.5px;min-height:26px;justify-content:flex-start}
