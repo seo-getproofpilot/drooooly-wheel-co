@@ -38,6 +38,12 @@ window.DROOOLY_FLAGS = {
      CLAUDE.md rule 3. */
   showUnsignedBrandLogos: false,
 
+  /* No mailing list yet. Note there is currently NO newsletter markup on any
+     page — script.js's `.news form` handler matches nothing and has done for
+     a while. The flag is here so that whoever adds the markup back has an
+     obvious gate to hang it on rather than shipping a signup to nowhere. */
+  showNewsletter: false,
+
   /* Build-gallery captions describing trucks that are not ours. Off until the
      gallery is our own work. The photographs are a separate question
      (LAUNCH-CHECKLIST section 1) and are untouched by this flag. */
