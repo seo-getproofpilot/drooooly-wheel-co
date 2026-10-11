@@ -102,6 +102,13 @@
      total internally (it is what we quote from); it just stops printing it.
      adds() returns the "+$600" fragment, or nothing while prices are off. */
   function adds(v) { return (v && DF("showPrices")) ? "+" + money(v) : ""; }
+  /* Five of his option NAMES carry the price inside the string — "Yes (+$200)",
+     "Yes / machined insert (+$800)". data-v has to keep the real value or the
+     pick stops matching, so only the label is cleaned. */
+  function ov(o) {
+    var v = String((o && o.v) || "");
+    return DF("showPrices") ? v : v.replace(/\s*\(\+\$[\d,]+\)\s*$/, "");
+  }
   function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 
   /* ================================================================
@@ -394,12 +401,12 @@
            which is the whole point of a swatch. */
         var inner = anySw
           ? '<img src="' + esc(SPEC.layerBase + o.swatch) + '" alt="" loading="lazy" />' +
-            '<span class="vchip__cap">' + esc(o.v) +
+            '<span class="vchip__cap">' + esc(ov(o)) +
             (adds(o.add) ? "<i>" + adds(o.add) + "</i>" : "") + "</span>"
-          : esc(o.v) + (adds(o.add) ? "<i>" + adds(o.add) + "</i>" : "");
+          : esc(ov(o)) + (adds(o.add) ? "<i>" + adds(o.add) + "</i>" : "");
         return '<button type="button" class="' + cls + '" data-v="' + esc(o.v) + '"' +
           (on ? ' aria-pressed="true"' : ' aria-pressed="false"') +
-          ' title="' + esc(o.v) + (adds(o.add) ? " " + adds(o.add) : "") + '">' +
+          ' title="' + esc(ov(o)) + (adds(o.add) ? " " + adds(o.add) : "") + '">' +
           inner + "</button>";
       }).join("") + "</div>";
   }
@@ -434,7 +441,7 @@
       var o = chosen(st);
       var bad = missIds.indexOf(st.id) > -1;
       return '<div class="vfld' + (bad ? " vfld--hero" : "") + '" data-step="' + esc(st.id) + '">' +
-        "<label>" + esc(labelFor(st)) + "<b>" + (o ? esc(o.v) : "—") + "</b></label>" +
+        "<label>" + esc(labelFor(st)) + "<b>" + (o ? esc(ov(o)) : "—") + "</b></label>" +
         chipsFor(st) +
         (bad ? '<p class="vnote vnote--flag">Pick one to finish your build.</p>' : noteFor(st)) +
         "</div>";
@@ -523,7 +530,7 @@
     document.getElementById("bReadout").innerHTML = priced().map(function (s) {
       var o = chosen(s);
       return '<div class="vstat"><span>' + esc(labelFor(s)) + "</span><b>" +
-        (o ? esc(o.v) + (adds(o.add) ? " · " + adds(o.add) : "") : "\u2014") + "</b></div>";
+        (o ? esc(ov(o)) + (adds(o.add) ? " · " + adds(o.add) : "") : "\u2014") + "</b></div>";
     }).join("");
     paintLayers();
   }

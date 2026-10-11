@@ -209,7 +209,7 @@
 <!-- Trust strip -->
 <section class="trust" aria-label="Why DROOOLY">
   <div class="wrap trust__row">
-    <div class="trust__item">
+    <div class="trust__item" data-flag="showTrustStats">
       <svg viewBox="0 0 24 24" class="trust__ic trust__ic--star"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 6 21.3l1.4-6.8L2.3 9.8l6.9-.7z"/></svg>
       <span><b>4.9</b> · 1,200+ trucks fitted</span>
     </div>
@@ -217,7 +217,7 @@
       <svg viewBox="0 0 24 24" class="trust__ic"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.7"/><circle cx="17.5" cy="17" r="1.7"/></svg>
       <span><b>Fitment verified</b> before we build</span>
     </div>
-    <div class="trust__item">
+    <div class="trust__item" data-flag="showFinancingClaims">
       <svg viewBox="0 0 24 24" class="trust__ic"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 9.5h19"/></svg>
       <span><b>0% financing</b> available</span>
     </div>
@@ -407,9 +407,11 @@
   <div class="wrap financing__inner">
     <div class="financing__copy">
       <span class="kicker fade">Financing</span>
-      <h2 class="section-title fade" data-d="1">Roll now. Pay over time.</h2>
-      <p class="fade" data-d="2">Prequalify in minutes — no hit to your credit. Multiple lenders, 0% intro offers for qualified buyers, and terms that fit any budget from a $4k street set to a $30k show dually.</p>
-      <div class="fin-lenders fade" data-d="3">
+      <h2 class="section-title fade" data-d="1" data-flag="showFinancingClaims">Roll now. Pay over time.</h2>
+      <h2 class="section-title fade" data-d="1" data-flag-not="showFinancingClaims">Ask about payment plans.</h2>
+      <p class="fade" data-d="2" data-flag="showFinancingClaims">Prequalify in minutes — no hit to your credit. Multiple lenders, 0% intro offers for qualified buyers, and terms that fit any budget from a $4k street set to a $30k show dually.</p>
+      <p class="fade" data-d="2" data-flag-not="showFinancingClaims">Financing options are on the way. Ask about payment plans when you send your build and we&rsquo;ll tell you what we can do on your quote.</p>
+      <div class="fin-lenders fade" data-d="3" data-flag="showFinancingClaims">
         <span class="fin-lenders__label">Financing through</span>
         <div class="fin-lenders__row">
           <span class="fin-logo"><img src="assets/lenders/affirm.svg?v=421" alt="Affirm" loading="lazy" /></span>
@@ -418,10 +420,11 @@
           <span class="fin-logo"><img src="assets/lenders/snap.svg?v=421" alt="Snap Finance" loading="lazy" /></span>
         </div>
       </div>
-      <a href="financing.html" class="btn btn--primary fade" data-d="4">Prequalify now</a>
-      <p class="fineprint fade" data-d="4">*0% APR offers subject to lender approval and credit qualification. Prequalification is a soft pull and does not affect your credit score.</p>
+      <a href="financing.html" class="btn btn--primary fade" data-d="4" data-flag="showFinancingClaims">Prequalify now</a>
+      <a href="#fitment" class="btn btn--primary fade" data-d="4" data-flag-not="showFinancingClaims">Start your build</a>
+      <p class="fineprint fade" data-d="4" data-flag="showFinancingClaims">*0% APR offers subject to lender approval and credit qualification. Prequalification is a soft pull and does not affect your credit score.</p>
     </div>
-    <div class="financing__cards fade" data-d="2">
+    <div class="financing__cards fade" data-d="2" data-flag="showFinancingClaims">
       <div class="fin-card"><span>As low as</span><strong>$0 down</strong><p>for qualified buyers</p></div>
       <div class="fin-card"><span>Terms up to</span><strong>24 months</strong><p>lease-to-own available</p></div>
     </div>
@@ -443,7 +446,7 @@
             <span class="ig__handle">drooolywheelco</span>
             <a href="https://www.instagram.com/drooolywheelco/" target="_blank" rel="noopener" class="ig__follow" aria-label="Follow DROOOLY on Instagram"><svg viewBox="0 0 24 24" width="15" height="15"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg> Follow</a>
           </div>
-          <div class="ig__stats"><span><b>438</b> posts</span><span><b>41.2k</b> followers</span><span><b>163</b> following</span></div>
+          <div class="ig__stats" data-flag="showTrustStats"><span><b>438</b> posts</span><span><b>41.2k</b> followers</span><span><b>163</b> following</span></div>
           <div class="ig__bio">
             <b>DROOOLY Wheel &amp; Tire</b>
             <span>Forged wheel &amp; tire packages · Leave 'em drooling.</span>
@@ -503,7 +506,7 @@
       <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL &amp; TIRE</span>
       <p>Leave 'em drooling.</p>
       <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
-      <ul class="pay"><li><img src="assets/pay/visa.svg?v=421" alt="Visa" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/mastercard.svg?v=421" alt="Mastercard" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/amex.svg?v=421" alt="American Express" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/discover.svg?v=421" alt="Discover" width="48" height="31" loading="lazy" /></li><li class="pay--mark pay--wide"><img src="assets/pay/applepay.svg?v=421" alt="Apple Pay" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/googlepay.svg?v=421" alt="Google Pay" loading="lazy" /></li><li><img src="assets/pay/paypal.svg?v=421" alt="PayPal" width="48" height="31" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/affirm.svg?v=421" alt="Affirm" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/klarna.svg?v=421" alt="Klarna" loading="lazy" /></li></ul>
+      <ul class="pay" data-flag="showFinancingClaims"><li><img src="assets/pay/visa.svg?v=421" alt="Visa" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/mastercard.svg?v=421" alt="Mastercard" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/amex.svg?v=421" alt="American Express" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/discover.svg?v=421" alt="Discover" width="48" height="31" loading="lazy" /></li><li class="pay--mark pay--wide"><img src="assets/pay/applepay.svg?v=421" alt="Apple Pay" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/googlepay.svg?v=421" alt="Google Pay" loading="lazy" /></li><li><img src="assets/pay/paypal.svg?v=421" alt="PayPal" width="48" height="31" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/affirm.svg?v=421" alt="Affirm" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/klarna.svg?v=421" alt="Klarna" loading="lazy" /></li></ul>
     </div>
     <div class="footer__cols">
       <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="tires.html">All tires</a><a href="builds.html">On real trucks</a><a href="shop.html?cat=packages">Packages</a><a href="shop.html?config=dually">Duallies</a><a href="#brands">Brands</a></div>

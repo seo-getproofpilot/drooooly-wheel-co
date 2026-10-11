@@ -61,10 +61,14 @@ window.DROOOLY.QUOTE_LONG = "Priced on your quote";
   "use strict";
   var F = window.DROOOLY_FLAGS || {};
   var off = Object.keys(F).filter(function (k) { return !F[k]; });
-  if (!off.length) return;
-  var css = off.map(function (k) {
-    return '[data-flag="' + k + '"]';
-  }).join(",") + "{display:none!important}";
+  var on = Object.keys(F).filter(function (k) { return !!F[k]; });
+  /* data-flag       — show only while the flag is ON  (hidden now)
+     data-flag-not   — show only while the flag is OFF (the stand-in copy),
+                       so a section that would otherwise read empty can say
+                       something honest instead of disappearing. */
+  var css = off.map(function (k) { return '[data-flag="' + k + '"]'; })
+    .concat(on.map(function (k) { return '[data-flag-not="' + k + '"]'; }))
+    .join(",") + "{display:none!important}";
   var el = document.createElement("style");
   el.id = "drooooly-flags";
   el.textContent = css;

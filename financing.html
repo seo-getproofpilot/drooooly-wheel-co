@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Financing — DROOOLY Wheel &amp; Tire</title>
-<meta name="description" content="Roll now, pay over time. DROOOLY Wheel &amp; Tire offers 0% and low-APR financing on forged wheel & tire packages through Affirm, Klarna, PayPal Credit, Snap Finance and Acima. Prequalify with no impact to your credit." />
+<meta name="description" content="Payment plans for forged wheel &amp; tire packages. Send your build and we&#39;ll tell you what&#39;s available on your quote" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -15,17 +15,14 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="DROOOLY Wheel &amp; Tire" />
 <meta property="og:title" content="Financing — DROOOLY Wheel &amp; Tire" />
-<meta property="og:description" content="Roll now, pay over time. DROOOLY Wheel &amp; Tire offers 0% and low-APR financing on forged wheel & tire packages through Affirm, Klarna, PayPal Credit, Snap Finance and Acima. Prequalify with no impact to your credit." />
-<meta property="og:url" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/financing.html" />
+<meta property="og:description" content="Payment plans for forged wheel &amp; tire packages. Send your build and we&#39;ll tell you what&#39;s available on your quote." />
 <meta property="og:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=421" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Slammed Chevrolet C10 on forged wheels at sunset" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Financing — DROOOLY Wheel &amp; Tire" />
-<meta name="twitter:description" content="Roll now, pay over time. DROOOLY Wheel &amp; Tire offers 0% and low-APR financing on forged wheel & tire packages through Affirm, Klarna, PayPal Credit, Snap Finance and Acima. Prequalify with no impact to your credit." />
-<meta name="twitter:image" content="https://seo-getproofpilot.github.io/drooooly-wheel-co/assets/og-share.jpg?v=421" />
-<meta name="twitter:image:alt" content="Slammed Chevrolet C10 on forged wheels at sunset" />
+<meta name="twitter:description" content="Payment plans for forged wheel &amp; tire packages. Send your build and we&#39;ll tell you what&#39;s available on your quote." />
 <link rel="stylesheet" href="styles.css?v=421" />
 </head>
 <body>
@@ -87,7 +84,8 @@
   <div class="fin-hero__inner">
     <span class="kicker" style="color:var(--blue-2)">Roll now · Pay over time</span>
     <h1>Get on the wheels now. <em>Pay your way.</em></h1>
-    <p>Forged wheel &amp; tire packages aren't cheap — so we make them easy. Prequalify in seconds with no impact to your credit, then split your build into monthly payments through the lenders below. 0% and low-APR plans available on approved credit.</p>
+    <p data-flag-not="showFinancingClaims">Forged wheel &amp; tire packages aren&rsquo;t cheap, and we&rsquo;re working on payment plans. We&rsquo;re not going to name a lender until one has approved us. Send your build, tell us payment matters, and we&rsquo;ll say what&rsquo;s available on your quote.</p>
+    <p data-flag="showFinancingClaims">Forged wheel &amp; tire packages aren't cheap — so we make them easy. Prequalify in seconds with no impact to your credit, then split your build into monthly payments through the lenders below. 0% and low-APR plans available on approved credit.</p>
     <div class="fin-hero__cta">
       <a href="#prequalify" class="btn btn--primary btn--hero">Prequalify now</a>
       <a href="#calc" class="btn btn--secondary">See your monthly</a>
@@ -107,10 +105,12 @@
   <div class="wrap">
     <div class="fin-head">
       <span class="kicker">Our lending partners</span>
-      <h2>Six ways to finance your build.</h2>
-      <p>Pick the plan that fits your credit and your cash flow. We'll show your options at checkout — you choose the one that works.</p>
+      <h2 data-flag="showFinancingClaims">Six ways to finance your build.</h2>
+      <p data-flag="showFinancingClaims">Pick the plan that fits your credit and your cash flow. We'll show your options at checkout — you choose the one that works.</p>
+      <h2 data-flag-not="showFinancingClaims">Financing is on the way.</h2>
+      <p data-flag-not="showFinancingClaims">We&rsquo;re setting up payment plans now and we&rsquo;re not going to name a lender before one has approved us. Send your build, ask about payment when we quote you, and we&rsquo;ll tell you exactly what&rsquo;s available by then.</p>
     </div>
-    <div class="fin-partners">
+    <div class="fin-partners" data-flag="showFinancingClaims">
       <div class="fin-card">
         <span class="fin-card__tag">Most popular</span>
         <span class="fin-card__name">Affirm</span>
@@ -152,7 +152,7 @@
 </section>
 
 <!-- How it works -->
-<section class="fin-sec fin-sec--alt" id="prequalify">
+<section class="fin-sec fin-sec--alt" id="prequalify" data-flag="showFinancingClaims">
   <div class="wrap">
     <div class="fin-head">
       <span class="kicker">How it works</span>
@@ -179,7 +179,7 @@
 </section>
 
 <!-- Payment estimator -->
-<section class="fin-sec" id="calc">
+<section class="fin-sec" id="calc" data-flag="showFinancingClaims">
   <div class="wrap">
     <div class="fin-head">
       <span class="kicker">Payment estimator</span>
@@ -224,9 +224,11 @@
   <div class="wrap">
     <div class="fin-head" style="text-align:center;margin-inline:auto">
       <span class="kicker" style="justify-content:center;display:flex">Questions</span>
-      <h2>Financing FAQ</h2>
+      <h2 data-flag="showFinancingClaims">Financing FAQ</h2>
+      <h2 data-flag-not="showFinancingClaims">What we can tell you today</h2>
+      <p data-flag-not="showFinancingClaims" style="max-width:62ch;margin:14px auto 0">Nothing is charged on this site. You send us a build, we confirm fitment and availability with the brand, and you get a written quote. If paying over time matters to you, say so in your request and we&rsquo;ll tell you what we can offer by the time your set is ready.</p>
     </div>
-    <div class="fin-faq">
+    <div class="fin-faq" data-flag="showFinancingClaims">
       <div class="fin-q"><h3>Will checking my rate hurt my credit?</h3><p>No. Affirm, Klarna and our lease-to-own partners use a soft credit check to prequalify, which never affects your score. A hard pull only happens if you accept an offer and move forward.</p></div>
       <div class="fin-q"><h3>Is there really 0% APR?</h3><p>Yes, on qualifying builds and approved credit — most commonly through Affirm and Klarna's pay-in-4. The 0% offers you're eligible for show up during prequalification.</p></div>
       <div class="fin-q"><h3>What if I have bad credit or no credit?</h3><p>Snap Finance and Acima are lease-to-own options that look beyond your FICO score — many customers with thin or damaged credit still get approved, often up to $5,000 or more.</p></div>
@@ -257,7 +259,7 @@
       <span class="footer__brand-fallback" style="display:none">DROOOLY WHEEL &amp; TIRE</span>
       <p>Leave 'em drooling.</p>
       <p class="footer__loc">Grimsley, TN · Serving the Upper Cumberland &amp; shipping nationwide</p>
-      <ul class="pay"><li><img src="assets/pay/visa.svg?v=421" alt="Visa" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/mastercard.svg?v=421" alt="Mastercard" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/amex.svg?v=421" alt="American Express" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/discover.svg?v=421" alt="Discover" width="48" height="31" loading="lazy" /></li><li class="pay--mark pay--wide"><img src="assets/pay/applepay.svg?v=421" alt="Apple Pay" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/googlepay.svg?v=421" alt="Google Pay" loading="lazy" /></li><li><img src="assets/pay/paypal.svg?v=421" alt="PayPal" width="48" height="31" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/affirm.svg?v=421" alt="Affirm" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/klarna.svg?v=421" alt="Klarna" loading="lazy" /></li></ul>
+      <ul class="pay" data-flag="showFinancingClaims"><li><img src="assets/pay/visa.svg?v=421" alt="Visa" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/mastercard.svg?v=421" alt="Mastercard" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/amex.svg?v=421" alt="American Express" width="48" height="31" loading="lazy" /></li><li><img src="assets/pay/discover.svg?v=421" alt="Discover" width="48" height="31" loading="lazy" /></li><li class="pay--mark pay--wide"><img src="assets/pay/applepay.svg?v=421" alt="Apple Pay" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/googlepay.svg?v=421" alt="Google Pay" loading="lazy" /></li><li><img src="assets/pay/paypal.svg?v=421" alt="PayPal" width="48" height="31" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/affirm.svg?v=421" alt="Affirm" loading="lazy" /></li><li class="pay--mark"><img src="assets/pay/klarna.svg?v=421" alt="Klarna" loading="lazy" /></li></ul>
     </div>
     <div class="footer__cols">
       <div class="footer__col"><h4>Shop</h4><a href="shop.html">All wheels</a><a href="tires.html">All tires</a><a href="builds.html">On real trucks</a><a href="shop.html?cat=packages">Packages</a><a href="shop.html?config=dually">Duallies</a><a href="index.html#brands">Brands</a></div>
