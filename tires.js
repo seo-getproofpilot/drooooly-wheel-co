@@ -33,8 +33,8 @@ window.TIRES = [
     ]
   },
   {
-    slug: "fury", name: "Fury Offroad", site: "https://furyoffroad.com",
-    tagline: "Country Hunter mud and rugged tread — up to 42s.", logo: null, pricing: "from",
+    slug: "fury", name: "Fury Tires", site: "https://furytires.com",
+    tagline: "Country Hunter mud and rugged tread — up to 42s.", logo: "assets/tires/fury/logo.png", pricing: "from",
     models: [
       { model: "Country Hunter M/T", tread: "Mud-Terrain", img: "assets/tires/fury/countryhuntermt.png", rims: [20,22,24,26,28], sizes: ["33x14.50R20LT","35x13.50R22","33x14.50R24LT","40x13.50R24LT","37x13.50R26","38x15.50R26LT","37x14.50R26LT","42x15.50R26LT","37x14.50R28","38x16.50R28LT","42x15.50R28LT"], priceFrom: 401, feat: 1 },
       { model: "Country Hunter M/T II", tread: "Mud-Terrain", img: "assets/tires/fury/countryhuntermtii.png", rims: [17,20,24,26], sizes: ["40x13.50R17LT","35x12.50R20LT","35x13.50R20LT","35x12.50R24LT","35x14.50R24LT","37x13.50R24LT","LT405/30R26"], priceFrom: 387, feat: 2 },
@@ -69,6 +69,21 @@ window.TIRES = [
       { model: "Open Country R/T Trail", tread: "Rugged-Terrain", img: "assets/tires/toyo/opencountryrttrail.png", rims: [17], sizes: ["35x12.50R17LT","37x12.50R17LT"], priceFrom: 442, feat: 3 },
       { model: "Open Country R/T PRO", tread: "Rugged-Terrain", img: "assets/tires/toyo/opencountryrtpro.png", rims: [18,20], sizes: ["35x12.50R18LT","35x12.50R20LT"], priceFrom: 519, feat: 4 },
       { model: "Proxes ST III", tread: "Highway / Street", img: "assets/tires/toyo/proxesstiii.png", rims: [20,22], sizes: ["305/50R20","305/40R22","305/45R22"], priceFrom: 266, feat: 5 }
+    ]
+  },
+  {
+    slug: "venom-power", name: "Venom Power Tires", site: "https://venompowertires.com",
+    tagline: "Swampthing and Terra Hunter light-truck tread.", logo: "assets/tires/venom-power/logo.png", pricing: "from",
+    models: [
+      { model: "Swampthing M/T", tread: "Mud-Terrain", img: null, rims: [], sizes: [], feat: 1 },
+      { model: "Swampthing A/T", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 2 },
+      { model: "Terra Hunter M/T", tread: "Mud-Terrain", img: null, rims: [], sizes: [], feat: 3 },
+      { model: "Terra Hunter R/T+", tread: "Rugged-Terrain", img: null, rims: [], sizes: [], feat: 4 },
+      { model: "Terra Hunter X/T", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 5 },
+      { model: "Terra Hunter X/T2", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 6 },
+      { model: "Trail Hunter R/T", tread: "Rugged-Terrain", img: null, rims: [], sizes: [], feat: 7 },
+      { model: "Trail Hunter ATX", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 8 },
+      { model: "Trail Hunter ATS", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 9 }
     ]
   }
 ];

@@ -160,8 +160,20 @@ section('the renderer runs at all');
 
 section('every tire brand page renders — tire.html was blank for all 7');
 {
+  /* Only the brands actually shown. catalog.js filters the lineup to Fury and
+     Venom Power while showAllTireBrands is false; the other five are still in
+     tires.js and render nothing, so asserting their sizes appear would fail
+     on a page that is correctly empty. Kept in sync with TIRE_LIVE. */
+  const TIRE_LIVE = ['fury', 'venom-power'];
+  const LIVE = TIRES.filter(b => TIRE_LIVE.indexOf(b.slug) >= 0);
+  ok('the live tyre lineup is the two we are pursuing',
+    LIVE.map(b => b.slug).sort(), ['fury', 'venom-power']);
+  ok('and catalog.js agrees with this list',
+    /TIRE_LIVE = \["fury", "venom-power"\]/.test(
+      fs.readFileSync(path.join(ROOT, 'catalog.js'), 'utf8')), true);
+
   const broke = [], empty = [], badLink = [];
-  TIRES.forEach(b => {
+  LIVE.forEach(b => {
     const r = run(idsOf('tire.html'), '?brand=' + b.slug);
     if (r.err) { broke.push(b.slug + ': ' + r.err.message); return; }
     const html = r.hooks.tirePage.innerHTML;
@@ -279,8 +291,23 @@ section('the pre-launch flags are wired, and prices really are off');
     declared[m[1]] = m[2] === 'true';
   });
   ok('site-flags.js declares some flags', Object.keys(declared).length >= 6, true);
-  ok('every flag is off for launch',
-    Object.keys(declared).filter(k => declared[k]), []);
+
+  /* Pin the EXACT configuration rather than "all off". showUnsignedBrandLogos
+     was turned on deliberately on 2026-10-12 -- the footer disclaimer and
+     terms.html are what make showing a manufacturer's mark defensible. Naming
+     the expected value of every flag means an accidental flip of any one of
+     them fails here, which "all off" stopped being able to catch. */
+  const EXPECTED = {
+    showPrices: false, showFinancingClaims: false, showTrustStats: false,
+    showMountBalance: false, showUnsignedBrandLogos: true, showNewsletter: false,
+    showInstagram: false, showFinancing: false, showBuildGallery: false,
+    showAllTireBrands: false, showGalleryCaptions: false
+  };
+  ok('every flag is at its intended launch value',
+    Object.keys(EXPECTED).filter(k => declared[k] !== EXPECTED[k])
+      .map(k => k + ' is ' + declared[k] + ', expected ' + EXPECTED[k]), []);
+  ok('no flag exists that this test does not know about',
+    Object.keys(declared).filter(k => !(k in EXPECTED)), []);
 
   /* site-flags.js must load FIRST, before any renderer reads it */
   const CUSTOMER = ['index.html', 'shop.html', 'brand.html', 'wheel.html', 'build.html',

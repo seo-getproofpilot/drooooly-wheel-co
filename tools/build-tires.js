@@ -128,18 +128,25 @@ for (const file of files) {
     const mslug = norm(m.model);
     const rel = `assets/tires/${slug}/${mslug}.png`;
     const abs = path.join(ROOT, rel);
-    const ext = (m.url.match(/\.(png|jpe?g|webp)(?:\?|$)/i) || [, "jpg"])[1].toLowerCase();
+    /* A tread with no `url` is a line we list but hold no photograph for —
+       Venom Power is the first. That is a real state, not a broken record:
+       the card falls back to the neutral mark rather than borrowing another
+       brand's tyre. Before this the tool crashed on m.url being undefined. */
+    const ext = (String(m.url || "").match(/\.(png|jpe?g|webp)(?:\?|$)/i) || [, "jpg"])[1].toLowerCase();
     const raw = path.join(outDir, `${mslug}.raw.${ext}`);
 
     let ok = fs.existsSync(abs);
-    if (!ok) { ok = download(m.url, raw); if (ok) pending.push(raw); }
-    if (!ok) { failed.push(m.model); return; }
-    totalImgs++;
+    if (!ok && m.url) { ok = download(m.url, raw); if (ok) pending.push(raw); }
+    /* No photograph is a gap, not a reason to drop the product. Dropping it
+       left Venom Power on the site as a brand with zero treads, which is
+       worse than a card with a neutral mark on it. `failed` still records it
+       so the run says out loud what we are missing. */
+    if (!ok) failed.push(m.model); else totalImgs++;
 
     const sizes = (m.sizes || []).slice().sort((a, b) => (rimOf(a) || 0) - (rimOf(b) || 0));
     const rims = [...new Set(sizes.map(rimOf).filter(Boolean))].sort((a, b) => a - b);
     models.push({
-      model: m.model, tread: m.tread || "", img: rel,
+      model: m.model, tread: m.tread || "", img: ok ? rel : null,
       sizes, rims, priceFrom: m.priceFrom, feat: i + 1,
     });
   });

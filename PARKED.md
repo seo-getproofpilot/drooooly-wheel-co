@@ -194,3 +194,67 @@ a signup that goes nowhere.
   nothing. That is not coming back under any flag. See `form-config.js`.
 - **"Checkout & get fitted"** on the cart button, now "Request my quote".
   Nothing is charged on this site, so it was never a checkout.
+
+---
+
+## Round two — 12 October 2026
+
+Chris's call after seeing the first pass live.
+
+### `showUnsignedBrandLogos` is now **true**
+
+The manufacturer marks are back. The footer disclaimer and `terms.html` are
+what make that defensible: they say in writing that we are an independent
+retailer, that the marks belong to their owners, that they appear only to
+identify products we can source, and that we remove a listing on request.
+Flip it to `false` and every mark becomes plain type again with no other
+change — `brandMark()` in `catalog.js` is still the single gate.
+
+### `showInstagram` — the whole section
+
+Not just the counts. The section quotes a follower count we do not have and
+embeds a grid of posts that are not ours. Back when the account is real.
+
+### `showFinancing` — the whole financing story
+
+Supersedes `showFinancingClaims` for now. The homepage section, every nav and
+footer link to `financing.html`, and the page's own six sections are gated.
+`financing.html` is still reachable directly and now carries a stand-in that
+says plainly: we are setting up payment plans, we will not name a lender
+before one has approved us, ask on your quote.
+
+### `showBuildGallery` — the photographs, not just the captions
+
+The whole `#builds` section on the homepage. Other people's trucks, unlicensed
+(LAUNCH-CHECKLIST section 1). Back when the gallery is our own work.
+
+**Left alone on purpose:** `jtx.html` has its own `#builds` section. Those are
+JTX Forged's customer-gallery photos and the page *credits them as such* —
+"Photos from JTX Forged's customer gallery." That is a different thing from
+presenting someone else's truck as ours with an invented caption. Still
+third-party photography, still on the checklist, but not dishonest.
+
+### `showAllTireBrands` — down to the two we are pursuing
+
+`TIRE_LIVE = ["fury", "venom-power"]` in `catalog.js`. AMP, BFGoodrich,
+Falken, Mickey Thompson, Nitto and Toyo stay in `tires.js` and
+`data/tires/*.json` untouched.
+
+Corrections made while doing it, all from the brands' own sites:
+
+| | Was | Now |
+|---|---|---|
+| Fury name | Fury Offroad | **Fury Tires** — their page title and copyright line both say so |
+| Fury domain | furyoffroad.com | **furytires.com** — furyoffroadtires.com 301s there |
+| Fury logo | a dead `furyoffroad.com` URL | their current mark, downloaded |
+| Venom Power | not on the site at all | **Venom Power Tires**, 9 light-truck lines, logo downloaded |
+
+Venom Power has **no tread photography** — their cards show the neutral mark
+rather than borrowing another brand's tyre, and no sizes, because we have not
+captured their size matrix. Both are recorded as `_note_` fields in
+`data/tires/venom-power.json`.
+
+Two fixes to `tools/build-tires.js` that this needed: it crashed on a tread
+with no art URL, and it silently *dropped* any tread it could not download a
+photo for — which would have left Venom Power on the site as a brand with
+zero products.

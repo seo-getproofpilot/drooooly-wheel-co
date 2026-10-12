@@ -1325,7 +1325,12 @@
   }
 
   // ---- tires ----
-  var TIRES = window.TIRES || [];
+  /* The tyre lineup we are actually pursuing. Everything else stays in
+     tires.js; flip showAllTireBrands to show all seven makers again. */
+  var TIRE_LIVE = ["fury", "venom-power"];
+  var TIRES = (window.TIRES || []).filter(function (b) {
+    return DF("showAllTireBrands") || TIRE_LIVE.indexOf(b.slug) >= 0;
+  });
   var tireBySlug = {};
   TIRES.forEach(function (b) { tireBySlug[b.slug] = b; });
 

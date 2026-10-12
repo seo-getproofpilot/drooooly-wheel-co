@@ -1,0 +1,64 @@
+{
+  "name": "Venom Power Tires",
+  "site": "https://venompowertires.com",
+  "tagline": "Swampthing and Terra Hunter light-truck tread.",
+  "logo": "https://venompowertires.com/public/files/image/logo.png",
+  "_note_sizes": "Sizes not yet captured from the manufacturer. The catalogue shows the line and says the sizes come on the quote rather than inventing a matrix.",
+  "_note_art": "No tread photography held. Cards fall back to the neutral mark rather than showing another brand's tyre.",
+  "models": [
+    {
+      "model": "Swampthing M/T",
+      "tread": "Mud-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Swampthing A/T",
+      "tread": "All-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Terra Hunter M/T",
+      "tread": "Mud-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Terra Hunter R/T+",
+      "tread": "Rugged-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Terra Hunter X/T",
+      "tread": "All-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Terra Hunter X/T2",
+      "tread": "All-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Trail Hunter R/T",
+      "tread": "Rugged-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Trail Hunter ATX",
+      "tread": "All-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    },
+    {
+      "model": "Trail Hunter ATS",
+      "tread": "All-Terrain",
+      "priceFrom": null,
+      "sizes": []
+    }
+  ]
+}

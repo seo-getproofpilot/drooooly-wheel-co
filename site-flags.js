@@ -35,14 +35,43 @@ window.DROOOLY_FLAGS = {
 
   /* Manufacturer logos for brands we hold no dealer account with. Price
      Designs is signed; everyone else shows as plain type until they are.
-     CLAUDE.md rule 3. */
-  showUnsignedBrandLogos: false,
+
+     ON as of 2026-10-12, Chris's call. The footer disclaimer and terms.html
+     are what make this defensible: they say in writing that we are an
+     independent retailer, that the marks belong to their owners, that they
+     appear only to identify products we can source, and that we will take a
+     listing down on request. That is nominative use, not a claim of
+     endorsement. Flip it back to false and every mark becomes plain type
+     again with no other change. */
+  showUnsignedBrandLogos: true,
 
   /* No mailing list yet. Note there is currently NO newsletter markup on any
      page — script.js's `.news form` handler matches nothing and has done for
      a while. The flag is here so that whoever adds the markup back has an
      obvious gate to hang it on rather than shipping a signup to nowhere. */
   showNewsletter: false,
+
+  /* The Instagram section quotes a follower count we do not have and embeds
+     a grid of posts that are not ours. Off until the account is real and the
+     posts are our own work. */
+  showInstagram: false,
+
+  /* The whole financing story, not just its claims. Off until a lender has
+     approved us -- see PAYMENTS.md. showFinancingClaims below still governs
+     the individual numbers if the section ever comes back partially. */
+  showFinancing: false,
+
+  /* The build gallery photographs. Not the captions -- the pictures. They are
+     other people's trucks and we have not licensed them
+     (LAUNCH-CHECKLIST section 1). Off until the gallery is our own work,
+     which the local trucks fitted between November and March will supply. */
+  showBuildGallery: false,
+
+  /* The tyre catalogue lists seven makers. We are only pursuing two accounts
+     right now -- Fury and Venom Power -- so only those two are shown. The
+     other five stay in tires.js and data/tires/ untouched and come back with
+     one value. */
+  showAllTireBrands: false,
 
   /* Build-gallery captions describing trucks that are not ours. Off until the
      gallery is our own work. The photographs are a separate question
