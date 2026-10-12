@@ -40,8 +40,24 @@
      set in our own type. brandMark() is the single place that decides; every
      logo on the site goes through it. The catalogue stays fully browsable
      either way — this is about the mark, not the product. */
+  /* Five marks cannot be knocked to black without turning into a slab, so on
+     a white surface those brands show their NAME instead of a cut-out blob.
+     Measured, not guessed: each logo was rendered at card size with
+     filter:brightness(0) and its ink coverage read off a canvas.
+
+       american-force.svg  100% — no alpha at all, it is a filled rectangle
+       fenix.jpg           100% — a JPEG, so there is no transparency to have
+       fittipaldi.png      100% — no alpha
+       raceline.png         84% — survives as a solid bar
+       tis.webp             58% — the mark is a filled block beside the word
+
+     Everything else reads cleanly in black, Fuel and JTX included. If a brand
+     supplies a better file, delete it from this list. */
+  var LOGO_BLOBS = ["american-force", "fenix", "fittipaldi", "raceline", "tis"];
   function showLogo(b) {
-    return (b && b.authorized === true) || DF("showUnsignedBrandLogos");
+    if (!b) return false;
+    if (LOGO_BLOBS.indexOf(b.slug) >= 0) return false;
+    return b.authorized === true || DF("showUnsignedBrandLogos");
   }
   function brandMark(b, imgCls, extraCls) {
     if (showLogo(b)) {

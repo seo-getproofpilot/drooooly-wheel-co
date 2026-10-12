@@ -345,6 +345,71 @@ section('the pre-launch flags are wired, and prices really are off');
     BRANDS.filter(b => typeof b.authorized !== 'boolean').map(b => b.slug), []);
 }
 
+section('brand marks, and the five that cannot be blacked');
+{
+  /* Measured on 2026-10-12 by rendering each logo at card size with
+     filter:brightness(0) and reading its ink coverage off a canvas. Five come
+     out as solid slabs — american-force.svg, fenix.jpg and fittipaldi.png
+     have no alpha channel at all, raceline.png survives as a bar, tis.webp is
+     a filled block beside the word. Those brands show their NAME instead, so
+     a customer never sees a black smear over the model name. */
+  const cat = fs.readFileSync(path.join(ROOT, 'catalog.js'), 'utf8');
+  const m = /LOGO_BLOBS = \[([^\]]*)\]/.exec(cat);
+  ok('catalog.js declares the blob list', !!m, true);
+  const blobs = m ? m[1].split(',').map(x => x.trim().replace(/"/g, '')).filter(Boolean) : [];
+  ok('and it is the five that were measured', blobs.sort(),
+    ['american-force', 'fenix', 'fittipaldi', 'raceline', 'tis']);
+
+  /* each one is a real brand, or the list is stale */
+  ok('every blob slug is a brand we carry',
+    blobs.filter(sl => !BRANDS.some(b => b.slug === sl)), []);
+
+  /* the two surfaces need opposite filters; one blanket rule blacked out the
+     hero marquee once already */
+  const css = fs.readFileSync(path.join(ROOT, 'styles.css'), 'utf8');
+  ok('the dark marquee inverts its marks',
+    /\.mq-card__logo\{filter:brightness\(0\) invert\(1\)/.test(css), true);
+  ok('white surfaces black theirs at full strength',
+    /\.wheelmore__logo\{filter:brightness\(0\)!important;opacity:1\}/.test(css), true);
+
+  /* the card is the link, so the whole card responds — not just the button */
+  ok('the card has its own hover state', /\.prod:hover,\s*\n?\.prod:focus-within\{/.test(css), true);
+}
+
+section('every wheel photograph is its own, and filed under its own brand');
+{
+  /* Two ways a wheel ends up wearing the wrong picture: the same file gets
+     reused across models, or a file lands in another brand's folder. Both are
+     checkable without looking at the images. */
+  const byImg = {}, wrongDir = [];
+  BRANDS.forEach(b => (b.models || []).forEach(mo => {
+    if (!mo.img) return;
+    (byImg[mo.img] = byImg[mo.img] || []).push(b.slug + '/' + mo.model);
+    const dir = mo.img.split('/').slice(-2)[0];
+    if (dir !== b.slug) wrongDir.push(b.slug + '/' + mo.model + ' -> ' + mo.img);
+  }));
+  ok('no photograph is shared between two models',
+    Object.keys(byImg).filter(k => byImg[k].length > 1)
+      .map(k => k + ' on ' + byImg[k].join(' + ')), []);
+  ok('every photograph sits in its own brand folder', wrongDir, []);
+
+  /* and the filename should relate to the model, or it is somebody else's wheel */
+  const norm = x => String(x).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const ALLOW = ['pd-truck-17x9-card', 'pd-x3-card'];   // named by builder id
+  const odd = [];
+  BRANDS.forEach(b => (b.models || []).forEach(mo => {
+    if (!mo.img) return;
+    const file = mo.img.split('/').pop().replace(/\.[a-z]+$/, '');
+    if (ALLOW.indexOf(file) >= 0) return;
+    const nm = norm(mo.model), fn = norm(file);
+    if (fn.indexOf(nm) >= 0 || nm.indexOf(fn) >= 0) return;
+    const tok = String(mo.model).split(/[^A-Za-z0-9]+/).filter(t => t.length > 2).map(norm);
+    if (tok.some(t => fn.indexOf(t) >= 0)) return;
+    odd.push(b.slug + '/' + mo.model + ' -> ' + file);
+  }));
+  ok('every filename matches the model it is on', odd, []);
+}
+
 section('no page invents a price');
 {
   /* Until v413 the shop grid priced every card with a formula over brand kind

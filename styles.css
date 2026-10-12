@@ -6879,22 +6879,24 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
    --blue rather than new colours.
    ============================================================== */
 
-/* --- brand marks on a light surface --- */
+/* --- brand marks, by the surface they land on -----------------------------
+   One blanket filter cannot serve both, and trying it blacked out the hero
+   marquee. The marquee sits on the dark band and wants the artwork white; the
+   cards are white and want it black. Full strength in both cases — a mark at
+   half opacity reads as a smudge, which is what "black blur over the name"
+   was. The five that cannot survive being blacked never get here: catalog.js
+   shows their brand name instead. */
+
+/* dark band — the hero marquee */
+.mq-card__logo{filter:brightness(0) invert(1)!important;opacity:.92}
+.mq-card:hover .mq-card__logo{opacity:1}
+
+/* white surfaces — product cards, the brand wall, showcase, handoff blocks */
 .prod__logo,
-.mq-card__logo,
 .blogo,
-.wheelmore__logo{
-  filter:brightness(0)!important;
-  opacity:.58;
-  transition:opacity .2s ease;
-}
-.prod__logo{max-height:13px;width:auto;margin-bottom:9px;opacity:.5}
-.prod:hover .prod__logo{opacity:.78}
-.mq-card:hover .mq-card__logo,
-.bw-card:hover .blogo{opacity:.82}
-/* KG1's mark is already dark artwork; knocking it to black is fine, but it
-   carries more weight than the white ones, so ease it further back. */
-.blogo--dark{opacity:.5}
+.show2-logo,
+.wheelmore__logo{filter:brightness(0)!important;opacity:1}
+.prod__logo{max-height:14px;width:auto;margin-bottom:10px}
 
 /* --- add to build: black chrome, blue chrome on hover --- */
 .btn-add{
@@ -6922,3 +6924,24 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 .btn-add.added{
   background:linear-gradient(180deg,#2E86FF,#1557C0)!important;
   color:#fff!important;border-color:rgba(255,255,255,.3)!important}
+
+/* ============================================================== v437
+   THE CARD READS AS ONE OBJECT
+   The logo and the model name were the two things a customer scans, and
+   both were being held back until hover. They are at full strength now,
+   and the whole card responds to the pointer rather than only the
+   button — the card is the link, so it should behave like one.
+   ============================================================== */
+.prod__name{color:#0B0D10!important;font-weight:700}
+.prod{transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease}
+.prod:hover,
+.prod:focus-within{
+  box-shadow:0 14px 34px rgba(10,14,22,.18);
+  border-color:rgba(31,123,255,.42);
+  transform:translateY(-3px)}
+.prod:hover .prod__name{color:var(--blue-deep)!important}
+/* the button keeps its own hover; it should not double-lift with the card */
+.prod:hover .btn-add{transform:none}
+@media(prefers-reduced-motion:reduce){
+  .prod,.prod:hover,.prod:focus-within{transform:none;transition:none}
+}
