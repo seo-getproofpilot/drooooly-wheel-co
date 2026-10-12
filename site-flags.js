@@ -108,4 +108,15 @@ window.DROOOLY.QUOTE_LONG = "Priced on your quote";
   el.id = "drooooly-flags";
   el.textContent = css;
   (document.head || document.documentElement).appendChild(el);
+
+  /* <option> ignores display:none in several browsers, so a flagged option
+     has to actually leave the DOM or the customer can still pick "Price:
+     low to high" on a site with no prices. */
+  document.addEventListener("DOMContentLoaded", function () {
+    off.forEach(function (k) {
+      document.querySelectorAll('option[data-flag="' + k + '"]').forEach(function (o) {
+        o.remove();
+      });
+    });
+  });
 })();

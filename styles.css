@@ -6852,3 +6852,73 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 .form-err a{color:inherit;font-weight:700}
 .brandname--card{font-size:11.5px;min-height:18px;justify-content:flex-start;letter-spacing:.02em}
 .brandname--more{font-size:15px;min-height:30px}
+
+/* ============================================================== v433
+   BRAND MARKS ON WHITE, AND THE ADD-TO-BUILD BUTTON
+
+   Two things went wrong when the manufacturer logos came back on.
+
+   THE MARKS. Nearly every brand logo in assets/brands/ is WHITE — they
+   were drawn for the dark version of this site. The cards are white
+   now, so three different filters were in play and all three were
+   wrong: .blogo had no filter at all (white on white, invisible),
+   .mq-card__logo had brightness(0) invert(1) (also white on white,
+   also invisible), and .prod__logo had a bare brightness(0), which
+   flattens a chrome wordmark into a solid black slab sitting right on
+   top of the model name. That last one is what read as "black over
+   their names" on every card in the grid.
+
+   One treatment now, everywhere a mark lands on white: knock it to
+   black, then hold it back to a soft graphite so it reads as a brand
+   mark rather than a blot, and give it room above the name.
+
+   THE BUTTON. It was a white-to-silver gradient with a hairline dark
+   border — a white slab with a line through it. It is the primary
+   action on 682 cards, so it should carry weight: black chrome at
+   rest, blue chrome on hover, using the site's own --fill-black and
+   --blue rather than new colours.
+   ============================================================== */
+
+/* --- brand marks on a light surface --- */
+.prod__logo,
+.mq-card__logo,
+.blogo,
+.wheelmore__logo{
+  filter:brightness(0)!important;
+  opacity:.58;
+  transition:opacity .2s ease;
+}
+.prod__logo{max-height:13px;width:auto;margin-bottom:9px;opacity:.5}
+.prod:hover .prod__logo{opacity:.78}
+.mq-card:hover .mq-card__logo,
+.bw-card:hover .blogo{opacity:.82}
+/* KG1's mark is already dark artwork; knocking it to black is fine, but it
+   carries more weight than the white ones, so ease it further back. */
+.blogo--dark{opacity:.5}
+
+/* --- add to build: black chrome, blue chrome on hover --- */
+.btn-add{
+  background:var(--fill-black)!important;
+  color:#F2F5F8!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.18) inset, 0 6px 16px rgba(0,0,0,.26);
+  text-shadow:0 1px 0 rgba(0,0,0,.5);
+}
+.btn-add svg{stroke:#DCE6F2}
+.btn-add:hover,
+.btn-add:focus-visible{
+  background:linear-gradient(180deg,
+    #6FA8FF 0%, #3C84F0 14%, #1F62D4 34%, #124399 52%,
+    #1A5ABF 70%, #3C84F0 88%, #7FB4FF 100%)!important;
+  color:#FFFFFF!important;
+  border-color:rgba(255,255,255,.3)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset,
+             0 10px 26px rgba(31,123,255,.42);
+}
+.btn-add:hover svg,.btn-add:focus-visible svg{stroke:#fff}
+.btn-add:active{transform:translateY(0);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.btn-add:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* "Added" stays blue but solid, so it reads as a state and not a hover */
+.btn-add.added{
+  background:linear-gradient(180deg,#2E86FF,#1557C0)!important;
+  color:#fff!important;border-color:rgba(255,255,255,.3)!important}
