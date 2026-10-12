@@ -1,0 +1,40 @@
+# GitHub Pages serves this repository as-is, so anything committed here is
+# publicly fetchable — and on 2026-10-12 that included every internal
+# document. MARGINS.md (what we will accept from a brand and how to counter a
+# lowball), LAUNCH-CHECKLIST.md (every unlicensed photo and unauthorised
+# brand), PAYMENTS.md, PARKED.md, LLC.md and CLAUDE.md all returned 200 on the
+# live site. The site is noindex today so none of it is in a search index, but
+# the URLs worked for anyone who had them, and they would have become
+# crawlable the moment noindex comes off.
+#
+# Jekyll's `exclude` keeps these out of the built site. Nothing listed here is
+# loaded by any page at runtime — verified: no HTML references data/, tools/
+# or docs/, and no script fetches them. The catalogue ships as generated .js
+# at the repo root (brands.js, tires.js, builders-data.js and friends), which
+# is why the site works from file:// in the first place.
+#
+# Everything still lives in git. This changes what is SERVED, not what is kept.
+
+exclude:
+  # strategy and internal records
+  - CLAUDE.md
+  - LAUNCH-CHECKLIST.md
+  - LLC.md
+  - MARGINS.md
+  - PARKED.md
+  - PAYMENTS.md
+  - PAYMENTS-PLAN.md
+  - TIRE-SOURCING.md
+  - VENOM-FURY.md
+
+  # build-time only
+  - configurator/      # Vite source for the visualizer; builds to visualize/
+  - tools/             # scrapers, generators, test suites
+  - data/              # author-JSON the generators read
+  - docs/              # specs and plans
+  - .cache/
+  - .claude/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - .jtx-scrape-cache.json
