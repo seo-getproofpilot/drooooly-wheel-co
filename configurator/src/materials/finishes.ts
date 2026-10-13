@@ -38,6 +38,9 @@ export const FINISH_DEFS: Record<"polished" | "brushed" | "black", Def> = {
   black: { color: 0x0e0f11, metalness: 0.2, roughness: 0.42, clearcoat: 0.45, clearcoatRoughness: 0.28 },
 };
 
+/** the black-milled window walls: bare cut aluminium, softer than the polished face */
+export const MILLED_EDGE_ROUGHNESS = 0.24;
+
 /* Seeded so every load (and every poster render) gets the same pattern. */
 function rand(seed: number) {
   let s = seed >>> 0;
@@ -144,6 +147,9 @@ export function finishSet(code: FinishCode): FinishSet {
   const key = code === "black-milled" ? "black" : code;
   const face = mapped(key, "face", code);
   const edge = code === "black-milled" ? mapped("polished", "face", code + "-edge") : face;
+  // the milled walls are thin, so a polished-mirror sun glint on them clips
+  // into single white pixels; a freshly milled cut is a touch less mirror-like
+  if (edge !== face) edge.roughness = MILLED_EDGE_ROUGHNESS;
   const lip = mapped(key, "lip", code + "-lip");
   const barrel = lip.clone();
   barrel.color.multiplyScalar(0.55);

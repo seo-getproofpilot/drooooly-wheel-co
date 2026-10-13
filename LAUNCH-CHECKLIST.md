@@ -681,10 +681,15 @@ each one is a phone call away from being better.
   right on Railway staging and on drooolywt.com, and wrong on the GitHub Pages copy, which sits
   under `/drooooly-wheel-co/`. The Pages copy is not where the visualizer is reviewed. The page
   is `noindex,nofollow` like the rest of the site until launch (section 0).
-- 🟡 **7.4 Scene quality deferred from the slice (2026-10-10).** Temporal anti-aliasing and
-  ambient occlusion behind a frame-time check, the KTX2 texture pipeline and the flake normal
-  on the paint are in the spec but not in the slice. They matter once the commissioned bodies
-  (7.1) land, not before.
+- 🟡 **7.4 Scene quality deferred from the slice (2026-10-10, updated 2026-10-13).** Shipped
+  since: screen-space ambient occlusion behind the frame-time guard, ambient occlusion baked per
+  body into `COLOR_0` (`tools/3d/bake-ao.py`, read by `configurator/src/scene/vertexAO.ts`), a
+  flake normal on metallic paints with solid paints kept flat, a planar reflection of the truck
+  in the asphalt and a per-side wheel environment capture so the barrels no longer reflect open
+  sky. Still open: temporal anti-aliasing and the KTX2 texture pipeline, which matter once the
+  commissioned bodies (7.1) land. The offline path-traced comparison lives in
+  `tools/3d/render-offline.py`; the browser cannot reach that quality and the still-library math
+  (531,000 builds) rules out pre-rendering, so the plan is live 3D plus on-demand hero stills.
 - 🟡 **7.5 Railway static hosting CSP blocks WASM and blob URLs (2026-10-11).** The staging
   host (`server: railway-hikari`) sends `Content-Security-Policy` with no `'wasm-unsafe-eval'`
   and no `blob:` in `connect-src`. The meshopt glTF decoder (WASM) and GLTFLoader's blob URLs

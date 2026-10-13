@@ -3,7 +3,7 @@
    the showroom build; after, the panel is one live column and every change
    redraws the stage. ?poster=1 fills the viewport with the stage and nothing
    else, for tools/3d/render-posters.mjs. */
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Box3 } from "three";
 import Fitment from "@site/fitment.js";
 import { loadCatalog } from "./data/catalog";
@@ -27,6 +27,10 @@ import { copy } from "./ui/copy";
 export const APP_NAME = "DROOOLY Visualize";
 
 const catalog = loadCatalog();
+/* Dev-only scene export for the offline render comparison (vite dev or
+   ?export=1); see dev/exportScene.ts. Never fetched otherwise. */
+const EXPORT_ENABLED = import.meta.env.DEV || new URLSearchParams(location.search).get("export") === "1";
+const ExportHook = EXPORT_ENABLED ? lazy(() => import("./dev/exportScene")) : null;
 const PIN_PRESETS: CameraPreset[] = ["front", "threeQuarter", "wheel"];
 const TAB_TARGETS = ["sec-truck", "sec-wheel", "sec-tire", "sec-stance"];
 /* Truck lands on the front hero, Wheel and Tire on the wheel close-up,
@@ -162,6 +166,7 @@ export default function App() {
             <Truck vehicle={vehicle} paintHex={paint.hex} bodyLiftM={f.bodyLiftM} rakeDeg={rake} onBounds={onBounds} />
             <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} bolt={vehicle.bolt} />
             {!posterMode && <Pins fit={f} headline={words.headline} line2={words.line2} line3={words.line3} visible={PIN_PRESETS.includes(preset)} />}
+            {ExportHook && <Suspense fallback={null}><ExportHook /></Suspense>}
           </Stage>
         ) : (
           <Poster vehicle={vehicle} />

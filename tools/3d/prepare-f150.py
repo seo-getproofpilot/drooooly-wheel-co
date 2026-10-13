@@ -8,11 +8,13 @@
 # every logo decal, the FORD grille and tailgate letters, the F-150 and RAPTOR tailgate badges,
 # wheels, brakes and engine, decimates the interior hard, joins the paint into `body` (one clean
 # `paint` slot), glass into `glass` and the rest into `chassis` with its authored materials.
+# Finish with SIMPLIFY=0 tools/3d/finish-body.sh <outdir>/f150-crew.gltf <dir> f150: the body fits
+# the budget unsimplified (133k tris), and simplify smears the flat tailgate into a light patch.
 import bpy, json, sys, os, re, math
 from mathutils import Vector, Matrix
 IN = 0.0254
 argv = sys.argv[sys.argv.index("--") + 1:]
-outdir = argv[0]
+outdir = argv[0]; RENDER = "--render" in argv
 root = os.path.dirname(os.path.abspath(__file__))
 dims = json.load(open(os.path.join(root, "truck-dims.json")))["f150-crew"]
 src = os.path.join(root, ".source", "ford-f150-raptor-r", "scene.gltf")
@@ -88,7 +90,7 @@ is_glass = lambda o: any(re.search(r"glass|^Window$|dummy_material", m, re.I) fo
 for o in meshes:
     n = len(o.data.polygons)
     if is_glass(o): ratio = 1.0
-    elif is_paint(o): ratio = 0.9 if n > 2000 else 1.0
+    elif is_paint(o): ratio = 1.0   # decimating paint drops its custom normals; flat panels go blotchy
     elif any(m in INTERIOR for m in mats(o)): ratio = 0.15
     elif n > 4000: ratio = 0.6
     else: ratio = 1.0
@@ -130,3 +132,20 @@ os.makedirs(outdir, exist_ok=True)
 bpy.ops.export_scene.gltf(filepath=os.path.join(outdir, "f150-crew.gltf"), export_format="GLTF_SEPARATE", export_yup=True,
                           export_apply=True, export_image_format="AUTO", export_texture_dir="textures")
 print("exported f150-crew")
+
+if RENDER:
+    scene = bpy.context.scene
+    scene.render.engine = "BLENDER_WORKBENCH"
+    scene.display.shading.light = "STUDIO"; scene.display.shading.color_type = "SINGLE"
+    scene.display.shading.show_cavity = True
+    scene.display.shading.show_backface_culling = True    # three.js draws one side, so must QA
+    scene.render.resolution_x = 1400; scene.render.resolution_y = 900
+    cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); scene.collection.objects.link(cam); scene.camera = cam
+    def shoot(pos, look, fn, lens=50):
+        cam.location = pos; cam.data.lens = lens
+        cam.rotation_euler = (Vector(look) - Vector(pos)).to_track_quat("-Z", "Y").to_euler()
+        scene.render.filepath = os.path.join(outdir, fn); bpy.ops.render.render(write_still=True)
+    shoot((0, 9.0, 1.2), (0, 4.5, 0.95), "r-tailgate.png")
+    shoot((3.0, 2.5, 0.9), (1.0, 3.4, 0.75), "r-rearflare.png", 45)
+    shoot((5.5, 9.5, 2.2), (0, 3.0, 1.0), "r-rear34.png")
+    shoot((12.0, 1.8, 1.1), (0, 1.8, 1.0), "r-side.png", 40)

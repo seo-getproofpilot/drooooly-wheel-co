@@ -20,8 +20,11 @@ rest into `chassis`):
   through an SRW wheel at the platform's 68.3 in track.
 
 Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no textures (LAUNCH-CHECKLIST
-7.5). 2.9 MB, 120k triangles. Same known residue as the F-450 (a 3 cm trim nameplate on each
-rear door, the blank oval pad in the grille).
+7.5). 3.3 MB, 118k triangles. Since 2026-10-13 the POWER STROKE nameplate pad and trim letters
+on each front door and the grille oval's pad, rim and cup are cut out too (same calls as the
+F-450); the two slat rows the oval interrupted are rebuilt from the intact row above, and a
+dark radiator plate closes the grille so no sky shows through. Ambient occlusion is baked into
+`COLOR_0` by `tools/3d/bake-ao.py` (R=G=B, 1 open), read by the configurator's shader hook.
 
 Required credit, which must appear wherever the model is shown:
 
@@ -58,7 +61,11 @@ and on the tailgate and their surrounds, the F-150 and RAPTOR tailgate badges (l
 by bounding box), the wheels, brakes and engine. Interior decimated hard, heavy trim medium.
 Paint joined into `body` (one clean `paint` slot), glass into `glass`, the rest into `chassis`
 with its authored materials. Textures resized to 1024 and converted to WebP, external, renamed
-`textures/f150-<name>`. Quantized, no meshopt. 2.6 MB, 84k triangles, 21 textures.
+`textures/f150-<name>`. Quantized, no meshopt. The paint mesh ships unsimplified since
+2026-10-13 (`tools/3d/finish-body.sh` with `SIMPLIFY=0`): the gltf-transform simplify step
+collapsed the flat tailgate into a lighter patch and left a dark wedge at the rear flare, and
+decimating the paint dropped its custom normals. 4.0 MB, 133k triangles, 21 textures. Ambient
+occlusion is baked into `COLOR_0` by `tools/3d/bake-ao.py` (R=G=B, 1 open).
 
 Known residue: the wheels sit on the platform's 67.6 in track inside the Raptor's wide
 flares, so the stance reads a little tucked next to a stock Raptor.
@@ -105,11 +112,13 @@ paint meshes joined into `body`, glass into `glass` (black gloss trim stays out)
 hub ends reached 0.92 m outboard in the source, past the mounting face of a +120 dually front
 wheel, so everything on those parts beyond 0.80 m is cut away (0.86 m on the frame piece). The
 source is real scale. Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no textures
-(LAUNCH-CHECKLIST 7.5). 3.0 MB, 142k triangles.
+(LAUNCH-CHECKLIST 7.5). 3.3 MB, 119k triangles.
 
-Known residue for the trade dress read (LAUNCH-CHECKLIST 7.1): a trim nameplate about 3 cm
-long on each rear door's trailing edge, moulded into the door skin, unreadable at any stage
-zoom; the grille keeps a blank dark oval pad where the badge sat.
+Since 2026-10-13 the POWER STROKE nameplate pad and trim letters on each front door and the
+grille oval's pad, rim and cup are cut out as well; the two slat rows the oval interrupted are
+rebuilt from the intact row above and a dark radiator plate closes the grille. Ambient
+occlusion is baked into `COLOR_0` by `tools/3d/bake-ao.py` (R=G=B, 1 open). No known
+lettering residue remains for the trade dress read (LAUNCH-CHECKLIST 7.1).
 
 Required credit, which must appear wherever the model is shown:
 

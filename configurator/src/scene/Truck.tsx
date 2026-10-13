@@ -10,10 +10,12 @@ import { useEffect, useLayoutEffect, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { softwareRenderer } from "./gpu";
-import { Box3, Color, Material, Mesh, MeshPhysicalMaterial, MathUtils, Object3D } from "three";
+import { Box3, Material, Mesh, MeshPhysicalMaterial, MathUtils, Object3D } from "three";
 import type { Vehicle } from "../data/types";
 import { IN } from "../fitment/fitment3d";
-import { paintMaterial } from "./paint";
+import { paintMaterial, setPaint } from "./paint";
+import { applyVertexAO } from "./vertexAO";
+import { noReflect } from "./reflection";
 
 export const FACTORY_RAKE_DEG = 1.2;
 
@@ -54,19 +56,38 @@ export function Truck({ vehicle, paintHex, bodyLiftM, rakeDeg = FACTORY_RAKE_DEG
     // the material authored in the glTF. A node may hold its meshes as
     // children, so the name is read from the mesh or its nearest named parent.
     const role = (o: Object3D): string => { for (let p: Object3D | null = o; p && p !== root; p = p.parent) if (p.name === "body" || p.name === "glass") return p.name; return ""; };
+    // Baked AO (vertexAO.ts) on the paint and on every authored material
+    // outside the glass. glTF materials are cloned before patching so the
+    // cached gltf stays clean; one clone per source material, shared by
+    // every mesh that used it.
+    applyVertexAO(paint);
+    const clones = new Map<Material, Material>();
+    const patched = (src: Material): Material => {
+      let c = clones.get(src);
+      if (!c) {
+        c = src.clone();
+        if ((c as { isMeshStandardMaterial?: boolean }).isMeshStandardMaterial) applyVertexAO(c);
+        clones.set(src, c);
+      }
+      return c;
+    };
     root.traverse((o: Object3D) => {
       const m = o as Mesh;
       if (!m.isMesh) return;
       const r = role(m);
       if (r === "body") m.material = paint;
-      else if (r === "glass") m.material = glass;
+      else if (r === "glass") { m.material = glass; noReflect(m, true); }
+      else m.material = Array.isArray(m.material) ? m.material.map(patched) : patched(m.material);
+      // transmissive lenses would start a transmission pass inside the ground reflection
+      const list = Array.isArray(m.material) ? m.material : [m.material];
+      if (list.some((x) => ((x as { transmission?: number }).transmission ?? 0) > 0)) noReflect(m, true);
       m.castShadow = r !== "glass";
       m.receiveShadow = true;
     });
-    return { root, paint, owned: [paint, glass] as Material[] };
+    return { root, paint, owned: [paint, glass, ...clones.values()] as Material[] };
   }, [gltf]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => () => owned.forEach((m) => m.dispose()), [owned]);
-  useEffect(() => { paint.color = new Color(paintHex); }, [paint, paintHex]);
+  useEffect(() => { setPaint(paint, paintHex); }, [paint, paintHex]);
 
   // Rear axle: the pivot for rake. Height is the stock axle, which is where
   // the glTF's hub empties sit.

@@ -25,6 +25,8 @@ import { DepthOfField, EffectComposer, N8AO, ToneMapping, Vignette } from "@reac
 import { Effect, ToneMappingMode } from "postprocessing";
 import { CircleGeometry, Color, DirectionalLight, Mesh, MeshStandardMaterial, Object3D, RepeatWrapping, SRGBColorSpace, Uniform, Vector2, Vector3, type Texture } from "three";
 import { GroundedSkybox } from "three/examples/jsm/objects/GroundedSkybox.js";
+import { softwareRenderer } from "./gpu";
+import { PlanarReflection, noReflect, patchReflectShader, reflectUniforms } from "./reflection";
 
 export const OUTDOOR_HDRI_URL = import.meta.env.BASE_URL + "hdri/outdoor.hdr";
 
@@ -74,7 +76,12 @@ export function sunDirection(): Vector3 {
   return new Vector3(...HDRI_SUN).applyAxisAngle(new Vector3(0, 1, 0), OUTDOOR_ROTATION).normalize();
 }
 
-export function OutdoorLocation() {
+export interface OutdoorProps {
+  /** planar reflection of the truck in the asphalt (reflection.ts); Stage ties it to the post chain and its fps guard */
+  reflect?: boolean;
+}
+
+export function OutdoorLocation({ reflect = false }: OutdoorProps = {}) {
   const texture = useEnvironment({ files: OUTDOOR_HDRI_URL });
   const scene = useThree((s) => s.scene);
 
@@ -96,6 +103,7 @@ export function OutdoorLocation() {
     m.position.set(CENTRE.x, GROUND.height - 0.01, CENTRE.z);
     m.rotation.y = OUTDOOR_ROTATION;
     m.name = "location";
+    noReflect(m);
     return m;
   }, [texture]);
   useEffect(() => () => { sky.geometry.dispose(); (sky.material as { dispose(): void }).dispose(); }, [sky]);
@@ -128,7 +136,7 @@ export function OutdoorLocation() {
       <primitive object={sky} />
       <primitive object={sunTarget} />
       <primitive object={sun} />
-      <AsphaltGround />
+      <AsphaltGround reflect={reflect} />
     </>
   );
 }
@@ -179,9 +187,20 @@ export function patchGroundShader(shader: { uniforms: Record<string, { value: un
    is the floor the ambient occlusion pass sees. It sits 2 mm down: Stage's
    ContactShadows lies at -1 mm and must stay above it (and above its own
    camera's view of it) to draw on top. Invisible at any camera distance. */
-export function AsphaltGround() {
+export function AsphaltGround({ reflect = false }: { reflect?: boolean }) {
   const [map, normalMap, roughnessMap] = useTexture(ASPHALT.urls) as Texture[];
   const aniso = useThree((s) => Math.min(16, s.gl.capabilities.getMaxAnisotropy()));
+  const gl = useThree((s) => s.gl);
+  const soft = useMemo(() => softwareRenderer(gl.getContext()), [gl]);
+  const ru = useMemo(reflectUniforms, []);
+  // ?post=1 review shots run headless on SwiftShader; they keep the mirror so it can be judged
+  const mirror = useMemo(() => (soft && !KEEP_POST ? null : new PlanarReflection(ru, 0)), [soft, ru]);
+  useEffect(() => () => mirror?.dispose(), [mirror]);
+  useFrame(({ gl, scene, camera }) => {
+    if (!mirror) return;
+    if (reflect) mirror.render(gl, scene, camera);
+    else if (ru.reflectOn.value) mirror.off();
+  });
   const mesh = useMemo(() => {
     const repeat = (ASPHALT.radius * 2) / ASPHALT.tile;
     for (const t of [map, normalMap, roughnessMap]) {
@@ -196,8 +215,8 @@ export function AsphaltGround() {
       color: new Color(...ASPHALT.tint), normalScale: new Vector2(ASPHALT.normalScale, ASPHALT.normalScale),
       envMapIntensity: ASPHALT.envIntensity, transparent: true, depthWrite: true,
     });
-    mat.onBeforeCompile = patchGroundShader;
-    mat.customProgramCacheKey = () => "asphalt-ground";
+    mat.onBeforeCompile = (shader) => { patchGroundShader(shader); patchReflectShader(shader, ru); };
+    mat.customProgramCacheKey = () => "asphalt-ground-reflect";
     const geo = new CircleGeometry(ASPHALT.radius, 128);
     geo.rotateX(-Math.PI / 2);
     const m = new Mesh(geo, mat);
@@ -205,8 +224,9 @@ export function AsphaltGround() {
     m.receiveShadow = true;
     m.renderOrder = -1;
     m.name = "asphalt";
+    noReflect(m);
     return m;
-  }, [map, normalMap, roughnessMap, aniso]);
+  }, [map, normalMap, roughnessMap, aniso, ru]);
   useEffect(() => () => { mesh.geometry.dispose(); (mesh.material as MeshStandardMaterial).dispose(); }, [mesh]);
   return <primitive object={mesh} />;
 }
@@ -232,7 +252,7 @@ export const MIN_POST_FPS = 30;
 export const AO = { radius: 0.6, falloff: 1, intensity: 3, quality: "medium" as const };
 
 /* Read once at load: the app rewrites the URL as soon as it mounts. */
-const KEEP_POST = (() => {
+export const KEEP_POST = (() => {
   try { const q = new URLSearchParams(location.search); return q.get("poster") === "1" || q.get("post") === "1"; } catch { return false; }
 })();
 

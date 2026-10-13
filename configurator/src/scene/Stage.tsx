@@ -140,7 +140,7 @@ export function Stage({ children, preset, frame = null, shadowKey = "", onContex
         {!dark && <color attach="background" args={[STAGE_BG]} />}
         <Exposure value={dark && !postOn ? OUTDOOR_EXPOSURE : 1} />
         <Suspense fallback={null}>
-          {dark ? <OutdoorLocation /> : <Environment files={HDRI_URL} background={false} environmentIntensity={1} />}
+          {dark ? <OutdoorLocation reflect={postOn && ready} /> : <Environment files={HDRI_URL} background={false} environmentIntensity={1} />}
           {children}
           {/* drei draws its blur quad at the world origin through the shadow
               camera, so the shadow must sit at x = z = 0 and just under the

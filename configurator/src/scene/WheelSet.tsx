@@ -13,8 +13,11 @@
    Every decal (tire size, cap mark, lip engraving) swaps to its mirrored
    twin on mirrored corners so it never reads backwards. */
 import { useEffect, useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Group, Material, Mesh, Vector3 } from "three";
+import { softwareRenderer } from "./gpu";
+import { KEEP_POST } from "./Outdoor";
+import { WheelEnv } from "./wheelEnv";
 import type { FitResult } from "../fitment/fitment3d";
 import { disposeWheel, makeWheel, overlayMirrored, IN, type WheelStyle } from "../geometry/wheel";
 import { disposeTire, makeTire, sidewallMirrored } from "../geometry/tire";
@@ -67,13 +70,28 @@ export function WheelSet({ fit, style, finish, tread, spin = false, bolt }: Whee
   /* face: spoke tops and the window walls (black milled cuts the walls back
      to bare metal); lip: the lathed lip, the cap and the lug nuts; barrel:
      the inside of the rim. See materials/finishes.ts. */
-  const mats = useMemo(() => finishSet(finish), [finish]);
-  useEffect(() => () => disposeFinishSet(mats), [mats]);
+  /* Two sets, one per side of the truck, so each side can reflect its own
+     captured surroundings (wheelEnv.ts). A software renderer keeps the
+     location HDRI only. */
+  const gl = useThree((s) => s.gl);
+  const env = useMemo(() => (softwareRenderer(gl.getContext()) && !KEEP_POST ? null : new WheelEnv()), [gl]);
+  useEffect(() => () => env?.dispose(), [env]);
+  const sides = useMemo(() => {
+    const left = finishSet(finish), right = finishSet(finish);
+    if (env) {
+      const t = env.textures;
+      for (const [set, tex] of [[left, t.left], [right, t.right]] as const)
+        for (const m of new Set([set.face, set.edge, set.lip, set.barrel])) { m.envMap = tex; m.envMapIntensity = 1; }
+    }
+    return { left, right };
+  }, [finish, env]);
+  useEffect(() => () => { disposeFinishSet(sides.left); disposeFinishSet(sides.right); }, [sides]);
 
   /* One clone per corner, sharing geometry; clone() keeps the source
      materials, which are replaced here by the finish. */
   const cornerKey = fit.corners.map((c) => c.name + (c.mirror ? "m" : "")).join(",");
   const assemblies = useMemo(() => fit.corners.map((c) => {
+    const mats = c.x < 0 ? sides.left : sides.right;
     const g = new Group();
     const w = wheel.clone(true);
     w.traverse((o) => {
@@ -93,7 +111,7 @@ export function WheelSet({ fit, style, finish, tread, spin = false, bolt }: Whee
       g.add(b);
     }
     return g;
-  }), [cornerKey, wheel, tire, mats, brakes]); // eslint-disable-line react-hooks/exhaustive-deps
+  }), [cornerKey, wheel, tire, sides, brakes]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* Sidewall lettering fades with how big the nearest tire is on screen, as
      a share of the stage's short side, and the lip engraving with it: about 0.46 at the Wheel close-up on a
@@ -111,7 +129,25 @@ export function WheelSet({ fit, style, finish, tread, spin = false, bolt }: Whee
   const tmp = useMemo(() => new Vector3(), []);
 
   const refs = useRef<(Group | null)[]>([]);
-  useFrame(({ camera, size }, dt) => {
+  const set = useRef<Group>(null);
+  /* Where each side's environment is captured: its front wheel centre. */
+  const eye = useMemo(() => {
+    const front = fit.corners.filter((c) => c.name.startsWith("F"));
+    const pick = (left: boolean): [number, number, number] => {
+      const c = front.find((k) => (k.x < 0) === left) ?? fit.corners[0];
+      return [c.x, c.y, c.z];
+    };
+    return { left: pick(true), right: pick(false) };
+  }, [fit]);
+  useEffect(() => { env?.invalidate(); }, [env, eye, assemblies]);
+  const wl = useMemo(() => new Vector3(), []), wr = useMemo(() => new Vector3(), []);
+  useFrame(({ camera, size, scene }, dt) => {
+    if (env && set.current) {
+      set.current.updateWorldMatrix(true, false);
+      wl.set(...eye.left).applyMatrix4(set.current.matrixWorld);
+      wr.set(...eye.right).applyMatrix4(set.current.matrixWorld);
+      env.update(gl, scene, set.current, [wl.x, wl.y, wl.z], [wr.x, wr.y, wr.z]);
+    }
     if (decalMats.length) {
       let near = Infinity;
       for (const r of refs.current) if (r) near = Math.min(near, camera.position.distanceTo(r.getWorldPosition(tmp)));
@@ -125,7 +161,7 @@ export function WheelSet({ fit, style, finish, tread, spin = false, bolt }: Whee
   });
 
   return (
-    <group name="wheelset">
+    <group name="wheelset" ref={set}>
       {fit.corners.map((c, i) => (
         <group key={c.name} name="corner" userData={{ corner: c.name }} position={[c.x, c.y, c.z]} scale-x={c.mirror ? -1 : 1}
           ref={(el) => { refs.current[i] = el; }}>

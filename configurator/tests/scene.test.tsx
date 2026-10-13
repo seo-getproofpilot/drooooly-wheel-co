@@ -142,8 +142,9 @@ describe("paintMaterial", () => {
     const a = paintMaterial("#8e1b22"), b = paintMaterial("#0d0f13");
     expect(a.clearcoat).toBe(1);
     expect(a.clearcoatRoughness).toBeCloseTo(0.03, 5);
-    expect(a.metalness).toBeCloseTo(0.6, 5);
-    expect(a.roughness).toBeCloseTo(0.45, 5);
+    // Race Red is a factory solid: no metal, a smooth pigment base under the coat (render.test.ts covers the kinds)
+    expect(a.metalness).toBe(0);
+    expect(a.roughness).toBeCloseTo(0.38, 5);
     expect(a.color.getHexString()).toBe(new (a.color.constructor as any)("#8e1b22").getHexString());
     expect(a.normalMap).toBeTruthy();
     expect(a.normalMap).toBe(b.normalMap);

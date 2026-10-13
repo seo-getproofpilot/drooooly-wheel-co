@@ -11,7 +11,7 @@
 #   * the rear axle ends are clipped like the front so nothing pokes through an SRW wheel.
 # Source frame: x across (driver +x), -y forward, z up, metres; front axle at y = -2.24.
 import bpy, bmesh, json, sys, os, re, math
-from mathutils import Vector
+from mathutils import Vector, Matrix
 IN = 0.0254
 argv = sys.argv[sys.argv.index("--") + 1:]
 outdir = argv[0]; RENDER = "--render" in argv
@@ -34,7 +34,7 @@ for o in [o for o in bpy.data.objects if o.type != "MESH"]:
 
 # 1. delete: wheels and rims, engine, badges/logos/plates/emblems, clearcoat shells (see
 #    prepare-f450.py), plus the dually mud flaps and their brackets (extra_1)
-DROP = r"^(wheel_|inner|engineblock|enginebay|logos|plate_|bodyshell\.001|bedliner_SUB2_Glass|grille_SUB4_|extra_1_)|badge|symbol|_Tyre_|tyre"
+DROP = r"^(wheel_|inner|engineblock|enginebay|logos|plate_|bodyshell\.001|bedliner_SUB2_Glass|grille_SUB4_|extra_1_)|badge|symbol|power_stroke|_Tyre_|tyre"
 for o in list(meshes):
     if re.search(DROP, o.name, re.I):
         bpy.data.objects.remove(o, do_unlink=True); meshes.remove(o)
@@ -47,7 +47,8 @@ def bbox(o):
     cs = [o.matrix_world @ Vector(c) for c in o.bound_box]
     return Vector([min(c[i] for c in cs) for i in range(3)]), Vector([max(c[i] for c in cs) for i in range(3)])
 
-# 1b. moulded lettering: SUPER DUTY on the hood lip, the oval in the grille, the tailgate letters
+# 1b. moulded lettering: SUPER DUTY on the hood lip, the oval, its pad and cup in the grille, the
+#     trim letters on the front doors (the POWER STROKE nameplate is dropped by name), the tailgate letters
 def cut_loose(name, lo, hi, max_tris=None):
     o = bpy.data.objects.get(name)
     if o is None: return
@@ -71,9 +72,67 @@ def cut_loose(name, lo, hi, max_tris=None):
     keep[0].name = name; keep[0].data.name = name
     print("cut", name, gone, "loose parts of", len(parts))
 cut_loose("bonnet_SUB1_SKIN_00_0", (-0.45, -3.135, 1.33), (0.45, -3.05, 1.38))
-cut_loose("grille_SUB3_EXT_Chrome_0", (-0.17, -3.21, 0.99), (0.17, -3.175, 1.14))
+cut_loose("grille_SUB3_EXT_Chrome_0", (-0.19, -3.21, 0.975), (0.19, -3.168, 1.15))
+# the blank oval pad and its rim and centre stud, the moulded plastic backing the badge sat on;
+# the cup behind it (45 mm deep, closed at y -3.131) goes too; the open grille shows through
+cut_loose("grille_SUB2_EXT_Plastic_0", (-0.19, -3.20, 0.97), (0.19, -3.11, 1.155))
+# the trim-level letters ahead of the POWER STROKE nameplate (dropped above) on both front doors
+cut_loose("door_dside_f_SUB16_EXT_Chrome_0", (0.98, -1.56, 0.815), (1.01, -1.42, 0.865))
+cut_loose("door_dside_f_SUB17_EXT_Plastic_0", (0.98, -1.56, 0.815), (1.01, -1.42, 0.865))
+cut_loose("door_pside_f_SUB15_EXT_Plastic_0", (-1.01, -1.27, 0.815), (-0.98, -1.15, 0.865))
+cut_loose("door_pside_f_SUB17_EXT_Chrome_0", (-1.01, -1.27, 0.815), (-0.98, -1.15, 0.865))
 cut_loose("boot_SUB3_SKIN_01_0", (-0.78, 3.285, 0.98), (0.78, 3.305, 1.46), max_tris=100)
 cut_loose("boot_SUB9_EXT_ALU_0", (-0.79, 3.395, 1.08), (0.79, 3.425, 1.25), max_tris=60)
+# 1b'. with the engine gone the grille is see-through, and with the oval cup gone its centre is
+#      a hole to the sky. A dark plate where the radiator would be (it joins `chassis` as "dark")
+#      closes it, sized to the grille's slats and sitting 4 cm behind their back edge.
+def grille_backing():
+    gs = [o for o in bpy.data.objects if o.type == "MESH" and re.match(r"^grille_SUB[23]_", o.name)]
+    vs = [o.matrix_world @ v.co for o in gs for v in o.data.vertices]
+    x0, x1 = min(v.x for v in vs), max(v.x for v in vs); z0, z1 = min(v.z for v in vs), max(v.z for v in vs)
+    y = max(v.y for v in vs) + 0.04
+    me = bpy.data.meshes.new("grille_backing_dark")
+    me.from_pydata([(x0, y, z0), (x1, y, z0), (x1, y, z1), (x0, y, z1)], [], [(0, 1, 2, 3)])   # faces -y, forward
+    ob = bpy.data.objects.new("grille_backing_dark", me); bpy.context.scene.collection.objects.link(ob)
+    print("grille backing x", round(x0, 3), round(x1, 3), "z", round(z0, 3), round(z1, 3), "y", round(y, 3))
+grille_backing()
+# 1b''. the two slat rows that ran into the oval (centres z 1.090 and 1.029; the grille's rows
+#      are 0.06 apart) stop at its old edge. Their middle |x| < 0.24 is cleared and refilled with a
+#      copy of the same span of the unbroken row above (centre 1.149), moved down one and two row
+#      pitches and back along the grille's rake, so every row runs the full width again.
+def grille_rows(name, xc=0.24, pitch=0.0603, top=1.1795):
+    import bmesh as _bm
+    o = bpy.data.objects.get(name)
+    if o is None: return
+    o.data.transform(o.matrix_world); o.matrix_world = Matrix.Identity(4)   # work in world space
+    bm = _bm.new(); bm.from_mesh(o.data)
+    lo_z = top - 3 * pitch
+    band = [f for f in bm.faces if any(lo_z - 0.01 < v.co.z < top + 0.01 for v in f.verts)]
+    for sx in (1, -1):
+        geom = list({v for f in band for v in f.verts}) + list({e for f in band for e in f.edges}) + band
+        r = _bm.ops.bisect_plane(bm, geom=geom, plane_co=(sx * xc, 0, 0), plane_no=(1, 0, 0), dist=1e-6)
+        band = [f for f in bm.faces if any(lo_z - 0.01 < v.co.z < top + 0.01 for v in f.verts)]
+    def row_of(f):
+        c = f.calc_center_median()
+        if abs(c.x) >= xc: return None
+        k = int((top - c.z) // pitch)
+        return k if 0 <= k <= 2 else None
+    src = [f for f in bm.faces if row_of(f) == 0]
+    dst = [f for f in bm.faces if row_of(f) in (1, 2)]
+    def front(k):   # the rake: the front face of row k just outside the cleared span
+        ys = [v.co.y for v in bm.verts if xc < abs(v.co.x) < xc + 0.12 and top - (k + 1) * pitch < v.co.z < top - k * pitch]
+        return min(ys) if ys else None
+    f0 = front(0)
+    _bm.ops.delete(bm, geom=dst, context="FACES")
+    for k in (1, 2):
+        fk = front(k); dy = (fk - f0) if (fk is not None and f0 is not None) else 0.0
+        d = _bm.ops.duplicate(bm, geom=src)
+        nv = [e for e in d["geom"] if isinstance(e, _bm.types.BMVert)]
+        _bm.ops.translate(bm, verts=nv, vec=(0, dy, -k * pitch))
+        print("grille row", name, k, "copied", len(src), "faces, dy", round(dy, 4))
+    bm.to_mesh(o.data); bm.free()
+for n in ("grille_SUB3_EXT_Chrome_0", "grille_SUB2_EXT_Plastic_0", "grille_SUB1_EXT_Black_Glass_0"):
+    grille_rows(n)
 meshes = [o for o in bpy.data.objects if o.type == "MESH"]
 
 # 1c. the dually rear fenders. Everything that stands proud of the bed side (|x| > FLUSH_X) in
@@ -254,3 +313,5 @@ if RENDER:
     shoot((12.0, 2.0, 1.2), (0, 2.0, 1.0), "r-side.png")
     shoot((3.8, 4.8, 0.9), (0.6, 4.2, 0.9), "r-rearwheel.png")
     shoot((4.5, -3.5, 1.6), (0, 1.5, 1.0), "r-front34.png")
+    shoot((0.3, -2.2, 1.0), (0, -0.95, 0.95), "r-grille.png")      # the oval pad is gone
+    shoot((2.6, 0.6, 0.85), (0.95, 0.75, 0.8), "r-frontdoor.png")  # the nameplate is gone
