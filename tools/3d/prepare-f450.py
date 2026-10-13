@@ -60,6 +60,21 @@ cut_loose("bonnet_SUB1_SKIN_00_0", (-0.45, -3.135, 1.33), (0.45, -3.05, 1.38))
 cut_loose("grille_SUB3_EXT_Chrome_0", (-0.17, -3.21, 0.99), (0.17, -3.175, 1.14))
 cut_loose("boot_SUB3_SKIN_01_0", (-0.78, 3.285, 0.98), (0.78, 3.305, 1.46), max_tris=100)
 cut_loose("boot_SUB9_EXT_ALU_0", (-0.79, 3.395, 1.08), (0.79, 3.425, 1.25), max_tris=60)
+# 1c. the front axle and its hub ends reach 0.92 m outboard in the source, which is past the
+#     mounting face of a +120 dually front wheel, so the knuckle showed through the wheel's
+#     centre. Everything on those parts beyond |x| = limit is cut away; the wheel and its
+#     brake cover what is left.
+import bmesh
+def clip_x(pattern, limit):
+    for o in [o for o in bpy.data.objects if o.type == "MESH" and re.match(pattern, o.name)]:
+        bm = bmesh.new(); bm.from_mesh(o.data); before = len(bm.faces)
+        for sign in (1, -1):
+            geom = bm.verts[:] + bm.edges[:] + bm.faces[:]
+            bmesh.ops.bisect_plane(bm, geom=geom, plane_co=(sign * limit, 0, 0), plane_no=(sign, 0, 0), clear_outer=True)
+        bm.to_mesh(o.data); bm.free()
+        print("clip", o.name, before, "->", len(o.data.polygons), "faces")
+clip_x(r"^transmission_f", 0.80)
+clip_x(r"^chassis_SUB5", 0.86)
 meshes = [o for o in bpy.data.objects if o.type == "MESH"]
 
 # 2. origin: front axle to y = 0 (source front axle y = -2.24), and the source body sits on

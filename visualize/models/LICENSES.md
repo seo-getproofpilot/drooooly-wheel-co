@@ -43,13 +43,23 @@ node tools/test-3d-models.js && node tools/check-3d-budgets.js configurator/publ
 ## f450-crew.gltf (2026-10-11)
 
 Built from a CC-BY model of the 2017-2022 Super Duty crew cab, dual rear wheel, by
-`tools/3d/prepare-f450.py`: every badge, logo, emblem and plate mesh deleted, wheels and engine
-removed, the exporter's clearcoat ghost shells over the paint (`bodyshell.001`, the bed's
-`Glass_rgbaffffff99` piece) deleted so they cannot frost the roof and fenders, interior decimated,
-body paint meshes joined into `body`, glass into `glass` (black gloss trim stays out of it), the rest
-into `chassis`, hub empties on the platform's published wheelbase and track. The source is real
-scale. Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no embedded textures
-(LAUNCH-CHECKLIST 7.5). 3.1 MB, 128k triangles.
+`tools/3d/prepare-f450.py`. Deleted: every badge, logo, emblem and plate mesh, the wheels and
+engine, the grille oval's blue backing, and the lettering moulded onto panels as loose shells
+(SUPER DUTY on the hood lip, the oval and script in the grille, the embossed letters on the
+tailgate and the cut-out letters in its chrome band), each cut out by bounding box. The
+exporter's clearcoat ghost shells over the paint (`bodyshell.001`, the bed's
+`Glass_rgbaffffff99` piece) are deleted so they cannot frost the roof and fenders. The source's
+material names are scrambled and its textures dropped, so every non-paint object gets one of
+five plain materials by its object name (chrome, gloss black, lamp, interior, dark trim); the
+roof, front fenders, pillars and dually flares, "EXT_Plastic" in the source, are painted. Body
+paint meshes joined into `body`, glass into `glass` (black gloss trim stays out), the rest into
+`chassis`, hub empties on the platform's published wheelbase and track. The source is real
+scale. Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no textures
+(LAUNCH-CHECKLIST 7.5). 2.9 MB, 122k triangles.
+
+Known residue for the trade dress read (LAUNCH-CHECKLIST 7.1): a trim nameplate about 3 cm
+long on each rear door's trailing edge, moulded into the door skin, unreadable at any stage
+zoom; the grille keeps a blank dark oval pad where the badge sat.
 
 Required credit, which must appear wherever the model is shown:
 

@@ -53,9 +53,11 @@ material names are scrambled and its textures dropped, so every non-paint object
 five plain materials by its object name (chrome, gloss black, lamp, interior, dark trim); the
 roof, front fenders, pillars and dually flares, "EXT_Plastic" in the source, are painted. Body
 paint meshes joined into `body`, glass into `glass` (black gloss trim stays out), the rest into
-`chassis`, hub empties on the platform's published wheelbase and track. The source is real
-scale. Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no textures
-(LAUNCH-CHECKLIST 7.5). 2.9 MB, 122k triangles.
+`chassis`, hub empties on the platform's published wheelbase and track. The front axle and its
+hub ends reached 0.92 m outboard in the source, past the mounting face of a +120 dually front
+wheel, so everything on those parts beyond 0.80 m is cut away (0.86 m on the frame piece). The
+source is real scale. Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no textures
+(LAUNCH-CHECKLIST 7.5). 3.0 MB, 142k triangles.
 
 Known residue for the trade dress read (LAUNCH-CHECKLIST 7.1): a trim nameplate about 3 cm
 long on each rear door's trailing edge, moulded into the door skin, unreadable at any stage

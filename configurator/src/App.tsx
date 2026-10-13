@@ -29,7 +29,9 @@ export const APP_NAME = "DROOOLY Visualize";
 const catalog = loadCatalog();
 const PIN_PRESETS: CameraPreset[] = ["front", "threeQuarter", "wheel"];
 const TAB_TARGETS = ["sec-truck", "sec-wheel", "sec-tire", "sec-stance"];
-const TAB_CAMERA: CameraPreset[] = ["threeQuarter", "wheel", "wheel", "front"];
+/* Truck lands on the front hero, Wheel and Tire on the wheel close-up,
+   Stance on the side view, where ride height and poke read. */
+const TAB_CAMERA: CameraPreset[] = ["front", "wheel", "wheel", "side"];
 
 /* What the stage draws: the customer's build once a truck is picked, the
    showroom build on their truck (or the F-250) before that. */
@@ -116,7 +118,7 @@ export default function App() {
   const fl = f.corners.find((c) => c.name === "FL")!;
   const focus = useMemo(() => ({ center: [fl.x, fl.y + f.tireRadiusM * 0.25, fl.z] as [number, number, number], radius: f.tireRadiusM * 2.1 }),
     [fl.x, fl.y, fl.z, f.tireRadiusM]);
-  const [cam, setCam] = useState<CameraPreset>("threeQuarter");
+  const [cam, setCam] = useState<CameraPreset>("front");
   const preset: CameraPreset = posterMode ? "threeQuarter" : cam;
 
   /* Step tabs scroll to their section. The one whose heading has passed the
@@ -158,7 +160,7 @@ export default function App() {
           <Stage preset={preset} frame={frame} shadowKey={shadowKey} onContextLost={() => setLost(true)} snapshotRef={snapRef} focus={focus}
             theme="dark" autoRotate={showPicker && !posterMode}>
             <Truck vehicle={vehicle} paintHex={paint.hex} bodyLiftM={f.bodyLiftM} rakeDeg={rake} onBounds={onBounds} />
-            <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} />
+            <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} bolt={vehicle.bolt} />
             {!posterMode && <Pins fit={f} headline={words.headline} line2={words.line2} line3={words.line3} visible={PIN_PRESETS.includes(preset)} />}
           </Stage>
         ) : (
@@ -211,7 +213,7 @@ export default function App() {
         {showPicker && (
           <TruckSheet cat={catalog} start={{ v: b.v, mn: b.mn, y: b.y, p: b.p }} onDraft={setDraft}
             onClose={picked ? () => { setDraft(null); setSheet(false); } : null}
-            onDone={(d) => { set(d); setDraft(null); setSheet(false); setCam("threeQuarter"); setTab(0); window.scrollTo({ top: 0 }); }} />
+            onDone={(d) => { set(d); setDraft(null); setSheet(false); setCam("front"); setTab(0); window.scrollTo({ top: 0 }); }} />
         )}
       </main>
     </>

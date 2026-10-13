@@ -3,7 +3,7 @@ import ReactThreeTestRenderer from "@react-three/test-renderer";
 import { WheelSet, tireSpan, DECAL_FULL, DECAL_GONE } from "../src/scene/WheelSet";
 import { rakeFor, FACTORY_RAKE_DEG } from "../src/scene/Truck";
 import { paintMaterial } from "../src/scene/paint";
-import { PRESETS, CAMERA_CHIPS, framedView, wheelView, FOV, MAX_POLAR, MIN_POLAR, type CameraPreset } from "../src/scene/cameras";
+import { PRESETS, CAMERA_CHIPS, framedView, frameBox, wheelView, FOV, MAX_POLAR, MIN_POLAR, type CameraPreset } from "../src/scene/cameras";
 import { Pins, PIN_MAX_W } from "../src/scene/Pins";
 import { STAGE_BG_DARK, TURNTABLE_SECONDS, RESUME_MS } from "../src/scene/Stage";
 import { sunDirection, HDRI_SUN, OUTDOOR_EXPOSURE, GROUND, MIN_POST_FPS, GradeEffect } from "../src/scene/Outdoor";
@@ -42,6 +42,18 @@ describe("WheelSet", () => {
     const dually = fit({ vehicle: v, liftIn: 0, wheel: { diaIn: 20, widthIn: 8.25, offsetMm: 0 }, tire: { od: 35, section: 12.5, rim: 20 }, config: "dually" });
     const r2 = await ReactThreeTestRenderer.create(<WheelSet fit={dually} style={style} finish="black" tread="MT" />);
     expect(brakes(r2).length).toBe(4);
+  });
+  it("puts 10 lug nuts on a dually and the vehicle's count when given its bolt pattern", async () => {
+    const lugsOf = (r: Awaited<ReturnType<typeof ReactThreeTestRenderer.create>>) => {
+      const out = new Set<number>();
+      for (const c of r.scene.findAllByProps({ name: "corner" })) (c.instance as Object3D).traverse((o) => { if (o.name === "wheel") out.add(o.userData.lugs); });
+      return [...out];
+    };
+    const dually = fit({ vehicle: v, liftIn: 0, wheel: { diaIn: 20, widthIn: 8.25, offsetMm: 0 }, tire: { od: 35, section: 12.5, rim: 20 }, config: "dually" });
+    expect(lugsOf(await ReactThreeTestRenderer.create(<WheelSet fit={dually} style={style} finish="polished" tread="MT" />))).toEqual([10]);
+    const single = fit({ vehicle: v, liftIn: 0, wheel: { diaIn: 20, widthIn: 10, offsetMm: -18 }, tire: { od: 35, section: 12.5, rim: 20 }, config: "single" });
+    expect(lugsOf(await ReactThreeTestRenderer.create(<WheelSet fit={single} style={style} finish="polished" tread="AT" />))).toEqual([8]);
+    expect(lugsOf(await ReactThreeTestRenderer.create(<WheelSet fit={single} style={style} finish="polished" tread="AT" bolt="6x135" />))).toEqual([6]);
   });
   it("seats each brake behind the wheel face, inside the barrel", async () => {
     const f = fit({ vehicle: v, liftIn: 0, wheel: { diaIn: 24, widthIn: 14, offsetMm: -76 }, tire: { od: 37, section: 13.5, rim: 24 }, config: "single" });
@@ -162,18 +174,30 @@ describe("camera presets", () => {
 
 describe("framedView", () => {
   const box = new Box3(new Vector3(-1.02, 0, -5.3), new Vector3(1.02, 2.05, 1.25));
-  const inside = (pos: number[], target: number[], aspect: number) => {
+  const inside = (pos: number[], target: number[], aspect: number, b: Box3 = box) => {
     const cam = new PerspectiveCamera(FOV, aspect, 0.1, 200);
     cam.position.set(pos[0], pos[1], pos[2]); cam.lookAt(new Vector3(...(target as [number, number, number]))); cam.updateMatrixWorld();
-    const pts = [box.min.x, box.max.x].flatMap(x => [box.min.y, box.max.y].flatMap(y => [box.min.z, box.max.z].map(z => new Vector3(x, y, z).project(cam))));
+    const pts = [b.min.x, b.max.x].flatMap(x => [b.min.y, b.max.y].flatMap(y => [b.min.z, b.max.z].map(z => new Vector3(x, y, z).project(cam))));
     return pts.every(n => Math.abs(n.x) <= 1 && Math.abs(n.y) <= 1);
   };
   it("frames the whole truck on desktop and phone, further back on the phone", () => {
-    const desk = framedView("hero", 1280 / 800, box), phone = framedView("hero", 390 / 560, box);
+    const desk = framedView("threeQuarter", 1280 / 800, box), phone = framedView("threeQuarter", 390 / 560, box);
     expect(inside(desk.position, desk.target, 1280 / 800)).toBe(true);
     expect(inside(phone.position, phone.target, 390 / 560)).toBe(true);
     const dist = (v: { position: number[]; target: number[] }) => new Vector3(...(v.position as [number, number, number])).distanceTo(new Vector3(...(v.target as [number, number, number])));
     expect(dist(phone)).toBeGreaterThan(dist(desk));
+  });
+  it("the front hero on a phone frames the cab and front wheel, not the whole truck", () => {
+    const aspect = 390 / 560;
+    const cropped = frameBox("front", aspect, box), full = frameBox("front", 1280 / 800, box);
+    expect(full).toBe(box);
+    expect(cropped.max.z).toBe(box.max.z);
+    expect(cropped.min.z).toBeGreaterThan(box.min.z);
+    expect(cropped.min.z).toBeLessThan(-1); // the front wheel at z = 0 and the cab stay in
+    const hero = framedView("hero", aspect, box), whole = framedView("threeQuarter", aspect, box);
+    expect(inside(hero.position, hero.target, aspect, cropped)).toBe(true);
+    const dist = (v: { position: number[]; target: number[] }) => new Vector3(...(v.position as [number, number, number])).distanceTo(new Vector3(...(v.target as [number, number, number])));
+    expect(dist(hero)).toBeLessThan(dist(whole));
   });
   it("leaves the wheel close-up alone", () => {
     expect(framedView("wheel", 0.5, box)).toEqual(PRESETS.wheel);
@@ -182,7 +206,7 @@ describe("framedView", () => {
     for (const k of ["front", "threeQuarter", "side", "rear"] as CameraPreset[]) {
       for (const aspect of [1280 / 800, 390 / 560]) {
         const view = framedView(k, aspect, box);
-        expect(inside(view.position, view.target, aspect)).toBe(true);
+        expect(inside(view.position, view.target, aspect, frameBox(k, aspect, box))).toBe(true);
         const d = new Vector3(...(view.position as [number, number, number])).sub(new Vector3(...(view.target as [number, number, number])));
         const polar = Math.acos(d.y / d.length());
         expect(polar).toBeGreaterThanOrEqual(MIN_POLAR - 1e-6);

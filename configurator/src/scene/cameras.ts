@@ -9,15 +9,23 @@ import { Box3, MathUtils, PerspectiveCamera, Vector3 } from "three";
 export type CameraPreset = "front" | "threeQuarter" | "side" | "rear" | "wheel" | "hero";
 type V3 = [number, number, number];
 
-export const FOV = 32;
+/* A slightly long lens (about a 45 mm on full frame at 16:10) flattens the
+   perspective the way a car photographer's 50 to 85 mm does. */
+export const FOV = 28;
 
-/* Every whole-truck preset looks down a degree or two: CameraControls clamps
-   the polar angle to MAX_POLAR (88 degrees), so a level or upward view would
-   be bent on arrival and land off its framing. */
-/* front is the hero: low, close to the ground, from ahead of the driver's
-   front wheel, so the wheel and tire carry the frame. threeQuarter is the
-   same side from higher and further round, so more of the body shows. */
-const FRONT = { position: [3.7, 1.2, 2.5] as V3, target: [0, 0.95, -1.9] as V3 };
+/* Every whole-truck preset looks level or a little down: CameraControls
+   clamps the polar angle to MAX_POLAR, so an upward view would be bent on
+   arrival and land off its framing. framedView keeps each preset's view
+   direction and only solves distance and aim, so the direction here is what
+   the visitor sees. */
+/* front is the hero and the landing view: eye height (the solver settles it
+   near 1.25 m), half a degree down, from ahead of the driver's front wheel
+   and about 35 degrees off the truck's axis, so the wheel face turns toward
+   the lens. The front wheel and tire are the nearest thing to it and fill
+   over a quarter of the frame height on a desktop while the whole truck
+   still fits. threeQuarter is the same side
+   from higher and further round, so more of the body shows. */
+const FRONT = { position: [3.6, 1.0, 3.0] as V3, target: [0, 0.93, -1.9] as V3 };
 
 export const PRESETS: Record<CameraPreset, { position: V3; target: V3 }> = {
   front: FRONT,
@@ -47,9 +55,24 @@ const WHOLE: Record<CameraPreset, boolean> = { front: true, threeQuarter: true, 
    phone sees far less width than a desktop, and a 3/4 view of a long truck
    projects off-centre if the camera simply aims at the middle of the
    wheelbase. The wheel close-up is returned as authored. */
+/* On a tall phone the whole truck only fits from far away, and the front
+   wheel, which is what the page is about, shrinks to a sixth of the frame.
+   Below PHONE_ASPECT the front hero frames the cab and the front wheel
+   instead, the way a hero photo crops the tail, and a drag shows the rest.
+   The other presets still fit the whole truck. */
+export const PHONE_ASPECT = 1;
+export const PHONE_FRONT_SHARE = 0.6;
+export function frameBox(preset: CameraPreset, aspect: number, box: Box3): Box3 {
+  if ((preset !== "front" && preset !== "hero") || aspect >= PHONE_ASPECT) return box;
+  const b = box.clone();
+  b.min.z = b.max.z - (b.max.z - b.min.z) * PHONE_FRONT_SHARE;
+  return b;
+}
+
 export function framedView(preset: CameraPreset, aspect: number, box: Box3 | null, pad = 0.9): { position: V3; target: V3 } {
   const p = PRESETS[preset];
   if (!box || box.isEmpty() || !WHOLE[preset]) return { position: p.position, target: p.target };
+  box = frameBox(preset, aspect, box);
   const target = new Vector3(...p.target);
   const dir = new Vector3(...p.position).sub(target).normalize();
   const cam = new PerspectiveCamera(FOV, aspect, 0.1, 200);
@@ -84,9 +107,10 @@ export function framedView(preset: CameraPreset, aspect: number, box: Box3 | nul
   return { position: [cam.position.x, cam.position.y, cam.position.z], target: [target.x, target.y, target.z] };
 }
 
-/* Polar limits for the orbit: never under the floor, never straight down. */
+/* Polar limits for the orbit: never straight down, and never below level, so
+   never under the floor. 89.5 degrees lets the front hero sit at eye height. */
 export const MIN_POLAR = MathUtils.degToRad(20);
-export const MAX_POLAR = MathUtils.degToRad(88);
+export const MAX_POLAR = MathUtils.degToRad(89.5);
 
 /* The wheel close-up, aimed at one corner and pulled back far enough that a
    sphere of `radius` around it fits the narrower side of the frame. The
