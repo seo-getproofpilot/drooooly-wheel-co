@@ -90,7 +90,12 @@ window.VEHICLES = [
     stockOffsetMm:44, fenderRadiusIn:18.5, faceToFenderIn:3.0, measured:false,
     /* Published OEM spec sheet figures for crew cab, 5.5 ft bed (F-150);
        estimates until a tape confirms them. Read by the 3D configurator. */
-    model:{ file:"models/f150-crew.gltf", wheelbaseIn:145.4, trackIn:67.6, stockTireOdIn:31.8, stockWheelDiaIn:18, cab:"crew" },
+    model:{ file:"models/f150-crew.gltf", wheelbaseIn:145.4, trackIn:67.6, stockTireOdIn:31.8, stockWheelDiaIn:18, cab:"crew",
+      /* The 3D body is the Raptor R wide body (flares 3.4 in further out per side, track 6 in
+         wider). bodyTrackIn places the drawn wheels on that body's track so a wheel pokes past
+         its flare by the amount the fitment maths (trackIn, the stock truck) says it pokes
+         past a stock fender. Fitment numbers never read it. */
+      bodyTrackIn:73.7 },
     body:{ cab:"crew", bedTop:0.32, rocker:0.85, archLift:0 } },
 
   /* 6x139.7, not 5x139.7. The 2019+ DT went to six lugs; 5x139.7 is the

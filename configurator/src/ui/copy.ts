@@ -79,18 +79,18 @@ export const copy = {
 
   stageLabel: "Your build in 3D",
   stageHint: "Drag to spin",
-  stageBadge: "Concept · 3D preview body",
+  stageBadge: "Concept · 3D preview",
   /* CC BY 4.0 bodies must carry their credit wherever they are shown. Keyed by
      the model file in vehicles.js; the text matches public/models/LICENSES.md. */
   bodyCredits: {
-    "models/f250-crew.gltf": { text: "Based on \"Lightbody Lifted '85\" by Daniel Zhabotinsky, CC BY 4.0", url: "https://sketchfab.com/3d-models/lightbody-lifted-85-low-poly-model-67beae18c3d24be68f9c8f0ec382d8e3" },
-    "models/f150-crew.gltf": { text: "Based on \"Lightbody Lifted '85\" by Daniel Zhabotinsky, CC BY 4.0", url: "https://sketchfab.com/3d-models/lightbody-lifted-85-low-poly-model-67beae18c3d24be68f9c8f0ec382d8e3" },
+    "models/f250-crew.gltf": { text: "Based on \"Ford F-450 Twin Turbo 2021\" by DR1KING100K, CC BY 4.0", url: "https://sketchfab.com/3d-models/ford-f-450-twin-turbo-2021-610cecc94c9646e3826ac918917e997c" },
+    "models/f150-crew.gltf": { text: "Based on \"2024_ford_f-150_raptor_r\" by 007, CC BY 4.0", url: "https://sketchfab.com/3d-models/2024-ford-f-150-raptor-r-11b2d3c304ee474195f06fa8315d247b" },
     "models/f450-crew.gltf": { text: "Based on \"Ford F-450 Twin Turbo 2021\" by DR1KING100K, CC BY 4.0", url: "https://sketchfab.com/3d-models/ford-f-450-twin-turbo-2021-610cecc94c9646e3826ac918917e997c" },
     "models/gm2500-crew.gltf": { text: "Based on \"Chevy Silverado 2500HD\" by David_Holiday, CC BY 4.0", url: "https://sketchfab.com/3d-models/chevy-silverado-2500hd-f1b5b0c1a6484a6ba3d4af0934c5fe71" },
     "models/gmc2500-crew.gltf": { text: "Based on \"GMC SIERRA HD2500\" by 01, CC BY 4.0", url: "https://sketchfab.com/3d-models/gmc-sierra-hd2500-c31554882b074e168ddc65bd6d1e5464" },
     "models/ram1500-crew.gltf": { text: "Based on \"2021-ram-1500-trx\" by 007, CC BY 4.0", url: "https://sketchfab.com/3d-models/2021-ram-1500-trx-d5dda94744b240d3b29c62c392155320" },
   } as Record<string, { text: string; url: string }>,
-  stageBadgeTitle: "The body is a stand-in. Wheelbase, track and tire size are real.",
+  stageBadgeTitle: "Preview body, de-badged. Wheelbase, track and tire size are real.",
   cameraLabel: "Camera angle",
   cameraFallback: [
     { key: "front", label: "Front" }, { key: "threeQuarter", label: "Three-quarter" }, { key: "side", label: "Side" },

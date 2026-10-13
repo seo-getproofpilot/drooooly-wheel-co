@@ -1,42 +1,90 @@
 # Truck model licenses
 
-## f250-crew.gltf and f150-crew.gltf (stand-ins, 2026-10-11)
+## f250-crew.gltf (2026-10-13)
 
-Both are built from one CC-BY model, turned to the DROOOLY node contract, scaled to each
-platform's track and stretched in the bed to its wheelbase by `tools/3d/prepare-lightbody.py`.
-They are generic, unbadged bodies (the source is a fictional truck with no OEM marks) and
-remain development stand-ins until commissioned crew-cab bodies replace them
-(LAUNCH-CHECKLIST 7.1).
+Built from the same CC-BY "Ford F-450 Twin Turbo 2021" model as f450-crew.gltf, by
+`tools/3d/prepare-f250.py`. The 2017-2022 F-250 and F-450 crew cabs share the cab, doors, hood
+and front fenders; the differences are the F-450's 8 ft bed and dual-rear-wheel fenders. On top
+of everything prepare-f450.py does (badges, lettering, wheels and engine out, interior
+decimated, plain materials by object name, paint joined into `body`, glass into `glass`, the
+rest into `chassis`):
 
-Required credit, which must appear wherever the model is shown (the configurator carries it on
-the stage):
+- a 16.4 in slice of the bed is cut out just behind the cab (bisected at two planes, the faces
+  between deleted, everything aft slid forward, the cut loops welded), so the wheelbase is the
+  F-250 crew cab 6.75 ft bed's 159.8 in. The source's fuel door sat in that slice and is gone;
+- the dually flares, their marker lamps and the mud flaps are flattened into the bed side
+  (vertices beyond 0.985 m from the centreline clamped to it, lamps painted), which keeps the
+  round arch opening and reads as a single-rear-wheel bed side. The flare's outline survives as
+  a faint crease in the paint;
+- the front and rear axle ends are clipped at 0.78 m (frame at 0.80 m) so nothing pokes
+  through an SRW wheel at the platform's 68.3 in track.
 
-> This work is based on "Lightbody Lifted '85 - Low poly model"
-> (https://sketchfab.com/3d-models/lightbody-lifted-85-low-poly-model-67beae18c3d24be68f9c8f0ec382d8e3)
-> by Daniel Zhabotinsky (https://sketchfab.com/DanielZhabotinsky) licensed under CC-BY-4.0
+Quantized (`KHR_mesh_quantization`, no decoder), no meshopt, no textures (LAUNCH-CHECKLIST
+7.5). 2.9 MB, 120k triangles. Same known residue as the F-450 (a 3 cm trim nameplate on each
+rear door, the blank oval pad in the grille).
+
+Required credit, which must appear wherever the model is shown:
+
+> This work is based on "Ford F-450 Twin Turbo 2021"
+> (https://sketchfab.com/3d-models/ford-f-450-twin-turbo-2021-610cecc94c9646e3826ac918917e997c)
+> by DR1KING100K (https://sketchfab.com/DR1KING100K) licensed under CC-BY-4.0
 > (http://creativecommons.org/licenses/by/4.0/)
 
-- Author: Daniel Zhabotinsky. License: CC-BY-4.0, commercial use allowed, author must be credited.
-  The author's listing also says: "I unconditionally give you permission to use this model at
-  your discretion, modify it or implement it into a digital product."
-- Downloaded 2026-10-11 as the Sketchfab glTF archive (10 MB). Source files live in
-  `tools/3d/.source/lightbody-lifted-85/` (gitignored).
-- Changes made: wheels, badges and number plates removed; specular maps dropped; textures
-  resized to 1024 and converted to WebP; body paint meshes joined into `body`, glass into
-  `glass`, undercarriage into `chassis`; bed stretched to the platform wheelbase; hub empties
-  added. Exported as a separate `.gltf` with external textures because the static host's CSP
-  refuses the blob: URLs that embedded textures need (LAUNCH-CHECKLIST 7.5).
+- License: CC-BY-4.0, commercial use allowed, author must be credited. Source in
+  `tools/3d/.source/ford-f450-2021/` (gitignored), see the f450 section.
+- Trade dress: badges gone, OEM body shape kept (LAUNCH-CHECKLIST 7.1).
 
 Rebuild:
 
 ```
-for k in f250-crew f150-crew; do
-  /opt/homebrew/bin/blender -b -P tools/3d/prepare-lightbody.py -- $k /tmp/lb/$k
-  cd configurator && npx @gltf-transform/cli resize /tmp/lb/$k/$k.gltf /tmp/lb/out/$k.gltf --width 1024 --height 1024 \
-    && npx @gltf-transform/cli webp /tmp/lb/out/$k.gltf /tmp/lb/out/$k.gltf --quality 80 \
-    && npx @gltf-transform/cli prune /tmp/lb/out/$k.gltf /tmp/lb/out/$k.gltf --keep-leaves && cd ..
-  # then copy the .gltf, .bin and the referenced textures/ into configurator/public/models/
-done
+/opt/homebrew/bin/blender -b -P tools/3d/prepare-f250.py -- /tmp/f250 --render   # --render writes QA views
+cd configurator && npx @gltf-transform/cli weld /tmp/f250/f250-crew.gltf /tmp/f250/a.gltf \
+  && npx @gltf-transform/cli simplify /tmp/f250/a.gltf /tmp/f250/b.gltf --ratio 0.6 --error 0.0008 \
+  && npx @gltf-transform/cli quantize /tmp/f250/b.gltf /tmp/f250/c.gltf \
+  && npx @gltf-transform/cli prune /tmp/f250/c.gltf /tmp/f250/out.gltf --keep-leaves && cd ..
+# every step rewrites the shared /tmp/f250/f250-crew.bin, so copy out.gltf as f250-crew.gltf
+# together with that .bin into configurator/public/models/
+```
+
+## f150-crew.gltf (2026-10-13)
+
+Built from a CC-BY model of the 2024 F-150 Raptor R by `tools/3d/prepare-f150.py`. The Raptor
+R is a wide-body trim of the 14th-gen F-150 SuperCrew 5.5 ft bed, the platform's shape, with
+flared fenders and 37 in tires. The source is real scale at 1/100, faces the contract already,
+and sits level on 34.4 in tires at a 73.7 in track; it is scaled uniformly so its wheelbase
+matches the platform's 145.4 in and dropped onto the platform's stock tire. Deleted: the logo
+decal atlases (ovals, RAPTOR, F-150, stickers and plate), the raised FORD letters in the grille
+and on the tailgate and their surrounds, the F-150 and RAPTOR tailgate badges (loose parts cut
+by bounding box), the wheels, brakes and engine. Interior decimated hard, heavy trim medium.
+Paint joined into `body` (one clean `paint` slot), glass into `glass`, the rest into `chassis`
+with its authored materials. Textures resized to 1024 and converted to WebP, external, renamed
+`textures/f150-<name>`. Quantized, no meshopt. 2.6 MB, 84k triangles, 21 textures.
+
+Known residue: the wheels sit on the platform's 67.6 in track inside the Raptor's wide
+flares, so the stance reads a little tucked next to a stock Raptor.
+
+Required credit, which must appear wherever the model is shown:
+
+> This work is based on "2024_ford_f-150_raptor_r"
+> (https://sketchfab.com/3d-models/2024-ford-f-150-raptor-r-11b2d3c304ee474195f06fa8315d247b)
+> by 007 (https://sketchfab.com/tangwang920) licensed under CC-BY-4.0
+> (http://creativecommons.org/licenses/by/4.0/)
+
+- License: CC-BY-4.0, commercial use allowed, author must be credited. Downloaded 2026-10-11 as
+  the Sketchfab glTF archive (12 MB). Source in `tools/3d/.source/ford-f150-raptor-r/`
+  (gitignored).
+- Trade dress: badges gone, OEM body shape kept (LAUNCH-CHECKLIST 7.1).
+
+Rebuild:
+
+```
+/opt/homebrew/bin/blender -b -P tools/3d/prepare-f150.py -- /tmp/f150
+cd configurator && G="npx @gltf-transform/cli" && d=/tmp/f150 && f=f150-crew \
+  && $G weld $d/$f.gltf $d/a.gltf && $G simplify $d/a.gltf $d/b.gltf --ratio 0.6 --error 0.0008 \
+  && $G resize $d/b.gltf $d/c.gltf --width 1024 --height 1024 && $G webp $d/c.gltf $d/e.gltf --quality 80 \
+  && $G quantize $d/e.gltf $d/g.gltf && mkdir -p $d/out && $G prune $d/g.gltf $d/out/$f.gltf --keep-leaves && cd ..
+# copy the .gltf, .bin and referenced textures into configurator/public/models/, renaming each
+# texture to textures/f150-<name> and rewriting its uri in the .gltf (avoids clashes between bodies)
 node tools/test-3d-models.js && node tools/check-3d-budgets.js configurator/public/models/*.gltf
 ```
 
@@ -198,7 +246,13 @@ cd configurator && G="npx @gltf-transform/cli" && d=/tmp/ram1500 && f=ram1500-cr
 # texture to textures/ram1500-<name> and rewriting its uri in the .gltf (avoids clashes between bodies)
 ```
 
-## Earlier stand-in (retired 2026-10-11)
+## Earlier stand-ins (retired)
 
-Kenney Car Kit 3.1 `truck.glb`, CC0 1.0 (https://kenney.nl/assets/car-kit), via
-`tools/3d/prepare-truck.py`. Kept for reference; no longer shipped.
+- 2026-10-13: "Lightbody Lifted '85 - Low poly model"
+  (https://sketchfab.com/3d-models/lightbody-lifted-85-low-poly-model-67beae18c3d24be68f9c8f0ec382d8e3)
+  by Daniel Zhabotinsky (https://sketchfab.com/DanielZhabotinsky), CC-BY-4.0, a fictional
+  unbadged pickup that stood in for f250 and f150 via `tools/3d/prepare-lightbody.py`. Source
+  kept in `tools/3d/.source/lightbody-lifted-85/` (gitignored); no longer shipped, so no credit
+  is shown.
+- 2026-10-11: Kenney Car Kit 3.1 `truck.glb`, CC0 1.0 (https://kenney.nl/assets/car-kit), via
+  `tools/3d/prepare-truck.py`. Kept for reference; no longer shipped.

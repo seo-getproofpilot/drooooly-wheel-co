@@ -22,7 +22,7 @@ test("the 3D stage draws the build with its callout and no page errors", async (
   await expect(page.locator(".stage canvas")).toBeVisible();
   await expect(page.locator(".stage")).toContainText("26x14 -76", { timeout: 120_000 });
   await expect(page.locator(".stage")).toContainText("JTX Ace, Polished");
-  await expect(page.getByRole("link", { name: /Lightbody Lifted '85/ })).toHaveAttribute("href", /sketchfab\.com\/3d-models\/lightbody-lifted-85/);
+  await expect(page.getByRole("link", { name: /Ford F-450 Twin Turbo 2021/ })).toHaveAttribute("href", /sketchfab\.com\/3d-models\/ford-f-450-twin-turbo-2021/);
   await page.waitForTimeout(3000);
   await shot(page, "stage-live", false);
   expect([...new Set(errors)]).toEqual([]);

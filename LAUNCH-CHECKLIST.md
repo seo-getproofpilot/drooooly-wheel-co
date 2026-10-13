@@ -661,10 +661,10 @@ each one is a phone call away from being better.
 
 - 🔴 **7.1 Truck bodies are CC-BY Sketchfab models, de-badged (2026-10-11).** Six bodies ship in
   `configurator/public/models/` (`f250`, `f150`, `f450`, `gm2500`, `gmc2500`, `ram1500`), each with
-  its author, license and rebuild steps in `configurator/public/models/LICENSES.md`. Four are
+  its author, license and rebuild steps in `configurator/public/models/LICENSES.md`. All six are
   real OEM shapes with every badge, emblem and plate mesh deleted (F-450, Silverado HD, Sierra HD,
-  RAM 1500 TRX); `f250` and `f150` are a fictional unbadged pickup stretched to the platform's
-  wheelbase and track until a 2017+ crew-cab Super Duty and a 14th-gen F-150 body land. The
+  RAM 1500 TRX, and since 2026-10-13 an F-250 cut down from the F-450 model and an F-150 from a
+  Raptor R model; the fictional Lightbody stand-in is retired). The
   stage carries each body's CC BY credit line, which the license requires wherever the model
   is shown; keep it when restyling. Trade dress: a de-badged body is still the OEM's shape, the
   same exposure the 2D visualizers in this market carry by showing photos of real trucks. A

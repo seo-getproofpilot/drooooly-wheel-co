@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-13",
  "vehicles": [
   {
    "id": "f250",
@@ -233,7 +233,8 @@
     "trackIn": 67.6,
     "stockTireOdIn": 31.8,
     "stockWheelDiaIn": 18,
-    "cab": "crew"
+    "cab": "crew",
+    "bodyTrackIn": 73.7
    },
    "body": {
     "cab": "crew",
@@ -5700,7 +5701,7 @@
   },
   {
    "slug": "fury",
-   "name": "Fury Offroad",
+   "name": "Fury Tires",
    "models": [
     {
      "model": "Country Hunter M/T",

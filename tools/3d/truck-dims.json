@@ -1,20 +1,21 @@
 {
- "_note": "Wheelbase, track and stock tire OD match the model blocks in vehicles.js (published OEM spec sheet figures; estimates until a tape confirms them). bodyWidthIn is the published overall width without mirrors and only sizes the stand-in body. source is relative to configurator/public/models/.",
+ "_note": "Wheelbase, track and stock tire OD match the model blocks in vehicles.js (published OEM spec sheet figures; estimates until a tape confirms them). bodyWidthIn is the published overall width without mirrors and only sizes the stand-in body. source is relative to configurator/public/models/. bodyTrackIn, where present, overrides trackIn for hub placement only.",
  "f250-crew": {
-  "source": ".source/lightbody-lifted-85/scene.gltf",
+  "source": ".source/ford-f450-2021/scene.gltf",
   "wheelbaseIn": 159.8,
   "trackIn": 68.3,
   "stockTireOdIn": 33.2,
   "bodyWidthIn": 80.0,
-  "_note": "Shipped body is the fictional Lightbody pickup stretched by prepare-lightbody.py to the 2017+ crew cab 6.75 ft bed wheelbase. A de-badged 2017-2022 Super Duty SRW crew cab derived from the f450 source (bed shortened 16.4 in, DRW flares off) is the planned replacement. See configurator/public/models/LICENSES.md"
+  "_note": "2017-2022 F-250 crew cab 6.75 ft bed, SRW. Stock LT275/70R18 is about 33.2 in OD. Built by prepare-f250.py from the F-450 source (same cab, hood, doors and front fenders): a 16.4 in slice of the bed is cut out and the dually flares are flattened into the bed side. See configurator/public/models/LICENSES.md"
  },
  "f150-crew": {
-  "source": ".source/lightbody-lifted-85/scene.gltf",
+  "source": ".source/ford-f150-raptor-r/scene.gltf",
   "wheelbaseIn": 145.4,
   "trackIn": 67.6,
+  "bodyTrackIn": 73.7,
   "stockTireOdIn": 31.8,
   "bodyWidthIn": 79.9,
-  "_note": "Shipped body is the fictional Lightbody pickup stretched by prepare-lightbody.py to the SuperCrew 5.5 ft bed wheelbase. A de-badged 14th-gen F-150 body is the planned replacement. See configurator/public/models/LICENSES.md"
+  "_note": "2021+ F-150 SuperCrew 5.5 ft bed. Stock 275/60R20 is about 31.8 in OD. Source is the 2024 Raptor R wide body on 37s (73.7 in track), scaled uniformly to this wheelbase and lowered to the platform stock tire by prepare-f150.py; see configurator/public/models/LICENSES.md bodyTrackIn is the Raptor R's own track, used only to place the hub empties so a wheel pokes past the Raptor flare by the amount the fitment maths (trackIn) says it pokes past a stock fender."
  },
  "f450-crew": {
   "source": ".source/ford-f450-2021/scene.gltf",

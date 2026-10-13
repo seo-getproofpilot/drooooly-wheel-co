@@ -15,6 +15,16 @@ describe("fit", () => {
     expect(fr.z).toBeCloseTo(0, 3);
     expect(r.corners.find(k => k.name === "RR")!.z).toBeCloseTo(-159.8 * IN, 3);
   });
+  it("draws the wheels on the body's own track when the body is a wider trim, poke maths untouched", () => {
+    const wheel = { diaIn: 22, widthIn: 12, offsetMm: -44 }, tire = { od: 35, section: 12.5, rim: 22 };
+    const r = fit({ vehicle: f150, liftIn: 0, wheel, tire, config: "single" });
+    const stock = fit({ vehicle: { ...f150, model: { ...f150.model!, bodyTrackIn: undefined } }, liftIn: 0, wheel, tire, config: "single" });
+    expect(f150.model!.bodyTrackIn).toBe(73.7);
+    const fl = r.corners.find(k => k.name === "FL")!, sl = stock.corners.find(k => k.name === "FL")!;
+    expect(fl.x - sl.x).toBeCloseTo(((73.7 - 67.6) / 2) * IN, 6);   // the Raptor body's wider track, per side
+    expect(r.pokeText).toBe(stock.pokeText);                           // the sentence still describes the stock truck
+    expect(r.g.poke).toBe(stock.g.poke);
+  });
   it("mirrors the right (-X) side, left corners sit at +X", () => {
     const r = fit({ vehicle: f250, liftIn: 0, wheel: { diaIn: 20, widthIn: 10, offsetMm: -18 }, tire: { od: 35, section: 12.5, rim: 20 }, config: "single" });
     const fl = r.corners.find(k => k.name === "FL")!, fr = r.corners.find(k => k.name === "FR")!;
