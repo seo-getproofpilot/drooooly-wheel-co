@@ -47,7 +47,10 @@ from mathutils import Vector
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
-PUB = os.path.join(REPO, "configurator", "public")
+# hdri/ and textures/ live in configurator/public and are copied into the built
+# visualize/. DROOOLY_ASSET_ROOT points at either (the render service image
+# ships visualize/ only).
+PUB = os.environ.get("DROOOLY_ASSET_ROOT") or os.path.join(REPO, "configurator", "public")
 HDRI = os.path.join(PUB, "hdri", "outdoor.hdr")
 ASPHALT = {m: os.path.join(PUB, "textures", f"asphalt_02_{m}.webp") for m in ("diff", "nor_gl", "rough")}
 
@@ -342,6 +345,11 @@ def setup_render(opts, width, height, log):
     sc.cycles.use_adaptive_sampling = True
     sc.cycles.use_denoising = True
     sc.cycles.denoiser = "OPENIMAGEDENOISE"
+    # OIDN on the GPU only when Cycles renders there; a CPU-only Linux box has
+    # no GPU denoiser to fall back from.
+    if hasattr(sc.cycles, "denoising_use_gpu"):
+        sc.cycles.denoising_use_gpu = device != "CPU"
+    sc.render.threads_mode = "AUTO"  # every core
     sc.cycles.max_bounces = 12
     sc.cycles.transparent_max_bounces = 16
     sc.render.resolution_x = width

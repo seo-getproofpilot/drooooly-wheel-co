@@ -298,6 +298,25 @@ a{color:inherit}
 .foot__pair .btn,.foot__pair .btn .btn-txt{font-size:12px}
 .status{min-height:20px;margin:10px 0 0;font-size:13px;color:var(--muted)}
 .status input{width:100%;margin-top:6px;padding:8px;border:1px solid var(--line-2);background:var(--panel-2);color:#fff;font:13px var(--body)}
+.foot__pair .btn:disabled{cursor:progress;color:var(--muted);transform:none}
+
+/* the studio shot lightbox: phone first, the still contained between a 16px
+   gutter and the button bar, never wider than the screen */
+.lightbox{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;gap:12px;
+  padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));background:rgba(8,9,10,.97);overflow:hidden}
+.lightbox__frame{flex:1 1 auto;min-height:0;margin:0;display:flex;align-items:center;justify-content:center}
+.lightbox__img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  border:1px solid var(--line-2);background:var(--panel)}
+.lightbox__bar{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:560px;margin:0 auto}
+.lightbox__bar .btn:first-child{grid-column:1 / -1}
+.lightbox__bar .btn{padding:0 10px;white-space:nowrap}
+.lightbox__note{flex:none;min-height:18px;width:100%;max-width:560px;margin:0 auto;font-size:13px;color:var(--muted);text-align:center}
+.lightbox__note input{width:100%;margin-top:6px;padding:8px;border:1px solid var(--line-2);background:var(--panel-2);color:#fff;font:13px var(--body)}
+@media(min-width:960px){
+  .lightbox{padding:32px 32px 24px}
+  .lightbox__bar{grid-template-columns:repeat(3,auto);justify-content:center}
+  .lightbox__bar .btn:first-child{grid-column:auto}
+}
 .fine{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
 
 /* the opening sheet: the stage fills the page, dimmed, under a centred card */

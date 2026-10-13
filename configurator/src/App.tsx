@@ -20,6 +20,8 @@ import { brands, configOf, encode, initialBuild, platforms, readFinder, reduce, 
 import { finishCode, type FinishCode } from "./materials/finishes";
 import { TruckSheet, type TruckDraft } from "./ui/TruckSheet";
 import { Panel } from "./ui/Panel";
+import { CameraProbe } from "./ui/CameraProbe";
+import type { StudioCamera } from "./data/render";
 import { callout } from "./ui/callout";
 import { shareUrl } from "./ui/describe";
 import { copy } from "./ui/copy";
@@ -116,6 +118,9 @@ export default function App() {
   const [lost, setLost] = useState(false);
   const show3d = gl && !lost;
   const snapRef = useRef<(() => string | null) | null>(null);
+  /* the live camera pose for the studio shot, filled from inside the Canvas */
+  const camRef = useRef<(() => StudioCamera | null) | null>(null);
+  const [camReady, setCamReady] = useState(false);
   const style = (JTX_PROGRAMS.find((p) => p.model === r.model) ?? JTX_PROGRAMS[0]).style;
   const rake = rakeFor(sb.lv, sb.l ?? 0);
   const shadowKey = [vehicle.id, f.bodyLiftM.toFixed(4), rake, f.corners.map((c) => c.x.toFixed(4)).join(","), body ? "b" : "-"].join("|");
@@ -166,6 +171,7 @@ export default function App() {
             <Truck vehicle={vehicle} paintHex={paint.hex} bodyLiftM={f.bodyLiftM} rakeDeg={rake} onBounds={onBounds} />
             <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} bolt={vehicle.bolt} />
             {!posterMode && <Pins fit={f} headline={words.headline} line2={words.line2} line3={words.line3} visible={PIN_PRESETS.includes(preset)} />}
+            {!posterMode && <CameraProbe target={camRef} onReady={setCamReady} />}
             {ExportHook && <Suspense fallback={null}><ExportHook /></Suspense>}
           </Stage>
         ) : (
@@ -212,7 +218,8 @@ export default function App() {
         {!showPicker && (
           <div className="panel">
             <Panel cat={catalog} b={b} vehicle={vehicle} fit={f} stanceSentence={words.stance} set={set}
-              editTruck={() => { setDraft(null); setSheet(true); }} snapshot={show3d ? () => snapRef.current?.() ?? null : null} />
+              editTruck={() => { setDraft(null); setSheet(true); }} snapshot={show3d ? () => snapRef.current?.() ?? null : null}
+              camera={show3d && camReady ? () => camRef.current?.() ?? null : null} />
           </div>
         )}
         {showPicker && (

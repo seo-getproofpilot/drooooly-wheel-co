@@ -6,10 +6,20 @@
    build on stage as a binary glTF (the objects named "truck" and "wheelset",
    so no location skybox, asphalt, sun or contact shadow) and the camera the
    visitor is looking through, read from CameraControls. GLTFExporter is
-   imported on the first call, not before. */
+   imported on the first call, not before.
+
+   The render service (render-service/src/export.js) passes a camera:
+   exportScene({ camera: { position, target } }) moves CameraControls there
+   with no transition and waits two frames, so distance-driven fades (the
+   sidewall lettering) settle for that pose before the export. The result also
+   carries `credit`, the CC BY line of the body on stage, which the license
+   requires on every image of it. */
 import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 import { Texture, TextureSource, Vector3, type DataTexture, type Material, type Mesh, type Object3D, type PerspectiveCamera } from "three";
+import { loadCatalog } from "../data/catalog";
+import { initialBuild, platforms } from "../flow";
+import { copy } from "../ui/copy";
 
 export interface ExportedCamera {
   position: [number, number, number];
@@ -21,13 +31,38 @@ export interface ExportedCamera {
   height: number;
 }
 
-export interface ExportResult { glb: ArrayBuffer; camera: ExportedCamera }
-
-declare global {
-  interface Window { __droooly?: { exportScene(): Promise<ExportResult> } }
+export interface ExportResult {
+  glb: ArrayBuffer;
+  camera: ExportedCamera;
+  /** CC BY credit line of the body on stage; "" when the body needs none */
+  credit: string;
 }
 
-interface Controls { getTarget(out: { x: number; y: number; z: number }): { x: number; y: number; z: number } }
+export interface ExportOptions { camera?: { position: [number, number, number]; target: [number, number, number] } }
+
+declare global {
+  interface Window { __droooly?: { exportScene(opts?: ExportOptions): Promise<ExportResult> } }
+}
+
+interface Controls {
+  getTarget(out: { x: number; y: number; z: number }): { x: number; y: number; z: number };
+  setLookAt(px: number, py: number, pz: number, tx: number, ty: number, tz: number, transition?: boolean): Promise<void>;
+  update(dt: number): boolean;
+}
+
+const nextFrame = () => new Promise<void>((r) => requestAnimationFrame(() => r()));
+
+/* The credit the stage shows (App renders it under the canvas). ?poster=1
+   hides that line, so the fallback reads the same copy entry for the vehicle
+   the URL asks for, the way App picks it (F-250 when the link names none). */
+function bodyCredit(): string {
+  const shown = document.querySelector(".stage .credit")?.textContent?.trim();
+  if (shown) return shown;
+  const cat = loadCatalog();
+  const v = initialBuild(cat, location.search, null).build.v;
+  const vehicle = platforms(cat).find((x) => x.id === v) ?? platforms(cat).find((x) => x.id === "f250");
+  return copy.bodyCredits[vehicle?.model?.file ?? ""]?.text ?? "";
+}
 
 const ROOTS = ["truck", "wheelset"];
 
@@ -96,7 +131,15 @@ export default function ExportHook() {
 
   useEffect(() => {
     window.__droooly = {
-      async exportScene() {
+      async exportScene(opts?: ExportOptions) {
+        if (opts?.camera) {
+          if (!controls) throw new Error("exportScene: no camera controls on stage");
+          const { position: p, target: t } = opts.camera;
+          await controls.setLookAt(p[0], p[1], p[2], t[0], t[1], t[2], false);
+          controls.update(0);
+          await nextFrame();
+          await nextFrame();
+        }
         const { GLTFExporter } = await import("three/examples/jsm/exporters/GLTFExporter.js");
         const roots = ROOTS.map((n) => scene.getObjectByName(n)).filter((o): o is Object3D => !!o);
         if (roots.length !== ROOTS.length) throw new Error("exportScene: truck or wheelset not on stage yet");
@@ -119,6 +162,7 @@ export default function ExportHook() {
             width: size.width,
             height: size.height,
           },
+          credit: bodyCredit(),
         };
       },
     };
