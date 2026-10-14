@@ -53,6 +53,45 @@ export async function renderStill(o) {
 }
 
 /**
+ * The same render on the Modal GPU service (render-service/modal_render.py):
+ * the glTF goes up as the body, the camera in a header, the PNG comes back.
+ * Rejects on any non-200 with the service's error line, so the caller can
+ * fall back to the local Blender.
+ * @param {{
+ *   glb: Buffer, camera: import("./key.js").Camera, url: string, key: string,
+ *   samples: number, longSide: number, timeoutMs?: number, fetchImpl?: typeof fetch,
+ * }} o
+ * @returns {Promise<{ png: Buffer, renderMs: number, blenderRenderS?: number, device?: string }>}
+ */
+export async function renderStillRemote(o) {
+  const { width, height } = stillSize(o.camera.aspect, o.longSide);
+  const u = new URL(o.url);
+  u.searchParams.set("samples", String(o.samples));
+  u.searchParams.set("width", String(width));
+  u.searchParams.set("height", String(height));
+  const { position, target, fov, aspect } = o.camera;
+  const t0 = Date.now();
+  const res = await (o.fetchImpl ?? fetch)(u, {
+    method: "POST",
+    headers: {
+      "content-type": "application/octet-stream",
+      "x-render-key": o.key,
+      "x-render-camera": JSON.stringify({ position, target, fov, aspect }),
+    },
+    body: o.glb,
+    signal: AbortSignal.timeout(o.timeoutMs ?? 240_000),
+  });
+  if (!res.ok) {
+    let detail = "";
+    try { detail = (await res.json()).error ?? ""; } catch { /* not JSON */ }
+    throw new Error(`remote render ${res.status}${detail ? `: ${detail}` : ""}`);
+  }
+  let result = {};
+  try { result = JSON.parse(res.headers.get("x-render-result") || "{}"); } catch { /* header optional */ }
+  return { png: Buffer.from(await res.arrayBuffer()), renderMs: Date.now() - t0, blenderRenderS: result.render_s, device: result.device };
+}
+
+/**
  * Runs a process; rejects with the tail of its output on a non-zero exit or
  * a timeout.
  * @param {string} cmd @param {string[]} args

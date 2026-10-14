@@ -698,3 +698,13 @@ each one is a phone call away from being better.
   `tools/3d/prepare-truck.py`). The commissioned bodies (7.1) will want meshopt and KTX2, so
   before they ship either the host has to allow those directives or the configurator moves to a
   host that does (the spec's Cloudflare R2 plan).
+- 🟡 **7.6 Studio shot GPU renders run on a personal Modal account (2026-10-13).** The
+  Railway `render` service posts each exported glTF to the Modal app `droooly-render`
+  (`render-service/modal_render.py`, Blender 5.2 LTS on an NVIDIA L4), which cut the Blender
+  step from 20 s on Railway's CPU to about 10 s round trip. That app lives in Matthew's
+  workspace `matthew-73861` on the Starter plan (a monthly compute credit, no card on file
+  for overage) and the shared key sits in the Modal secret `droooly-render` and Railway's
+  `RENDER_REMOTE_KEY`. Before launch: a DROOOLY-owned Modal workspace with billing, a
+  redeploy there, and the two Railway variables repointed. With `RENDER_REMOTE_URL` unset
+  the service falls back to its own CPU Blender, so the feature survives the account going
+  away, only slower.

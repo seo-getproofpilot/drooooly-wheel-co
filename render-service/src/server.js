@@ -18,6 +18,9 @@ import { decodeKey, encodeKey, isHash, keyHash, validateRequest } from "./key.js
 import { QueueFullError, RateLimiter, RenderQueue } from "./queue.js";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
+/** The boot warm-up: the showroom F-250 at the Front preset, the build most links open on. */
+const WARMUP_BUILD = "v=f250&y=2021&p=race-red&l=4&b=jtx&m=Ace&s=26x14&f=polished&t=37x13.50R26";
+const WARMUP_CAMERA = { position: [3.6, 1, 3], target: [0, 0.93, -1.9], fov: 28, aspect: 1.6 };
 const ROOT = path.resolve(HERE, "..", "..");
 
 /**
@@ -199,7 +202,9 @@ async function main() {
   const script = path.resolve(env.RENDER_SCRIPT || path.join(ROOT, "tools", "3d", "render-offline.py"));
   const cacheDir = path.resolve(env.RENDER_CACHE_DIR || "./cache");
 
-  const [{ Exporter }, { renderStill, encodeStill }] = await Promise.all([import("./export.js"), import("./render.js")]);
+  const remoteUrl = env.RENDER_REMOTE_URL || "";
+  const remoteKey = env.RENDER_REMOTE_KEY || "";
+  const [{ Exporter }, { renderStill, renderStillRemote, encodeStill }] = await Promise.all([import("./export.js"), import("./render.js")]);
   const exporter = new Exporter({ baseUrl: `http://127.0.0.1:${port}/visualize/` });
   let blenderVersion = "checking";
   readBlenderVersion(blender).then((v) => { blenderVersion = v; console.log(`blender: ${v}`); });
@@ -211,14 +216,33 @@ async function main() {
     blenderVersion: () => blenderVersion,
     exportJob: (job) => exporter.export(job.request),
     renderJob: async (job, exported) => {
-      const r = await renderStill({ glb: exported.glb, camera: job.request.camera, blender, script, assetRoot: visualizeDir, samples, longSide, device });
+      const local = () => renderStill({ glb: exported.glb, camera: job.request.camera, blender, script, assetRoot: visualizeDir, samples, longSide, device });
+      let r;
+      if (remoteUrl) {
+        // the GPU service first; its failure costs one log line and the CPU render
+        try {
+          r = await renderStillRemote({ glb: exported.glb, camera: job.request.camera, url: remoteUrl, key: remoteKey, samples, longSide });
+          console.log(`remote render ${job.hash.slice(0, 12)} ${r.device ?? "?"} blender ${r.blenderRenderS ?? "?"} s round trip ${r.renderMs} ms`);
+        } catch (e) {
+          console.log(`remote render failed, local blender: ${e instanceof Error ? e.message : e}`);
+          r = await local();
+        }
+      } else {
+        r = await local();
+      }
       const t0 = Date.now();
       const jpeg = await encodeStill(r.png, exported.credit);
       return { jpeg, renderMs: r.renderMs, encodeMs: Date.now() - t0 };
     },
   });
   const server = app.listen(port, () => {
-    console.log(`render service on :${port} samples ${samples} long side ${longSide} device ${device} cache ${cacheDir} cpus ${os.cpus().length}`);
+    console.log(`render service on :${port} samples ${samples} long side ${longSide} device ${remoteUrl ? `remote ${new URL(remoteUrl).host}, fallback ${device}` : device} cache ${cacheDir} cpus ${os.cpus().length}`);
+    // Warm the export page once at boot (navigate, compile, load the default
+    // body), so the first shopper's still takes the warm path. EXPORT_WARMUP=0 skips it.
+    if (env.EXPORT_WARMUP !== "0") {
+      exporter.export({ build: WARMUP_BUILD, camera: WARMUP_CAMERA })
+        .then(() => console.log("export page warm"), (e) => console.log(`export warm-up failed: ${e instanceof Error ? e.message : e}`));
+    }
   });
   const stop = async () => { server.close(); await exporter.close(); process.exit(0); };
   process.on("SIGTERM", stop);

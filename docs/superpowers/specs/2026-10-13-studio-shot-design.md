@@ -21,6 +21,18 @@ instant, the photo takes a minute and arrives in place.
    `window.__droooly.exportScene()` to get the binary glTF, path-traces it with
    `tools/3d/render-offline.py` in Cycles, encodes a JPEG and caches it on the volume at
    `/data/stills`.
+   - The headless page stays open between jobs. After the first job the service calls
+     `window.__droooly.setBuild(query)` (`configurator/src/dev/exportBridge.ts`), which swaps
+     paint, wheels and body in place and resolves once the stage has committed that build, so
+     navigation, shader compile and the body download happen once per browser life. The page is
+     recycled after `EXPORT_PAGE_REUSES` jobs (40) or on any failure. The log line
+     `export cold|warm ... scene ... transfer ...` carries the stage timings.
+   - Blender runs on a GPU when `RENDER_REMOTE_URL` is set: the service posts the glTF to
+     `render-service/modal_render.py` (Modal app `droooly-render`, Blender 5.2 LTS on an NVIDIA
+     L4, Cycles on OptiX) and gets the PNG back; the same script and assets, only the device
+     changes. Any failure there logs one line and falls back to the local CPU Blender. Measured
+     2026-10-13: 2.7 s of render, about 8 s in the container, 10 s round trip with the 14.5 MB
+     glTF upload, against 20 s on Railway's CPU.
 
 ## API (fixed contract between the two tracks)
 
@@ -43,7 +55,23 @@ The service also accepts a sha256 of the key as an alias once it has seen the ke
 
 Env: `PORT` (8080), `RENDER_SAMPLES` (32), `RENDER_LONG_SIDE` (1400), `RENDER_CACHE_DIR`
 (`/data/stills`), `ALLOWED_ORIGINS`, `PUBLIC_URL`, `BLENDER_BIN` (default `/opt/blender/blender`),
-`RENDER_DEVICE` (`CPU` default; `auto` on a GPU host).
+`RENDER_DEVICE` (`CPU` default; `auto` on a GPU host), `RENDER_REMOTE_URL` and `RENDER_REMOTE_KEY`
+(the Modal endpoint and its shared key; unset means local Blender), `EXPORT_PAGE_REUSES` (40).
+
+### Modal GPU renderer (`render-service/modal_render.py`)
+
+- `POST <url>?samples=32&width=W&height=H`, headers `x-render-key` (shared key, Modal secret
+  `droooly-render` / `RENDER_SHARED_KEY`) and `x-render-camera` (JSON position, target, fov,
+  aspect), body the binary glTF. `200 image/png` with `x-render-result` JSON (`render_s`,
+  `device`, `total_s`); `401` bad key, `400` bad camera or size, `500` with Blender's last lines.
+- Deploy from the repo root with `modal deploy render-service/modal_render.py` (the Modal CLI
+  needs FastAPI locally: `uv tool install modal --with "fastapi[standard]"`). The image carries
+  Blender (sha-pinned, the same build as the Dockerfile); `render-offline.py`, `visualize/hdri`
+  and `visualize/textures` are mounted at deploy, so a change to them is a redeploy, not a
+  rebuild. Containers stay warm 180 s after a request; cold start adds about 20 s.
+- Modal workspace `matthew-73861`, app `droooly-render`, endpoint
+  `https://matthew-73861--droooly-render-render.us-east.modal.run`. Billing is per second of
+  container time on the Starter plan's monthly credit.
 
 Render size: the long side is `RENDER_LONG_SIDE`, the short side follows the request's aspect
 (portrait phones get a portrait still). One Blender render at a time; exports can overlap it.

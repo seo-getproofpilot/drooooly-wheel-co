@@ -3,7 +3,7 @@
    the showroom build; after, the panel is one live column and every change
    redraws the stage. ?poster=1 fills the viewport with the stage and nothing
    else, for tools/3d/render-posters.mjs. */
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, startTransition, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Box3 } from "three";
 import Fitment from "@site/fitment.js";
 import { loadCatalog } from "./data/catalog";
@@ -16,7 +16,8 @@ import { Pins } from "./scene/Pins";
 import { Truck, rakeFor } from "./scene/Truck";
 import { WheelSet } from "./scene/WheelSet";
 import { Poster } from "./scene/Poster";
-import { brands, configOf, encode, initialBuild, platforms, readFinder, reduce, seed, slugify, treadOf, truckPicked, SHOWROOM, type Build } from "./flow";
+import { brands, configOf, decode, encode, initialBuild, platforms, readFinder, reduce, seed, slugify, treadOf, truckPicked, SHOWROOM, type Build } from "./flow";
+import { registerBuildSetter } from "./dev/exportBridge";
 import { finishCode, type FinishCode } from "./materials/finishes";
 import { TruckSheet, type TruckDraft } from "./ui/TruckSheet";
 import { Panel } from "./ui/Panel";
@@ -78,6 +79,18 @@ export default function App() {
     if (posterMode) return;
     history.replaceState(null, "", location.pathname + encode(b));
   }, [b, posterMode]);
+
+  /* The render service's warm page swaps builds through the export hook
+     (dev/exportBridge.ts). A transition keeps the current truck on stage
+     while a new body downloads instead of dropping to the Suspense fallback. */
+  useEffect(() => {
+    if (!EXPORT_ENABLED) return;
+    return registerBuildSetter((query) => {
+      const next = seed(catalog, decode(query, catalog));
+      startTransition(() => setB(next));
+      return encode(next);
+    });
+  }, []);
 
   /* The sheet opens on a cold start only; a link or a saved finder truck goes
      straight to the panel. The truck card opens it again to change trucks. */
@@ -172,7 +185,7 @@ export default function App() {
             <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} bolt={vehicle.bolt} />
             {!posterMode && <Pins fit={f} headline={words.headline} line2={words.line2} line3={words.line3} visible={PIN_PRESETS.includes(preset)} />}
             {!posterMode && <CameraProbe target={camRef} onReady={setCamReady} />}
-            {ExportHook && <Suspense fallback={null}><ExportHook /></Suspense>}
+            {ExportHook && <Suspense fallback={null}><ExportHook build={encode(b)} credit={bodyCredit?.text ?? ""} /></Suspense>}
           </Stage>
         ) : (
           <Poster vehicle={vehicle} />
