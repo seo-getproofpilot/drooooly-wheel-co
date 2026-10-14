@@ -228,6 +228,8 @@ function sendForm(form, subject) {
   var build = buildSummary();
   if (build) data.build = build;
   data.page = location.pathname + location.search;
+  /* a signed-in shopper's quote carries their account, so it can be matched to a garage */
+  try { var u = window.DrooolyAccount && window.DrooolyAccount.user(); if (u) { data.account = u.id; if (!data.email) data.email = u.email; } } catch (e) { /* no account layer */ }
   return fetch(cfg.ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -251,6 +253,11 @@ function formFailure(form) {
 
 function wireQuoteForm(form, okEl, subject) {
   if (!form) return;
+  /* prefill the email of a signed-in shopper, never over something they typed */
+  if (window.DrooolyAccount) window.DrooolyAccount.onChange(function (u) {
+    var f = form.querySelector('input[type=email], input[name*="mail" i]');
+    if (u && f && !f.value) f.value = u.email;
+  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }

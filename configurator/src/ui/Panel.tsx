@@ -20,12 +20,14 @@ export interface PanelProps {
   set: (p: Partial<Build>) => void; editTruck: () => void; snapshot: (() => string | null) | null;
   /** the live camera pose for a studio shot; null on the poster or before the 3D camera exists */
   camera?: (() => StudioCamera | null) | null;
+  /** the studio key once a still has been rendered, so a saved build can carry its photo */
+  onStill?: (key: string) => void;
 }
 
 /* "37x13.50R26" shows as 37x13.50 (the rim is the wheel already picked). A metric size keeps its full name. */
 const tireLabel = (size: string) => (/^\d+(\.\d+)?x/i.test(size) ? size.replace(/R\d+(\.\d+)?.*$/i, "") : size);
 
-export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, snapshot, camera = null }: PanelProps) {
+export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, snapshot, camera = null, onStill }: PanelProps) {
   const config = configOf(vehicle);
   const dually = config === "dually";
   const lugs = /^(\d+)x/.exec(vehicle.bolt)?.[1] ?? null;
@@ -80,7 +82,7 @@ export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, sn
     setPending(true);
     setStatus({ text: copy.studioWorking });
     try {
-      const { url } = await requestStill(b, cam, ctl.signal, {
+      const { url, key } = await requestStill(b, cam, ctl.signal, {
         onStatus: (s) => {
           if (s.status === "done") return;
           setStatus({ text: s.position && s.position > 1 ? `${copy.studioWorking} ${copy.studioInLine(s.position)}` : copy.studioWorking });
@@ -88,6 +90,7 @@ export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, sn
       });
       setStatus(null);
       setStill(url);
+      onStill?.(key);
     } catch (e) {
       if ((e as Error)?.name === "AbortError") return;
       setStatus({ text: copy.studioFailed });

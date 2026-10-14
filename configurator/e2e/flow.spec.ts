@@ -110,13 +110,15 @@ test("step tabs scroll to their section", async ({ page }) => {
   expect(top).toBeLessThan(await page.evaluate(() => window.innerHeight - 100));
 });
 
-test("save my build copies the link", async ({ page, context }) => {
+test("save my build asks a signed-out visitor for their email", async ({ page }) => {
   await noGL(page);
-  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto(BUILD);
   await tap(page.getByRole("button", { name: "Save my build" }));
-  await expect(page.locator(".topbar")).toContainText("Link copied");
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("/visualize/?v=f250");
+  const sheet = page.getByRole("dialog", { name: "Save it to your garage" });
+  await expect(sheet).toBeVisible();
+  await expect(sheet.getByLabel("Email")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(sheet).toBeHidden();
 });
 
 test("the phone stage stays on top and is never covered", async ({ page }) => {

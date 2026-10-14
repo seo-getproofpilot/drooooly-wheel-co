@@ -340,3 +340,22 @@ a{color:inherit}
 .chip--soon{cursor:default;color:var(--soft);flex-direction:column;gap:3px;padding:6px 12px}
 .chip--soon small{font:600 9.5px/1 var(--label);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
 .chip--soon:hover{background:var(--line-2)}
+
+/* ---- sign in sheet (ui/SignInSheet.tsx) ---- */
+.acct-scrim{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.6);display:flex;justify-content:flex-end}
+.acct-sheet{width:min(420px,100%);height:100%;display:flex;flex-direction:column;background:#0f1012;color:#fff;box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+.acct-sheet__head{display:flex;align-items:center;justify-content:space-between;padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.acct-sheet__head h2{margin:0;font:400 15px/1.2 var(--display);text-transform:uppercase;letter-spacing:.06em}
+.acct-sheet__close{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:9px;background:none;color:#fff;cursor:pointer;font-size:18px;display:grid;place-items:center}
+.acct-sheet__close:hover{border-color:var(--blue)}
+.acct-form{display:flex;flex-direction:column;gap:12px;padding:22px}
+.acct-lead{margin:0 0 6px;font:400 15px/1.5 var(--label);color:#d6dae0}
+.acct-label{font:700 11px/1 var(--label);letter-spacing:.1em;text-transform:uppercase;color:#9aa0a8}
+.acct-input{width:100%;min-height:50px;padding:0 14px;border:1px solid rgba(255,255,255,.2);border-radius:9px;background:#17181b;color:#fff;font:400 16px/1 var(--label)}
+.acct-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.25)}
+.acct-input--code{font-size:26px;letter-spacing:.35em;text-align:center;font-variant-numeric:tabular-nums}
+.acct-err{margin:0;font:400 14px/1.4 var(--label);color:#ff8a8a}
+.acct-submit{margin-top:6px}
+.acct-link{align-self:flex-start;background:none;border:0;padding:6px 0;color:#9ec3ff;font:400 14px/1 var(--label);cursor:pointer;text-decoration:underline}
+.acct-fine{margin:8px 0 0;font:400 12px/1.5 var(--label);color:#8b9099}
+.topbar__saved a{color:inherit;text-decoration:underline}

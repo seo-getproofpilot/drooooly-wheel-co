@@ -194,6 +194,7 @@
 
   /* ---- state ---------------------------------------------------------- */
   var S = {
+    savedId: null,  // the garage row this exact build was saved as (account.js)
     pick: {},       // stepId -> value. What they CLICKED, including steps not currently shown.
     text: {},
     touched: {},    // set only by a real click, so a prefill never overwrites a choice
@@ -203,6 +204,20 @@
     showErrors: false,
     open: {}       // stepId -> true once they ask to see every finish
   };
+
+  /* A build opened from the garage (garage.js writes the handoff): its picks
+     win over the opening state and over the saved truck, once, then the key
+     is cleared so a plain visit to this builder starts fresh again. */
+  (function restoreFromGarage() {
+    var raw = null;
+    try { raw = localStorage.getItem("drooolyRestoreBuild"); localStorage.removeItem("drooolyRestoreBuild"); } catch (e) { return; }
+    if (!raw) return;
+    var saved; try { saved = JSON.parse(raw); } catch (e) { return; }
+    if (!saved || saved.builderId !== SPEC.id || !Array.isArray(saved.choices)) return;
+    saved.choices.forEach(function (c) { if (c && c.stepId) { S.pick[c.stepId] = c.value; S.touched[c.stepId] = true; } });
+    if (saved.notes) S.text.notes = saved.notes;
+    if (saved.vehicle) S.vehicle = saved.vehicle;
+  })();
 
   /* His own opening state, so the stage shows a finished wheel on arrival
      rather than a bare barrel. Not marked touched — a saved truck still wins
@@ -602,6 +617,7 @@
 
   /* ---- actions -------------------------------------------------------- */
   function pick(stepId, v) {
+    S.savedId = null;
     S.pick[stepId] = v;
     S.touched[stepId] = true;
     /* Picking inside a collapsed grid means they are shopping that grid — it
@@ -647,6 +663,7 @@
         '<div class="vreadout" id="bReadout"></div>' +
         '<div class="vcta">' +
           '<button class="btn btn--primary" id="bSubmit"><span class="btn-txt">Send this build to DROOOLY</span></button>' +
+          '<button class="btn btn--sm" id="bSave" type="button" data-needs-account><span class="btn-txt">' + esc(S.savedId ? "Saved to your garage" : "Save this build") + '</span></button>' +
           '<button class="vpin" id="bReset">Start over</button>' +
         "</div>" +
         '<p class="vnote">Prices are ' + esc(SPEC.brandName) + "’s own, for the set, and so is the " +
@@ -665,6 +682,22 @@
   });
 
   document.getElementById("bReset").addEventListener("click", reset);
+
+  /* Save to the garage (account.js). The row carries the same serialisation
+     the quote gets, so the garage can reopen it with every pick restored. */
+  document.getElementById("bSave").addEventListener("click", function () {
+    var acct = window.DrooolyAccount;
+    if (!acct || S.savedId) return;
+    var miss = missing();
+    if (miss.length) { S.showErrors = true; render(); return; }
+    var doSave = function () {
+      var build = serialise();
+      acct.save({ source: "builder", name: build.title.slice(0, 80), url: location.pathname.replace(/^.*\//, "") + location.search, data: build })
+        .then(function (row) { S.savedId = row.id; render(); })
+        .catch(function () { var b = document.getElementById("bSave"); if (b) b.querySelector(".btn-txt").textContent = "Could not save. Try again."; });
+    };
+    acct.signIn({ lead: "Sign in with your email and this build is saved to your garage.", then: doSave });
+  });
 
   document.getElementById("bSubmit").addEventListener("click", function () {
     var miss = missing();

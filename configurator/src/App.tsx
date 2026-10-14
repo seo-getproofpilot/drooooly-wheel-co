@@ -22,9 +22,10 @@ import { finishCode, type FinishCode } from "./materials/finishes";
 import { TruckSheet, type TruckDraft } from "./ui/TruckSheet";
 import { Panel } from "./ui/Panel";
 import { CameraProbe } from "./ui/CameraProbe";
+import { SignInSheet } from "./ui/SignInSheet";
+import { buildRow, onAuth, saveBuild, type AccountUser } from "./data/account";
 import type { StudioCamera } from "./data/render";
 import { callout } from "./ui/callout";
-import { shareUrl } from "./ui/describe";
 import { copy } from "./ui/copy";
 
 export const APP_NAME = "DROOOLY Visualize";
@@ -163,13 +164,27 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [showPicker]);
 
-  const [saved, setSaved] = useState<string | null>(null);
-  const save = async () => {
-    const url = shareUrl(b);
-    try { await navigator.clipboard.writeText(url); setSaved(copy.linkCopied); }
-    catch { window.prompt(copy.copyThisLink, url); }
-    setTimeout(() => setSaved(null), 4000);
+  /* Save my build: into the shopper's garage (data/account.ts). Signed out,
+     the sign-in sheet opens and the save runs the moment the code checks
+     out. The share link stays on the panel's Share button. */
+  const [acct, setAcct] = useState<AccountUser | null>(null);
+  useEffect(() => onAuth(setAcct), []);
+  const [stillKey, setStillKey] = useState<string | null>(null);
+  useEffect(() => { setStillKey(null); }, [b]);
+  const [signIn, setSignIn] = useState(false);
+  const saveBtn = useRef<HTMLButtonElement>(null);
+  const [saved, setSaved] = useState<{ text: string; href?: string } | null>(null);
+  const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const note = (n: { text: string; href?: string } | null) => {
+    setSaved(n);
+    if (savedTimer.current) clearTimeout(savedTimer.current);
+    savedTimer.current = setTimeout(() => setSaved(null), 8000);
   };
+  const doSave = async () => {
+    try { await saveBuild(buildRow(catalog, b, stillKey)); note({ text: copy.savedToGarage, href: "/garage.html" }); }
+    catch { note({ text: copy.saveFailed }); }
+  };
+  const save = () => { if (acct) void doSave(); else setSignIn(true); };
 
   const bodyCredit = copy.bodyCredits[vehicle.model?.file ?? ""];
   const credit = !posterMode && bodyCredit && (
@@ -221,8 +236,10 @@ export default function App() {
           ))}
         </nav>
         <div className="topbar__save">
-          <span className="topbar__saved" aria-live="polite">{saved}</span>
-          <button type="button" className="btn btn--sm btn--ghost" onClick={save}><span className="btn-txt">{copy.saveBuild}</span></button>
+          <span className="topbar__saved" aria-live="polite">
+            {saved ? <>{saved.text}{saved.href && <> · <a href={saved.href}>{copy.myGarage}</a></>}</> : acct && <a href="/garage.html">{copy.myGarage}</a>}
+          </span>
+          <button type="button" className="btn btn--sm btn--ghost" ref={saveBtn} onClick={save}><span className="btn-txt">{copy.saveBuild}</span></button>
         </div>
       </header>
       <main id="app" className={"viz" + (showPicker ? " viz--sheet" : "")}>
@@ -232,9 +249,10 @@ export default function App() {
           <div className="panel">
             <Panel cat={catalog} b={b} vehicle={vehicle} fit={f} stanceSentence={words.stance} set={set}
               editTruck={() => { setDraft(null); setSheet(true); }} snapshot={show3d ? () => snapRef.current?.() ?? null : null}
-              camera={show3d && camReady ? () => camRef.current?.() ?? null : null} />
+              camera={show3d && camReady ? () => camRef.current?.() ?? null : null} onStill={setStillKey} />
           </div>
         )}
+        {signIn && <SignInSheet onDone={(u) => { setAcct(u); setSignIn(false); void doSave(); }} onClose={() => setSignIn(false)} returnFocus={() => saveBtn.current} />}
         {showPicker && (
           <TruckSheet cat={catalog} start={{ v: b.v, mn: b.mn, y: b.y, p: b.p }} onDraft={setDraft}
             onClose={picked ? () => { setDraft(null); setSheet(false); } : null}
