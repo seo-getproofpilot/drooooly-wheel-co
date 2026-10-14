@@ -48,6 +48,8 @@ declare global {
       exportScene(opts?: ExportOptions): Promise<ExportResult>;
       /** applies a share query string, resolves with the encoded build once the stage shows it */
       setBuild(query: string): Promise<string>;
+      /** stops (true) or resumes (false) the render loop, so a warm page costs no CPU between jobs */
+      idle(on: boolean): void;
     };
   }
 }
@@ -173,7 +175,12 @@ export default function ExportHook({ build, credit }: ExportHookProps) {
 
   useEffect(() => {
     window.__droooly = {
+      idle(on: boolean) {
+        setFrameloop(on ? "never" : "always");
+        if (!on) advance(performance.now());
+      },
       async setBuild(query: string) {
+        setFrameloop("always");
         const next = applyBuild(query);
         await whenCommitted(next, 60_000);
         await nextFrame();

@@ -10,7 +10,9 @@
    place (a body seen before is already in the loader cache), so the cold
    path (navigate, compile the shaders, download the body) runs once per
    browser life, not once per still. The page is recycled after
-   EXPORT_PAGE_REUSES jobs or on any failure. */
+   EXPORT_PAGE_REUSES jobs or on any failure. Between jobs the page's render
+   loop is stopped (window.__droooly.idle), since a page drawing frames on
+   SwiftShader around the clock was costing several vCPU on Railway. */
 import { chromium } from "playwright";
 
 /* --disable-accelerated-2d-canvas matters: with it off, GLTFExporter's
@@ -145,6 +147,8 @@ export class Exporter {
         new Promise((_, rej) => setTimeout(() => rej(new Error("export timed out")), left()).unref?.()),
       ]);
       const glb = Buffer.from(r.b64, "base64");
+      // a warm page draws no frames between jobs (SwiftShader at full tilt is several vCPU)
+      await page.evaluate(() => window.__droooly?.idle?.(true)).catch(() => {});
       const { t } = got;
       this.log(`export ${t.path}${t.path === "cold" ? ` nav ${t.navMs} ms` : ` swap ${t.swapMs} ms`} scene ${r.sceneMs} ms transfer ${Date.now() - t0 - r.sceneMs} ms glb ${glb.length} bytes`);
       return { glb, credit: r.credit ?? "", camera: r.camera };
