@@ -68,11 +68,13 @@ sends except the two prefills above.
 
 ## Email delivery
 
-Supabase's built in sender only delivers to the project's own team addresses and is rate
-limited; it is enough to verify the flow with Matthew's address. Public sign-ins need custom
-SMTP in the Supabase dashboard (Resend's free tier fits), which also needs DNS records on
-drooolywt.com. Until that is set, the sheet stays honest: a send failure shows "We could not
-send a code right now. Your build still works as a share link." LAUNCH-CHECKLIST carries it.
+Resend, from `DROOOLY <login@drooolywt.com>`. The domain is verified in Resend (us-east-1);
+its DKIM, SPF and bounce records sit on `resend._domainkey`, `send` and `rsend` in the
+drooolywt.com Cloudflare zone and leave the root domain's Google Workspace mail alone.
+Supabase sends through `smtp.resend.com:465` with a send-only key scoped to that domain,
+passed as `RESEND_API_KEY` when running `supabase config push`. Cap: 60 sign-in emails an
+hour. A send failure still shows "We could not send a code right now. Your build still works
+as a share link."
 
 ## Verification
 

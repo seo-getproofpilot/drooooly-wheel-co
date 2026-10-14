@@ -708,13 +708,15 @@ each one is a phone call away from being better.
   redeploy there, and the two Railway variables repointed. With `RENDER_REMOTE_URL` unset
   the service falls back to its own CPU Blender, so the feature survives the account going
   away, only slower.
-- 🟡 **7.7 Accounts send sign-in codes through Supabase's built-in mailer (2026-10-13).** One
-  DROOOLY sign-in (email code, no password) saves builds from the visualizer and the brand
-  builders to `garage.html`; Supabase project `DROOOLY` (ref `xooinsjucurjsefdtidu`) in
-  Matthew's org, schema and auth settings in `supabase/`, design in
-  `docs/superpowers/specs/2026-10-13-accounts-design.md`. The built-in mailer only delivers to
-  the project's own team addresses and allows two emails an hour, which is enough to verify the
-  flow and nothing more. Before launch: custom SMTP in the Supabase dashboard (Resend's free
-  tier fits), the DNS records it asks for on drooolywt.com, and a sender address. Until then a
-  shopper who asks for a code sees "We could not send a code right now" and keeps the share
-  link. The Supabase project itself costs about $10 a month on the org's Pro plan.
+- 🟢 **7.7 Accounts and sign-in email (2026-10-13).** One DROOOLY sign-in (email code, no
+  password) saves builds from the visualizer and the brand builders to `garage.html`. Supabase
+  project `DROOOLY` (ref `xooinsjucurjsefdtidu`) in Matthew's org holds accounts and builds;
+  schema and auth settings in `supabase/`, design in
+  `docs/superpowers/specs/2026-10-13-accounts-design.md`. Codes go out through Resend from
+  `DROOOLY <login@drooolywt.com>`: domain verified in Resend (us-east-1) with DKIM, SPF and
+  bounce records on `resend._domainkey`, `send` and `rsend` in Cloudflare, none of which touch
+  the Google Workspace mail on the root domain. Supabase uses a send-only Resend key scoped to
+  drooolywt.com ("Supabase auth"), pushed with `RESEND_API_KEY=... supabase config push`; the
+  key is never in the repo. Cap 60 sign-in emails an hour. Open: no DMARC record on
+  drooolywt.com yet (a `p=none` record would help inbox placement); the projects sit in
+  Matthew's personal Supabase org and Resend account.
