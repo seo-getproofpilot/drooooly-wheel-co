@@ -27,3 +27,6 @@ __pycache__/
 
 # Modal agent skill docs (`modal skills install`), a local convenience
 .agents/
+
+# rendered email previews (tools/email/promo.mjs)
+emails/out/

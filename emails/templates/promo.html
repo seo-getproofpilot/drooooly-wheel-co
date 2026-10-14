@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="dark">
+<meta name="supported-color-schemes" content="dark">
+<title>{{subject}}</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+  table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse}
+  img{border:0;outline:none;text-decoration:none;display:block;-ms-interpolation-mode:bicubic}
+  body{margin:0;padding:0;width:100%!important;background:#050506}
+  a{color:#7fb2ff}
+  .disp{font-family:Michroma,'Arial Black',Arial,Helvetica,sans-serif}
+  .body{font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif}
+  .btn a:hover{background:#1f7bff!important;color:#ffffff!important}
+  @media (max-width:620px){
+    .wrap{width:100%!important}
+    .pad{padding-left:20px!important;padding-right:20px!important}
+    .h1{font-size:24px!important;line-height:32px!important}
+    .h2{font-size:17px!important;line-height:24px!important}
+    .spec td{display:block!important;width:100%!important;padding:4px 0!important}
+    .stack{display:block!important;width:100%!important}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#050506">
+<!-- preheader -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#050506">{{preheader}}&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#050506">
+<tr><td align="center" style="padding:0">
+
+{{#demo}}
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+  <tr><td class="body pad" align="center" style="padding:10px 32px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#8b9099;background:#111214;border-bottom:1px solid #1f7bff">{{demo}}</td></tr>
+</table>
+{{/demo}}
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="width:600px;background:#0b0b0c">
+  <!-- logo -->
+  <tr><td align="center" style="padding:26px 32px 22px;background:#020202" bgcolor="#020202">
+    <a href="{{siteUrl}}" style="text-decoration:none"><img src="{{logoUrl}}" width="300" alt="DROOOLY Wheel &amp; Tire" style="width:300px;max-width:80%;height:auto;color:#ffffff;font-family:Arial,sans-serif;font-size:20px;font-weight:700"></a>
+  </td></tr>
+
+  <!-- hero -->
+  <tr><td style="padding:0">
+    <a href="{{hero.url}}" style="text-decoration:none"><img src="{{hero.image}}" width="600" alt="{{hero.alt}}" style="width:100%;max-width:600px;height:auto"></a>
+  </td></tr>
+  <tr><td class="pad" style="padding:30px 40px 6px">
+    <p class="body" style="margin:0 0 12px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1f7bff">{{eyebrow}}</p>
+    <h1 class="disp h1" style="margin:0;font-family:Michroma,'Arial Black',Arial,sans-serif;font-weight:400;font-size:28px;line-height:38px;letter-spacing:.5px;text-transform:uppercase;color:#ffffff">{{headline}}</h1>
+  </td></tr>
+  <tr><td class="pad body" style="padding:16px 40px 8px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:16px;line-height:26px;color:#c9ced5">{{intro}}</td></tr>
+  <tr><td class="pad" style="padding:18px 40px 34px">
+    <table role="presentation" cellpadding="0" cellspacing="0" class="btn"><tr><td style="background:#ffffff;border-radius:2px">
+      <a href="{{hero.url}}" class="disp" style="display:inline-block;padding:16px 28px;font-family:Michroma,'Arial Black',Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#0b0b0c;text-decoration:none">{{hero.cta}}</a>
+    </td></tr></table>
+  </td></tr>
+
+  <!-- section heading -->
+  <tr><td class="pad" style="padding:8px 40px 6px;border-top:1px solid #1d1e22">
+    <p class="body" style="margin:26px 0 10px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1f7bff">{{packagesEyebrow}}</p>
+    <h2 class="disp h2" style="margin:0 0 6px;font-family:Michroma,'Arial Black',Arial,sans-serif;font-weight:400;font-size:19px;line-height:28px;text-transform:uppercase;color:#ffffff">{{packagesHeading}}</h2>
+  </td></tr>
+
+  {{#packages}}
+  <tr><td class="pad" style="padding:20px 40px 10px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#131416;border:1px solid #23252a">
+      <tr><td style="padding:0"><a href="{{url}}" style="text-decoration:none"><img src="{{image}}" width="518" alt="{{alt}}" style="width:100%;height:auto"></a></td></tr>
+      <tr><td style="padding:20px 22px 4px">
+        <p class="body" style="margin:0 0 6px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#8b9099">{{tag}}</p>
+        <h3 class="disp" style="margin:0;font-family:Michroma,'Arial Black',Arial,sans-serif;font-weight:400;font-size:16px;line-height:24px;text-transform:uppercase;color:#ffffff">{{name}}</h3>
+        <p class="body" style="margin:10px 0 0;font-family:Inter,Helvetica,Arial,sans-serif;font-size:15px;line-height:24px;color:#c9ced5">{{blurb}}</p>
+      </td></tr>
+      <tr><td style="padding:12px 22px 4px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="spec">
+          {{#specs}}
+          <tr>
+            <td class="body" width="34%" style="padding:7px 0;border-top:1px solid #23252a;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8b9099;vertical-align:top">{{k}}</td>
+            <td class="body" style="padding:7px 0;border-top:1px solid #23252a;font-family:Inter,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;color:#ffffff;vertical-align:top">{{v}}</td>
+          </tr>
+          {{/specs}}
+        </table>
+      </td></tr>
+      <tr><td style="padding:16px 22px 22px">
+        <table role="presentation" cellpadding="0" cellspacing="0" class="btn"><tr><td style="border:1px solid #ffffff;border-radius:2px">
+          <a href="{{url}}" class="disp" style="display:inline-block;padding:13px 22px;font-family:Michroma,'Arial Black',Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ffffff;text-decoration:none">{{cta}}</a>
+        </td></tr></table>
+      </td></tr>
+    </table>
+  </td></tr>
+  {{/packages}}
+
+  <!-- add-ons -->
+  <tr><td class="pad" style="padding:30px 40px 6px">
+    <p class="body" style="margin:0 0 10px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1f7bff">{{addonsEyebrow}}</p>
+    <h2 class="disp h2" style="margin:0 0 14px;font-family:Michroma,'Arial Black',Arial,sans-serif;font-weight:400;font-size:19px;line-height:28px;text-transform:uppercase;color:#ffffff">{{addonsHeading}}</h2>
+  </td></tr>
+  <tr><td class="pad" style="padding:0 40px 10px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      {{#addons}}
+      <tr><td class="body" style="padding:14px 0;border-top:1px solid #1d1e22;font-family:Inter,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;color:#c9ced5">
+        <b style="color:#ffffff">{{title}}.</b> {{text}}
+      </td></tr>
+      {{/addons}}
+    </table>
+  </td></tr>
+
+  <!-- closing band -->
+  <tr><td class="pad" style="padding:26px 40px 34px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#101a2b;border-left:3px solid #1f7bff">
+      <tr><td class="body" style="padding:20px 22px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:15px;line-height:24px;color:#dfe6f0">
+        {{closing}}<br><br>
+        <a href="tel:{{phoneHref}}" style="color:#ffffff;font-weight:700;text-decoration:none">Call or text {{phone}}</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- footer -->
+  <tr><td class="pad body" align="center" style="padding:24px 40px 34px;border-top:1px solid #1d1e22;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;line-height:19px;color:#6f747c">
+    {{footerLine}}<br>
+    {{credit}}<br><br>
+    <a href="{{unsubscribeUrl}}" style="color:#8b9099">Unsubscribe</a> &nbsp;·&nbsp; <a href="{{siteUrl}}" style="color:#8b9099">drooolywt.com</a>
+  </td></tr>
+</table>
+
+</td></tr>
+</table>
+</body>
+</html>
