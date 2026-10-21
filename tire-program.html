@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- Internal working document: planning margins and unsigned dealer terms.
+     Never indexable, never linked from the customer site. Self-contained on
+     the site's own tokens so it survives being sent as a single file.
+     Generated from the Venom Power and Fury spec tables; rebuild rather than
+     hand-edit the data. -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tire program — DROOOLY Wheel &amp; Tire</title>
+<meta name="description" content="Venom Power and Fury for DROOOLY: margin per tire, becoming a dealer, which tire fits each of our wheels, and every 20–30 inch size." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=438" />
+</head>
+<body>
+<style>
+/* Layout: the DROOOLY internal-sheet language (dealer sheet / marketing math) —
+   one 960px column, hairline tables, ink-ruled section heads, blue as signal only. */
+:root{
+  --bg:#ffffff; --panel:#ffffff; --panel-2:#f5f6f8;
+  --line:rgba(0,0,0,.10); --line-2:rgba(0,0,0,.18);
+  --text:#111214; --muted:#5b6069; --soft:#8b9099;
+  --ink:#0b0b0c; --on-ink:#ffffff;
+  --blue:#1f7bff; --blue-2:#1f6fe0; --blue-tint:rgba(31,123,255,.10);
+  --good:#0f7a3d; --good-bg:rgba(15,122,61,.10);
+  --mid:#9a6a00; --mid-bg:rgba(154,106,0,.11);
+  --bad:#b3261e; --bad-bg:rgba(179,38,30,.09);
+  --display:"Michroma",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b0b0c; --panel:#121214; --panel-2:#17181b;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --text:#f2f3f5; --muted:#a3a8b0; --soft:#7d828b;
+  --ink:#f2f3f5; --on-ink:#0b0b0c;
+  --blue:#4c95ff; --blue-2:#6aa8ff; --blue-tint:rgba(76,149,255,.14);
+  --good:#4cc47f; --good-bg:rgba(76,196,127,.13);
+  --mid:#e0b04a; --mid-bg:rgba(224,176,74,.13);
+  --bad:#ff7a70; --bad-bg:rgba(255,122,112,.12);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b0b0c; --panel:#121214; --panel-2:#17181b;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --text:#f2f3f5; --muted:#a3a8b0; --soft:#7d828b;
+  --ink:#f2f3f5; --on-ink:#0b0b0c;
+  --blue:#4c95ff; --blue-2:#6aa8ff; --blue-tint:rgba(76,149,255,.14);
+  --good:#4cc47f; --good-bg:rgba(76,196,127,.13);
+  --mid:#e0b04a; --mid-bg:rgba(224,176,74,.13);
+  --bad:#ff7a70; --bad-bg:rgba(255,122,112,.12);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;margin:0}
+.page{max-width:960px;margin:0 auto;padding-inline:24px;padding-block:0 72px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.005em;
+  text-wrap:balance;margin:0}
+p{margin:0}
+b{font-weight:600}
+a{color:var(--blue-2)}
+.home{color:var(--text);text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding-block:22px 22px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.home{font-family:var(--display);font-size:16px;letter-spacing:.04em;display:flex;align-items:baseline;gap:8px}
+.home i{font-family:var(--body);font-style:normal;font-size:9px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--soft)}
+.tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);
+  border:1px solid var(--line-2);padding:5px 10px;white-space:nowrap}
+
+/* masthead */
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.24em;color:var(--muted);margin-bottom:14px}
+.kicker::before{content:"";width:30px;height:1px;background:var(--blue)}
+.h1{font-size:clamp(25px,4.6vw,40px);line-height:1.12;margin-bottom:16px}
+.sub{font-size:17px;line-height:1.55;color:var(--muted);max-width:64ch}
+.meta{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:14px}
+
+/* verdict band */
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin:34px 0 44px}
+.v{background:var(--panel);padding:18px 18px 17px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.v .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.v .big{font-family:var(--display);font-size:20px;line-height:1.2;text-transform:uppercase}
+.v p{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.v.lead{background:var(--ink);color:var(--on-ink)}
+.v.lead .k{color:var(--blue-2)}
+.v.lead p{color:var(--on-ink);opacity:.78}
+
+/* sections */
+.sec{margin-bottom:52px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:2px solid var(--ink);padding-top:14px;margin-bottom:16px}
+.sechead h2{font-size:clamp(16px,2.4vw,20px);line-height:1.3}
+.sechead span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.sec > p{max-width:68ch;margin-bottom:14px}
+.note{font-size:13.5px;color:var(--muted);max-width:68ch;margin-top:12px}
+
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:12px 13px;border-bottom:1px solid var(--line)}
+thead th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);
+  background:var(--panel-2);border-bottom:1px solid var(--line-2);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td small,th small{display:block;font-size:12px;color:var(--soft);font-weight:400;margin-top:2px;line-height:1.4}
+.brand{font-family:var(--display);font-size:13px;text-transform:uppercase;white-space:nowrap}
+.r{text-align:right}
+.score{min-width:860px}
+.score tr.top-pick td{background:var(--blue-tint)}
+
+/* pills */
+.pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:3px 8px;white-space:nowrap;border:1px solid currentColor}
+.p-good{color:var(--good);background:var(--good-bg)}
+.p-mid{color:var(--mid);background:var(--mid-bg)}
+.p-bad{color:var(--bad);background:var(--bad-bg)}
+.p-blue{color:var(--blue-2);background:var(--blue-tint)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.d-good{background:var(--good)} .d-mid{background:var(--mid)} .d-bad{background:var(--bad)}
+
+/* myth card */
+.myth{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.myth > div{background:var(--panel);padding:18px 20px;min-width:0}
+.myth .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.myth .heard .big{text-decoration:line-through;text-decoration-color:var(--bad);text-decoration-thickness:2px}
+.myth .big{font-family:var(--display);font-size:22px;text-transform:uppercase;line-height:1.2;margin-bottom:6px}
+.myth p{font-size:14px;color:var(--muted)}
+
+/* demand chart */
+.chart{border:1px solid var(--line);padding:18px 18px 12px;background:var(--panel)}
+.bar{display:grid;grid-template-columns:minmax(0,210px) 1fr 64px;align-items:center;gap:12px;padding-block:5px}
+.bar .lab{font-size:13px;line-height:1.3;min-width:0}
+.bar .lab small{display:block;font-size:11px;color:var(--soft)}
+.track{height:14px;background:var(--panel-2);position:relative}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--soft)}
+.fill.us{background:var(--blue)}
+.bar .val{font-size:13px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.axis{display:grid;grid-template-columns:minmax(0,210px) 1fr 64px;gap:12px;margin-top:6px}
+.ticks{position:relative;height:16px;border-top:1px solid var(--line-2)}
+.ticks span{position:absolute;top:2px;font-size:10px;color:var(--soft);transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.ticks span:first-child{transform:none}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:12px;height:10px;margin-right:6px;vertical-align:-1px}
+
+/* calculator */
+.calc{background:var(--panel-2);border:1px solid var(--line-2);padding:18px 20px;margin-bottom:14px;
+  display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:11px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.ctl label b{font-family:var(--display);font-size:15px;color:var(--text);letter-spacing:0}
+.ctl input[type=range]{width:100%;accent-color:var(--blue)}
+.seg{display:flex;border:1px solid var(--line-2);background:var(--panel)}
+.seg button{flex:1;font:inherit;font-size:12px;font-weight:600;padding:8px 10px;border:0;background:transparent;
+  color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.seg button:focus-visible,.ctl input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.calc .hint{grid-column:1/-1;font-size:12.5px;color:var(--muted)}
+.calc-tbl{min-width:720px}
+.neg{color:var(--bad);font-weight:600}
+.pos{color:var(--good);font-weight:600}
+
+/* lists */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.steps li{counter-increment:s;background:var(--panel);padding:14px 18px 14px 62px;position:relative;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:12px;font-family:var(--display);font-size:18px;color:var(--blue)}
+.steps li small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.qs{columns:2;column-gap:32px;margin:0;padding-left:20px}
+.qs li{font-size:14px;margin-bottom:9px;break-inside:avoid}
+.unk{margin:0;padding-left:20px}
+.unk li{font-size:14px;margin-bottom:8px;color:var(--muted)}
+.unk b{color:var(--text)}
+
+.foot{border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--soft);max-width:80ch}
+
+@media (max-width:760px){
+  .verdict{grid-template-columns:1fr}
+  .myth{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+  .qs{columns:1}
+  .bar,.axis{grid-template-columns:minmax(0,120px) 1fr 52px;gap:8px}
+}
+@media (max-width:480px){
+  .page{padding-inline:16px}
+  .steps li{padding-left:48px}
+  .steps li::before{left:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<style>
+:root{ --venom:#1f6fe0; --fury:#d9480f; --grid:rgba(0,0,0,.08) }
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){ --venom:#3d86f0; --fury:#e8692a; --grid:rgba(255,255,255,.09) }}
+:root[data-theme="dark"]{ --venom:#3d86f0; --fury:#e8692a; --grid:rgba(255,255,255,.09) }
+
+.toc{display:flex;flex-wrap:wrap;gap:6px 18px;margin:22px 0 0;padding:0;list-style:none;font-size:13px}
+.toc a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-2)}
+.toc a:hover{color:var(--blue-2);border-color:var(--blue-2)}
+
+.yes{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:var(--ink);color:var(--on-ink);padding:24px 26px;margin:32px 0 1px}
+.yes .big{font-family:var(--display);font-size:clamp(24px,3.6vw,32px);line-height:1.05;text-transform:uppercase}
+.yes p{font-size:15px;opacity:.86;max-width:66ch}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 50px}
+.tile{background:var(--panel);padding:16px 16px 15px;min-width:0}
+.tile .k{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.tile b{display:block;font-family:var(--display);font-weight:400;font-size:21px;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile .s{display:block;font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex-shrink:0;vertical-align:0}
+.sw-v{background:var(--venom)} .sw-f{background:var(--fury)}
+.bt{font-family:var(--display);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;padding:2px 6px;border:1px solid currentColor;white-space:nowrap;display:inline-block;line-height:1.4}
+.bt-v{color:var(--venom)} .bt-f{color:var(--fury)}
+
+/* chart */
+.chartbox{border:1px solid var(--line);background:var(--panel);padding:18px 18px 14px;position:relative}
+.chart-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.legend2{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);align-items:center}
+.legend2 span{display:inline-flex;align-items:center;gap:7px}
+.key-range{display:inline-flex;gap:2px}
+.key-range i{display:inline-block;width:12px;height:10px;background:var(--soft)}
+.key-range i+i{opacity:.38}
+.seg.small{max-width:320px}
+.seg.small button{white-space:nowrap;padding-inline:14px}
+.grp{display:grid;grid-template-columns:minmax(0,150px) 1fr;gap:12px;align-items:center;padding-block:7px;border-top:1px solid var(--line)}
+.grp:first-child{border-top:0}
+.grp .lab{font-size:13px;font-weight:600;line-height:1.25;min-width:0}
+.grp .lab small{display:block;font-weight:400;font-size:11px;color:var(--soft)}
+.bars{display:grid;gap:4px}
+.brow{position:relative;height:18px;cursor:default}
+.brow:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.gridl{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--grid)}
+.bar{position:absolute;top:2px;height:14px;left:0;display:flex;gap:2px}
+.bar i{display:block;height:100%}
+.bar i:last-child{border-radius:0 4px 4px 0;opacity:.38}
+.bv .bar i{background:var(--venom)} .bf .bar i{background:var(--fury)}
+.val{position:absolute;top:0;font-size:11.5px;font-weight:600;line-height:18px;white-space:nowrap;font-variant-numeric:tabular-nums;padding-left:7px;color:var(--text)}
+.axisrow{display:grid;grid-template-columns:minmax(0,150px) 1fr;gap:12px;margin-top:6px}
+.axis{position:relative;height:18px;border-top:1px solid var(--line-2)}
+.axis span{position:absolute;top:3px;font-size:10.5px;color:var(--soft);transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.axis span:first-child{transform:none}
+.tip{position:absolute;z-index:5;pointer-events:none;background:var(--panel);border:1px solid var(--line-2);box-shadow:0 6px 20px rgba(0,0,0,.14);padding:10px 12px;font-size:12.5px;width:240px}
+.tip h4{font-family:var(--body);font-size:12.5px;font-weight:700;margin:0 0 6px;text-transform:none;display:flex;gap:7px;align-items:center}
+.tip dl{display:grid;grid-template-columns:1fr auto;gap:3px 12px;margin:0}
+.tip dt{color:var(--muted)} .tip dd{margin:0;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+details.more{margin-top:12px}
+details.more summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--blue-2)}
+details.more .scroll{margin-top:10px}
+
+/* tables */
+.req{min-width:720px}
+.req td:first-child{font-weight:600;white-space:nowrap;width:170px}
+.chip{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;margin-right:6px}
+.c-good{color:var(--good);background:var(--good-bg)}
+.c-ask{color:var(--mid);background:var(--mid-bg)}
+.c-ours{color:var(--blue-2);background:var(--blue-tint)}
+.c-none{color:var(--bad);background:var(--bad-bg)}
+.pair{min-width:760px}
+.pair td{font-size:13.5px}
+.pair tr.dia td{background:var(--panel-2);font-family:var(--display);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-block:8px}
+.pk b{font-weight:600}
+.pk .n{color:var(--soft);font-size:12px}
+.none{color:var(--soft)}
+
+/* catalog */
+.filters{display:grid;gap:12px;background:var(--panel-2);border:1px solid var(--line-2);padding:16px 18px;margin-bottom:12px}
+.frow{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.flab{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);min-width:96px}
+.tabs{display:flex;flex-wrap:wrap;border:1px solid var(--line-2);background:var(--panel)}
+.tabs button{font:inherit;font-size:13px;font-weight:600;padding:7px 13px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-variant-numeric:tabular-nums}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+select{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line-2);background:var(--panel);color:var(--text)}
+.count{font-size:13px;color:var(--muted);margin:4px 0 10px}
+.count b{color:var(--text)}
+.cat{min-width:880px;font-size:13.5px}
+.cat td{padding:10px 12px}
+.cat .sz{font-weight:600;white-space:nowrap}
+.cat small{display:block;font-size:11px;color:var(--soft)}
+.warn{color:var(--mid);font-weight:700}
+.cat .tn{min-width:150px}
+.cat .tn .mn{display:block;font-weight:600;margin-top:4px}
+.cat{min-width:820px}
+.scroll.tall{max-height:640px;overflow:auto}
+.scroll.tall thead th{position:sticky;top:0;z-index:1}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.two > div{background:var(--panel);padding:18px 20px;min-width:0}
+.two h3{font-size:14px;margin-bottom:10px}
+.two ol,.two ul{margin:0;padding-left:20px}
+.two li{font-size:14px;margin-bottom:8px}
+
+@media (max-width:760px){
+  .tiles{grid-template-columns:1fr 1fr}
+  .yes{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  .grp,.axisrow{grid-template-columns:minmax(0,96px) 1fr;gap:8px}
+  .flab{min-width:0;width:100%}
+}
+</style>
+
+<div class="page">
+
+<header class="top">
+  <a class="home" href="index.html">DROOOLY <i>Wheel &amp; Tire</i></a>
+  <span class="tag">Tire program · Venom Power &amp; Fury</span>
+</header>
+
+<section>
+  <div class="kicker">For Matthew · from Chris</div>
+  <h1 class="h1">Tire program: Venom Power and Fury</h1>
+  <p class="sub">What we earn on each tire, what it takes to become a dealer, which tire fits each of our wheels, and every size both brands make for 20–30" wheels.</p>
+  <p class="meta">Updated 13 Oct 2026 · Sizes and load ratings from each brand's own spec tables · Retail prices from SimpleTire, matched by part number · Margins planned at 20–25% until each brand sends a price list</p>
+  <ul class="toc">
+    <li><a href="#margin">Margin per tire</a></li>
+    <li><a href="#dealer">Becoming a dealer</a></li>
+    <li><a href="#wheels">Tire for each wheel</a></li>
+    <li><a href="#dually">Dually builds</a></li>
+    <li><a href="#catalog">Every size</a></li>
+    <li><a href="#order">How an order works</a></li>
+    <li><a href="#calls">Call questions</a></li>
+  </ul>
+</section>
+
+<div class="yes">
+  <div class="big">Sell both<br>from launch</div>
+  <p>Both brands can be sold set by set with no inventory and no published buy-in. We set our own price because neither publishes a price floor. Tires go on the same quote as the wheels, so customers buy the whole setup in one place, and each set adds roughly $200–$1,500 in margin to a sale we're already making.</p>
+</div>
+<div class="tiles" id="tiles"></div>
+
+<section class="sec" id="margin">
+  <div class="sechead"><h2>Margin per tire</h2><span>Before freight and card fees</span></div>
+  <p>The most common size at each wheel diameter, Venom against Fury. The solid part of each bar is our margin at 20%; the lighter end runs to 25%. Hover or tab to a bar for the full numbers.</p>
+  <div class="chartbox">
+    <div class="chart-top">
+      <div class="legend2">
+        <span><i class="sw sw-v"></i>Venom Power</span>
+        <span><i class="sw sw-f"></i>Fury</span>
+        <span><span class="key-range"><i></i><i></i></span>20% → 25% margin</span>
+      </div>
+      <div class="seg small" role="group" aria-label="Show margin per">
+        <button type="button" id="uTire" aria-pressed="true">Per tire</button>
+        <button type="button" id="uSet" aria-pressed="false">Per set of 4</button>
+      </div>
+    </div>
+    <div id="groups"></div>
+    <div class="axisrow"><div></div><div class="axis" id="axis"></div></div>
+    <div class="tip" id="tip" hidden></div>
+  </div>
+  <details class="more">
+    <summary>Show the chart as a table</summary>
+    <div class="scroll"><table style="min-width:680px">
+      <thead><tr><th>Tire</th><th class="r">Retail / tire</th><th class="r">Our cost (est.)</th><th class="r">Margin / tire</th><th class="r">Margin / set of 4</th></tr></thead>
+      <tbody id="chartTable"></tbody>
+    </table></div>
+  </details>
+  <p class="note">"Our cost" is retail less 20–25%, a planning assumption, since neither brand publishes dealer cost. Freight to a home runs about $150–$300 a set; it goes on the quote as its own line, so it isn't taken out of these numbers. Card fees are about 3%.</p>
+</section>
+
+<section class="sec" id="dealer">
+  <div class="sechead"><h2>What it takes to become a dealer</h2><span>Venom Power and Fury side by side</span></div>
+  <div class="scroll">
+  <table class="req">
+    <thead><tr><th></th><th><span class="bt bt-v">Venom Power</span></th><th><span class="bt bt-f">Fury</span></th></tr></thead>
+    <tbody>
+      <tr><td>Company</td><td>Transamerica Tire Co.<small>5118 Park Ave Ste 601, Memphis, TN 38117</small></td><td>Fury Off-Road Tires LLC<small>9010 N Royal Ln Ste 100, Irving, TX 75063</small></td></tr>
+      <tr><td>Call</td><td>832-891-2821, M–F 9–6 Central<small>Ask for Joe Davis (Sales Director) or Steve Oropesa (National Sales Manager)</small></td><td>(855) 575-3879 · sales@furyoffroadtires.com<small>Ask for Ernie Boehm (Sales Director)</small></td></tr>
+      <tr><td>Apply</td><td>transamericatire.com/become_a_dealer<small>Choose "under $100K" sales and "under 1,000 tires a year"</small></td><td>furytires.com/becomeadistributor</td></tr>
+      <tr><td>Paperwork</td><td colspan="2"><span class="chip c-ours">We provide</span>EIN and business license · Tennessee sales-tax number · resale certificate · website URL · a trade reference (Price Designs)</td></tr>
+      <tr><td>Money up front</td><td><span class="chip c-good">None published</span></td><td><span class="chip c-good">None published</span><small>None at all through Meyer Distributing</small></td></tr>
+      <tr><td>Opening order</td><td><span class="chip c-ask">Ask on the call</span></td><td><span class="chip c-ask">Ask on the call</span></td></tr>
+      <tr><td>Price floor (MAP)</td><td><span class="chip c-good">None published</span><small>We set our own price</small></td><td><span class="chip c-good">None published</span><small>We set our own price</small></td></tr>
+      <tr><td>How we buy</td><td>Direct from Transamerica<small>No wholesaler carries Venom</small></td><td>Direct, or through Meyer now<small>Keystone also carries Fury but needs a live checkout on our site first</small></td></tr>
+      <tr><td>Ships to customer's home</td><td><span class="chip c-ask">Ask on the call</span><small>Likely from St. Louis, 1–2 days to Tennessee</small></td><td><span class="chip c-ask">Ask on the call</span><small>From Texas, 2–3 days. Meyer ships to customers</small></td></tr>
+      <tr><td>Selling on Amazon, eBay, Walmart</td><td><span class="chip c-good">Allowed</span><small>All three are on Venom's dealer list</small></td><td><span class="chip c-ask">Ask on the call</span><small>No policy published</small></td></tr>
+      <tr><td>Warranty</td><td>50,000 miles on X/T, X/T2, R/T+, only on 22" and smaller up to 13.5" wide. 4 years on defects.<small>Claims come back to us as the seller</small></td><td>No term published (4 years reported). Prorated after the first 1/32".<small>Excludes stretched, staggered and off-road use. Claims only through us</small></td></tr>
+      <tr><td>Tire registration</td><td colspan="2"><span class="chip c-ours">Our job</span>Federal rules require us to give each buyer a way to register. Both brands have online forms: transamericatire.com/tire_registration and furytires.com/registration</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="sec" id="wheels">
+  <div class="sechead"><h2>Which tire for each of our wheels</h2><span>Inside each brand's approved rim width</span></div>
+  <p>Every wheel size we sell, 20–30", with each brand's go-to tire that is approved for that rim width, so the warranty holds. The number shows how many other sizes from that brand also fit.</p>
+  <div class="scroll"><table class="pair">
+    <thead><tr><th>Our wheel</th><th><span class="bt bt-v">Venom Power</span> go-to tire</th><th><span class="bt bt-f">Fury</span> go-to tire</th></tr></thead>
+    <tbody id="pairBody"></tbody>
+  </table></div>
+  <p class="note"><b>16"-wide wheels:</b> neither brand approves any tire for a 22, 24, 26 or 28x16 wheel. The widest approvals are 15.5" (Venom Swampthing 35x15.50R24, Fury LT405/30R26). Only a 30x16 has a match, Venom's Swampthing 42 and 44x16.50R30. Anything else on a 16" wheel is outside the brand's warranty.</p>
+  <p class="note"><b>Load:</b> a stock heavy-duty tire carries about 3,640 lb. Many 24–26" picks carry less, which is where our towing hard stop applies.</p>
+</section>
+
+<section class="sec" id="dually">
+  <div class="sechead"><h2>Dually builds</h2><span>What people run on 8.25" dually wheels</span></div>
+  <p>Big-wheel dually builds run <b>tall off-road tires</b>, mostly 35x12.50 and 37x13.50 in 12-ply, not low-profile street tires. These tires are approved for rims from 8.5", and dually wheels are 8.25". Sellers run them that way all the time, but ask both brands whether it keeps the warranty.</p>
+  <div class="scroll"><table style="min-width:700px">
+    <thead><tr><th>Dually wheel</th><th>Common sizes</th><th>What package sellers fit</th><th>Ours, by the brand's own rim tables</th></tr></thead>
+    <tbody>
+      <tr><td><b>20x8.25</b></td><td>35x12.50R20, 33x12.50R20</td><td>Kenda Klever, Nitto Ridge Grappler, Venom R/T+</td><td><span class="bt bt-v">Venom</span> <span class="bt bt-f">Fury</span></td></tr>
+      <tr><td><b>22x8.25</b></td><td>35x12.50R22, 33x12.50R22</td><td>Venom Trail Hunter, Toyo R/T, Fury R/T, Nitto</td><td><span class="bt bt-v">Venom</span> <span class="bt bt-f">Fury</span></td></tr>
+      <tr><td><b>24x8.25</b></td><td>37x13.50R24, 35x12.50R24</td><td>Venom R/T+ (JTX Combat packages), Nitto, Fury MT2, AMP</td><td><span class="bt bt-f">Fury</span> MT2 37x13.50R24 F<small>Venom's 24" sizes are rated for 9.5"+ rims</small></td></tr>
+      <tr><td><b>26x8.25</b></td><td>37x13.50R26 (listed most)</td><td>Fury, AMP, Atturo, Venom R/T+</td><td><span class="bt bt-f">Fury</span> M/T 37x13.50R26 F</td></tr>
+      <tr><td><b>28x8.25</b></td><td>38x13.50R28</td><td>Fury on nearly every listing</td><td><span class="bt bt-f">Fury</span> M/T 38x13.50R28 F</td></tr>
+      <tr><td><b>30x8.25</b></td><td>42x13.50R30</td><td>Fury only</td><td><span class="bt bt-f">Fury</span> M/T 42x13.50R30 F</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><b>The street look</b> (255/30R22, 255/30R24, 255/30R26) is a smaller crowd. Venom's Ragnarok GTS covers it on 22–28" through the same Transamerica account. These are passenger tires rated about 1,500–1,800 lb, for the look rather than a working truck. If street duallys take off, Delinte or Turbo Wholesale (Lexani, Lionhart, RBP) is the next brand to add.</p>
+</section>
+
+<section class="sec" id="catalog">
+  <div class="sechead"><h2>Every size, 20–30"</h2><span id="catTotal"></span></div>
+  <p>Every Venom Power and Fury size for 20–30" wheels, from each brand's spec tables. Pick a wheel diameter, and narrow by brand, tire type or wheel width.</p>
+  <div class="filters">
+    <div class="frow"><span class="flab">Wheel diameter</span><div class="tabs" id="fDia" role="group" aria-label="Wheel diameter"></div></div>
+    <div class="frow"><span class="flab">Brand</span><div class="tabs" id="fBrand" role="group" aria-label="Brand"></div></div>
+    <div class="frow">
+      <span class="flab">Narrow by</span>
+      <label for="fType" style="font-size:13px;color:var(--muted)">Tire type</label>
+      <select id="fType"><option value="">All types</option><option>Hybrid</option><option>Rugged</option><option>Mud</option><option>All-terrain</option><option>Street</option><option>Winter</option></select>
+      <label for="fWidth" style="font-size:13px;color:var(--muted)">Fits wheel width</label>
+      <select id="fWidth"><option value="">Any width</option><option value="8.25">8.25" (dually)</option><option value="9">9"</option><option value="10">10"</option><option value="12">12"</option><option value="14">14"</option><option value="16">16"</option></select>
+    </div>
+  </div>
+  <p class="count" id="catCount"></p>
+  <div class="scroll tall"><table class="cat">
+    <thead><tr><th>Size</th><th>Tire</th><th>Type</th><th>Load range</th><th class="r">Max load</th><th>Approved rim</th><th class="r">Retail / tire</th><th class="r">Our margin / tire</th></tr></thead>
+    <tbody id="catBody"></tbody>
+  </table></div>
+  <p class="note">Load range E is 10-ply, F is 12-ply, XL is a reinforced passenger tire. Venom publishes load index only, so its pounds come from the standard load-index table. <span class="warn">!</span> marks a Fury size where the brand's load index and pounds disagree; the lower figure is shown. A dash under retail means SimpleTire doesn't list that part. Fury publishes no specs for its Street Hunter and Track Hunter street tires.</p>
+</section>
+
+<section class="sec" id="order">
+  <div class="sechead"><h2>How a tire order works</h2><span>Same setup as Price Designs</span></div>
+  <p>It isn't a percentage of the sale. <b>We buy at dealer cost, sell at our own price, and keep the difference.</b> Venom or Fury never pays us; we're the store and they ship for us. Tires and wheels arrive separately and unmounted, and the customer's local shop mounts them.</p>
+  <ol class="steps">
+    <li><b>The customer approves the quote and pays us</b> for wheels and tires.<small>We collect the tire money before ordering.</small></li>
+    <li><b>We order from Venom or Fury</b> at dealer price, shipped to the customer.<small>Freight is its own line on the quote, never "free shipping."</small></li>
+    <li><b>They ship straight to the customer.</b><small>We pass along the tracking number.</small></li>
+    <li><b>We pay the brand.</b><small>By card or bank transfer at first; 30-day terms usually come after a few months.</small></li>
+  </ol>
+  <h3 style="font-size:15px;margin:26px 0 10px" id="exTitle"></h3>
+  <div class="scroll"><table style="min-width:480px"><tbody id="exBody"></tbody></table></div>
+  <div class="two" style="margin-top:16px">
+    <div>
+      <h3>Ours to handle</h3>
+      <ul>
+        <li><b>Sales tax.</b> We collect it, same as on wheels.</li>
+        <li><b>Our price.</b> Check Custom Offsets so we're not the most expensive.</li>
+        <li><b>Problems.</b> Wrong tire, shipping damage and warranty claims come to us.</li>
+        <li><b>Tell the customer</b> on the product page and order confirmation that tires and wheels arrive separately and unmounted.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What would change the plan</h3>
+      <ul>
+        <li><b>An opening order</b> we'd have to buy and store.</li>
+        <li><b>No home delivery.</b> Fury still works through Meyer.</li>
+        <li><b>Dealer cost well above our assumption</b>, leaving under about 15%.</li>
+        <li><b>Frequent warranty claims</b> on the budget sizes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="calls">
+  <div class="sechead"><h2>Questions for the calls</h2><span>None of these answers are published</span></div>
+  <div class="two">
+    <div>
+      <h3><span class="bt bt-v">Venom</span> 832-891-2821</h3>
+      <ol>
+        <li>Is there an opening order or a yearly minimum?</li>
+        <li>Will you ship a set to my customer's home? What does it cost?</li>
+        <li>Dealer price list and volume tiers. Is federal excise tax included?</li>
+        <li>Is there a price floor (MAP)? Can we discount inside a wheel package?</li>
+        <li>Is an 8.25" dually wheel covered with your 12.50 and 13.50 tires? Sets of six?</li>
+        <li>Does "size not per owner's manual" void the warranty on lifted trucks?</li>
+        <li>How do warranty claims work for a seller with no shop?</li>
+        <li>Can we use your photos and logo? Who is our rep, and is Tennessee open?</li>
+      </ol>
+    </div>
+    <div>
+      <h3><span class="bt bt-f">Fury</span> (855) 575-3879</h3>
+      <ol>
+        <li>Do you sell direct to an online-only dealer, or only through Meyer and Keystone?</li>
+        <li>Is there an opening order? Dealer cost on 24–30" sizes?</li>
+        <li>Will you ship sets of 4 and 6 to a home? Cost and days? How do 30" tires ship?</li>
+        <li>Is there a price floor (MAP)? Can we show prices on our site?</li>
+        <li>Is an 8.25" dually wheel covered with your 13.50 tires?</li>
+        <li>Can you correct the nine sizes where your load index and pounds disagree?</li>
+        <li>What counts as "stretched" or "oversized"? Mileage warranty per model?</li>
+        <li>Can we use your photos? Is there a co-op or marketing program?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sechead"><h2>About these numbers</h2><span>Sources and assumptions</span></div>
+  <ul class="unk">
+    <li><b>Sizes and load ratings</b> come from the spec tables on venompowertires.com and furytires.com, read 13 Oct 2026.</li>
+    <li><b>Retail prices</b> are SimpleTire's per-tire prices, matched to each brand's part number, with two Venom sizes from Tires-Easy.</li>
+    <li><b>Margins</b> assume our cost is 20–25% under retail. The first price list from each brand replaces this.</li>
+    <li><b>Company details</b> come from each brand's site, Modern Tire Dealer, SEMA News and distributor pages. Full write-ups: TIRE-SOURCING.md and VENOM-FURY.md in the site repo.</li>
+  </ul>
+  <details class="more"><summary>Fury sizes where load index and pounds disagree</summary><ul class="unk" id="flagList" style="margin-top:10px"></ul></details>
+</section>
+
+<p class="foot">DROOOLY Wheel &amp; Tire · Internal planning document · Not for customers.</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var DATA = {"rows":[{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"245/45R20","d":20,"lr":"XL","li":103,"lb":1929,"lo":7.5,"hi":9.0,"od":28.66,"p":null,"pn":"VPTHATS42","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"245/50R20","d":20,"lr":"SL","li":102,"lb":1874,"lo":7.0,"hi":8.5,"od":29.69,"p":null,"pn":"VPWTS18","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"245/50R20","d":20,"lr":"XL","li":106,"lb":2094,"lo":7.0,"hi":8.5,"od":29.69,"p":168.96,"pn":"VPTHATS13","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"275/45R20","d":20,"lr":"XL","li":110,"lb":2337,"lo":8.5,"hi":10.5,"od":29.76,"p":173.96,"pn":"VPTHATS17","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"255/50R20","d":20,"lr":"XL","li":109,"lb":2271,"lo":7.0,"hi":9.0,"od":30.08,"p":null,"pn":"VPWTS40","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"255/50R20","d":20,"lr":"XL","li":109,"lb":2271,"lo":7.0,"hi":9.0,"od":30.08,"p":174.96,"pn":"VPTHATS14","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"265/50R20","d":20,"lr":"SL","li":107,"lb":2149,"lo":7.5,"hi":9.5,"od":30.47,"p":null,"pn":"VPWTS19","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"265/50R20","d":20,"lr":"XL","li":111,"lb":2403,"lo":7.5,"hi":9.5,"od":30.47,"p":null,"pn":"TVPSWAT48","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"265/50R20","d":20,"lr":"E","li":117,"lb":2833,"lo":8.0,"hi":9.5,"od":30.47,"p":211.96,"pn":"TVPXT19","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"265/50R20","d":20,"lr":"E","li":115,"lb":2679,"lo":8.0,"hi":9.5,"od":30.47,"p":null,"pn":"VPXT2116","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"265/50R20","d":20,"lr":"E","li":115,"lb":2679,"lo":8.0,"hi":9.5,"od":30.47,"p":null,"pn":"VPXT2116N","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"265/50R20","d":20,"lr":"XL","li":111,"lb":2403,"lo":7.5,"hi":9.5,"od":30.47,"p":187.19,"pn":"VPXT260R","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"265/50R20","d":20,"lr":"XL","li":111,"lb":2403,"lo":7.5,"hi":9.5,"od":30.47,"p":180.96,"pn":"VPTHATS16","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"31x12.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":9.5,"hi":10.5,"od":30.51,"p":246.96,"pn":"CVPRT01","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"31x13.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":10.5,"hi":12.0,"od":30.51,"p":265.96,"pn":"CVPRT04","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"255/55R20","d":20,"lr":"XL","li":110,"lb":2337,"lo":7.0,"hi":9.0,"od":31.02,"p":null,"pn":"VPWTS41","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"255/55R20","d":20,"lr":"XL","li":110,"lb":2337,"lo":7.0,"hi":9.0,"od":31.02,"p":176.96,"pn":"VPTHATS15","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"285/50R20","d":20,"lr":"E","li":119,"lb":2998,"lo":8.5,"hi":10.0,"od":31.26,"p":234.96,"pn":"TVPXT21","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"285/50R20","d":20,"lr":"E","li":119,"lb":2998,"lo":8.5,"hi":10.0,"od":31.26,"p":null,"pn":"VPXT2118","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"285/50R20","d":20,"lr":"E","li":119,"lb":2998,"lo":8.5,"hi":10.0,"od":31.26,"p":null,"pn":"VPXT2118N","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"285/50R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":8.0,"hi":10.0,"od":31.26,"p":null,"pn":"VPTHATS44","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"285/50R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":8.0,"hi":10.0,"od":31.26,"p":null,"pn":"VPTHATS54","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2835,"lo":7.5,"hi":9.5,"od":31.89,"p":null,"pn":"ATM2755520A","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2833,"lo":7.5,"hi":9.5,"od":31.89,"p":null,"pn":"VPWTS20","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"275/55R20","d":20,"lr":"E","li":120,"lb":3086,"lo":8.0,"hi":9.5,"od":31.89,"p":null,"pn":"TVPSWAT57","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2833,"lo":7.5,"hi":9.5,"od":31.89,"p":null,"pn":"TVPSWAT82","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"275/55R20","d":20,"lr":"E","li":120,"lb":3086,"lo":8.0,"hi":9.5,"od":31.89,"p":227.96,"pn":"TVPMT13","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"275/55R20","d":20,"lr":"E","li":120,"lb":3086,"lo":8.0,"hi":9.5,"od":31.89,"p":225.96,"pn":"TVPRT11NL","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2833,"lo":7.5,"hi":9.5,"od":31.89,"p":212.96,"pn":"TVPRT26","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"275/55R20","d":20,"lr":"E","li":120,"lb":3086,"lo":8.0,"hi":9.5,"od":31.89,"p":226.96,"pn":"TVPXT20","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2833,"lo":7.5,"hi":9.5,"od":31.89,"p":203.96,"pn":"TVPXT35","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"275/55R20","d":20,"lr":"E","li":120,"lb":3086,"lo":8.0,"hi":9.5,"od":31.89,"p":null,"pn":"VPXT2117","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2833,"lo":7.5,"hi":9.5,"od":31.89,"p":202.96,"pn":"VPXT212","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"275/55R20","d":20,"lr":"XL","li":117,"lb":2833,"lo":7.5,"hi":9.5,"od":31.89,"p":195.96,"pn":"VPTHATS18","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"275/55R20","d":20,"lr":"E","li":120,"lb":3086,"lo":8.0,"hi":9.5,"od":31.89,"p":229.07,"pn":"CVPTHRT05","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"255/60R20","d":20,"lr":"D","li":115,"lb":2679,"lo":7.5,"hi":9.0,"od":32.05,"p":null,"pn":"VPXT2126N","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"305/50R20","d":20,"lr":"XL","li":120,"lb":3086,"lo":8.5,"hi":11.0,"od":32.05,"p":null,"pn":"VPXT264","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3305,"lo":8.0,"hi":10.0,"od":32.36,"p":null,"pn":"ATM2855520A","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":246.96,"pn":"CVPSWAT19","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":247.96,"pn":"TVPMT37","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":247.96,"pn":"TVPRT13NL","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"285/55R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":8.0,"hi":10.0,"od":32.36,"p":228.96,"pn":"TVPRT27","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":245.96,"pn":"TVPXT12","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":null,"pn":"VPXT2104N","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"285/55R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":8.0,"hi":10.0,"od":32.36,"p":null,"pn":"VPXT261R","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":234.96,"pn":"VPTHATS01","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":234.96,"pn":"VPTHATX01","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.0,"od":32.36,"p":248.96,"pn":"CVPTHRT06R","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"265/60R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.0,"hi":9.5,"od":32.52,"p":227.96,"pn":"TVPRT32","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"265/60R20","d":20,"lr":"SL","li":112,"lb":2469,"lo":7.5,"hi":9.5,"od":32.52,"p":220.52,"pn":"VPXT259R","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x10.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.0,"hi":9.5,"od":32.52,"p":236.96,"pn":"TVPRT36","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"33x11.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":8.0,"hi":10.5,"od":32.52,"p":242.06,"pn":"CVPSWAT20","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x11.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":8.0,"hi":10.5,"od":32.52,"p":252.96,"pn":"TVPMT17","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x11.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":8.0,"hi":10.5,"od":32.52,"p":244.96,"pn":"TVPRT37","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x11.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":8.0,"hi":10.5,"od":32.52,"p":251.0,"pn":"SVPXT19","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x11.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":8.0,"hi":10.5,"od":32.52,"p":null,"pn":"VPXT2129","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"33x11.50R20","d":20,"lr":"E","li":118,"lb":2910,"lo":8.0,"hi":10.5,"od":32.52,"p":null,"pn":"CVPTHRT08R","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2600,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"ATM33125020A","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"VPWTS32","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"CVPSWAT22","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"CVPSWAT23","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":266.96,"pn":"CVPSWMT03","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":274.96,"pn":"CVPSWMT04","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":260.96,"pn":"TVPMT35","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":279.96,"pn":"TVPMT15","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":266.96,"pn":"TVPRT35N","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":282.96,"pn":"TVPRT15N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":260.96,"pn":"TVPXT04","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":253.96,"pn":"TVPXT04R","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":265.96,"pn":"TVPXT05","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"VPXT282","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"VPXT282N","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"VPXT282RN","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"VPXT283","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":238.96,"pn":"VPTHATS02","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":250.96,"pn":"VPTHATS03","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":243.96,"pn":"VPTHATX02","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"VPTHATX17","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":256.96,"pn":"VPTHATX03","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2601,"lo":8.5,"hi":11.0,"od":32.52,"p":257.96,"pn":"CVPTHRT01R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":2998,"lo":8.5,"hi":11.0,"od":32.52,"p":269.96,"pn":"CVPTHRT10R","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x13.50R20","d":20,"lr":"F","li":120,"lb":3086,"lo":9.5,"hi":12.0,"od":32.52,"p":286.96,"pn":"TVPMT40","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x14.50R20","d":20,"lr":"F","li":120,"lb":3086,"lo":11.0,"hi":12.0,"od":32.52,"p":324.07,"pn":"CVPRT12","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"285/55R20","d":20,"lr":"E","li":122,"lb":3305,"lo":8.0,"hi":10.0,"od":32.6,"p":230.96,"pn":"RT2855520A","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"295/55R20","d":20,"lr":"E","li":123,"lb":3417,"lo":8.5,"hi":10.5,"od":32.76,"p":243.96,"pn":"SVPXT16","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2600,"lo":8.5,"hi":11.0,"od":32.8,"p":null,"pn":"FCHII33125020A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":3000,"lo":8.5,"hi":11.0,"od":32.8,"p":294.85,"pn":"FCHIIF33125020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"33x12.50R20","d":20,"lr":"E","li":114,"lb":2600,"lo":8.5,"hi":11.0,"od":32.8,"p":260.96,"pn":"RT33125020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"33x12.50R20","d":20,"lr":"F","li":119,"lb":3000,"lo":8.5,"hi":11.0,"od":32.8,"p":null,"pn":"RTF33125020A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"33x14.50R20","d":20,"lr":"F","li":125,"lb":3195,"lo":10.0,"hi":12.0,"od":32.8,"p":357.06,"pn":"FCHF33145020","f":"Fury lists load index 125 (3,638 lb) but 3,195 lb. Lower figure shown."},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"275/60R20","d":20,"lr":"XL","li":116,"lb":2680,"lo":7.5,"hi":9.5,"od":32.99,"p":null,"pn":"ATM2756020A","f":"Fury lists load index 116 (2,756 lb) but 2,680 lb. Lower figure shown."},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"275/60R20","d":20,"lr":"SL","li":115,"lb":2679,"lo":7.5,"hi":9.5,"od":32.99,"p":null,"pn":"VPWTS21","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"275/60R20","d":20,"lr":"E","li":123,"lb":3417,"lo":8.0,"hi":9.5,"od":32.99,"p":227.96,"pn":"TVPXT37","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"275/60R20","d":20,"lr":"SL","li":115,"lb":2679,"lo":7.5,"hi":9.5,"od":32.99,"p":210.96,"pn":"TVPXT36","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"275/60R20","d":20,"lr":"E","li":123,"lb":3417,"lo":8.0,"hi":9.5,"od":32.99,"p":234.99,"pn":"VPXT229R","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"275/60R20","d":20,"lr":"SL","li":115,"lb":2679,"lo":7.5,"hi":9.5,"od":32.99,"p":209.96,"pn":"VPXT213R","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"275/60R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":7.5,"hi":9.5,"od":32.99,"p":null,"pn":"VPTHATS43","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"275/60R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":7.5,"hi":9.5,"od":32.99,"p":null,"pn":"VPTHATS53","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"275/60R20","d":20,"lr":"E","li":123,"lb":3417,"lo":8.0,"hi":9.5,"od":32.99,"p":null,"pn":"CVPTHRT24R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"275/60R20","d":20,"lr":"SL","li":115,"lb":2679,"lo":7.5,"hi":9.5,"od":32.99,"p":null,"pn":"CVPTHRT30R","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"305/55R20","d":20,"lr":"E","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":33.23,"p":null,"pn":"ATM3055520A","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"305/55R20","d":20,"lr":"E","li":121,"lb":3197,"lo":9.0,"hi":11.0,"od":33.23,"p":268.96,"pn":"TVPRT14NL","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"305/55R20","d":20,"lr":"XL","li":116,"lb":2756,"lo":8.5,"hi":11.0,"od":33.23,"p":250.96,"pn":"TVPRT28","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"305/55R20","d":20,"lr":"E","li":121,"lb":3197,"lo":9.0,"hi":11.0,"od":33.23,"p":259.96,"pn":"TVPXT41","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"305/55R20","d":20,"lr":"F","li":125,"lb":3638,"lo":9.0,"hi":11.0,"od":33.23,"p":null,"pn":"TVPXT42","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"305/55R20","d":20,"lr":"E","li":121,"lb":3197,"lo":9.0,"hi":11.0,"od":33.23,"p":null,"pn":"VPXT2111","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"305/55R20","d":20,"lr":"F","li":125,"lb":3638,"lo":9.0,"hi":11.0,"od":33.23,"p":null,"pn":"VPXT2112","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"305/55R20","d":20,"lr":"SL","li":116,"lb":2756,"lo":8.5,"hi":11.0,"od":33.23,"p":null,"pn":"VPXT274R","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"285/60R20","d":20,"lr":"E","li":125,"lb":3638,"lo":8.5,"hi":10.0,"od":33.46,"p":null,"pn":"VPWTS44","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"285/60R20","d":20,"lr":"E","li":125,"lb":3638,"lo":8.5,"hi":10.0,"od":33.46,"p":null,"pn":"SVPXT22","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"285/60R20","d":20,"lr":"E","li":125,"lb":3638,"lo":8.5,"hi":10.0,"od":33.46,"p":null,"pn":"VPXT2105","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"285/60R20","d":20,"lr":"E","li":125,"lb":3638,"lo":8.5,"hi":10.0,"od":33.46,"p":null,"pn":"CVPTHRT07R","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"305/55R20","d":20,"lr":"E","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":33.5,"p":null,"pn":"RT3055520A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"305/55R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":33.5,"p":270.08,"pn":"RTF3055520A","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"295/60R20","d":20,"lr":"E","li":126,"lb":3748,"lo":8.5,"hi":10.5,"od":33.94,"p":null,"pn":"SVPXT17","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"295/60R20","d":20,"lr":"E","li":126,"lb":3748,"lo":8.5,"hi":10.5,"od":33.94,"p":null,"pn":"VPXT2109","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"275/65R20","d":20,"lr":"E","li":126,"lb":3750,"lo":7.5,"hi":9.5,"od":34.09,"p":null,"pn":"ATM2756520A","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"275/65R20","d":20,"lr":"E","li":126,"lb":3748,"lo":8.0,"hi":9.5,"od":34.09,"p":null,"pn":"VPWTS37","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"275/65R20","d":20,"lr":"F","li":128,"lb":3968,"lo":8.0,"hi":9.5,"od":34.09,"p":258.0,"pn":"TVPRT12N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"275/65R20","d":20,"lr":"E","li":126,"lb":3748,"lo":8.0,"hi":9.5,"od":34.09,"p":null,"pn":"TVPXT38","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"275/65R20","d":20,"lr":"E","li":126,"lb":3748,"lo":8.0,"hi":9.5,"od":34.09,"p":237.96,"pn":"VPXT230R","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.5,"p":299.07,"pn":"VPTHATS28","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x11.50R20","d":20,"lr":"F","li":124,"lb":3525,"lo":8.0,"hi":10.5,"od":34.52,"p":null,"pn":"ATMF35115020A","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x11.50R20","d":20,"lr":"E","li":124,"lb":3527,"lo":8.0,"hi":10.5,"od":34.52,"p":null,"pn":"TVPSWAT63R","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x11.50R20","d":20,"lr":"E","li":124,"lb":3527,"lo":8.0,"hi":10.5,"od":34.52,"p":278.96,"pn":"TVPRT38","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"ATM35125020A","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.01,"od":34.52,"p":null,"pn":"ATMF35125020A","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPWTS33","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"CVPSWAT25","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":287.96,"pn":"CVPSWAT26","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":297.98,"pn":"CVPSWMT05","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":301.96,"pn":"CVPSWMT06","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":295.96,"pn":"TVPMT34","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":302.96,"pn":"TVPMT18","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":292.96,"pn":"TVPRT34N","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":311.96,"pn":"TVPRT18N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":271.96,"pn":"TVPXT08","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":271.96,"pn":"TVPXT08R","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":306.96,"pn":"TVPXT09","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPXT291","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPXT291N","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPXT291RN","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPXT292","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPTHATS27","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":302.08,"pn":"VPTHATX04R","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":307.06,"pn":"VPTHATX05R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":286.96,"pn":"CVPTHRT11R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":313.06,"pn":"CVPTHRT12R","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x13.50R20","d":20,"lr":"F","li":126,"lb":3748,"lo":9.5,"hi":12.0,"od":34.52,"p":443.96,"pn":"TVPMT19","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x13.50R20","d":20,"lr":"F","li":126,"lb":3748,"lo":9.5,"hi":12.0,"od":34.52,"p":447.96,"pn":"TVPRT39","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x14.50R20","d":20,"lr":"F","li":127,"lb":3858,"lo":11.0,"hi":12.0,"od":34.52,"p":464.96,"pn":"CVPRT14","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x15.50R20","d":20,"lr":"F","li":127,"lb":3858,"lo":11.0,"hi":14.0,"od":34.52,"p":null,"pn":"CVPSWMT37R","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"285/65R20","d":20,"lr":"E","li":127,"lb":3858,"lo":8.5,"hi":10.0,"od":34.57,"p":null,"pn":"TVPSWAT62R","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"285/65R20","d":20,"lr":"E","li":127,"lb":3858,"lo":8.5,"hi":10.0,"od":34.57,"p":284.96,"pn":"TVPRT33","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.8,"p":297.96,"pn":"FCHII35125020A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":34.8,"p":276.99,"pn":"FCHIIF35125020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"35x12.50R20","d":20,"lr":"E","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.8,"p":279.08,"pn":"RT35125020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":34.8,"p":259.96,"pn":"RTF35125020A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x13.50R20","d":20,"lr":"E","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.8,"p":null,"pn":"FCHII35135020A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x13.50R20","d":20,"lr":"F","li":126,"lb":3750,"lo":8.5,"hi":11.0,"od":34.8,"p":345.96,"pn":"FCHIIF35135020A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R20","d":20,"lr":"F","li":128,"lb":3970,"lo":11.0,"hi":14.0,"od":34.8,"p":null,"pn":"FCHF35155020","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"295/65R20","d":20,"lr":"E","li":129,"lb":4079,"lo":8.5,"hi":10.5,"od":35.12,"p":301.07,"pn":"TVPSWAT43","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"325/60R20","d":20,"lr":"E","li":126,"lb":3748,"lo":9.5,"hi":11.5,"od":35.35,"p":null,"pn":"VPXT272","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x11.50R20","d":20,"lr":"E","li":128,"lb":3968,"lo":7.5,"hi":10.0,"od":36.52,"p":null,"pn":"CVPTHRT42","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x12.50R20","d":20,"lr":"E","li":126,"lb":3748,"lo":8.5,"hi":11.0,"od":36.52,"p":362.06,"pn":"VPXT269","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x12.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":8.5,"hi":11.0,"od":36.52,"p":363.06,"pn":"CVPTHRT20R","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"37x13.50R20","d":20,"lr":"E","li":127,"lb":3858,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPWTS36","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R20","d":20,"lr":"E","li":127,"lb":3858,"lo":9.5,"hi":12.0,"od":36.52,"p":468.96,"pn":"TVPXT16","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":476.96,"pn":"TVPXT17","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R20","d":20,"lr":"E","li":127,"lb":3858,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPXT295","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPXT296","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x13.50R20","d":20,"lr":"E","li":127,"lb":3858,"lo":9.5,"hi":12.0,"od":36.52,"p":359.99,"pn":"CVPTHRT31R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x13.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":487.96,"pn":"CVPTHRT13R","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"37x11.50R20","d":20,"lr":"F","li":128,"lb":3970,"lo":8.0,"hi":10.5,"od":36.6,"p":null,"pn":"ATMF37115020A","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"37x12.50R20","d":20,"lr":"E","li":123,"lb":3415,"lo":8.5,"hi":11.0,"od":36.6,"p":null,"pn":"ATM37125020A","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"37x12.50R20","d":20,"lr":"F","li":127,"lb":3858,"lo":8.5,"hi":11.01,"od":36.6,"p":null,"pn":"ATMF37125020A","f":"Fury lists load index 127 (3,858 lb) but 3,970 lb. Lower figure shown."},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"37x12.50R20","d":20,"lr":"E","li":126,"lb":3750,"lo":8.5,"hi":11.0,"od":36.8,"p":308.96,"pn":"RT37125020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"37x12.50R20","d":20,"lr":"F","li":128,"lb":3970,"lo":8.5,"hi":11.0,"od":36.8,"p":308.06,"pn":"RTF37125020A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R20","d":20,"lr":"E","li":127,"lb":3860,"lo":8.5,"hi":11.0,"od":36.8,"p":372.96,"pn":"FCHII37135020A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R20","d":20,"lr":"F","li":130,"lb":4190,"lo":8.5,"hi":11.0,"od":36.8,"p":383.96,"pn":"FCHIIF37135020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"37x13.50R20","d":20,"lr":"E","li":127,"lb":3860,"lo":8.5,"hi":11.0,"od":36.8,"p":349.96,"pn":"RT37135020A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"37x13.50R20","d":20,"lr":"F","li":128,"lb":3970,"lo":8.5,"hi":11.0,"od":36.8,"p":null,"pn":"RTF37135020A","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"38x13.50R20","d":20,"lr":"E","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":37.52,"p":553.96,"pn":"CVPSWMT24","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"38x15.50R20","d":20,"lr":"E","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":37.52,"p":639.96,"pn":"TVPMT41","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"395/60R20","d":20,"lr":"E","li":128,"lb":3970,"lo":11.0,"hi":14.0,"od":37.7,"p":null,"pn":"FCH3956020","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"40x13.50R20","d":20,"lr":"E","li":128,"lb":3968,"lo":9.0,"hi":11.5,"od":39.52,"p":638.99,"pn":"CVPSWMT26","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":39.52,"p":647.99,"pn":"TVPMT21","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"40x13.50R20","d":20,"lr":"E","li":128,"lb":3968,"lo":8.5,"hi":11.0,"od":39.8,"p":513.99,"pn":"FCHII40135020","f":"Fury lists load index 128 (3,968 lb) but 4,300 lb. Lower figure shown."},{"b":"F","m":"Street Hunter SS","t":"Street","s":"255/35R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"255/45R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"255/50R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"265/50R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"275/35R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"275/40R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"275/55R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"275/60R20","d":20,"lr":"SL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"285/50R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"295/35R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"295/40R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"295/45R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"305/30R20","d":20,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/35R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"305/35R20","d":20,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/50R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"315/30R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"315/35R20","d":20,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"315/35R20","d":20,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"225/30ZR22","d":22,"lr":"XL","li":87,"lb":1201,"lo":8.0,"hi":8.0,"od":27.36,"p":null,"pn":"CVPGTS04","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/25ZR22","d":22,"lr":"XL","li":93,"lb":1433,"lo":10.0,"hi":10.0,"od":27.44,"p":null,"pn":"CVPGTS31","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"235/30ZR22","d":22,"lr":"XL","li":90,"lb":1323,"lo":8.5,"hi":8.5,"od":27.6,"p":97.0,"pn":"CVPGTS05","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"285/25ZR22","d":22,"lr":"XL","li":95,"lb":1521,"lo":10.5,"hi":10.5,"od":27.6,"p":140.96,"pn":"CVPGTS32","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"245/30ZR22","d":22,"lr":"XL","li":92,"lb":1389,"lo":8.0,"hi":9.0,"od":27.83,"p":119.96,"pn":"CVPGTS06","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/25ZR22","d":22,"lr":"XL","li":97,"lb":1609,"lo":10.0,"hi":11.0,"od":27.83,"p":130.96,"pn":"CVPGTS03","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"255/30ZR22","d":22,"lr":"XL","li":95,"lb":1521,"lo":8.5,"hi":9.5,"od":28.07,"p":129.96,"pn":"CVPGTS07","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"315/25ZR22","d":22,"lr":"XL","li":101,"lb":1819,"lo":11.0,"hi":12.0,"od":28.23,"p":233.07,"pn":"CVPGTS35","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"265/30ZR22","d":22,"lr":"XL","li":97,"lb":1609,"lo":9.0,"hi":10.0,"od":28.31,"p":130.96,"pn":"CVPGTS08","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/30R22","d":22,"lr":"XL","li":103,"lb":1929,"lo":10.0,"hi":11.0,"od":29.02,"p":null,"pn":"SVPGTS07","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/30ZR22","d":22,"lr":"XL","li":103,"lb":1929,"lo":10.0,"hi":11.0,"od":29.02,"p":163.96,"pn":"CVPGTS09","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/30ZR22","d":22,"lr":"XL","li":105,"lb":2039,"lo":10.5,"hi":11.5,"od":29.25,"p":204.96,"pn":"CVPGTS33","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"265/35R22","d":22,"lr":"XL","li":102,"lb":1874,"lo":9.0,"hi":10.5,"od":29.33,"p":null,"pn":"TVPGTS54","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"265/35R22","d":22,"lr":"XL","li":102,"lb":1874,"lo":9.0,"hi":10.5,"od":29.33,"p":178.96,"pn":"LVPTHATS22","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"315/30ZR22","d":22,"lr":"XL","li":107,"lb":2149,"lo":10.5,"hi":11.5,"od":29.49,"p":280.0,"pn":"CVPGTS36","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/35ZR22","d":22,"lr":"XL","li":104,"lb":1984,"lo":9.0,"hi":11.0,"od":29.57,"p":null,"pn":"TVPGTS84","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"285/35R22","d":22,"lr":"XL","li":106,"lb":2094,"lo":9.5,"hi":11.0,"od":29.88,"p":152.96,"pn":"CVPGTS10","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"265/40R22","d":22,"lr":"XL","li":106,"lb":2094,"lo":9.0,"hi":10.5,"od":30.35,"p":null,"pn":"SVPGTS01","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/35ZR22","d":22,"lr":"XL","li":110,"lb":2337,"lo":10.0,"hi":12.0,"od":30.43,"p":206.96,"pn":"CVPGTS34","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"31x12.50R22","d":22,"lr":"E","li":115,"lb":2679,"lo":11.0,"hi":12.0,"od":30.51,"p":260.96,"pn":"CVPRT02","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"31x13.50R22","d":22,"lr":"E","li":118,"lb":2910,"lo":11.5,"hi":12.5,"od":30.51,"p":258.06,"pn":"CVPRT05","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"275/40R22","d":22,"lr":"XL","li":107,"lb":2149,"lo":9.0,"hi":11.0,"od":30.67,"p":null,"pn":"VPWTS42","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/40ZR22","d":22,"lr":"XL","li":107,"lb":2149,"lo":9.0,"hi":11.0,"od":30.67,"p":191.96,"pn":"CVPGTS11","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"285/40ZR22","d":22,"lr":"XL","li":110,"lb":2337,"lo":9.5,"hi":11.0,"od":30.98,"p":176.96,"pn":"CVPGTS12","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"325/35ZR22","d":22,"lr":"XL","li":114,"lb":2601,"lo":11.0,"hi":13.0,"od":30.98,"p":null,"pn":"SVPGTS10","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/40R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":31.61,"p":null,"pn":"TVPGTS56","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"305/40R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":31.61,"p":264.96,"pn":"TVPXT22","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"305/40R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":31.61,"p":null,"pn":"VPXT277","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"305/40R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":31.61,"p":222.96,"pn":"LVPTHATS23","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/45R22","d":22,"lr":"XL","li":112,"lb":2469,"lo":8.5,"hi":10.5,"od":31.77,"p":null,"pn":"SVPGTS03","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"275/45R22","d":22,"lr":"XL","li":112,"lb":2469,"lo":8.5,"hi":10.5,"od":31.77,"p":186.96,"pn":"VPTHATS19","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"285/45R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":9.0,"hi":10.5,"od":32.09,"p":null,"pn":"VPWTS22","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"285/45R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":9.0,"hi":10.5,"od":32.09,"p":166.96,"pn":"TVPGTS55","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"285/45R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":9.0,"hi":10.5,"od":32.09,"p":231.96,"pn":"TVPXT18","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"285/45R22","d":22,"lr":"XL","li":114,"lb":2601,"lo":9.0,"hi":10.5,"od":32.09,"p":228.96,"pn":"VPTHATS20","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"285/45R22","d":22,"lr":"E","li":119,"lb":3000,"lo":8.5,"hi":11.0,"od":32.1,"p":null,"pn":"ATM2854522A","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2270,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"ATM33125022A","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2600,"lo":8.5,"hi":11.0,"od":32.52,"p":null,"pn":"ATMF33125022A","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":null,"pn":"VPWTS34","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":261.96,"pn":"CVPSWAT28","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":32.52,"p":null,"pn":"CVPSWAT29","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":274.96,"pn":"CVPSWMT09","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":32.52,"p":281.96,"pn":"CVPSWMT10","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":270.96,"pn":"TVPMT16L","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":32.52,"p":283.96,"pn":"TVPMT16","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":32.52,"p":286.96,"pn":"TVPRT16N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":268.96,"pn":"TVPXT06","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":32.52,"p":279.96,"pn":"TVPXT07","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":256.96,"pn":"VPTHATX06","f":null},{"b":"V","m":"Trail Hunter ATX","t":"All-terrain","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":null,"pn":"VPTHATX19","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":32.52,"p":287.02,"pn":"CVPTHRT14","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":32.52,"p":280.08,"pn":"CVPTHRT15","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"33x13.50R22","d":22,"lr":"F","li":116,"lb":2756,"lo":11.5,"hi":12.5,"od":32.52,"p":null,"pn":"CVPSWMT30","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x13.50R22","d":22,"lr":"F","li":116,"lb":2756,"lo":10.5,"hi":12.0,"od":32.52,"p":297.96,"pn":"CVPMT22","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x13.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.5,"hi":12.0,"od":32.52,"p":null,"pn":"CVPRT11","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x14.50R22","d":22,"lr":"F","li":115,"lb":2679,"lo":12.5,"hi":14.0,"od":32.52,"p":419.99,"pn":"CVPRT13","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x14.50R22","d":22,"lr":"E","li":111,"lb":2403,"lo":12.5,"hi":14.0,"od":32.52,"p":353.96,"pn":"CVPXT07","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/45R22","d":22,"lr":"XL","li":118,"lb":2910,"lo":9.5,"hi":11.5,"od":32.8,"p":null,"pn":"TVPGTS57","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"305/45R22","d":22,"lr":"XL","li":118,"lb":2910,"lo":9.5,"hi":11.5,"od":32.8,"p":261.96,"pn":"TVPRT29","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"305/45R22","d":22,"lr":"XL","li":118,"lb":2910,"lo":9.5,"hi":11.5,"od":32.8,"p":254.96,"pn":"TVPXT81","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"305/45R22","d":22,"lr":"XL","li":118,"lb":2910,"lo":9.5,"hi":11.5,"od":32.8,"p":null,"pn":"VPXT2133","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2270,"lo":8.5,"hi":11.0,"od":32.8,"p":null,"pn":"FCHII33125022A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2600,"lo":8.5,"hi":11.0,"od":32.8,"p":297.3,"pn":"FCHIIF33125022A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2270,"lo":8.5,"hi":11.0,"od":32.8,"p":273.08,"pn":"RT33125022A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2600,"lo":8.5,"hi":11.0,"od":32.8,"p":null,"pn":"RTF33125022A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"33x14.50R22","d":22,"lr":"F","li":117,"lb":2835,"lo":10.0,"hi":12.0,"od":32.8,"p":358.96,"pn":"FCHF33145022","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"275/50R22","d":22,"lr":"XL","li":115,"lb":2679,"lo":7.5,"hi":9.5,"od":32.87,"p":null,"pn":"VPWTS45","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/50R22","d":22,"lr":"SL","li":111,"lb":2403,"lo":7.5,"hi":9.5,"od":32.87,"p":null,"pn":"SVPGTS04","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"HL275/50R22","d":22,"lr":"XL","li":116,"lb":2756,"lo":7.5,"hi":9.5,"od":32.87,"p":212.96,"pn":"TVPSWAT68","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"315/45R22","d":22,"lr":"F","li":121,"lb":3197,"lo":10.0,"hi":12.0,"od":33.19,"p":null,"pn":"SVPGTS13","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"285/50R22","d":22,"lr":"E","li":121,"lb":3195,"lo":8.0,"hi":10.0,"od":33.27,"p":null,"pn":"ATM2855022A","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"285/50R22","d":22,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":10.0,"od":33.27,"p":null,"pn":"SVPXT20","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"295/50R22","d":22,"lr":"E","li":122,"lb":3307,"lo":8.5,"hi":10.5,"od":33.66,"p":null,"pn":"VPXT2106","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/50R22","d":22,"lr":"F","li":124,"lb":3527,"lo":9.0,"hi":11.0,"od":34.06,"p":null,"pn":"SVPGTS12","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"285/55R22","d":22,"lr":"E","li":124,"lb":3525,"lo":8.0,"hi":10.0,"od":34.37,"p":null,"pn":"ATM2855522A","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"285/55R22","d":22,"lr":"E","li":124,"lb":3527,"lo":8.5,"hi":10.0,"od":34.37,"p":null,"pn":"TVPSWAT59","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"ATM35125022A","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"ATMF35125022A","f":null},{"b":"V","m":"Ice Hunter WTS","t":"Winter","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPWTS35","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":295.96,"pn":"CVPSWAT31","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":317.08,"pn":"CVPSWAT32","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":306.96,"pn":"CVPSWMT11","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":311.96,"pn":"CVPSWMT12","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":310.96,"pn":"TVPMT20L","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":322.96,"pn":"TVPMT20","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":307.96,"pn":"TVPRT20N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":291.96,"pn":"TVPXT10","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":314.96,"pn":"TVPXT11","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":null,"pn":"VPXT293","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2833,"lo":8.5,"hi":11.0,"od":34.52,"p":292.96,"pn":"CVPTHRT16R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":307.96,"pn":"CVPTHRT17R","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x13.50R22","d":22,"lr":"F","li":122,"lb":3307,"lo":10.5,"hi":12.0,"od":34.52,"p":438.96,"pn":"CVPSWMT31","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x13.50R22","d":22,"lr":"F","li":122,"lb":3307,"lo":10.5,"hi":12.0,"od":34.52,"p":null,"pn":"CVPMT23","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x13.50R22","d":22,"lr":"E","li":120,"lb":3086,"lo":10.5,"hi":12.0,"od":34.52,"p":371.96,"pn":"CVPXT01","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x14.50R22","d":22,"lr":"F","li":123,"lb":3417,"lo":11.0,"hi":12.5,"od":34.52,"p":507.96,"pn":"CVPRT15","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x15.50R22","d":22,"lr":"F","li":123,"lb":3417,"lo":12.5,"hi":14.5,"od":34.52,"p":null,"pn":"CVPSWMT38","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"265/60R22","d":22,"lr":"E","li":123,"lb":3417,"lo":8.0,"hi":9.5,"od":34.53,"p":null,"pn":"VPXT2134","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"295/55R22","d":22,"lr":"E","li":125,"lb":3638,"lo":8.5,"hi":10.5,"od":34.76,"p":null,"pn":"VPXT2136","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":34.8,"p":337.0,"pn":"FCHII35125022A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.8,"p":null,"pn":"FCHIIF35125022A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":34.8,"p":280.96,"pn":"RT35125022A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3195,"lo":8.5,"hi":11.0,"od":34.8,"p":304.07,"pn":"RTF35125022A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x13.50R22","d":22,"lr":"F","li":122,"lb":3305,"lo":8.5,"hi":11.0,"od":34.8,"p":452.96,"pn":"FCHF35135022","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R22","d":22,"lr":"F","li":125,"lb":3640,"lo":11.0,"hi":14.0,"od":34.8,"p":459.96,"pn":"FCHF35155022","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"325/50R22","d":22,"lr":"E","li":122,"lb":3305,"lo":9.0,"hi":12.0,"od":34.84,"p":null,"pn":"ATM3255022A","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"325/50R22","d":22,"lr":"F","li":127,"lb":3858,"lo":9.5,"hi":11.5,"od":34.84,"p":null,"pn":"VPXT271","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R22","d":22,"lr":"E","li":109,"lb":2271,"lo":10.0,"hi":12.0,"od":35.52,"p":null,"pn":"VPXT284","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R22","d":22,"lr":"F","li":114,"lb":2601,"lo":10.0,"hi":12.0,"od":35.52,"p":null,"pn":"VPXT285","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x12.50R22","d":22,"lr":"F","li":127,"lb":3858,"lo":8.5,"hi":11.0,"od":36.52,"p":439.96,"pn":"CVPTHRT19R","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":475.96,"pn":"TVPRT22N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R22","d":22,"lr":"E","li":123,"lb":3417,"lo":9.5,"hi":12.0,"od":36.52,"p":437.96,"pn":"TVPXT26","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":468.96,"pn":"TVPXT23","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R22","d":22,"lr":"E","li":123,"lb":3417,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPXT297","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPXT298","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x13.50R22","d":22,"lr":"E","li":123,"lb":3417,"lo":9.5,"hi":12.0,"od":36.52,"p":410.99,"pn":"CVPTHRT21R","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":460.96,"pn":"CVPTHRT18R","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"37x12.50R22","d":22,"lr":"F","li":127,"lb":3860,"lo":8.5,"hi":11.0,"od":36.6,"p":null,"pn":"ATMF37125022A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3970,"lo":8.5,"hi":11.0,"od":36.8,"p":445.96,"pn":"FCHIIF37135022A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"37x13.50R22","d":22,"lr":"E","li":123,"lb":3415,"lo":8.5,"hi":11.0,"od":36.8,"p":419.96,"pn":"RT37135022A","f":null},{"b":"F","m":"Country Hunter R/T","t":"Rugged","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3970,"lo":8.5,"hi":11.0,"od":36.8,"p":null,"pn":"RTF37135022A","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":39.52,"p":695.96,"pn":"TVPMT36","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"40x15.50R22","d":22,"lr":"E","li":128,"lb":3970,"lo":11.0,"hi":13.0,"od":39.8,"p":737.96,"pn":"FCHII40155022A","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"255/35R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"265/35R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"265/40R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"275/40R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"275/50R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"285/35R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"285/40R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"285/45R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"295/30R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"295/35R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"295/45R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"305/30R22","d":22,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/40R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/45R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"315/35R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"315/40R22","d":22,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"335/25R22","d":22,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/40R23","d":23,"lr":"XL","li":115,"lb":2679,"lo":10.0,"hi":12.0,"od":32.6,"p":null,"pn":"SVPGTS09","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"255/25ZR24","d":24,"lr":"XL","li":91,"lb":1356,"lo":9.0,"hi":9.0,"od":28.82,"p":195.06,"pn":"TVPGTS79","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/23ZR24","d":24,"lr":"XL","li":93,"lb":1433,"lo":9.5,"hi":10.5,"od":28.9,"p":218.96,"pn":"TVPGTS80","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/25ZR24","d":24,"lr":"XL","li":96,"lb":1565,"lo":9.5,"hi":10.5,"od":29.45,"p":154.96,"pn":"TVPGTS59","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"245/30ZR24","d":24,"lr":"XL","li":94,"lb":1477,"lo":8.0,"hi":9.0,"od":29.84,"p":130.96,"pn":"CVPGTS13","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"255/30ZR24","d":24,"lr":"XL","li":97,"lb":1609,"lo":8.5,"hi":9.5,"od":30.08,"p":152.96,"pn":"TVPGTS58","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"31x12.50R24","d":24,"lr":"E","li":109,"lb":2271,"lo":11.0,"hi":12.0,"od":30.51,"p":251.06,"pn":"CVPRT03","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"31x13.50R24","d":24,"lr":"E","li":111,"lb":2403,"lo":12.0,"hi":13.0,"od":30.51,"p":339.96,"pn":"CVPRT06","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/30ZR24","d":24,"lr":"XL","li":101,"lb":1819,"lo":9.0,"hi":10.0,"od":30.55,"p":162.96,"pn":"CVPGTS14","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/30R24","d":24,"lr":"XL","li":105,"lb":2039,"lo":10.0,"hi":11.0,"od":31.02,"p":193.08,"pn":"CVPGTS15","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/35ZR24","d":24,"lr":"XL","li":106,"lb":2094,"lo":9.0,"hi":11.0,"od":31.57,"p":null,"pn":"CVPGTS37","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"285/35R24","d":24,"lr":"XL","li":108,"lb":2205,"lo":9.5,"hi":11.0,"od":31.89,"p":208.96,"pn":"CVPGTS38","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"405/25ZR24","d":24,"lr":"XL","li":116,"lb":2756,"lo":14.0,"hi":15.0,"od":31.97,"p":447.96,"pn":"CVPGTS42","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/35R24","d":24,"lr":"XL","li":110,"lb":2337,"lo":10.0,"hi":11.5,"od":32.13,"p":182.96,"pn":"CVPGTS16","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/35R24","d":24,"lr":"XL","li":112,"lb":2469,"lo":10.0,"hi":12.0,"od":32.44,"p":192.96,"pn":"TVPGTS60","f":null},{"b":"V","m":"Trail Hunter ATS","t":"All-terrain","s":"305/35R24","d":24,"lr":"XL","li":112,"lb":2469,"lo":10.0,"hi":12.0,"od":32.44,"p":238.96,"pn":"VPTHATS21","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"33x12.50R24","d":24,"lr":"F","li":106,"lb":2094,"lo":10.5,"hi":12.5,"od":32.52,"p":null,"pn":"ATMF33125024A","f":"Fury lists load index 106 (2,094 lb) but 2,905 lb. Lower figure shown."},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x12.50R24","d":24,"lr":"F","li":106,"lb":2094,"lo":10.5,"hi":12.5,"od":32.52,"p":336.15,"pn":"TVPRT17","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"33x12.50R24","d":24,"lr":"F","li":106,"lb":2094,"lo":10.5,"hi":12.5,"od":32.52,"p":null,"pn":"VPXT2138","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"33x13.50R24","d":24,"lr":"F","li":113,"lb":2535,"lo":11.5,"hi":12.5,"od":32.52,"p":328.96,"pn":"CVPGTS21","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"33x13.50R24","d":24,"lr":"E","li":109,"lb":2271,"lo":11.5,"hi":12.5,"od":32.52,"p":359.96,"pn":"CVPMT25","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x13.50R24","d":24,"lr":"E","li":109,"lb":2271,"lo":11.5,"hi":12.5,"od":32.52,"p":372.94,"pn":"CVPRT18","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x13.50R24","d":24,"lr":"F","li":113,"lb":2535,"lo":11.5,"hi":12.5,"od":32.52,"p":322.96,"pn":"CVPXT05N","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"33x14.50R24","d":24,"lr":"F","li":108,"lb":2205,"lo":12.5,"hi":14.5,"od":32.52,"p":null,"pn":"ATMF33145024A","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x14.50R24","d":24,"lr":"E","li":110,"lb":2337,"lo":12.5,"hi":14.0,"od":32.52,"p":404.0,"pn":"CVPRT20","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x14.50R24","d":24,"lr":"F","li":118,"lb":2910,"lo":12.5,"hi":14.0,"od":32.52,"p":359.96,"pn":"CVPXT08N","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"33x12.50R24","d":24,"lr":"F","li":109,"lb":2270,"lo":8.5,"hi":11.0,"od":32.8,"p":365.09,"pn":"FCHIIF33125024A","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"33x13.50R24","d":24,"lr":"E","li":111,"lb":2381,"lo":8.5,"hi":11.0,"od":32.8,"p":398.99,"pn":"FCHII33135024A","f":"Fury lists load index 111 (2,403 lb) but 2,381 lb. Lower figure shown."},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"33x14.50R24","d":24,"lr":"E","li":114,"lb":2600,"lo":10.0,"hi":12.0,"od":32.8,"p":461.06,"pn":"FCH33145024","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"285/40R24","d":24,"lr":"XL","li":112,"lb":2469,"lo":9.5,"hi":11.0,"od":32.99,"p":null,"pn":"CVPGTS17","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"285/40R24","d":24,"lr":"XL","li":112,"lb":2469,"lo":9.5,"hi":11.0,"od":32.99,"p":292.61,"pn":"CVPXT04","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x12.50R24","d":24,"lr":"F","li":116,"lb":2755,"lo":10.0,"hi":12.0,"od":34.52,"p":null,"pn":"ATMF35125024A","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x12.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":10.0,"hi":12.0,"od":34.52,"p":371.8,"pn":"TVPSWAT46","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":10.0,"hi":12.0,"od":34.52,"p":355.96,"pn":"TVPRT21","f":null},{"b":"V","m":"Swampthing A/T","t":"All-terrain","s":"35x13.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":11.5,"hi":13.5,"od":34.52,"p":476.96,"pn":"TVPSWAT54","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x13.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":11.5,"hi":13.5,"od":34.52,"p":403.96,"pn":"TVPMT26","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x13.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":11.5,"hi":13.5,"od":34.52,"p":489.96,"pn":"CVPXT02","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x14.50R24","d":24,"lr":"E","li":118,"lb":2910,"lo":12.5,"hi":14.0,"od":34.52,"p":427.08,"pn":"CVPRT22","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"35x15.50R24","d":24,"lr":"F","li":117,"lb":2833,"lo":13.0,"hi":15.5,"od":34.52,"p":432.99,"pn":"CVPSWMT39","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R24","d":24,"lr":"F","li":117,"lb":2835,"lo":10.0,"hi":12.0,"od":34.8,"p":363.07,"pn":"FCHIIF35125024A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x13.50R24","d":24,"lr":"E","li":118,"lb":2910,"lo":8.5,"hi":11.0,"od":34.8,"p":490.96,"pn":"FCH35135024","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x14.50R24","d":24,"lr":"F","li":123,"lb":3415,"lo":10.5,"hi":12.5,"od":34.8,"p":564.96,"pn":"FCHIIF35145024","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R24","d":24,"lr":"E","li":117,"lb":2835,"lo":11.0,"hi":14.0,"od":34.8,"p":503.96,"pn":"FCH35155024","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x16.50R24","d":24,"lr":"F","li":127,"lb":3860,"lo":12.0,"hi":15.0,"od":34.8,"p":669.99,"pn":"FCHIIF35165024","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"37x12.50R24","d":24,"lr":"F","li":123,"lb":3415,"lo":8.5,"hi":11.0,"od":36.52,"p":null,"pn":"ATMF37125024A","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"37x13.50R24","d":24,"lr":"F","li":124,"lb":3527,"lo":9.5,"hi":12.0,"od":36.52,"p":487.96,"pn":"TVPRT23N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R24","d":24,"lr":"E","li":120,"lb":3086,"lo":9.5,"hi":12.0,"od":36.52,"p":428.96,"pn":"TVPXT50","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R24","d":24,"lr":"F","li":124,"lb":3527,"lo":9.5,"hi":12.0,"od":36.52,"p":481.96,"pn":"TVPXT24","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R24","d":24,"lr":"E","li":120,"lb":3086,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPXT299","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R24","d":24,"lr":"F","li":124,"lb":3527,"lo":9.5,"hi":12.0,"od":36.52,"p":null,"pn":"VPXT2101","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"37x15.50R24","d":24,"lr":"F","li":126,"lb":3748,"lo":12.0,"hi":13.5,"od":36.52,"p":609.96,"pn":"CVPRT27","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"365/45R24","d":24,"lr":"F","li":125,"lb":3640,"lo":10.0,"hi":12.0,"od":36.8,"p":674.96,"pn":"FCHF3654524","f":null},{"b":"F","m":"Country Hunter R/T Plus","t":"Rugged","s":"37x12.50R24","d":24,"lr":"F","li":123,"lb":3415,"lo":8.5,"hi":11.0,"od":36.8,"p":533.96,"pn":"RTPF37125024","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R24","d":24,"lr":"F","li":124,"lb":3525,"lo":8.5,"hi":11.0,"od":36.8,"p":557.96,"pn":"FCHIIF37135024A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x15.50R24","d":24,"lr":"E","li":127,"lb":3860,"lo":11.0,"hi":13.0,"od":37.7,"p":716.96,"pn":"FCH38155024","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R24","d":24,"lr":"F","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":39.52,"p":668.96,"pn":"TVPMT28","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"40x13.50R24","d":24,"lr":"E","li":127,"lb":3860,"lo":8.5,"hi":11.0,"od":39.8,"p":744.96,"pn":"FCH40135024","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"40x15.50R24","d":24,"lr":"F","li":128,"lb":3970,"lo":11.0,"hi":13.0,"od":39.8,"p":743.96,"pn":"FCHIIF40155024A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"42x15.50R24","d":24,"lr":"D","li":130,"lb":4190,"lo":11.0,"hi":13.0,"od":41.8,"p":994.96,"pn":"FCH42155024","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"265/30R24","d":24,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/35R24","d":24,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"315/30R24","d":24,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"335/35R24","d":24,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"415/25R24","d":24,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/25ZR26","d":26,"lr":"XL","li":102,"lb":1874,"lo":10.0,"hi":11.0,"od":31.81,"p":null,"pn":"CVPGTS40","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"255/30ZR26","d":26,"lr":"XL","li":99,"lb":1709,"lo":8.5,"hi":9.5,"od":32.09,"p":null,"pn":"CVPGTS39","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x12.50R26","d":26,"lr":"F","li":110,"lb":2337,"lo":11.0,"hi":12.0,"od":32.52,"p":null,"pn":"CVPRT62N","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x13.50R26","d":26,"lr":"E","li":107,"lb":2149,"lo":12.0,"hi":13.0,"od":32.52,"p":380.96,"pn":"CVPRT19","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x13.50R26","d":26,"lr":"E","li":107,"lb":2149,"lo":12.0,"hi":13.0,"od":32.52,"p":362.96,"pn":"CVPXT06","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"33x14.50R26","d":26,"lr":"E","li":108,"lb":2205,"lo":12.5,"hi":14.0,"od":32.52,"p":382.06,"pn":"CVPRT21","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"33x14.50R26","d":26,"lr":"E","li":108,"lb":2205,"lo":12.5,"hi":14.0,"od":32.52,"p":370.99,"pn":"CVPXT09","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"33x14.50R26","d":26,"lr":"E","li":110,"lb":2335,"lo":10.0,"hi":12.0,"od":32.8,"p":null,"pn":"FCH33145026","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/30ZR26","d":26,"lr":"XL","li":107,"lb":2149,"lo":10.0,"hi":11.0,"od":32.99,"p":192.96,"pn":"CVPGTS18","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"305/30R26","d":26,"lr":"XL","li":109,"lb":2271,"lo":10.5,"hi":11.5,"od":33.23,"p":null,"pn":"CVPXT22","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"305/30ZR26","d":26,"lr":"XL","li":109,"lb":2271,"lo":10.5,"hi":11.5,"od":33.23,"p":null,"pn":"CVPGTS19","f":null},{"b":"V","m":"Trail Hunter R/T","t":"Rugged","s":"305/35R26","d":26,"lr":"E","li":108,"lb":2205,"lo":10.0,"hi":12.0,"od":34.41,"p":null,"pn":"CVPTHRT41","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"35x12.50R26","d":26,"lr":"F","li":120,"lb":3085,"lo":10.0,"hi":12.0,"od":34.52,"p":null,"pn":"ATMF35125026A","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R26","d":26,"lr":"F","li":119,"lb":2998,"lo":11.0,"hi":12.0,"od":34.52,"p":413.06,"pn":"CVPRT63N","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"35x13.50R26","d":26,"lr":"E","li":118,"lb":2910,"lo":11.5,"hi":12.5,"od":34.52,"p":549.96,"pn":"CVPMT29","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x13.50R26","d":26,"lr":"F","li":122,"lb":3307,"lo":11.5,"hi":12.5,"od":34.52,"p":561.96,"pn":"CVPXT03N","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x14.50R26","d":26,"lr":"E","li":117,"lb":2833,"lo":12.5,"hi":14.0,"od":34.52,"p":608.96,"pn":"CVPRT23","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x15.50R26","d":26,"lr":"E","li":116,"lb":2756,"lo":13.5,"hi":14.5,"od":34.52,"p":576.96,"pn":"CVPRT25","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x15.50R26","d":26,"lr":"F","li":120,"lb":3086,"lo":13.5,"hi":14.5,"od":34.52,"p":499.96,"pn":"CVPXT12N","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x13.50R26","d":26,"lr":"E","li":118,"lb":2910,"lo":8.5,"hi":11.0,"od":34.8,"p":598.96,"pn":"FCH35135026","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x14.50R26","d":26,"lr":"F","li":121,"lb":3195,"lo":11.5,"hi":13.5,"od":34.8,"p":593.96,"pn":"FCHIIF35145026","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R26","d":26,"lr":"F","li":123,"lb":3415,"lo":11.0,"hi":14.0,"od":34.8,"p":693.96,"pn":"FCHF35155026","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x16.50R26","d":26,"lr":"F","li":123,"lb":3415,"lo":12.0,"hi":15.0,"od":34.8,"p":748.96,"pn":"FCHIIF35165026","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"405/30R26","d":26,"lr":"F","li":128,"lb":3970,"lo":12.5,"hi":15.5,"od":35.6,"p":792.96,"pn":"FCHIIF4053026","f":null},{"b":"F","m":"Sierra Hunter ATM","t":"All-terrain","s":"37x12.50R26","d":26,"lr":"F","li":119,"lb":3000,"lo":10.0,"hi":12.0,"od":36.52,"p":null,"pn":"ATMF37125026A","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"37x12.50R26","d":26,"lr":"F","li":117,"lb":2833,"lo":9.5,"hi":11.5,"od":36.52,"p":577.96,"pn":"CVPSWMT16","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2833,"lo":11.5,"hi":13.5,"od":36.52,"p":519.99,"pn":"CVPSWMT41","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2833,"lo":10.5,"hi":13.0,"od":36.52,"p":603.96,"pn":"TVPRT25N","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R26","d":26,"lr":"E","li":114,"lb":2601,"lo":10.5,"hi":13.0,"od":36.52,"p":521.96,"pn":"TVPXT51","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2833,"lo":10.5,"hi":13.0,"od":36.52,"p":566.96,"pn":"TVPXT25","f":null},{"b":"V","m":"Terra Hunter X/T2","t":"Hybrid","s":"37x13.50R26","d":26,"lr":"E","li":114,"lb":2601,"lo":11.5,"hi":13.5,"od":36.52,"p":null,"pn":"VPXT2102","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"37x14.50R26","d":26,"lr":"F","li":118,"lb":2910,"lo":12.0,"hi":13.0,"od":36.52,"p":597.96,"pn":"CVPRT26","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"37x15.50R26","d":26,"lr":"F","li":118,"lb":2910,"lo":13.0,"hi":14.0,"od":36.52,"p":752.96,"pn":"CVPRT28","f":null},{"b":"F","m":"Country Hunter R/T Plus","t":"Rugged","s":"37x12.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":10.0,"hi":12.0,"od":36.8,"p":674.96,"pn":"RTPF37125026","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":36.8,"p":607.96,"pn":"FCHF3726","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":11.0,"hi":14.0,"od":36.8,"p":587.96,"pn":"FCHIIF37135026A","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"37x14.50R26","d":26,"lr":"F","li":121,"lb":3195,"lo":10.0,"hi":12.0,"od":36.8,"p":778.96,"pn":"FCHF37145026","f":null},{"b":"F","m":"Country Hunter R/T Plus","t":"Rugged","s":"37x14.50R26","d":26,"lr":"F","li":121,"lb":3195,"lo":11.5,"hi":13.5,"od":36.8,"p":593.99,"pn":"RTPF37145026","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"38x15.50R26","d":26,"lr":"F","li":126,"lb":3748,"lo":13.5,"hi":14.5,"od":37.52,"p":792.99,"pn":"CVPSWMT34","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"38x15.50R26","d":26,"lr":"F","li":126,"lb":3748,"lo":13.0,"hi":14.0,"od":37.52,"p":837.96,"pn":"CVPMT30","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x13.50R26","d":26,"lr":"F","li":123,"lb":3415,"lo":8.5,"hi":11.0,"od":37.7,"p":754.96,"pn":"FCHF38135026","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x15.50R26","d":26,"lr":"E","li":126,"lb":3750,"lo":11.0,"hi":13.0,"od":37.7,"p":827.96,"pn":"FCH38155026","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R26","d":26,"lr":"E","li":126,"lb":3748,"lo":12.5,"hi":14.5,"od":39.52,"p":634.96,"pn":"TVPMT31","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"40x15.50R26","d":26,"lr":"E","li":126,"lb":3748,"lo":11.0,"hi":13.0,"od":39.8,"p":733.96,"pn":"FCH40155026","f":"Fury lists load index 126 (3,748 lb) but 3,860 lb. Lower figure shown."},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"40x13.50R26","d":26,"lr":"E","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":41.8,"p":860.96,"pn":"FCH40135026","f":"Fury lists load index 121 (3,197 lb) but 3,415 lb. Lower figure shown."},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"42x15.50R26","d":26,"lr":"E","li":130,"lb":4190,"lo":11.0,"hi":13.0,"od":41.8,"p":1210.96,"pn":"FCH42155026","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"265/30R26","d":26,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/30R26","d":26,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"315/25R26","d":26,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Track Hunter ET","t":"Street","s":"415/25R26","d":26,"lr":"","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"275/25ZR28","d":28,"lr":"XL","li":101,"lb":1819,"lo":10.0,"hi":10.0,"od":33.46,"p":null,"pn":"CVPGTS41","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"295/25ZR28","d":28,"lr":"XL","li":103,"lb":1929,"lo":10.0,"hi":11.0,"od":33.82,"p":226.96,"pn":"CVPGTS20","f":null},{"b":"V","m":"Ragnarok GTS","t":"Street","s":"255/30ZR28","d":28,"lr":"XL","li":101,"lb":1819,"lo":8.5,"hi":9.5,"od":34.09,"p":null,"pn":"TVPGTS77","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"37x14.50R28","d":28,"lr":"F","li":118,"lb":2910,"lo":10.0,"hi":12.0,"od":36.8,"p":910.96,"pn":"FCHF37145028","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"395/30R28","d":28,"lr":"F","li":128,"lb":3970,"lo":12.0,"hi":15.0,"od":37.3,"p":null,"pn":"FCHIIF3953028","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x13.50R28","d":28,"lr":"F","li":120,"lb":2805,"lo":8.5,"hi":11.0,"od":37.7,"p":923.96,"pn":"FCHF38135028","f":"Fury lists load index 120 (3,086 lb) but 2,805 lb. Lower figure shown."},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x16.50R28","d":28,"lr":"F","li":123,"lb":3415,"lo":11.0,"hi":14.0,"od":37.7,"p":1127.96,"pn":"FCHF38165028","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R28","d":28,"lr":"E","li":126,"lb":3748,"lo":13.0,"hi":14.0,"od":39.52,"p":967.96,"pn":"TVPMT32","f":null},{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"40x15.50R28","d":28,"lr":"E","li":126,"lb":3748,"lo":13.0,"hi":14.0,"od":39.52,"p":934.96,"pn":"TVPRT42","f":null},{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"40x15.50R28","d":28,"lr":"E","li":126,"lb":3748,"lo":13.0,"hi":14.0,"od":39.52,"p":966.95,"pn":"TVPXT40","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"40x15.50R28","d":28,"lr":"E","li":126,"lb":3750,"lo":11.0,"hi":13.0,"od":39.8,"p":1105.96,"pn":"FCH40155028","f":null},{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"42x15.50R28","d":28,"lr":"E","li":128,"lb":3968,"lo":12.5,"hi":14.5,"od":41.52,"p":1064.96,"pn":"TVPMT33","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"42x15.50R28","d":28,"lr":"E","li":128,"lb":3970,"lo":11.0,"hi":13.0,"od":41.8,"p":1157.96,"pn":"FCH42155028","f":null},{"b":"F","m":"Street Hunter SS","t":"Street","s":"305/25R28","d":28,"lr":"XL","li":null,"lb":null,"lo":null,"hi":null,"od":null,"p":null,"pn":"","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"38x15.50R30","d":30,"lr":"F","li":121,"lb":3195,"lo":12.5,"hi":15.5,"od":37.5,"p":null,"pn":"FCHIIF38155030","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"40x16.50R30","d":30,"lr":"F","li":126,"lb":3750,"lo":12.5,"hi":15.5,"od":39.8,"p":1335.45,"pn":"FCHIIF40165030","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"42x16.50R30","d":30,"lr":"E","li":126,"lb":3748,"lo":14.5,"hi":16.0,"od":41.54,"p":1353.99,"pn":"CVPSWMT14","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"42x13.50R30","d":30,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":41.8,"p":1284.96,"pn":"FCHF42135030","f":null},{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"42x16.50R30","d":30,"lr":"E","li":127,"lb":3860,"lo":11.0,"hi":13.0,"od":41.8,"p":1594.99,"pn":"FCH42165030","f":null},{"b":"V","m":"Swampthing M/T","t":"Mud","s":"44x16.50R30","d":30,"lr":"E","li":128,"lb":3968,"lo":14.0,"hi":16.0,"od":43.5,"p":null,"pn":"CVPSWMT15","f":null},{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"44x16.50R30","d":30,"lr":"F","li":128,"lb":3970,"lo":12.0,"hi":15.0,"od":43.8,"p":1521.99,"pn":"FCHIIF44165030","f":null}],"pairs":[{"d":20,"w":8.25,"V":{"n":27,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":306.96,"pn":"TVPXT09","f":null}},"F":{"n":13,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":34.8,"p":276.99,"pn":"FCHIIF35125020A","f":null}}},{"d":20,"w":9,"V":{"n":27,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":306.96,"pn":"TVPXT09","f":null}},"F":{"n":13,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":34.8,"p":276.99,"pn":"FCHIIF35125020A","f":null}}},{"d":20,"w":10,"V":{"n":23,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3638,"lo":8.5,"hi":11.0,"od":34.52,"p":306.96,"pn":"TVPXT09","f":null}},"F":{"n":11,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R20","d":20,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":34.8,"p":276.99,"pn":"FCHIIF35125020A","f":null}}},{"d":20,"w":12,"V":{"n":10,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":476.96,"pn":"TVPXT17","f":null}},"F":{"n":3,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"33x14.50R20","d":20,"lr":"F","li":125,"lb":3195,"lo":10.0,"hi":12.0,"od":32.8,"p":357.06,"pn":"FCHF33145020","f":"Fury lists load index 125 (3,638 lb) but 3,195 lb. Lower figure shown."}}},{"d":20,"w":14,"V":{"n":3,"pick":{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R20","d":20,"lr":"F","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":39.52,"p":647.99,"pn":"TVPMT21","f":null}},"F":{"n":2,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R20","d":20,"lr":"F","li":128,"lb":3970,"lo":11.0,"hi":14.0,"od":34.8,"p":null,"pn":"FCHF35155020","f":null}}},{"d":22,"w":8.25,"V":{"n":9,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":314.96,"pn":"TVPXT11","f":null}},"F":{"n":8,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":34.8,"p":337.0,"pn":"FCHII35125022A","f":null}}},{"d":22,"w":10,"V":{"n":14,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"35x12.50R22","d":22,"lr":"F","li":121,"lb":3197,"lo":8.5,"hi":11.0,"od":34.52,"p":314.96,"pn":"TVPXT11","f":null}},"F":{"n":10,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R22","d":22,"lr":"E","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":34.8,"p":337.0,"pn":"FCHII35125022A","f":null}}},{"d":22,"w":12,"V":{"n":9,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"37x13.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":9.5,"hi":12.0,"od":36.52,"p":468.96,"pn":"TVPXT23","f":null}},"F":{"n":4,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"40x15.50R22","d":22,"lr":"E","li":128,"lb":3970,"lo":11.0,"hi":13.0,"od":39.8,"p":737.96,"pn":"FCHII40155022A","f":null}}},{"d":22,"w":14,"V":{"n":3,"pick":{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R22","d":22,"lr":"F","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":39.52,"p":695.96,"pn":"TVPMT36","f":null}},"F":{"n":1,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R22","d":22,"lr":"F","li":125,"lb":3640,"lo":11.0,"hi":14.0,"od":34.8,"p":459.96,"pn":"FCHF35155022","f":null}}},{"d":22,"w":16,"V":{"n":0,"pick":null},"F":{"n":0,"pick":null}},{"d":24,"w":8.25,"V":{"n":0,"pick":null},"F":{"n":6,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R24","d":24,"lr":"F","li":124,"lb":3525,"lo":8.5,"hi":11.0,"od":36.8,"p":557.96,"pn":"FCHIIF37135024A","f":null}}},{"d":24,"w":10,"V":{"n":4,"pick":{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":10.0,"hi":12.0,"od":34.52,"p":355.96,"pn":"TVPRT21","f":null}},"F":{"n":9,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R24","d":24,"lr":"F","li":117,"lb":2835,"lo":10.0,"hi":12.0,"od":34.8,"p":363.07,"pn":"FCHIIF35125024A","f":null}}},{"d":24,"w":12,"V":{"n":10,"pick":{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R24","d":24,"lr":"F","li":116,"lb":2756,"lo":10.0,"hi":12.0,"od":34.52,"p":355.96,"pn":"TVPRT21","f":null}},"F":{"n":10,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"35x12.50R24","d":24,"lr":"F","li":117,"lb":2835,"lo":10.0,"hi":12.0,"od":34.8,"p":363.07,"pn":"FCHIIF35125024A","f":null}}},{"d":24,"w":14,"V":{"n":4,"pick":{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R24","d":24,"lr":"F","li":128,"lb":3968,"lo":11.0,"hi":14.0,"od":39.52,"p":668.96,"pn":"TVPMT28","f":null}},"F":{"n":3,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"35x15.50R24","d":24,"lr":"E","li":117,"lb":2835,"lo":11.0,"hi":14.0,"od":34.8,"p":503.96,"pn":"FCH35155024","f":null}}},{"d":24,"w":16,"V":{"n":0,"pick":null},"F":{"n":0,"pick":null}},{"d":26,"w":8.25,"V":{"n":0,"pick":null},"F":{"n":4,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":36.8,"p":607.96,"pn":"FCHF3726","f":null}}},{"d":26,"w":10,"V":{"n":2,"pick":{"b":"V","m":"Swampthing M/T","t":"Mud","s":"37x12.50R26","d":26,"lr":"F","li":117,"lb":2833,"lo":9.5,"hi":11.5,"od":36.52,"p":577.96,"pn":"CVPSWMT16","f":null}},"F":{"n":8,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":8.5,"hi":11.0,"od":36.8,"p":607.96,"pn":"FCHF3726","f":null}}},{"d":26,"w":12,"V":{"n":7,"pick":{"b":"V","m":"Terra Hunter R/T+","t":"Rugged","s":"35x12.50R26","d":26,"lr":"F","li":119,"lb":2998,"lo":11.0,"hi":12.0,"od":34.52,"p":413.06,"pn":"CVPRT63N","f":null}},"F":{"n":11,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":11.0,"hi":14.0,"od":36.8,"p":587.96,"pn":"FCHIIF37135026A","f":null}}},{"d":26,"w":14,"V":{"n":6,"pick":{"b":"V","m":"Terra Hunter M/T","t":"Mud","s":"40x15.50R26","d":26,"lr":"E","li":126,"lb":3748,"lo":12.5,"hi":14.5,"od":39.52,"p":634.96,"pn":"TVPMT31","f":null}},"F":{"n":4,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"37x13.50R26","d":26,"lr":"F","li":117,"lb":2835,"lo":11.0,"hi":14.0,"od":36.8,"p":587.96,"pn":"FCHIIF37135026A","f":null}}},{"d":26,"w":16,"V":{"n":0,"pick":null},"F":{"n":0,"pick":null}},{"d":28,"w":8.25,"V":{"n":0,"pick":null},"F":{"n":1,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x13.50R28","d":28,"lr":"F","li":120,"lb":2805,"lo":8.5,"hi":11.0,"od":37.7,"p":923.96,"pn":"FCHF38135028","f":"Fury lists load index 120 (3,086 lb) but 2,805 lb. Lower figure shown."}}},{"d":28,"w":14,"V":{"n":2,"pick":{"b":"V","m":"Terra Hunter X/T","t":"Hybrid","s":"40x15.50R28","d":28,"lr":"E","li":126,"lb":3748,"lo":13.0,"hi":14.0,"od":39.52,"p":966.95,"pn":"TVPXT40","f":null}},"F":{"n":2,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"38x16.50R28","d":28,"lr":"F","li":123,"lb":3415,"lo":11.0,"hi":14.0,"od":37.7,"p":1127.96,"pn":"FCHF38165028","f":null}}},{"d":28,"w":16,"V":{"n":0,"pick":null},"F":{"n":0,"pick":null}},{"d":30,"w":8.25,"V":{"n":0,"pick":null},"F":{"n":1,"pick":{"b":"F","m":"Country Hunter M/T","t":"Mud","s":"42x13.50R30","d":30,"lr":"F","li":125,"lb":3640,"lo":8.5,"hi":11.0,"od":41.8,"p":1284.96,"pn":"FCHF42135030","f":null}}},{"d":30,"w":14,"V":{"n":1,"pick":{"b":"V","m":"Swampthing M/T","t":"Mud","s":"44x16.50R30","d":30,"lr":"E","li":128,"lb":3968,"lo":14.0,"hi":16.0,"od":43.5,"p":null,"pn":"CVPSWMT15","f":null}},"F":{"n":3,"pick":{"b":"F","m":"Country Hunter M/T II","t":"Mud","s":"40x16.50R30","d":30,"lr":"F","li":126,"lb":3750,"lo":12.5,"hi":15.5,"od":39.8,"p":1335.45,"pn":"FCHIIF40165030","f":null}}},{"d":30,"w":16,"V":{"n":2,"pick":{"b":"V","m":"Swampthing M/T","t":"Mud","s":"42x16.50R30","d":30,"lr":"E","li":126,"lb":3748,"lo":14.5,"hi":16.0,"od":41.54,"p":1353.99,"pn":"CVPSWMT14","f":null}},"F":{"n":0,"pick":null}}],"flags":["Fury Country Hunter M/T 33x14.50R20: load index 125 = 3,638 lb, published 3,195 lb","Fury Country Hunter M/T 40x13.50R26: load index 121 = 3,197 lb, published 3,415 lb","Fury Country Hunter M/T 40x15.50R26: load index 126 = 3,748 lb, published 3,860 lb","Fury Country Hunter M/T 38x13.50R28: load index 120 = 3,086 lb, published 2,805 lb","Fury Country Hunter M/T II 40x13.50R20: load index 128 = 3,968 lb, published 4,300 lb","Fury Country Hunter M/T II 33x13.50R24: load index 111 = 2,403 lb, published 2,381 lb","Fury Sierra Hunter ATM 275/60R20: load index 116 = 2,756 lb, published 2,680 lb","Fury Sierra Hunter ATM 37x12.50R20: load index 127 = 3,858 lb, published 3,970 lb","Fury Sierra Hunter ATM 33x12.50R24: load index 106 = 2,094 lb, published 2,905 lb"]};
+  var R = DATA.rows;
+  function $(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+  function lb(n){ return n ? n.toLocaleString("en-US") + " lb" : "—"; }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function tag(b){ return '<span class="bt '+(b==="V"?"bt-v":"bt-f")+'">'+(b==="V"?"Venom":"Fury")+'</span>'; }
+  function brandName(b){ return b==="V" ? "Venom Power" : "Fury"; }
+  function find(b, m, s, lr){ for (var i=0;i<R.length;i++){ var r=R[i]; if(r.b===b&&r.m===m&&r.s===s&&r.lr===lr) return r; } return null; }
+
+  /* tiles */
+  (function(){
+    function span(b){ var p=R.filter(function(r){return r.b===b&&r.p&&r.t!=="Street";}).map(function(r){return r.p;});
+      return $(Math.min.apply(null,p)*0.20)+"–"+$(Math.max.apply(null,p)*0.25); }
+    var nV=R.filter(function(r){return r.b==="V";}).length, nF=R.filter(function(r){return r.b==="F";}).length;
+    document.getElementById("tiles").innerHTML =
+      '<div class="tile"><span class="k">Sizes for 20–30" wheels</span><b>'+(nV+nF)+'</b><span class="s">'+nV+' Venom Power · '+nF+' Fury</span></div>' +
+      '<div class="tile"><span class="k"><i class="sw sw-v"></i>Venom margin per tire</span><b>'+span("V")+'</b><span class="s">Across every priced size</span></div>' +
+      '<div class="tile"><span class="k"><i class="sw sw-f"></i>Fury margin per tire</span><b>'+span("F")+'</b><span class="s">Across every priced size</span></div>' +
+      '<div class="tile"><span class="k">Money up front</span><b>$0 published</b><span class="s">No buy-in listed by either brand</span></div>';
+  })();
+
+  /* chart */
+  var G = [
+    ['35x12.50R20','20" lifted',['V','Terra Hunter X/T','35x12.50R20','F'],['F','Country Hunter M/T II','35x12.50R20','F']],
+    ['35x12.50R22','22" lifted',['V','Terra Hunter X/T','35x12.50R22','F'],['F','Country Hunter R/T','35x12.50R22','F']],
+    ['37x13.50R22','22" lifted',['V','Terra Hunter X/T','37x13.50R22','F'],['F','Country Hunter M/T II','37x13.50R22','F']],
+    ['35x12.50R24','24" lifted',['V','Terra Hunter R/T+','35x12.50R24','F'],['F','Country Hunter M/T II','35x12.50R24','F']],
+    ['37x13.50R24','24" lifted and dually',['V','Terra Hunter X/T','37x13.50R24','F'],['F','Country Hunter M/T II','37x13.50R24','F']],
+    ['37x13.50R26','26" lifted and dually',['V','Terra Hunter X/T','37x13.50R26','F'],['F','Country Hunter M/T II','37x13.50R26','F']],
+    ['40x15.50R28','28" wide',['V','Terra Hunter X/T','40x15.50R28','E'],['F','Country Hunter M/T','40x15.50R28','E']],
+    ['30" wide','42x16.50 / 44x16.50R30',['V','Swampthing M/T','42x16.50R30','E'],['F','Country Hunter M/T II','44x16.50R30','F']]
+  ].map(function(g){ return { label:g[0], sub:g[1], items:[find.apply(null,g[2]), find.apply(null,g[3])].filter(Boolean) }; });
+  var unit = 1, groupsEl = document.getElementById("groups"), axisEl = document.getElementById("axis"), tip = document.getElementById("tip");
+  var flat = [];
+  function draw(){
+    var max = unit===1 ? 500 : 2000, step = unit===1 ? 100 : 500, h = "", grid = "";
+    for (var t=step; t<max; t+=step) grid += '<span class="gridl" style="left:'+(t/max*100)+'%"></span>';
+    flat = [];
+    G.forEach(function(g){
+      h += '<div class="grp"><div class="lab">'+esc(g.label)+'<small>'+esc(g.sub)+'</small></div><div class="bars">';
+      g.items.forEach(function(r){
+        var lo=r.p*0.20*unit, hi=r.p*0.25*unit, wl=lo/max*100, wh=(hi-lo)/max*100, i=flat.push(r)-1;
+        h += '<div class="brow '+(r.b==="V"?"bv":"bf")+'" tabindex="0" data-i="'+i+'" aria-label="'+brandName(r.b)+' '+esc(r.m)+' '+r.s+': '+$(lo)+' to '+$(hi)+'">'+grid+
+          '<div class="bar" style="width:calc('+(wl+wh)+'% + 2px)"><i style="width:'+(wl/(wl+wh)*100)+'%"></i><i style="flex:1"></i></div>'+
+          '<span class="val" style="left:calc('+(wl+wh)+'% + 2px)">'+$(lo)+'–'+$(hi)+'</span></div>';
+      });
+      h += '</div></div>';
+    });
+    groupsEl.innerHTML = h;
+    var a = "";
+    for (var t2=0; t2<=max; t2+=step) a += '<span style="left:'+(t2/max*100)+'%">'+(t2===0?"$0":$(t2))+'</span>';
+    axisEl.innerHTML = a;
+    [].forEach.call(groupsEl.querySelectorAll(".brow"), function(p){
+      var v = p.querySelector(".val");
+      if (v.offsetLeft + v.offsetWidth > p.clientWidth){ v.style.left="auto"; v.style.right="0"; v.style.paddingLeft="0"; }
+    });
+  }
+  function show(row, x, y){
+    var r = flat[+row.getAttribute("data-i")];
+    tip.innerHTML = '<h4><i class="sw '+(r.b==="V"?"sw-v":"sw-f")+'"></i>'+brandName(r.b)+' '+esc(r.m)+'</h4><dl>'+
+      '<dt>Size</dt><dd>'+r.s+' '+r.lr+'</dd>'+
+      '<dt>Retail per tire</dt><dd>'+$(r.p)+'</dd>'+
+      '<dt>Our cost (est.)</dt><dd>'+$(r.p*0.75)+'–'+$(r.p*0.80)+'</dd>'+
+      '<dt>Margin per tire</dt><dd>'+$(r.p*0.20)+'–'+$(r.p*0.25)+'</dd>'+
+      '<dt>Margin, set of 4</dt><dd>'+$(r.p*0.80)+'–'+$(r.p)+'</dd>'+
+      '<dt>Max load</dt><dd>'+lb(r.lb)+'</dd></dl>';
+    tip.hidden = false;
+    var box = groupsEl.parentNode.getBoundingClientRect();
+    var tx = x-box.left+14, ty = y-box.top+14;
+    if (tx+250 > box.width) tx = Math.max(8, x-box.left-258);
+    tip.style.left = tx+"px"; tip.style.top = ty+"px";
+  }
+  groupsEl.addEventListener("mousemove", function(e){ var row=e.target.closest(".brow"); if(!row){tip.hidden=true;return;} show(row,e.clientX,e.clientY); });
+  groupsEl.addEventListener("mouseleave", function(){ tip.hidden=true; });
+  groupsEl.addEventListener("focusin", function(e){ var row=e.target.closest(".brow"); if(!row)return; var b=row.getBoundingClientRect(); show(row,b.left+180,b.top); });
+  groupsEl.addEventListener("focusout", function(){ tip.hidden=true; });
+  var bT=document.getElementById("uTire"), bS=document.getElementById("uSet");
+  bT.addEventListener("click",function(){unit=1;bT.setAttribute("aria-pressed","true");bS.setAttribute("aria-pressed","false");draw();});
+  bS.addEventListener("click",function(){unit=4;bS.setAttribute("aria-pressed","true");bT.setAttribute("aria-pressed","false");draw();});
+  draw();
+  window.addEventListener("resize", draw);
+  document.getElementById("chartTable").innerHTML = G.map(function(g){ return g.items.map(function(r){
+    return '<tr><td>'+tag(r.b)+' <b>'+esc(r.m)+'</b><small>'+r.s+' '+r.lr+' · '+esc(r.pn)+'</small></td><td class="r">'+$(r.p)+'</td><td class="r">'+$(r.p*0.75)+'–'+$(r.p*0.80)+'</td><td class="r">'+$(r.p*0.20)+'–'+$(r.p*0.25)+'</td><td class="r">'+$(r.p*0.80)+'–'+$(r.p)+'</td></tr>';
+  }).join(""); }).join("");
+
+  /* pairings */
+  (function(){
+    var h = "", last = 0;
+    DATA.pairs.forEach(function(c){
+      if (c.d !== last){ h += '<tr class="dia"><td colspan="3">'+c.d+'" wheels</td></tr>'; last = c.d; }
+      function cell(x){
+        if (!x.pick) return '<td class="none">No tire approved for this width</td>';
+        var k = x.pick, more = x.n - 1;
+        return '<td class="pk"><b>'+esc(k.m)+' '+k.s+' '+k.lr+'</b><small>'+lb(k.lb)+' · rim '+k.lo+'–'+k.hi+'" · '+(k.p?$(k.p)+' a tire':'no retail price listed')+'</small>'+(more>0?'<span class="n">+'+more+' more size'+(more>1?'s':'')+' fit</span>':'')+'</td>';
+      }
+      h += '<tr><td><b>'+c.d+'x'+c.w+'</b>'+(c.w===8.25?'<small>dually</small>':'')+'</td>'+cell(c.V)+cell(c.F)+'</tr>';
+    });
+    document.getElementById("pairBody").innerHTML = h;
+  })();
+
+  /* catalog */
+  var S = { d:22, b:"", t:"", w:"" };
+  var DIAS = [20,22,24,26,28,30];
+  function tabs(id, opts, key){
+    var el = document.getElementById(id);
+    el.innerHTML = opts.map(function(o){ return '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(String(S[key])===String(o[0]))+'">'+o[1]+'</button>'; }).join("");
+    el.addEventListener("click", function(e){
+      var b = e.target.closest("button"); if(!b) return;
+      S[key] = key==="d" ? +b.getAttribute("data-v") : b.getAttribute("data-v");
+      [].forEach.call(el.children, function(x){ x.setAttribute("aria-pressed", String(x===b)); });
+      renderCat();
+    });
+  }
+  tabs("fDia", DIAS.map(function(d){ var n=R.filter(function(r){return r.d===d;}).length; return [d, d+'" <span style="opacity:.6;font-weight:400">'+n+'</span>']; }), "d");
+  tabs("fBrand", [["","Both"],["V","Venom Power"],["F","Fury"]], "b");
+  document.getElementById("fType").addEventListener("change", function(e){ S.t=e.target.value; renderCat(); });
+  document.getElementById("fWidth").addEventListener("change", function(e){ S.w=e.target.value; renderCat(); });
+  function fits(r, w){
+    if (r.lo==null || r.hi==null) return false;
+    if (w===8.25) return r.lo<=8.5 && r.hi>=8.25;
+    return r.lo<=w && w<=r.hi;
+  }
+  document.getElementById("catTotal").textContent = R.length + " sizes";
+  function renderCat(){
+    var w = S.w ? +S.w : null;
+    var list = R.filter(function(r){
+      return r.d===S.d && (!S.b || r.b===S.b) && (!S.t || r.t===S.t) && (w===null || fits(r,w));
+    });
+    document.getElementById("catCount").innerHTML = '<b>'+list.length+'</b> size'+(list.length===1?'':'s')+' on '+S.d+'" wheels'+(S.b?' from '+brandName(S.b):'')+(S.t?', '+S.t.toLowerCase():'')+(w?', approved for a '+(w===8.25?'8.25" dually':w+'"')+' wheel':'');
+    document.getElementById("catBody").innerHTML = list.length ? list.map(function(r){
+      return '<tr><td class="sz">'+r.s+'<small>'+(r.od?r.od+'" tall':'')+'</small></td>'+
+        '<td class="tn">'+tag(r.b)+'<span class="mn">'+esc(r.m)+'</span>'+(r.pn?'<small>'+esc(r.pn)+'</small>':'')+'</td>'+
+        '<td>'+r.t+'</td><td>'+(r.lr||'—')+'</td>'+
+        '<td class="r">'+(r.f?'<span class="warn" title="'+esc(r.f)+'">! </span>':'')+lb(r.lb)+'</td>'+
+        '<td>'+(r.lo!=null?r.lo+'–'+r.hi+'"':'Not published')+'</td>'+
+        '<td class="r">'+(r.p?$(r.p):'—')+'</td>'+
+        '<td class="r">'+(r.p?$(r.p*0.20)+'–'+$(r.p*0.25):'—')+'</td></tr>';
+    }).join("") : '<tr><td colspan="8" class="none">No sizes match. Try a different width or tire type.</td></tr>';
+  }
+  renderCat();
+
+  /* worked example */
+  (function(){
+    var r = find('V','Terra Hunter X/T','35x12.50R22','F');
+    var set = r.p*4, card = set*0.029+0.30;
+    document.getElementById("exTitle").textContent = "Example: Venom Terra Hunter X/T 35x12.50R22 F, set of 4";
+    document.getElementById("exBody").innerHTML =
+      '<tr><td>Customer pays us (4 × '+$(r.p)+')</td><td class="r"><b>'+$(set)+'</b></td></tr>'+
+      '<tr><td>Freight, its own line on the quote</td><td class="r">customer pays</td></tr>'+
+      '<tr><td>We pay Venom<small>Estimated 20–25% under retail until the price list arrives</small></td><td class="r">−'+$(set*0.75)+' to −'+$(set*0.80)+'</td></tr>'+
+      '<tr><td>Card fee, about 3%</td><td class="r">−'+$(card)+'</td></tr>'+
+      '<tr><td><b>We keep</b></td><td class="r pos">'+$(set*0.20-card)+'–'+$(set*0.25-card)+'</td></tr>';
+  })();
+
+  document.getElementById("flagList").innerHTML = DATA.flags.map(function(f){ return '<li>'+esc(f)+'</li>'; }).join("");
+})();
+</script>
+
+</body>
+</html>

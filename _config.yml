@@ -26,6 +26,9 @@ exclude:
   - PAYMENTS-PLAN.md
   - TIRE-SOURCING.md
   - VENOM-FURY.md
+  - tire-program.html  # tire margins, dealer terms and call plan — the
+  - tire-sourcing.html # presentable versions of the two .md files above
+  - venom-fury.html
 
   # build-time only
   - configurator/      # Vite source for the visualizer; builds to visualize/

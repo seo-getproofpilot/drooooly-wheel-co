@@ -25,10 +25,10 @@ Short version:
 - **Fury has three routes in:** direct, Meyer, or Keystone. **Keystone requires a
   website pre-approved with a working checkout** [O]. `PAYMENTS.md` plans
   quote-first until January, so Keystone waits.
-- **The real gap is HD duallys.** Neither brand publishes a dual load rating for
-  any flotation size or for anything on a 24"+ rim. On 22/24/26x8.25 dually wheels,
-  Venom's only fits are street tires at about 1,500–1,700 lb. Dually packages on
-  22"+ need a third source until a rep says otherwise.
+- **Dually builds are covered too.** Big-wheel dually packages run the same tall
+  off-road tires (35x12.50, 37x13.50, 12-ply), and Venom and Fury are among the
+  most common brands on them. Fury owns 26–30" dually sizes. See §3b. Neither brand
+  publishes a dual load rating, which matters only to a towing customer.
 
 ---
 
@@ -115,6 +115,47 @@ several rows:
 
 **Until Fury corrects them in writing, the fitment module uses the lower figure.**
 
+## 2b. How a tire order works
+
+**Decision (Chris, 2026-10-11): sell tires from launch**, on the same quote as the
+wheels, so customers buy the whole setup in one place. Mounting isn't our concern.
+Tires and wheels ship separately and arrive unmounted; the customer's local shop
+mounts them. This is the same drop-ship dealer model as Price Designs
+(`PAYMENTS.md` §1).
+
+**It isn't a percentage of the sale.** We buy at dealer cost, sell at our own price
+and keep the difference. Venom or Fury never pays us anything.
+
+1. **The customer approves the quote and pays us.** Collect the tire money before
+   we order.
+2. **We order from Venom or Fury** at dealer price, shipped to the customer.
+   Freight goes on the quote as its own line, never "free shipping" (CLAUDE.md
+   rule 6 in spirit).
+3. **They ship to the customer.** We pass along the tracking number.
+4. **We pay the brand.** By card or bank transfer at first; 30-day terms usually
+   come after a few months of history.
+
+**Example: Venom X/T 35x12.50R22 F, set of 4.**
+- Customer pays $1,244 (4 × $311 retail).
+- We pay about $960, an **assumed** $240 a tire until the price list arrives.
+- Card fee about $36.
+- **We keep about $248.**
+
+**Because we're the store, these are ours:**
+- **Sales tax.** We collect it.
+- **Our price.** No published price floor, so we set it. Check Custom Offsets.
+- **Problems.** Wrong tire, shipping damage and warranty claims come to us.
+- **Cash timing.** Take payment first, so we never pay the brand before the
+  customer's money clears.
+
+**Not confirmed:** that either brand ships a single set to a customer's home. Ask it
+first on both calls. If not, Fury still works through Meyer, which ships to
+customers.
+
+**Customer-facing (product page and order confirmation, no popups):**
+- Tires and wheels arrive separately and unmounted, and need a local shop.
+- If a dually customer says they tow, the fitment hard stop applies (CLAUDE.md rule 5).
+
 ## 3. Which tire on which wheel
 
 Every pick is inside the brand's own approved rim-width range, which keeps the
@@ -137,7 +178,57 @@ from its load index [I].
 Stock HD reference: LT275/65R20 E, about 3,640 lb. Several 24–26" picks are below
 it, which is CLAUDE.md rule 5's hard stop.
 
-**Dually:** dual-rated sizes exist only on 20" and some 22" wheels:
+## 3b. Dually builds
+
+Chris (2026-10-11): towing capacity isn't the point for these builds. The question
+is what people actually run on big-wheel dually setups.
+
+**Big-wheel dually builds mostly run tall off-road tires, not low-profile street
+tires.** Package sellers (DuallyWheels, Duallys Only, Rim Zone, NTW) put 35x12.50
+and 37x13.50, load range F, on 8.25"-wide dually wheels [O]. No street-tire dually
+package was found.
+
+| Dually wheel | Common sizes | What's on them [O] | Our brands |
+|---|---|---|---|
+| 20x8.25 | 35x12.50R20, 33x12.50R20 | Kenda Klever, Nitto Ridge, Venom R/T+ | Venom, Fury |
+| 22x8.25 | 35x12.50R22, 33x12.50R22 | Venom Trail Hunter, Toyo R/T, Fury R/T, Nitto | Venom, Fury |
+| 24x8.25 | 35x12.50R24, 37x13.50R24 | **Venom R/T+ in JTX Combat packages**, Nitto Recon/Ridge, Fury MTII, AMP | Venom, Fury |
+| 26x8.25 | **37x13.50R26** (listed most), 35x12.50R26 | Fury, AMP, Atturo, Venom R/T+ | Fury, Venom |
+| 28x8.25 | 38x13.50R28 | **Fury on nearly every listing** | Fury |
+| 30x8.25 | 42x13.50R30 | **Fury only** | Fury |
+
+Search demand: "dually wheel and tire packages" 260/mo, "28 inch dually wheels"
+140, "30 inch dually wheels" 90.
+
+**Best brands for big-wheel dually builds:**
+1. **Fury.** The only real 26/28/30" coverage. About $2,400–$3,800 for six tires on 24–26".
+2. **Nitto Ridge / Recon Grappler.** The premium default on 22–24", thin at 26"+.
+   Set aside for its strict price floor.
+3. **Venom Power.** The value pick on 20–26", and the tire JTX's 24" dually packages run.
+4. **AMP.** Budget, 22–28". M/T only; the A/T and R/T sales were halted in 2024.
+5. **Toyo Open Country R/T.** Premium look on 22–24", no 26".
+
+**The low-profile street look** is a smaller, separate crowd:
+- Searches: 255/30R22 (390/mo), 255/30R24 (320), 255/35R22 (140), 255/30R26 (110).
+- **Venom Ragnarok GTS covers 24, 26 and 28"** (255/30R24, 255/30R26, 255/30R28)
+  through the same Transamerica account [R].
+- **If street duallys take off, add a third brand:**
+  - **Delinte DS8**: 245/30R24 to 275/25R30, Sentury Tire USA, warehouses in CA,
+    TX, SC and FL, HYPERDRIVE dealer program [O].
+  - **Turbo Wholesale Tires**: one account gets Lexani, Lionhart and RBP
+    ("Lexani tires" 12,100/mo, "Lionhart tires" 6,600/mo) [O].
+- These are passenger XL tires at about 1,600–2,000 lb, with no dual rating.
+
+**Fit on 8.25":** the 12.50 and 13.50 tires are approved for rims from 8.5" [O].
+Sellers run them on 8.25" all the time [R], but Fury's warranty excludes fitments
+outside its guidelines. Ask both brands, and ask about shipping sets of six to a
+home.
+
+**Recommendation: no new brand for duallys at launch.** Venom and Fury cover the
+off-road dually look at every size. Add Delinte or Turbo only if street-style dually
+orders come in.
+
+**Dual-rated sizes, for towing customers only:**
 - Venom R/T+ LT275/65R20 (fits 20x8.25)
 - Fury R/T and ATM in LT285/55R20, LT305/55R20, LT285/50R22 and LT285/55R22
 
@@ -185,7 +276,7 @@ freight and card fees:
 4. Dealer price list, volume tiers. Is federal excise tax included?
 5. Is there a MAP policy? Can we discount inside a wheel package?
 6. Amazon, eBay, Walmart allowed?
-7. Dual-rated LT sizes for 22–26x8.25 dually wheels, now or coming?
+7. Is an 8.25" dually wheel covered with your 12.50/13.50 tires? Sets of six to a home?
 8. Full spec sheets (load, psi, weight) for 20–30", as a feed?
 9. Does "size not per owner's manual" void the warranty on lifted trucks?
 10. Photo and logo permission in writing. Who's our rep? Is Tennessee open?
@@ -195,7 +286,7 @@ freight and card fees:
 2. Dealer cost on 24–30", tiers, opening order?
 3. Is there a MAP policy? Can we show prices?
 4. Ship sets of 4 and 6 to homes? Cost, warehouse, days? How do 30" tires ship?
-5. Dual load ratings for 35x12.50R20/22, 37x13.50R22, LT405/30R26?
+5. Is an 8.25" dually wheel covered? Sets of six to a home? Any dual load ratings?
 6. Written corrections for the mismatched load figures in §2?
 7. Definitions of "stretched" and "oversized". Is any fit inside your rim range covered?
 8. Mileage warranty per model; is 4 years current?
@@ -206,7 +297,7 @@ freight and card fees:
 
 - Dealer cost and any opening order, for both brands.
 - Whether Fury sells direct to us, and whether Meyer still lists Fury in 2026.
-- Dual load ratings for anything a dually needs on 22"+.
+- Warranty coverage for 12.50/13.50 tires on 8.25" dually wheels.
 - How Venom and Fury handle warranty claims from a seller with no shop.
 
 *Sources: venompowertires.com (X/T, X/T2, R/T+, Swampthing spec pages; Warranty;
