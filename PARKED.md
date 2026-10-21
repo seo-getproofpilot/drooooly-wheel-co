@@ -7,7 +7,7 @@ check the flag first — the original is almost certainly still in the markup.
 
 ```js
 window.DROOOLY_FLAGS = {
-  showPrices: false,
+  showPrices: true,   // ON 2026-10-21 — see below
   showFinancingClaims: false,
   showTrustStats: false,
   showMountBalance: false,
@@ -27,11 +27,24 @@ Two mechanisms:
 
 ---
 
-## `showPrices`
+## `showPrices` — ⚠️ NO LONGER PARKED, ON as of 2026-10-21
 
-**Comes back when:** MAP terms are confirmed in writing, per brand
-(CLAUDE.md rule 4, LAUNCH-CHECKLIST 2.2). Not before — some brands forbid
-advertising a price at all.
+**This flag is TRUE.** Chris turned prices on knowing MAP is still unconfirmed
+per brand (LAUNCH-CHECKLIST 2.2) and that some brands forbid advertising a
+price at all. The figures are authorised-dealer listing prices, not invented,
+so the exposure is a brand objecting to the advertisement rather than a
+customer being misled. **Flipping it back to `false` restores every row in the
+table below in one line** — that is why the table stays here.
+
+**One thing did NOT come back with it.** Seven homepage showcase cards used to
+print "As low as $312/mo". That is a monthly FINANCING payment, it was gated on
+`showPrices` instead of `showFinancingClaims`, and seven of the eight models
+hold no catalogue price at all — "404" was reusing the Ace's $312. Those
+figures were removed rather than restored: the cards now print the catalogue's
+own per-wheel figure where one exists and "Get a quote" where it does not.
+`tools/test-pages.js` fails if a monthly payment or an untraceable figure
+reappears there. They do not come back when a lender signs; a real lender
+produces real numbers, and these were never that.
 
 **The data never moved.** `priceFrom` and `priceSet` in `brands.js`, every
 option price in `builders-data.js` and `data/builders/*.json`, and the tire

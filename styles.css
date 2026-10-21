@@ -6992,3 +6992,37 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 .gcard__link:hover{color:var(--text)}
 .gcard__rename{display:flex;gap:8px;margin-top:6px}
 .gcard__rename input{flex:1;min-height:40px;padding:0 10px;border:1px solid var(--line-2);border-radius:8px;font-size:14px}
+
+/* ============================================================ v440
+   The homepage showcase cards were only clickable on the CTA text.
+
+   Every one of these cards already lifts 8px, brightens its stage and scales
+   its photograph on :hover — the card has been promising "click me" since it
+   was written, while the only live target was the 10px "BUILD YOURS" label in
+   the corner. Clicking the wheel, the name or the price did nothing, which is
+   what Chris hit coming in from the lineup.
+
+   Stretched link rather than wrapping the <article> in an <a>: it keeps ONE
+   link per card (wrapping would nest the existing anchor, and duplicating it
+   would hand a screen reader the same destination twice), it needs no markup
+   change, and .show2-card is already position:relative so the overlay has
+   something to anchor to. The CTA text stays the accessible name.
+   ============================================================ */
+.show2-card{cursor:pointer}
+.show2-build::after{content:"";position:absolute;inset:0;z-index:2}
+/* Anything that must stay selectable or hoverable sits above the overlay. */
+.show2-card .show2-stage{z-index:0}
+/* Keyboard parity: the card shows the same lift when the link inside is
+   focused, so tabbing through the lineup looks like hovering it. */
+.show2-card:focus-within{transform:translateY(-8px);border-color:rgba(31,123,255,.5)}
+.show2-build:focus-visible::after{outline:2px solid var(--blue-2);outline-offset:-3px;border-radius:16px}
+
+/* The showcase cards used to print "As low as $312/mo" on seven of eight
+   wheels, gated on showPrices. Two things were wrong with that: the figure
+   was a monthly FINANCING payment, which belongs behind showFinancingClaims
+   and a lender we do not have (LAUNCH-CHECKLIST 2.7), and seven of the eight
+   models hold no price in the catalogue at all — "404" was even reusing the
+   Ace's $312. Cards now print the catalogue's own per-wheel figure where one
+   exists and ask for a quote where it does not. */
+.show2-mo--ask b{font-size:15px;letter-spacing:.01em}
+.show2-card .show2-mo--ask{align-self:flex-end}

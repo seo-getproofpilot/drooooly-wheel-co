@@ -298,7 +298,12 @@ section('the pre-launch flags are wired, and prices really are off');
      the expected value of every flag means an accidental flip of any one of
      them fails here, which "all off" stopped being able to catch. */
   const EXPECTED = {
-    showPrices: false, showFinancingClaims: false, showTrustStats: false,
+    /* showPrices went TRUE on 2026-10-21, Chris's call. The figures are the
+       ones read off authorised-dealer listings, not invented; what is still
+       open is MAP per brand (LAUNCH-CHECKLIST 2.2). showFinancingClaims stays
+       false and must not be flipped with it — the monthly payments are
+       fabricated and there is no lender (2.7). */
+    showPrices: true, showFinancingClaims: false, showTrustStats: false,
     showMountBalance: false, showUnsignedBrandLogos: true, showNewsletter: false,
     showInstagram: false, showFinancing: false, showBuildGallery: false,
     showAllTireBrands: false, showGalleryCaptions: false
@@ -636,6 +641,68 @@ section('the hand-written homepage lineup agrees with the catalogue');
   ok('every card states the catalogue diameter range', wrongRange, []);
   ok('every card names a finish the brand offers', wrongFinish, []);
   ok('every card names a configuration the model is built in', wrongConfig, []);
+}
+
+section('the hand-written homepage prices are the catalogue’s, not a copywriter’s');
+{
+  /* WHY. Turning showPrices on in 2026-10-21 revealed that seven of the eight
+     showcase cards printed "As low as $312/mo" — a MONTHLY FINANCING payment,
+     on a site with no lender, gated behind showPrices instead of
+     showFinancingClaims (LAUNCH-CHECKLIST 2.7). Worse, seven of those eight
+     models hold no price in the catalogue at all, and the "404" card was
+     reusing the Ace's $312 verbatim.
+
+     The existing "no page invents a price" section could not catch it: it
+     drives catalog.js over the data and never reads the hand-written HTML.
+     This does read it, because index.html is the one place a figure can be
+     typed by hand rather than rendered from brands.js. */
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const cards = html.match(/<article class="show2-card[\s\S]*?<\/article>/g) || [];
+  ok('the showcase lineup is still there', cards.length > 0, true);
+
+  const bySlug = {};
+  BRANDS.forEach(b => { bySlug[b.slug] = b; });
+
+  /* Every figure a showcase card prints, and where it has to come from. */
+  const financing = [], unbacked = [];
+  cards.forEach(c => {
+    const name = (c.match(/show2-name">(.*?)</) || [])[1] || '?';
+    const blocks = c.match(/<div class="show2-mo[\s\S]*?<\/div>/g) || [];
+    blocks.forEach(blk => {
+      /* A per-month figure is a financing claim wherever it appears. */
+      if (/\/mo|as low as/i.test(blk)) financing.push(name);
+
+      const figs = blk.match(/\$[\d,]+/g) || [];
+      if (!figs.length) return;                       // "Get a quote" — fine
+      const href = (c.match(/href="([^"]+)"/) || [])[1] || '';
+      const bm = href.match(/brand=([^&]+)&amp;model=(.+)$/);
+      figs.forEach(f => {
+        const n = Number(f.replace(/[$,]/g, ''));
+        if (!bm) {
+          /* The builder card: its figure must be a real builder base price. */
+          const bsrc = fs.readFileSync(path.join(ROOT, 'builders-data.js'), 'utf8');
+          const bsand = { window: {} };
+          bsand.window.window = bsand.window;
+          vm.runInNewContext(bsrc, bsand);
+          const B = bsand.window ? bsand.window.BUILDERS : bsand.BUILDERS;
+          const bases = Object.keys(B || {}).map(k => B[k].basePrice);
+          if (bases.indexOf(n) < 0) unbacked.push(name + ' prints ' + f + ', no builder charges it');
+          return;
+        }
+        const b = bySlug[bm[1]];
+        const m = b && (b.models || []).filter(
+          x => x.model === decodeURIComponent(bm[2]))[0];
+        if (!m) { unbacked.push(name + ' prints ' + f + ' for a model not in the catalogue'); return; }
+        if (n !== m.priceFrom && n !== m.priceSet) {
+          unbacked.push(name + ' prints ' + f + ' but the catalogue holds from=' +
+            m.priceFrom + ' set=' + m.priceSet);
+        }
+      });
+    });
+  });
+
+  ok('no card quotes a monthly payment', financing, []);
+  ok('every figure traces to the catalogue or a builder base', unbacked, []);
 }
 
 console.log('\n' + pass + ' passed, ' + fail + ' failed');

@@ -14,10 +14,21 @@
  * these at module scope and the static-markup sweep runs on DOMContentLoaded.
  */
 window.DROOOLY_FLAGS = {
-  /* Dollar figures anywhere a customer can see them. Off until MAP terms are
-     in writing per brand (CLAUDE.md rule 4, LAUNCH-CHECKLIST 2.2). The prices
-     themselves stay in brands.js / builders-data.js / tires.js untouched. */
-  showPrices: false,
+  /* Dollar figures anywhere a customer can see them.
+
+     ON as of 2026-10-21, Chris's call. What this does and does not assume:
+     the figures are NOT invented — they were read off authorised-dealer
+     listings (LAUNCH-CHECKLIST 2.3), and the Price Designs numbers are his
+     own published retail on the one line we are an authorised dealer for.
+     What is still open is 2.2: MAP terms are not confirmed per brand, and a
+     few brands forbid advertising a price at all. The exposure is therefore a
+     takedown request from one of the other brands, not a false claim to a
+     customer. Flip to false and every figure on the site becomes "Get a
+     quote" again with no other change.
+
+     531 of the 682 catalogue models hold no price at all; those keep saying
+     "Priced on request" either way. */
+  showPrices: true,
 
   /* "0% financing available", "$0 down", "terms up to 24 months", the lender
      logo row, and the APR fine print. Off until a lender actually approves us
