@@ -24,3 +24,9 @@ configurator/playwright-report/
 # CC0 3D model originals, downloaded for tools/3d/prepare-truck.py. Never shipped.
 tools/3d/.source/
 __pycache__/
+
+# Modal agent skill docs (`modal skills install`), a local convenience
+.agents/
+
+# rendered email previews (tools/email/promo.mjs)
+emails/out/

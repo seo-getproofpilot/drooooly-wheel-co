@@ -30,6 +30,11 @@ export type StageTheme = "light" | "dark";
 export const TURNTABLE_SECONDS = 8;
 export const RESUME_MS = 3000;
 export const HDRI_URL = import.meta.env.BASE_URL + "hdri/studio.hdr";
+/* Outdoor contact shadow. A small blur keeps the dark patch under each tire
+   the size of the patch (drei's blur spreads about 0.6 m a unit at scale 16),
+   and a far of 1.2 m lets a lifted body's floor and axles still darken the
+   ground under it. */
+export const CONTACT = { opacity: 1, blur: 1.1, far: 1.2 };
 
 /* True when this browser can make a WebGL context at all. Checked before the
    Canvas mounts, because R3F throws when it cannot get one. */
@@ -135,7 +140,7 @@ export function Stage({ children, preset, frame = null, shadowKey = "", onContex
         {!dark && <color attach="background" args={[STAGE_BG]} />}
         <Exposure value={dark && !postOn ? OUTDOOR_EXPOSURE : 1} />
         <Suspense fallback={null}>
-          {dark ? <OutdoorLocation /> : <Environment files={HDRI_URL} background={false} environmentIntensity={1} />}
+          {dark ? <OutdoorLocation reflect={postOn && ready} /> : <Environment files={HDRI_URL} background={false} environmentIntensity={1} />}
           {children}
           {/* drei draws its blur quad at the world origin through the shadow
               camera, so the shadow must sit at x = z = 0 and just under the
@@ -143,9 +148,10 @@ export function Stage({ children, preset, frame = null, shadowKey = "", onContex
               and the shadow comes out empty. Scale 16 covers a long-bed truck
               from the front bumper (+1.3) to the rear (-5.6). It renders a few
               frames per build, not every frame (iOS battery and heat). Outside
-              it is only the soft occlusion under the truck; the sun casts the
-              real shadow. */}
-          <ContactShadows key={shadowKey + theme} position={[0, -0.001, 0]} opacity={dark ? 0.8 : 0.6} scale={16} blur={dark ? 2.4 : 2.2} far={dark ? 0.9 : 2} resolution={1024} frames={4} />
+              it is the skylight the truck blocks: tight and dark where each
+              tire meets the asphalt, fading under the body. The sun casts
+              the real shadow. */}
+          <ContactShadows key={shadowKey + theme} position={[0, -0.001, 0]} opacity={dark ? CONTACT.opacity : 0.6} scale={16} blur={dark ? CONTACT.blur : 2.2} far={dark ? CONTACT.far : 2} resolution={1024} frames={4} />
           <Ready onReady={() => setReady(true)} />
         </Suspense>
         {postOn && ready && <PostFX wheel={preset === "wheel"} focus={focus?.center ?? null} onSlow={() => setPost(false)} />}

@@ -1,0 +1,17 @@
+{
+  "name": "droooly-render-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Studio shot renderer for the DROOOLY 3D configurator: headless export, Blender Cycles, JPEG cache.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "playwright": "1.64.0",
+    "sharp": "0.35.5"
+  }
+}

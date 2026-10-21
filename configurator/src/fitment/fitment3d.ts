@@ -29,7 +29,10 @@ export function fit(i: FitInput): FitResult {
   const offsetMm = offsetKnown ? (i.wheel.offsetMm as number) : v.stockOffsetMm;
   const lift = i.liftIn;
   const g = Fitment.geometry({ widthIn: i.wheel.widthIn, offsetMm, tireOdIn: i.tire.od, wheelDiaIn: i.wheel.diaIn, lift, vehicle: v });
-  const track = (v.model?.trackIn ?? DEFAULT_TRACK_IN) * IN;
+  // The drawn wheels sit on the drawn body's track (bodyTrackIn, when the body is a wider
+  // trim than the platform, like the F-150's Raptor R body); the poke maths above used the
+  // platform's trackIn and fenders, so the poke past this body's flare matches the sentence.
+  const track = (v.model?.bodyTrackIn ?? v.model?.trackIn ?? DEFAULT_TRACK_IN) * IN;
   const wb = (v.model?.wheelbaseIn ?? DEFAULT_WHEELBASE_IN) * IN;
   const tireR = (i.tire.od / 2) * IN;
   // The hub face sits at half track. The wheel centre sits (width/2 - offset)

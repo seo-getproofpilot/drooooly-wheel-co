@@ -1,7 +1,7 @@
 /* The live panel: one column of sections, top to bottom in the deck's order,
    every one editable in place. App owns the build; this only reads it and
    sends patches. */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Fitment from "@site/fitment.js";
 import type { Catalog, Vehicle } from "../data/types";
 import type { FitResult } from "../fitment/fitment3d";
@@ -10,18 +10,24 @@ import { finishCode } from "../materials/finishes";
 import { Chip, Section } from "./Chip";
 import { LiftSlider } from "./LiftSlider";
 import { StanceMeter } from "./StanceMeter";
-import { quoteHref, shareUrl } from "./describe";
+import { describe, quoteHref, shareUrl } from "./describe";
+import { StudioLightbox } from "./StudioLightbox";
+import { requestStill, type StudioCamera } from "../data/render";
 import { copy } from "./copy";
 
 export interface PanelProps {
   cat: Catalog; b: Build; vehicle: Vehicle; fit: FitResult; stanceSentence: string;
   set: (p: Partial<Build>) => void; editTruck: () => void; snapshot: (() => string | null) | null;
+  /** the live camera pose for a studio shot; null on the poster or before the 3D camera exists */
+  camera?: (() => StudioCamera | null) | null;
+  /** the studio key once a still has been rendered, so a saved build can carry its photo */
+  onStill?: (key: string) => void;
 }
 
 /* "37x13.50R26" shows as 37x13.50 (the rim is the wheel already picked). A metric size keeps its full name. */
 const tireLabel = (size: string) => (/^\d+(\.\d+)?x/i.test(size) ? size.replace(/R\d+(\.\d+)?.*$/i, "") : size);
 
-export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, snapshot }: PanelProps) {
+export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, snapshot, camera = null, onStill }: PanelProps) {
   const config = configOf(vehicle);
   const dually = config === "dually";
   const lugs = /^(\d+)x/.exec(vehicle.bolt)?.[1] ?? null;
@@ -60,6 +66,40 @@ export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, sn
     const a = document.createElement("a");
     a.href = data; a.download = "droooly-build.png"; a.click();
   };
+
+  /* Studio shot: the build and the camera go to the render service; the 3D
+     view stays live while it works, and the still opens in the lightbox. */
+  const [pending, setPending] = useState(false);
+  const [still, setStill] = useState<string | null>(null);
+  const job = useRef<AbortController | null>(null);
+  const studioBtn = useRef<HTMLButtonElement>(null);
+  useEffect(() => () => job.current?.abort(), []);
+  const studio = async () => {
+    const cam = camera?.();
+    if (!cam || pending) return;
+    const ctl = new AbortController();
+    job.current = ctl;
+    setPending(true);
+    setStatus({ text: copy.studioWorking });
+    try {
+      const { url, key } = await requestStill(b, cam, ctl.signal, {
+        onStatus: (s) => {
+          if (s.status === "done") return;
+          setStatus({ text: s.position && s.position > 1 ? `${copy.studioWorking} ${copy.studioInLine(s.position)}` : copy.studioWorking });
+        },
+      });
+      setStatus(null);
+      setStill(url);
+      onStill?.(key);
+    } catch (e) {
+      if ((e as Error)?.name === "AbortError") return;
+      setStatus({ text: copy.studioFailed });
+    } finally {
+      if (job.current === ctl) job.current = null;
+      setPending(false);
+    }
+  };
+  const words = describe(cat, b);
 
   return (
     <div className="live">
@@ -182,6 +222,11 @@ export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, sn
         <div className="foot__pair">
           <button type="button" className="btn btn--secondary btn--sm" onClick={share}><span className="btn-txt">{copy.share}</span></button>
           {snapshot && <button type="button" className="btn btn--secondary btn--sm" onClick={photo}><span className="btn-txt">{copy.photo}</span></button>}
+          {camera && (
+            <button type="button" className="btn btn--secondary btn--sm" ref={studioBtn} onClick={studio} disabled={pending} aria-busy={pending}>
+              <span className="btn-txt">{copy.studioShot}</span>
+            </button>
+          )}
         </div>
         <div className="status" aria-live="polite">
           {status?.text}
@@ -189,6 +234,8 @@ export function Panel({ cat, b, vehicle, fit, stanceSentence, set, editTruck, sn
         </div>
         <p className="fine">{copy.finePrint}</p>
       </footer>
+      {still && <StudioLightbox url={still} alt={copy.studioAlt(words.truck ?? vehicle.make)} onClose={() => setStill(null)}
+        returnFocus={() => studioBtn.current} />}
     </div>
   );
 }

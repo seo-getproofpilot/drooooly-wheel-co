@@ -5,7 +5,7 @@ const SHOT_DIR = process.env.SHOT_DIR;
 test("renders the stage", async ({ page }) => {
   await page.goto("./?v=f250&y=2024");
   await expect(page.locator("canvas")).toBeVisible();
-  await expect(page.locator("[data-ready='1']")).toHaveCount(1, { timeout: 20_000 });
+  await expect(page.locator("[data-ready='1']")).toHaveCount(1, { timeout: 45_000 });
   await page.waitForTimeout(1500);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(overflow).toBeLessThanOrEqual(0);

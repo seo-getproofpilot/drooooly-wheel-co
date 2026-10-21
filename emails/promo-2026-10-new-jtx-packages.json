@@ -1,0 +1,125 @@
+{
+  "from": "DROOOLY Wheel & Tire <hello@drooolywt.com>",
+  "replyTo": "chris@drooolywt.com",
+  "subject": "Four new JTX packages, each one sized to a real truck",
+  "preheader": "A 26 inch Ace on a lifted F-250, a six wheel dually set, and two more you can build on your own truck.",
+  "demo": "Demo email for Chris. Not sent to customers. Every photo is a live render from the DROOOLY 3D builder.",
+  "siteUrl": "https://web-staging-3ae2.up.railway.app/",
+  "logoUrl": "https://web-staging-3ae2.up.railway.app/assets/logo-wordmark.png",
+  "eyebrow": "New JTX Forged packages",
+  "headline": "Four new wheel and tire packages, each one sized to a real truck",
+  "intro": "We paired four JTX Forged wheels with the tire and lift height that fill them out right. Every photo here is that exact set at its real size on that truck, straight from our 3D builder. Tap one and it opens on your truck, where you can change the wheel, finish, tire or lift piece by piece.",
+  "hero": {
+    "image": "https://render-staging-3d31.up.railway.app/stills/eyJiIjoidj1mMjUwJm1uPUYtMjUwK1N1cGVyK0R1dHkmeT0yMDIyJnA9cmFjZS1yZWQmbD00JmI9anR4Jm09QWNlJnM9MjZ4MTQmZj1wb2xpc2hlZCZ0PTM3eDEzLjUwUjI2IiwiYyI6eyJwb3NpdGlvbiI6WzguMjcsMy41LDQuMzZdLCJ0YXJnZXQiOlswLjAxNywwLjgxLC0xLjkzXSwiZm92IjoyOCwiYXNwZWN0IjoxLjZ9fQ.jpg",
+    "alt": "Red 2022 Ford F-250 on 26 inch polished JTX Ace wheels and 37 inch tires, 4 inch lift",
+    "url": "https://web-staging-3ae2.up.railway.app/visualize/?v=f250&mn=F-250+Super+Duty&y=2022&p=race-red&l=4&b=jtx&m=Ace&s=26x14&f=polished&t=37x13.50R26&utm_source=email&utm_medium=promo&utm_campaign=new-jtx-packages-2026-10",
+    "cta": "Put the Ace on my truck"
+  },
+  "packagesEyebrow": "Three more packages",
+  "packagesHeading": "Start with the one closest to your truck and make it yours",
+  "packages": [
+    {
+      "tag": "Dually \u00b7 set of six",
+      "name": "24 inch JTX Alpha on a stock height F-450 dually",
+      "blurb": "Six forged Alpha wheels with the front and rear matched, and the dually rear offset already worked out. The truck stays at stock height, the way most people who tow want it.",
+      "image": "https://render-staging-3d31.up.railway.app/stills/eyJiIjoidj1mNDUwJm1uPUYtNDUwK1N1cGVyK0R1dHkmeT0yMDIyJnA9d2hpdGUmbD0wJmI9anR4Jm09QWxwaGEmcz0yNHg4LjI1JmY9cG9saXNoZWQmdD0zNXgxMi41MFIyNExUIiwiYyI6eyJwb3NpdGlvbiI6WzMuNiwxLDNdLCJ0YXJnZXQiOlswLDAuOTMsLTEuOV0sImZvdiI6MjgsImFzcGVjdCI6MS42fX0.jpg",
+      "alt": "White Ford F-450 dually on 24 inch polished JTX Alpha wheels",
+      "url": "https://web-staging-3ae2.up.railway.app/visualize/?v=f450&mn=F-450+Super+Duty&y=2022&p=white&l=0&b=jtx&m=Alpha&s=24x8.25&f=polished&t=35x12.50R24LT&utm_source=email&utm_medium=promo&utm_campaign=new-jtx-packages-2026-10",
+      "cta": "Build this dually set",
+      "specs": [
+        {
+          "k": "Truck",
+          "v": "2022 Ford F-450 Super Duty"
+        },
+        {
+          "k": "Wheels",
+          "v": "JTX Forged Alpha 24x8.25, polished, set of six"
+        },
+        {
+          "k": "Tires",
+          "v": "35x12.50R24LT"
+        },
+        {
+          "k": "Stance",
+          "v": "Stock height"
+        }
+      ]
+    },
+    {
+      "tag": "Heavy duty \u00b7 6 inch lift",
+      "name": "24 inch JTX Capo on a 6 inch lifted Sierra 2500HD",
+      "blurb": "The split spoke Capo in brushed aluminum, against a black truck, on 35 inch mud terrains. The 14 inch width sets the wheels out toward the fender line for a wider stance.",
+      "image": "https://render-staging-3d31.up.railway.app/stills/eyJiIjoidj1nbWMyNTAwJm1uPVNpZXJyYSsyNTAwSEQmeT0yMDIyJnA9YmxhY2smbD02JmI9anR4Jm09Q2FwbyZzPTI0eDE0JmY9YnJ1c2hlZCZ0PTM1eDEyLjUwUjI0TFQiLCJjIjp7InBvc2l0aW9uIjpbMy42LDEsM10sInRhcmdldCI6WzAsMC45MywtMS45XSwiZm92IjoyOCwiYXNwZWN0IjoxLjZ9fQ.jpg",
+      "alt": "Black GMC Sierra 2500HD on 24 inch brushed JTX Capo wheels, 6 inch lift",
+      "url": "https://web-staging-3ae2.up.railway.app/visualize/?v=gmc2500&mn=Sierra+2500HD&y=2022&p=black&l=6&b=jtx&m=Capo&s=24x14&f=brushed&t=35x12.50R24LT&utm_source=email&utm_medium=promo&utm_campaign=new-jtx-packages-2026-10",
+      "cta": "Build this Sierra package",
+      "specs": [
+        {
+          "k": "Truck",
+          "v": "2022 GMC Sierra 2500HD"
+        },
+        {
+          "k": "Wheels",
+          "v": "JTX Forged Capo 24x14, brushed"
+        },
+        {
+          "k": "Tires",
+          "v": "35x12.50R24LT mud terrain"
+        },
+        {
+          "k": "Stance",
+          "v": "6 inch lift"
+        }
+      ]
+    },
+    {
+      "tag": "Half ton \u00b7 2.5 inch lift",
+      "name": "22 inch JTX Ballistic on a 2.5 inch lifted F-150",
+      "blurb": "Sixteen thin spokes in black milled, where the cut edges catch the light. A 35 inch all terrain suits a truck that spends more time on the highway than on the trail.",
+      "image": "https://render-staging-3d31.up.railway.app/stills/eyJiIjoidj1mMTUwJnk9MjAyNCZwPXdoaXRlJmw9Mi41JmI9anR4Jm09QmFsbGlzdGljJnM9MjJ4MTImZj1ibGFjay1taWxsZWQiLCJjIjp7InBvc2l0aW9uIjpbMy42LDEsM10sInRhcmdldCI6WzAsMC45MywtMS45XSwiZm92IjoyOCwiYXNwZWN0IjoxLjZ9fQ.jpg",
+      "alt": "White Ford F-150 on 22 inch black milled JTX Ballistic wheels, 2.5 inch lift",
+      "url": "https://web-staging-3ae2.up.railway.app/visualize/?v=f150&mn=F-150&y=2024&p=white&l=2.5&b=jtx&m=Ballistic&s=22x12&f=black-milled&t=35x12.50R22&utm_source=email&utm_medium=promo&utm_campaign=new-jtx-packages-2026-10",
+      "cta": "Build this F-150 package",
+      "specs": [
+        {
+          "k": "Truck",
+          "v": "2024 Ford F-150"
+        },
+        {
+          "k": "Wheels",
+          "v": "JTX Forged Ballistic 22x12, black milled"
+        },
+        {
+          "k": "Tires",
+          "v": "35x12.50R22 all terrain"
+        },
+        {
+          "k": "Stance",
+          "v": "2.5 inch lift"
+        }
+      ]
+    }
+  ],
+  "addonsEyebrow": "Add to any package",
+  "addonsHeading": "Three things worth adding while your set is being built",
+  "addons": [
+    {
+      "title": "Mounted and balanced",
+      "text": "We mount and balance the tires on your wheels before the set ships, so it bolts straight on when it arrives. It is priced on your quote, with freight on its own line."
+    },
+    {
+      "title": "TPMS sensors",
+      "text": "Sensors programmed to your truck, so the tire pressure light stays off after the swap."
+    },
+    {
+      "title": "Lug kit",
+      "text": "Spline drive lug nuts in black or chrome, matched to your bolt pattern and thread size."
+    }
+  ],
+  "closing": "Fitment verified before we build it. Reply with your year, make and model, or a photo of your truck, and we will tell you which of these works and what it takes.",
+  "phone": "602-332-5400",
+  "phoneHref": "+16023325400",
+  "footerLine": "DROOOLY Wheel & Tire \u00b7 Forged wheel and tire packages for lifted trucks and duallys",
+  "credit": "Truck photos are 3D renders. Truck models are based on CC BY 4.0 works by DR1KING100K, 01 and 007.",
+  "unsubscribeUrl": "mailto:chris@drooolywt.com?subject=Unsubscribe"
+}

@@ -1,0 +1,7 @@
+# Used by BuildKit for render-service/Dockerfile (context is the repo root).
+*
+!render-service/package.json
+!render-service/package-lock.json
+!render-service/src
+!tools/3d/render-offline.py
+!visualize

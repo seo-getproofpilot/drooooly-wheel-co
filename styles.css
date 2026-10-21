@@ -6945,3 +6945,50 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
 @media(prefers-reduced-motion:reduce){
   .prod,.prod:hover,.prod:focus-within{transform:none;transition:none}
 }
+
+/* ---- Accounts: header control, sign-in sheet, garage (account.js, garage.js) ---- */
+.nav__acct{font-family:var(--label);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-decoration:none;
+  padding:0 14px;min-height:44px;display:inline-flex;align-items:center;border:1px solid var(--line-2);border-radius:9px;white-space:nowrap}
+.nav__acct:hover{border-color:var(--blue);box-shadow:0 0 18px rgba(31,123,255,.2)}
+@media (max-width:959px){.nav__acct{display:none}}
+.acct-overlay{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s}
+.acct-overlay.open{opacity:1;pointer-events:auto}
+.acct-sheet{position:fixed;top:0;right:0;bottom:0;z-index:91;width:min(420px,100%);display:flex;flex-direction:column;background:#0f1012;color:#fff;
+  transform:translateX(100%);transition:transform .35s var(--ease);box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+.acct-sheet.open{transform:none}
+.acct-sheet__head{display:flex;align-items:center;justify-content:space-between;padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.acct-sheet__head h3{font-size:17px;text-transform:uppercase;margin:0}
+.acct-sheet__close{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:9px;background:none;color:#fff;cursor:pointer;font-size:18px;display:grid;place-items:center}
+.acct-sheet__close:hover{border-color:var(--blue)}
+.acct-form{display:flex;flex-direction:column;gap:12px;padding:22px}
+.acct-lead{margin:0 0 6px;font-size:15px;line-height:1.5;color:#d6dae0}
+.acct-label{font-family:var(--label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9aa0a8}
+.acct-input{width:100%;min-height:50px;padding:0 14px;border:1px solid rgba(255,255,255,.2);border-radius:9px;background:#17181b;color:#fff;font-size:16px}
+.acct-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,123,255,.25)}
+.acct-input--code{font-size:26px;letter-spacing:.35em;text-align:center;font-variant-numeric:tabular-nums}
+.acct-err{margin:0;font-size:14px;color:#ff8a8a}
+.acct-submit{margin-top:6px}
+.acct-link{align-self:flex-start;background:none;border:0;padding:6px 0;color:#9ec3ff;font-size:14px;cursor:pointer;text-decoration:underline}
+.acct-fine{margin:8px 0 0;font-size:12px;line-height:1.5;color:#8b9099}
+/* page-level save controls appear only once the account layer is live */
+[data-needs-account]{display:none}
+[data-signed-in] [data-needs-account]{display:inline-flex}
+.garage{max-width:var(--max);margin:0 auto;padding:40px 20px 80px}
+.garage__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
+.garage__head h1{margin:0;font-size:28px;text-transform:uppercase}
+.garage__who{font-size:14px;color:var(--muted)}
+.garage__who button{background:none;border:0;color:var(--blue);cursor:pointer;font:inherit;text-decoration:underline;padding:0 0 0 8px}
+.garage__empty{padding:40px 24px;border:1px dashed var(--line-2);border-radius:12px;text-align:center;color:var(--muted);font-size:16px;line-height:1.6}
+.garage__grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.gcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column}
+.gcard__img{aspect-ratio:16/10;background:#101214 center/cover no-repeat;display:grid;place-items:center;color:#8b9099;font-size:13px}
+.gcard__img img{width:100%;height:100%;object-fit:cover;display:block}
+.gcard__body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.gcard__name{font-family:var(--label);font-weight:700;font-size:16px;margin:0;word-break:break-word}
+.gcard__meta{font-size:13px;color:var(--muted)}
+.gcard__row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.gcard__row .btn{min-height:40px;padding:0 14px;font-size:11px}
+.gcard__link{background:none;border:0;padding:0 4px;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline}
+.gcard__link:hover{color:var(--text)}
+.gcard__rename{display:flex;gap:8px;margin-top:6px}
+.gcard__rename input{flex:1;min-height:40px;padding:0 10px;border:1px solid var(--line-2);border-radius:8px;font-size:14px}

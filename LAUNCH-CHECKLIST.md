@@ -674,10 +674,10 @@ each one is a phone call away from being better.
 
 - 🔴 **7.1 Truck bodies are CC-BY Sketchfab models, de-badged (2026-10-11).** Six bodies ship in
   `configurator/public/models/` (`f250`, `f150`, `f450`, `gm2500`, `gmc2500`, `ram1500`), each with
-  its author, license and rebuild steps in `configurator/public/models/LICENSES.md`. Four are
+  its author, license and rebuild steps in `configurator/public/models/LICENSES.md`. All six are
   real OEM shapes with every badge, emblem and plate mesh deleted (F-450, Silverado HD, Sierra HD,
-  RAM 1500 TRX); `f250` and `f150` are a fictional unbadged pickup stretched to the platform's
-  wheelbase and track until a 2017+ crew-cab Super Duty and a 14th-gen F-150 body land. The
+  RAM 1500 TRX, and since 2026-10-13 an F-250 cut down from the F-450 model and an F-150 from a
+  Raptor R model; the fictional Lightbody stand-in is retired). The
   stage carries each body's CC BY credit line, which the license requires wherever the model
   is shown; keep it when restyling. Trade dress: a de-badged body is still the OEM's shape, the
   same exposure the 2D visualizers in this market carry by showing photos of real trucks. A
@@ -694,10 +694,15 @@ each one is a phone call away from being better.
   right on Railway staging and on drooolywt.com, and wrong on the GitHub Pages copy, which sits
   under `/drooooly-wheel-co/`. The Pages copy is not where the visualizer is reviewed. The page
   is `noindex,nofollow` like the rest of the site until launch (section 0).
-- 🟡 **7.4 Scene quality deferred from the slice (2026-10-10).** Temporal anti-aliasing and
-  ambient occlusion behind a frame-time check, the KTX2 texture pipeline and the flake normal
-  on the paint are in the spec but not in the slice. They matter once the commissioned bodies
-  (7.1) land, not before.
+- 🟡 **7.4 Scene quality deferred from the slice (2026-10-10, updated 2026-10-13).** Shipped
+  since: screen-space ambient occlusion behind the frame-time guard, ambient occlusion baked per
+  body into `COLOR_0` (`tools/3d/bake-ao.py`, read by `configurator/src/scene/vertexAO.ts`), a
+  flake normal on metallic paints with solid paints kept flat, a planar reflection of the truck
+  in the asphalt and a per-side wheel environment capture so the barrels no longer reflect open
+  sky. Still open: temporal anti-aliasing and the KTX2 texture pipeline, which matter once the
+  commissioned bodies (7.1) land. The offline path-traced comparison lives in
+  `tools/3d/render-offline.py`; the browser cannot reach that quality and the still-library math
+  (531,000 builds) rules out pre-rendering, so the plan is live 3D plus on-demand hero stills.
 - 🟡 **7.5 Railway static hosting CSP blocks WASM and blob URLs (2026-10-11).** The staging
   host (`server: railway-hikari`) sends `Content-Security-Policy` with no `'wasm-unsafe-eval'`
   and no `blob:` in `connect-src`. The meshopt glTF decoder (WASM) and GLTFLoader's blob URLs
@@ -706,3 +711,25 @@ each one is a phone call away from being better.
   `tools/3d/prepare-truck.py`). The commissioned bodies (7.1) will want meshopt and KTX2, so
   before they ship either the host has to allow those directives or the configurator moves to a
   host that does (the spec's Cloudflare R2 plan).
+- 🟡 **7.6 Studio shot GPU renders run on a personal Modal account (2026-10-13).** The
+  Railway `render` service posts each exported glTF to the Modal app `droooly-render`
+  (`render-service/modal_render.py`, Blender 5.2 LTS on an NVIDIA L4), which cut the Blender
+  step from 20 s on Railway's CPU to about 10 s round trip. That app lives in Matthew's
+  workspace `matthew-73861` on the Starter plan (a monthly compute credit, no card on file
+  for overage) and the shared key sits in the Modal secret `droooly-render` and Railway's
+  `RENDER_REMOTE_KEY`. Before launch: a DROOOLY-owned Modal workspace with billing, a
+  redeploy there, and the two Railway variables repointed. With `RENDER_REMOTE_URL` unset
+  the service falls back to its own CPU Blender, so the feature survives the account going
+  away, only slower.
+- 🟢 **7.7 Accounts and sign-in email (2026-10-13).** One DROOOLY sign-in (email code, no
+  password) saves builds from the visualizer and the brand builders to `garage.html`. Supabase
+  project `DROOOLY` (ref `xooinsjucurjsefdtidu`) in Matthew's org holds accounts and builds;
+  schema and auth settings in `supabase/`, design in
+  `docs/superpowers/specs/2026-10-13-accounts-design.md`. Codes go out through Resend from
+  `DROOOLY <login@drooolywt.com>`: domain verified in Resend (us-east-1) with DKIM, SPF and
+  bounce records on `resend._domainkey`, `send` and `rsend` in Cloudflare, none of which touch
+  the Google Workspace mail on the root domain. Supabase uses a send-only Resend key scoped to
+  drooolywt.com ("Supabase auth"), pushed with `RESEND_API_KEY=... supabase config push`; the
+  key is never in the repo. Cap 60 sign-in emails an hour. Open: no DMARC record on
+  drooolywt.com yet (a `p=none` record would help inbox placement); the projects sit in
+  Matthew's personal Supabase org and Resend account.

@@ -3,7 +3,7 @@
    the showroom build; after, the panel is one live column and every change
    redraws the stage. ?poster=1 fills the viewport with the stage and nothing
    else, for tools/3d/render-posters.mjs. */
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, startTransition, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Box3 } from "three";
 import Fitment from "@site/fitment.js";
 import { loadCatalog } from "./data/catalog";
@@ -16,20 +16,30 @@ import { Pins } from "./scene/Pins";
 import { Truck, rakeFor } from "./scene/Truck";
 import { WheelSet } from "./scene/WheelSet";
 import { Poster } from "./scene/Poster";
-import { brands, configOf, encode, initialBuild, platforms, readFinder, reduce, seed, slugify, treadOf, truckPicked, SHOWROOM, type Build } from "./flow";
+import { brands, configOf, decode, encode, initialBuild, platforms, readFinder, reduce, seed, slugify, treadOf, truckPicked, SHOWROOM, type Build } from "./flow";
+import { registerBuildSetter } from "./dev/exportBridge";
 import { finishCode, type FinishCode } from "./materials/finishes";
 import { TruckSheet, type TruckDraft } from "./ui/TruckSheet";
 import { Panel } from "./ui/Panel";
+import { CameraProbe } from "./ui/CameraProbe";
+import { SignInSheet } from "./ui/SignInSheet";
+import { buildRow, onAuth, saveBuild, type AccountUser } from "./data/account";
+import type { StudioCamera } from "./data/render";
 import { callout } from "./ui/callout";
-import { shareUrl } from "./ui/describe";
 import { copy } from "./ui/copy";
 
 export const APP_NAME = "DROOOLY Visualize";
 
 const catalog = loadCatalog();
+/* Dev-only scene export for the offline render comparison (vite dev or
+   ?export=1); see dev/exportScene.ts. Never fetched otherwise. */
+const EXPORT_ENABLED = import.meta.env.DEV || new URLSearchParams(location.search).get("export") === "1";
+const ExportHook = EXPORT_ENABLED ? lazy(() => import("./dev/exportScene")) : null;
 const PIN_PRESETS: CameraPreset[] = ["front", "threeQuarter", "wheel"];
 const TAB_TARGETS = ["sec-truck", "sec-wheel", "sec-tire", "sec-stance"];
-const TAB_CAMERA: CameraPreset[] = ["threeQuarter", "wheel", "wheel", "front"];
+/* Truck lands on the front hero, Wheel and Tire on the wheel close-up,
+   Stance on the side view, where ride height and poke read. */
+const TAB_CAMERA: CameraPreset[] = ["front", "wheel", "wheel", "side"];
 
 /* What the stage draws: the customer's build once a truck is picked, the
    showroom build on their truck (or the F-250) before that. */
@@ -71,6 +81,18 @@ export default function App() {
     history.replaceState(null, "", location.pathname + encode(b));
   }, [b, posterMode]);
 
+  /* The render service's warm page swaps builds through the export hook
+     (dev/exportBridge.ts). A transition keeps the current truck on stage
+     while a new body downloads instead of dropping to the Suspense fallback. */
+  useEffect(() => {
+    if (!EXPORT_ENABLED) return;
+    return registerBuildSetter((query) => {
+      const next = seed(catalog, decode(query, catalog));
+      startTransition(() => setB(next));
+      return encode(next);
+    });
+  }, []);
+
   /* The sheet opens on a cold start only; a link or a saved finder truck goes
      straight to the panel. The truck card opens it again to change trucks. */
   const picked = truckPicked(b);
@@ -110,13 +132,16 @@ export default function App() {
   const [lost, setLost] = useState(false);
   const show3d = gl && !lost;
   const snapRef = useRef<(() => string | null) | null>(null);
+  /* the live camera pose for the studio shot, filled from inside the Canvas */
+  const camRef = useRef<(() => StudioCamera | null) | null>(null);
+  const [camReady, setCamReady] = useState(false);
   const style = (JTX_PROGRAMS.find((p) => p.model === r.model) ?? JTX_PROGRAMS[0]).style;
   const rake = rakeFor(sb.lv, sb.l ?? 0);
   const shadowKey = [vehicle.id, f.bodyLiftM.toFixed(4), rake, f.corners.map((c) => c.x.toFixed(4)).join(","), body ? "b" : "-"].join("|");
   const fl = f.corners.find((c) => c.name === "FL")!;
   const focus = useMemo(() => ({ center: [fl.x, fl.y + f.tireRadiusM * 0.25, fl.z] as [number, number, number], radius: f.tireRadiusM * 2.1 }),
     [fl.x, fl.y, fl.z, f.tireRadiusM]);
-  const [cam, setCam] = useState<CameraPreset>("threeQuarter");
+  const [cam, setCam] = useState<CameraPreset>("front");
   const preset: CameraPreset = posterMode ? "threeQuarter" : cam;
 
   /* Step tabs scroll to their section. The one whose heading has passed the
@@ -139,13 +164,27 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [showPicker]);
 
-  const [saved, setSaved] = useState<string | null>(null);
-  const save = async () => {
-    const url = shareUrl(b);
-    try { await navigator.clipboard.writeText(url); setSaved(copy.linkCopied); }
-    catch { window.prompt(copy.copyThisLink, url); }
-    setTimeout(() => setSaved(null), 4000);
+  /* Save my build: into the shopper's garage (data/account.ts). Signed out,
+     the sign-in sheet opens and the save runs the moment the code checks
+     out. The share link stays on the panel's Share button. */
+  const [acct, setAcct] = useState<AccountUser | null>(null);
+  useEffect(() => onAuth(setAcct), []);
+  const [stillKey, setStillKey] = useState<string | null>(null);
+  useEffect(() => { setStillKey(null); }, [b]);
+  const [signIn, setSignIn] = useState(false);
+  const saveBtn = useRef<HTMLButtonElement>(null);
+  const [saved, setSaved] = useState<{ text: string; href?: string } | null>(null);
+  const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const note = (n: { text: string; href?: string } | null) => {
+    setSaved(n);
+    if (savedTimer.current) clearTimeout(savedTimer.current);
+    savedTimer.current = setTimeout(() => setSaved(null), 8000);
   };
+  const doSave = async () => {
+    try { await saveBuild(buildRow(catalog, b, stillKey)); note({ text: copy.savedToGarage, href: "/garage.html" }); }
+    catch { note({ text: copy.saveFailed }); }
+  };
+  const save = () => { if (acct) void doSave(); else setSignIn(true); };
 
   const bodyCredit = copy.bodyCredits[vehicle.model?.file ?? ""];
   const credit = !posterMode && bodyCredit && (
@@ -158,8 +197,10 @@ export default function App() {
           <Stage preset={preset} frame={frame} shadowKey={shadowKey} onContextLost={() => setLost(true)} snapshotRef={snapRef} focus={focus}
             theme="dark" autoRotate={showPicker && !posterMode}>
             <Truck vehicle={vehicle} paintHex={paint.hex} bodyLiftM={f.bodyLiftM} rakeDeg={rake} onBounds={onBounds} />
-            <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} />
+            <WheelSet fit={f} style={style} finish={r.finishCode} tread={r.tread} bolt={vehicle.bolt} />
             {!posterMode && <Pins fit={f} headline={words.headline} line2={words.line2} line3={words.line3} visible={PIN_PRESETS.includes(preset)} />}
+            {!posterMode && <CameraProbe target={camRef} onReady={setCamReady} />}
+            {ExportHook && <Suspense fallback={null}><ExportHook build={encode(b)} credit={bodyCredit?.text ?? ""} /></Suspense>}
           </Stage>
         ) : (
           <Poster vehicle={vehicle} />
@@ -195,8 +236,10 @@ export default function App() {
           ))}
         </nav>
         <div className="topbar__save">
-          <span className="topbar__saved" aria-live="polite">{saved}</span>
-          <button type="button" className="btn btn--sm btn--ghost" onClick={save}><span className="btn-txt">{copy.saveBuild}</span></button>
+          <span className="topbar__saved" aria-live="polite">
+            {saved ? <>{saved.text}{saved.href && <> · <a href={saved.href}>{copy.myGarage}</a></>}</> : acct && <a href="/garage.html">{copy.myGarage}</a>}
+          </span>
+          <button type="button" className="btn btn--sm btn--ghost" ref={saveBtn} onClick={save}><span className="btn-txt">{copy.saveBuild}</span></button>
         </div>
       </header>
       <main id="app" className={"viz" + (showPicker ? " viz--sheet" : "")}>
@@ -205,13 +248,15 @@ export default function App() {
         {!showPicker && (
           <div className="panel">
             <Panel cat={catalog} b={b} vehicle={vehicle} fit={f} stanceSentence={words.stance} set={set}
-              editTruck={() => { setDraft(null); setSheet(true); }} snapshot={show3d ? () => snapRef.current?.() ?? null : null} />
+              editTruck={() => { setDraft(null); setSheet(true); }} snapshot={show3d ? () => snapRef.current?.() ?? null : null}
+              camera={show3d && camReady ? () => camRef.current?.() ?? null : null} onStill={setStillKey} />
           </div>
         )}
+        {signIn && <SignInSheet onDone={(u) => { setAcct(u); setSignIn(false); void doSave(); }} onClose={() => setSignIn(false)} returnFocus={() => saveBtn.current} />}
         {showPicker && (
           <TruckSheet cat={catalog} start={{ v: b.v, mn: b.mn, y: b.y, p: b.p }} onDraft={setDraft}
             onClose={picked ? () => { setDraft(null); setSheet(false); } : null}
-            onDone={(d) => { set(d); setDraft(null); setSheet(false); setCam("threeQuarter"); setTab(0); window.scrollTo({ top: 0 }); }} />
+            onDone={(d) => { set(d); setDraft(null); setSheet(false); setCam("front"); setTab(0); window.scrollTo({ top: 0 }); }} />
         )}
       </main>
     </>
