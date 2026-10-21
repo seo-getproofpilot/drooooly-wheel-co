@@ -88,7 +88,8 @@ const get = u => execFileSync('curl', ['-sS', '-L', '--max-time', '60', '-A', UA
 const sleep = ms => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 /* ------------------------------------------------------------------
-   The seven builders, and how each presents on our site.
+   The seven machine builders plus his one stand-alone accessory, and how
+   each presents on our site.
 
    `lane` ties into fitment.js's LANES so the shop page can file a builder
    under the same category lanes the catalogue already uses. `bolt` is the
@@ -123,7 +124,15 @@ const BUILDERS = [
   { handle: 'utv-sand-car-wheels',     id: 'pd-sand-car',     lane: 'sand',
     platform: 'Sand car & buggy',      short: 'Buggy · Sand car',
     title: 'Sand car beadlock',
-    bolt: '5x205', image: 'assets/wheels/price-designs/utv-beadlock.png' }
+    bolt: '5x205', image: 'assets/wheels/price-designs/utv-beadlock.png' },
+  /* Not a machine — an accessory he sells on its own, and the one product of
+     his that fits a wheel somebody already owns. It has to stay OUT of the
+     machine grid, whose question is "what are you building for?"; a cap kit is
+     not an answer to that. `lane: 'accessory'` is what the chooser splits on. */
+  { handle: 'floating_center_caps',    id: 'pd-floating-caps', lane: 'accessory',
+    platform: 'Floating center caps',  short: 'Floating center caps',
+    title: 'Floating center caps',
+    bolt: null,  image: 'assets/wheels/price-designs/utv-beadlock.png' }
 ];
 
 /* His lug labels, in the site's own bolt notation. This is the whole DROOOLY
@@ -533,7 +542,12 @@ function spec(meta, cfg, dec) {
     baseLayer: fileOf(((cfg.data.base.image || {}).front) || null),
     source: 'https://' + SHOP + '/products/' + meta.handle,
     about: about,
-    includes: 'Billet center caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.',
+    /* What comes in the box. The wheel line ships as a complete assembly; the
+       cap kit is a cap kit, and saying it includes beadlock rings and valve
+       stems would be describing a product we are not selling. */
+    includes: meta.lane === 'accessory'
+      ? 'A set of four floating billet center caps with their mounting hardware. Wheels are not included — these fit a wheel you already own.'
+      : 'Billet center caps, SIMULATED beadlock rings, titanium hardware and TPMS valve stems are included.',
     madeIn: 'Forged in the USA from 6061-T6 aluminum and machined in their own facility in Gilbert, Arizona.',
     defaults: dec.defaults,
     steps: dec.steps

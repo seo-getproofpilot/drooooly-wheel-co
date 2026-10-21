@@ -1,5 +1,5 @@
 {
- "scraped": "2026-10-03",
+ "scraped": "2026-10-21",
  "shop": "pricedesigns-pd.com",
  "shopId": "61433217254",
  "layerBase": "https://cdn.thecustomproductbuilder.com/61433217254/images/products/",
@@ -170,10 +170,29 @@
    "paintOrderInherited": 9,
    "paintOrderUnknown": [],
    "offBucketImages": []
+  },
+  {
+   "id": "pd-floating-caps",
+   "handle": "floating_center_caps",
+   "productId": 9403918254310,
+   "platform": "Floating center caps",
+   "basePrice": 500,
+   "categories": 4,
+   "steps": 4,
+   "deadCategories": [],
+   "layers": 138,
+   "swatches": 48,
+   "duplicateTitles": [],
+   "stringPricesCoerced": 135,
+   "danglingRules": 0,
+   "noRender": [],
+   "paintOrderInherited": 0,
+   "paintOrderUnknown": [],
+   "offBucketImages": []
   }
  ],
  "totals": {
-  "layers": 1542,
-  "swatches": 531
+  "layers": 1680,
+  "swatches": 534
  }
 }

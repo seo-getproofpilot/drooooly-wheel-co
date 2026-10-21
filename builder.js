@@ -147,6 +147,34 @@
       .sort(function (a, b) { return (a.rank || 0) - (b.rank || 0); });
     var bad = q.get("b");
 
+    /* He sells one thing that is not a machine — a floating centre cap kit,
+       which fits a wheel somebody already owns. It cannot sit in the machine
+       grid, because the question that grid asks is "what are you building
+       for?" and a cap kit is not an answer to it. Split on the lane and give
+       the accessories their own row underneath. */
+    var machines = all.filter(function (s) { return s.lane !== "accessory"; });
+    var extras   = all.filter(function (s) { return s.lane === "accessory"; });
+
+    function tile(s) {
+      return '<a class="mpick__c" href="build.html?b=' + esc(s.id) + '">' +
+        '<span class="mpick__img">' +
+          '<img src="' + esc(s.photo || s.card) + '" alt="' + esc(s.platform) + '" loading="lazy" />' +
+        "</span>" +
+        '<span class="mpick__t">' + esc(s.short || s.platform) + "</span>" +
+        '<span class="mpick__f">' +
+          (s.bolt ? esc(s.bolt) : (s.lane === "accessory" ? "Fits a wheel you already own" : "Cut to your pattern")) +
+          (DF("showPrices") ? " · from " + money(s.basePrice) : " · built to order") +
+        "</span>" +
+        /* Price Designs is our one signed line — say so where the
+           customer is choosing, not only in the footer small print. */
+        '<span class="mpick__auth"><span class="auth-badge">' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="M12 2.6l7.5 3v5.6c0 4.5-3.1 8.6-7.5 9.9-4.4-1.3-7.5-5.4-7.5-9.9V5.6z"/>' +
+          '<path d="M8.8 12.2l2.3 2.3 4.1-4.6"/></svg>Authorized dealer</span></span>' +
+        '<span class="mpick__go">Build yours</span>' +
+      "</a>";
+    }
+
     root.innerHTML =
       '<section class="vizhead fade">' +
         '<p class="kicker"><b>Price Designs</b> · built to order</p>' +
@@ -157,31 +185,21 @@
           "bolt pattern comes with it — then the wheel builds itself on screen as you choose." +
         "</p>" +
       "</section>" +
-      '<div class="mpick fade">' +
-        all.map(function (s) {
-          return '<a class="mpick__c" href="build.html?b=' + esc(s.id) + '">' +
-            '<span class="mpick__img">' +
-              '<img src="' + esc(s.photo || s.card) + '" alt="' + esc(s.platform) + '" loading="lazy" />' +
-            "</span>" +
-            '<span class="mpick__t">' + esc(s.short || s.platform) + "</span>" +
-            '<span class="mpick__f">' +
-              (s.bolt ? esc(s.bolt) : "Cut to your pattern") +
-              (DF("showPrices") ? " · from " + money(s.basePrice) : " · built to order") +
-            "</span>" +
-            /* Price Designs is our one signed line — say so where the
-               customer is choosing, not only in the footer small print. */
-            '<span class="mpick__auth"><span class="auth-badge">' +
-              '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
-              '<path d="M12 2.6l7.5 3v5.6c0 4.5-3.1 8.6-7.5 9.9-4.4-1.3-7.5-5.4-7.5-9.9V5.6z"/>' +
-              '<path d="M8.8 12.2l2.3 2.3 4.1-4.6"/></svg>Authorized dealer</span></span>' +
-            '<span class="mpick__go">Build yours</span>' +
-          "</a>";
-        }).join("") +
-      "</div>" +
+      '<div class="mpick fade">' + machines.map(tile).join("") + "</div>" +
       '<p class="vnote mpick__note">Set of four, Price Designs’ own prices. ' +
         "Six of these are drilled to the machine at the factory, so there is no pattern " +
         "to choose; the truck is cut to order in five, and we pre-select yours from the " +
-        "truck you gave the finder. Fitment verified before we build.</p>";
+        "truck you gave the finder. Fitment verified before we build.</p>" +
+      (extras.length
+        ? '<section class="vizhead vizhead--sub fade">' +
+            "<h2>Also built to order</h2>" +
+            '<p class="vizhead__lead">Not a wheel — a cap kit, finished in the same ' +
+            "colors, for a wheel you already have.</p>" +
+          "</section>" +
+          '<div class="mpick mpick--extras fade">' + extras.map(tile).join("") + "</div>"
+        : "") +
+
+      "";
     if (window.__observeFades) window.__observeFades();
     return;
   }

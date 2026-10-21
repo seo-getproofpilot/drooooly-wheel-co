@@ -191,7 +191,14 @@ section("every price is a non-negative number");
    ================================================================ */
 section("spec integrity");
 {
-  ok("seven builders", Object.keys(SPECS).length, 7);
+  /* Seven machines and one accessory. The cap kit is deliberately NOT a
+     machine: it fits a wheel somebody already owns, so it is kept out of the
+     "what are you building for?" grid and given its own row. Counting the two
+     separately is what stops an eighth machine appearing by accident. */
+  const MACHINES = Object.values(SPECS).filter(s => s.lane !== "accessory");
+  const EXTRAS   = Object.values(SPECS).filter(s => s.lane === "accessory");
+  ok("seven machine builders", MACHINES.length, 7);
+  ok("one stand-alone accessory", EXTRAS.length, 1);
 
   let dupes = [], danglingStep = [], danglingVal = [], noBase = [], noCard = [];
   Object.values(SPECS).forEach(s => {
@@ -327,9 +334,17 @@ section("the patterns the truck builder deliberately does NOT cut");
 section("SIMULATED is a safety word, not a style word");
 {
   /* A simulated beadlock ring is cosmetic — it does not clamp the tyre bead.
-     He capitalises it himself and so must we, in every builder. */
-  const quiet = Object.values(SPECS).filter(s => !/SIMULATED/.test(s.includes));
-  ok("every builder keeps it in the included line", quiet.map(s => s.id), []);
+     He capitalises it himself and so must we, in every builder that ships one.
+     The accessory is exempt because it ships no ring at all: a cap kit that
+     claimed to include a SIMULATED beadlock ring would be describing a product
+     we are not selling, which is the same failure this test exists to catch,
+     pointed the other way. */
+  const ringed = Object.values(SPECS).filter(s => s.lane !== "accessory");
+  const quiet = ringed.filter(s => !/SIMULATED/.test(s.includes));
+  ok("every wheel builder keeps it in the included line", quiet.map(s => s.id), []);
+  const capKit = SPECS["pd-floating-caps"];
+  ok("the cap kit claims no beadlock ring", /beadlock/i.test(capKit.includes), false);
+  ok("the cap kit says wheels are not included", /not included/i.test(capKit.includes), true);
 }
 
 section("the catalogue and the specs agree");
@@ -365,7 +380,10 @@ section("every chooser tile points at its own builder");
   const pd = (global.window.BRANDS || []).filter(b => b.slug === "price-designs")[0];
   const rows = (pd.models || []).filter(m => m.builder);
 
-  ok("a tile for every builder", rows.length, Object.keys(SPECS).length);
+  /* Every MACHINE gets a tile. The accessory has no catalogue row because it
+     is not a wheel, so it is excluded here rather than counted and missed. */
+  const machineCount = Object.values(SPECS).filter(s => s.lane !== "accessory").length;
+  ok("a tile for every machine builder", rows.length, machineCount);
 
   const wrongPhoto = [], wrongName = [], wrongBolt = [], noSpec = [], missingPhoto = [];
   rows.forEach(m => {
