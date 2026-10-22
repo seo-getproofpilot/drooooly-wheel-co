@@ -2,7 +2,20 @@
 /* Resize + quantize every wheel photo under assets/wheels/.
    Manufacturer renders arrive ~1000px and 300-800KB each; the grid never
    shows them bigger than ~300px. Shrinks the set by roughly 4x.
-   Requires Pillow (pip3 install pillow).  Usage: node tools/optimize-wheels.js */
+   Requires Pillow (pip3 install pillow).
+
+   ⚠️ IT RENAMES .jpg TO .png AND DELETES THE .jpg. That is deliberate — a
+   quantized PNG beats a re-encoded JPEG for flat product art — but it means
+   running this over the whole tree to tidy ONE new file silently breaks every
+   path that still says .jpg. It did exactly that to the eight Price Designs
+   builder cards on 2026-10-22. Sources are copied to _originals/ first, so
+   nothing is lost, but the references are yours to fix.
+
+   PASS A PATH to limit it:
+     node tools/optimize-wheels.js                      # the whole tree
+     node tools/optimize-wheels.js assets/wheels/price-designs/showcase.png
+     node tools/optimize-wheels.js assets/wheels/price-designs
+*/
 const { execFileSync } = require("child_process");
 const path = require("path");
 
@@ -10,9 +23,17 @@ const py = `
 from PIL import Image
 import os, glob, sys, shutil
 root = sys.argv[1]
+# An optional second argument narrows the run to one file or one directory,
+# so tidying a single new image cannot rewrite the whole catalogue.
+only = sys.argv[2] if len(sys.argv) > 2 else ''
+if only:
+    target = only if os.path.isabs(only) else os.path.join(root, only)
+    paths = [target] if os.path.isfile(target) else sorted(glob.glob(os.path.join(target, '*')))
+else:
+    paths = sorted(glob.glob(os.path.join(root, 'assets/wheels/*/*')))
 before = after = 0
 n = skipped = 0
-for p in sorted(glob.glob(os.path.join(root, 'assets/wheels/*/*'))):
+for p in paths:
     if os.sep + '_originals' + os.sep in p:
         continue
     if not p.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
@@ -52,4 +73,5 @@ print('optimized %d images  %.1f MB -> %.1f MB  (%d skipped)' % (n, before/1e6, 
 `;
 
 const ROOT = path.resolve(__dirname, "..");
-process.stdout.write(execFileSync("python3", ["-c", py, ROOT], { encoding: "utf8" }));
+const ONLY = process.argv[2] || "";
+process.stdout.write(execFileSync("python3", ["-c", py, ROOT, ONLY], { encoding: "utf8" }));

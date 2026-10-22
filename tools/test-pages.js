@@ -705,5 +705,49 @@ section('the hand-written homepage prices are the catalogue’s, not a copywrite
   ok('every figure traces to the catalogue or a builder base', unbacked, []);
 }
 
+section('the showcase lineup is one row of wheels, not a row plus a photograph');
+{
+  /* WHY. The Price Designs card used to be the one PHOTOGRAPH in a row of
+     eight floating wheel renders: it covered its stage edge to edge via
+     .show2-card--photo and switched the stage glow off, so it read as a
+     different KIND of tile rather than another wheel. An earlier cutout
+     attempt was abandoned because the only transparent art then available was
+     a frame lifted from a marketing GIF. His builder layers solved that — they
+     are clean studio renders on transparency, which is what every other card
+     on the row already is.
+
+     Two things keep it consistent: nothing may reintroduce the photo variant,
+     and every card's art must carry real transparency so it floats on the
+     stage instead of sitting in a box of its own background. */
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const cards = html.match(/<article class="show2-card[\s\S]*?<\/article>/g) || [];
+  ok('the lineup is present', cards.length > 0, true);
+  ok('no card uses the edge-to-edge photo variant',
+    /show2-card--photo|show2-stage--photo/.test(html), false);
+
+  const opaque = [], missing = [];
+  cards.forEach(c => {
+    const name = (c.match(/show2-name">(.*?)</) || [])[1] || '?';
+    const src = (c.match(/class="show2-img" src="([^"]+)"/) || [])[1];
+    if (!src) { missing.push(name + ': no image'); return; }
+    const file = path.join(ROOT, src.split('?')[0]);
+    if (!fs.existsSync(file)) { missing.push(name + ': ' + src); return; }
+    /* A PNG with no alpha channel would render as a solid rectangle on the
+       stage — the exact thing the photo card used to do. */
+    const buf = fs.readFileSync(file);
+    const isPng = buf.slice(1, 4).toString() === 'PNG';
+    if (!isPng) { opaque.push(name + ': ' + src + ' is not a PNG'); return; }
+    /* IHDR colour type sits at byte 25: 3 = palette (alpha via tRNS),
+       4 = grey+alpha, 6 = RGBA. 0 and 2 have no alpha at all. */
+    const colourType = buf[25];
+    const hasTrns = buf.includes(Buffer.from('tRNS'));
+    if (![4, 6].includes(colourType) && !(colourType === 3 && hasTrns)) {
+      opaque.push(name + ': ' + src + ' has no transparency (colour type ' + colourType + ')');
+    }
+  });
+  ok('every card has its art on disk', missing, []);
+  ok('every card floats on the stage rather than filling it', opaque, []);
+}
+
 console.log('\n' + pass + ' passed, ' + fail + ' failed');
 process.exit(fail ? 1 : 0);

@@ -99,6 +99,10 @@ import sys, json
 from PIL import Image
 spec = json.loads(sys.argv[1])
 W, H, BG = spec["w"], spec["h"], spec["bg"]
+# JSON has no tuples, so an RGBA background arrives as a list; PIL wants a
+# tuple. A hex string passes through untouched.
+if isinstance(BG, list):
+    BG = tuple(BG)
 canvas = Image.new("RGBA", (W, H), BG)
 # Composite at the layers' own size, then scale once — scaling each layer
 # separately would let rounding drift the ring off the face by a pixel.
@@ -121,7 +125,13 @@ sw, sh = stack.size
 sc = min(W * pad / sw, H * pad / sh)
 stack = stack.resize((max(1, int(sw * sc)), max(1, int(sh * sc))), Image.LANCZOS)
 canvas.alpha_composite(stack, ((W - stack.width) // 2, (H - stack.height) // 2))
-canvas.convert("RGB").save(spec["out"], "JPEG", quality=86, optimize=True, progressive=True)
+if spec.get("alpha"):
+    # The homepage showcase card floats its wheel on the stage's own gradient
+    # and glow, the way all seven other cards do, so it needs the background
+    # to stay transparent rather than being flattened onto panel grey.
+    canvas.save(spec["out"], "PNG", optimize=True)
+else:
+    canvas.convert("RGB").save(spec["out"], "JPEG", quality=86, optimize=True, progressive=True)
 print(spec["out"])
 `;
 
@@ -162,3 +172,47 @@ files.forEach(f => {
 
 console.log(`\n  ${made} built, ${skipped} already there`);
 console.log('  point each spec\'s `image` at assets/wheels/price-designs/<id>-card.jpg');
+
+/* ------------------------------------------------------------------
+   THE HOMEPAGE SHOWCASE CARD — a transparent cutout, not a photograph.
+
+   The Price Designs card in "Wheels that hit different" used to be the one
+   photograph in a row of seven floating wheel renders: it covered its stage
+   edge to edge and switched the stage glow off, so it read as a different
+   KIND of tile rather than another wheel. The earlier cutout attempt was
+   abandoned because the only transparent art we had was a frame lifted out of
+   a marketing GIF, which looked exactly as thin as that sounds.
+
+   His builder layers are the answer that was missing: clean 1000x1000 studio
+   renders on transparency, the same thing every other card on that row is.
+   So the showcase image is composited from the same default stack as the
+   chooser card and written as a PNG with its alpha intact.
+
+   The truck is the one that represents the brand on the homepage — it is the
+   flagship by a distance (434 of the 989 orders on his store) and the most
+   legible wheel to someone who has not met the brand yet.
+   ------------------------------------------------------------------ */
+{
+  const SHOWCASE = 'pd-truck-17x9';
+  const outPng = path.join(OUTDIR, 'showcase.png');
+  const specPath = path.join(SRCDIR, SHOWCASE + '.json');
+  process.stdout.write('\n  showcase (' + SHOWCASE + ')  ');
+  if (fs.existsSync(outPng) && !FORCE) {
+    console.log('exists (--force to rebuild)');
+  } else if (!fs.existsSync(specPath)) {
+    console.log('NO SPEC — skipped');
+  } else {
+    const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
+    const p = plan(spec, 0);
+    if (!p.layers.length) { console.log('NO LAYERS — skipped'); }
+    else {
+      const local = p.layers.map(L => fetchLayer(spec, L.file));
+      /* 680x680 on transparency, matching ace.png and the rest of the row. */
+      execFileSync('python3', ['-c', PY, JSON.stringify({
+        files: local, out: outPng, w: 680, h: 680, bg: [0, 0, 0, 0], alpha: true
+      })], { stdio: ['ignore', 'pipe', 'inherit'] });
+      console.log(p.layers.length + ' layers -> ' +
+        Math.round(fs.statSync(outPng).size / 1024) + 'KB transparent PNG');
+    }
+  }
+}
