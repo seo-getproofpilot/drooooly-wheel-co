@@ -1,64 +1,73 @@
 {
-  "name": "Venom Power Tires",
-  "site": "https://venompowertires.com",
-  "tagline": "Swampthing and Terra Hunter light-truck tread.",
-  "logo": "https://venompowertires.com/public/files/image/logo.png",
-  "_note_sizes": "Sizes not yet captured from the manufacturer. The catalogue shows the line and says the sizes come on the quote rather than inventing a matrix.",
-  "_note_art": "No tread photography held. Cards fall back to the neutral mark rather than showing another brand's tyre.",
-  "models": [
-    {
-      "model": "Swampthing M/T",
-      "tread": "Mud-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Swampthing A/T",
-      "tread": "All-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Terra Hunter M/T",
-      "tread": "Mud-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Terra Hunter R/T+",
-      "tread": "Rugged-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Terra Hunter X/T",
-      "tread": "All-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Terra Hunter X/T2",
-      "tread": "All-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Trail Hunter R/T",
-      "tread": "Rugged-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Trail Hunter ATX",
-      "tread": "All-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    },
-    {
-      "model": "Trail Hunter ATS",
-      "tread": "All-Terrain",
-      "priceFrom": null,
-      "sizes": []
-    }
-  ]
+ "name": "Venom Power Tires",
+ "site": "https://venompowertires.com",
+ "tagline": "Swampthing and Terra Hunter light-truck tread.",
+ "logo": "https://venompowertires.com/public/files/image/logo.png",
+ "_note_sizes": "Sizes not yet captured from the manufacturer. The catalogue shows the line and says the sizes come on the quote rather than inventing a matrix.",
+ "_note_art": "Tread renders read off each product page on venompowertires.com, 2026-11-09: the element their template marks as the product shot (img1, or img2 on terra-hunter-xt2, whose page is built differently and whose img1 is the background plate). Transparent PNGs, same as Fury's. Their photography \u2014 LAUNCH-CHECKLIST section 1.",
+ "models": [
+  {
+   "model": "Swampthing M/T",
+   "tread": "Mud-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20260818/SW-MT-TIRE.png"
+  },
+  {
+   "model": "Swampthing A/T",
+   "tread": "All-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20250811/d012a4d11a68016b6f5002d3022ccd38.png"
+  },
+  {
+   "model": "Terra Hunter M/T",
+   "tread": "Mud-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20260330/TerrahunterMT.png"
+  },
+  {
+   "model": "Terra Hunter R/T+",
+   "tread": "Rugged-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20260818/RT-TIRE.png"
+  },
+  {
+   "model": "Terra Hunter X/T",
+   "tread": "All-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20260818/XT-TIRE.png"
+  },
+  {
+   "model": "Terra Hunter X/T2",
+   "tread": "All-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20241028/947cf231fbf267078478fca2778b198d.png"
+  },
+  {
+   "model": "Trail Hunter R/T",
+   "tread": "Rugged-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20250314/b2850f2d4cfaf1283b26c2c14489f92b.png"
+  },
+  {
+   "model": "Trail Hunter ATX",
+   "tread": "All-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/public/product/trail-hunter-atx/ATX_TIRE_20250523.png"
+  },
+  {
+   "model": "Trail Hunter ATS",
+   "tread": "All-Terrain",
+   "priceFrom": null,
+   "sizes": [],
+   "url": "https://venompowertires.com/uploads/allimg/20250730/b4e457595c18361ea17ce214d1faa641.png"
+  }
+ ]
 }

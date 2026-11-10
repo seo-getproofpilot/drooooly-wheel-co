@@ -26,7 +26,7 @@ window.TIRES = [
   },
   {
     slug: "falken", name: "Falken", site: "https://www.falkentire.com",
-    tagline: "Wildpeak all-terrain — the daily-driver favourite.", logo: null, pricing: "from",
+    tagline: "Wildpeak all-terrain — the daily-driver favourite.", logo: "assets/tires/falken/logo.svg", pricing: "from",
     models: [
       { model: "Wildpeak A/T4W", tread: "All-Terrain", img: "assets/tires/falken/wildpeakat4w.png", rims: [16,17,18,20,22], sizes: ["265/75R16","265/70R17","LT285/70R17","35x11.50R17LT","275/65R18","LT285/65R18","LT285/70R18","LT285/75R18","LT295/70R18","35x12.50R18LT","35x12.50R20LT","35x12.50R22LT"], priceFrom: 249, feat: 1 },
       { model: "Rubitrek A/T", tread: "All-Terrain", img: "assets/tires/falken/rubitrekat.png", rims: [15,16], sizes: ["235/75R15","30x9.50R15LT","31x10.50R15LT","P245/75R16","265/75R16"], priceFrom: 163, feat: 2 }
@@ -44,7 +44,7 @@ window.TIRES = [
   },
   {
     slug: "mickey-thompson", name: "Mickey Thompson", site: "https://www.mickeythompsontires.com",
-    tagline: "Baja Boss and Baja Legend — proven off-road tread.", logo: null, pricing: "from",
+    tagline: "Baja Boss and Baja Legend — proven off-road tread.", logo: "assets/tires/mickey-thompson/logo.svg", pricing: "from",
     models: [
       { model: "Baja Boss A/T", tread: "All-Terrain", img: "assets/tires/mickey-thompson/bajabossat.png", rims: [16,17,18,20], sizes: ["265/75R16","265/70R17XL","285/70R17","LT315/70R17","33x12.50R17LT","35x12.50R17LT","37x12.50R17LT","LT275/70R18","35x12.50R18LT","LT275/60R20","33x12.50R20LT","35x12.50R20LT"], priceFrom: 244, feat: 1 },
       { model: "Baja Legend EXP", tread: "All-Terrain", img: "assets/tires/mickey-thompson/bajalegendexp.png", rims: [15,16,17], sizes: ["33x12.50R15LT","LT285/75R16","LT315/75R16","35x12.50R17LT"], priceFrom: 278, feat: 2 },
@@ -75,15 +75,15 @@ window.TIRES = [
     slug: "venom-power", name: "Venom Power Tires", site: "https://venompowertires.com",
     tagline: "Swampthing and Terra Hunter light-truck tread.", logo: "assets/tires/venom-power/logo.png", pricing: "from",
     models: [
-      { model: "Swampthing M/T", tread: "Mud-Terrain", img: null, rims: [], sizes: [], feat: 1 },
-      { model: "Swampthing A/T", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 2 },
-      { model: "Terra Hunter M/T", tread: "Mud-Terrain", img: null, rims: [], sizes: [], feat: 3 },
-      { model: "Terra Hunter R/T+", tread: "Rugged-Terrain", img: null, rims: [], sizes: [], feat: 4 },
-      { model: "Terra Hunter X/T", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 5 },
-      { model: "Terra Hunter X/T2", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 6 },
-      { model: "Trail Hunter R/T", tread: "Rugged-Terrain", img: null, rims: [], sizes: [], feat: 7 },
-      { model: "Trail Hunter ATX", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 8 },
-      { model: "Trail Hunter ATS", tread: "All-Terrain", img: null, rims: [], sizes: [], feat: 9 }
+      { model: "Swampthing M/T", tread: "Mud-Terrain", img: "assets/tires/venom-power/swampthingmt.png", rims: [], sizes: [], feat: 1 },
+      { model: "Swampthing A/T", tread: "All-Terrain", img: "assets/tires/venom-power/swampthingat.png", rims: [], sizes: [], feat: 2 },
+      { model: "Terra Hunter M/T", tread: "Mud-Terrain", img: "assets/tires/venom-power/terrahuntermt.png", rims: [], sizes: [], feat: 3 },
+      { model: "Terra Hunter R/T+", tread: "Rugged-Terrain", img: "assets/tires/venom-power/terrahunterrt.png", rims: [], sizes: [], feat: 4 },
+      { model: "Terra Hunter X/T", tread: "All-Terrain", img: "assets/tires/venom-power/terrahunterxt.png", rims: [], sizes: [], feat: 5 },
+      { model: "Terra Hunter X/T2", tread: "All-Terrain", img: "assets/tires/venom-power/terrahunterxt2.png", rims: [], sizes: [], feat: 6 },
+      { model: "Trail Hunter R/T", tread: "Rugged-Terrain", img: "assets/tires/venom-power/trailhunterrt.png", rims: [], sizes: [], feat: 7 },
+      { model: "Trail Hunter ATX", tread: "All-Terrain", img: "assets/tires/venom-power/trailhunteratx.png", rims: [], sizes: [], feat: 8 },
+      { model: "Trail Hunter ATS", tread: "All-Terrain", img: "assets/tires/venom-power/trailhunterats.png", rims: [], sizes: [], feat: 9 }
     ]
   }
 ];

@@ -2,7 +2,7 @@
  "name": "Falken",
  "site": "https://www.falkentire.com",
  "tagline": "Wildpeak all-terrain \u2014 the daily-driver favourite.",
- "logo": null,
+ "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Falken_Tire_logo.svg",
  "models": [
   {
    "model": "Wildpeak A/T4W",
@@ -37,5 +37,6 @@
     "265/75R16"
    ]
   }
- ]
+ ],
+ "_note_logo": "Wikimedia Commons, read 2026-11-09 \u2014 the same source Toyo's mark uses."
 }

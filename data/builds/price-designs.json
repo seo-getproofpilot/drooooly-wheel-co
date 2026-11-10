@@ -1,0 +1,75 @@
+{
+ "brand": "Price Designs",
+ "brandSlug": "price-designs",
+ "source": "https://pricedesigns-pd.com/",
+ "captured": "2026-11-09",
+ "hosted": true,
+ "about": [
+  "The machine photographs the builder chooser already uses. Real machines on",
+  "his wheels, one per platform, credited to the brand that built them."
+ ],
+ "lanes": {
+  "machines": {
+   "source": "platform tiles",
+   "credit": "Price Designs",
+   "photos": [
+    {
+     "model": "simulated beadlock",
+     "url": "assets/platforms/pd-truck-17x9.jpg",
+     "vehicle": "Lifted truck",
+     "size": null,
+     "builder": "pd-truck-17x9",
+     "local": true
+    },
+    {
+     "model": "beadlock",
+     "url": "assets/platforms/pd-pro-r.jpg",
+     "vehicle": "Polaris Pro R / Turbo R",
+     "size": "4x156",
+     "builder": "pd-pro-r",
+     "local": true
+    },
+    {
+     "model": "beadlock",
+     "url": "assets/platforms/pd-maverick-r.jpg",
+     "vehicle": "Can-Am Maverick R",
+     "size": "4x137",
+     "builder": "pd-maverick-r",
+     "local": true
+    },
+    {
+     "model": "beadlock",
+     "url": "assets/platforms/pd-x3.jpg",
+     "vehicle": "Can-Am Maverick X3",
+     "size": "4x137",
+     "builder": "pd-x3",
+     "local": true
+    },
+    {
+     "model": "beadlock",
+     "url": "assets/platforms/pd-rzr.jpg",
+     "vehicle": "Polaris RZR",
+     "size": "4x156",
+     "builder": "pd-rzr",
+     "local": true
+    },
+    {
+     "model": "beadlock",
+     "url": "assets/platforms/pd-expedition.jpg",
+     "vehicle": "Can-Am Defender & Expedition",
+     "size": "4x137",
+     "builder": "pd-expedition",
+     "local": true
+    },
+    {
+     "model": "beadlock",
+     "url": "assets/platforms/pd-sand-car.jpg",
+     "vehicle": "Sand car & buggy",
+     "size": "5x205",
+     "builder": "pd-sand-car",
+     "local": true
+    }
+   ]
+  }
+ }
+}

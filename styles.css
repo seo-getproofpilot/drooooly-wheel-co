@@ -7038,3 +7038,23 @@ button svg,.btn svg,a.btn svg,.chip svg{flex-shrink:0}
   font-size:clamp(18px,3.4vw,24px);margin:0 0 8px;line-height:1.14;
   background:var(--fill-chrome);-webkit-background-clip:text;
   background-clip:text;color:transparent}
+
+/* A tread we hold no photograph for shows the maker's mark instead of a
+   broken image. See tireCard() in catalog.js. */
+.tire__noart{display:grid;place-items:center;width:100%;height:100%;opacity:.5}
+.tire__noart img{max-width:62%;max-height:42%;object-fit:contain}
+
+/* ============================================================ v446
+   Gallery captions wrap now, because they finally say something.
+
+   The old captions were short because they were invented — "Ford F-250 · 6"
+   lift · 24×14 · 37s" fits on one line by construction. The real ones read
+   off data/builds/*.json carry the vehicle, the width AND the wheel ("2019
+   F350 · 26×14 · JTX Forged Silencer"), and in a four-column masonry grid
+   that was being cut to "JTX Forged Silen…".
+
+   Two lines, then ellipsis. The gradient behind them already had the depth
+   for it. */
+.gallery-cap{white-space:normal;line-height:1.3;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  text-overflow:unset;padding-top:30px}

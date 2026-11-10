@@ -1361,7 +1361,16 @@
       ? m.rims.map(function (r) { return r + '"'; }).join(" · ")
       : "";
     return '<a class="tire fade" href="' + esc(quote) + '">' +
-      '<div class="tire__media"><img src="' + m.img + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy"></div>' +
+      /* A tread with no photograph is a gap in the data, not a reason to emit
+         src="null" and show a broken-image icon — which is what this did for
+         all nine Venom Power treads while they had no art. Fall back to the
+         brand's own mark, which says what the product is without pretending
+         to show it. */
+      '<div class="tire__media">' + (m.img
+        ? '<img src="' + esc(m.img) + '" alt="' + esc(brand.name + " " + m.model) + '" loading="lazy">'
+        : '<span class="tire__noart">' + (brand.logo
+            ? '<img src="' + esc(brand.logo) + '" alt="' + esc(brand.name) + '" loading="lazy">'
+            : esc(brand.name)) + '</span>') + '</div>' +
       '<h3 class="tire__name">' + m.model + '</h3>' +
       (m.tread ? '<p class="tire__tread">' + esc(m.tread) + '</p>' : '') +
       (rims ? '<p class="tire__rims">Fits ' + rims + ' wheels</p>' : '') +

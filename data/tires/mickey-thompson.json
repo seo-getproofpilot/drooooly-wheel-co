@@ -2,7 +2,7 @@
  "name": "Mickey Thompson",
  "site": "https://www.mickeythompsontires.com",
  "tagline": "Baja Boss and Baja Legend \u2014 proven off-road tread.",
- "logo": null,
+ "logo": "https://www.mickeythompsontires.com/_next/static/media/primary-dark-brand-logo.16nn_-_l1fd3n.svg",
  "models": [
   {
    "model": "Baja Boss A/T",
@@ -48,5 +48,6 @@
     "LT315/75R16"
    ]
   }
- ]
+ ],
+ "_note_logo": "Their own site header, read 2026-11-09. EDITED LOCALLY: their mark is drawn for a dark bar \u2014 the wordmark is fill:#fff and only the chevron is yellow \u2014 so on our white tire card the name vanished and left two floating yellow shapes. assets/tires/mickey-thompson/logo.svg has that white inked to #0B0D10. build-tires.js will not re-download over an existing file, but a forced rebuild would; re-apply the recolour if that happens."
 }
